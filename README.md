@@ -1,7 +1,182 @@
 
+<center>
+
+# Data Structures & Algorithms
+
+</center>
+
+<center>
+
+[![GitHub contributors](https://img.shields.io/github/contributors/Naereen/StrapDown.js.svg)](https://GitHub.com/Naereen/StrapDown.js/graphs/contributors/)
+[![GitHub issues](https://img.shields.io/github/issues/Naereen/StrapDown.js.svg)](https://GitHub.com/Naereen/StrapDown.js/issues/)
+[![HitCount](http://hits.dwyl.io/bgoonz/badges.svg)](http://hits.dwyl.io/Naereen/badges)
+</center>
+
+<!-- PROJECT LOGO -->
+<br />
+<p align="center">
+  <a href="https://github.com/github_username/repo_name">
+   <img class="avatar rounded-2 avatar-user" src="https://avatars.githubusercontent.com/u/66654881?s=400&amp;u=86dbbc4605fa8eaace215e02cd8d5b3b796dcd6a&amp;v=4" width="200" height="200" alt="@bgoonz">
+  </a>
+
+  <h3 align="center">Data Structures & Algorithms</h3>
+
+
+  <center>
+  
+  
+  
+#### DS & ALgo Practice... mostyl in Javascript
+</center>
 
 
 
+
+
+<!-- TABLE OF CONTENTS -->
+<details open="open">
+  <summary><h2 style="display: inline-block">Table of Contents</h2></summary>
+  
+- [Data Structures & Algorithms](#data-structures--algorithms)
+ 
+  - [Algorithms](#algorithms)
+    - [Books](#books)
+    - [Coding practice](#coding-practice)
+    - [Guides](#guides)
+    - [Misc](#misc)
+  - [Guides](#guides-1)
+    - [Articles](#articles)
+    - [Courses](#courses)
+    - [Mock interviews](#mock-interviews)
+    - [Q&A](#qa)
+    - [Sites](#sites)
+    - [Videos](#videos)
+- [Languages and technologies](#languages-and-technologies)
+    - [JavaScript](#javascript)
+    - [Node](#node)
+    - [PHP](#php)
+    - [Python](#python)
+    - [React](#react)
+    - [Math](#math)
+    - [Networking](#networking)
+    - [System design](#system-design)
+  - [Resource Repos](#resource-repos)
+  - [MISC](#misc-1)
+</details>
+
+
+
+
+<!-- GETTING STARTED -->
+## Getting Started
+
+To get a local copy up and running follow these simple steps.
+
+### Prerequisites
+
+This is an example of how to list things you need to use the software and how to install them.
+* npm
+  ```sh
+  npm install npm@latest -g
+  ```
+
+### Installation
+
+1. Clone the repo
+   ```sh
+   git clone https://github.com/github_username/repo_name.git
+   ```
+2. Install NPM packages
+   ```sh
+   npm install
+   ```
+
+
+
+<!-- USAGE EXAMPLES -->
+## Usage
+
+Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
+
+_For more examples, please refer to the [Documentation](https://example.com)_
+
+
+
+
+
+<!-- CONTRIBUTING -->
+## Contributing
+
+Contributions are what make the open source community such an amazing place to be learn, inspire, and create. Any contributions you make are **greatly appreciated**.
+
+1. Fork the Project
+2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the Branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+
+
+<!-- LICENSE -->
+## License
+
+Distributed under the MIT License. See `LICENSE` for more information.
+
+
+
+<!-- CONTACT -->
+# Contact
+
+### _Email_
+
+[bryan.guner@gmail.com](#)
+
+### _Phone_
+
+*551-254-5505*
+
+### Social
+
+-   [GitHub](https://github.com/bgoonz)
+-   [Gitlab](https://gitlab.com/bryan.guner.dev)
+-   [Bitbucket](https://bitbucket.org/bgoonz/)
+-   [code pen](https://codepen.io/bgoonz)
+-   [Glitch](https://glitch.com/@bgoonz)
+-   [Instagram](https://www.instagram.com/bgoonz/)
+-   [LinkedIn](https://www.linkedin.com/in/bryan-guner-046199128/)
+-   [Replit](https://repl.it/@bgoonz/)
+-   [Redit](https://www.reddit.com/user/bgoonz1)
+-   [runkit](https://runkit.com/bgoonz)
+-   [stack-exchange](https://meta.stackexchange.com/users/936785/bryan-guner)
+-   [Netlify](https://app.netlify.com/user/settings#profile)
+
+
+
+
+
+<!-- MARKDOWN LINKS & IMAGES -->
+<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
+[contributors-shield]: https://img.shields.io/github/contributors/github_username/repo.svg?style=for-the-badge
+[contributors-url]: https://github.com/github_username/repo/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/github_username/repo.svg?style=for-the-badge
+[forks-url]: https://github.com/github_username/repo/network/members
+[stars-shield]: https://img.shields.io/github/stars/github_username/repo.svg?style=for-the-badge
+[stars-url]: https://github.com/github_username/repo/stargazers
+[issues-shield]: https://img.shields.io/github/issues/github_username/repo.svg?style=for-the-badge
+[issues-url]: https://github.com/github_username/repo/issues
+[license-shield]: https://img.shields.io/github/license/github_username/repo.svg?style=for-the-badge
+[license-url]: https://github.com/github_username/repo/blob/master/LICENSE.txt
+[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
+[linkedin-url]: https://linkedin.com/in/github_username
+
+------
+
+
+
+# Resources!
+
+
+------
 
 ## Algorithms
 ### Books
@@ -95,7 +270,14 @@
 * Sean Lee – [How to Get a Job at the Big 4 [42:34]](https://www.youtube.com/watch?v=YJZCUhxNCv8)
 * Ladies Storm Hackathons – [Interview Prep Round 1: Strings, Arrays, Linked Lists [1:12:39]](https://www.youtube.com/watch?v=fIpliB-ton8)
 * Randall Koutnik – [Rethinking the Developer Career Path [25:03]](https://www.youtube.com/watch?v=yIPbE7BssOs)
-# Languages and technologies
+
+
+---
+
+
+
+
+
 ### JavaScript
 * [Free books by Dr. Axel Rauschmayer](http://exploringjs.com/)
 * [You Don't Know JS](https://github.com/getify/You-Dont-Know-JS)
@@ -167,171 +349,313 @@
 
 
 ``````
-
-tree -d -L 4
 .
 ├── DS-n-Algos
-│   ├── 0-TESTING-RESOURCES
-│   │   └── main-data
-│   ├── ALGO
-│   │   ├── binary_search_project
-│   │   │   ├── lib
-│   │   │   └── test
-│   │   ├── coin-change
-│   │   │   ├── MINchange
-│   │   │   ├── coinchange-memoized
-│   │   │   └── itterative-4-fun
-│   │   ├── memoization_project
-│   │   │   ├── lib
-│   │   │   └── test
-│   │   └── tabulation_project
-│   │       ├── lib
-│   │       └── test
-│   ├── Arrays
-│   │   ├── 53-max-subArr
-│   │   ├── All Unique
-│   │   │   └── test
-│   │   ├── Array-Flatten
-│   │   ├── Intersection
-│   │   ├── Transpose-2-d-array
-│   │   ├── all
-│   │   ├── append-arr
-│   │   ├── array-helpers
-│   │   ├── array-of-cumulative-partial-sums
-│   │   ├── array-of-nums-in-range
-│   │   ├── atleast
-│   │   ├── average
-│   │   ├── convert-2-js-arr
-│   │   ├── deep-map
-│   │   ├── difference-between-arrays
-│   │   ├── flatten
-│   │   ├── python
-│   │   │   ├── sum-arr-dir
-│   │   │   └── sum-avg
-│   │   ├── resize-array
-│   │   └── stringify-arr
-│   ├── Binary-Search-Trees
-│   │   ├── Binary-Search-Tree
-│   │   ├── leetcode-450-delete-bst-node
-│   │   └── leetcode108-sorted-arr-2-bst
-│   ├── Binary-Trees
-│   │   ├── 105-construct-b-tree
-│   │   ├── leetcode110-balanced-bin-tree
-│   │   └── tree_order_project
-│   │       ├── lib
-│   │       └── test
-│   ├── Fifo-Lifo
-│   │   ├── queue_project
-│   │   │   ├── lib
-│   │   │   └── test
-│   │   ├── stack_project
-│   │   │   ├── lib
-│   │   │   └── test
-│   │   └── stack_queue_interview_problems
-│   │       ├── lib
-│   │       └── test
-│   ├── File-System
-│   │   ├── file-name-from-path
-│   │   ├── is-valid-file-name
-│   │   └── recursive-read-folder
-│   ├── Graphs
-│   │   ├── graph_project
-│   │   │   ├── lib
-│   │   │   └── test
-│   │   ├── graphs-intro-solution
-│   │   │   ├── problems
-│   │   │   └── test
-│   │   └── graphs-solution
-│   │       ├── problems
-│   │       └── test
-│   ├── Lists
-│   │   ├── linked_list_interview_problems
-│   │   │   ├── lib
-│   │   │   └── test
-│   │   └── linked_list_project
-│   │       ├── lib
-│   │       └── test
-│   ├── Misc
-│   │   ├── console.table
-│   │   ├── heaps_project
-│   │   │   ├── lib
-│   │   │   └── test
-│   │   ├── is-reserved-wordJS
-│   │   ├── type-checker
-│   │   └── whiteboarding
-│   ├── Numbers_Math
-│   │   ├── C++
-│   │   ├── base-converter
-│   │   └── isBase
-│   ├── POJOs
-│   │   └── obj2Array
-│   ├── Recursion
-│   │   ├── fibonacci
-│   │   │   └── __test__
-│   │   ├── fibonacci-versions
-│   │   ├── longest-common-subsequence
-│   │   │   └── __test__
-│   │   ├── lucas-num-versions
-│   │   └── recursion_project
-│   │       ├── lib
-│   │       └── test
-│   ├── Sorting-n-Searching
-│   │   ├── 1-searching-algorithms
-│   │   │   └── depth_breadth_first_project
-│   │   └── 2-sorting-algorithms
-│   │       ├── bubble_sort_project
-│   │       ├── counting_sort_project
-│   │       ├── insertion_sort_project
-│   │       ├── merge_sort_project
-│   │       ├── quick_sort_project
-│   │       ├── radix_sort_project
-│   │       └── selection_sort_project
-│   ├── Strings
-│   │   ├── 03-lengthOfLongestSubString
-│   │   ├── C++
-│   │   └── string-helpers
-│   ├── Utilities-Snippets
-│   │   ├── general-utils
-│   │   └── whitespace-identifier
-│   ├── async
-│   │   ├── async_await
-│   │   ├── choosing_the_right_approach
-│   │   ├── concepts
-│   │   ├── introducing
-│   │   ├── promises
-│   │   └── timeouts_and_intervals
-│   ├── functions
-│   │   ├── HASH
-│   │   ├── MemoizeFunc
-│   │   ├── bindTo
-│   │   └── call-closure
-│   ├── java-data-structure-examples
-│   │   ├── actual-java-code
-│   │   │   └── strings
-│   │   └── java-data-structures
-│   ├── web-dev
-│   │   ├── html-2-text
-│   │   ├── listenForEvent-s
-│   │   └── tagify-arr
-│   └── z-NOTES
-│       └── data-structures
+│   ├── 0-TESTING-RESOURCES
+│   │   ├── main-data
+│   │   └── text-2-js
+│   ├── ALGO
+│   │   ├── Dynamic-Programming
+│   │   ├── UNSORTED
+│   │   │   └── Hash Table Data-Structure
+│   │   ├── binary_search_project
+│   │   │   ├── lib
+│   │   │   └── test
+│   │   ├── callbacks-solution
+│   │   │   ├── problems
+│   │   │   └── test
+│   │   ├── coin-change
+│   │   │   ├── MINchange
+│   │   │   │   └── test
+│   │   │   ├── coinchange-memoized
+│   │   │   └── itterative-4-fun
+│   │   ├── computational-complexity
+│   │   ├── dice-roll
+│   │   ├── egg-drop
+│   │   ├── factorial
+│   │   ├── fibonacci
+│   │   ├── memoization_project
+│   │   │   ├── lib
+│   │   │   └── test
+│   │   └── tabulation_project
+│   │       ├── lib
+│   │       └── test
+│   ├── Arrays
+│   │   ├── 53-max-subArr
+│   │   ├── All Unique
+│   │   │   └── test
+│   │   ├── Array-Flatten
+│   │   ├── Intersection
+│   │   ├── Transpose-2-d-array
+│   │   ├── all
+│   │   ├── append-arr
+│   │   ├── array-helpers
+│   │   ├── array-of-cumulative-partial-sums
+│   │   ├── array-of-nums-in-range
+│   │   ├── atleast
+│   │   ├── average
+│   │   ├── basic-examples
+│   │   │   └── problems
+│   │   ├── deep-map
+│   │   ├── difference-between-arrays
+│   │   ├── flatten
+│   │   ├── python
+│   │   │   ├── sum-arr-dir
+│   │   │   └── sum-avg
+│   │   ├── resize-array
+│   │   └── stringify-arr
+│   ├── Binary-Search-Trees
+│   │   ├── Binary-Search-Tree
+│   │   ├── advanced
+│   │   ├── leetcode-450-delete-bst-node
+│   │   └── leetcode108-sorted-arr-2-bst
+│   ├── Binary-Trees
+│   │   ├── 105-construct-b-tree
+│   │   ├── leetcode110-balanced-bin-tree
+│   │   └── tree_order_project
+│   │       ├── lib
+│   │       └── test
+│   ├── Fifo-Lifo
+│   │   ├── queue_project
+│   │   │   ├── lib
+│   │   │   └── test
+│   │   ├── stack_project
+│   │   │   ├── lib
+│   │   │   └── test
+│   │   └── stack_queue_interview_problems
+│   │       ├── lib
+│   │       └── test
+│   ├── File-System
+│   │   ├── file-name-from-path
+│   │   ├── file-utilities
+│   │   ├── guessing-game
+│   │   ├── is-valid-file-name
+│   │   └── recursive-read-folder
+│   ├── Graphs
+│   │   ├── advanced
+│   │   ├── bonus-graph-project
+│   │   │   ├── lib
+│   │   │   └── test
+│   │   ├── graph_project
+│   │   │   ├── lib
+│   │   │   └── test
+│   │   ├── graphs-intro-solution
+│   │   │   ├── problems
+│   │   │   └── test
+│   │   └── graphs-solution
+│   │       ├── problems
+│   │       └── test
+│   ├── Hash-Table
+│   │   └── advanced
+│   ├── Lists
+│   │   ├── linked_list_interview_problems
+│   │   │   ├── lib
+│   │   │   └── test
+│   │   └── linked_list_project
+│   │       ├── lib
+│   │       └── test
+│   ├── Misc
+│   │   ├── console.table
+│   │   ├── heaps_project
+│   │   │   ├── lib
+│   │   │   └── test
+│   │   ├── is-reserved-wordJS
+│   │   ├── set-utils
+│   │   ├── tiny-prac-probs
+│   │   │   └── problems
+│   │   ├── tree
+│   │   ├── type-checker
+│   │   └── whiteboarding
+│   ├── Numbers_Math
+│   │   ├── C++
+│   │   ├── base-converter
+│   │   ├── basic-examples
+│   │   ├── euclidean-distance
+│   │   └── isBase
+│   ├── POJOs
+│   │   ├── basic-examples
+│   │   ├── clone
+│   │   ├── extend-obj-prop
+│   │   ├── obj2Array
+│   │   └── objPropMap
+│   ├── Recursion
+│   │   ├── binary-search
+│   │   ├── fibonacci
+│   │   │   └── __test__
+│   │   ├── fibonacci-versions
+│   │   ├── lucas-num-versions
+│   │   ├── recursion_problems-master
+│   │   │   ├── problems
+│   │   │   │   └── dist
+│   │   │   └── test
+│   │   └── recursion_project
+│   │       ├── lib
+│   │       └── test
+│   ├── Sorting-n-Searching
+│   │   ├── 1-searching-algorithms
+│   │   │   └── depth_breadth_first_project
+│   │   │       ├── lib
+│   │   │       └── test
+│   │   └── 2-sorting-algorithms
+│   │       ├── bubble_sort_project
+│   │       │   ├── lib
+│   │       │   └── test
+│   │       ├── counting_sort_project
+│   │       │   ├── lib
+│   │       │   └── test
+│   │       ├── insertion_sort_project
+│   │       │   ├── lib
+│   │       │   └── test
+│   │       ├── merge_sort_project
+│   │       │   ├── lib
+│   │       │   └── test
+│   │       ├── quick_sort_project
+│   │       │   ├── lib
+│   │       │   └── test
+│   │       ├── radix_sort_project
+│   │       │   ├── lib
+│   │       │   └── test
+│   │       └── selection_sort_project
+│   │           ├── lib
+│   │           └── test
+│   ├── Strings
+│   │   ├── 03-lengthOfLongestSubString
+│   │   ├── C++
+│   │   │   ├── escape-quotes
+│   │   │   ├── remove-quotes
+│   │   │   └── trim-white-space
+│   │   ├── python
+│   │   │   ├── reverse-word
+│   │   │   └── split-string
+│   │   └── string-helpers
+│   ├── Utilities-Snippets
+│   │   ├── general
+│   │   └── whitespace-identifier
+│   ├── functions
+│   │   ├── HASH
+│   │   ├── MemoizeFunc
+│   │   ├── bindTo
+│   │   └── call-closure
+│   ├── web-dev
+│   │   ├── convert-2-js-arr
+│   │   ├── html-2-text
+│   │   ├── listenForEvent-s
+│   │   └── tagify-arr
+│   ├── z-NOTES
+│   │   ├── async_await
+│   │   ├── choosing_the_right_approach
+│   │   ├── concepts
+│   │   ├── data-structures
+│   │   ├── introducing
+│   │   ├── promises
+│   │   └── timeouts_and_intervals
+│   └── z-UNSORTED
+│       ├── binary_search_project
+│       │   ├── lib
+│       │   └── test
+│       ├── bst_project
+│       │   ├── lib
+│       │   └── test
+│       ├── bubble_sort_project
+│       │   ├── lib
+│       │   └── test
+│       ├── counting_sort_project
+│       │   ├── lib
+│       │   └── test
+│       ├── depth_breadth_first_project
+│       │   ├── lib
+│       │   └── test
+│       ├── graph_project
+│       │   ├── lib
+│       │   └── test
+│       ├── heaps_project
+│       │   ├── lib
+│       │   └── test
+│       ├── insertion_sort_project
+│       │   ├── lib
+│       │   └── test
+│       ├── linked_list_interview_problems
+│       │   ├── lib
+│       │   └── test
+│       ├── linked_list_project
+│       │   ├── lib
+│       │   └── test
+│       ├── memoization_project
+│       │   ├── lib
+│       │   └── test
+│       ├── merge_sort_project
+│       │   ├── lib
+│       │   └── test
+│       ├── queue_project
+│       │   ├── lib
+│       │   └── test
+│       ├── quick_sort_project
+│       │   ├── lib
+│       │   └── test
+│       ├── radix_sort_project
+│       │   ├── lib
+│       │   └── test
+│       ├── recursion_project
+│       │   ├── lib
+│       │   └── test
+│       ├── selection_sort_project
+│       │   ├── lib
+│       │   └── test
+│       ├── stack_project
+│       │   ├── lib
+│       │   └── test
+│       ├── stack_queue_interview_problems
+│       │   ├── lib
+│       │   └── test
+│       ├── tabulation_project
+│       │   ├── lib
+│       │   └── test
+│       ├── tree_order_project
+│       │   ├── lib
+│       │   └── test
+│       └── trie_project
+│           ├── lib
+│           └── test
 ├── Resources
-│   ├── My-Data-Structures-Notes
-│   └── _Articles
-│       ├── algorithmic-thinking
-│       ├── algorithms
-│       ├── data-structures
-│       ├── dynamic_programming
-│       │   └── pictures
-│       ├── js-documentation
-│       ├── recursion
-│       └── runtime-complexity
-└── assets
+│   ├── My-Data-Structures-Notes
+│   ├── aux-resources
+│   │   ├── QandA
+│   │   └── reiteration
+│   │       ├── Data-Structures
+│   │       │   ├── Array
+│   │       │   ├── Graph
+│   │       │   ├── Heap
+│   │       │   ├── Linked-List
+│   │       │   ├── Queue
+│   │       │   ├── Stack
+│   │       │   └── Tree
+│   │       ├── Dynamic-Programming
+│   │       ├── Graphs
+│   │       ├── Recursive
+│   │       ├── Search
+│   │       ├── Sorts
+│   │       ├── String
+│   │       │   └── test
+│   │       └── Trees
+│   └── data-structures-master
+│       └── data-structures-master
+│           ├── lib
+│           │   ├── chai
+│           │   ├── jquery
+│           │   ├── mocha
+│           │   ├── require
+│           │   └── underscore
+│           ├── sprint-one
+│           │   ├── spec
+│           │   └── src
+│           │       ├── functional
+│           │       ├── functional-shared
+│           │       ├── prototypal
+│           │       └── pseudoclassical
+│           └── sprint-two
+│               ├── spec
+│               └── src
+└── gitserve
 
-157 directories
-
-137 directories
-
-\___________________________________________________
-bryan_dir:DS-and-Algorithms-Prac_exitstatus:0 ====>
+306 directories
 ```
