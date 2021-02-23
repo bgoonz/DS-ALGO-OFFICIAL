@@ -37,5 +37,5 @@ function none(array, cb) {
     return true;
 }
 
-/*****************DO NOT MODIFY ANYTHING UNDER THIS  LINE**********************/
+//******************---------------------******************\\*/
 module.exports = none;

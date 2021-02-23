@@ -31,5 +31,5 @@ function atMost(array, max, cb) {
     return count <= max;
 }
 
-/*****************DO NOT MODIFY ANYTHING UNDER THIS  LINE**********************/
+//******************---------------------******************\\*/
 module.exports = atMost;

@@ -39,5 +39,5 @@ function andSelect(array, cb1, cb2) {
   return selected;
 }
 
-/*****************DO NOT MODIFY ANYTHING UNDER THIS  LINE**********************/
+//******************---------------------******************\\*/
 module.exports = andSelect;

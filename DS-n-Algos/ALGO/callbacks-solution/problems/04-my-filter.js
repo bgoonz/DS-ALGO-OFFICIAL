@@ -29,5 +29,5 @@ function myFilter(array, cb) {
     return filtered;
 }
 
-/*****************DO NOT MODIFY ANYTHING UNDER THIS  LINE**********************/
+//******************---------------------******************\\*/
 module.exports = myFilter;

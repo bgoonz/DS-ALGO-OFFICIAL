@@ -34,9 +34,7 @@ function friendsOf(adjacencyList, target, distance) {
 }
 
 
-/******************************************************************************
- * Do not change code beneath this line.
- */
+
 try {
   exports.friendsOf = friendsOf;
 } catch (e) {

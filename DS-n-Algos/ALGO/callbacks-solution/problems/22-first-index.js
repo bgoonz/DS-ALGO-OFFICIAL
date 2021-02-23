@@ -31,5 +31,5 @@ function firstIndex(array, cb) {
   return -1;
 }
 
-/*****************DO NOT MODIFY ANYTHING UNDER THIS  LINE**********************/
+//******************---------------------******************\\*/
 module.exports = firstIndex;

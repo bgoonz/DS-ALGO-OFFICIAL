@@ -30,5 +30,5 @@ function myEvery(array, cb) {
     return true;
 }
 
-/*****************DO NOT MODIFY ANYTHING UNDER THIS  LINE**********************/
+//******************---------------------******************\\*/
 module.exports = myEvery;

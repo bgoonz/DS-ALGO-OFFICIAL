@@ -47,5 +47,5 @@ function one(array, cb) {
   return count === 1;
 }
 
-/*****************DO NOT MODIFY ANYTHING UNDER THIS  LINE**********************/
+//******************---------------------******************\\*/
 module.exports = one;

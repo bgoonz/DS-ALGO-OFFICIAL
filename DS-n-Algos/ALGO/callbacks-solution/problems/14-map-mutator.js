@@ -24,5 +24,5 @@ function mapMutator(array, cb) {
   }
 }
 
-/*****************DO NOT MODIFY ANYTHING UNDER THIS  LINE**********************/
+//******************---------------------******************\\*/
 module.exports = mapMutator;

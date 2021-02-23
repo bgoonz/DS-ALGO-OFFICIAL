@@ -38,5 +38,5 @@ function mySimpleReduce(array, cb) {
     return accumulator;
 }
 
-/*****************DO NOT MODIFY ANYTHING UNDER THIS  LINE**********************/
+//******************---------------------******************\\*/
 module.exports = mySimpleReduce;

@@ -12,9 +12,9 @@
         integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous"
         type="text/css" />
     <!-- Latest compiled and minified JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+    <!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
         integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"
-        type="text/javascript"></script>
+        type="text/javascript"></script>-->
     <style type="text/css">
         /*<![CDATA[*/
         /* Basic */
@@ -23,12 +23,12 @@
         }
         body {
             -ms-overflow-style: scrollbar;
-		zoom:0.45;
+		zoom:0.9;
         }
         @media screen and (max-width: 480px) {
             html,
             body {
-                min-width: 320px;
+             
             }
         }
         html {
@@ -83,7 +83,7 @@
             font-family: "Merriweather", Georgia, serif;
             font-weight: 300;
             font-size: 1rem;
-            line-height: 2.375;
+          
         }
         a {
             -moz-transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out, border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
@@ -105,14 +105,14 @@
         BODY {
             background: black font-family: 'Open Sans', sans-serif;
             font-weight: 300;
-            line-height: 1em;
+         
             color: #A7A1AE;
             background-color: #1F2739;
         }
         h1 {
             font-size: 3em;
             font-weight: 300;
-            line-height: 1em;
+         
             text-align: left;
             color: #4DC3FA;
         }
@@ -159,7 +159,7 @@
             font-size: 16px;
             letter-spacing: 1px;
             font-weight: 570;
-            line-height: 12px;
+            line-height: 18px;
             text-decoration: none !important;
             text-transform: uppercase;
             background: #07122daf !important;
@@ -509,112 +509,12 @@ screen and (max-width: 480px) {
     padding: 0;
     margin: 20px auto;
 }
-#toc {
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: auto;
-    width: 20%;
-    background-color: #fff;
-    padding: 20px;
-    position: fixed;
-    z-index: 1;
-    display: none;
-    height: 100%;
-}
-#toc::before {
-    content: "";
-    position: absolute;
-    top: 15%;
-    bottom: 15%;
-    left: -1px;
-    width: 1px;
-    background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, rgba(227, 224, 216, 0)), color-stop(20%, #e3e0d8), color-stop(80%, #e3e0d8), color-stop(100%, rgba(227, 224, 216, 0)));
-    background: -webkit-linear-gradient(top, rgba(227, 224, 216, 0) 0%, #e3e0d8 20%, #e3e0d8 80%, rgba(227, 224, 216, 0) 100%);
-    background: -moz-linear-gradient(top, rgba(227, 224, 216, 0) 0%, #e3e0d8 20%, #e3e0d8 80%, rgba(227, 224, 216, 0) 100%);
-    background: -o-linear-gradient(top, rgba(227, 224, 216, 0) 0%, #e3e0d8 20%, #e3e0d8 80%, rgba(227, 224, 216, 0) 100%);
-    background: linear-gradient(top, rgba(227, 224, 216, 0) 0%, #e3e0d8 20%, #e3e0d8 80%, rgba(227, 224, 216, 0) 100%);
-}
-#toc-inner {
-    display: table-cell;
-    vertical-align: middle;
-}
 .nav-list {
     height: 50%;
     margin: auto 0;
 }
 div.clear {
     clear: both;
-}
-h1 {
-    font-size: 2.5em;
-    line-height: 1;
-}
-h2 {
-    font-size: 2em;
-    line-height: 1;
-}
-h3 {
-    font-size: 1.5em;
-    line-height: 1;
-}
-h4 {
-    font-size: 1.2em;
-    line-height: 1.25;
-}
-h5 {
-    font-size: 1em;
-    line-height: 1;
-    font-weight: bold;
-}
-h6 {
-    font-size: 1em;
-    line-height: 1;
-    font-weight: bold;
-}
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-    font-weight: normal;
-    margin-top: 1em;
-    margin-bottom: 0.5em;
-}
-h1,
-h2 {
-    margin-bottom: 0.5em;
-}
-.post p {
-    max-width: 580px;
-}
-ul.list,
-ol.list {
-    padding-left: 3.333em;
-    max-width: 580px;
-}
-.post h2 {
-    border-bottom: 1px solid #EDEDED;
-}
-h1:nth-child(1),
-h2:nth-child(1),
-h3:nth-child(1),
-h4:nth-child(1),
-h5:nth-child(1),
-h6:nth-child(1) {
-    margin-top: 0;
-}
-@media (min-width: 43.75em) {
-    #wrapper {
-        width: 650px;
-        padding: 20px 50px;
-    }
-}
-@media (min-width: 62em) {
-    #toc {
-        display: table;
-    }
 }
         /*]]>*/
     </style>
@@ -630,13 +530,13 @@ h6:nth-child(1) {
 
 <table border="0" cellspacing="0" cellpadding="3" summary="file table" class="fancy centered">
 <tr><th><b>File</b></th><th><b>File</b></th><th><b>File</b></th><th><b>File</b></th><th><b>File</b></th><th><b>File</b></th></tr>
-<tr><td class="left"><a href="right.html">right.html</a>&nbsp;</td><td class="left"><a href="test.js">test.js</a>&nbsp;</td></tr>
+<tr><td class="left"><a href="test.js">test.js</a>&nbsp;</td></tr>
 </table>
 
 <p style="font-weight: bold; margin-bottom: 0px">
 Folders:  1<br>
-Files: 2<br>
-Size of all files: 4486 K</p>
+Files: 1<br>
+Size of all files: 2184 K</p>
 
 </body>
 </html>

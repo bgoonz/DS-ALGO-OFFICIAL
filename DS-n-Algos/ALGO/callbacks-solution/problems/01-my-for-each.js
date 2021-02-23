@@ -28,5 +28,5 @@ function myForEach(array, cb) {
     }
 }
 
-/*****************DO NOT MODIFY ANYTHING UNDER THIS  LINE**********************/
+
 module.exports = myForEach;

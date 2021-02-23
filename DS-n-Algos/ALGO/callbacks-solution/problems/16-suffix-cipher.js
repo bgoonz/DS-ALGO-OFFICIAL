@@ -45,5 +45,5 @@ function suffixCipher(sentence, cipher) {
   return newWords.join(" ");
 }
 
-/*****************DO NOT MODIFY ANYTHING UNDER THIS  LINE**********************/
+//******************---------------------******************\\*/
 module.exports = suffixCipher;

@@ -29,5 +29,5 @@ function multiMap(val, n, cb) {
   return val;
 }
 
-/*****************DO NOT MODIFY ANYTHING UNDER THIS  LINE**********************/
+//******************---------------------******************\\*/
 module.exports = multiMap;

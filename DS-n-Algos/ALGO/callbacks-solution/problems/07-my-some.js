@@ -33,5 +33,5 @@ function mySome(array, cb) {
     return false;
 }
 
-/*****************DO NOT MODIFY ANYTHING UNDER THIS  LINE**********************/
+//******************---------------------******************\\*/
 module.exports = mySome;

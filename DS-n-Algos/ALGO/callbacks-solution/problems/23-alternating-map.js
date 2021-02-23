@@ -48,5 +48,5 @@ function alternatingMap(array, cb1, cb2) {
   return mapped;
 }
 
-/*****************DO NOT MODIFY ANYTHING UNDER THIS  LINE**********************/
+//******************---------------------******************\\*/
 module.exports = alternatingMap;

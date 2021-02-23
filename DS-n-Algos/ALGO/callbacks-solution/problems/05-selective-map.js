@@ -30,5 +30,5 @@ function selectiveMap(array, selector, mapper) {
     return newItems;
 }
 
-/*****************DO NOT MODIFY ANYTHING UNDER THIS  LINE**********************/
+//******************---------------------******************\\*/
 module.exports = selectiveMap;

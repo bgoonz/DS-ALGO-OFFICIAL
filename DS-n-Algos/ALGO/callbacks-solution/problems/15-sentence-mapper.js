@@ -30,5 +30,5 @@ let sentenceMapper = function(sentence, cb) {
   return words.map(cb).join(" ");
 };
 
-/*****************DO NOT MODIFY ANYTHING UNDER THIS  LINE**********************/
+//******************---------------------******************\\*/
 module.exports = sentenceMapper;

@@ -36,5 +36,5 @@ function chainMap(val, ...callbacks) {
   return val;
 }
 
-/*****************DO NOT MODIFY ANYTHING UNDER THIS  LINE**********************/
+//******************---------------------******************\\*/
 module.exports = chainMap;

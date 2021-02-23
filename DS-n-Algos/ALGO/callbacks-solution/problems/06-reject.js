@@ -28,5 +28,5 @@ function reject(array, cb) {
   return items;
 }
 
-/*****************DO NOT MODIFY ANYTHING UNDER THIS  LINE**********************/
+//******************---------------------******************\\*/
 module.exports = reject;

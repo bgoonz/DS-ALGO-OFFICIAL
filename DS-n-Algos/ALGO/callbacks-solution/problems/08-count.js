@@ -36,5 +36,5 @@ function count(array, cb) {
   return numTrue;
 }
 
-/*****************DO NOT MODIFY ANYTHING UNDER THIS  LINE**********************/
+//******************---------------------******************\\*/
 module.exports = count;

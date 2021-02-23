@@ -25,5 +25,5 @@ function myMap(array, cb) {
     return mapped;
 }
 
-/*****************DO NOT MODIFY ANYTHING UNDER THIS  LINE**********************/
+//******************---------------------******************\\*/
 module.exports = myMap;

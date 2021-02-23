@@ -37,5 +37,5 @@ function exactly(array, num, cb) {
   return count === num;
 }
 
-/*****************DO NOT MODIFY ANYTHING UNDER THIS  LINE**********************/
+//******************---------------------******************\\*/
 module.exports = exactly;
