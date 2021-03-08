@@ -19,7 +19,7 @@
 <p>The bind() method creates a new function that, when called, has its this keyword set to the provided value, with a given sequence of arguments preceding any provided when the new function is called.</p>
 </blockquote>
 <p>The <code>**bind()**</code> method creates a new function that, when called, has its <code>this</code> keyword set to the provided value, with a given sequence of arguments preceding any provided when the new function is called.</p>
-<p>The source for this interactive example is stored in a GitHub repository. If you’d like to contribute to the
+<p>The source for this interactive example is stored in a GitHub repository. If you'd like to contribute to the
   interactive examples project, please clone <a class="btn"
     href="https://github.com/mdn/interactive-examples">https://github.com/mdn/interactive-examples</a> and send us a
   pull request.</p>
@@ -62,7 +62,8 @@
 <li>The first one is much smaller and more performant, but does not work when using the <code>new</code> operator.</li>
 <li>The second one is bigger and less performant, but it permits some usage of the <code>new</code> operator on bound functions.</li>
 </ol>
-<p>Generally, in most code it’s very rare to see <code>new</code> used on a bound function, so it is generally best to go with the first option.</p>
+<p>Generally, in most code it's very rare to see <code>new</code> used on a bound function, so it is generally best to
+  go with the first option.</p>
 pre data-role="codeBlock" data-info="js" class="language-javascript"><code>if (!Function.prototype.bind) (function(){
   var slice = Array.prototype.slice;
   Function.prototype.bind = function() {
@@ -123,7 +124,7 @@ pre data-role="codeBlock" data-info="js" class="language-javascript"><code>if (!
     href="chrome-extension://cjedbglnccaioiolemnfhjncicchinao/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/apply"><code>Function.prototype.apply()</code></a>,
   built-in methods to have their original values.
 </li>
-<li>The partial implementation creates functions that do not have immutable “poison pill” <a class="btn"
+<li>The partial implementation creates functions that do not have immutable "poison pill" <a class="btn"
     href="chrome-extension://cjedbglnccaioiolemnfhjncicchinao/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/caller"><code>caller</code></a>
   and <code>arguments</code> properties that throw a <a class="btn"
     href="chrome-extension://cjedbglnccaioiolemnfhjncicchinao/en-US/docs/Web/JavaScript/Reference/Global_Objects/TypeError"><code>TypeError</code></a>
@@ -144,10 +145,10 @@ pre data-role="codeBlock" data-info="js" class="language-javascript"><code>if (!
 <li>The partial implementation creates bound functions whose <a class="btn"
     href="chrome-extension://cjedbglnccaioiolemnfhjncicchinao/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/name"><code>name</code></a>
   property is not derived from the original function name. According to ECMA-262, name of the returned bound function
-  should be “bound” + name of target function (note the space character).</li>
+  should be "bound" + name of target function (note the space character).</li>
 </ul>
 <p>If you choose to use this partial implementation, <strong>you must not rely on those cases where behavior deviates from ECMA-262, 5th edition!</strong> Thankfully, these deviations from the specification rarely (if ever) come up in most coding situations. If you do not understand any of the deviations from the specification above, then it is safe in this particular case to not worry about these noncompliant deviation details.</p>
-<p><strong>If it’s absolutely necessary and performance is not a concern</strong>, a far slower (but more
+<p><strong>If it's absolutely necessary and performance is not a concern</strong>, a far slower (but more
   specification-compliant solution) can be found at <a class="btn"
     href="https://github.com/Raynos/function-bind">https://github.com/Raynos/function-bind</a>.</p>
 <h2 id="examples">Examples</h2>
@@ -320,12 +321,13 @@ slice(arguments);</code></pre>
 <td>[ECMAScript (ECMA-262)</td>
 </tr>
 <tr>
-<td>The definition of ‘Function.prototype.bind’ in that specification.](https://tc39.es/ecma262/#sec-function.prototype.bind)</td>
+<td>The definition of ‘Function.prototype.bind' in that
+  specification.](https://tc39.es/ecma262/#sec-function.prototype.bind)</td>
 </tr>
 </tbody>
 </table>
 <h2 id="browser-compatibility">Browser compatibility</h2>
-<p>The compatibility table on this page is generated from structured data. If you’d like to contribute to the data,
+<p>The compatibility table on this page is generated from structured data. If you'd like to contribute to the data,
   please check out <a class="btn"
     href="https://github.com/mdn/browser-compat-data">https://github.com/mdn/browser-compat-data</a> and send us a pull
   request.</p>
@@ -370,7 +372,8 @@ Thank you for helping.</p>
 <p>Please select the browser or browsers which are affected.</p>
 <p>Briefly outline the issue you are highlighting. Minimum 10 and maximum 1,000 characters.</p>
 <p>Browser documentation and release notes are good supporting items to accompany your message. A demo hosted on services like Codepen or JSBin are perfect for providing real examples of your findings.</p>
-<p>Connection error:Sorry, we can’t seem to reach the server. We are working to fix the problem. Please try again later.</p>
+<p>Connection error:Sorry, we can't seem to reach the server. We are working to fix the problem. Please try again later.
+</p>
 <h3 id="legend">Legend</h3>
 <p>Full support</p>
 <p>Full support</p>

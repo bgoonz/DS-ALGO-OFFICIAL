@@ -50,7 +50,11 @@
   object by calling its <a class="btn"
     href="chrome-extension://cjedbglnccaioiolemnfhjncicchinao/en-US/docs/Web/API/EventTarget/removeEventListener"><code>removeEventListener()</code></a>
   function.</p>
-<p>When an event occurs that applies to an element, each of its event handlers is called to allow them to handle the event, one after another. You don’t need to call them yourself, although you can do so in many cases to easily simulate an event taking place. For example, given a button object <code>myButton</code>, you can do <code>myButton.onclick(myEventObject)</code> to call the event handler directly. If the event handler doesn’t access any data from the event object, you can leave out the event when calling <code>onclick()</code>.</p>
+<p>When an event occurs that applies to an element, each of its event handlers is called to allow them to handle the
+  event, one after another. You don't need to call them yourself, although you can do so in many cases to easily
+  simulate an event taking place. For example, given a button object <code>myButton</code>, you can do
+  <code>myButton.onclick(myEventObject)</code> to call the event handler directly. If the event handler doesn't access
+  any data from the event object, you can leave out the event when calling <code>onclick()</code>.</p>
 <p>This continues until every handler has been called, unless one of the event handlers explicitly halts the processing
   of the event by calling <a class="btn"
     href="chrome-extension://cjedbglnccaioiolemnfhjncicchinao/en-US/docs/Web/API/Event/stopPropagation"><code>stopPropagation()</code></a>
@@ -66,7 +70,10 @@
 pre data-role="codeBlock" data-info="js" class="language-javascript"><code>const xhr = new XMLHttpRequest();
 xhr.onprogress = function() { … };</code></pre>
 <h2 id="html-onevent-attributes">HTML onevent attributes</h2>
-<p>HTML elements have attributes named <code>on_event_</code> which can be used to register a handler for an event directly within the HTML code. When the element is built from the HTML, the value of its <code>on_event_</code> attributes are copied to the DOM object that represents the element, so that accessing the attributes’ values using JavaScript will get the value set in the HTML.</p>
+<p>HTML elements have attributes named <code>on_event_</code> which can be used to register a handler for an event
+  directly within the HTML code. When the element is built from the HTML, the value of its <code>on_event_</code>
+  attributes are copied to the DOM object that represents the element, so that accessing the attributes' values using
+  JavaScript will get the value set in the HTML.</p>
 <p>Further changes to the HTML attribute value can be done via the <a class="btn"
     href="chrome-extension://cjedbglnccaioiolemnfhjncicchinao/en-US/docs/Web/API/Element/setAttribute"><code>setAttribute</code></a>
   method; Making changes to the JavaScript property will have no effect.</p>
@@ -78,7 +85,8 @@ pre data-role="codeBlock" data-info="js" class="language-javascript"><code>&lt;p
 
 &lt;div&gt;&lt;/div&gt;</code></pre>
 <h3 id="javascript">JavaScript</h3>
-<p>Then this JavaScript demonstrates that the value of the HTML attribute is unaffected by changes to the JavaScript object’s property.</p>
+<p>Then this JavaScript demonstrates that the value of the HTML attribute is unaffected by changes to the JavaScript
+  object's property.</p>
 pre data-role="codeBlock" data-info="js" class="language-javascript"><code>let logElement = document.querySelector(&#39;div&#39;);
 let el = document.querySelector(&quot;a&quot;);
 
@@ -121,7 +129,8 @@ log(`Now even the HTML attribute has changed: &lt;code&gt; ${el.getAttribute(&qu
   and <a class="btn"
     href="chrome-extension://cjedbglnccaioiolemnfhjncicchinao/en-US/docs/Web/API/GlobalEventHandlers/onscroll"><code>onscroll</code></a>.)
 </p>
-<h3 id="event-handlers-parameters-this-binding-and-the-return-value">Event handler’s parameters, this binding, and the return value</h3>
+<h3 id="event-handlers-parameters-this-binding-and-the-return-value">Event handler's parameters, this binding, and the
+  return value</h3>
 <p>When the event handler is specified as <strong>an HTML attribute</strong>, the specified code is wrapped into a function with <strong>the following parameters</strong>:</p>
 <ul>
 <li><code>event</code> — for all event handlers except <a class="btn"
@@ -138,8 +147,8 @@ log(`Now even the HTML attribute has changed: &lt;code&gt; ${el.getAttribute(&qu
     <code>this</code> keyword documentation</a>.</p>
 <p>The return value from the handler determines if the event is canceled. The specific handling of the return value
   depends on the kind of event; for details, see <a class="btn"
-    href="https://html.spec.whatwg.org/multipage/webappapis.html#the-event-handler-processing-algorithm">“The event
-    handler processing algorithm” in the HTML specification</a>.</p>
+    href="https://html.spec.whatwg.org/multipage/webappapis.html#the-event-handler-processing-algorithm">"The event
+    handler processing algorithm" in the HTML specification</a>.</p>
 <h3 id="when-the-event-handler-is-invoked">When the event handler is invoked</h3>
 <p>TBD (non-capturing listener)</p>
 <h3 id="terminology">Terminology</h3>
@@ -176,7 +185,8 @@ log(`Now even the HTML attribute has changed: &lt;code&gt; ${el.getAttribute(&qu
 <td></td>
 </tr>
 <tr>
-<td>The definition of ‘event handlers’ in that specification.](https://html.spec.whatwg.org/multipage/webappapis.html#event-handler-attributes)</td>
+<td>The definition of ‘event handlers' in that
+  specification.](https://html.spec.whatwg.org/multipage/webappapis.html#event-handler-attributes)</td>
 <td>Living Standard</td>
 <td></td>
 </tr>
@@ -186,7 +196,8 @@ log(`Now even the HTML attribute has changed: &lt;code&gt; ${el.getAttribute(&qu
 <td></td>
 </tr>
 <tr>
-<td>The definition of ‘event handlers’ in that specification.](https://www.w3.org/TR/html52/webappapis.html#event-handler-attributes)</td>
+<td>The definition of ‘event handlers' in that
+  specification.](https://www.w3.org/TR/html52/webappapis.html#event-handler-attributes)</td>
 <td>Recommendation</td>
 <td></td>
 </tr>
@@ -201,7 +212,10 @@ pre data-role="codeBlock" data-info="js" class="language-javascript"><code>if (&
   
 }</code></pre>
 <h4 id="event-handlers-and-prototypes">Event handlers and prototypes</h4>
-<p>You can’t set or access the values of any IDL-defined attributes on DOM prototype objects. That means you can’t, for example, change <code>Window.prototype.onload</code>. In the past, event handlers (<code>onload</code>, etc.) weren’t implemented as IDL attributes in Gecko, so you were able to do this for those. Now you can’t. This improves compatibility.</p>
+<p>You can't set or access the values of any IDL-defined attributes on DOM prototype objects. That means you can't, for
+  example, change <code>Window.prototype.onload</code>. In the past, event handlers (<code>onload</code>, etc.) weren't
+  implemented as IDL attributes in Gecko, so you were able to do this for those. Now you can't. This improves
+  compatibility.</p>
 <p><a class="btn" href="https://developer.mozilla.org/en-US/docs/Web/Guide/Events/Event_handlers">Source</a></p>
 
 </body>

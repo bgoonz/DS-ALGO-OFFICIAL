@@ -11,9 +11,15 @@
 <a class="sourceLine" id="cb1-2" title="2">  ...</a>
 <a class="sourceLine" id="cb1-3" title="3"><span class="op">}</span></a></code></pre></div>
 <h4 id="answer">Answer</h4>
-<p>An <code>async</code> function is a function that allows you to pause the function’s execution while it waits for (<code>await</code>s) a promise to resolve. It’s an abstraction on top of the Promise API that makes asynchronous operations <em>look</em> like they’re synchronous.</p>
-<p><code>async</code> functions automatically return a Promise object. Whatever you <code>return</code> from the <code>async</code> function will be the promise’s <em>resolution</em>. If instead you <code>throw</code> from the body of an <code>async</code> function, that will be how your async function <em>rejects</em> the promise it returns.</p>
-<p>Most importantly, <code>async</code> functions are able to use the <code>await</code> keyword in their function body, which <strong>pauses the function</strong> until the operation after the <code>await</code> completes, and allows it to return that operation’s result to a variable synchronously.</p>
+<p>An <code>async</code> function is a function that allows you to pause the function's execution while it waits for
+  (<code>await</code>s) a promise to resolve. It's an abstraction on top of the Promise API that makes asynchronous
+  operations <em>look</em> like they're synchronous.</p>
+<p><code>async</code> functions automatically return a Promise object. Whatever you <code>return</code> from the
+  <code>async</code> function will be the promise's <em>resolution</em>. If instead you <code>throw</code> from the body
+  of an <code>async</code> function, that will be how your async function <em>rejects</em> the promise it returns.</p>
+<p>Most importantly, <code>async</code> functions are able to use the <code>await</code> keyword in their function body,
+  which <strong>pauses the function</strong> until the operation after the <code>await</code> completes, and allows it
+  to return that operation's result to a variable synchronously.</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="co">// Normal promises in regular function:</span></a>
 <a class="sourceLine" id="cb2-2" title="2"><span class="kw">function</span> <span class="at">foo</span>() <span class="op">{</span></a>
 <a class="sourceLine" id="cb2-3" title="3">  <span class="at">promiseCall</span>()</a>

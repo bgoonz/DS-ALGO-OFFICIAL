@@ -31,7 +31,9 @@
 <a class="sourceLine" id="cb1-19" title="19"><span class="co">  { id: 6, parent_id: null, text: &quot;Second reply to post.&quot;, children: [] }</span></a>
 <a class="sourceLine" id="cb1-20" title="20"><span class="co">]</span></a>
 <a class="sourceLine" id="cb1-21" title="21"><span class="co">*/</span></a></code></pre></div>
-<p>In the above example, the base condition is met if <code>filter()</code> returns an empty array. The chained <code>map()</code> won’t invoke the callback function which contains the recursive call, thereby breaking the loop.</p>
+<p>In the above example, the base condition is met if <code>filter()</code> returns an empty array. The chained
+  <code>map()</code> won't invoke the callback function which contains the recursive call, thereby breaking the loop.
+</p>
 <h4 id="good-to-hear">Good to hear</h4>
 <ul>
 <li>Recursion is useful when working with data structures containing an unknown number of nested structures.</li>

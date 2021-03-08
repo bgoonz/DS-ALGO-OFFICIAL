@@ -8,7 +8,7 @@
   <li>We also only consider rooted trees in computer science, which is a tree that has one root node that is able to
     access all other nodes.</li>
   <li>For a tree to be a binary tree, each node can have a maximum of two children.</li>
-  <li>It’s important to be able to identify and explain tree terminology as well. If given a tree, be able to point out
+  <li>It's important to be able to identify and explain tree terminology as well. If given a tree, be able to point out
     each component.
     <ul>
       <li>root: The single node of a tree that can access every other node through edges.</li>
@@ -27,8 +27,8 @@
   <li>Know the basics of each term
     <ul>
       <li>A non-empty tree has to have a root.</li>
-      <li>A tree doesn’t have any parent nodes if there are no children.</li>
-      <li>What’s the min/max number of parent and leaf nodes for a tree with 5 nodes?
+      <li>A tree doesn't have any parent nodes if there are no children.</li>
+      <li>What's the min/max number of parent and leaf nodes for a tree with 5 nodes?
         <ul>
           <li>Two extreme implementations:</li>
         </ul>
@@ -86,7 +86,7 @@
       <li>Example of a Binary Search Tree <img src="#binary-search-tree" alt="Binary Search Tree"/></li>
     </ul>
   </li>
-  <li>Example of a BST with an insert method. You won’t be asked to implement a removal:</li>
+  <li>Example of a BST with an insert method. You won't be asked to implement a removal:</li>
 </ul>
 <div id=">pre data-role=" codeBlock" data-info="js" class="language-javascript"><code><a   title=" 1"> <span>class</span> BST <span>{</span></a>
   <a id=-2" title="2"> <span>constructor</span>() <span>{</span></a>
@@ -132,19 +132,19 @@
       <li>Consist of any collection of nodes and edges (no limits on connections)</li>
       <li>Have cycles</li>
       <li>Have disconnected portions (a forest, with multiple trees, for example)</li>
-      <li>Be missing a root node (don’t have to have one node that connects to everything)</li>
+      <li>Be missing a root node (don't have to have one node that connects to everything)</li>
     </ul>
   </li>
   <li>In a tree, we had an idea of children and parents, in a graph we have neighbors (no hierarchy)</li>
 </ul>
 <ol start="2" type="1">
-  <li>What are three ways that we can implement a graph? What are each implementations’ advantages or disadvantages?
+  <li>What are three ways that we can implement a graph? What are each implementations' advantages or disadvantages?
   </li>
 </ol>
 <ul>
   <li>Adjacency Matrix - 2D Array
     <ul>
-      <li>Visually clear what’s going on</li>
+      <li>Visually clear what's going on</li>
       <li>One axis (outside array) has an entry (inner array) for each node in the graph. If one node is connected to
         another node in the graph, our entry in the inner array is set to true. Otherwise the entry is false.</li>
     </ul>
@@ -178,7 +178,7 @@
       <li>Object where every value in the graph has a key</li>
       <li>Value for the key is an array with each other node that it is connected to (neighbors)</li>
       <li>Easy to iterate through</li>
-      <li>Doesn’t take up as much space as an Adjacency Matrix or Node</li>
+      <li>Doesn't take up as much space as an Adjacency Matrix or Node</li>
       <li>Can refer to the entire graph by referencing the object</li>
     </ul>
   </li>
@@ -198,7 +198,7 @@
     <ul>
       <li>Similar to our linked list or tree implementations</li>
       <li>Track the value and the neighbors array as instance variables on the node</li>
-      <li>We don’t have a reference to the overall graph with this implementation</li>
+      <li>We don't have a reference to the overall graph with this implementation</li>
     </ul>
   </li>
 </ul>
@@ -216,7 +216,7 @@
 </ol>
 <ul>
   <li>We can use recursion or iteration to traverse each node.</li>
-  <li>We generally want to keep track of each node that we’ve visited already so that we don’t get trapped in cycles.
+  <li>We generally want to keep track of each node that we've visited already so that we don't get trapped in cycles.
     Easiest way to do this is to keep a Set variable that we update as we traverse to each node.</li>
   <li>The projects from W08D02 and their solutions are a great resource here.
     <ul>
@@ -234,7 +234,7 @@
 <ul>
   <li>Is it possible to get from node A to node B?
     <ul>
-      <li>Here we’re really implementing a search, like the breadthFirstSearch problem.</li>
+      <li>Here we're really implementing a search, like the breadthFirstSearch problem.</li>
     </ul>
   </li>
   <li>What is the maximum/minimum value we can encounter if we start at node X?
@@ -285,7 +285,7 @@
   <li>Hash Maps.</li>
   <li>Divide and Conquer DP Programming.</li>
   <li>Using Math Properties.</li>
-  <li><strong><code>Amortized Analysis</code></strong> : Method for analyzing a given algorithm’s complexity, or how
+  <li><strong><code>Amortized Analysis</code></strong> : Method for analyzing a given algorithm's complexity, or how
     much a resource, especially time or or memory, it takes to execute.</li>
   <li>Keeping a Stack or Queue on the side to track values.</li>
   <li>Keep two pointers for the same iteration.</li>
@@ -340,7 +340,7 @@
   <a id=-17" title="17"><span>f</span>.<span>neighbors</span> <span>=</span> [e]<span>;</span></a></code></pre>
 </div>
 <ul>
-  <li><strong>Adjacency Matrix</strong> : Mathematician’s preferred way of representing a graph.</li>
+  <li><strong>Adjacency Matrix</strong> : Mathematician's preferred way of representing a graph.</li>
 </ul>
 <figure>
   <img
@@ -482,13 +482,13 @@
         Includes authorization or re-establishing a dropp connection. (i.e. RPC (Remote Procedure Call))</li>
       <li><strong><code>Transport</code></strong> : Utilization of transport protocols (i.e. TCP and UDP)</li>
       <li><strong><code>Network</code></strong> : Basically the internet layer (i.e. IP)</li>
-      <li><strong><code>Data Link</code></strong> : Deal with connections from one machine’s network interface to
+      <li><strong><code>Data Link</code></strong> : Deal with connections from one machine's network interface to
         another. (i.e. ethernet)</li>
       <li><strong><code>Physical</code></strong> : Translating raw electrical signals to bits &amp; bytes of data.
         (i.e. Wi-Fi &amp; DSL)</li>
     </ul>
   </li>
-  <li>It is important to remember that OSI Model is highly conceptual, it’s practical uses are limited.</li>
+  <li>It is important to remember that OSI Model is highly conceptual, it's practical uses are limited.</li>
   <li>
     <p>TCP/IP is much more practical compared to OSI, but it is purely practical.</p>
   </li>
@@ -579,7 +579,7 @@ Hexadecimal: 04 08 0F 10 17 2A</code></pre>
     </ul>
   </li>
   <li>
-    <p><strong><code>Pack-Switching</code></strong> : When a message is split up into separate ‘packets’, delivered to a
+    <p><strong><code>Pack-Switching</code></strong> : When a message is split up into separate ‘packets', delivered to a
       destination, and reassembled as appropriate. &gt; A Byte is 8 Bits &gt; <img
         src="https://assets.aaonline.io/Module-Web/network/image-ip-ipv4-headers.svg" alt="ip4"/></p>
   </li>
@@ -598,9 +598,9 @@ Hexadecimal: 04 08 0F 10 17 2A</code></pre>
   <li><strong><code>Version</code></strong> : Binary representation of the version #.</li>
   <li><strong><code>Traffic Class</code></strong> : Used to Identify different types of packets.</li>
   <li><strong><code>Flow Label</code></strong> : An experimental option used for adding packet sequencing into IP.</li>
-  <li><strong><code>Payload Length</code></strong> : Let’s the receivers know how large the data in the packet will be.
+  <li><strong><code>Payload Length</code></strong> : Let's the receivers know how large the data in the packet will be.
   </li>
-  <li><strong><code>Next Header</code></strong> : Usually identifies the protocol type of the packet’s data.</li>
+  <li><strong><code>Next Header</code></strong> : Usually identifies the protocol type of the packet's data.</li>
   <li><strong><code>Hop Limit</code></strong> : Means of preventing packets from being passed around routers forever.
   </li>
   <li><strong><code>Source Address</code></strong> : Where the pack originated.</li>
@@ -627,7 +627,7 @@ Hexadecimal: 04 08 0F 10 17 2A</code></pre>
   <li>Transport Protocols act as our delivery person.</li>
   <li>IP is concerned with machine-to-machine communication.</li>
   <li>HTTP is designed for application-to-application communication.</li>
-  <li><strong><code>Port</code></strong> : Virtual interfaces that allow a single device to host lot’s of different
+  <li><strong><code>Port</code></strong> : Virtual interfaces that allow a single device to host lot's of different
     applications &amp; services.</li>
   <li>
     <p><strong><code>TCP</code></strong> : Transmission Control Protocol, the most common transport protocol.</p>
@@ -655,8 +655,8 @@ Hexadecimal: 04 08 0F 10 17 2A</code></pre>
         rapid growth.</li>
     </ul>
   </li>
-  <li><strong><code>Domain</code></strong> : A website’s domain refers to the ‘friendly’ name for the website’s host, or
-    the server providing the site’s content. <img
+  <li><strong><code>Domain</code></strong> : A website's domain refers to the ‘friendly' name for the website's host, or
+    the server providing the site's content. <img
       src="https://assets.aaonline.io/Module-Web/network/image-ip-dns-domain.svg" alt="url"/>
     <ul>
       <li>Top Level Domain the last part of the domain (.com, .net, .org)</li>
@@ -675,7 +675,7 @@ Hexadecimal: 04 08 0F 10 17 2A</code></pre>
   <li><strong><code>Zone File</code></strong> : Text file containing, host names, IP Addresses, and resource types.</li>
   <li>Common DNS Record Types:
     <ul>
-      <li><strong><code>SOA</code></strong> : Start of Authority, let’s use know what name server is the primary
+      <li><strong><code>SOA</code></strong> : Start of Authority, let's use know what name server is the primary
         authority (<strong><code>THE MINIMUM REQUIREMENT IN A ZONE FILE</code></strong>)</li>
       <li><strong><code>NS</code></strong> : Keeps us connected to our zone by pointing to name servers.</li>
       <li><strong><code>A/AAAA</code></strong> : A = Domain Name to IPv4 &amp; AAAA = Domain Name to IPv6</li>
@@ -737,7 +737,7 @@ Hexadecimal: 04 08 0F 10 17 2A</code></pre>
 <a  id=9-2" title="2">    <span >return</span> (n <span >*</span> (n <span >+</span> <span >1</span>)) / <span >2;</span></a>
 <a  id=9-3" title="3"><span >}</span></a></code></pre>
 </div>
-<p>O(n): maybe thinking O(2n) but we see big picture! BigONotation doesn’t care about precision only about general
+<p>O(n): maybe thinking O(2n) but we see big picture! BigONotation doesn't care about precision only about general
   trends <em>linear? quadric? constant?</em></p>
 <div id=0">
   pre data-role="codeBlock" data-info="js" class="language-javascript"><code><a  id=0-1" title="1"><span >function</span> <span >printUpAndDown</span>(n<span >:</span> <span >number</span>) <span >{</span></a>
@@ -1212,7 +1212,7 @@ Hexadecimal: 04 08 0F 10 17 2A</code></pre>
 </div>
 <h2 id="sorting-algorithms">Sorting Algorithms</h2>
 <h3 id="array.sort">array.sort()</h3>
-<p>array.sort(cb?) will turn all values to <em>string</em> then sort it based on it’s <em>unicode</em></p>
+<p>array.sort(cb?) will turn all values to <em>string</em> then sort it based on it's <em>unicode</em></p>
 <div id=3">
   pre data-role="codeBlock" data-info="js" class="language-javascript"><code><a  id=3-1" title="1"><span >[&quot;a&quot;,</span> <span >&quot;c&quot;,</span> <span >&quot;b&quot;,</span> <span >&quot;f&quot;,</span> <span >&quot;d&quot;]</span>.<span >sort</span>()<span >;</span> <span >// (5) [&quot;a&quot;, &quot;b&quot;, &quot;c&quot;, &quot;d&quot;, &quot;f&quot;]</span></a>
 <a  id=3-2" title="2"><span >[1,</span> <span >10,</span> <span >6,</span> <span >8,</span> <span >2,</span> <span >3,</span> <span >5]</span>.<span >sort</span>()<span >;</span> <span >//(7) [1, 10, 2, 3, 5, 6, 8]</span></a>
@@ -2263,7 +2263,7 @@ Hexadecimal: 04 08 0F 10 17 2A</code></pre>
 <p><strong>depth-first take up more space.</strong></p>
 <hr />
 <p><strong>potentially use cases for dfs variants (<em>preOder postOrder inOrder</em>)</strong> preOrder is useful when
-  we want a clone of tree. inOrder is useful when we want data in order that it’s stored in tree.</p>
+  we want a clone of tree. inOrder is useful when we want data in order that it's stored in tree.</p>
 <h2 id="binary-heaps">Binary heaps</h2>
 <h3 id="terminology-1">terminology</h3>
 <ul>
@@ -2837,7 +2837,7 @@ Hexadecimal: 04 08 0F 10 17 2A</code></pre>
 <a  id=2-121" title="121">    <span >}</span></a>
 <a  id=2-122" title="122"><span >}</span></a></code></pre>
 </div>
-<h2 id="dijkstras-shortest-path-firt-algorithms">Dijkstra’s Shortest path firt Algorithms</h2>
+<h2 id="dijkstras-shortest-path-firt-algorithms">Dijkstra's Shortest path firt Algorithms</h2>
 <p>Finding shortest path between two vertices in a <strong>weighted graph</strong>.</p>
 <p><img src="./assets/Dijkstra_Animation.gif"/></p>
 <div id=3">
@@ -2964,11 +2964,11 @@ Hexadecimal: 04 08 0F 10 17 2A</code></pre>
 <a  id=3-121" title="121"><span >}</span></a></code></pre>
 </div>
 <h2 id="dynamic-programming-light-introduction">Dynamic Programming (light introduction)</h2>
-<p>It’s a method for solving a complex problems by breaking it down into a collection of simpler problems, solving their
+<p>It's a method for solving a complex problems by breaking it down into a collection of simpler problems, solving their
   subProblems <strong>once</strong> and <strong>storing</strong> their solutions. <em>technically it using knowledge of
     last problems to solve next by memorization</em></p>
 <h3 id="example-fibonacci-sequence">example Fibonacci sequence</h3>
-<p>Let’s implement it without dynamic programming:without dynamic programming:</p>
+<p>Let's implement it without dynamic programming:without dynamic programming:</p>
 <p><strong><em>in fibonacci sequence fib(n) = fib(n-2) + fib(n-1) &amp;&amp; fin(1) = 1 &amp;&amp; fib(2) =
       1</em></strong></p>
 <p><strong>O(2^n)</strong></p>

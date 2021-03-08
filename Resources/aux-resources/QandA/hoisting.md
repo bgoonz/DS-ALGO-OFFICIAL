@@ -43,7 +43,7 @@ var myFunction = function() {
 
 #### Good to hear
 
-* Hoisting is JavaScript’s default behavior of moving declarations to the top
+* Hoisting is JavaScript's default behavior of moving declarations to the top
 * Functions declarations are hoisted before variable declarations
 
 ##### Additional links

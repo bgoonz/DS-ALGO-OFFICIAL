@@ -100,7 +100,7 @@ function from(items) {
   return appendAll(new this(), items)
 }
 
-/* Returns the list’s items as an array. This does *not* detach the items. */
+/* Returns the list's items as an array. This does *not* detach the items. */
 function toArray() {
   var item = this.head
   var result = []

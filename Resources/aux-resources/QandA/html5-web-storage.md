@@ -2,12 +2,12 @@
 
 #### Answer
 
-With HTML5, web pages can store data locally within the user’s browser.
+With HTML5, web pages can store data locally within the user's browser.
 The data is stored in name/value pairs, and a web page can only access data stored by itself.
 
 **Differences between `localStorage` and `sessionStorage` regarding lifetime:**
 
-* Data stored through `localStorage` is permanent: it does not expire and remains stored on the user’s computer until a web app deletes it or the user asks the browser to delete it.
+* Data stored through `localStorage` is permanent: it does not expire and remains stored on the user's computer until a web app deletes it or the user asks the browser to delete it.
 * `sessionStorage` has the same lifetime as the top-level window or browser tab in which the data got stored. When the tab is permanently closed, any data stored through `sessionStorage` is deleted.
 
 **Differences between `localStorage` and `sessionStorage` regarding storage scope:**

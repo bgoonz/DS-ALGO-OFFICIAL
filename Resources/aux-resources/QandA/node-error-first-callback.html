@@ -23,7 +23,9 @@
 <li>Having a consistent API leads to more adoption</li>
 <li>Ability to easily adapt a callback pattern that will lead to more maintainable code</li>
 </ul>
-<p>As you can see from below example, the callback is called with null as its first argument if there is no error. However, if there is an error, you create an Error object, which then becomes the callback’s only parameter. The callback function allows a user to easily know whether or not an error occurred.</p>
+<p>As you can see from below example, the callback is called with null as its first argument if there is no error.
+  However, if there is an error, you create an Error object, which then becomes the callback's only parameter. The
+  callback function allows a user to easily know whether or not an error occurred.</p>
 <p>This practice is also called the <em>Node.js error convention</em>, and this kind of callback implementations are called <em>error-first callbacks</em>.</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="kw">var</span> isTrue <span class="op">=</span> <span class="kw">function</span>(value<span class="op">,</span> callback) <span class="op">{</span></a>
 <a class="sourceLine" id="cb2-2" title="2">  <span class="cf">if</span> (value <span class="op">===</span> <span class="kw">true</span>) <span class="op">{</span></a>

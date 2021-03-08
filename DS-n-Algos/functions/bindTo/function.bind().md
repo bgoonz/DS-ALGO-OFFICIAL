@@ -349,7 +349,7 @@ Briefly outline the issue you are highlighting. Minimum 10 and maximum 1,000 cha
 
 Browser documentation and release notes are good supporting items to accompany your message. A demo hosted on services like Codepen or JSBin are perfect for providing real examples of your findings.
 
-Connection error:Sorry, we can’t seem to reach the server. We are working to fix the problem. Please try again later.
+Connection error:Sorry, we can't seem to reach the server. We are working to fix the problem. Please try again later.
 
 ### Legend
 

@@ -8,7 +8,9 @@
 <body>;
 <h3 id="what-is-event-delegation-and-why-is-it-useful-can-you-show-an-example-of-how-to-use-it">What is event delegation and why is it useful? Can you show an example of how to use it?</h3>
 <h4 id="answer">Answer</h4>
-<p>Event delegation is a technique of delegating events to a single common ancestor. Due to event bubbling, events “bubble” up the DOM tree by executing any handlers progressively on each ancestor element up to the root that may be listening to it.</p>
+<p>Event delegation is a technique of delegating events to a single common ancestor. Due to event bubbling, events
+  "bubble" up the DOM tree by executing any handlers progressively on each ancestor element up to the root that may be
+  listening to it.</p>
 <p>DOM events provide useful information about the element that initiated the event via <code>Event.target</code>. This allows the parent element to handle behavior as though the target element was listening to the event, rather than all children of the parent or the parent itself.</p>
 <p>This provides two main benefits:</p>
 <ul>

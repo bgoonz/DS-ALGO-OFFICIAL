@@ -50,7 +50,7 @@ test('LinkedList [LinkedList]', function(t) {
     }, 'should throw an error when an invalid item is given')
 
     st.test(
-      'should add (“append”) items in the order they were given',
+      'should add ("append") items in the order they were given',
       function(sst) {
         var item = new Item()
         var item1 = new Item()
@@ -113,7 +113,7 @@ test('LinkedList [LinkedList]', function(t) {
     }, 'should throw an error when an invalid item is given')
 
     st.test(
-      'should add (“append”) items in the order they were given',
+      'should add ("append") items in the order they were given',
       function(sst) {
         var item = new Item()
         var item1 = new Item()
@@ -220,7 +220,9 @@ test('LinkedList [LinkedList]', function(t) {
       item = new Item()
       list.prepend(item)
 
-      sst.equal(list.tail, null, 'shouldn’t set `@tail` to the first prependee')
+      sst.equal( list.tail, null, 'shouldn'
+          t set `@tail`
+          to the first prependee ')
 
       other = new Item()
       list.prepend(other)
@@ -305,7 +307,9 @@ test('LinkedList [LinkedList]', function(t) {
       item = new Item()
       list.append(item)
 
-      sst.equal(list.tail, null, 'shouldn’t set `@tail` to the first appendee')
+      sst.equal( list.tail, null, 'shouldn'
+          t set `@tail`
+          to the first appendee ')
 
       other = new Item()
       list.append(other)
@@ -449,31 +453,42 @@ test('Item [LinkedList.Item]', function(t) {
     t.equal(
       item.list,
       list,
-      'should attach the given item to the operated on item’s list'
+      'should attach the given item to the operated on item'
+      s list '
     )
 
     t.equal(
       list.head,
       item,
-      'should set the given item as the parent list’s `head` when the operated on item is the current `head`'
+      'should set the given item as the parent list'
+      s `head`
+      when the operated on item is the current `head`
+      '
     )
 
     t.equal(
       list.tail,
       list.head.next,
-      'should set the operated on item as the parent list’s `tail` when the operated on item is the current `head`'
+      'should set the operated on item as the parent list'
+      s `tail`
+      when the operated on item is the current `head`
+      '
     )
 
     t.equal(
       list.tail.prev,
       item,
-      'should set the operated on item’s `prev` property to the given item'
+      'should set the operated on item'
+      s `prev`
+      property to the given item '
     )
 
     t.equal(
       list.head.next,
       list.tail,
-      'should set the given item’s `next` property to the operated on item'
+      'should set the given item'
+      s `next`
+      property to the operated on item '
     )
 
     other = list.tail
@@ -538,19 +553,26 @@ test('Item [LinkedList.Item]', function(t) {
     t.equal(
       item.list,
       list,
-      'should attach the given item to the operated on item’s list'
+      'should attach the given item to the operated on item'
+      s list '
     )
 
     t.equal(
       list.tail,
       item,
-      'should set the given item as the parent list’s `tail` when the operated on item is the current `tail`'
+      'should set the given item as the parent list'
+      s `tail`
+      when the operated on item is the current `tail`
+      '
     )
 
     t.equal(
       list.tail.prev,
       list.head,
-      'should keep the operated on item as the parent list’s `head` when the operated on item is the current `head`'
+      'should keep the operated on item as the parent list'
+      s `head`
+      when the operated on item is the current `head`
+      '
     )
 
     other = list.head
@@ -594,7 +616,9 @@ test('Item [LinkedList.Item]', function(t) {
     st.equal(
       list.head,
       other,
-      'should set the item’s `next` property to the parent list’s `head` when the item is its current `head`'
+      'should set the item'
+      s `next`
+      property to the parent list 's `head` when the item is its current `head`'
     )
 
     item = new Item()
@@ -611,7 +635,9 @@ test('Item [LinkedList.Item]', function(t) {
     st.equal(
       list.tail,
       other,
-      'should set the item’s `prev` property to the parent list’s `tail` when the item is its current `tail`'
+      'should set the item'
+      s `prev`
+      property to the parent list 's `tail` when the item is its current `tail`'
     )
 
     item = new Item()
@@ -626,7 +652,13 @@ test('Item [LinkedList.Item]', function(t) {
     st.equal(
       list.tail,
       null,
-      'should set the parent list’s `tail` to `null` when the item is its current `tail` and its `prev` property is the current `tail`'
+      'should set the parent list'
+      s `tail`
+      to `null`
+      when the item is its current `tail`
+      and its `prev`
+      property is the current `tail`
+      '
     )
 
     item = new Item()
@@ -643,8 +675,12 @@ test('Item [LinkedList.Item]', function(t) {
     st.equal(
       item.next,
       other2,
-      'should set the previous item’s `next` ' +
-        'property to the current item’s `next` ' +
+      'should set the previous item'
+      s `next`
+      ' +
+      'property to the current item'
+      s `next`
+      ' +
         'property'
     )
 
@@ -662,8 +698,12 @@ test('Item [LinkedList.Item]', function(t) {
     st.equal(
       other2.prev,
       item,
-      'should set the next item’s `prev` property to ' +
-        'the current item’s `prev` property'
+      'should set the next item'
+      s `prev`
+      property to ' +
+      'the current item'
+      s `prev`
+      property '
     )
 
     item = new Item()
@@ -672,7 +712,10 @@ test('Item [LinkedList.Item]', function(t) {
     list.append(item)
     item.detach()
 
-    st.equal(item.list, null, 'should set the item’s `list` property to `null`')
+    st.equal( item.list, null, 'should set the item'
+        s `list`
+        property to `null`
+        ')
 
     item = new Item()
     other = new Item()
@@ -682,7 +725,10 @@ test('Item [LinkedList.Item]', function(t) {
     list.append(item)
     item.detach()
 
-    st.equal(item.prev, null, 'should set the item’s `prev` property to `null`')
+    st.equal( item.prev, null, 'should set the item'
+        s `prev`
+        property to `null`
+        ')
 
     item = new Item()
     other = new Item()
@@ -692,7 +738,10 @@ test('Item [LinkedList.Item]', function(t) {
     list.append(other)
     item.detach()
 
-    st.equal(item.next, null, 'should set the item’s `next` property to `null`')
+    st.equal( item.next, null, 'should set the item'
+        s `next`
+        property to `null`
+        ')
 
     st.end()
   })

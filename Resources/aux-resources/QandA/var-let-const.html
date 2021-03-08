@@ -45,7 +45,9 @@
 <a class="sourceLine" id="cb2-5" title="5">  <span class="op">}</span>)</a>
 <a class="sourceLine" id="cb2-6" title="6"><span class="op">}</span></a></code></pre></div>
 <h5 id="const">const</h5>
-<p><code>const</code> was introduced in ES2015 and is the new preferred default way to declare all variables if they won’t be reassigned later, even for objects that will be mutated (as long as the reference to the object does not change). It is block-scoped and cannot be reassigned.</p>
+<p><code>const</code> was introduced in ES2015 and is the new preferred default way to declare all variables if they
+  won't be reassigned later, even for objects that will be mutated (as long as the reference to the object does not
+  change). It is block-scoped and cannot be reassigned.</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb3-1" title="1"><span class="kw">const</span> myObject <span class="op">=</span> <span class="op">{}</span></a>
 <a class="sourceLine" id="cb3-2" title="2"><span class="va">myObject</span>.<span class="at">prop</span> <span class="op">=</span> <span class="st">&quot;hello!&quot;</span> <span class="co">// No error</span></a>
 <a class="sourceLine" id="cb3-3" title="3">myObject <span class="op">=</span> <span class="st">&quot;hello&quot;</span> <span class="co">// Error</span></a></code></pre></div>

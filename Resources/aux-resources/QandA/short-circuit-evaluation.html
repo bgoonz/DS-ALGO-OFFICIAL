@@ -10,10 +10,11 @@
 <h4 id="answer">Answer</h4>
 <p>Short-circuit evaluation involves logical operations evaluating from left-to-right and stopping early.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">true</span> <span class="op">||</span> <span class="kw">false</span></a></code></pre></div>
-<p>In the above sample using logical OR, JavaScript won’t look at the second operand <code>false</code>, because the expression evaluates to <code>true</code> regardless. This is known as short-circuit evaluation.</p>
+<p>In the above sample using logical OR, JavaScript won't look at the second operand <code>false</code>, because the
+  expression evaluates to <code>true</code> regardless. This is known as short-circuit evaluation.</p>
 <p>This also works for logical AND.</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="kw">false</span> <span class="op">&amp;&amp;</span> <span class="kw">true</span></a></code></pre></div>
-<p>This means you can have an expression that throws an error if evaluated, and it won’t cause issues.</p>
+<p>This means you can have an expression that throws an error if evaluated, and it won't cause issues.</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb3-1" title="1"><span class="kw">true</span> <span class="op">||</span> <span class="at">nonexistentFunction</span>()</a>
 <a class="sourceLine" id="cb3-2" title="2"><span class="kw">false</span> <span class="op">&amp;&amp;</span> <span class="at">nonexistentFunction</span>()</a></code></pre></div>
 <p>This remains true for multiple operations because of left-to-right evaluation.</p>

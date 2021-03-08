@@ -22,7 +22,7 @@
   provided as an array (or an <a class="btn"
     href="chrome-extension://cjedbglnccaioiolemnfhjncicchinao/en-US/docs/Web/JavaScript/Guide/Indexed_collections#Working_with_array-like_objects">array-like
     object</a>).</p>
-<p>The source for this interactive example is stored in a GitHub repository. If you’d like to contribute to the
+<p>The source for this interactive example is stored in a GitHub repository. If you'd like to contribute to the
   interactive examples project, please clone <a class="btn"
     href="https://github.com/mdn/interactive-examples">https://github.com/mdn/interactive-examples</a> and send us a
   pull request.</p>
@@ -78,13 +78,14 @@ pre data-role="codeBlock" data-info="js" class="language-javascript"><code>func<
   <code>arguments</code> to pass all the arguments to the called object. The called object is then responsible for
   handling the arguments.
 </p>
-<p>Since ECMAScript 5th Edition, you can also use any kind of object which is array-like. In practice, this means it’s
-  going to have a <code>length</code> property, and integer (“index”) properties in the range
+<p>Since ECMAScript 5th Edition, you can also use any kind of object which is array-like. In practice, this means it's
+  going to have a <code>length</code> property, and integer ("index") properties in the range
   <code>(0..length - 1)</code>. For example, you could use a <a class="btn"
     href="chrome-extension://cjedbglnccaioiolemnfhjncicchinao/en-US/docs/Web/API/NodeList"><code>NodeList</code></a>, or
   a custom object like <code>{ 'length': 2, '0': 'eat', '1': 'bananas' }</code>.
 </p>
-<p><strong>Note:</strong> Many older browsers—including Chrome &lt;17 and Internet Explorer &lt;9—don’t accept array-like objects, and will throw an exception.</p>
+<p><strong>Note:</strong> Many older browsers—including Chrome &lt;17 and Internet Explorer &lt;9—don't accept
+  array-like objects, and will throw an exception.</p>
 <h2 id="examples">Examples</h2>
 <h3 id="using-apply-to-append-an-array-to-another">Using apply to append an array to another</h3>
 <p>You can use <code>push</code> to append an element to an array. And, because <code>push</code> accepts a variable number of arguments, you can also push multiple elements at once.</p>
@@ -119,7 +120,7 @@ for (let i = 0; i &lt; numbers.length; i++) {
     min = numbers[i];
   }
 }</code></pre>
-<p>But beware: by using <code>apply</code> this way, you run the risk of exceeding the JavaScript engine’s argument
+<p>But beware: by using <code>apply</code> this way, you run the risk of exceeding the JavaScript engine's argument
   length limit. The consequences of applying a function with too many arguments (that is, more than tens of thousands of
   arguments) varies across engines. (The JavaScriptCore engine has hard-coded <a class="btn"
     href="https://bugs.webkit.org/show_bug.cgi?id=80797">argument limit of 65536</a>.</p>
@@ -221,12 +222,13 @@ console.log(myInstance.constructor);              </code></pre>
 <td>[ECMAScript (ECMA-262)</td>
 </tr>
 <tr>
-<td>The definition of ‘Function.prototype.apply’ in that specification.](https://tc39.es/ecma262/#sec-function.prototype.apply)</td>
+<td>The definition of ‘Function.prototype.apply' in that
+  specification.](https://tc39.es/ecma262/#sec-function.prototype.apply)</td>
 </tr>
 </tbody>
 </table>
 <h2 id="browser-compatibility">Browser compatibility</h2>
-<p>The compatibility table on this page is generated from structured data. If you’d like to contribute to the data,
+<p>The compatibility table on this page is generated from structured data. If you'd like to contribute to the data,
   please check out <a class="btn"
     href="https://github.com/mdn/browser-compat-data">https://github.com/mdn/browser-compat-data</a> and send us a pull
   request.</p>
@@ -283,7 +285,8 @@ Thank you for helping.</p>
 <p>Please select the browser or browsers which are affected.</p>
 <p>Briefly outline the issue you are highlighting. Minimum 10 and maximum 1,000 characters.</p>
 <p>Browser documentation and release notes are good supporting items to accompany your message. A demo hosted on services like Codepen or JSBin are perfect for providing real examples of your findings.</p>
-<p>Connection error:Sorry, we can’t seem to reach the server. We are working to fix the problem. Please try again later.</p>
+<p>Connection error:Sorry, we can't seem to reach the server. We are working to fix the problem. Please try again later.
+</p>
 <h3 id="legend">Legend</h3>
 <p>Full support</p>
 <p>Full support</p>

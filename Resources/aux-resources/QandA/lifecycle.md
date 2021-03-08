@@ -2,7 +2,7 @@
 
 #### Answer
 
-There are four different phases of component’s lifecycle:
+There are four different phases of component's lifecycle:
 
 **Initialization**: In this phase, the component prepares setting up the initial state and default props.
 

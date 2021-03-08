@@ -13,7 +13,7 @@ function SearchArray (searchNum, ar) {
   }
 }
 
-// Search “theArray” for the specified “key” value
+// Search "theArray" for the specified "key" value
 function Search (theArray, key) {
   for (var n = 0; n < theArray.length; n++) {
     if (theArray[n] === key) { return n }

@@ -8,7 +8,10 @@
 <body>;
 <h3 id="what-is-debouncing">What is debouncing?</h3>
 <h4 id="answer">Answer</h4>
-<p>Debouncing is a process to add some delay before executing a function. It is commonly used with DOM event listeners to improve the performance of page. It is a technique which allow us to “group” multiple sequential calls in a single one. A raw DOM event listeners can easily trigger 20+ events per second. A debounced function will only be called once the delay has passed.</p>
+<p>Debouncing is a process to add some delay before executing a function. It is commonly used with DOM event listeners
+  to improve the performance of page. It is a technique which allow us to "group" multiple sequential calls in a single
+  one. A raw DOM event listeners can easily trigger 20+ events per second. A debounced function will only be called once
+  the delay has passed.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">const</span> debounce <span class="op">=</span> (func<span class="op">,</span> delay) <span class="kw">=&gt;</span> <span class="op">{</span> </a>
 <a class="sourceLine" id="cb1-2" title="2">  <span class="kw">let</span> debounceTimer<span class="op">;</span></a>
 <a class="sourceLine" id="cb1-3" title="3">  <span class="cf">return</span> <span class="kw">function</span>() <span class="op">{</span> </a>

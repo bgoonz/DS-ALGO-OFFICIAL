@@ -377,7 +377,9 @@ c]).then(values =&gt; {
 
 <p>If they all fulfil, the chained <code>.then()</code> block's executor function will be passed an array containing all those results as a parameter. If any of the promises passed to <code>Promise.all()</code> reject, the whole block will reject.</p>
 
-<p>This can be very useful. Imagine that we’re fetching information to dynamically populate a UI feature on our page with content. In many cases, it makes sense to receive all the data and only then show the complete content, rather than displaying partial information.</p>
+<p>This can be very useful. Imagine that we're fetching information to dynamically populate a UI feature on our page
+  with content. In many cases, it makes sense to receive all the data and only then show the complete content, rather
+  than displaying partial information.</p>
 
 <p>Let's build another example to show this in action.</p>
 
@@ -717,7 +719,10 @@ there!', 1000)
 
 <h2 id="Conclusion">Conclusion</h2>
 
-<p>Promises are a good way to build asynchronous applications when we don’t know the return value of a function or how long it will take to return. They make it easier to express and reason about sequences of asynchronous operations without deeply nested callbacks, and they support a style of error handling that is similar to the synchronous <code>try...catch</code> statement.</p>
+<p>Promises are a good way to build asynchronous applications when we don't know the return value of a function or how
+  long it will take to return. They make it easier to express and reason about sequences of asynchronous operations
+  without deeply nested callbacks, and they support a style of error handling that is similar to the synchronous
+  <code>try...catch</code> statement.</p>
 
 <p>Promises work in the latest versions of all modern browsers; the only place where promise support will be a problem is in Opera Mini and IE11 and earlier versions.</p>
 

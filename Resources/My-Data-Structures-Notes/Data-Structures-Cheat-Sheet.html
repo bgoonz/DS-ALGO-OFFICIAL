@@ -71,7 +71,7 @@
     <strong>value</strong>. Like graphs, the connection between nodes is called <strong>edges</strong>. A tree is a type
     of graph, but not all of them are trees (more on that later).
     </p>
-  <p>These data structures are called “trees” because the data structure resembles a tree 🌳. It starts with a
+  <p>These data structures are called "trees" because the data structure resembles a tree 🌳. It starts with a
     <strong>root</strong> node and <strong>branch</strong> off with its descendants, and finally, there are
     <strong>leaves</strong>.
     </p>
@@ -98,7 +98,7 @@
   <h3 id="implementing-a-simple-tree-data-structure"><a class="btn" href="#Implementing-a-simple-tree-data-structure"
       title="Implementing a simple tree data structure"></a>Implementing a simple tree data structure</h3>
   <p>As we saw earlier, a tree node is just a data structure that has a value and has links to their descendants.</p>
-  <p>Here’s an example of a tree node:</p>
+  <p>Here's an example of a tree node:</p>
   <table>
     <tbody>
       <tr>
@@ -137,11 +137,11 @@
       </tr>
     </tbody>
   </table>
-  <p>That’s all; we have a tree data structure!</p>
+  <p>That's all; we have a tree data structure!</p>
   <p><img src="chrome-extension://cjedbglnccaioiolemnfhjncicchinao/images/simpson2-tree.jpg"
       title="Simpson tree data structure"/></p>
   <p>The node <code>abe</code> is the <strong>root</strong> and <code>bart</code>, <code>lisa</code> and
-    <code>maggie</code> are the <strong>leaf</strong> nodes of the tree. Notice that the tree’s node can have a
+    <code>maggie</code> are the <strong>leaf</strong> nodes of the tree. Notice that the tree's node can have a
     different number of descendants: 0, 1, 3, or any other value.
     </p>
   <p>Tree data structures have many applications such as:</p>
@@ -158,7 +158,7 @@
     <li>Representing the Document Object Model (DOM) for HTML on Websites.</li>
   </ul>
   <h2 id="binary-trees"><a class="btn" href="#Binary-Trees" title="Binary Trees"></a>Binary Trees</h2>
-  <p>Trees nodes can have zero or more children. However, when a tree has at the most two children, then it’s called
+  <p>Trees nodes can have zero or more children. However, when a tree has at the most two children, then it's called
     <strong>binary tree</strong>.
     </p>
     <h3 id="full-complete-and-perfect-binary-trees"><a class="btn" href="#Full-Complete-and-Perfect-binary-trees"
@@ -184,7 +184,7 @@
     </li>
     <li>A complete tree is <strong>not</strong> always <code>full</code>.
       <ul>
-        <li>Like in our “complete” example, since it has a parent with only one child. If we remove the rightmost gray
+        <li>Like in our "complete" example, since it has a parent with only one child. If we remove the rightmost gray
           node, then we would have a <strong>complete</strong> and <strong>full</strong> tree but not perfect.</li>
       </ul>
     </li>
@@ -196,9 +196,9 @@
   <p>Binary Search Trees or BST for short are a particular application of binary trees. BST has at most two nodes (like
     all binary trees). However, the values are in such a way that the left children value must be less than the parent,
     and the right children is must be higher.</p>
-  <p><strong>Duplicates:</strong> Some BST doesn’t allow duplicates while others add the same values as a right child.
+  <p><strong>Duplicates:</strong> Some BST doesn't allow duplicates while others add the same values as a right child.
     Other implementations might keep a count on a case of the duplicity (we are going to do this one later).</p>
-  <p>Let’s implement a Binary Search Tree!</p>
+  <p>Let's implement a Binary Search Tree!</p>
   <h3 id="bst-implementation"><a class="btn" href="#BST-Implementation" title="BST Implementation"></a>BST
     Implementation
   </h3>
@@ -209,7 +209,7 @@
     <li>Nodes can have at most, only two children: left and right.</li>
     <li>Nodes values has to be ordered as <code>left &lt; parent &lt; right</code>.</li>
   </ul>
-  <p>Here’s the tree node. Very similar to what we did before, but we added some handy getters and setters for left and
+  <p>Here's the tree node. Very similar to what we did before, but we added some handy getters and setters for left and
     right children. Notice that is also keeping a reference to the parent and we update it every time add children.</p>
   <p>TreeNode.js<a
       href="https://github.com/amejiarosario/dsa.js/blob/master/src/data-structures/trees/tree-node.js">Code</a></p>
@@ -240,7 +240,7 @@
       </tr>
     </tbody>
   </table>
-  <p>Ok, so far we can add a left and right child. Now, let’s do the BST class that enforces the
+  <p>Ok, so far we can add a left and right child. Now, let's do the BST class that enforces the
     <code>left &lt; parent &lt; right</code> rule.
     </p>
   <p>BinarySearchTree.js linkUrl linkText</p>
@@ -262,20 +262,20 @@
       </tr>
     </tbody>
   </table>
-  <p>Let’s implementing insertion.</p>
+  <p>Let's implementing insertion.</p>
   <h3 id="bst-node-insertion"><a class="btn" href="#BST-Node-Insertion" title="BST Node Insertion"></a>BST Node
     Insertion
   </h3>
   <p>To insert a node in a binary tree, we do the following:</p>
   <ol type="1">
     <li>If a tree is empty, the first node becomes the <strong>root</strong> and you are done.</li>
-    <li>Compare root/parent’s value if it’s <em>higher</em> go <strong>right</strong>, if it’s <em>lower</em> go
-      <strong>left</strong>. If it’s the same, then the value already exists so you can increase the duplicate count
+    <li>Compare root/parent's value if it's <em>higher</em> go <strong>right</strong>, if it's <em>lower</em> go
+      <strong>left</strong>. If it's the same, then the value already exists so you can increase the duplicate count
       (multiplicity).
       </li>
     <li>Repeat #2 until we found an empty slot to insert the new node.</li>
   </ol>
-  <p>Let’s do an illustration how to insert 30, 40, 10, 15, 12, 50:</p>
+  <p>Let's do an illustration how to insert 30, 40, 10, 15, 12, 50:</p>
   <p><img src="chrome-extension://cjedbglnccaioiolemnfhjncicchinao/images/bst2.gif"
       title="Inserting nodes on a Binary Search Tree (BST)"/></p>
   <p>We can implement insert as follows:</p>
@@ -306,7 +306,7 @@
     </tbody>
   </table>
   <p>We are using a helper function called <code>findNodeAndParent</code>. If we found that the node already exists in
-    the tree, then we increase the <code>multiplicity</code> counter. Let’s see how this function is implemented:</p>
+    the tree, then we increase the <code>multiplicity</code> counter. Let's see how this function is implemented:</p>
   <p>BinarySearchTree.prototype.findNodeAndParent<a
       href="https://github.com/amejiarosario/dsa.js/blob/master/src/data-structures/trees/binary-search-tree.js#L44">Full
       Code</a></p>
@@ -331,13 +331,13 @@
   </table>
   <p><code>findNodeAndParent</code> goes through the tree searching for the value. It starts at the root (line 2) and
     then goes left or right based on the value (line 10). If the value already exists, it will return the node
-    <code>found</code> and also the parent. In case that the node doesn’t exist, we still return the
+    <code>found</code> and also the parent. In case that the node doesn't exist, we still return the
     <code>parent</code>.
     </p>
     <h3 id="bst-node-deletion"><a class="btn" href="#BST-Node-Deletion" title="BST Node Deletion"></a>BST Node Deletion
     </h3>
-  <p>We know how to insert and search for value. Now, we are going to implement the delete operation. It’s a little
-    trickier than adding, so let’s explain it with the following cases:</p>
+  <p>We know how to insert and search for value. Now, we are going to implement the delete operation. It's a little
+    trickier than adding, so let's explain it with the following cases:</p>
   <p><strong>Deleting a leaf node (0 children)</strong></p>
   <table>
     <tbody>
@@ -355,7 +355,7 @@
       </tr>
     </tbody>
   </table>
-  <p>We just remove the reference from node’s parent (15) to be null.</p>
+  <p>We just remove the reference from node's parent (15) to be null.</p>
   <p><strong>Deleting a node with one child.</strong></p>
   <table>
     <tbody>
@@ -373,7 +373,7 @@
       </tr>
     </tbody>
   </table>
-  <p>In this case, we go to the parent (30) and replace the child (10), with a child’s child (15).</p>
+  <p>In this case, we go to the parent (30) and replace the child (10), with a child's child (15).</p>
   <p><strong>Deleting a node with two children</strong></p>
   <table>
     <tbody>
@@ -390,8 +390,8 @@
       </tr>
     </tbody>
   </table>
-  <p>We are removing node 40, that has two children (35 and 50). We replace the parent’s (30) child (40) with the
-    child’s right child (50). Then we keep the left child (35) in the same place it was before, so we have to make it
+  <p>We are removing node 40, that has two children (35 and 50). We replace the parent's (30) child (40) with the
+    child's right child (50). Then we keep the left child (35) in the same place it was before, so we have to make it
     the left child of 50.</p>
   <p>Another way to do it to remove node 40, is to move the left child (35) up and then keep the right child (50) where
     it was.</p>
@@ -429,11 +429,11 @@
   </table>
   <p>Deleting the root is very similar to removing nodes with 0, 1, or 2 children that we discussed earlier. The only
     difference is that afterward, we need to update the reference of the root of the tree.</p>
-  <p>Here’s an animation of what we discussed.</p>
+  <p>Here's an animation of what we discussed.</p>
   <p><img src="chrome-extension://cjedbglnccaioiolemnfhjncicchinao/images/bst-remove.gif"
       title="Removing a node with 0, 1, 2 children from a binary search tree"/></p>
   <p>In the animation, it moves up the left child/subtree and keeps the right child/subtree in place.</p>
-  <p>Now that we have a good idea how it should work, let’s implement it:</p>
+  <p>Now that we have a good idea how it should work, let's implement it:</p>
   <p>BinarySearchTree.prototype.remove<a
       href="https://github.com/amejiarosario/dsa.js/blob/master/src/data-structures/trees/binary-search-tree.js#L89">Full
       Code</a></p>
@@ -465,7 +465,7 @@
   </table>
   <p>Here are some highlights of the implementation:</p>
   <ul>
-    <li>First, we search if the node exists. If it doesn’t, we return false and we are done!</li>
+    <li>First, we search if the node exists. If it doesn't, we return false and we are done!</li>
     <li>If the node to remove exists, then combine left and right children into one subtree.</li>
     <li>Replace node to delete with the combined subtree.</li>
   </ul>
@@ -491,8 +491,8 @@
       </tr>
     </tbody>
   </table>
-  <p>For instance, let’s say that we want to combine the following tree and we are about to delete node <code>30</code>.
-    We want to mix 30’s left subtree into the right one. The result is this:</p>
+  <p>For instance, let's say that we want to combine the following tree and we are about to delete node <code>30</code>.
+    We want to mix 30's left subtree into the right one. The result is this:</p>
   <table>
     <tbody>
       <tr>
@@ -520,7 +520,7 @@
       href="chrome-extension://cjedbglnccaioiolemnfhjncicchinao/blog/2018/05/14/Data-Structures-for-Beginners-Graphs-Time-Complexity-tutorial/#Breadth-frirst-search-BFS-Graph-search">BFS</a>
     that we learned from the <a
       href="chrome-extension://cjedbglnccaioiolemnfhjncicchinao/blog/2018/05/14/Data-Structures-for-Beginners-Graphs-Time-Complexity-tutorial/">graph
-      post.</a> Let’s go through each one.</p>
+      post.</a> Let's go through each one.</p>
   <p><strong>In-Order Traversal</strong></p>
   <p>In-order traversal visit nodes on this order: left, parent, right.</p>
   <p>BinarySearchTree.prototype.inOrderTraversal<a
@@ -544,7 +544,7 @@
       </tr>
     </tbody>
   </table>
-  <p>Let’s use this tree to make the example:</p>
+  <p>Let's use this tree to make the example:</p>
   <table>
     <tbody>
       <tr>
@@ -663,8 +663,8 @@
   <h2 id="balanced-vs.-non-balanced-trees"><a class="btn" href="#Balanced-vs-Non-balanced-Trees"
       title="Balanced vs. Non-balanced Trees"></a>Balanced vs. Non-balanced Trees</h2>
   <p>So far, we have discussed how to <code>add</code>, <code>remove</code> and <code>find</code> elements. However, we
-    haven’t talked about runtimes. Let’s think about the worst-case scenarios.</p>
-  <p>Let’s say that we want to add numbers in ascending order.</p>
+    haven't talked about runtimes. Let's think about the worst-case scenarios.</p>
+    <p>Let's say that we want to add numbers in ascending order.</p>
   <p><img src="chrome-extension://cjedbglnccaioiolemnfhjncicchinao/images/bst-asc.gif"
       title="Inserting values in ascending order in a Binary Search Tree"/></p>
   <p>We will end up with all the nodes on the left side! This unbalanced tree is no better than a LinkedList, so finding
@@ -674,13 +674,13 @@
     depending on the alphabet and the word you are looking for.</p>
   <p>We need to find a way to balance the tree!</p>
   <p>If the tree was <strong>balanced</strong>, then we could find elements in <em>O(log n)</em> instead of going
-    through each node. Let’s talk about what balanced tree means.</p>
+    through each node. Let's talk about what balanced tree means.</p>
   <p><img src="chrome-extension://cjedbglnccaioiolemnfhjncicchinao/images/balanced-vs-non-balanced-tree.jpg"
       title="Balanced vs unbalanced Tree"/></p>
   <p>If we are searching for <code>7</code> in the non-balanced tree, we have to go from 1 to 7. However, in the
     balanced tree, we visit: <code>4</code>, <code>6</code>, and <code>7</code>. It gets even worse with larger trees.
     If you have one million nodes, searching for a non-existing element might require to visit all million while on a
-    balanced tree it just requires 20 visits! That’s a huge difference!</p>
+    balanced tree it just requires 20 visits! That's a huge difference!</p>
   <p>We are going to solve this issue in the next post using self-balanced trees (AVL trees).</p>
   <h2 id="big-o-notation">Big O Notation</h2>
   <h3 id="time-complexity">time complexity</h3>
@@ -704,7 +704,7 @@
     <a id=-2" title="2"> <span>return</span> (n <span>*</span> (n <span>+</span> <span>1</span>)) / <span>2;</span></a>
     <a id=-3" title="3"><span>}</span></a></code></pre>
   </div>
-  <p>O(n): maybe thinking O(2n) but we see big picture! BigONotation doesn’t care about precision only about general
+  <p>O(n): maybe thinking O(2n) but we see big picture! BigONotation doesn't care about precision only about general
     trends <em>linear? quadric? constant?</em></p>
   <div id=">pre data-role=" codeBlock" data-info="js" class="language-javascript"><code><a   title=" 1"><span>function</span> <span>printUpAndDown</span>(n<span>:</span> number)
     <span>{</span></a>
@@ -931,7 +931,7 @@
   </div>
   <h2 id="sorting-algorithms">Sorting Algorithms</h2>
   <h3 id="array.sort">array.sort()</h3>
-  <p>array.sort(cb) will turn all values to <em>string</em> then sort it based on it’s <em>unicode</em></p>
+  <p>array.sort(cb) will turn all values to <em>string</em> then sort it based on it's <em>unicode</em></p>
   <div id=6">
     pre data-role="codeBlock" data-info="js" class="language-javascript"><code><a  id=6-1" title="1">[<span >&quot;a&quot;,</span> <span >&quot;c&quot;,</span> <span >&quot;b&quot;,</span> <span >&quot;f&quot;,</span> <span >&quot;d&quot;</span>].<span >sort</span>()<span >;</span> <span >// (5) [&quot;a&quot;, &quot;b&quot;, &quot;c&quot;, &quot;d&quot;, &quot;f&quot;]</span></a>
 <a  id=6-2" title="2">[<span >1,</span> <span >10,</span> <span >6,</span> <span >8,</span> <span >2,</span> <span >3,</span> <span >5</span>].<span >sort</span>()<span >;</span> <span >//(7) [1, 10, 2, 3, 5, 6, 8]</span></a>
@@ -1967,7 +1967,7 @@
   <p><strong>depth-first take up more space.</strong></p>
   <hr />
   <p><strong>potentially use cases for dfs variants (<em>preOder postOrder inOrder</em>)</strong> preOrder is useful
-    when we want a clone of tree. inOrder is useful when we want data in order that it’s stored in tree.</p>
+    when we want a clone of tree. inOrder is useful when we want data in order that it's stored in tree.</p>
   <h2 id="binary-heaps">Binary heaps</h2>
   <h3 id="terminology-1">terminology</h3>
   <ul>
@@ -2544,7 +2544,7 @@
 <a  id=5-121" title="121">    <span >}</span></a>
 <a  id=5-122" title="122"><span >}</span></a></code></pre>
   </div>
-  <h2 id="dijkstras-shortest-path-firt-algorithms">Dijkstra’s Shortest path firt Algorithms</h2>
+  <h2 id="dijkstras-shortest-path-firt-algorithms">Dijkstra's Shortest path firt Algorithms</h2>
   <p>Finding shortest path between two vertices in a <strong>weighted graph</strong>.</p>
   <p><img src="./assets/Dijkstra_Animation.gif" /></p>
   <div id=6">
@@ -2671,11 +2671,11 @@
 <a  id=6-121" title="121"><span >}</span></a></code></pre>
   </div>
   <h2 id="dynamic-programming-light-introduction">Dynamic Programming (light introduction)</h2>
-  <p>It’s a method for solving a complex problems by breaking it down into a collection of simpler problems, solving
+  <p>It's a method for solving a complex problems by breaking it down into a collection of simpler problems, solving
     their subProblems <strong>once</strong> and <strong>storing</strong> their solutions. <em>technically it using
       knowledge of last problems to solve next by memorization</em></p>
   <h3 id="example-fibonacci-sequence">example Fibonacci sequence</h3>
-  <p>Let’s implement it without dynamic programming:without dynamic programming:</p>
+  <p>Let's implement it without dynamic programming:without dynamic programming:</p>
   <p><strong><em>in fibonacci sequence fib(n) = fib(n-2) + fib(n-1) &amp;&amp; fin(1) = 1 &amp;&amp; fib(2) =
         1</em></strong></p>
   <p><strong>O(2^n)</strong></p>

@@ -169,7 +169,9 @@ setTimeout(function run() {
  <li>With <code>setInterval()</code>, the interval we choose <em>includes</em> the time taken to execute the code we want to run in. Let's say that the code takes 40 milliseconds to run — the interval then ends up being only 60 milliseconds.</li>
 </ul>
 
-<p>When your code has the potential to take longer to run than the time interval you’ve assigned, it’s better to use recursive <code>setTimeout()</code> — this will keep the time interval constant between executions regardless of how long the code takes to execute, and you won't get errors.</p>
+<p>When your code has the potential to take longer to run than the time interval you've assigned, it's better to use
+  recursive <code>setTimeout()</code> — this will keep the time interval constant between executions regardless of how
+  long the code takes to execute, and you won't get errors.</p>
 
 <h3 id="Browser_compatibility_2">Browser compatibility</h3>
 
@@ -583,7 +585,7 @@ myFetch();</pre>
 <li>Browser support for async/await is not as good as that for promises. If you want to use async/await but are
   concerned about older browser support, you could consider using the <a class="btn"
     href="https://babeljs.io/">BabelJS</a> library — this allows you to write your applications using the latest
-  JavaScript and let Babel figure out what changes if any are needed for your user’s browsers.</li>
+  JavaScript and let Babel figure out what changes if any are needed for your user's browsers.</li>
 </ul>
 
 <h3 id="Browser_compatibility_7">Browser compatibility</h3>

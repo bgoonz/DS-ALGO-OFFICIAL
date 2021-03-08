@@ -10,7 +10,7 @@ There are two main syntactic categories in JavaScript: expressions and statement
 
 A general rule of thumb:
 
-> If you can print it or assign it to a variable, it’s an expression. If you can’t, it’s a statement.
+> If you can print it or assign it to a variable, it's an expression. If you can't, it's a statement.
 
 ##### Statements
 

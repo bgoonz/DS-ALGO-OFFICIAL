@@ -15,7 +15,7 @@ Due to hoisting, the local variable `foo` is declared before the `console.log` m
 
 #### Good to hear
 
-* Hoisting is JavaScript’s default behavior of moving declarations to the top
+* Hoisting is JavaScript's default behavior of moving declarations to the top
 * Mention of `strict` mode
 
 ##### Additional links
