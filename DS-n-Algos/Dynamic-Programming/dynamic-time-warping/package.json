@@ -3,6 +3,9 @@
   "version": "0.0.1",
   "description": "Dynamic time warping",
   "main": "index.js",
+  "dependencies": {
+  "mustache": ">=2.2.1"
+},
   "devDependencies": {
     "jsdox": "*",
     "mocha": "*",
