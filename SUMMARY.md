@@ -1,4 +1,4 @@
 # Table of contents
 
-* [directory](README.md)
+* [Wiki](README.md)
 
