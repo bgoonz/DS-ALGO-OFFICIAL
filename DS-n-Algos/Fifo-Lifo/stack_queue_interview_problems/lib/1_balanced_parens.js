@@ -52,9 +52,9 @@
 // Example 2: Parentheses + Text
 // -----------------------------
 //
-// balancedParens('let x = Math.floor(2.5)');             => true
-// balancedParens('let y = (((x + 5)/6) + 2*(x + 10))');  => true
-// balancedParens('let z = ()(x + 5)/6) + 2*(x + 10))');  => false
+// balancedParens('var x = Math.floor(2.5)');             => true
+// balancedParens('var y = (((x + 5)/6) + 2*(x + 10))');  => true
+// balancedParens('var z = ()(x + 5)/6) + 2*(x + 10))');  => false
 //
 // -----------------------
 // Example 3: All Brackets
@@ -75,63 +75,78 @@
 // -----------
 // Let's code!
 // -----------
-// function balancedParens(str) {
-//   // let leftParens,
-//   //   rightParens,
-//   //   leftBrackets,
-//   //   rightBrackets = 0;
-//   let leftParens = 0;
-//   let rightParens = 0;
-//   let leftBrackets = 0;
-//   let rightBrackets = 0;
-//   let rightCurlies = 0;
-//   let leftCurlies = 0;
-//   const arr = str.split('');
-//   for (let i = 0; i < arr.length; i++) {
-//     if (arr[i] === '(') leftParens++;
-//     else if (arr[i] === ')') rightParens++;
-//     else if (arr[i] === '[') leftBrackets++;
-//     else if (arr[i] === ']') rightBrackets++;
-//     else if (arr[i] === '{') leftCurlies++;
-//     else if (arr[i] === '}') rightCurlies++;
-//     if (
-//       rightParens > leftParens ||
-//       rightBrackets > leftBrackets ||
-//       rightCurlies > leftCurlies
-//     ) {
-//       return false;
-//     }
-//   }
-
-//   if (
-//     leftParens === rightParens &&
-//     leftBrackets === rightBrackets &&
-//     leftCurlies === rightCurlies
-//   ) {
-//     return true;
-//   }
-//   return false;
-// }
-
 function balancedParens(str) {
-  const stack = [];
-  const pairs = {
-    '(': ')',
-    '[': ']',
-    '{': '}'
-  };
+	const stack = new Stack();
 
-  for (let i = 0; i < str.length; i++) {
-    let char = str[i];
-    if (pairs[char]) {
-      stack.push(char);
-    } else if (char === ')' || char === ']' || char === '}') {
-      if (pairs[stack.pop()] !== char) {
-        return false;
-      }
-    }
-  }
-  return stack.length === 0;
+	for (let i = 0; i < str.length; i++) {
+		const char = str.charAt(i);
+		if (char === '(' || char === '[' || char === '{') {
+			stack.push(char);
+		} else if (char === ')') {
+			if (stack.length && stack.top.value === '(') {
+				stack.pop();
+			} else {
+				return false;
+			}
+		} else if (char === ']') {
+			if (stack.length && stack.top.value === '[') {
+				stack.pop();
+			} else {
+				return false;
+			}
+		} else if (char === '}') {
+			if (stack.length && stack.top.value === '{') {
+				stack.pop();
+			} else {
+				return false;
+			}
+		}
+	}
+
+	return !stack.length;
+}
+
+class Node {
+	constructor(val) {
+		this.value = val;
+		this.next = null;
+	}
+}
+
+class Stack {
+	constructor() {
+		this.top = null;
+		this.bottom = null;
+		this.length = 0;
+	}
+
+	push(val) {
+		const newNode = new Node(val);
+		if (this.length) {
+			newNode.next = this.top;
+		} else {
+			this.bottom = newNode;
+		}
+		this.top = newNode;
+		this.length++;
+		return this.length;
+	}
+
+	pop() {
+		if (!this.length) return null;
+		const popped = this.top.value;
+		this.top = this.top.next;
+		this.length--;
+		if (!this.length) {
+			this.top = null;
+			this.bottom = null;
+		}
+		return popped;
+	}
+
+	size() {
+		return this.length;
+	}
 }
 
 exports.balancedParens = balancedParens;

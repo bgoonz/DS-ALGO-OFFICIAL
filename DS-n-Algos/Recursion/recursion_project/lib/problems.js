@@ -17,9 +17,10 @@
 // lucasNumber(5)   // => 11
 // lucasNumber(9)   // => 76
 function lucasNumber(n) {
-  if (n === 0) return 2;
-  if (n === 1) return 1;
-  return lucasNumber(n - 1) + lucasNumber(n - 2);
+	if (n === 0) return 2;
+	if (n === 1) return 1;
+
+	return lucasNumber(n - 1) + lucasNumber(n - 2);
 }
 
 // Write a function, sumArray(array), that takes in an array of numbers.
@@ -34,8 +35,9 @@ function lucasNumber(n) {
 // sumArray([5, 2])         // => 7
 // sumArray([4, 10, -1, 2]) // => 15
 function sumArray(array) {
-  if (!array.length) return 0;
-  return array[0] + sumArray(array.slice(1));
+	if (array.length === 0) return 0;
+
+	return sumArray(array.slice(1)) + array[0];
 }
 
 // Write a function, reverseString(str), that takes in a string.
@@ -50,8 +52,9 @@ function sumArray(array) {
 // reverseString("internet")    // => "tenretni"
 // reverseString("friends")     // => "sdneirf"
 function reverseString(str) {
-  if (!str.length) return '';
-  return reverseString(str.slice(1)) + str[0];
+	if (str.length <= 1) return str;
+
+	return reverseString(str.slice(1)) + str[0];
 }
 
 // Write a function, pow(base, exponent), that takes in two numbers.
@@ -71,12 +74,10 @@ function reverseString(str) {
 // pow(3, 4)    // => 81
 // pow(2, -5)   // => 0.03125
 function pow(base, exponent) {
-  if (exponent === 0) return 1;
-  if (exponent > 0) {
-    return base * pow(base, exponent - 1);
-  } else {
-    return 1 / (base * pow(base, -exponent - 1));
-  }
+	if (exponent === 0) return 1;
+	if (exponent < 0) return 1 / pow(base, -1 * exponent - 1) / base;
+
+	return base * pow(base, exponent - 1);
 }
 
 // A 1-dimensional array is also known as a flattened array.
@@ -108,13 +109,13 @@ function pow(base, exponent) {
 //     2-dimensional array: [['some data']]
 //     3-dimensional array: [[['some data']]]
 function flatten(data) {
-  if (!(data instanceof Array)) return [data];
-  let result = [];
-  data.forEach(el => {
-    let flattened = flatten(el);
-    result.push(...flattened);
-  });
-  return result;
+	if (!(data instanceof Array)) return [data];
+
+	const flattened = [];
+	for (let i = 0; i < data.length; i++) {
+		flattened.push(...flatten(data[i]));
+	}
+	return flattened;
 }
 
 // Write a function, fileFinder(directories, targetFile), that accepts an object representing directories and a string respresenting a filename.
@@ -157,12 +158,23 @@ function flatten(data) {
 // fileFinder(desktop, 'everlong.flac');            // => true
 // fileFinder(desktop, 'sequoia.jpeg');             // => false
 function fileFinder(directories, targetFile) {
-  for (let key in directories) {
-    if (key === targetFile || fileFinder(directories[key], targetFile)) {
-      return true;
-    }
-  }
-  return false;
+	const keys = Object.keys(directories);
+	if (keys.includes(targetFile)) return true;
+
+	let found = false;
+	keys.some(key => {
+		found = directories[key] instanceof Object ? fileFinder(directories[key], targetFile) : false;
+		if (found) return true;
+	});
+	return found;
+
+	// aA Solution
+	// for(let key in directories) {
+	// 	if(key === targetFile || fileFinder(directories[key], targetFile)){
+	// 		return true;
+	// 	}
+	// }
+	// return false;
 }
 
 // Write another function, pathFinder(directories, targetFile), that returns the path that contains the targetFile.
@@ -175,23 +187,23 @@ function fileFinder(directories, targetFile) {
 // pathFinder(desktop, 'everlong.flac'));       // => '/music/genres/rock/everlong.flac'
 // pathFinder(desktop, 'honeybadger.png'));     // => null
 function pathFinder(directories, targetFile) {
-  for (let key in directories) {
-    if (key === targetFile) return `/${targetFile}`;
-    let subdir = directories[key];
-    let path = pathFinder(subdir, targetFile);
-    if (path) {
-      return key + path;
-    }
-  }
-  return null;
+	for (let key in directories) {
+		if (key === targetFile) {
+			return `/${key}`;
+		} else {
+			const path = pathFinder(directories[key], targetFile);
+			if (path) return key + path;
+		}
+	}
+	return null;
 }
 
 module.exports = {
-  lucasNumber,
-  sumArray,
-  reverseString,
-  pow,
-  flatten,
-  fileFinder,
-  pathFinder
+	lucasNumber,
+	sumArray,
+	reverseString,
+	pow,
+	flatten,
+	fileFinder,
+	pathFinder
 };

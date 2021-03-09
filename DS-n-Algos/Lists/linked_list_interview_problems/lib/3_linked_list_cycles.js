@@ -11,12 +11,12 @@
 //
 // ------------
 // Constraints:
-// ------------ 
+// ------------
 //
 // (1) Your function must run in linear time, O(n).
 // (2) Your function must use constant space, O(1).
 // (3) Do not mutate the linked list or it's nodes in any way.
-// 
+//
 // ------------
 // Explanation:
 // ------------
@@ -24,9 +24,9 @@
 // In general, we assume that a linked list is said to "terminate" at it's tail.
 // This means that the linked list's tail should have a next pointer that points
 // to null. For example:
-// 
+//
 //                           A → B → C → D → E → null
-// 
+//
 // A "cycle" occurs when there exists a node in the list whose next pointer
 // points to a node that appeard previously in the list. Traversing a cyclical
 // list results in an infinite loop, where one visits the same nodes (those
@@ -41,7 +41,7 @@
 //                         A → B → C
 //                             ↑   ↓
 //                             E ← D
-// 
+//
 // const linkedList = new LinkedList();
 // let secondNode;
 //
@@ -60,52 +60,60 @@
 // Let's code!
 // -----------
 function hasCycle(linkedList) {
-  // TODO: Implement the hasCycle function!
-
+	// TODO: Implement the hasCycle function!
+	let full = linkedList.head;
+	let half = linkedList.head;
+	let move = false;
+	while (full) {
+		full = full.next;
+		half = move ? half.next : half;
+		move = !move;
+		if (full === half) return true;
+	}
+	return false;
 }
-
 
 // ----------------------------------------
 // Given: Singly Linked List - Do Not Edit!
 // ----------------------------------------
 class Node {
-  constructor(val) {
-    this.value = val;
-    this.next = null;
-  }
+	constructor(val) {
+		this.value = val;
+		this.next = null;
+	}
 }
 
 class LinkedList {
-  constructor() {
-    this.head = null;
-    this.tail = null;
-    this.length = 0;
-  }
+	constructor() {
+		this.head = null;
+		this.tail = null;
+		this.length = 0;
+	}
 
-  addToTail(val) {
-    const newNode = new Node(val);
+	addToTail(val) {
+		const newNode = new Node(val);
 
-    if (!this.head) {
-      this.head = newNode;
-    } else {
-      this.tail.next = newNode;
-    }
+		if (!this.head) {
+			this.head = newNode;
+		} else {
+			this.tail.next = newNode;
+		}
 
-    this.tail = newNode;
-    this.length++;
-    return this;
-  }
+		this.tail = newNode;
+		this.length++;
+		return this;
+	}
 
-  get(index) {
-    if (index < 0 || index >= this.length) return null;
-    let counter = 0;
-    let current = this.head;
-    while (counter !== index) {
-      current = current.next;
-      counter++;
-    }
-    return current;
-  }
+	get(index) {
+		if (index < 0 || index >= this.length) return null;
+		let counter = 0;
+		let current = this.head;
+		while (counter !== index) {
+			current = current.next;
+			counter++;
+		}
+		return current;
+	}
 }
 
 exports.Node = Node;

@@ -10,7 +10,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Bryan Guner",
+  "author": "",
   "license": "ISC",
   "dependencies": {
     "chai": "^4.2.0",

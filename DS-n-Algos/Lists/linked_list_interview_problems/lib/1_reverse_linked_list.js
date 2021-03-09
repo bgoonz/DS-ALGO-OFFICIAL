@@ -61,54 +61,56 @@
 // Let's code!
 // -----------
 function reverseLinkedList(linkedList) {
-  // TODO: Implement the reverseLinkedList function!
-  let node = linkedList.head;
-  let first = node;
-  let next,
-    prev = null;
-  while ((next = node.next)) {
-    // next = node.next;
-    node.next = prev;
-    prev = node;
-    node = next;
-  }
-  linkedList.head = node;
-  linkedList.head.next = prev;
-  linkedList.tail = first;
+	// TODO: Implement the reverseLinkedList function!
+	const newTail = linkedList.head;
+	const newHead = linkedList.tail;
+	let curNode = newTail;
+	let prevNode = null;
+	let nextNode = newTail.next;
+	while (nextNode) {
+		curNode.next = prevNode;
+		prevNode = curNode;
+		curNode = nextNode;
+		nextNode = curNode.next;
+	}
+	curNode.next = prevNode;
+	linkedList.head = newHead;
+	linkedList.tail = newTail;
+	linkedList.tail.next = null;
 
-  return linkedList;
+	return linkedList;
 }
 
 // ----------------------------------------
 // Given: Singly Linked List - Do Not Edit!
 // ----------------------------------------
 class Node {
-  constructor(val) {
-    this.value = val;
-    this.next = null;
-  }
+	constructor(val) {
+		this.value = val;
+		this.next = null;
+	}
 }
 
 class LinkedList {
-  constructor() {
-    this.head = null;
-    this.tail = null;
-    this.length = 0;
-  }
+	constructor() {
+		this.head = null;
+		this.tail = null;
+		this.length = 0;
+	}
 
-  addToTail(val) {
-    const newNode = new Node(val);
+	addToTail(val) {
+		const newNode = new Node(val);
 
-    if (!this.head) {
-      this.head = newNode;
-    } else {
-      this.tail.next = newNode;
-    }
+		if (!this.head) {
+			this.head = newNode;
+		} else {
+			this.tail.next = newNode;
+		}
 
-    this.tail = newNode;
-    this.length++;
-    return this;
-  }
+		this.tail = newNode;
+		this.length++;
+		return this;
+	}
 }
 
 exports.Node = Node;
