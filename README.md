@@ -4,4 +4,7 @@
 
 [Navigation](https://amazing-mccarthy-aa9929.netlify.app/directory.html)
 
-[npm...just experimenting with my first publish.... not a real package](https://www.npmjs.com/package/ds-algo-study)
+[npm](https://www.npmjs.com/package/ds-algo-study)
+
+
+[![HitCount](http://hits.dwyl.com/{username}/{project}.svg)](http://hits.dwyl.com/{username}/{project})
