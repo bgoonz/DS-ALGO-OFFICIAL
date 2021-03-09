@@ -348,7 +348,7 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 
 
-``````
+```
 .
 ├── DS-n-Algos
 │   ├── 0-TESTING-RESOURCES
@@ -378,6 +378,9 @@ Distributed under the MIT License. See `LICENSE` for more information.
 │   │   ├── memoization_project
 │   │   │   ├── lib
 │   │   │   └── test
+│   │   ├── radix_sort_project
+│   │   │   ├── lib
+│   │   │   └── test
 │   │   └── tabulation_project
 │   │       ├── lib
 │   │       └── test
@@ -385,6 +388,7 @@ Distributed under the MIT License. See `LICENSE` for more information.
 │   │   ├── 53-max-subArr
 │   │   ├── All Unique
 │   │   │   └── test
+│   │   ├── Array
 │   │   ├── Array-Flatten
 │   │   ├── Intersection
 │   │   ├── Transpose-2-d-array
@@ -405,18 +409,27 @@ Distributed under the MIT License. See `LICENSE` for more information.
 │   │   │   └── sum-avg
 │   │   ├── resize-array
 │   │   └── stringify-arr
-│   ├── Binary-Search-Trees
-│   │   ├── Binary-Search-Tree
-│   │   ├── advanced
-│   │   ├── leetcode-450-delete-bst-node
-│   │   └── leetcode108-sorted-arr-2-bst
 │   ├── Binary-Trees
 │   │   ├── 105-construct-b-tree
 │   │   ├── leetcode110-balanced-bin-tree
 │   │   └── tree_order_project
 │   │       ├── lib
 │   │       └── test
+│   ├── Dynamic-Programming
+│   │   ├── dynamic-time-warping
+│   │   │   ├── doc
+│   │   │   │   └── api
+│   │   │   ├── lib
+│   │   │   │   └── distanceFunctions
+│   │   │   ├── ms
+│   │   │   └── tests
+│   │   ├── popular-problems
+│   │   └── tabulation_project
+│   │       ├── lib
+│   │       └── test
 │   ├── Fifo-Lifo
+│   │   ├── Queue
+│   │   ├── Stack
 │   │   ├── queue_project
 │   │   │   ├── lib
 │   │   │   └── test
@@ -433,6 +446,8 @@ Distributed under the MIT License. See `LICENSE` for more information.
 │   │   ├── is-valid-file-name
 │   │   └── recursive-read-folder
 │   ├── Graphs
+│   │   ├── Graph
+│   │   │   └── basic
 │   │   ├── advanced
 │   │   ├── bonus-graph-project
 │   │   │   ├── lib
@@ -448,7 +463,9 @@ Distributed under the MIT License. See `LICENSE` for more information.
 │   │       └── test
 │   ├── Hash-Table
 │   │   └── advanced
+│   ├── Heap
 │   ├── Lists
+│   │   ├── Linked-List
 │   │   ├── advanced
 │   │   ├── linked_list_interview_problems
 │   │   │   ├── lib
@@ -458,14 +475,32 @@ Distributed under the MIT License. See `LICENSE` for more information.
 │   │       └── test
 │   ├── Misc
 │   │   ├── console.table
+│   │   ├── data-structures-html-spec-runner
+│   │   │   ├── lib
+│   │   │   │   ├── chai
+│   │   │   │   ├── jquery
+│   │   │   │   ├── mocha
+│   │   │   │   ├── require
+│   │   │   │   └── underscore
+│   │   │   ├── sprint-one
+│   │   │   │   ├── spec
+│   │   │   │   └── src
+│   │   │   │       ├── functional
+│   │   │   │       ├── functional-shared
+│   │   │   │       ├── prototypal
+│   │   │   │       └── pseudoclassical
+│   │   │   └── sprint-two
+│   │   │       ├── spec
+│   │   │       └── src
 │   │   ├── heaps_project
 │   │   │   ├── lib
 │   │   │   └── test
 │   │   ├── is-reserved-wordJS
 │   │   ├── set-utils
-│   │   ├── tiny-prac-probs
-│   │   │   └── problems
 │   │   ├── tree
+│   │   ├── trie_project
+│   │   │   ├── lib
+│   │   │   └── test
 │   │   ├── type-checker
 │   │   └── whiteboarding
 │   ├── Numbers_Math
@@ -505,6 +540,7 @@ Distributed under the MIT License. See `LICENSE` for more information.
 │   │   │       │   └── src
 │   │   │       └── tabs
 │   │   │           └── template-files
+│   │   ├── Recursive
 │   │   ├── binary-search
 │   │   ├── fibonacci
 │   │   │   └── __test__
@@ -519,10 +555,12 @@ Distributed under the MIT License. See `LICENSE` for more information.
 │   │       └── test
 │   ├── Sorting-n-Searching
 │   │   ├── 1-searching-algorithms
+│   │   │   ├── Search
 │   │   │   └── depth_breadth_first_project
 │   │   │       ├── lib
 │   │   │       └── test
 │   │   └── 2-sorting-algorithms
+│   │       ├── Sorts
 │   │       ├── bubble_sort_project
 │   │       │   ├── lib
 │   │       │   └── test
@@ -550,10 +588,22 @@ Distributed under the MIT License. See `LICENSE` for more information.
 │   │   │   ├── escape-quotes
 │   │   │   ├── remove-quotes
 │   │   │   └── trim-white-space
+│   │   ├── String
+│   │   │   └── test
 │   │   ├── python
 │   │   │   ├── reverse-word
 │   │   │   └── split-string
 │   │   └── string-helpers
+│   ├── Trees
+│   │   ├── Binary-Search-Tree
+│   │   ├── Tree
+│   │   ├── advanced
+│   │   ├── bfs-vs-dfs
+│   │   ├── leetcode-450-delete-bst-node
+│   │   ├── leetcode108-sorted-arr-2-bst
+│   │   └── tree_order_project
+│   │       ├── lib
+│   │       └── test
 │   ├── Utilities-Snippets
 │   │   ├── general
 │   │   └── whitespace-identifier
@@ -591,128 +641,24 @@ Distributed under the MIT License. See `LICENSE` for more information.
 │   │   ├── bindTo
 │   │   └── call-closure
 │   ├── temp
-│   ├── web-dev
-│   │   ├── convert-2-js-arr
-│   │   ├── html-2-text
-│   │   ├── listenForEvent-s
-│   │   └── tagify-arr
-│   ├── z-NOTES
-│   │   ├── async_await
-│   │   ├── choosing_the_right_approach
-│   │   ├── concepts
-│   │   ├── data-structures
-│   │   ├── introducing
-│   │   ├── promises
-│   │   └── timeouts_and_intervals
-│   └── z-UNSORTED
-│       ├── binary_search_project
-│       │   ├── lib
-│       │   └── test
-│       ├── bst_project
-│       │   ├── lib
-│       │   └── test
-│       ├── bubble_sort_project
-│       │   ├── lib
-│       │   └── test
-│       ├── counting_sort_project
-│       │   ├── lib
-│       │   └── test
-│       ├── depth_breadth_first_project
-│       │   ├── lib
-│       │   └── test
-│       ├── graph_project
-│       │   ├── lib
-│       │   └── test
-│       ├── heaps_project
-│       │   ├── lib
-│       │   └── test
-│       ├── insertion_sort_project
-│       │   ├── lib
-│       │   └── test
-│       ├── linked_list_interview_problems
-│       │   ├── lib
-│       │   └── test
-│       ├── linked_list_project
-│       │   ├── lib
-│       │   └── test
-│       ├── memoization_project
-│       │   ├── lib
-│       │   └── test
-│       ├── merge_sort_project
-│       │   ├── lib
-│       │   └── test
-│       ├── queue_project
-│       │   ├── lib
-│       │   └── test
-│       ├── quick_sort_project
-│       │   ├── lib
-│       │   └── test
-│       ├── radix_sort_project
-│       │   ├── lib
-│       │   └── test
-│       ├── recursion_project
-│       │   ├── lib
-│       │   └── test
-│       ├── selection_sort_project
-│       │   ├── lib
-│       │   └── test
-│       ├── stack_project
-│       │   ├── lib
-│       │   └── test
-│       ├── stack_queue_interview_problems
-│       │   ├── lib
-│       │   └── test
-│       ├── tabulation_project
-│       │   ├── lib
-│       │   └── test
-│       ├── tree_order_project
-│       │   ├── lib
-│       │   └── test
-│       └── trie_project
-│           ├── lib
-│           └── test
-├── Data-Structures-Update-Backup_files
-├── Resources
-│   ├── My-Data-Structures-Notes
-│   ├── aux-resources
-│   │   ├── QandA
-│   │   └── reiteration
-│   │       ├── Data-Structures
-│   │       │   ├── Array
-│   │       │   ├── Graph
-│   │       │   ├── Heap
-│   │       │   ├── Linked-List
-│   │       │   ├── Queue
-│   │       │   ├── Stack
-│   │       │   └── Tree
-│   │       ├── Dynamic-Programming
-│   │       ├── Graphs
-│   │       ├── Recursive
-│   │       ├── Search
-│   │       ├── Sorts
-│   │       ├── String
-│   │       │   └── test
-│   │       └── Trees
-│   └── data-structures-master
-│       └── data-structures-master
-│           ├── lib
-│           │   ├── chai
-│           │   ├── jquery
-│           │   ├── mocha
-│           │   ├── require
-│           │   └── underscore
-│           ├── sprint-one
-│           │   ├── spec
-│           │   └── src
-│           │       ├── functional
-│           │       ├── functional-shared
-│           │       ├── prototypal
-│           │       └── pseudoclassical
-│           └── sprint-two
-│               ├── spec
-│               └── src
-└── gitserve
+│   └── web-dev
+│       ├── convert-2-js-arr
+│       ├── html-2-text
+│       ├── listenForEvent-s
+│       └── tagify-arr
+└── Resources
+    ├── My-Data-Structures-Notes
+    │   ├── tiny-prac-probs
+    │   │   └── problems
+    │   └── z-NOTES
+    │       ├── async_await
+    │       ├── choosing_the_right_approach
+    │       ├── concepts
+    │       ├── data-structures
+    │       ├── introducing
+    │       ├── promises
+    │       └── timeouts_and_intervals
+    └── gitserve
 
-
-306 directories
+309 directories
 ```

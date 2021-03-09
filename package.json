@@ -1,0 +1,33 @@
+{
+  "name": "ds-algo-study",
+  "version": "1.0.0",
+  "description": "Just experimenting with publishing a package",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bgoonz/DS-ALGO-OFFICIAL.git"
+  },
+  "keywords": [
+    "Data",
+    "Structures",
+    "Algorithms",
+    "Recursion",
+    "Dynamic",
+    "Programming",
+    "Stack",
+    "Queue",
+    "Graph",
+    "Linked",
+    "List",
+    "Problems"
+  ],
+  "author": "Bryan Guner",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/bgoonz/DS-ALGO-OFFICIAL/issues"
+  },
+  "homepage": "https://github.com/bgoonz/DS-ALGO-OFFICIAL#readme"
+}

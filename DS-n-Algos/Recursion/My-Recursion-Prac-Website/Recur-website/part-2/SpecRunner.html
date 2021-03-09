@@ -1,0 +1,41 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+
+<head>
+  <title>Jasmine Test Runner</title>
+  <link rel="stylesheet" type="text/css" href="lib/jasmine-1.0.0/jasmine.css">
+  <script type="text/javascript" src="lib/jasmine-1.0.0/jasmine.js"></script>
+  <script type="text/javascript" src="lib/jasmine-1.0.0/jasmine-html.js"></script>
+
+  <!-- source files -->
+  <script src="lib/underscore.js"></script>
+  <script type="text/javascript" src="src/linkedList.js"></script>
+  <script type="text/javascript" src="src/tree.js"></script>
+  <script type="text/javascript" src="src/set.js"></script>
+  <script type="text/javascript" src="src/hashTable.js"></script>
+  <script type="text/javascript" src="src/hashTableHelpers.js"></script>
+
+  <!-- Extra credit: -->
+  <script type="text/javascript" src="src/binarySearchTree.js"></script>
+
+  <!-- spec files -->
+  <script type="text/javascript" src="spec/linkedListSpec.js"></script>
+  <script type="text/javascript" src="spec/treeSpec.js"></script>
+  <script type="text/javascript" src="spec/setSpec.js"></script>
+  <script type="text/javascript" src="spec/hashTableSpec.js"></script>
+
+  <!-- Extra credit: -->
+  <!--<script type="text/javascript" src="spec/binarySearchTreeSpec.js"></script> -->
+
+</head>
+
+<body>
+
+  <script type="text/javascript">
+    jasmine.getEnv().addReporter( new jasmine.TrivialReporter() );
+    jasmine.getEnv().execute();
+  </script>
+
+</body>
+
+</html>
