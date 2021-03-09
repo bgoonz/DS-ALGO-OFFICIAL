@@ -1,7 +1,7 @@
-var makeChange = function ( total ) {
+let makeChange = function ( total ) {
 
-  var coins = [ 1, 2, 5, 10, 20, 50, 100, 200 ];
-  var count = 0;
+let coins = [ 1, 2, 5, 10, 20, 50, 100, 200 ];
+let count = 0;
   //Had to use var to escape block scope
   for ( var a = total; a >= 0; a -= coins[ coins.length - 1 ] ) {
     for ( var b = a; b >= 0; b -= coins[ coins.length - 2 ] ) {
