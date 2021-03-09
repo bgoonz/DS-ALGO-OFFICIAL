@@ -7,4 +7,5 @@
 [npm](https://www.npmjs.com/package/ds-algo-study)
 
 
-[![HitCount](http://hits.dwyl.com/{username}/{project}.svg)](http://hits.dwyl.com/{username}/{project})
+[![HitCount](http://hits.dwyl.com/bgoonz/DS-ALGO-OFFICIAL.svg)](http://hits.dwyl.com/bgoonz/DS-ALGO-OFFICIAL)
+
