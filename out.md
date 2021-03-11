@@ -26,7 +26,7 @@
 │   │   ├── ALGO
 │   │   │   ├── Dynamic-Programming
 │   │   │   │   ├── primes.js
-│   │   │   │   
+│   │   │   │   └── right.html
 │   │   │   ├── LEETCODE
 │   │   │   │   ├── 2-sum.js
 │   │   │   │   ├── E027_remove_element.js
@@ -103,7 +103,7 @@
 │   │   │   │   ├── Truncate-String.js
 │   │   │   │   ├── arrayTo2Darray.js
 │   │   │   │   ├── numberToRoman.js
-│   │   │   │   
+│   │   │   │   └── right.html
 │   │   │   ├── anagrams
 │   │   │   │   ├── index.js
 │   │   │   │   ├── right.html
@@ -134,16 +134,16 @@
 │   │   │   │   ├── O(n).js
 │   │   │   │   ├── O(n^2).js
 │   │   │   │   ├── O(nlog(n)).js
-│   │   │   │   
+│   │   │   │   └── right.html
 │   │   │   ├── dice-roll
 │   │   │   │   ├── dice.js
-│   │   │   │   
+│   │   │   │   └── right.html
 │   │   │   ├── egg-drop
 │   │   │   │   ├── egg-drop.js
-│   │   │   │   
+│   │   │   │   └── right.html
 │   │   │   ├── factorial
 │   │   │   │   ├── factorial.js
-│   │   │   │   
+│   │   │   │   └── right.html
 │   │   │   ├── fib
 │   │   │   │   ├── index.js
 │   │   │   │   ├── right.html
@@ -151,7 +151,7 @@
 │   │   │   ├── fibonacci
 │   │   │   │   ├── fibonacci-memo.js
 │   │   │   │   ├── fibonacci-tab.js
-│   │   │   │   
+│   │   │   │   └── right.html
 │   │   │   ├── fizzbuzz
 │   │   │   │   ├── index.js
 │   │   │   │   ├── right.html
@@ -191,7 +191,7 @@
 │   │   ├── Arrays
 │   │   │   ├── 53-max-subArr
 │   │   │   │   ├── 53max-sub-arr.js
-│   │   │   │   
+│   │   │   │   └── right.html
 │   │   │   ├── All Unique
 │   │   │   │   ├── all-unique.java
 │   │   │   │   ├── all-unique.js
@@ -202,14 +202,14 @@
 │   │   │   │   └── test
 │   │   │   ├── Array
 │   │   │   │   ├── QuickSelect.js
-│   │   │   │   
+│   │   │   │   └── right.html
 │   │   │   ├── Array-Flatten
 │   │   │   │   ├── arrflat.js
-│   │   │   │   
+│   │   │   │   └── right.html
 │   │   │   ├── Intersection
 │   │   │   │   ├── intersection.js
 │   │   │   │   ├── intersection.md
-│   │   │   │   
+│   │   │   │   └── right.html
 │   │   │   ├── Transpose-2-d-array
 │   │   │   │   ├── right.html
 │   │   │   │   └── t2dArray.js
@@ -221,10 +221,11 @@
 │   │   │   │   ├── all.md
 │   │   │   │   ├── boolean-constructor.html
 │   │   │   │   ├── boolean-constructor.md
-│   │   │   │   
+│   │   │   │   └── right.html
 │   │   │   ├── append-arr
 │   │   │   │   ├── arrAppend.js
-│   │   │   │   
+│   │   │   │   └── right.html
+│   │   │   ├── append.js
 │   │   │   ├── array-helpers
 │   │   │   │   ├── array-sum.js
 │   │   │   │   ├── flatten-arrays.js
@@ -237,26 +238,28 @@
 │   │   │   │   └── using-recursion.js
 │   │   │   ├── array-of-nums-in-range
 │   │   │   │   ├── arrayf1toN.js
-│   │   │   │   
+│   │   │   │   └── right.html
 │   │   │   ├── atleast
 │   │   │   │   ├── atLeast.js
-│   │   │   │   
+│   │   │   │   └── right.html
 │   │   │   ├── average
 │   │   │   │   ├── average.js
-│   │   │   │   
+│   │   │   │   └── right.html
 │   │   │   ├── basic-examples
 │   │   │   │   ├── problems
-│   │   │   │   
+│   │   │   │   └── right.html
 │   │   │   ├── chunk
 │   │   │   │   ├── index.js
 │   │   │   │   ├── right.html
 │   │   │   │   └── test.js
+│   │   │   ├── collect.js
+│   │   │   ├── combine.js
 │   │   │   ├── deep-map
 │   │   │   │   ├── deep-map.js
-│   │   │   │   
+│   │   │   │   └── right.html
 │   │   │   ├── difference-between-arrays
 │   │   │   │   ├── array-diff.js
-│   │   │   │   
+│   │   │   │   └── right.html
 │   │   │   ├── flatten
 │   │   │   │   ├── flatten1.html
 │   │   │   │   ├── flatten1.js
@@ -265,14 +268,14 @@
 │   │   │   │   ├── flatten2.js
 │   │   │   │   ├── flatten2.md
 │   │   │   │   ├── flatten3.js
-│   │   │   │   
+│   │   │   │   └── right.html
 │   │   │   ├── python
 │   │   │   │   ├── right.html
 │   │   │   │   ├── sum-arr-dir
 │   │   │   │   └── sum-avg
 │   │   │   ├── resize-array
 │   │   │   │   ├── recursive-ND-arr-resize.js
-│   │   │   │   
+│   │   │   │   └── right.html
 │   │   │   ├── right.html
 │   │   │   └── stringify-arr
 │   │   │       ├── right.html
@@ -283,14 +286,14 @@
 │   │   │   │   ├── 105-redo.js
 │   │   │   │   ├── 105-with comments.html
 │   │   │   │   ├── 105-with comments.md
-│   │   │   │   
+│   │   │   │   └── right.html
 │   │   │   ├── binary-tree-reading.html
 │   │   │   ├── binary-tree-reading.md
 │   │   │   ├── leetcode110-balanced-bin-tree
 │   │   │   │   ├── Balanced Binary Tree - LeetCode.html
 │   │   │   │   ├── Balanced Binary Tree - LeetCode.md
 │   │   │   │   ├── leet_code_110.js
-│   │   │   │   
+│   │   │   │   └── right.html
 │   │   │   ├── levelwidth
 │   │   │   │   ├── index.js
 │   │   │   │   ├── node.js
@@ -333,7 +336,7 @@
 │   │   │   │   ├── SudokuSolver.js
 │   │   │   │   ├── TrappingRainWater.js
 │   │   │   │   ├── ZeroOneKnapsack.js
-│   │   │   │   
+│   │   │   │   └── right.html
 │   │   │   ├── right.html
 │   │   │   └── tabulation_project
 │   │   │       ├── lib
@@ -343,7 +346,7 @@
 │   │   │       └── test
 │   │   ├── Fifo-Lifo
 │   │   │   ├── QUEUE_S
-│   │   │   │   
+│   │   │   │   └── right.html
 │   │   │   ├── Queue
 │   │   │   │   ├── Queue.js
 │   │   │   │   ├── QueueUsing2Stacks.js
@@ -374,7 +377,7 @@
 │   │   ├── File-System
 │   │   │   ├── file-name-from-path
 │   │   │   │   ├── nameFromPath.js
-│   │   │   │   
+│   │   │   │   └── right.html
 │   │   │   ├── file-utilities
 │   │   │   │   ├── cp.js
 │   │   │   │   ├── file-name-from-path.js
@@ -389,14 +392,14 @@
 │   │   │   │   └── wc.js
 │   │   │   ├── guessing-game
 │   │   │   │   ├── guessing-game.js
-│   │   │   │   
+│   │   │   │   └── right.html
 │   │   │   ├── is-valid-file-name
 │   │   │   │   ├── right.html
 │   │   │   │   └── vaid-filename.js
 │   │   │   ├── recursive-read-folder
 │   │   │   │   ├── rec-read-dir.js
-│   │   │   │   
-│   │   │   
+│   │   │   │   └── right.html
+│   │   │   └── right.html
 │   │   ├── Graphs
 │   │   │   ├── Graph
 │   │   │   │   ├── ConnectedComponents.js
@@ -410,10 +413,10 @@
 │   │   │   │   ├── NumberOfIslands.js
 │   │   │   │   ├── PrimMST.js
 │   │   │   │   ├── basic
-│   │   │   │   
+│   │   │   │   └── right.html
 │   │   │   ├── advanced
 │   │   │   │   ├── Graph.js
-│   │   │   │   
+│   │   │   │   └── right.html
 │   │   │   ├── bonus-graph-project
 │   │   │   │   ├── lib
 │   │   │   │   ├── package-lock.json
@@ -442,16 +445,16 @@
 │   │   │   │   └── test
 │   │   │   ├── graphs.html
 │   │   │   ├── graphs.md
-│   │   │   
+│   │   │   └── right.html
 │   │   ├── Hash-Table
 │   │   │   ├── advanced
 │   │   │   │   ├── hash-tab.js
-│   │   │   │   
-│   │   │   
+│   │   │   │   └── right.html
+│   │   │   └── right.html
 │   │   ├── Heap
 │   │   │   ├── MaxHeap.js
 │   │   │   ├── MinPriorityQueue.js
-│   │   │   
+│   │   │   └── right.html
 │   │   ├── Lists
 │   │   │   ├── Linked-List
 │   │   │   │   ├── CycleDetection.js
@@ -459,11 +462,11 @@
 │   │   │   │   ├── RotateListRight.js
 │   │   │   │   ├── SingleCircularLinkedList.js.js
 │   │   │   │   ├── SinglyLinkList.js
-│   │   │   │   
+│   │   │   │   └── right.html
 │   │   │   ├── advanced
 │   │   │   │   ├── advancedll.js
 │   │   │   │   ├── linked-list-test.js
-│   │   │   │   
+│   │   │   │   └── right.html
 │   │   │   ├── advanced-linked-list.js
 │   │   │   ├── circular
 │   │   │   │   ├── index.js
@@ -495,7 +498,7 @@
 │   │   ├── Misc
 │   │   │   ├── console.table
 │   │   │   │   ├── consoleTable.js
-│   │   │   │   
+│   │   │   │   └── right.html
 │   │   │   ├── data-structures-html-spec-runner
 │   │   │   │   ├── lib
 │   │   │   │   ├── right.html
@@ -509,7 +512,8 @@
 │   │   │   │   └── test
 │   │   │   ├── is-reserved-wordJS
 │   │   │   │   ├── isreservedES6.js
-│   │   │   │   
+│   │   │   │   └── right.html
+│   │   │   ├── playground.js
 │   │   │   ├── problem-set-1.js
 │   │   │   ├── right.html
 │   │   │   ├── set-utils
@@ -543,19 +547,19 @@
 │   │   │   │   └── sqroot.cxx
 │   │   │   ├── base-converter
 │   │   │   │   ├── dec-2-otherBase.js
-│   │   │   │   
+│   │   │   │   └── right.html
 │   │   │   ├── basic-examples
 │   │   │   │   ├── 00-arrow-addfive.js
-│   │   │   │   
+│   │   │   │   └── right.html
 │   │   │   ├── count-steps.js
 │   │   │   ├── euclidean-distance
 │   │   │   │   ├── euclidian-dist.js
-│   │   │   │   
+│   │   │   │   └── right.html
 │   │   │   ├── frequency-pattern.js
 │   │   │   ├── is-prime.js
 │   │   │   ├── isBase
 │   │   │   │   ├── numbase.js
-│   │   │   │   
+│   │   │   │   └── right.html
 │   │   │   ├── reverseint
 │   │   │   │   ├── index.js
 │   │   │   │   ├── right.html
@@ -565,28 +569,28 @@
 │   │   ├── POJOs
 │   │   │   ├── basic-examples
 │   │   │   │   ├── 01-arrow-full-name.js
-│   │   │   │   
+│   │   │   │   └── right.html
 │   │   │   ├── clone
 │   │   │   │   ├── obj-clone.js
-│   │   │   │   
+│   │   │   │   └── right.html
 │   │   │   ├── extend-obj-prop
 │   │   │   │   ├── extend-obj-prop.js
-│   │   │   │   
+│   │   │   │   └── right.html
 │   │   │   ├── obj-utils.js
 │   │   │   ├── obj2Array
 │   │   │   │   ├── arraify-Objs.js
 │   │   │   │   ├── obj2Array.PNG
-│   │   │   │   
+│   │   │   │   └── right.html
 │   │   │   ├── objPropMap
 │   │   │   │   ├── obj-prop-map.js
-│   │   │   │   
+│   │   │   │   └── right.html
 │   │   │   ├── right.html
 │   │   │   ├── utils.html
 │   │   │   └── utils.md
 │   │   ├── Recursion
 │   │   │   ├── My-Recursion-Prac-Website
 │   │   │   │   ├── Recur-website
-│   │   │   │   
+│   │   │   │   └── right.html
 │   │   │   ├── Recursive
 │   │   │   │   ├── BinarySearch.js
 │   │   │   │   ├── EucledianGCD.js
@@ -595,11 +599,11 @@
 │   │   │   │   ├── TowerOfHanoi.js
 │   │   │   │   ├── factorial.js
 │   │   │   │   ├── min-change.js
-│   │   │   │   
+│   │   │   │   └── right.html
 │   │   │   ├── binary-search
 │   │   │   │   ├── binary-search.java
 │   │   │   │   ├── binary-search.js
-│   │   │   │   
+│   │   │   │   └── right.html
 │   │   │   ├── fibonacci
 │   │   │   │   ├── README.html
 │   │   │   │   ├── README.md
@@ -607,7 +611,7 @@
 │   │   │   │   ├── fibonacci.js
 │   │   │   │   ├── fibonacciNth.js
 │   │   │   │   ├── fibonacciNthClosedForm.js
-│   │   │   │   
+│   │   │   │   └── right.html
 │   │   │   ├── fibonacci-versions
 │   │   │   │   ├── memo-fibonacci.js
 │   │   │   │   ├── naive-fibonacci.js
@@ -628,7 +632,7 @@
 │   │   │   │   ├── package.json
 │   │   │   │   ├── right.html
 │   │   │   │   └── test
-│   │   │   
+│   │   │   └── right.html
 │   │   ├── SANDBOX
 │   │   │   ├── 01-matrix.js
 │   │   │   ├── 01-test.js
@@ -891,7 +895,8 @@
 │   │   │   ├── largest-rectangle-in-histogram.js
 │   │   │   ├── leetMD
 │   │   │   │   ├── completeLEETCODE.html
-│   │   │   │   └── completeLEETCODE_files
+│   │   │   │   ├── completeLEETCODE_files
+│   │   │   │   └── right.html
 │   │   │   ├── leet_code_105.js
 │   │   │   ├── leet_code_108.js
 │   │   │   ├── leet_code_110.js
@@ -1016,6 +1021,7 @@
 │   │   │   ├── reverse-vowels-of-a-string.js
 │   │   │   ├── reverse-words-in-a-string-iii.js
 │   │   │   ├── reverse-words-in-a-string.js
+│   │   │   ├── right.html
 │   │   │   ├── roman-to-integer.js
 │   │   │   ├── rotate-array.js
 │   │   │   ├── rotate-function.js
@@ -1099,7 +1105,7 @@
 │   │   │   │   ├── bool-binary-search.js
 │   │   │   │   ├── depth_breadth_first_project
 │   │   │   │   ├── index-binary-search.js
-│   │   │   │   
+│   │   │   │   └── right.html
 │   │   │   ├── 2-sorting-algorithms
 │   │   │   │   ├── 01-bubble-sort-v2.js
 │   │   │   │   ├── 01-bubble-sort.js
@@ -1124,14 +1130,14 @@
 │   │   │   │   ├── subsequence-quicksort.html
 │   │   │   │   ├── subsequence-quicksort.js
 │   │   │   │   └── subsequence-quicksort.md
-│   │   │   
+│   │   │   └── right.html
 │   │   ├── Strings
 │   │   │   ├── 03-lengthOfLongestSubString
 │   │   │   │   ├── leetcode03-test.js
 │   │   │   │   ├── length-of-longest-substr.html
 │   │   │   │   ├── length-of-longest-substr.js
 │   │   │   │   ├── length-of-longest-substr.md
-│   │   │   │   
+│   │   │   │   └── right.html
 │   │   │   ├── C++
 │   │   │   │   ├── escape-quotes
 │   │   │   │   ├── remove-quotes
@@ -1215,11 +1221,11 @@
 │   │   │   ├── advanced
 │   │   │   │   ├── bst.js
 │   │   │   │   ├── fast-bst.js
-│   │   │   │   
+│   │   │   │   └── right.html
 │   │   │   ├── bfs-vs-dfs
 │   │   │   │   ├── BreadthFirstTreeTraversal.js
 │   │   │   │   ├── DepthFirstSearch.js
-│   │   │   │   
+│   │   │   │   └── right.html
 │   │   │   ├── bst
 │   │   │   │   ├── index.js
 │   │   │   │   ├── right.html
@@ -1228,12 +1234,12 @@
 │   │   │   │   ├── Delete Node in a BST.html
 │   │   │   │   ├── Delete Node in a BST.md
 │   │   │   │   ├── leet_code_450.js
-│   │   │   │   
+│   │   │   │   └── right.html
 │   │   │   ├── leetcode108-sorted-arr-2-bst
 │   │   │   │   ├── Convert Sorted Array to Binary Search Tree.html
 │   │   │   │   ├── Convert Sorted Array to Binary Search Tree.md
 │   │   │   │   ├── leet_code_108.js
-│   │   │   │   
+│   │   │   │   └── right.html
 │   │   │   ├── right.html
 │   │   │   ├── tree_order_project
 │   │   │   │   ├── lib
@@ -1258,46 +1264,46 @@
 │   │   │       ├── right.html
 │   │   │       └── whitespace-identifier.js
 │   │   ├── _Extra-Practice
-│   │   │   
+│   │   │   └── right.html
 │   │   ├── functions
 │   │   │   ├── HASH
 │   │   │   │   ├── HASH.js
 │   │   │   │   ├── crypto-js.md
-│   │   │   │   
+│   │   │   │   └── right.html
 │   │   │   ├── MemoizeFunc
 │   │   │   │   ├── advanced-memoize.html
 │   │   │   │   ├── advanced-memoize.md
 │   │   │   │   ├── memoize-2.js
 │   │   │   │   ├── memoize.js
-│   │   │   │   
+│   │   │   │   └── right.html
 │   │   │   ├── bindTo
 │   │   │   │   ├── bindTo.js
 │   │   │   │   ├── function.apply().html
 │   │   │   │   ├── function.apply().md
 │   │   │   │   ├── function.bind().html
 │   │   │   │   ├── function.bind().md
-│   │   │   │   
+│   │   │   │   └── right.html
 │   │   │   ├── call-closure
 │   │   │   │   ├── call-closure.js
-│   │   │   │   
+│   │   │   │   └── right.html
 │   │   │   ├── pyramid
 │   │   │   │   ├── index.js
 │   │   │   │   ├── right.html
 │   │   │   │   └── test.js
-│   │   │   
+│   │   │   └── right.html
 │   │   ├── matrix
 │   │   │   ├── index.js
 │   │   │   ├── right.html
 │   │   │   └── test.js
 │   │   ├── right.html
 │   │   ├── temp
-│   │   │   
+│   │   │   └── right.html
 │   │   └── web-dev
 │   │       ├── convert-2-js-arr
 │   │       │   ├── multi-2-arr.css
 │   │       │   ├── multi-2-arr.html
 │   │       │   ├── multi-2-arr.js
-│   │       │   
+│   │       │   └── right.html
 │   │       ├── events
 │   │       │   ├── example.html
 │   │       │   ├── index.js
@@ -1305,18 +1311,138 @@
 │   │       │   └── test.js
 │   │       ├── html-2-text
 │   │       │   ├── html2txt.js
-│   │       │   
+│   │       │   └── right.html
 │   │       ├── listenForEvent-s
 │   │       │   ├── DOMEventHandlers.html
 │   │       │   ├── DOMEventHandlers.md
 │   │       │   ├── multipleEvents.js
-│   │       │   
+│   │       │   └── right.html
 │   │       ├── right.html
 │   │       └── tagify-arr
 │   │           ├── output.txt
 │   │           ├── right.html
 │   │           └── tagify-arr.js
 │   ├── Resources
+│   │   ├── Images
+│   │   │   ├── all
+│   │   │   │   ├── 1604180981115.png
+│   │   │   │   ├── 2.png
+│   │   │   │   ├── 200px-Telephone-keypad2.svg.png
+│   │   │   │   ├── 250px-Sudoku-by-L2G-20050714.svg.png
+│   │   │   │   ├── 250px-Sudoku-by-L2G-20050714_solution.svg.png
+│   │   │   │   ├── 3.png
+│   │   │   │   ├── 8-queens.png
+│   │   │   │   ├── BubbleSort.gif
+│   │   │   │   ├── InsertionSort.gif
+│   │   │   │   ├── MergeSort.gif
+│   │   │   │   ├── PascalTriangleAnimated2.gif
+│   │   │   │   ├── QuickSort.gif
+│   │   │   │   ├── SLL-diagram.png
+│   │   │   │   ├── SelectionSort.gif
+│   │   │   │   ├── a1.png
+│   │   │   │   ├── arr1.png
+│   │   │   │   ├── array-in-memory.png
+│   │   │   │   ├── array.png
+│   │   │   │   ├── b-vs-trda.png
+│   │   │   │   ├── balance_1.jpg
+│   │   │   │   ├── balance_2.jpg
+│   │   │   │   ├── binary-tree.png
+│   │   │   │   ├── bst-mid-ele.png
+│   │   │   │   ├── del_node_1.jpg
+│   │   │   │   ├── del_node_supp.jpg
+│   │   │   │   ├── dfs.png
+│   │   │   │   ├── directed-or-undirected-cycles.png
+│   │   │   │   ├── error.png
+│   │   │   │   ├── fib_memoized.png
+│   │   │   │   ├── fib_tree.png
+│   │   │   │   ├── fib_tree_duplicates.png
+│   │   │   │   ├── github-repo-menu-bar-wiki.png
+│   │   │   │   ├── graph-md.png
+│   │   │   │   ├── graph.png
+│   │   │   │   ├── histogram.png
+│   │   │   │   ├── histogram_area.png
+│   │   │   │   ├── image001.png
+│   │   │   │   ├── leaves-depth-height.png
+│   │   │   │   ├── linked-list.png
+│   │   │   │   ├── maximum-sum-circular-subarray.png
+│   │   │   │   ├── obj2Array.PNG
+│   │   │   │   ├── ok.png
+│   │   │   │   ├── post-order.png
+│   │   │   │   ├── pre-and-in-order-traversal.png
+│   │   │   │   ├── queue.gif
+│   │   │   │   ├── queue.png
+│   │   │   │   ├── rainwatertrap.png
+│   │   │   │   ├── recursion-flow.PNG
+│   │   │   │   ├── right.html
+│   │   │   │   ├── robot_maze.png
+│   │   │   │   ├── stack.gif
+│   │   │   │   ├── stack.png
+│   │   │   │   ├── traversals.png
+│   │   │   │   ├── tree.png
+│   │   │   │   ├── weighted-or-unweighted.png
+│   │   │   │   └── ya.png
+│   │   │   ├── gif
+│   │   │   │   ├── BubbleSort.gif
+│   │   │   │   ├── InsertionSort.gif
+│   │   │   │   ├── MergeSort.gif
+│   │   │   │   ├── PascalTriangleAnimated2.gif
+│   │   │   │   ├── QuickSort.gif
+│   │   │   │   ├── SelectionSort.gif
+│   │   │   │   ├── queue.gif
+│   │   │   │   ├── right.html
+│   │   │   │   └── stack.gif
+│   │   │   ├── jpg
+│   │   │   │   ├── balance_1.jpg
+│   │   │   │   ├── balance_2.jpg
+│   │   │   │   ├── del_node_1.jpg
+│   │   │   │   ├── del_node_supp.jpg
+│   │   │   │   └── right.html
+│   │   │   ├── png
+│   │   │   │   ├── 1604180981115.png
+│   │   │   │   ├── 2.png
+│   │   │   │   ├── 200px-Telephone-keypad2.svg.png
+│   │   │   │   ├── 250px-Sudoku-by-L2G-20050714.svg.png
+│   │   │   │   ├── 250px-Sudoku-by-L2G-20050714_solution.svg.png
+│   │   │   │   ├── 3.png
+│   │   │   │   ├── 8-queens.png
+│   │   │   │   ├── SLL-diagram.png
+│   │   │   │   ├── a1.png
+│   │   │   │   ├── arr1.png
+│   │   │   │   ├── array-in-memory.png
+│   │   │   │   ├── array.png
+│   │   │   │   ├── b-vs-trda.png
+│   │   │   │   ├── binary-tree.png
+│   │   │   │   ├── bst-mid-ele.png
+│   │   │   │   ├── dfs.png
+│   │   │   │   ├── directed-or-undirected-cycles.png
+│   │   │   │   ├── error.png
+│   │   │   │   ├── fib_memoized.png
+│   │   │   │   ├── fib_tree.png
+│   │   │   │   ├── fib_tree_duplicates.png
+│   │   │   │   ├── github-repo-menu-bar-wiki.png
+│   │   │   │   ├── graph-md.png
+│   │   │   │   ├── graph.png
+│   │   │   │   ├── histogram.png
+│   │   │   │   ├── histogram_area.png
+│   │   │   │   ├── image001.png
+│   │   │   │   ├── leaves-depth-height.png
+│   │   │   │   ├── linked-list.png
+│   │   │   │   ├── maximum-sum-circular-subarray.png
+│   │   │   │   ├── obj2Array.PNG
+│   │   │   │   ├── ok.png
+│   │   │   │   ├── post-order.png
+│   │   │   │   ├── pre-and-in-order-traversal.png
+│   │   │   │   ├── queue.png
+│   │   │   │   ├── rainwatertrap.png
+│   │   │   │   ├── recursion-flow.PNG
+│   │   │   │   ├── right.html
+│   │   │   │   ├── robot_maze.png
+│   │   │   │   ├── stack.png
+│   │   │   │   ├── traversals.png
+│   │   │   │   ├── tree.png
+│   │   │   │   ├── weighted-or-unweighted.png
+│   │   │   │   └── ya.png
+│   │   │   └── right.html
 │   │   ├── My-Data-Structures-Notes
 │   │   │   ├── 1604180981115.png
 │   │   │   ├── Data-Structures-Cheat-Sheet.html
@@ -1326,7 +1452,7 @@
 │   │   │   ├── Heaps-project.html
 │   │   │   ├── Heaps-project_files
 │   │   │   │   ├── image001.png
-│   │   │   │   
+│   │   │   │   └── right.html
 │   │   │   ├── My-ds-notes.html
 │   │   │   ├── My-ds-notes.md
 │   │   │   ├── arr1.png
@@ -1351,7 +1477,7 @@
 │   │   │   ├── stack.png
 │   │   │   ├── tiny-prac-probs
 │   │   │   │   ├── problems
-│   │   │   │   
+│   │   │   │   └── right.html
 │   │   │   ├── traversals.png
 │   │   │   ├── tree.png
 │   │   │   ├── weighted-or-unweighted.png
@@ -1371,14 +1497,138 @@
 │   │   │   ├── repo.js
 │   │   │   ├── right.html
 │   │   │   └── web-dev-notes.html
-│   │   
-│   
+│   │   ├── right.html
+│   │   └── slider
+│   │       ├── right.html
+│   │       ├── wowslider-howto.html
+│   │       ├── wowslider-iframe.html
+│   │       ├── wowslider-iframe_files
+│   │       │   ├── 1604180981115(1).png
+│   │       │   ├── 1604180981115.png
+│   │       │   ├── 2(1).png
+│   │       │   ├── 2.png
+│   │       │   ├── 200pxtelephonekeypad2.svg(1).png
+│   │       │   ├── 200pxtelephonekeypad2.svg.png
+│   │       │   ├── 250pxsudokubyl2g20050714.svg(1).png
+│   │       │   ├── 250pxsudokubyl2g20050714.svg.png
+│   │       │   ├── 250pxsudokubyl2g20050714_solution.svg(1).png
+│   │       │   ├── 250pxsudokubyl2g20050714_solution.svg.png
+│   │       │   ├── 3(1).png
+│   │       │   ├── 3.png
+│   │       │   ├── 8queens(1).png
+│   │       │   ├── 8queens.png
+│   │       │   ├── a1(1).png
+│   │       │   ├── a1.png
+│   │       │   ├── arr1(1).png
+│   │       │   ├── arr1.png
+│   │       │   ├── array(1).png
+│   │       │   ├── array.png
+│   │       │   ├── arrayinmemory(1).png
+│   │       │   ├── arrayinmemory.png
+│   │       │   ├── balance_1(1).jpg
+│   │       │   ├── balance_1.jpg
+│   │       │   ├── balance_2(1).jpg
+│   │       │   ├── balance_2.jpg
+│   │       │   ├── binarytree(1).png
+│   │       │   ├── binarytree.png
+│   │       │   ├── bstmidele(1).png
+│   │       │   ├── bstmidele.png
+│   │       │   ├── bubblesort(1).jpg
+│   │       │   ├── bubblesort.jpg
+│   │       │   ├── bvstrda(1).png
+│   │       │   ├── bvstrda.png
+│   │       │   ├── del_node_1(1).jpg
+│   │       │   ├── del_node_1.jpg
+│   │       │   ├── del_node_supp(1).jpg
+│   │       │   ├── del_node_supp.jpg
+│   │       │   ├── dfs(1).png
+│   │       │   ├── dfs.png
+│   │       │   ├── directedorundirectedcycles(1).png
+│   │       │   ├── directedorundirectedcycles.png
+│   │       │   ├── error(1).png
+│   │       │   ├── error.png
+│   │       │   ├── fib_memoized(1).png
+│   │       │   ├── fib_memoized.png
+│   │       │   ├── fib_tree(1).png
+│   │       │   ├── fib_tree.png
+│   │       │   ├── fib_tree_duplicates(1).png
+│   │       │   ├── fib_tree_duplicates.png
+│   │       │   ├── githubrepomenubarwiki(1).png
+│   │       │   ├── githubrepomenubarwiki.png
+│   │       │   ├── graph(1).png
+│   │       │   ├── graph.png
+│   │       │   ├── graphmd(1).png
+│   │       │   ├── graphmd.png
+│   │       │   ├── histogram(1).png
+│   │       │   ├── histogram.png
+│   │       │   ├── histogram_area(1).png
+│   │       │   ├── histogram_area.png
+│   │       │   ├── image001(1).png
+│   │       │   ├── image001.png
+│   │       │   ├── insertionsort(1).jpg
+│   │       │   ├── insertionsort.jpg
+│   │       │   ├── jquery.js.download
+│   │       │   ├── leavesdepthheight(1).png
+│   │       │   ├── leavesdepthheight.png
+│   │       │   ├── linkedlist(1).png
+│   │       │   ├── linkedlist.png
+│   │       │   ├── maximumsumcircularsubarray(1).png
+│   │       │   ├── maximumsumcircularsubarray.png
+│   │       │   ├── mergesort(1).jpg
+│   │       │   ├── mergesort.jpg
+│   │       │   ├── obj2array(1).jpg
+│   │       │   ├── obj2array.jpg
+│   │       │   ├── ok(1).png
+│   │       │   ├── ok.png
+│   │       │   ├── pascaltriangleanimated2(1).jpg
+│   │       │   ├── pascaltriangleanimated2.jpg
+│   │       │   ├── postorder(1).png
+│   │       │   ├── postorder.png
+│   │       │   ├── preandinordertraversal(1).png
+│   │       │   ├── preandinordertraversal.png
+│   │       │   ├── queue(1).jpg
+│   │       │   ├── queue.jpg
+│   │       │   ├── queue_0(1).png
+│   │       │   ├── queue_0.png
+│   │       │   ├── quicksort(1).jpg
+│   │       │   ├── quicksort.jpg
+│   │       │   ├── rainwatertrap(1).png
+│   │       │   ├── rainwatertrap.png
+│   │       │   ├── recursionflow(1).jpg
+│   │       │   ├── recursionflow.jpg
+│   │       │   ├── right.html
+│   │       │   ├── robot_maze(1).png
+│   │       │   ├── robot_maze.png
+│   │       │   ├── script.js.download
+│   │       │   ├── selectionsort(1).jpg
+│   │       │   ├── selectionsort.jpg
+│   │       │   ├── slldiagram(1).png
+│   │       │   ├── slldiagram.png
+│   │       │   ├── stack(1).jpg
+│   │       │   ├── stack.jpg
+│   │       │   ├── stack_0(1).png
+│   │       │   ├── stack_0.png
+│   │       │   ├── style.css
+│   │       │   ├── traversals(1).png
+│   │       │   ├── traversals.png
+│   │       │   ├── tree(1).png
+│   │       │   ├── tree.png
+│   │       │   ├── weightedorunweighted(1).png
+│   │       │   ├── weightedorunweighted.png
+│   │       │   ├── wowslider.html
+│   │       │   ├── wowslider.js.download
+│   │       │   ├── ya(1).png
+│   │       │   └── ya.png
+│   │       └── wowslider.html
+│   └── right.html
 ├── README.md
 ├── Readme.html
 ├── SECURITY.md
 ├── SUMMARY.md
+├── _config.yml
 ├── copy-2-clip.js
 ├── directory.html
+├── index-style.css
 ├── index.html
 ├── index.js
 ├── left.html
@@ -1389,6 +1639,8 @@
 ├── renovate.json
 ├── repl.html
 ├── right.html
-└── style.css
+├── style.css
+├── toc.css
+└── toc.js
 
-254 directories, 1137 files
+261 directories, 1382 files
