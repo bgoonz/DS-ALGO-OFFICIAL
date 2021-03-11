@@ -12,8 +12,7 @@ console.log(car) // => {speed: 10, drive: ƒ}
 
 car.drive(50); // => returns 50
 console.log(car) // -> {speed: 50, drive: ƒ}
-
-car.drive(100); // => returns 100
+car.drive( 100 ); // => returns 100
 console.log(car) // -> {speed: 100, drive: ƒ}
 
 ***********************************************************************/
@@ -22,7 +21,7 @@ const car = {
   speed: 0,
   // here we have to use an anonymous function to ensure the context
   // is set correctly when this method is invoked
-  drive: function (newSpeed) {
+  drive: function ( newSpeed ) {
     this.speed = newSpeed;
     return this.speed;
   }

@@ -8,17 +8,17 @@ mirrorArray([1,2,3]); // => [ 1, 2, 3, 3, 2, 1 ]
 mirrorArray(['a', 'b', 'c', 'd']); // => [ 'a', 'b', 'c', 'd', 'd', 'c', 'b', 'a' ]
 ***********************************************************************/
 
-const mirrorArray = (array) => {
+const mirrorArray = ( array ) => {
   let newArray = [];
 
-  for (let i = 0; i < array.length; i += 1) {
-    let el = array[i];
-    newArray.push(el);
+  for ( let i = 0; i < array.length; i += 1 ) {
+    let el = array[ i ];
+    newArray.push( el );
   }
 
-  for (let i = array.length - 1; i >= 0; i -= 1) {
-    let el = array[i];
-    newArray.push(el);
+  for ( let i = array.length - 1; i >= 0; i -= 1 ) {
+    let el = array[ i ];
+    newArray.push( el );
   }
 
   return newArray;

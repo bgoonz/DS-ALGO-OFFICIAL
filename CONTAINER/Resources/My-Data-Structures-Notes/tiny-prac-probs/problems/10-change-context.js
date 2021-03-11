@@ -16,14 +16,13 @@ let bat = {
 function getSecret() {
   return this.secret;
 }
-
-console.log(changeContext(getSecret, bat)); // prints "I'm scared of the dark"
+console.log( changeContext( getSecret, bat ) ); // prints "I'm scared of the dark"
 console.log(changeContext(getSecret, map)); // prints "I don't know where I'm going"
 
 ***********************************************************************/
 
-function changeContext(func, obj) {
-  let secretFunc = func.bind(obj);
+function changeContext( func, obj ) {
+  let secretFunc = func.bind( obj );
   return secretFunc();
 }
 

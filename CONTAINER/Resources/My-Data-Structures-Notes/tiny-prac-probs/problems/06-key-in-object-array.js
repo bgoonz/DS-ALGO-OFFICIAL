@@ -19,17 +19,17 @@ keyInObjectArray(objArray, 'animal'); // => false
 
 ***********************************************************************/
 
-function keyInObjectArray(objArray, keyString) {
+function keyInObjectArray( objArray, keyString ) {
   let keyFound = false;
 
-  // you can't explicitly return from within a `forEach` function so
+  // you can't explicitlyreturn from within a `forEach` function so
   // the way we can get around that is by setting a variable for our boolean
   // and flipping it within our case statement
-  objArray.forEach(function(obj) {
-    if (obj[keyString] !== undefined) {
+  objArray.forEach( function ( obj ) {
+    if ( obj[ keyString ] !== undefined ) {
       keyFound = true;
     }
-  });
+  } );
 
   return keyFound;
 }

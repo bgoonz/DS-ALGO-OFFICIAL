@@ -19,8 +19,8 @@ console.log(spyCar("potato")); // prints "I spy a car"
 
 ***********************************************************************/
 
-function boundByAnArg(func, arg) {
-  return func.bind(null, arg);
+function boundByAnArg( func, arg ) {
+  return func.bind( null, arg );
 }
 
 

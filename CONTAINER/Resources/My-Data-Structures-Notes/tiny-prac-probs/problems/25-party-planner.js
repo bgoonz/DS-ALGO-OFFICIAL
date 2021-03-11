@@ -38,14 +38,14 @@ function partyPlanner() {
   return {
     guestList: [],
     throwParty: function () {
-      if (this.guestList.length > 0) {
-        return "Welcome to the party " + this.guestList.join(" and ");
+      if ( this.guestList.length > 0 ) {
+        return "Welcome to the party " + this.guestList.join( " and " );
       } else {
         return "gotta add people to the guest list";
       }
     },
-    addToGuestList: function (name) {
-      this.guestList.push(name);
+    addToGuestList: function ( name ) {
+      this.guestList.push( name );
     },
   };
 }

@@ -11,9 +11,8 @@ will set the dog object's name to be the passed in name. See below for examples:
 
 Examples:
 let dog1 = makeDog(); // returns an object 
-
-console.log(dog1.name); // Jet
-console.log(dog1.speak("hello")); // Jet says hello
+console.log( dog1.name ); // Jet
+console.log( dog1.speak( "hello" ) ); // Jet says hello
 console.log(dog1.changeName("Freyja")); // Freyja
 console.log(dog1.name); // Freyja
 console.log(dog1.speak("hello")); // Freyja says hello
@@ -28,10 +27,10 @@ function makeDog() {
     name: "Jet",
     // here we have to use an anonymous function to ensure the context
     // is set correctly when this method is invoked
-    speak: function (word) {
+    speak: function ( word ) {
       return this.name + " says " + word;
     },
-    changeName: function (newName) {
+    changeName: function ( newName ) {
       this.name = newName;
       return this.name;
     },

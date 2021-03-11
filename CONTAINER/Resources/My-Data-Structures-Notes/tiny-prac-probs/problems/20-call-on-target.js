@@ -7,50 +7,52 @@ Take a look at the below examples for more clarity!
 
 **Hint**: use Function#bind()!
 
-Examples:
+Exames:
 
 const cat = {
   name: "Breakfast"
 };
 
-const mouse = {
+onstmouse = {
   name: "Jerry"
 };
 
-function greet(other) {
-  return "I'm " + this.name + ". Nice to meet you, " + other.name;
-}
+nction greet(other) {
+  rern "I'm " + this.name + ". Nice to meet you, " + other.name;
+ }
 
 console.log(callOnTarget(greet, cat, mouse)); // "I'm Breakfast. Nice to meet you, Jerry"
-console.log(callOnTarget(greet, mouse, cat)); // "I'm Jerry. Nice to meet you, Breakfast"
+conse.log(callOnTarget(greet, mouse, cat)); // "I'm Jerry. Nice to meet you, Breakfast"
 
 const dog = {
   name: "Noodles",
   chase: function(animal) {
-    return "Woof, my name is " + this.name + " and I'm chasing " + animal.name;
+  return "Woof, my name is " + this.name + " and I'm chasing " + animal.name;
   }
 };
 
 console.log(callOnTarget(dog.chase, cat, dog)); // "Woof, my name is Breakfast and I'm chasing Noodles"
 
-***********************************************************************/
+*********************************************************************/
 
 const cat = {
   name: "Breakfast"
 };
 
 const mouse = {
-  name: "Jerry"
-};
+  na: "Jerry"
 
-function greet(other) {
-  return "I'm " + this.name + ". Nice to meet you, " + other.name;
+
+uncton greet(other) {
+return "I'm " + this.name + ". Nice to meet you, " + other.name;
 }
 
 function callOnTarget(func, obj1, obj2) {
   let boundFunc = func.bind(obj1);
   return boundFunc(obj2);
-}
+
 
 
 module.exports = callOnTarget;
+  
+                                                       

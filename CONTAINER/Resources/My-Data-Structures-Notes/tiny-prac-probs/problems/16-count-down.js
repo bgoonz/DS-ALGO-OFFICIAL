@@ -27,11 +27,11 @@ Example 4:
   console.log(threeDays()); // prints "Happy New Year!"
 
 ***********************************************************************/
-function countDownTimer(num) {
-  if (num === 0) return "Happy New Year!";
+function countDownTimer( num ) {
+  if ( num === 0 ) return "Happy New Year!";
   const _count = () => {
     num -= 1;
-    if (num <= 0) {
+    if ( num <= 0 ) {
       return "Happy New Year!";
     } else {
       return _count;

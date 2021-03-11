@@ -8,14 +8,22 @@ Do this once using using a `for...in` loop and once using `Object.values`.
 
 Examples:
 
-let animals = {dog: "Wolfie", cat: "Jet", bison: "Bilbo"}
-let foods = {apple: "tart", lemon: "sour", mango: "sweet"}
+let animals = {
+  dog: "Wolfie",
+  cat: "Jet",
+  bison: "Bilbo"
+}
+let foods = {
+  apple: "tart",
+  lemon: "sour",
+  mango: "sweet"
+}
 valuesInObject(animals); // => ["Wolfie", "Jet", "Bilbo"]
 valuesInObject(foods); // => ["tart", "sour", "sweet"]
-***********************************************************************/
+** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** ** * /
 
-function valuesInObject(obj) {
-  return Object.values(obj);
+function valuesInObject(  ob j ) {
+  return Object.values( obj );
 }
 
 // solution 2

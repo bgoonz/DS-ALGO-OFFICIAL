@@ -14,14 +14,14 @@ console.log(result1);   // [ 10, 5, 9, 8 ]
 const yell = el => el.toUpperCase() + '!'
 
 let result2 = arrowMyMap(['run', 'Forrest'], yell);
-console.log(result2);   // [ 'RUN!', 'FORREST!' ]
-
+cons    ole.log(result2);   // [ 'RUN!', 'FORREST!' ]
+    
 ***********************************************************************/
 
-const arrowMyMap = (array, cb) => {
+const arrowMyMap = ( array, cb ) => {
   let mapped = [];
 
-  array.forEach(el => mapped.push(cb(el)));
+  array.forEach( el => mapped.push( cb( el ) ) );
   return mapped;
 };
 
