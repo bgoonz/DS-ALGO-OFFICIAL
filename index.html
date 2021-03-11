@@ -6,365 +6,107 @@
     <meta http-equiv="Content-Type" content="text/html">
     <meta name="Author" content="Bryan Guner">
     <TITLE> directory </TITLE>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    <script async defer src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
       integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
     </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.1/umd/popper.min.js"
+    <script async defer src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.1/umd/popper.min.js"
       integrity="sha512-g2PN+aYR0KupTVwea5Ppqw4bxWLLypWdd+h7E0ydT8zF+/Y2Qpk8Y1SnzVw6ZCVJPrgB/91s3VfhVhP7Y4+ucw=="
       crossorigin="anonymous">
     </script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+    <script async defer src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
       integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous">
     </script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel=stylesheet href="./index-style.css">
+    <link rel="stylesheet" href="./toc.css">
+    <script async defer src="./toc.js"></script>
+<script async defer src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script async defer>
+ $("#div").addClass("container-closed");
+ // click event
+ $("#trigger").click( function() {
+ $("#div").toggleClass("container-closed");
+ });
+    </script>
     <!---------------------------------------------------------------------------------------------------------------------------------------------------------->
-    <style type="text/css">
-      h1 {
-        font-family: "Trebuchet MS", sans-serif;
-        font-size: 3em;
-        letter-spacing: -2px;
-        border-bottom: 2px solid black;
-        text-transform: uppercase;
-        color: #D0F8FF;
-        text-shadow: 0 0 5px #033139, 0 0 10px #b4a5ff,
-          0 0 20px #fdffa5, 0 0 30px #a5acff,
-          0 0 40px #a5a8ff;
-      }
 
-      .outer {
-        position: absolute;
-        height: 80%;
-        width: 80%;
-        top: 10%;
-        left: 10%;
-      }
-
-      .shadow {
-        -moz-box-shadow: inset 0 0 10px #000000;
-        -webkit-box-shadow: inset 0 0 10px #000000;
-        box-shadow: inset 0 0 10px #000000;
-      }
-
-      body {
-        padding: 50px;
-        text-align: center;
-      }
-    </style>
-    <style>
-      .button::-moz-focus-inner {
-        border: 0;
-        padding: 0;
-      }
-
-      .button {
-        display: inline-block;
-        *display: inline;
-        zoom: 1;
-        padding: 6px 20px;
-        margin: 0;
-        cursor: pointer;
-        border: 1px solid #bbb;
-        overflow: auto;
-        text-decoration: none;
-        white-space: nowrap;
-        color: #555;
-        background-color: #ddd;
-        background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, 1)),
-            to(rgba(255, 255, 255, 0)));
-        background-image: -webkit-linear-gradient(top, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0));
-        background-image: -moz-linear-gradient(top, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0));
-        background-image: -ms-linear-gradient(top, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0));
-        background-image: -o-linear-gradient(top, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0));
-        background-image: linear-gradient(top, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0));
-        -webkit-transition: background-color .2s ease-out;
-        -moz-transition: background-color .2s ease-out;
-        -ms-transition: background-color .2s ease-out;
-        -o-transition: background-color .2s ease-out;
-        transition: background-color .2s ease-out;
-        background-clip: padding-box;
-        /* Fix bleeding */
-        -moz-border-radius: 3px;
-        -webkit-border-radius: 3px;
-        border-radius: 3px;
-        -moz-box-shadow: 0 1px 0 rgba(0, 0, 0, .3), 0 2px 2px -1px rgba(0, 0, 0, .5), 0 1px 0 rgba(255, 255, 255, .3) inset;
-        -webkit-box-shadow: 0 1px 0 rgba(0, 0, 0, .3), 0 2px 2px -1px rgba(0, 0, 0, .5), 0 1px 0 rgba(255, 255, 255, .3) inset;
-        box-shadow: 0 1px 0 rgba(0, 0, 0, .3), 0 2px 2px -1px rgba(0, 0, 0, .5), 0 1px 0 rgba(255, 255, 255, .3) inset;
-        text-shadow: 0 1px 0 rgba(255, 255, 255, .9);
-        -webkit-touch-callout: none;
-        -webkit-user-select: none;
-        -khtml-user-select: none;
-        -moz-user-select: none;
-        -ms-user-select: none;
-        user-select: none;
-      }
-
-      .button:hover {
-        background-color: #eee;
-        color: #555;
-      }
-
-      .button:active {
-        background: #e9e9e9;
-        position: relative;
-        top: 1px;
-        text-shadow: none;
-        -moz-box-shadow: 0 1px 1px rgba(0, 0, 0, .3) inset;
-        -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .3) inset;
-        box-shadow: 0 1px 1px rgba(0, 0, 0, .3) inset;
-      }
-
-      .button[disabled],
-      .button[disabled]:hover,
-      .button[disabled]:active {
-        border-color: #eaeaea;
-        background: #fafafa;
-        cursor: default;
-        position: static;
-        color: #999;
-        /* Usually, !important should be avoided but here it's really needed :) */
-        -moz-box-shadow: none !important;
-        -webkit-box-shadow: none !important;
-        box-shadow: none !important;
-        text-shadow: none !important;
-      }
-
-      /* Smaller buttons styles */
-      .button.small {
-        padding: 4px 12px;
-      }
-
-      /* Larger buttons styles */
-      .button.large {
-        padding: 12px 30px;
-        text-transform: uppercase;
-      }
-
-      .button.large:active {
-        top: 2px;
-      }
-
-      /* Colored buttons styles */
-      .button.green,
-      .button.red,
-      .button.blue {
-        color: #fff;
-        text-shadow: 0 1px 0 rgba(0, 0, 0, .2);
-        background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(255, 255, 255, .3)),
-            to(rgba(255, 255, 255, 0)));
-        background-image: -webkit-linear-gradient(top, rgba(255, 255, 255, .3), rgba(255, 255, 255, 0));
-        background-image: -moz-linear-gradient(top, rgba(255, 255, 255, .3), rgba(255, 255, 255, 0));
-        background-image: -ms-linear-gradient(top, rgba(255, 255, 255, .3), rgba(255, 255, 255, 0));
-        background-image: -o-linear-gradient(top, rgba(255, 255, 255, .3), rgba(255, 255, 255, 0));
-        background-image: linear-gradient(top, rgba(255, 255, 255, .3), rgba(255, 255, 255, 0));
-      }
-
-      /* */
-      .button.green {
-        background-color: #57a957;
-        border-color: #57a957;
-      }
-
-      .button.green:hover {
-        background-color: #62c462;
-      }
-
-      .button.green:active {
-        background: #57a957;
-      }
-
-      /* */
-      .button.red {
-        background-color: #ca3535;
-        border-color: #c43c35;
-      }
-
-      .button.red:hover {
-        background-color: #ee5f5b;
-      }
-
-      .button.red:active {
-        background: #c43c35;
-      }
-
-      /* */
-      .button.blue {
-        background-color: #269CE9;
-        border-color: #269CE9;
-      }
-
-      .button.blue:hover {
-        background-color: #70B9E8;
-      }
-
-      .button.blue:active {
-        background: #269CE9;
-      }
-
-      /* */
-      .green[disabled],
-      .green[disabled]:hover,
-      .green[disabled]:active {
-        border-color: #57A957;
-        background: #57A957;
-        color: #D2FFD2;
-      }
-
-      .red[disabled],
-      .red[disabled]:hover,
-      .red[disabled]:active {
-        border-color: #C43C35;
-        background: #C43C35;
-        color: #FFD3D3;
-      }
-
-      .blue[disabled],
-      .blue[disabled]:hover,
-      .blue[disabled]:active {
-        border-color: #269CE9;
-        background: #269CE9;
-        color: #93D5FF;
-      }
-
-      /* Group buttons */
-      .button-group,
-      .button-group li {
-        display: inline-block;
-        *display: inline;
-        zoom: 1;
-      }
-
-      .button-group {
-        font-size: 0;
-        /* Inline block elements gap - fix */
-        margin: 0;
-        padding: 0;
-        background: rgba(0, 0, 0, .1);
-        border-bottom: 1px solid rgba(0, 0, 0, .1);
-        padding: 7px;
-        -moz-border-radius: 7px;
-        -webkit-border-radius: 7px;
-        border-radius: 7px;
-      }
-
-      .button-group li {
-        margin-right: -1px;
-        /* Overlap each right button border */
-      }
-
-      .button-group .button {
-        font-size: 13px;
-        /* Set the font size, different from inherited 0 */
-        -moz-border-radius: 0;
-        -webkit-border-radius: 0;
-        border-radius: 0;
-      }
-
-      .button-group .button:active {
-        -moz-box-shadow: 0 0 1px rgba(0, 0, 0, .2) inset, 5px 0 5px -3px rgba(0, 0, 0, .2) inset, -5px 0 5px -3px rgba(0, 0,
-            0, .2) inset;
-        -webkit-box-shadow: 0 0 1px rgba(0, 0, 0, .2) inset, 5px 0 5px -3px rgba(0, 0, 0, .2) inset, -5px 0 5px -3px rgba(0,
-            0, 0, .2) inset;
-        box-shadow: 0 0 1px rgba(0, 0, 0, .2) inset, 5px 0 5px -3px rgba(0, 0, 0, .2) inset, -5px 0 5px -3px rgba(0, 0, 0,
-            .2) inset;
-      }
-
-      .button-group li:first-child .button {
-        -moz-border-radius: 3px 0 0 3px;
-        -webkit-border-radius: 3px 0 0 3px;
-        border-radius: 3px 0 0 3px;
-      }
-
-      .button-group li:first-child .button:active {
-        -moz-box-shadow: 0 0 1px rgba(0, 0, 0, .2) inset, -5px 0 5px -3px rgba(0, 0, 0, .2) inset;
-        -webkit-box-shadow: 0 0 1px rgba(0, 0, 0, .2) inset, -5px 0 5px -3px rgba(0, 0, 0, .2) inset;
-        box-shadow: 0 0 1px rgba(0, 0, 0, .2) inset, -5px 0 5px -3px rgba(0, 0, 0, .2) inset;
-      }
-
-      .button-group li:last-child .button {
-        -moz-border-radius: 0 3px 3px 0;
-        -webkit-border-radius: 0 3px 3px 0;
-        border-radius: 0 3px 3px 0;
-      }
-
-      .button-group li:last-child .button:active {
-        -moz-box-shadow: 0 0 1px rgba(0, 0, 0, .2) inset, 5px 0 5px -3px rgba(0, 0, 0, .2) inset;
-        -webkit-box-shadow: 0 0 1px rgba(0, 0, 0, .2) inset, 5px 0 5px -3px rgba(0, 0, 0, .2) inset;
-        box-shadow: 0 0 1px rgba(0, 0, 0, .2) inset, 5px 0 5px -3px rgba(0, 0, 0, .2) inset;
-      }
-
-      a {
-        color: black;
-      }
-
-      li {
-        border: 2px solid black !important;
-        font-size: 16px;
-        letter-spacing: 0px;
-        font-weight: 700;
-        line-height: 12px;
-        text-decoration: none !important;
-        text-transform: uppercase;
-        background: #1d212daf !important;
-        color: black !important;
-        border: none;
-        cursor: pointer;
-        justify-content: center;
-        padding: 40px 60px;
-        height: 55px;
-        text-align: center;
-        white-space: normal;
-        border-radius: 8px;
-        min-width: 50em;
-        padding: 1.4em 1.4em 0;
-        box-shadow: 0 0 5px;
-        margin: 1em;
-        display: grid;
-        -webkit-border-radius: 10px;
-        -moz-border-radius: 10px;
-        -ms-border-radius: 10px;
-        -o-border-radius: 10px;
-      }
-    </style>
   </head>
   <!------------------------------------------------------------------------------------------------------------------------------------------------->
 
 
   <body class="is-boxed has-animations">
+    <a href="https://github.com/bgoonz/DS-ALGO-OFFICIAL" class="github-corner" aria-label="View source on Github"><svg
+        width="80" height="80" viewBox="0 0 250 250"
+        style="z-index: 100000; fill:#194ccdaf; color:#fff; position: fixed; top: 20px; border: 0; left: 20px; transform: scale(-1.5, 1.5);"
+        aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path
+          d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+          fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm">
+        </path>
+        <path
+          d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+          fill="currentColor" class="octo-body"></path>
+      </svg></a>
+
+
+
+    <li><a  style="color:white;" href="./directory.html">Navigation</a></li>
+
+
+    <br>
+    </br>
+    <div id="ToC" class="my_class resizer top-left  top-right  bottom-left bottom-right" style="font-weight:800;">RESIZABLE(bottom right corner)</div>
+
+
+
     <h1>Data Structures and Algorithms Practice Site</h1>
+
+
+
+
+    <br>
+    </br>
+    <br>
+    </br>
     <div class="outer">
       <div id="imageDiv">
-        <li><a href="./directory.html">Navigation</a></li>
         <br>
         </br>
-        <hr>
+
         <div class="shadow">
+          <br>
+          </br>
+          <br>
+          </br>
+
+
+
           <center>
-            <h2>Ajax image loader</h2>
-            <iframe width="75%" height="500" frameborder="0" scrolling="no"
+            <h1>Ajax image loader</h1>
+            <div class="container">
+            <iframe border-radius="10px"  width="75%" height="300" frameborder="0" scrolling="no"
               src="./CONTAINER/Resources/slider/wowslider-iframe.html"></iframe>
+              </div>
           </center>
           </center>
-          <hr>
+   
           <div class="shadow">
             <h1>REPL for this whole website</h1>
             <iframe height="800px" width="100%" src="https://repl.it/@bgoonz/DS-ALGO-OFFICIAL?lite=true" scrolling="yes"
               frameborder="yes" allowtransparency="true" allowfullscreen="true"
               sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
             <h1>Playground</h1>
-            <hr>
+  
             <iframe width="100%" height="300" src="//jsfiddle.net/bgoonz/L6082jrs/embedded/js,html,css,result/dark/"
               allowfullscreen="allowfullscreen" allowpaymentrequest frameborder="0"></iframe>
 
           </div>
         </div>
-        <hr>
+      <br></br>
         <br>
         </br>
-        <hr>
-        <hr>
-        <br>
-        </br>
-        <hr>
+      <br></br>
 
         <h1>glitch</h1>
         <!-------------------------GLITCH----------------------------->
@@ -377,11 +119,11 @@
             </iframe>
           </div>
         </div>
-        <hr>
+      <br></br>
         <br>
         </br>
-        <hr>
-        <hr>
+      <br></br>
+      <br></br>
         <!-- Copy and Paste Me -->
         <div class="glitch-embed-wrap" style="height: 420px; width: 100%;">
           <iframe src="https://glitch.com/embed/#!/embed/foggy-shore-clematis?path=README.md&previewSize=0"
@@ -389,13 +131,13 @@
             style="height: 800px; width: 100%; border: 0;">
           </iframe>
         </div>
-        <hr>
+      <br></br>
         <br>
         </br>
-        <hr>
-        <hr>
+      <br></br>
+      <br></br>
         <!-------------------------GLITCH----------------------------->
-        <hr>
+      <br></br>
         <div id="a2apage_cols_container" class="a2a_cols_container">
           <div class="a2a_col1" id="a2apage_col1"></div>
           <div id="a2apage_2_col1" style="display:none"><a rel="nofollow noopener" class="a2a_i" href="/#email"
@@ -444,7 +186,7 @@
                 </svg></span>Yahoo Mail </a></div>
           <div class="a2a_clear"></div>
         </div>
-        <hr>
+      <br></br>
         <br>
         </br>
 
@@ -462,21 +204,21 @@
             allowtransparency="true" allowfullscreen="true"
             sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
         </div>
-        <hr>
-        <hr>
+      <br></br>
+      <br></br>
         <br>
         </br>
-        <hr>
+      <br></br>
         <div class="shadow">
           <iframe height="800px" width="100%" src="./Readme.html" scrolling="yes" frameborder="yes"
             allowtransparency="true" allowfullscreen="true"
             sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
         </div>
-        <hr>
+      <br></br>
         <br>
         </br>
         <h1>LEETCODE</h1>
-        <hr>
+      <br></br>
         <div class="shadow">
 
           <iframe height="800px" width="100%" src="./CONTAINER/DS-n-Algos/SANDBOX/leetMD/completeLEETCODE.html"
@@ -484,11 +226,11 @@
             sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
         </div>
       </div>
-      <hr>
+    <br></br>
       <br>
       </br>
       <h1>Recursion</h1>
-      <hr>
+    <br></br>
 
       <div class="shadow">
         <iframe height="800px" width="100%"
@@ -496,11 +238,26 @@
           frameborder="yes" allowtransparency="true" allowfullscreen="true"
           sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
       </div>
-      <hr>
+    <br></br>
+      <br>
+      </br>
+    <br></br>
+      <br>
+      </br>
+      <h1>Recursion</h1>
+    <br></br>
+
+      <div class="shadow">
+        <iframe height="800px" width="100%"
+          src="./CONTAINER/DS-n-Algos/Recursion/My-Recursion-Prac-Website/Recur-website/tabs/tabs2.html" scrolling="yes"
+          frameborder="yes" allowtransparency="true" allowfullscreen="true"
+          sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+      </div>
+    <br></br>
       <br>
       </br>
       <h1>Examples</h1>
-      <hr>
+    <br></br>
 
       <div class="shadow">
 
@@ -508,6 +265,44 @@
 
       </div>
     </div>
+    
+    
+        <br>
+    </br>
+    <br>
+    </br>
+        <br>
+    </br>
+    <br>
+    </br>
+    
+        <br>
+    </br>
+    <br>
+    </br>
+        <br>
+    </br>
+    <br>
+    </br>
+        <br>
+    </br>
+    <br>
+    </br>
+        <br>
+    </br>
+    <br>
+    </br>
+        <br>
+    </br>
+    <br>
+    </br>
+        <br>
+        </br>
+        <br>
+        </br>
+        <h1>
+          BOTTOM OF PAGE
+        </h1>
   </body>
 
   </html>
