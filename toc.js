@@ -2,7 +2,7 @@
  toc = document.getElementById( "ToC" );
 
  //Add a header
- tocHeader = document.createElement( "h5" );
+ tocHeader = document.createElement( "h6" );
  tocHeader.innerText = "Contents";
  toc.appendChild( tocHeader );
 
