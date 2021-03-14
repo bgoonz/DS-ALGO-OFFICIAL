@@ -1,4 +1,7 @@
-# Wiki
+<!-- ⚠️ This README has been generated from the file(s) "blueprint.md" ⚠️-->
+[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#wiki)
+
+# ➤ Wiki
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/9a8afdc2-08b5-4bab-a4c3-b889548d04a8/deploy-status)](https://pensive-meitner-1ea8c4.netlify.app/)
 
@@ -10,14 +13,21 @@
 [Navigation](https://pensive-meitner-1ea8c4.netlify.app/directory.html)
 
 [npm](https://www.npmjs.com/package/ds-algo-study)
+
+
+
 ---
----
+
+
 ---
 
 
 ####Author:Bryan Guner
 
-## The idea behind big O notation
+
+[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#the-idea-behind-big-o-notation)
+
+## ➤ The idea behind big O notation
 
 **Big O notation is the language we use for talking about how long an
 algorithm takes to run**. It's how we compare the efficiency of
@@ -46,23 +56,38 @@ we could express our speed in seconds. Since we're measuring _how quickly our ru
 
     "asymptotic analysis.")
 
-------
 ---
-<==(----------------------------------------------------------------------------------------------------------------------)==>
----
-------
 
-# Data Structures Reference
 
 ---
 
-## Array
+
+
+---
+---
+---
+
+
+[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#data-structures-reference)
+
+# ➤ Data Structures Reference
+
+
+---
+
+
+[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#array)
+
+## ➤ Array
 
 Stores things in order. Has quick lookups by index.
 ![](arr1.png)
 ![](array.png)
 
-## Linked List
+
+[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#linked-list)
+
+## ➤ Linked List
 
 ![](queue.gif)
 
@@ -71,20 +96,29 @@ arrays, but slower lookups (you have to "walk down" the whole list).
 
 !
 
-## Queue
+
+[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#queue)
+
+## ➤ Queue
 
 Like the line outside a busy restaurant. "First come, first served."
 [](linked-list.png)
 ![](queue.png)
 
-## Stack
+
+[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#stack)
+
+## ➤ Stack
 
 ![](stack.gif)
 ![](stack.png)
 Like a stack of dirty plates in the sink. The first one you take off the
 top is the last one you put down.
 
-## Tree
+
+[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#tree)
+
+## ➤ Tree
 
 Good for storing hierarchies. Each node can have "child" nodes.
 ![](tree.png)
@@ -94,23 +128,35 @@ Good for storing hierarchies. Each node can have "child" nodes.
 ![](pre-and-in-order-traversal.png)
 ![](post-order.png)
 
-## Binary Search Tree
+
+[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#binary-search-tree)
+
+## ➤ Binary Search Tree
 
 Everything in the left subtree is smaller than the current node, 
 everything in the right subtree is larger. lookups, but only if the tree
 is balanced!
 ![](binary-tree.png)
 
-## Binary Search Tree
 
-## Graph
+[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#binary-search-tree)
+
+## ➤ Binary Search Tree
+
+
+[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#graph)
+
+## ➤ Graph
 
 Good for storing networks, geography, social relationships, etc.
 ![](graph.png)
 ![](directed-or-undirected-cycles.png)
 ![](weighted-or-unweighted.png)
 
-## Heap 
+
+[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#heap-)
+
+## ➤ Heap 
 
 A binary tree where the smallest value is always at the top. Use it to implement a priority queue. 
 
@@ -140,13 +186,13 @@ Since node 3 has edges to nodes 1 and 2, graph[3][1] and graph[3][2] have value 
 
 a = LinkedListNode(5) b = LinkedListNode(1) c = LinkedListNode(9) a.next = b b.next = c
 
-------
 ---
-<==(----------------------------------------------------------------------------------------------------------------------)==>
----
-------
 
-## Arrays 
+
+
+[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#arrays-)
+
+## ➤ Arrays 
 
 Ok, so we know how to store individual numbers. Let's talk about storing _several numbers_. 
 
@@ -227,10 +273,12 @@ But they also constrain what kinds of things we can put in an array. Every item 
 That's the tradeoff. Arrays have fast lookups ( time), but each item in the array needs to be the same size, and you need a big block of uninterrupted free memory to store the array. 
 
 ------ 
+
 ---
- <==(----------------------------------------------------------------------------------------------------------------------)==>
---- 
-------
+ 
+
+
+---
 
  ## Pointers 
 
@@ -289,14 +337,19 @@ That's the tradeoff. This pointer-based array requires less uninterrupted memory
 This slowdown isn't reflected in the big O time cost. Lookups in this pointer-based array are _still_ time. 
 
 ------ 
+
 ---
- <==(----------------------------------------------------------------------------------------------------------------------)==>
---- 
-------
+ 
+
+
+---
 
  
 
-## Linked lists 
+
+[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#linked-lists-)
+
+## ➤ Linked lists 
 
 Our word processor is definitely going to need fast appends—appending to the document is like the _main thing_ you do with a word processor. 
 
@@ -467,10 +520,12 @@ Not only that—**walking down a linked list is _not_ cache-friendly.** Because 
 So the tradeoff with linked lists is they have faster prepends and faster appends than dynamic arrays, _but_ they have slower lookups. 
 
 ------ 
+
 ---
- <==(----------------------------------------------------------------------------------------------------------------------)==>
---- 
-------
+ 
+
+
+---
 
  ## Doubly Linked Lists 
 
@@ -484,7 +539,10 @@ In a **doubly linked list**, items have pointers to the next _and the previous_ 
 
 Doubly linked lists allow us to traverse our list _backwards_. In a _singly_ linked list, if you just had a pointer to a node in the _middle_ of a list, there would be _no way_ to know what nodes came before it. Not a problem in a doubly linked list. 
 
-## Not cache-friendly 
+
+[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#not-cache-friendly-)
+
+## ➤ Not cache-friendly 
 
 Most computers have [caching systems that make reading from sequential addresses in memory faster than reading from scattered addresses](https://www.interviewcake.com/article/data-structures-coding-interview#ram). 
 
@@ -493,10 +551,12 @@ Most computers have [caching systems that make reading from sequential addresses
 So iterating through a linked list is usually quite a bit slower than iterating through the items in an array, even though they're both theoretically time. 
 
 ------ 
+
 ---
- <==(----------------------------------------------------------------------------------------------------------------------)==>
---- 
-------
+ 
+
+
+---
 
  ## Hash tables 
 
@@ -586,7 +646,10 @@ In industry though, we usually wave our hands and say **collisions are rare enou
 
 But that's sort of the tradeoff with hash tables. You get fast lookups by key...except _some_ lookups could be slow. And of course, you only get those fast lookups in one direction—looking up the _key_ for a given _value_ still takes time. ------ --- <==(------------------------------------------------------------------------------------------------------)==> --- ------ 
 
-# Breadth-First Search (BFS) and Breadth-First Traversal 
+
+[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#breadth-first-search-bfs-and-breadth-first-traversal-)
+
+# ➤ Breadth-First Search (BFS) and Breadth-First Traversal 
 
 **Breadth-first search** (BFS) is a method for exploring a tree or graph. In a BFS, you first explore all the nodes one step away, then all the nodes two steps away, etc. 
 
@@ -634,7 +697,10 @@ Disadvantages
 
  
 
-# Binary Search Tree 
+
+[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#binary-search-tree-)
+
+# ➤ Binary Search Tree 
 
 A **binary tree** is a **tree** where <==(_**every node has two or fewer children**_)==>. 
 The children are usually called **_left_** and _**right**_. 
@@ -726,11 +792,17 @@ simply means,
 
 <==(10\^2 = 100 )==>
 
-# Graph Data Structure: Directed, Acyclic, etc 
+
+[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#graph-data-structure-directed-acyclic-etc-)
+
+# ➤ Graph Data Structure: Directed, Acyclic, etc 
 
 Graph ===== ![](graph-md.png) 
 
-## Binary numbers 
+
+[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#binary-numbers-)
+
+## ➤ Binary numbers 
 
 Let's put those bits to use. Let's store some stuff. Starting with numbers. 
 
@@ -782,11 +854,17 @@ Reading this from right to left: we have a 1 in the ones place, a 0 in the twos 
 
 
 
-# Leetcode Patterns
+
+[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#leetcode-patterns)
+
+# ➤ Leetcode Patterns
 
 
 
-## Background
+
+[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#background)
+
+## ➤ Background
 
 This repo is intended for any individual wanting to improve their problem
 solving skills for software engineering interviews.
@@ -796,7 +874,10 @@ repeatedly applying common patterns rather than randomly tackling questions.
 
 All questions are available on [leetcode.com] with some requiring [leetcode premium].
 
-## Preface
+
+[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#preface)
+
+## ➤ Preface
 
 It is highly recommended to read chapters 1, 2, 3, 4, 8, and 10 of [Cracking The Coding Interview]
 to familiarize yourself with the following data structures and their operations:
@@ -817,10 +898,16 @@ In addition, you should have a good grasp on common algorithms such as:
 - Binary search
 - Recursion
 
-## Notes
+
+[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#notes)
+
+## ➤ Notes
 
 
-## Tips to Consider
+
+[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#tips-to-consider)
+
+## ➤ Tips to Consider
 
 ```
 If input array is sorted then
@@ -859,10 +946,16 @@ Else
     - Sort input for O(nlogn) time and O(1) space
 ```
 
-## Suggestions
+
+[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#suggestions)
+
+## ➤ Suggestions
 
 Think a question should/shouldn't be included? Wish there was another feature?
-# REPO Directory Structure
+
+[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#repo-directory-structure)
+
+# ➤ REPO Directory Structure
 ```
 .
 ├── CONTAINER
@@ -1476,9 +1569,13 @@ Think a question should/shouldn't be included? Wish there was another feature?
 │   │   │   │   ├── __test__
 │   │   │ 
 ```                                        
+
 ---
 
-## [2. Add Two Numbers](https://leetcode.com/problems/add-two-numbers/description/)
+
+[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#2-add-two-numbershttpsleetcodecomproblemsadd-two-numbersdescription)
+
+## ➤ [2. Add Two Numbers](https://leetcode.com/problems/add-two-numbers/description/)
 
 ### Problem:
 
@@ -1534,17 +1631,23 @@ let addTwoNumbers = function(l1, l2) {
 };
 ```
 
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+
+
 
 ---
+
 Difficulty: Hard
 Related Topics:
   "Array": https://leetcode.com/tag/array
   "Binary Search": https://leetcode.com/tag/binary-search
   "Divide and Conquer": https://leetcode.com/tag/divide-and-conquer
+
 ---
 
-## [4. Median of Two Sorted Arrays](https://leetcode.com/problems/median-of-two-sorted-arrays/description/)
+
+[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#4-median-of-two-sorted-arrayshttpsleetcodecomproblemsmedian-of-two-sorted-arraysdescription)
+
+## ➤ [4. Median of Two Sorted Arrays](https://leetcode.com/problems/median-of-two-sorted-arrays/description/)
 
 ### Problem:
 
@@ -1647,15 +1750,21 @@ function _find (nums1, nums2, k) {
 };
 ```
 
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+
+
 
 ---
+
 Difficulty: Medium
 Related Topics:
   "String": https://leetcode.com/tag/string
+
 ---
 
-## [6. ZigZag Conversion](https://leetcode.com/problems/zigzag-conversion/description/)
+
+[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#6-zigzag-conversionhttpsleetcodecomproblemszigzag-conversiondescription)
+
+## ➤ [6. ZigZag Conversion](https://leetcode.com/problems/zigzag-conversion/description/)
 
 ### Problem:
 
@@ -1773,17 +1882,23 @@ let convert = function(s, numRows) {
 };
 ```
 
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+
+
 
 ---
+
 Difficulty: Easy
 Related Topics:
   "Math": https://leetcode.com/tag/math
 Similar Questions:
   "String to Integer (atoi)": https://leetcode.com/problems/string-to-integer-atoi
+
 ---
 
-## [7. Reverse Integer](https://leetcode.com/problems/reverse-integer/description/)
+
+[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#7-reverse-integerhttpsleetcodecomproblemsreverse-integerdescription)
+
+## ➤ [7. Reverse Integer](https://leetcode.com/problems/reverse-integer/description/)
 
 ### Problem:
 
@@ -1851,9 +1966,11 @@ let reverse = function(x) {
 ```
 
 
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+
+
 
 ---
+
 Difficulty: Medium
 Related Topics:
   "Math": https://leetcode.com/tag/math
@@ -1861,9 +1978,13 @@ Related Topics:
 Similar Questions:
   "Reverse Integer": https://leetcode.com/problems/reverse-integer
   "Valid Number": https://leetcode.com/problems/valid-number
+
 ---
 
-## [8. String to Integer (atoi)](https://leetcode.com/problems/string-to-integer-atoi/description/)
+
+[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#8-string-to-integer-atoihttpsleetcodecomproblemsstring-to-integer-atoidescription)
+
+## ➤ [8. String to Integer (atoi)](https://leetcode.com/problems/string-to-integer-atoi/description/)
 
 ### Problem:
 
@@ -1993,17 +2114,23 @@ let myAtoi = function (str) {
 };
 ```
 
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+
+
 
 ---
+
 Difficulty: Easy
 Related Topics:
   "Math": https://leetcode.com/tag/math
 Similar Questions:
   "Palindrome Linked List": https://leetcode.com/problems/palindrome-linked-list
+
 ---
 
-## [9. Palindrome Number](https://leetcode.com/problems/palindrome-number/description/)
+
+[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#9-palindrome-numberhttpsleetcodecomproblemspalindrome-numberdescription)
+
+## ➤ [9. Palindrome Number](https://leetcode.com/problems/palindrome-number/description/)
 
 ### Problem:
 
@@ -2101,9 +2228,11 @@ function reverse (x) {
 ```
 
 
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+
+
 
 ---
+
 Difficulty: Hard
 Related Topics:
   "String": https://leetcode.com/tag/string
@@ -2111,9 +2240,13 @@ Related Topics:
   "Backtracking": https://leetcode.com/tag/backtracking
 Similar Questions:
   "Wildcard Matching": https://leetcode.com/problems/wildcard-matching
+
 ---
 
-## [10. Regular Expression Matching](https://leetcode.com/problems/regular-expression-matching/description/)
+
+[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#10-regular-expression-matchinghttpsleetcodecomproblemsregular-expression-matchingdescription)
+
+## ➤ [10. Regular Expression Matching](https://leetcode.com/problems/regular-expression-matching/description/)
 
 ### Problem:
 
@@ -2258,18 +2391,24 @@ let isMatch = function(s, p) {
 ```
 
 
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+
+
 
 ---
+
 Difficulty: Medium
 Related Topics:
   "Array": https://leetcode.com/tag/array
   "Two Pointers": https://leetcode.com/tag/two-pointers
 Similar Questions:
   "Trapping Rain Water": https://leetcode.com/problems/trapping-rain-water
+
 ---
 
-## [11. Container With Most Water](https://leetcode.com/problems/container-with-most-water/description/)
+
+[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#11-container-with-most-waterhttpsleetcodecomproblemscontainer-with-most-waterdescription)
+
+## ➤ [11. Container With Most Water](https://leetcode.com/problems/container-with-most-water/description/)
 
 ### Problem:
 
@@ -2312,9 +2451,11 @@ let maxArea = function (height) {
 };
 ```
 
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+
+
 
 ---
+
 Difficulty: Medium
 Related Topics:
   "Math": https://leetcode.com/tag/math
@@ -2322,9 +2463,13 @@ Related Topics:
 Similar Questions:
   "Roman to Integer": https://leetcode.com/problems/roman-to-integer
   "Integer to English Words": https://leetcode.com/problems/integer-to-english-words
+
 ---
 
-## [12. Integer to Roman](https://leetcode.com/problems/integer-to-roman/description/)
+
+[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#12-integer-to-romanhttpsleetcodecomproblemsinteger-to-romandescription)
+
+## ➤ [12. Integer to Roman](https://leetcode.com/problems/integer-to-roman/description/)
 
 ### Problem:
 
@@ -2415,18 +2560,24 @@ let intToRoman = function(num) {
 ```
 
 
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+
+
 
 ---
+
 Difficulty: Easy
 Related Topics:
   "Math": https://leetcode.com/tag/math
   "String": https://leetcode.com/tag/string
 Similar Questions:
   "Integer to Roman": https://leetcode.com/problems/integer-to-roman
+
 ---
 
-## [13. Roman to Integer](https://leetcode.com/problems/roman-to-integer/description/)
+
+[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#13-roman-to-integerhttpsleetcodecomproblemsroman-to-integerdescription)
+
+## ➤ [13. Roman to Integer](https://leetcode.com/problems/roman-to-integer/description/)
 
 ### Problem:
 
@@ -2521,15 +2672,21 @@ let romanToInt = function (s) {
 ```
 
 
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+
+
 
 ---
+
 Difficulty: Easy
 Related Topics:
   "String": https://leetcode.com/tag/string
+
 ---
 
-## [14. Longest Common Prefix](https://leetcode.com/problems/longest-common-prefix/description/)
+
+[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#14-longest-common-prefixhttpsleetcodecomproblemslongest-common-prefixdescription)
+
+## ➤ [14. Longest Common Prefix](https://leetcode.com/problems/longest-common-prefix/description/)
 
 ### Problem:
 
@@ -2627,9 +2784,11 @@ let longestCommonPrefix = function (strs) {
 };
 ```
 
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+
+
 
 ---
+
 Difficulty: Medium
 Related Topics:
   "Array": https://leetcode.com/tag/array
@@ -2639,9 +2798,13 @@ Similar Questions:
   "3Sum Closest": https://leetcode.com/problems/3sum-closest
   "4Sum": https://leetcode.com/problems/4sum
   "3Sum Smaller": https://leetcode.com/problems/3sum-smaller
+
 ---
 
-## [15. 3Sum](https://leetcode.com/problems/3sum/description/)
+
+[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#15-3sumhttpsleetcodecomproblems3sumdescription)
+
+## ➤ [15. 3Sum](https://leetcode.com/problems/3sum/description/)
 
 ### Problem:
 
@@ -2721,9 +2884,11 @@ let threeSum = function (nums) {
 };
 ```
 
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+
+
 
 ---
+
 Difficulty: Medium
 Related Topics:
   "Array": https://leetcode.com/tag/array
@@ -2731,9 +2896,13 @@ Related Topics:
 Similar Questions:
   "3Sum": https://leetcode.com/problems/3sum
   "3Sum Smaller": https://leetcode.com/problems/3sum-smaller
+
 ---
 
-## [16. 3Sum Closest](https://leetcode.com/problems/3sum-closest/description/)
+
+[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#16-3sum-closesthttpsleetcodecomproblems3sum-closestdescription)
+
+## ➤ [16. 3Sum Closest](https://leetcode.com/problems/3sum-closest/description/)
 
 ### Problem:
 
@@ -2792,9 +2961,11 @@ let threeSumClosest = function(nums, target) {
 };
 ```
 
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+
+
 
 ---
+
 Difficulty: Medium
 Related Topics:
   "String": https://leetcode.com/tag/string
@@ -2803,9 +2974,13 @@ Similar Questions:
   "Generate Parentheses": https://leetcode.com/problems/generate-parentheses
   "Combination Sum": https://leetcode.com/problems/combination-sum
   "Binary Watch": https://leetcode.com/problems/binary-watch
+
 ---
 
-## [17. Letter Combinations of a Phone Number](https://leetcode.com/problems/letter-combinations-of-a-phone-number/description/)
+
+[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#17-letter-combinations-of-a-phone-numberhttpsleetcodecomproblemsletter-combinations-of-a-phone-numberdescription)
+
+## ➤ [17. Letter Combinations of a Phone Number](https://leetcode.com/problems/letter-combinations-of-a-phone-number/description/)
 
 ### Problem:
 
@@ -2901,9 +3076,11 @@ function dfs (digits, idigit, path, letters, result) {
 ```
 
 
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+
+
 
 ---
+
 Difficulty: Medium
 Related Topics:
   "Array": https://leetcode.com/tag/array
@@ -2913,9 +3090,13 @@ Similar Questions:
   "Two Sum": https://leetcode.com/problems/two-sum
   "3Sum": https://leetcode.com/problems/3sum
   "4Sum II": https://leetcode.com/problems/4sum-ii
+
 ---
 
-## [18. 4Sum](https://leetcode.com/problems/4sum/description/)
+
+[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#18-4sumhttpsleetcodecomproblems4sumdescription)
+
+## ➤ [18. 4Sum](https://leetcode.com/problems/4sum/description/)
 
 ### Problem:
 
@@ -2987,16 +3168,22 @@ let fourSum = function(nums, target) {
 ```
 
 
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+
+
 
 ---
+
 Difficulty: Medium
 Related Topics:
   "Linked List": https://leetcode.com/tag/linked-list
   "Two Pointers": https://leetcode.com/tag/two-pointers
+
 ---
 
-## [19. Remove Nth Node From End of List](https://leetcode.com/problems/remove-nth-node-from-end-of-list/description/)
+
+[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#19-remove-nth-node-from-end-of-listhttpsleetcodecomproblemsremove-nth-node-from-end-of-listdescription)
+
+## ➤ [19. Remove Nth Node From End of List](https://leetcode.com/problems/remove-nth-node-from-end-of-list/description/)
 
 ### Problem:
 
@@ -3062,9 +3249,11 @@ let removeNthFromEnd = function(head, n) {
 ```
 
 
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+
+
 
 ---
+
 Difficulty: Easy
 Related Topics:
   "String": https://leetcode.com/tag/string
@@ -3073,9 +3262,13 @@ Similar Questions:
   "Generate Parentheses": https://leetcode.com/problems/generate-parentheses
   "Longest Valid Parentheses": https://leetcode.com/problems/longest-valid-parentheses
   "Remove Invalid Parentheses": https://leetcode.com/problems/remove-invalid-parentheses
+
 ---
 
-## [20. Valid Parentheses](https://leetcode.com/problems/valid-parentheses/description/)
+
+[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#20-valid-parentheseshttpsleetcodecomproblemsvalid-parenthesesdescription)
+
+## ➤ [20. Valid Parentheses](https://leetcode.com/problems/valid-parentheses/description/)
 
 ### Problem:
 
@@ -3160,9 +3353,11 @@ let isValid = function(s) {
 ```
 
 
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+
+
 
 ---
+
 Difficulty: Easy
 Related Topics:
   "Linked List": https://leetcode.com/tag/linked-list
@@ -3171,9 +3366,13 @@ Similar Questions:
   "Merge Sorted Array": https://leetcode.com/problems/merge-sorted-array
   "Sort List": https://leetcode.com/problems/sort-list
   "Shortest Word Distance II": https://leetcode.com/problems/shortest-word-distance-ii
+
 ---
 
-## [21. Merge Two Sorted Lists](https://leetcode.com/problems/merge-two-sorted-lists/description/)
+
+[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#21-merge-two-sorted-listshttpsleetcodecomproblemsmerge-two-sorted-listsdescription)
+
+## ➤ [21. Merge Two Sorted Lists](https://leetcode.com/problems/merge-two-sorted-lists/description/)
 
 ### Problem:
 
@@ -3229,9 +3428,11 @@ let mergeTwoLists = function(l1, l2) {
 ```
 
 
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+
+
 
 ---
+
 Difficulty: Medium
 Related Topics:
   "String": https://leetcode.com/tag/string
@@ -3239,9 +3440,13 @@ Related Topics:
 Similar Questions:
   "Letter Combinations of a Phone Number": https://leetcode.com/problems/letter-combinations-of-a-phone-number
   "Valid Parentheses": https://leetcode.com/problems/valid-parentheses
+
 ---
 
-## [22. Generate Parentheses](https://leetcode.com/problems/generate-parentheses/description/)
+
+[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#22-generate-parentheseshttpsleetcodecomproblemsgenerate-parenthesesdescription)
+
+## ➤ [22. Generate Parentheses](https://leetcode.com/problems/generate-parentheses/description/)
 
 ### Problem:
 
@@ -3249,7 +3454,7 @@ Given n pairs of parentheses, write a function to generate all combinations of w
 
 For example, given n = 3, a solution set is:
 
-```
+```js
 [
   "((()))",
   "(()())",
@@ -3340,9 +3545,11 @@ let generateParenthesis = function(n) {
 };
 ```
 
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+
+
 
 ---
+
 Difficulty: Hard
 Related Topics:
   "Linked List": https://leetcode.com/tag/linked-list
@@ -3351,9 +3558,13 @@ Related Topics:
 Similar Questions:
   "Merge Two Sorted Lists": https://leetcode.com/problems/merge-two-sorted-lists
   "Ugly Number II": https://leetcode.com/problems/ugly-number-ii
+
 ---
 
-## [23. Merge k Sorted Lists](https://leetcode.com/problems/merge-k-sorted-lists/description/)
+
+[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#23-merge-k-sorted-listshttpsleetcodecomproblemsmerge-k-sorted-listsdescription)
+
+## ➤ [23. Merge k Sorted Lists](https://leetcode.com/problems/merge-k-sorted-lists/description/)
 
 ### Problem:
 
@@ -3447,17 +3658,23 @@ function mergeTwoLists (l1, l2) {
 ```
 
 
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+
+
 
 ---
+
 Difficulty: Medium
 Related Topics:
   "Linked List": https://leetcode.com/tag/linked-list
 Similar Questions:
   "Reverse Nodes in k-Group": https://leetcode.com/problems/reverse-nodes-in-k-group
+
 ---
 
-## [24. Swap Nodes in Pairs](https://leetcode.com/problems/swap-nodes-in-pairs/description/)
+
+[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#24-swap-nodes-in-pairshttpsleetcodecomproblemsswap-nodes-in-pairsdescription)
+
+## ➤ [24. Swap Nodes in Pairs](https://leetcode.com/problems/swap-nodes-in-pairs/description/)
 
 ### Problem:
 
@@ -3508,17 +3725,23 @@ let swapPairs = function(head) {
 ```
 
 
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+
+
 
 ---
+
 Difficulty: Hard
 Related Topics:
   "Linked List": https://leetcode.com/tag/linked-list
 Similar Questions:
   "Swap Nodes in Pairs": https://leetcode.com/problems/swap-nodes-in-pairs
+
 ---
 
-## [25. Reverse Nodes in k-Group](https://leetcode.com/problems/reverse-nodes-in-k-group/description/)
+
+[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#25-reverse-nodes-in-k-grouphttpsleetcodecomproblemsreverse-nodes-in-k-groupdescription)
+
+## ➤ [25. Reverse Nodes in k-Group](https://leetcode.com/problems/reverse-nodes-in-k-group/description/)
 
 ### Problem:
 
@@ -3596,9 +3819,11 @@ function reverseLinkList (head, nullNode = null) {
 ```
 
 
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+
+
 
 ---
+
 Difficulty: Easy
 Related Topics:
   "Array": https://leetcode.com/tag/array
@@ -3606,9 +3831,13 @@ Related Topics:
 Similar Questions:
   "Remove Element": https://leetcode.com/problems/remove-element
   "Remove Duplicates from Sorted Array II": https://leetcode.com/problems/remove-duplicates-from-sorted-array-ii
+
 ---
 
-## [26. Remove Duplicates from Sorted Array](https://leetcode.com/problems/remove-duplicates-from-sorted-array/description/)
+
+[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#26-remove-duplicates-from-sorted-arrayhttpsleetcodecomproblemsremove-duplicates-from-sorted-arraydescription)
+
+## ➤ [26. Remove Duplicates from Sorted Array](https://leetcode.com/problems/remove-duplicates-from-sorted-array/description/)
 
 ### Problem:
 
@@ -3676,9 +3905,11 @@ let removeDuplicates = function(nums) {
 ```
 
 
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+
+
 
 ---
+
 Difficulty: Easy
 Related Topics:
   "Array": https://leetcode.com/tag/array
@@ -3687,9 +3918,13 @@ Similar Questions:
   "Remove Duplicates from Sorted Array": https://leetcode.com/problems/remove-duplicates-from-sorted-array
   "Remove Linked List Elements": https://leetcode.com/problems/remove-linked-list-elements
   "Move Zeroes": https://leetcode.com/problems/move-zeroes
+
 ---
 
-## [27. Remove Element](https://leetcode.com/problems/remove-element/description/)
+
+[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#27-remove-elementhttpsleetcodecomproblemsremove-elementdescription)
+
+## ➤ [27. Remove Element](https://leetcode.com/problems/remove-element/description/)
 
 ### Problem:
 
@@ -3762,16 +3997,22 @@ let removeElement = function(nums, val) {
 ```
 
 
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+
+
 
 ---
+
 Difficulty: Medium
 Related Topics:
   "Math": https://leetcode.com/tag/math
   "Binary Search": https://leetcode.com/tag/binary-search
+
 ---
 
-## [29. Divide Two Integers](https://leetcode.com/problems/divide-two-integers/description/)
+
+[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#29-divide-two-integershttpsleetcodecomproblemsdivide-two-integersdescription)
+
+## ➤ [29. Divide Two Integers](https://leetcode.com/problems/divide-two-integers/description/)
 
 ### Problem:
 
@@ -3845,9 +4086,11 @@ let divide = function(dividend, divisor) {
 ```
 
 
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+
+
 
 ---
+
 Difficulty: Medium
 Related Topics:
   "Array": https://leetcode.com/tag/array
@@ -3856,9 +4099,13 @@ Similar Questions:
   "Permutations II": https://leetcode.com/problems/permutations-ii
   "Permutation Sequence": https://leetcode.com/problems/permutation-sequence
   "Palindrome Permutation II": https://leetcode.com/problems/palindrome-permutation-ii
+
 ---
 
-## [31. Next Permutation](https://leetcode.com/problems/next-permutation/description/)
+
+[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#31-next-permutationhttpsleetcodecomproblemsnext-permutationdescription)
+
+## ➤ [31. Next Permutation](https://leetcode.com/problems/next-permutation/description/)
 
 ### Problem:
 
@@ -3922,9 +4169,11 @@ let nextPermutation = function(nums) {
 ```
 
 
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+
+
 
 ---
+
 Difficulty: Medium
 Related Topics:
   "Array": https://leetcode.com/tag/array
@@ -3932,9 +4181,13 @@ Related Topics:
 Similar Questions:
   "Search in Rotated Sorted Array II": https://leetcode.com/problems/search-in-rotated-sorted-array-ii
   "Find Minimum in Rotated Sorted Array": https://leetcode.com/problems/find-minimum-in-rotated-sorted-array
+
 ---
 
-## [33. Search in Rotated Sorted Array](https://leetcode.com/problems/search-in-rotated-sorted-array/description/)
+
+[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#33-search-in-rotated-sorted-arrayhttpsleetcodecomproblemssearch-in-rotated-sorted-arraydescription)
+
+## ➤ [33. Search in Rotated Sorted Array](https://leetcode.com/problems/search-in-rotated-sorted-array/description/)
 
 ### Problem:
 
@@ -4018,18 +4271,24 @@ let search = function(nums, target) {
 };
 ```
 
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+
+
 
 ---
+
 Difficulty: Medium
 Related Topics:
   "Array": https://leetcode.com/tag/array
   "Binary Search": https://leetcode.com/tag/binary-search
 Similar Questions:
   "First Bad Version": https://leetcode.com/problems/first-bad-version
+
 ---
 
-## [34. Find First and Last Position of Element in Sorted Array](https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array/description/)
+
+[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#34-find-first-and-last-position-of-element-in-sorted-arrayhttpsleetcodecomproblemsfind-first-and-last-position-of-element-in-sorted-arraydescription)
+
+## ➤ [34. Find First and Last Position of Element in Sorted Array](https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array/description/)
 
 ### Problem:
 
@@ -4120,18 +4379,24 @@ function searchLast (nums, target, s, e) {
 ```
 
 
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+
+
 
 ---
+
 Difficulty: Easy
 Related Topics:
   "Array": https://leetcode.com/tag/array
   "Binary Search": https://leetcode.com/tag/binary-search
 Similar Questions:
   "First Bad Version": https://leetcode.com/problems/first-bad-version
+
 ---
 
-## [35. Search Insert Position](https://leetcode.com/problems/search-insert-position/description/)
+
+[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#35-search-insert-positionhttpsleetcodecomproblemssearch-insert-positiondescription)
+
+## ➤ [35. Search Insert Position](https://leetcode.com/problems/search-insert-position/description/)
 
 ### Problem:
 
@@ -4198,17 +4463,23 @@ let searchInsert = function(nums, target) {
 ```
 
 
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+
+
 
 ---
+
 Difficulty: Medium
 Related Topics:
   "Hash Table": https://leetcode.com/tag/hash-table
 Similar Questions:
   "Sudoku Solver": https://leetcode.com/problems/sudoku-solver
+
 ---
 
-## [36. Valid Sudoku](https://leetcode.com/problems/valid-sudoku/description/)
+
+[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#36-valid-sudokuhttpsleetcodecomproblemsvalid-sudokudescription)
+
+## ➤ [36. Valid Sudoku](https://leetcode.com/problems/valid-sudoku/description/)
 
 ### Problem:
 
@@ -4312,18 +4583,24 @@ let isValidSudoku = function(board) {
 ```
 
 
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+
+
 
 ---
+
 Difficulty: Hard
 Related Topics:
   "Hash Table": https://leetcode.com/tag/hash-table
   "Backtracking": https://leetcode.com/tag/backtracking
 Similar Questions:
   "Valid Sudoku": https://leetcode.com/problems/valid-sudoku
+
 ---
 
-## [37. Sudoku Solver](https://leetcode.com/problems/sudoku-solver/description/)
+
+[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#37-sudoku-solverhttpsleetcodecomproblemssudoku-solverdescription)
+
+## ➤ [37. Sudoku Solver](https://leetcode.com/problems/sudoku-solver/description/)
 
 ### Problem:
 
@@ -4421,18 +4698,24 @@ function dfs (board, col, row, sub, pos) {
 ```
 
 
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+
+
 
 ---
+
 Difficulty: Easy
 Related Topics:
   "String": https://leetcode.com/tag/string
 Similar Questions:
   "Encode and Decode Strings": https://leetcode.com/problems/encode-and-decode-strings
   "String Compression": https://leetcode.com/problems/string-compression
+
 ---
 
-## [38. Count and Say](https://leetcode.com/problems/count-and-say/description/)
+
+[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#38-count-and-sayhttpsleetcodecomproblemscount-and-saydescription)
+
+## ➤ [38. Count and Say](https://leetcode.com/problems/count-and-say/description/)
 
 ### Problem:
 
@@ -4520,9 +4803,11 @@ let countAndSay = function(n) {
 ```
 
 
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+
+
 
 ---
+
 Difficulty: Medium
 Related Topics:
   "Array": https://leetcode.com/tag/array
@@ -4534,9 +4819,13 @@ Similar Questions:
   "Combination Sum III": https://leetcode.com/problems/combination-sum-iii
   "Factor Combinations": https://leetcode.com/problems/factor-combinations
   "Combination Sum IV": https://leetcode.com/problems/combination-sum-iv
+
 ---
 
-## [39. Combination Sum](https://leetcode.com/problems/combination-sum/description/)
+
+[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#39-combination-sumhttpsleetcodecomproblemscombination-sumdescription)
+
+## ➤ [39. Combination Sum](https://leetcode.com/problems/combination-sum/description/)
 
 ### Problem:
 
@@ -4611,18 +4900,24 @@ function dfs (candidates, target, result, path, start) {
 
 
 
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+
+
 
 ---
+
 Difficulty: Medium
 Related Topics:
   "Array": https://leetcode.com/tag/array
   "Backtracking": https://leetcode.com/tag/backtracking
 Similar Questions:
   "Combination Sum": https://leetcode.com/problems/combination-sum
+
 ---
 
-## [40. Combination Sum II](https://leetcode.com/problems/combination-sum-ii/description/)
+
+[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#40-combination-sum-iihttpsleetcodecomproblemscombination-sum-iidescription)
+
+## ➤ [40. Combination Sum II](https://leetcode.com/problems/combination-sum-ii/description/)
 
 ### Problem:
 
@@ -4707,9 +5002,11 @@ function dfs (candidates, target, result, path, start) {
 ```
 
 
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+
+
 
 ---
+
 Difficulty: Hard
 Related Topics:
   "Array": https://leetcode.com/tag/array
@@ -4718,9 +5015,13 @@ Similar Questions:
   "Find the Duplicate Number": https://leetcode.com/problems/find-the-duplicate-number
   "Find All Numbers Disappeared in an Array": https://leetcode.com/problems/find-all-numbers-disappeared-in-an-array
   "Couples Holding Hands": https://leetcode.com/problems/couples-holding-hands
+
 ---
 
-## [41. First Missing Positive](https://leetcode.com/problems/first-missing-positive/description/)
+
+[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#41-first-missing-positivehttpsleetcodecomproblemsfirst-missing-positivedescription)
+
+## ➤ [41. First Missing Positive](https://leetcode.com/problems/first-missing-positive/description/)
 
 ### Problem:
 
@@ -4793,9 +5094,11 @@ let firstMissingPositive = function(nums) {
 };
 ```
 
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+
+
 
 ---
+
 Difficulty: Hard
 Related Topics:
   "Array": https://leetcode.com/tag/array
@@ -4806,9 +5109,13 @@ Similar Questions:
   "Product of Array Except Self": https://leetcode.com/problems/product-of-array-except-self
   "Trapping Rain Water II": https://leetcode.com/problems/trapping-rain-water-ii
   "Pour Water": https://leetcode.com/problems/pour-water
+
 ---
 
-## [42. Trapping Rain Water](https://leetcode.com/problems/trapping-rain-water/description/)
+
+[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#42-trapping-rain-waterhttpsleetcodecomproblemstrapping-rain-waterdescription)
+
+## ➤ [42. Trapping Rain Water](https://leetcode.com/problems/trapping-rain-water/description/)
 
 ### Problem:
 
@@ -4864,9 +5171,11 @@ let trap = function(height) {
 };
 ```
 
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+
+
 
 ---
+
 Difficulty: Medium
 Related Topics:
   "Math": https://leetcode.com/tag/math
@@ -4876,9 +5185,13 @@ Similar Questions:
   "Plus One": https://leetcode.com/problems/plus-one
   "Add Binary": https://leetcode.com/problems/add-binary
   "Add Strings": https://leetcode.com/problems/add-strings
+
 ---
 
-## [43. Multiply Strings](https://leetcode.com/problems/multiply-strings/description/)
+
+[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#43-multiply-stringshttpsleetcodecomproblemsmultiply-stringsdescription)
+
+## ➤ [43. Multiply Strings](https://leetcode.com/problems/multiply-strings/description/)
 
 ### Problem:
 
@@ -4931,18 +5244,24 @@ let multiply = function(num1, num2) {
 ```
 
 
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+
+
 
 ---
+
 Difficulty: Hard
 Related Topics:
   "Array": https://leetcode.com/tag/array
   "Greedy": https://leetcode.com/tag/greedy
 Similar Questions:
   "Jump Game": https://leetcode.com/problems/jump-game
+
 ---
 
-## [45. Jump Game II](https://leetcode.com/problems/jump-game-ii/description/)
+
+[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#45-jump-game-iihttpsleetcodecomproblemsjump-game-iidescription)
+
+## ➤ [45. Jump Game II](https://leetcode.com/problems/jump-game-ii/description/)
 
 ### Problem:
 
@@ -4993,9 +5312,11 @@ let jump = function(nums) {
 ```
 
 
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+
+
 
 ---
+
 Difficulty: Medium
 Related Topics:
   "Backtracking": https://leetcode.com/tag/backtracking
@@ -5004,9 +5325,13 @@ Similar Questions:
   "Permutations II": https://leetcode.com/problems/permutations-ii
   "Permutation Sequence": https://leetcode.com/problems/permutation-sequence
   "Combinations": https://leetcode.com/problems/combinations
+
 ---
 
-## [46. Permutations](https://leetcode.com/problems/permutations/description/)
+
+[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#46-permutationshttpsleetcodecomproblemspermutationsdescription)
+
+## ➤ [46. Permutations](https://leetcode.com/problems/permutations/description/)
 
 ### Problem:
 
@@ -5063,9 +5388,11 @@ function _permute (nums, start, result) {
 ```
 
 
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+
+
 
 ---
+
 Difficulty: Medium
 Related Topics:
   "Backtracking": https://leetcode.com/tag/backtracking
@@ -5073,9 +5400,13 @@ Similar Questions:
   "Next Permutation": https://leetcode.com/problems/next-permutation
   "Permutations": https://leetcode.com/problems/permutations
   "Palindrome Permutation II": https://leetcode.com/problems/palindrome-permutation-ii
+
 ---
 
-## [47. Permutations II](https://leetcode.com/problems/permutations-ii/description/)
+
+[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#47-permutations-iihttpsleetcodecomproblemspermutations-iidescription)
+
+## ➤ [47. Permutations II](https://leetcode.com/problems/permutations-ii/description/)
 
 ### Problem:
 
@@ -5136,15 +5467,21 @@ function _permuteUnique (nums, start, result) {
 ```
 
 
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+
+
 
 ---
+
 Difficulty: Medium
 Related Topics:
   "Array": https://leetcode.com/tag/array
+
 ---
 
-## [48. Rotate Image](https://leetcode.com/problems/rotate-image/description/)
+
+[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#48-rotate-imagehttpsleetcodecomproblemsrotate-imagedescription)
+
+## ➤ [48. Rotate Image](https://leetcode.com/problems/rotate-image/description/)
 
 ### Problem:
 
@@ -5225,9 +5562,11 @@ let rotate = function(matrix) {
 ```
 
 
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+
+
 
 ---
+
 Difficulty: Medium
 Related Topics:
   "Hash Table": https://leetcode.com/tag/hash-table
@@ -5235,9 +5574,13 @@ Related Topics:
 Similar Questions:
   "Valid Anagram": https://leetcode.com/problems/valid-anagram
   "Group Shifted Strings": https://leetcode.com/problems/group-shifted-strings
+
 ---
 
-## [49. Group Anagrams](https://leetcode.com/problems/group-anagrams/description/)
+
+[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#49-group-anagramshttpsleetcodecomproblemsgroup-anagramsdescription)
+
+## ➤ [49. Group Anagrams](https://leetcode.com/problems/group-anagrams/description/)
 
 ### Problem:
 
@@ -5311,9 +5654,11 @@ let groupAnagrams = function(strs) {
 ```
 
 
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+
+
 
 ---
+
 Difficulty: Medium
 Related Topics:
   "Math": https://leetcode.com/tag/math
@@ -5321,9 +5666,13 @@ Related Topics:
 Similar Questions:
   "Sqrt(x)": https://leetcode.com/problems/sqrtx
   "Super Pow": https://leetcode.com/problems/super-pow
+
 ---
 
-## [50. Pow(x, n)](https://leetcode.com/problems/powx-n/description/)
+
+[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#50-powx-nhttpsleetcodecomproblemspowx-ndescription)
+
+## ➤ [50. Pow(x, n)](https://leetcode.com/problems/powx-n/description/)
 
 ### Problem:
 
@@ -5390,17 +5739,23 @@ let myPow = function(x, n) {
 ```
 
 
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+
+
 
 ---
+
 Difficulty: Hard
 Related Topics:
   "Backtracking": https://leetcode.com/tag/backtracking
 Similar Questions:
   "N-Queens II": https://leetcode.com/problems/n-queens-ii
+
 ---
 
-## [51. N-Queens](https://leetcode.com/problems/n-queens/description/)
+
+[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#51-n-queenshttpsleetcodecomproblemsn-queensdescription)
+
+## ➤ [51. N-Queens](https://leetcode.com/problems/n-queens/description/)
 
 ### Problem:
 
@@ -5548,17 +5903,23 @@ function _genBoard (queens) {
 };
 ```
 
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+
+
 
 ---
+
 Difficulty: Hard
 Related Topics:
   "Backtracking": https://leetcode.com/tag/backtracking
 Similar Questions:
   "N-Queens": https://leetcode.com/problems/n-queens
+
 ---
 
-## [52. N-Queens II](https://leetcode.com/problems/n-queens-ii/description/)
+
+[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#52-n-queens-iihttpsleetcodecomproblemsn-queens-iidescription)
+
+## ➤ [52. N-Queens II](https://leetcode.com/problems/n-queens-ii/description/)
 
 ### Problem:
 
@@ -5636,9 +5997,11 @@ function _testDiagonal(queens, iStart) {
 ```
 
 
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+
+
 
 ---
+
 Difficulty: Easy
 Related Topics:
   "Array": https://leetcode.com/tag/array
@@ -5648,9 +6011,13 @@ Similar Questions:
   "Best Time to Buy and Sell Stock": https://leetcode.com/problems/best-time-to-buy-and-sell-stock
   "Maximum Product Subarray": https://leetcode.com/problems/maximum-product-subarray
   "Degree of an Array": https://leetcode.com/problems/degree-of-an-array
+
 ---
 
-## [53. Maximum Subarray](https://leetcode.com/problems/maximum-subarray/description/)
+
+[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#53-maximum-subarrayhttpsleetcodecomproblemsmaximum-subarraydescription)
+
+## ➤ [53. Maximum Subarray](https://leetcode.com/problems/maximum-subarray/description/)
 
 ### Problem:
 
@@ -5717,17 +6084,23 @@ let maxSubArray = function(nums) {
 ```
 
 
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+
+
 
 ---
+
 Difficulty: Medium
 Related Topics:
   "Array": https://leetcode.com/tag/array
 Similar Questions:
   "Spiral Matrix II": https://leetcode.com/problems/spiral-matrix-ii
+
 ---
 
-## [54. Spiral Matrix](https://leetcode.com/problems/spiral-matrix/description/)
+
+[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#54-spiral-matrixhttpsleetcodecomproblemsspiral-matrixdescription)
+
+## ➤ [54. Spiral Matrix](https://leetcode.com/problems/spiral-matrix/description/)
 
 ### Problem:
 
@@ -5799,18 +6172,24 @@ let spiralOrder = function(matrix) {
 ```
 
 
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+
+
 
 ---
+
 Difficulty: Medium
 Related Topics:
   "Array": https://leetcode.com/tag/array
   "Greedy": https://leetcode.com/tag/greedy
 Similar Questions:
   "Jump Game II": https://leetcode.com/problems/jump-game-ii
+
 ---
 
-## [55. Jump Game](https://leetcode.com/problems/jump-game/description/)
+
+[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#55-jump-gamehttpsleetcodecomproblemsjump-gamedescription)
+
+## ➤ [55. Jump Game](https://leetcode.com/problems/jump-game/description/)
 
 ### Problem:
 
@@ -5887,9 +6266,11 @@ let canJump = function(nums) {
 };
 ```
 
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+
+
 
 ---
+
 Difficulty: Medium
 Related Topics:
   "Array": https://leetcode.com/tag/array
@@ -5903,9 +6284,13 @@ Similar Questions:
   "Range Module": https://leetcode.com/problems/range-module
   "Employee Free Time": https://leetcode.com/problems/employee-free-time
   "Partition Labels": https://leetcode.com/problems/partition-labels
+
 ---
 
-## [56. Merge Intervals](https://leetcode.com/problems/merge-intervals/description/)
+
+[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#56-merge-intervalshttpsleetcodecomproblemsmerge-intervalsdescription)
+
+## ➤ [56. Merge Intervals](https://leetcode.com/problems/merge-intervals/description/)
 
 ### Problem:
 
@@ -5962,9 +6347,11 @@ let merge = function(intervals) {
 ```
 
 
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+
+
 
 ---
+
 Difficulty: Hard
 Related Topics:
   "Array": https://leetcode.com/tag/array
@@ -5972,9 +6359,13 @@ Related Topics:
 Similar Questions:
   "Merge Intervals": https://leetcode.com/problems/merge-intervals
   "Range Module": https://leetcode.com/problems/range-module
+
 ---
 
-## [57. Insert Interval](https://leetcode.com/problems/insert-interval/description/)
+
+[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#57-insert-intervalhttpsleetcodecomproblemsinsert-intervaldescription)
+
+## ➤ [57. Insert Interval](https://leetcode.com/problems/insert-interval/description/)
 
 ### Problem:
 
@@ -6041,15 +6432,21 @@ let insert = function(intervals, newInterval) {
 ```
 
 
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+
+
 
 ---
+
 Difficulty: Easy
 Related Topics:
   "String": https://leetcode.com/tag/string
+
 ---
 
-## [58. Length of Last Word](https://leetcode.com/problems/length-of-last-word/description/)
+
+[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#58-length-of-last-wordhttpsleetcodecomproblemslength-of-last-worddescription)
+
+## ➤ [58. Length of Last Word](https://leetcode.com/problems/length-of-last-word/description/)
 
 ### Problem:
 
@@ -6120,17 +6517,23 @@ let lengthOfLastWord = function(s) {
 };
 ```
 
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+
+
 
 ---
+
 Difficulty: Medium
 Related Topics:
   "Array": https://leetcode.com/tag/array
 Similar Questions:
   "Spiral Matrix": https://leetcode.com/problems/spiral-matrix
+
 ---
 
-## [59. Spiral Matrix II](https://leetcode.com/problems/spiral-matrix-ii/description/)
+
+[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#59-spiral-matrix-iihttpsleetcodecomproblemsspiral-matrix-iidescription)
+
+## ➤ [59. Spiral Matrix II](https://leetcode.com/problems/spiral-matrix-ii/description/)
 
 ### Problem:
 
@@ -6181,9 +6584,11 @@ let generateMatrix = function(n) {
 ```
 
 
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+
+
 
 ---
+
 Difficulty: Medium
 Related Topics:
   "Math": https://leetcode.com/tag/math
@@ -6191,9 +6596,13 @@ Related Topics:
 Similar Questions:
   "Next Permutation": https://leetcode.com/problems/next-permutation
   "Permutations": https://leetcode.com/problems/permutations
+
 ---
 
-## [60. Permutation Sequence](https://leetcode.com/problems/permutation-sequence/description/)
+
+[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#60-permutation-sequencehttpsleetcodecomproblemspermutation-sequencedescription)
+
+## ➤ [60. Permutation Sequence](https://leetcode.com/problems/permutation-sequence/description/)
 
 ### Problem:
 
@@ -6265,9 +6674,11 @@ let getPermutation = function(n, k) {
 };
 ```
 
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+
+
 
 ---
+
 Difficulty: Medium
 Related Topics:
   "Linked List": https://leetcode.com/tag/linked-list
@@ -6275,9 +6686,13 @@ Related Topics:
 Similar Questions:
   "Rotate Array": https://leetcode.com/problems/rotate-array
   "Split Linked List in Parts": https://leetcode.com/problems/split-linked-list-in-parts
+
 ---
 
-## [61. Rotate List](https://leetcode.com/problems/rotate-list/description/)
+
+[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#61-rotate-listhttpsleetcodecomproblemsrotate-listdescription)
+
+## ➤ [61. Rotate List](https://leetcode.com/problems/rotate-list/description/)
 
 ### Problem:
 
@@ -6363,9 +6778,11 @@ let rotateRight = function(head, k) {
 };
 ```
 
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+
+
 
 ---
+
 Difficulty: Medium
 Related Topics:
   "Array": https://leetcode.com/tag/array
@@ -6374,9 +6791,13 @@ Similar Questions:
   "Unique Paths II": https://leetcode.com/problems/unique-paths-ii
   "Minimum Path Sum": https://leetcode.com/problems/minimum-path-sum
   "Dungeon Game": https://leetcode.com/problems/dungeon-game
+
 ---
 
-## [62. Unique Paths](https://leetcode.com/problems/unique-paths/description/)
+
+[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#62-unique-pathshttpsleetcodecomproblemsunique-pathsdescription)
+
+## ➤ [62. Unique Paths](https://leetcode.com/problems/unique-paths/description/)
 
 ### Problem:
 
@@ -6442,9 +6863,11 @@ let uniquePaths = function(m, n) {
 };
 ```
 
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+
+
 
 ---
+
 Difficulty: Medium
 Related Topics:
   "Array": https://leetcode.com/tag/array
@@ -6453,9 +6876,13 @@ Similar Questions:
   "Unique Paths": https://leetcode.com/problems/unique-paths
   "Dungeon Game": https://leetcode.com/problems/dungeon-game
   "Cherry Pickup": https://leetcode.com/problems/cherry-pickup
+
 ---
 
-## [64. Minimum Path Sum](https://leetcode.com/problems/minimum-path-sum/description/)
+
+[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#64-minimum-path-sumhttpsleetcodecomproblemsminimum-path-sumdescription)
+
+## ➤ [64. Minimum Path Sum](https://leetcode.com/problems/minimum-path-sum/description/)
 
 ### Problem:
 
@@ -6514,18 +6941,24 @@ let minPathSum = function(grid) {
 ```
 
 
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+
+
 
 ---
+
 Difficulty: Hard
 Related Topics:
   "Math": https://leetcode.com/tag/math
   "String": https://leetcode.com/tag/string
 Similar Questions:
   "String to Integer (atoi)": https://leetcode.com/problems/string-to-integer-atoi
+
 ---
 
-## [65. Valid Number](https://leetcode.com/problems/valid-number/description/)
+
+[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#65-valid-numberhttpsleetcodecomproblemsvalid-numberdescription)
+
+## ➤ [65. Valid Number](https://leetcode.com/problems/valid-number/description/)
 
 ### Problem:
 
@@ -6720,9 +7153,11 @@ function parseExponentPart (s, start) {
 }
 ```
 
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+
+
 
 ---
+
 Difficulty: Easy
 Related Topics:
   "Array": https://leetcode.com/tag/array
@@ -6731,9 +7166,13 @@ Similar Questions:
   "Multiply Strings": https://leetcode.com/problems/multiply-strings
   "Add Binary": https://leetcode.com/problems/add-binary
   "Plus One Linked List": https://leetcode.com/problems/plus-one-linked-list
+
 ---
 
-## [66. Plus One](https://leetcode.com/problems/plus-one/description/)
+
+[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#66-plus-onehttpsleetcodecomproblemsplus-onedescription)
+
+## ➤ [66. Plus One](https://leetcode.com/problems/plus-one/description/)
 
 ### Problem:
 
@@ -6810,15 +7249,21 @@ let plusOne = function(digits) {
 ```
 
 
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+
+
 
 ---
+
 Difficulty: Hard
 Related Topics:
   "String": https://leetcode.com/tag/string
+
 ---
 
-## [68. Text Justification](https://leetcode.com/problems/text-justification/description/)
+
+[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#68-text-justificationhttpsleetcodecomproblemstext-justificationdescription)
+
+## ➤ [68. Text Justification](https://leetcode.com/problems/text-justification/description/)
 
 ### Problem:
 
@@ -6940,9 +7385,11 @@ let fullJustify = function(words, maxWidth) {
 ```
 
 
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+
+
 
 ---
+
 Difficulty: Easy
 Related Topics:
   "Math": https://leetcode.com/tag/math
@@ -6950,9 +7397,13 @@ Related Topics:
 Similar Questions:
   "Pow(x, n)": https://leetcode.com/problems/powx-n
   "Valid Perfect Square": https://leetcode.com/problems/valid-perfect-square
+
 ---
 
-## [69. Sqrt(x)](https://leetcode.com/problems/sqrtx/description/)
+
+[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#69-sqrtxhttpsleetcodecomproblemssqrtxdescription)
+
+## ➤ [69. Sqrt(x)](https://leetcode.com/problems/sqrtx/description/)
 
 ### Problem:
 
@@ -7006,16 +7457,22 @@ let mySqrt = function(x) {
 ```
 
 
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+
+
 
 ---
+
 Difficulty: Medium
 Related Topics:
   "String": https://leetcode.com/tag/string
   "Stack": https://leetcode.com/tag/stack
+
 ---
 
-## [71. Simplify Path](https://leetcode.com/problems/simplify-path/description/)
+
+[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#71-simplify-pathhttpsleetcodecomproblemssimplify-pathdescription)
+
+## ➤ [71. Simplify Path](https://leetcode.com/problems/simplify-path/description/)
 
 ### Problem:
 
@@ -7093,9 +7550,11 @@ let simplifyPath = function(path) {
 };
 ```
 
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+
+
 
 ---
+
 Difficulty: Hard
 Related Topics:
   "String": https://leetcode.com/tag/string
@@ -7104,9 +7563,13 @@ Similar Questions:
   "One Edit Distance": https://leetcode.com/problems/one-edit-distance
   "Delete Operation for Two Strings": https://leetcode.com/problems/delete-operation-for-two-strings
   "Minimum ASCII Delete Sum for Two Strings": https://leetcode.com/problems/minimum-ascii-delete-sum-for-two-strings
+
 ---
 
-## [72. Edit Distance](https://leetcode.com/problems/edit-distance/description/)
+
+[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#72-edit-distancehttpsleetcodecomproblemsedit-distancedescription)
+
+## ➤ [72. Edit Distance](https://leetcode.com/problems/edit-distance/description/)
 
 ### Problem:
 
@@ -7198,17 +7661,23 @@ let minDistance = function(word1, word2) {
 ```
 
 
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+
+
 
 ---
+
 Difficulty: Medium
 Related Topics:
   "Array": https://leetcode.com/tag/array
 Similar Questions:
   "Game of Life": https://leetcode.com/problems/game-of-life
+
 ---
 
-## [73. Set Matrix Zeroes](https://leetcode.com/problems/set-matrix-zeroes/description/)
+
+[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#73-set-matrix-zeroeshttpsleetcodecomproblemsset-matrix-zeroesdescription)
+
+## ➤ [73. Set Matrix Zeroes](https://leetcode.com/problems/set-matrix-zeroes/description/)
 
 ### Problem:
 
@@ -7367,18 +7836,24 @@ let setZeroes = function(matrix) {
 ```
 
 
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+
+
 
 ---
+
 Difficulty: Medium
 Related Topics:
   "Array": https://leetcode.com/tag/array
   "Binary Search": https://leetcode.com/tag/binary-search
 Similar Questions:
   "Search a 2D Matrix II": https://leetcode.com/problems/search-a-2d-matrix-ii
+
 ---
 
-## [74. Search a 2D Matrix](https://leetcode.com/problems/search-a-2d-matrix/description/)
+
+[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#74-search-a-2d-matrixhttpsleetcodecomproblemssearch-a-2d-matrixdescription)
+
+## ➤ [74. Search a 2D Matrix](https://leetcode.com/problems/search-a-2d-matrix/description/)
 
 ### Problem:
 
@@ -7487,9 +7962,11 @@ let searchMatrix = function(matrix, target) {
 ```
 
 
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+
+
 
 ---
+
 Difficulty: Medium
 Related Topics:
   "Array": https://leetcode.com/tag/array
@@ -7499,9 +7976,13 @@ Similar Questions:
   "Sort List": https://leetcode.com/problems/sort-list
   "Wiggle Sort": https://leetcode.com/problems/wiggle-sort
   "Wiggle Sort II": https://leetcode.com/problems/wiggle-sort-ii
+
 ---
 
-## [75. Sort Colors](https://leetcode.com/problems/sort-colors/description/)
+
+[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#75-sort-colorshttpsleetcodecomproblemssort-colorsdescription)
+
+## ➤ [75. Sort Colors](https://leetcode.com/problems/sort-colors/description/)
 
 ### Problem:
 
@@ -7561,18 +8042,24 @@ let sortColors = function(nums) {
 ```
 
 
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+
+
 
 ---
+
 Difficulty: Medium
 Related Topics:
   "Backtracking": https://leetcode.com/tag/backtracking
 Similar Questions:
   "Combination Sum": https://leetcode.com/problems/combination-sum
   "Permutations": https://leetcode.com/problems/permutations
+
 ---
 
-## [77. Combinations](https://leetcode.com/problems/combinations/description/)
+
+[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#77-combinationshttpsleetcodecomproblemscombinationsdescription)
+
+## ➤ [77. Combinations](https://leetcode.com/problems/combinations/description/)
 
 ### Problem:
 
@@ -7623,9 +8110,11 @@ function _combine (cur, path, n, k, result) {
 ```
 
 
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+
+
 
 ---
+
 Difficulty: Medium
 Related Topics:
   "Array": https://leetcode.com/tag/array
@@ -7635,9 +8124,13 @@ Similar Questions:
   "Subsets II": https://leetcode.com/problems/subsets-ii
   "Generalized Abbreviation": https://leetcode.com/problems/generalized-abbreviation
   "Letter Case Permutation": https://leetcode.com/problems/letter-case-permutation
+
 ---
 
-## [78. Subsets](https://leetcode.com/problems/subsets/description/)
+
+[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#78-subsetshttpsleetcodecomproblemssubsetsdescription)
+
+## ➤ [78. Subsets](https://leetcode.com/problems/subsets/description/)
 
 ### Problem:
 
@@ -7721,18 +8214,24 @@ function _subsets(nums, start, path, result) {
 }
 ```
 
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+
+
 
 ---
+
 Difficulty: Medium
 Related Topics:
   "Array": https://leetcode.com/tag/array
   "Backtracking": https://leetcode.com/tag/backtracking
 Similar Questions:
   "Word Search II": https://leetcode.com/problems/word-search-ii
+
 ---
 
-## [79. Word Search](https://leetcode.com/problems/word-search/description/)
+
+[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#79-word-searchhttpsleetcodecomproblemsword-searchdescription)
+
+## ➤ [79. Word Search](https://leetcode.com/problems/word-search/description/)
 
 ### Problem:
 
@@ -7809,18 +8308,24 @@ function _exist (board, word, iWord, directions, row, col) {
 ```
 
 
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+
+
 
 ---
+
 Difficulty: Medium
 Related Topics:
   "Array": https://leetcode.com/tag/array
   "Two Pointers": https://leetcode.com/tag/two-pointers
 Similar Questions:
   "Remove Duplicates from Sorted Array": https://leetcode.com/problems/remove-duplicates-from-sorted-array
+
 ---
 
-## [80. Remove Duplicates from Sorted Array II](https://leetcode.com/problems/remove-duplicates-from-sorted-array-ii/description/)
+
+[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#80-remove-duplicates-from-sorted-array-iihttpsleetcodecomproblemsremove-duplicates-from-sorted-array-iidescription)
+
+## ➤ [80. Remove Duplicates from Sorted Array II](https://leetcode.com/problems/remove-duplicates-from-sorted-array-ii/description/)
 
 ### Problem:
 
@@ -7888,18 +8393,24 @@ let removeDuplicates = function(nums) {
 ```
 
 
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+
+
 
 ---
+
 Difficulty: Medium
 Related Topics:
   "Array": https://leetcode.com/tag/array
   "Binary Search": https://leetcode.com/tag/binary-search
 Similar Questions:
   "Search in Rotated Sorted Array": https://leetcode.com/problems/search-in-rotated-sorted-array
+
 ---
 
-## [81. Search in Rotated Sorted Array II](https://leetcode.com/problems/search-in-rotated-sorted-array-ii/description/)
+
+[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#81-search-in-rotated-sorted-array-iihttpsleetcodecomproblemssearch-in-rotated-sorted-array-iidescription)
+
+## ➤ [81. Search in Rotated Sorted Array II](https://leetcode.com/problems/search-in-rotated-sorted-array-ii/description/)
 
 ### Problem:
 
@@ -7972,17 +8483,23 @@ let search = function(nums, target) {
 ```
 
 
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+
+
 
 ---
+
 Difficulty: Medium
 Related Topics:
   "Linked List": https://leetcode.com/tag/linked-list
 Similar Questions:
   "Remove Duplicates from Sorted List": https://leetcode.com/problems/remove-duplicates-from-sorted-list
+
 ---
 
-## [82. Remove Duplicates from Sorted List II](https://leetcode.com/problems/remove-duplicates-from-sorted-list-ii/description/)
+
+[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#82-remove-duplicates-from-sorted-list-iihttpsleetcodecomproblemsremove-duplicates-from-sorted-list-iidescription)
+
+## ➤ [82. Remove Duplicates from Sorted List II](https://leetcode.com/problems/remove-duplicates-from-sorted-list-ii/description/)
 
 ### Problem:
 
@@ -8043,17 +8560,23 @@ let deleteDuplicates = function(head) {
 ```
 
 
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+
+
 
 ---
+
 Difficulty: Easy
 Related Topics:
   "Linked List": https://leetcode.com/tag/linked-list
 Similar Questions:
   "Remove Duplicates from Sorted List II": https://leetcode.com/problems/remove-duplicates-from-sorted-list-ii
+
 ---
 
-## [83. Remove Duplicates from Sorted List](https://leetcode.com/problems/remove-duplicates-from-sorted-list/description/)
+
+[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#83-remove-duplicates-from-sorted-listhttpsleetcodecomproblemsremove-duplicates-from-sorted-listdescription)
+
+## ➤ [83. Remove Duplicates from Sorted List](https://leetcode.com/problems/remove-duplicates-from-sorted-list/description/)
 
 ### Problem:
 
@@ -8145,18 +8668,24 @@ let deleteDuplicates = function(head) {
 };
 ```
 
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+
+
 
 ---
+
 Difficulty: Hard
 Related Topics:
   "Array": https://leetcode.com/tag/array
   "Stack": https://leetcode.com/tag/stack
 Similar Questions:
   "Maximal Rectangle": https://leetcode.com/problems/maximal-rectangle
+
 ---
 
-## [84. Largest Rectangle in Histogram](https://leetcode.com/problems/largest-rectangle-in-histogram/description/)
+
+[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#84-largest-rectangle-in-histogramhttpsleetcodecomproblemslargest-rectangle-in-histogramdescription)
+
+## ➤ [84. Largest Rectangle in Histogram](https://leetcode.com/problems/largest-rectangle-in-histogram/description/)
 
 ### Problem:
 
@@ -8220,9 +8749,11 @@ let largestRectangleArea = function(heights) {
 
 ```
 
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+
+
 
 ---
+
 Difficulty: Hard
 Related Topics:
   "Array": https://leetcode.com/tag/array
@@ -8232,9 +8763,13 @@ Related Topics:
 Similar Questions:
   "Largest Rectangle in Histogram": https://leetcode.com/problems/largest-rectangle-in-histogram
   "Maximal Square": https://leetcode.com/problems/maximal-square
+
 ---
 
-## [85. Maximal Rectangle](https://leetcode.com/problems/maximal-rectangle/description/)
+
+[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#85-maximal-rectanglehttpsleetcodecomproblemsmaximal-rectangledescription)
+
+## ➤ [85. Maximal Rectangle](https://leetcode.com/problems/maximal-rectangle/description/)
 
 ### Problem:
 
@@ -8394,16 +8929,22 @@ let maximalRectangle = function(matrix) {
 };
 ```
 
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+
+
 
 ---
+
 Difficulty: Medium
 Related Topics:
   "Linked List": https://leetcode.com/tag/linked-list
   "Two Pointers": https://leetcode.com/tag/two-pointers
+
 ---
 
-## [86. Partition List](https://leetcode.com/problems/partition-list/description/)
+
+[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#86-partition-listhttpsleetcodecomproblemspartition-listdescription)
+
+## ➤ [86. Partition List](https://leetcode.com/problems/partition-list/description/)
 
 ### Problem:
 
@@ -8463,18 +9004,24 @@ let partition = function(head, x) {
 ```
 
 
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+
+
 
 ---
+
 Difficulty: Easy
 Related Topics:
   "Array": https://leetcode.com/tag/array
   "Two Pointers": https://leetcode.com/tag/two-pointers
 Similar Questions:
   "Merge Two Sorted Lists": https://leetcode.com/problems/merge-two-sorted-lists
+
 ---
 
-## [88. Merge Sorted Array](https://leetcode.com/problems/merge-sorted-array/description/)
+
+[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#88-merge-sorted-arrayhttpsleetcodecomproblemsmerge-sorted-arraydescription)
+
+## ➤ [88. Merge Sorted Array](https://leetcode.com/problems/merge-sorted-array/description/)
 
 ### Problem:
 
@@ -8516,17 +9063,23 @@ let merge = function(nums1, m, nums2, n) {
 ```
 
 
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+
+
 
 ---
+
 Difficulty: Medium
 Related Topics:
   "Backtracking": https://leetcode.com/tag/backtracking
 Similar Questions:
   "1-bit and 2-bit Characters": https://leetcode.com/problems/1-bit-and-2-bit-characters
+
 ---
 
-## [89. Gray Code](https://leetcode.com/problems/gray-code/description/)
+
+[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#89-gray-codehttpsleetcodecomproblemsgray-codedescription)
+
+## ➤ [89. Gray Code](https://leetcode.com/problems/gray-code/description/)
 
 ### Problem:
 
@@ -8595,18 +9148,24 @@ let grayCode = function(n) {
 };
 ```
 
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+
+
 
 ---
+
 Difficulty: Medium
 Related Topics:
   "Array": https://leetcode.com/tag/array
   "Backtracking": https://leetcode.com/tag/backtracking
 Similar Questions:
   "Subsets": https://leetcode.com/problems/subsets
+
 ---
 
-## [90. Subsets II](https://leetcode.com/problems/subsets-ii/description/)
+
+[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#90-subsets-iihttpsleetcodecomproblemssubsets-iidescription)
+
+## ➤ [90. Subsets II](https://leetcode.com/problems/subsets-ii/description/)
 
 ### Problem:
 
@@ -8660,18 +9219,24 @@ function _subsetsWithDup(nums, start, path, result) {
 }
 ```
 
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+
+
 
 ---
+
 Difficulty: Medium
 Related Topics:
   "String": https://leetcode.com/tag/string
   "Dynamic Programming": https://leetcode.com/tag/dynamic-programming
 Similar Questions:
   "Decode Ways II": https://leetcode.com/problems/decode-ways-ii
+
 ---
 
-## [91. Decode Ways](https://leetcode.com/problems/decode-ways/description/)
+
+[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#91-decode-wayshttpsleetcodecomproblemsdecode-waysdescription)
+
+## ➤ [91. Decode Ways](https://leetcode.com/problems/decode-ways/description/)
 
 ### Problem:
 
@@ -8744,17 +9309,23 @@ let numDecodings = function(s) {
 };
 ```
 
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+
+
 
 ---
+
 Difficulty: Medium
 Related Topics:
   "Linked List": https://leetcode.com/tag/linked-list
 Similar Questions:
   "Reverse Linked List": https://leetcode.com/problems/reverse-linked-list
+
 ---
 
-## [92. Reverse Linked List II](https://leetcode.com/problems/reverse-linked-list-ii/description/)
+
+[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#92-reverse-linked-list-iihttpsleetcodecomproblemsreverse-linked-list-iidescription)
+
+## ➤ [92. Reverse Linked List II](https://leetcode.com/problems/reverse-linked-list-ii/description/)
 
 ### Problem:
 
@@ -8817,18 +9388,24 @@ let reverseBetween = function(head, m, n) {
 ```
 
 
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+
+
 
 ---
+
 Difficulty: Medium
 Related Topics:
   "String": https://leetcode.com/tag/string
   "Backtracking": https://leetcode.com/tag/backtracking
 Similar Questions:
   "IP to CIDR": https://leetcode.com/problems/ip-to-cidr
+
 ---
 
-## [93. Restore IP Addresses](https://leetcode.com/problems/restore-ip-addresses/description/)
+
+[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#93-restore-ip-addresseshttpsleetcodecomproblemsrestore-ip-addressesdescription)
+
+## ➤ [93. Restore IP Addresses](https://leetcode.com/problems/restore-ip-addresses/description/)
 
 ### Problem:
 
@@ -8886,16 +9463,22 @@ let restoreIpAddresses = function(s, i = 0, path = [], result = []) {
 ```
 
 
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+
+
 
 ---
+
 Difficulty: Hard
 Related Topics:
   "String": https://leetcode.com/tag/string
   "Dynamic Programming": https://leetcode.com/tag/dynamic-programming
+
 ---
 
-## [97. Interleaving String](https://leetcode.com/problems/interleaving-string/description/)
+
+[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#97-interleaving-stringhttpsleetcodecomproblemsinterleaving-stringdescription)
+
+## ➤ [97. Interleaving String](https://leetcode.com/problems/interleaving-string/description/)
 
 ### Problem:
 
@@ -8952,16 +9535,22 @@ let isInterleave = function(s1, s2, s3) {
 };
 ```
 
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+
+
 
 ---
+
 Difficulty: Easy
 Related Topics:
   "Tree": https://leetcode.com/tag/tree
   "Depth-first Search": https://leetcode.com/tag/depth-first-search
+
 ---
 
-## [100. Same Tree](https://leetcode.com/problems/same-tree/description/)
+
+[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#100-same-treehttpsleetcodecomproblemssame-treedescription)
+
+## ➤ [100. Same Tree](https://leetcode.com/problems/same-tree/description/)
 
 ### Problem:
 
@@ -9029,17 +9618,23 @@ let isSameTree = function(p, q) {
 ```
 
 
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+
+
 
 ---
+
 Difficulty: Easy
 Related Topics:
   "Tree": https://leetcode.com/tag/tree
   "Depth-first Search": https://leetcode.com/tag/depth-first-search
   "Breadth-first Search": https://leetcode.com/tag/breadth-first-search
+
 ---
 
-## [101. Symmetric Tree](https://leetcode.com/problems/symmetric-tree/description/)
+
+[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#101-symmetric-treehttpsleetcodecomproblemssymmetric-treedescription)
+
+## ➤ [101. Symmetric Tree](https://leetcode.com/problems/symmetric-tree/description/)
 
 ### Problem:
 
@@ -9148,9 +9743,11 @@ let isSymmetric = function(root) {
 };
 ```
 
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+
+
 
 ---
+
 Difficulty: Medium
 Related Topics:
   "Tree": https://leetcode.com/tag/tree
@@ -9162,9 +9759,13 @@ Similar Questions:
   "Binary Tree Vertical Order Traversal": https://leetcode.com/problems/binary-tree-vertical-order-traversal
   "Average of Levels in Binary Tree": https://leetcode.com/problems/average-of-levels-in-binary-tree
   "N-ary Tree Level Order Traversal": https://leetcode.com/problems/n-ary-tree-level-order-traversal
+
 ---
 
-## [102. Binary Tree Level Order Traversal](https://leetcode.com/problems/binary-tree-level-order-traversal/description/)
+
+[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#102-binary-tree-level-order-traversalhttpsleetcodecomproblemsbinary-tree-level-order-traversaldescription)
+
+## ➤ [102. Binary Tree Level Order Traversal](https://leetcode.com/problems/binary-tree-level-order-traversal/description/)
 
 ### Problem:
 
@@ -9228,9 +9829,11 @@ let levelOrder = function(root) {
 ```
 
 
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+
+
 
 ---
+
 Difficulty: Medium
 Related Topics:
   "Stack": https://leetcode.com/tag/stack
@@ -9238,9 +9841,13 @@ Related Topics:
   "Breadth-first Search": https://leetcode.com/tag/breadth-first-search
 Similar Questions:
   "Binary Tree Level Order Traversal": https://leetcode.com/problems/binary-tree-level-order-traversal
+
 ---
 
-## [103. Binary Tree Zigzag Level Order Traversal](https://leetcode.com/problems/binary-tree-zigzag-level-order-traversal/description/)
+
+[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#103-binary-tree-zigzag-level-order-traversalhttpsleetcodecomproblemsbinary-tree-zigzag-level-order-traversaldescription)
+
+## ➤ [103. Binary Tree Zigzag Level Order Traversal](https://leetcode.com/problems/binary-tree-zigzag-level-order-traversal/description/)
 
 ### Problem:
 
@@ -9309,9 +9916,11 @@ let zigzagLevelOrder = function(root) {
 ```
 
 
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+
+
 
 ---
+
 Difficulty: Easy
 Related Topics:
   "Tree": https://leetcode.com/tag/tree
@@ -9320,9 +9929,13 @@ Similar Questions:
   "Balanced Binary Tree": https://leetcode.com/problems/balanced-binary-tree
   "Minimum Depth of Binary Tree": https://leetcode.com/problems/minimum-depth-of-binary-tree
   "Maximum Depth of N-ary Tree": https://leetcode.com/problems/maximum-depth-of-n-ary-tree
+
 ---
 
-## [104. Maximum Depth of Binary Tree](https://leetcode.com/problems/maximum-depth-of-binary-tree/description/)
+
+[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#104-maximum-depth-of-binary-treehttpsleetcodecomproblemsmaximum-depth-of-binary-treedescription)
+
+## ➤ [104. Maximum Depth of Binary Tree](https://leetcode.com/problems/maximum-depth-of-binary-tree/description/)
 
 ### Problem:
 
@@ -9370,9 +9983,11 @@ let maxDepth = function(root) {
 ```
 
 
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+
+
 
 ---
+
 Difficulty: Medium
 Related Topics:
   "Array": https://leetcode.com/tag/array
@@ -9380,9 +9995,13 @@ Related Topics:
   "Depth-first Search": https://leetcode.com/tag/depth-first-search
 Similar Questions:
   "Construct Binary Tree from Inorder and Postorder Traversal": https://leetcode.com/problems/construct-binary-tree-from-inorder-and-postorder-traversal
+
 ---
 
-## [105. Construct Binary Tree from Preorder and Inorder Traversal](https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/description/)
+
+[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#105-construct-binary-tree-from-preorder-and-inorder-traversalhttpsleetcodecomproblemsconstruct-binary-tree-from-preorder-and-inorder-traversaldescription)
+
+## ➤ [105. Construct Binary Tree from Preorder and Inorder Traversal](https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/description/)
 
 ### Problem:
 
@@ -9452,9 +10071,11 @@ function _buildTree (preorder, inorder, pStart, pEnd, iStart, iEnd) {
 }
 ```
 
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+
+
 
 ---
+
 Difficulty: Medium
 Related Topics:
   "Array": https://leetcode.com/tag/array
@@ -9462,9 +10083,13 @@ Related Topics:
   "Depth-first Search": https://leetcode.com/tag/depth-first-search
 Similar Questions:
   "Construct Binary Tree from Preorder and Inorder Traversal": https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal
+
 ---
 
-## [106. Construct Binary Tree from Inorder and Postorder Traversal](https://leetcode.com/problems/construct-binary-tree-from-inorder-and-postorder-traversal/description/)
+
+[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#106-construct-binary-tree-from-inorder-and-postorder-traversalhttpsleetcodecomproblemsconstruct-binary-tree-from-inorder-and-postorder-traversaldescription)
+
+## ➤ [106. Construct Binary Tree from Inorder and Postorder Traversal](https://leetcode.com/problems/construct-binary-tree-from-inorder-and-postorder-traversal/description/)
 
 ### Problem:
 
@@ -9534,9 +10159,11 @@ function _buildTree (postorder, inorder, pStart, pEnd, iStart, iEnd) {
 }
 ```
 
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+
+
 
 ---
+
 Difficulty: Easy
 Related Topics:
   "Tree": https://leetcode.com/tag/tree
@@ -9544,9 +10171,13 @@ Related Topics:
 Similar Questions:
   "Binary Tree Level Order Traversal": https://leetcode.com/problems/binary-tree-level-order-traversal
   "Average of Levels in Binary Tree": https://leetcode.com/problems/average-of-levels-in-binary-tree
+
 ---
 
-## [107. Binary Tree Level Order Traversal II](https://leetcode.com/problems/binary-tree-level-order-traversal-ii/description/)
+
+[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#107-binary-tree-level-order-traversal-iihttpsleetcodecomproblemsbinary-tree-level-order-traversal-iidescription)
+
+## ➤ [107. Binary Tree Level Order Traversal II](https://leetcode.com/problems/binary-tree-level-order-traversal-ii/description/)
 
 ### Problem:
 
@@ -9611,18 +10242,24 @@ let levelOrderBottom = function(root) {
 
 
 
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+
+
 
 ---
+
 Difficulty: Easy
 Related Topics:
   "Tree": https://leetcode.com/tag/tree
   "Depth-first Search": https://leetcode.com/tag/depth-first-search
 Similar Questions:
   "Maximum Depth of Binary Tree": https://leetcode.com/problems/maximum-depth-of-binary-tree
+
 ---
 
-## [110. Balanced Binary Tree](https://leetcode.com/problems/balanced-binary-tree/description/)
+
+[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#110-balanced-binary-treehttpsleetcodecomproblemsbalanced-binary-treedescription)
+
+## ➤ [110. Balanced Binary Tree](https://leetcode.com/problems/balanced-binary-tree/description/)
 
 ### Problem:
 
@@ -9693,9 +10330,11 @@ function getDepth (root) {
 ```
 
 
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+
+
 
 ---
+
 Difficulty: Easy
 Related Topics:
   "Tree": https://leetcode.com/tag/tree
@@ -9704,9 +10343,13 @@ Related Topics:
 Similar Questions:
   "Binary Tree Level Order Traversal": https://leetcode.com/problems/binary-tree-level-order-traversal
   "Maximum Depth of Binary Tree": https://leetcode.com/problems/maximum-depth-of-binary-tree
+
 ---
 
-## [111. Minimum Depth of Binary Tree](https://leetcode.com/problems/minimum-depth-of-binary-tree/description/)
+
+[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#111-minimum-depth-of-binary-treehttpsleetcodecomproblemsminimum-depth-of-binary-treedescription)
+
+## ➤ [111. Minimum Depth of Binary Tree](https://leetcode.com/problems/minimum-depth-of-binary-tree/description/)
 
 ### Problem:
 
@@ -9759,9 +10402,11 @@ let minDepth = function(root) {
 ```
 
 
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+
+
 
 ---
+
 Difficulty: Easy
 Related Topics:
   "Tree": https://leetcode.com/tag/tree
@@ -9772,9 +10417,13 @@ Similar Questions:
   "Sum Root to Leaf Numbers": https://leetcode.com/problems/sum-root-to-leaf-numbers
   "Path Sum III": https://leetcode.com/problems/path-sum-iii
   "Path Sum IV": https://leetcode.com/problems/path-sum-iv
+
 ---
 
-## [112. Path Sum](https://leetcode.com/problems/path-sum/description/)
+
+[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#112-path-sumhttpsleetcodecomproblemspath-sumdescription)
+
+## ➤ [112. Path Sum](https://leetcode.com/problems/path-sum/description/)
 
 ### Problem:
 
@@ -9822,9 +10471,11 @@ let hasPathSum = function(root, sum) {
 };
 ```
 
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+
+
 
 ---
+
 Difficulty: Medium
 Related Topics:
   "Tree": https://leetcode.com/tag/tree
@@ -9834,9 +10485,13 @@ Similar Questions:
   "Binary Tree Paths": https://leetcode.com/problems/binary-tree-paths
   "Path Sum III": https://leetcode.com/problems/path-sum-iii
   "Path Sum IV": https://leetcode.com/problems/path-sum-iv
+
 ---
 
-## [113. Path Sum II](https://leetcode.com/problems/path-sum-ii/description/)
+
+[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#113-path-sum-iihttpsleetcodecomproblemspath-sum-iidescription)
+
+## ➤ [113. Path Sum II](https://leetcode.com/problems/path-sum-ii/description/)
 
 ### Problem:
 
@@ -9904,18 +10559,24 @@ let pathSum = function(root, sum, path = [], result = []) {
 ```
 
 
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+
+
 
 ---
+
 Difficulty: Medium
 Related Topics:
   "Tree": https://leetcode.com/tag/tree
   "Depth-first Search": https://leetcode.com/tag/depth-first-search
 Similar Questions:
   "Flatten a Multilevel Doubly Linked List": https://leetcode.com/problems/flatten-a-multilevel-doubly-linked-list
+
 ---
 
-## [114. Flatten Binary Tree to Linked List](https://leetcode.com/problems/flatten-binary-tree-to-linked-list/description/)
+
+[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#114-flatten-binary-tree-to-linked-listhttpsleetcodecomproblemsflatten-binary-tree-to-linked-listdescription)
+
+## ➤ [114. Flatten Binary Tree to Linked List](https://leetcode.com/problems/flatten-binary-tree-to-linked-list/description/)
 
 ### Problem:
 
@@ -9987,16 +10648,22 @@ function _flatten (root) {
 }
 ```
 
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+
+
 
 ---
+
 Difficulty: Hard
 Related Topics:
   "String": https://leetcode.com/tag/string
   "Dynamic Programming": https://leetcode.com/tag/dynamic-programming
+
 ---
 
-## [115. Distinct Subsequences](https://leetcode.com/problems/distinct-subsequences/description/)
+
+[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#115-distinct-subsequenceshttpsleetcodecomproblemsdistinct-subsequencesdescription)
+
+## ➤ [115. Distinct Subsequences](https://leetcode.com/problems/distinct-subsequences/description/)
 
 ### Problem:
 
@@ -10082,9 +10749,11 @@ let numDistinct = function(s, t) {
 ```
 
 
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+
+
 
 ---
+
 Difficulty: Medium
 Related Topics:
   "Tree": https://leetcode.com/tag/tree
@@ -10092,9 +10761,13 @@ Related Topics:
 Similar Questions:
   "Populating Next Right Pointers in Each Node II": https://leetcode.com/problems/populating-next-right-pointers-in-each-node-ii
   "Binary Tree Right Side View": https://leetcode.com/problems/binary-tree-right-side-view
+
 ---
 
-## [116. Populating Next Right Pointers in Each Node](https://leetcode.com/problems/populating-next-right-pointers-in-each-node/description/)
+
+[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#116-populating-next-right-pointers-in-each-nodehttpsleetcodecomproblemspopulating-next-right-pointers-in-each-nodedescription)
+
+## ➤ [116. Populating Next Right Pointers in Each Node](https://leetcode.com/problems/populating-next-right-pointers-in-each-node/description/)
 
 ### Problem:
 
@@ -10218,18 +10891,24 @@ let connect = function(root) {
 };
 ```
 
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+
+
 
 ---
+
 Difficulty: Medium
 Related Topics:
   "Tree": https://leetcode.com/tag/tree
   "Depth-first Search": https://leetcode.com/tag/depth-first-search
 Similar Questions:
   "Populating Next Right Pointers in Each Node": https://leetcode.com/problems/populating-next-right-pointers-in-each-node
+
 ---
 
-## [117. Populating Next Right Pointers in Each Node II](https://leetcode.com/problems/populating-next-right-pointers-in-each-node-ii/description/)
+
+[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#117-populating-next-right-pointers-in-each-node-iihttpsleetcodecomproblemspopulating-next-right-pointers-in-each-node-iidescription)
+
+## ➤ [117. Populating Next Right Pointers in Each Node II](https://leetcode.com/problems/populating-next-right-pointers-in-each-node-ii/description/)
 
 ### Problem:
 
@@ -10360,17 +11039,23 @@ let connect = function(root) {
 };
 ```
 
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+
+
 
 ---
+
 Difficulty: Easy
 Related Topics:
   "Array": https://leetcode.com/tag/array
 Similar Questions:
   "Pascal's Triangle II": https://leetcode.com/problems/pascals-triangle-ii
+
 ---
 
-## [118. Pascal's Triangle](https://leetcode.com/problems/pascals-triangle/description/)
+
+[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#118-pascals-trianglehttpsleetcodecomproblemspascals-triangledescription)
+
+## ➤ [118. Pascal's Triangle](https://leetcode.com/problems/pascals-triangle/description/)
 
 ### Problem:
 
@@ -10423,17 +11108,23 @@ let generate = function(numRows) {
 ```
 
 
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+
+
 
 ---
+
 Difficulty: Easy
 Related Topics:
   "Array": https://leetcode.com/tag/array
 Similar Questions:
   "Pascal's Triangle": https://leetcode.com/problems/pascals-triangle
+
 ---
 
-## [119. Pascal's Triangle II](https://leetcode.com/problems/pascals-triangle-ii/description/)
+
+[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#119-pascals-triangle-iihttpsleetcodecomproblemspascals-triangle-iidescription)
+
+## ➤ [119. Pascal's Triangle II](https://leetcode.com/problems/pascals-triangle-ii/description/)
 
 ### Problem:
 
@@ -10484,16 +11175,22 @@ let getRow = function(rowIndex) {
 ```
 
 
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+
+
 
 ---
+
 Difficulty: Medium
 Related Topics:
   "Array": https://leetcode.com/tag/array
   "Dynamic Programming": https://leetcode.com/tag/dynamic-programming
+
 ---
 
-## [120. Triangle](https://leetcode.com/problems/triangle/description/)
+
+[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#120-trianglehttpsleetcodecomproblemstriangledescription)
+
+## ➤ [120. Triangle](https://leetcode.com/problems/triangle/description/)
 
 ### Problem:
 
@@ -10549,9 +11246,11 @@ let minimumTotal = function(triangle) {
 };
 ```
 
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+
+
 
 ---
+
 Difficulty: Easy
 Related Topics:
   "Array": https://leetcode.com/tag/array
@@ -10562,9 +11261,13 @@ Similar Questions:
   "Best Time to Buy and Sell Stock III": https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iii
   "Best Time to Buy and Sell Stock IV": https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iv
   "Best Time to Buy and Sell Stock with Cooldown": https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-cooldown
+
 ---
 
-## [121. Best Time to Buy and Sell Stock](https://leetcode.com/problems/best-time-to-buy-and-sell-stock/description/)
+
+[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#121-best-time-to-buy-and-sell-stockhttpsleetcodecomproblemsbest-time-to-buy-and-sell-stockdescription)
+
+## ➤ [121. Best Time to Buy and Sell Stock](https://leetcode.com/problems/best-time-to-buy-and-sell-stock/description/)
 
 ### Problem:
 
@@ -10620,9 +11323,11 @@ let maxProfit = function(prices) {
 ```
 
 
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+
+
 
 ---
+
 Difficulty: Easy
 Related Topics:
   "Array": https://leetcode.com/tag/array
@@ -10633,9 +11338,13 @@ Similar Questions:
   "Best Time to Buy and Sell Stock IV": https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iv
   "Best Time to Buy and Sell Stock with Cooldown": https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-cooldown
   "Best Time to Buy and Sell Stock with Transaction Fee": https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-transaction-fee
+
 ---
 
-## [122. Best Time to Buy and Sell Stock II](https://leetcode.com/problems/best-time-to-buy-and-sell-stock-ii/description/)
+
+[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#122-best-time-to-buy-and-sell-stock-iihttpsleetcodecomproblemsbest-time-to-buy-and-sell-stock-iidescription)
+
+## ➤ [122. Best Time to Buy and Sell Stock II](https://leetcode.com/problems/best-time-to-buy-and-sell-stock-ii/description/)
 
 ### Problem:
 
@@ -10694,9 +11403,11 @@ let maxProfit = function(prices) {
 };
 ```
 
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+
+
 
 ---
+
 Difficulty: Hard
 Related Topics:
   "Array": https://leetcode.com/tag/array
@@ -10706,9 +11417,13 @@ Similar Questions:
   "Best Time to Buy and Sell Stock II": https://leetcode.com/problems/best-time-to-buy-and-sell-stock-ii
   "Best Time to Buy and Sell Stock IV": https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iv
   "Maximum Sum of 3 Non-Overlapping Subarrays": https://leetcode.com/problems/maximum-sum-of-3-non-overlapping-subarrays
+
 ---
 
-## [123. Best Time to Buy and Sell Stock III](https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iii/description/)
+
+[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#123-best-time-to-buy-and-sell-stock-iiihttpsleetcodecomproblemsbest-time-to-buy-and-sell-stock-iiidescription)
+
+## ➤ [123. Best Time to Buy and Sell Stock III](https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iii/description/)
 
 ### Problem:
 
@@ -10796,9 +11511,11 @@ let maxProfit = function(prices) {
 ```
 
 
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+
+
 
 ---
+
 Difficulty: Hard
 Related Topics:
   "Tree": https://leetcode.com/tag/tree
@@ -10808,9 +11525,13 @@ Similar Questions:
   "Sum Root to Leaf Numbers": https://leetcode.com/problems/sum-root-to-leaf-numbers
   "Path Sum IV": https://leetcode.com/problems/path-sum-iv
   "Longest Univalue Path": https://leetcode.com/problems/longest-univalue-path
+
 ---
 
-## [124. Binary Tree Maximum Path Sum](https://leetcode.com/problems/binary-tree-maximum-path-sum/description/)
+
+[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#124-binary-tree-maximum-path-sumhttpsleetcodecomproblemsbinary-tree-maximum-path-sumdescription)
+
+## ➤ [124. Binary Tree Maximum Path Sum](https://leetcode.com/problems/binary-tree-maximum-path-sum/description/)
 
 ### Problem:
 
@@ -10937,9 +11658,11 @@ function _maxPathSum (root, global) {
 }
 ```
 
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+
+
 
 ---
+
 Difficulty: Easy
 Related Topics:
   "Two Pointers": https://leetcode.com/tag/two-pointers
@@ -10947,9 +11670,13 @@ Related Topics:
 Similar Questions:
   "Palindrome Linked List": https://leetcode.com/problems/palindrome-linked-list
   "Valid Palindrome II": https://leetcode.com/problems/valid-palindrome-ii
+
 ---
 
-## [125. Valid Palindrome](https://leetcode.com/problems/valid-palindrome/description/)
+
+[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#125-valid-palindromehttpsleetcodecomproblemsvalid-palindromedescription)
+
+## ➤ [125. Valid Palindrome](https://leetcode.com/problems/valid-palindrome/description/)
 
 ### Problem:
 
@@ -11043,9 +11770,11 @@ let isPalindrome = function(s) {
 ```
 
 
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+
+
 
 ---
+
 Difficulty: Hard
 Related Topics:
   "Array": https://leetcode.com/tag/array
@@ -11054,9 +11783,13 @@ Related Topics:
   "Breadth-first Search": https://leetcode.com/tag/breadth-first-search
 Similar Questions:
   "Word Ladder": https://leetcode.com/problems/word-ladder
+
 ---
 
-## [126. Word Ladder II](https://leetcode.com/problems/word-ladder-ii/description/)
+
+[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#126-word-ladder-iihttpsleetcodecomproblemsword-ladder-iidescription)
+
+## ➤ [126. Word Ladder II](https://leetcode.com/problems/word-ladder-ii/description/)
 
 ### Problem:
 
@@ -11171,18 +11904,24 @@ function findLadders (beginWord, endWord, wordList) {
 };
 ```
 
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+
+
 
 ---
+
 Difficulty: Medium
 Related Topics:
   "Breadth-first Search": https://leetcode.com/tag/breadth-first-search
 Similar Questions:
   "Word Ladder II": https://leetcode.com/problems/word-ladder-ii
   "Minimum Genetic Mutation": https://leetcode.com/problems/minimum-genetic-mutation
+
 ---
 
-## [127. Word Ladder](https://leetcode.com/problems/word-ladder/description/)
+
+[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#127-word-ladderhttpsleetcodecomproblemsword-ladderdescription)
+
+## ➤ [127. Word Ladder](https://leetcode.com/problems/word-ladder/description/)
 
 ### Problem:
 
@@ -11284,18 +12023,24 @@ let ladderLength = function(beginWord, endWord, wordList) {
 };
 ```
 
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+
+
 
 ---
+
 Difficulty: Hard
 Related Topics:
   "Array": https://leetcode.com/tag/array
   "Union Find": https://leetcode.com/tag/union-find
 Similar Questions:
   "Binary Tree Longest Consecutive Sequence": https://leetcode.com/problems/binary-tree-longest-consecutive-sequence
+
 ---
 
-## [128. Longest Consecutive Sequence](https://leetcode.com/problems/longest-consecutive-sequence/description/)
+
+[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#128-longest-consecutive-sequencehttpsleetcodecomproblemslongest-consecutive-sequencedescription)
+
+## ➤ [128. Longest Consecutive Sequence](https://leetcode.com/problems/longest-consecutive-sequence/description/)
 
 ### Problem:
 
@@ -11343,9 +12088,11 @@ let longestConsecutive = function(nums) {
 ```
 
 
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+
+
 
 ---
+
 Difficulty: Medium
 Related Topics:
   "Tree": https://leetcode.com/tag/tree
@@ -11353,9 +12100,13 @@ Related Topics:
 Similar Questions:
   "Path Sum": https://leetcode.com/problems/path-sum
   "Binary Tree Maximum Path Sum": https://leetcode.com/problems/binary-tree-maximum-path-sum
+
 ---
 
-## [129. Sum Root to Leaf Numbers](https://leetcode.com/problems/sum-root-to-leaf-numbers/description/)
+
+[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#129-sum-root-to-leaf-numbershttpsleetcodecomproblemssum-root-to-leaf-numbersdescription)
+
+## ➤ [129. Sum Root to Leaf Numbers](https://leetcode.com/problems/sum-root-to-leaf-numbers/description/)
 
 ### Problem:
 
@@ -11422,9 +12173,11 @@ let sumNumbers = function(root, sum = 0) {
 ```
 
 
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+
+
 
 ---
+
 Difficulty: Medium
 Related Topics:
   "Depth-first Search": https://leetcode.com/tag/depth-first-search
@@ -11433,9 +12186,13 @@ Related Topics:
 Similar Questions:
   "Number of Islands": https://leetcode.com/problems/number-of-islands
   "Walls and Gates": https://leetcode.com/problems/walls-and-gates
+
 ---
 
-## [130. Surrounded Regions](https://leetcode.com/problems/surrounded-regions/description/)
+
+[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#130-surrounded-regionshttpsleetcodecomproblemssurrounded-regionsdescription)
+
+## ➤ [130. Surrounded Regions](https://leetcode.com/problems/surrounded-regions/description/)
 
 ### Problem:
 
@@ -11547,9 +12304,11 @@ let solve = function(board) {
 ```
 
 
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+
+
 
 ---
+
 Difficulty: Medium
 Related Topics:
   "Depth-first Search": https://leetcode.com/tag/depth-first-search
@@ -11557,9 +12316,13 @@ Related Topics:
   "Graph": https://leetcode.com/tag/graph
 Similar Questions:
   "Copy List with Random Pointer": https://leetcode.com/problems/copy-list-with-random-pointer
+
 ---
 
-## [133. Clone Graph](https://leetcode.com/problems/clone-graph/description/)
+
+[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#133-clone-graphhttpsleetcodecomproblemsclone-graphdescription)
+
+## ➤ [133. Clone Graph](https://leetcode.com/problems/clone-graph/description/)
 
 ### Problem:
 
@@ -11627,7 +12390,7 @@ let cloneGraph = function(graph) {
 ```
 
 
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+
 
 ![alt text](https://github.com/everthis/leetcode-js/blob/master/images/binary-tree-upside-down.webp "binary-tree-upside-down")
 
@@ -11692,7 +12455,10 @@ const maxSubarraySumCircular = function(A) {
   return  maxSum > 0 ? Math.max(maxSum, sum - minSum) : maxSum;
 };
 ```
-# Balanced Binary Tree - LeetCode
+
+[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#balanced-binary-tree---leetcode)
+
+# ➤ Balanced Binary Tree - LeetCode
 
 > Level up your coding skills and quickly land a job. This is the best place to expand your knowledge and get prepared for your next interview.
 
