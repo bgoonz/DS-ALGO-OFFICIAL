@@ -5,7 +5,7 @@
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/9a8afdc2-08b5-4bab-a4c3-b889548d04a8/deploy-status)](https://pensive-meitner-1ea8c4.netlify.app/)
 
-[Deployment](https://pensive-meitner-1ea8c4.netlify.app/)
+[Deployment](https://trusting-dijkstra-4d3b17.netlify.app/)
 
 
 [vercel](https://ds-algo-official-hm2a9mlnr-bgoonz.vercel.app/)
