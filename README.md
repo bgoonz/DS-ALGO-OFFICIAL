@@ -1,13 +1,13 @@
 # Wiki
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/9a8afdc2-08b5-4bab-a4c3-b889548d04a8/deploy-status)](https://app.netlify.com/sites/amazing-mccarthy-aa9929/deploys)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/9a8afdc2-08b5-4bab-a4c3-b889548d04a8/deploy-status)](https://pensive-meitner-1ea8c4.netlify.app/)
 
-[Deployment](https://amazing-mccarthy-aa9929.netlify.app/)
+[Deployment](https://pensive-meitner-1ea8c4.netlify.app/)
 
 
-[vercel](https://ds-algo-official.vercel.app/)
+[vercel](https://ds-algo-official-hm2a9mlnr-bgoonz.vercel.app/)
 
-[Navigation](https://amazing-mccarthy-aa9929.netlify.app/directory.html)
+[Navigation](https://pensive-meitner-1ea8c4.netlify.app/directory.html)
 
 [npm](https://www.npmjs.com/package/ds-algo-study)
 ---
