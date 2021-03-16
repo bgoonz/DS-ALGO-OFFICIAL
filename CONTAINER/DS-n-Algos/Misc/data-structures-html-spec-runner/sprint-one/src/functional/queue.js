@@ -1,10 +1,10 @@
 let Queue = function() {
-  var someInstance = {};
+  let someInstance = {};
 
   // Use an object with numeric keys to store values
-  var storage = {};
-  var first = 0;
-  var last = 0;
+  let storage = {};
+  let first = 0;
+  let last = 0;
 
   // Implement the methods below
 
@@ -14,9 +14,9 @@ let Queue = function() {
   };
 
   someInstance.dequeue = function() {
-    var dequeued = storage[first];
+    let dequeued = storage[first];
     delete storage[first];
-    var num = 0;
+    let num = 0;
     for (var q in storage) {
       storage[num] = storage[q];
       delete storage[q];

@@ -1,8 +1,8 @@
 const assert = require("assert");
 const selectiveMap = require("../problems/05-selective-map.js");
 
-describe("selectiveMap", function() {
-  it("", function() {
+describe("selectiveMap", () => {
+  it("", () => {
     function isEven(n) {
       return n % 2 === 0;
     }

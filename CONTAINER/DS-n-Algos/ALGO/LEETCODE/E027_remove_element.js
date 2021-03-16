@@ -34,14 +34,14 @@ So, for each non-matching character (with the given 'value') - I am incrementing
 E> Do this loops till the last element of the array
 */
 
-var removeElement = function (nums, val) {
-	var head = 0;  // index of the first element of the array
-	var tail = nums.length - 1;  // index of the last element of the array
+const removeElement = (nums, val) => {
+	let head = 0;  // index of the first element of the array
+	let tail = nums.length - 1;  // index of the last element of the array
 
 	while ( head <= tail ) {
 		// console.log("value of A[i] in next iteration for comparison " + nums[head]);
 		if (nums[head] === val) {
-			var temp = nums[head];
+			const temp = nums[head];
 			nums[head] = nums[tail];
 			nums[tail] = temp;
 			tail--;
@@ -51,20 +51,20 @@ var removeElement = function (nums, val) {
 		}
 	}
 	return head;
-}
+};
 
 console.log(removeElement([3,2,2,3, 4, 5], 3));
 
 
 //Alternative solution (but not implementing in-place algo)
-var removeElement_alt = function(nums, val) {
-	for (var i = 0; i < nums.length; i++) {
+const removeElement_alt = (nums, val) => {
+	for (let i = 0; i < nums.length; i++) {
 		if (nums[i] === val) {
 			nums.splice(i, 1); // Remember splice() mutates the original array. So on the next iteration, the value of nums.length will be reduced by 1
 		}
 	}
 	return nums.length;
-}
+};
 
 console.log(removeElement_alt([3,2,2,3, 4, 5], 3));
 

@@ -26,7 +26,7 @@ Explanation: Because the path 1→3→1→1→1 minimizes the sum.
 // f(0, j) = f(0, j-1) + grid[0][j], j > 0
 // f(i, 0) = f(i-1, 0) + grid[i][0], i > 0
 // f(i, j) = min( f(i-1, j), f(i, j-1) ) + grid[i][j], j > 0 && i > 0
-let minPathSum = function(grid) {
+let minPathSum = grid => {
   const height = grid.length
   if (height <= 0) { return 0 }
   const width = grid[0].length

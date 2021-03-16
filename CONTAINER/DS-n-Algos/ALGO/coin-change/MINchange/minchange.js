@@ -11,8 +11,8 @@ function minCoinChange(coins, amount) {
     let min = [];
     let newMin;
     let newAmount;
-    for (let i = 0; i < coins.length; i++) {
-      const coin = coins[i];
+
+    coins.forEach(coin => {
       newAmount = value - coin;
       if (newAmount >= 0) {
         newMin = minChange(newAmount);
@@ -25,7 +25,8 @@ function minCoinChange(coins, amount) {
         min = [coin].concat(newMin);
         // console.log('new Min ' + min + ' for ' + amount);
       }
-    }
+    });
+
     return (cache[value] = min);
   };
   return minChange(amount);

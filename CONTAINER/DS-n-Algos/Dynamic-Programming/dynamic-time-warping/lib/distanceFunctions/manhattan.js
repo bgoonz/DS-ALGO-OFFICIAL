@@ -1,6 +1,6 @@
-var distance = function ( x, y ) {
-  var difference = x - y;
-  var manhattanDistance = Math.abs( difference );
+const distance = (x, y) => {
+  const difference = x - y;
+  const manhattanDistance = Math.abs( difference );
   return manhattanDistance;
 };
 

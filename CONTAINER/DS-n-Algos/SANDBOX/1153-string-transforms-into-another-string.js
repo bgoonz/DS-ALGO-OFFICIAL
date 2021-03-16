@@ -31,7 +31,7 @@ Both str1 and str2 contain only lowercase English letters.
  * @param {string} str2
  * @return {boolean}
  */
-const canConvert = function(str1, str2) {
+const canConvert = (str1, str2) => {
   if (str1 === str2) return true
   const map = new Map()
   for (let i = 0; i < str1.length; i++) {

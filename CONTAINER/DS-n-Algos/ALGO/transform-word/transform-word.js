@@ -1,12 +1,12 @@
-module.exports = function (dictionary, start, end) {
+module.exports = (dictionary, start, end) => {
   // Create a function that will return an object which represents a graph
   // structure.
-  var createGraph = function (dictionary) {
-    var graph = {};
+  const createGraph = dictionary => {
+    const graph = {};
 
     // Create a simple helper function that will return a boolean whether the
     // words are one character apart
-    var isOneCharDifference = function (word1, word2) {
+    const isOneCharDifference = (word1, word2) => {
       // If the second word is larger than the first word, reverse the
       // arguments and run again.
       if (word2.length > word1.length) {
@@ -19,7 +19,7 @@ module.exports = function (dictionary, start, end) {
         return false;
       }
 
-      for (var i = 0; i < word1.length; i++) {
+      for (let i = 0; i < word1.length; i++) {
         // First we check whether replacing the character with the equivelent
         // from the second word with make the second word.
         if (word1.substr(0, i) + word2[i] + word1.substr(i + 1) === word2) {
@@ -36,14 +36,14 @@ module.exports = function (dictionary, start, end) {
       return false;
     };
 
-    dictionary.forEach(function (word) {
+    dictionary.forEach(word => {
       // Add the word to the graph structure with an array for the connecting
       // nodes.
       graph[word] = [];
 
       // Check all the other words in the graph so far and see if they are
       // connections.
-      Object.keys(graph).forEach(function (connection) {
+      Object.keys(graph).forEach(connection => {
         if (isOneCharDifference(word, connection)) {
           graph[word].push(connection);
           // Push the word into the connection if it's been created.
@@ -56,8 +56,8 @@ module.exports = function (dictionary, start, end) {
   };
 
   // Find the solution.
-  var graph = createGraph(dictionary);
-  var shortestRoute;
+  const graph = createGraph(dictionary);
+  let shortestRoute;
 
   (function findRoute (word, route) {
     // If the word doesn't exist in the graph or we have gone to the word
@@ -75,7 +75,7 @@ module.exports = function (dictionary, start, end) {
       return shortestRoute = route;
     }
 
-    graph[word].forEach(function (connection) {
+    graph[word].forEach(connection => {
       return findRoute(connection, route.slice());
     });
   })(start, []);

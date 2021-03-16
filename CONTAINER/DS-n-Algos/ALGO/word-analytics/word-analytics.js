@@ -2,47 +2,47 @@ process.stdin.resume();
 process.stdin.setEncoding('utf8');
 
 // Use an object to map the characters to their count
-var characters     = {};
-var words          = {};
-var wordsParagraph = {};
+const characters     = {};
+const words          = {};
+const wordsParagraph = {};
 
-var filterObject = function (input, callback) {
-  var output = {};
+const filterObject = (input, callback) => {
+  const output = {};
 
-  Object.keys(input).forEach(function (value) {
+  Object.keys(input).forEach(value => {
     callback(input[value], value, input) && (output[value] = input[value]);
   });
 
   return output;
 };
 
-var sortByCount = function (object) {
-  return Object.keys(object).map(function (input) {
+const sortByCount = object => {
+  return Object.keys(object).map(input => {
     return {
       value: input,
       count: object[input]
     };
-  }).sort(function (a, b) {
+  }).sort((a, b) => {
     // Sort descending
     return b.count - a.count;
-  }).map(function (input) {
+  }).map(input => {
     return input.value;
   });
 };
 
-var isWordChar = function (char) {
-  var charCode = char.charCodeAt(0);
+const isWordChar = char => {
+  const charCode = char.charCodeAt(0);
   // Characters code not between A-Z
   return !(charCode < 65 || charCode > 90);
 };
 
 // On each input data chunk, process it using the balance checker
-process.stdin.on('data', function (chunk) {
-  var word       = '';
-  var prevSymbol = '\n';
+process.stdin.on('data', chunk => {
+  let word       = '';
+  let prevSymbol = '\n';
 
-  for (var i = 0; i < chunk.length; i++) {
-    var char = chunk[i].toUpperCase();
+  for (let i = 0; i < chunk.length; i++) {
+    const char = chunk[i].toUpperCase();
 
     // Increment the character count
     characters[char] = (characters[char] || 0) + 1;
@@ -63,33 +63,33 @@ process.stdin.on('data', function (chunk) {
   }
 });
 
-process.stdin.on('end', function () {
-  var sortedWords = sortByCount(words);
-  var alphabet    = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
+process.stdin.on('end', () => {
+  const sortedWords = sortByCount(words);
+  const alphabet    = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
 
-  var sortedLetters = sortByCount(filterObject(characters, function (_, char) {
+  const sortedLetters = sortByCount(filterObject(characters, (_, char) => {
     return isWordChar(char);
   }));
 
-  var sortedWordsParagraph = sortByCount(wordsParagraph);
+  const sortedWordsParagraph = sortByCount(wordsParagraph);
 
-  var totalWords = Object.keys(words).reduce(function (memo, word) {
+  const totalWords = Object.keys(words).reduce((memo, word) => {
     return memo + words[word];
   }, 0);
 
-  var totalLetters = Object.keys(characters).reduce(function (memo, char) {
+  const totalLetters = Object.keys(characters).reduce((memo, char) => {
     return memo + (isWordChar(char) ? characters[char] : 0);
   }, 0);
 
-  var totalSymbols = Object.keys(characters).reduce(function (memo, char) {
+  const totalSymbols = Object.keys(characters).reduce((memo, char) => {
     return memo + (/[^\w\s]/.test(char) ? characters[char] : 0);
   }, 0);
 
-  var unusedLetters = alphabet.filter(function (char) {
+  const unusedLetters = alphabet.filter(char => {
     return !characters[char];
   });
 
-  var onceWords = Object.keys(words).filter(function (word) {
+  const onceWords = Object.keys(words).filter(word => {
     return words[word] === 1;
   });
 

@@ -1,11 +1,11 @@
-module.exports = function (array, compare) {
+module.exports = (array, compare) => {
   // Not an array, empty or array of 1 is already sorted
   if (!Array.isArray(array) || array.length < 2) {
     return array;
   }
 
-  var swap = function (array, first, second) {
-    var temp      = array[first];
+  const swap = (array, first, second) => {
+    const temp      = array[first];
     array[first]  = array[second];
     array[second] = temp;
     return array;
@@ -13,12 +13,12 @@ module.exports = function (array, compare) {
 
   // Create a compare func if not passed in
   if (typeof compare !== 'function') {
-    compare = function (a, b) {
+    compare = (a, b) => {
       return a > b ? 1 : -1;
     };
   }
 
-  var min, i, j;
+  let min, i, j;
 
   for (i = 0; i < array.length; i++) {
     min = i;

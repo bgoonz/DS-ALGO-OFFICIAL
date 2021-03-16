@@ -11,8 +11,7 @@
 }('chai', this, function () {
 
   function require(p) {
-    var path = require.resolve(p)
-      , mod = require.modules[path];
+    const path = require.resolve(p), mod = require.modules[path];
     if (!mod) throw new Error('failed to require "' + p + '"');
     if (!mod.exports) {
       mod.exports = {};
@@ -24,9 +23,7 @@
   require.modules = {};
 
   require.resolve = function (path) {
-    var orig = path
-      , reg = path + '.js'
-      , index = path + '/index.js';
+    const orig = path, reg = path + '.js', index = path + '/index.js';
     return require.modules[reg] && reg
       || require.modules[index] && index
       || orig;
@@ -40,12 +37,11 @@
     return function(p){
       if ('.' != p.charAt(0)) return require(p);
 
-      var path = parent.split('/')
-        , segs = p.split('/');
+      const path = parent.split('/'), segs = p.split('/');
       path.pop();
 
-      for (var i = 0; i < segs.length; i++) {
-        var seg = segs[i];
+      for (let i = 0; i < segs.length; i++) {
+        const seg = segs[i];
         if ('..' == seg) path.pop();
         else if ('.' != seg) path.push(seg);
       }
@@ -55,7 +51,7 @@
   };
 
   require.alias = function (from, to) {
-    var fn = require.modules[from];
+    const fn = require.modules[from];
     require.modules[to] = fn;
   };
 
@@ -67,8 +63,7 @@
      * MIT Licensed
      */
 
-    var used = []
-      , exports = module.exports = {};
+    const used = [], exports = module.exports = {};
 
     /*!
      * Chai version
@@ -92,7 +87,7 @@
      * Utils for plugins (not exported)
      */
 
-    var util = require('./chai/utils');
+    const util = require('./chai/utils');
 
     /**
      * # .use(function)
@@ -117,28 +112,28 @@
      * Core Assertions
      */
 
-    var core = require('./chai/core/assertions');
+    const core = require('./chai/core/assertions');
     exports.use(core);
 
     /*!
      * Expect interface
      */
 
-    var expect = require('./chai/interface/expect');
+    const expect = require('./chai/interface/expect');
     exports.use(expect);
 
     /*!
      * Should interface
      */
 
-    var should = require('./chai/interface/should');
+    const should = require('./chai/interface/should');
     exports.use(should);
 
     /*!
      * Assert interface
      */
 
-    var assert = require('./chai/interface/assert');
+    const assert = require('./chai/interface/assert');
     exports.use(assert);
 
   }); // module: chai.js
@@ -155,9 +150,7 @@
      * Module dependencies.
      */
 
-    var AssertionError = require('./error')
-      , util = require('./utils')
-      , flag = util.flag;
+    const AssertionError = require('./error'), util = require('./utils'), flag = util.flag;
 
     /*!
      * Module export.
@@ -243,13 +236,12 @@
      */
 
     Assertion.prototype.assert = function (expr, msg, negateMsg, expected, _actual, showDiff) {
-      var ok = util.test(this, arguments);
+      const ok = util.test(this, arguments);
       if (true !== showDiff) showDiff = false;
       if (true !== Assertion.showDiff) showDiff = false;
 
       if (!ok) {
-        var msg = util.getMessage(this, arguments)
-          , actual = util.getActual(this, arguments);
+        const msg = util.getMessage(this, arguments), actual = util.getActual(this, arguments);
         throw new AssertionError({
             message: msg
           , actual: actual
@@ -288,9 +280,7 @@
      */
 
     module.exports = function (chai, _) {
-      var Assertion = chai.Assertion
-        , toString = Object.prototype.toString
-        , flag = _.flag;
+      const Assertion = chai.Assertion, toString = Object.prototype.toString, flag = _.flag;
 
       /**
        * ### Language Chains
@@ -388,8 +378,7 @@
       function an (type, msg) {
         if (msg) flag(this, 'message', msg);
         type = type.toLowerCase();
-        var obj = flag(this, 'object')
-          , article = ~[ 'a', 'e', 'i', 'o', 'u' ].indexOf(type.charAt(0)) ? 'an ' : 'a ';
+        const obj = flag(this, 'object'), article = ~[ 'a', 'e', 'i', 'o', 'u' ].indexOf(type.charAt(0)) ? 'an ' : 'a ';
 
         this.assert(
             type === _.type(obj)
@@ -426,7 +415,7 @@
 
       function include (val, msg) {
         if (msg) flag(this, 'message', msg);
-        var obj = flag(this, 'object')
+        const obj = flag(this, 'object');
         this.assert(
             ~obj.indexOf(val)
           , 'expected #{this} to include ' + _.inspect(val)
@@ -582,8 +571,8 @@
        */
 
       Assertion.addProperty('empty', function () {
-        var obj = flag(this, 'object')
-          , expected = obj;
+        const obj = flag(this, 'object');
+        let expected = obj;
 
         if (Array.isArray(obj) || 'string' === typeof object) {
           expected = obj.length;
@@ -613,8 +602,7 @@
        */
 
       function checkArguments () {
-        var obj = flag(this, 'object')
-          , type = Object.prototype.toString.call(obj);
+        const obj = flag(this, 'object'), type = Object.prototype.toString.call(obj);
         this.assert(
             '[object Arguments]' === type
           , 'expected #{this} to be arguments but got ' + type
@@ -649,7 +637,7 @@
 
       function assertEqual (val, msg) {
         if (msg) flag(this, 'message', msg);
-        var obj = flag(this, 'object');
+        const obj = flag(this, 'object');
         if (flag(this, 'deep')) {
           return this.eql(val);
         } else {
@@ -723,10 +711,10 @@
 
       function assertAbove (n, msg) {
         if (msg) flag(this, 'message', msg);
-        var obj = flag(this, 'object');
+        const obj = flag(this, 'object');
         if (flag(this, 'doLength')) {
           new Assertion(obj, msg).to.have.property('length');
-          var len = obj.length;
+          const len = obj.length;
           this.assert(
               len > n
             , 'expected #{this} to have a length above #{exp} but got #{act}'
@@ -771,10 +759,10 @@
 
       function assertLeast (n, msg) {
         if (msg) flag(this, 'message', msg);
-        var obj = flag(this, 'object');
+        const obj = flag(this, 'object');
         if (flag(this, 'doLength')) {
           new Assertion(obj, msg).to.have.property('length');
-          var len = obj.length;
+          const len = obj.length;
           this.assert(
               len >= n
             , 'expected #{this} to have a length at least #{exp} but got #{act}'
@@ -819,10 +807,10 @@
 
       function assertBelow (n, msg) {
         if (msg) flag(this, 'message', msg);
-        var obj = flag(this, 'object');
+        const obj = flag(this, 'object');
         if (flag(this, 'doLength')) {
           new Assertion(obj, msg).to.have.property('length');
-          var len = obj.length;
+          const len = obj.length;
           this.assert(
               len < n
             , 'expected #{this} to have a length below #{exp} but got #{act}'
@@ -867,10 +855,10 @@
 
       function assertMost (n, msg) {
         if (msg) flag(this, 'message', msg);
-        var obj = flag(this, 'object');
+        const obj = flag(this, 'object');
         if (flag(this, 'doLength')) {
           new Assertion(obj, msg).to.have.property('length');
-          var len = obj.length;
+          const len = obj.length;
           this.assert(
               len <= n
             , 'expected #{this} to have a length at most #{exp} but got #{act}'
@@ -914,11 +902,10 @@
 
       Assertion.addMethod('within', function (start, finish, msg) {
         if (msg) flag(this, 'message', msg);
-        var obj = flag(this, 'object')
-          , range = start + '..' + finish;
+        const obj = flag(this, 'object'), range = start + '..' + finish;
         if (flag(this, 'doLength')) {
           new Assertion(obj, msg).to.have.property('length');
-          var len = obj.length;
+          const len = obj.length;
           this.assert(
               len >= start && len <= finish
             , 'expected #{this} to have a length within ' + range
@@ -953,7 +940,7 @@
 
       function assertInstanceOf (constructor, msg) {
         if (msg) flag(this, 'message', msg);
-        var name = _.getName(constructor);
+        const name = _.getName(constructor);
         this.assert(
             flag(this, 'object') instanceof constructor
           , 'expected #{this} to be an instance of ' + name
@@ -1026,12 +1013,12 @@
       Assertion.addMethod('property', function (name, val, msg) {
         if (msg) flag(this, 'message', msg);
 
-        var descriptor = flag(this, 'deep') ? 'deep property ' : 'property '
-          , negate = flag(this, 'negate')
-          , obj = flag(this, 'object')
-          , value = flag(this, 'deep')
-            ? _.getPathValue(name, obj)
-            : obj[name];
+        const descriptor = flag(this, 'deep') ? 'deep property ' : 'property ',
+              negate = flag(this, 'negate'),
+              obj = flag(this, 'object'),
+              value = flag(this, 'deep')
+                  ? _.getPathValue(name, obj)
+                  : obj[name];
 
         if (negate && undefined !== val) {
           if (undefined === value) {
@@ -1075,7 +1062,7 @@
 
       function assertOwnProperty (name, msg) {
         if (msg) flag(this, 'message', msg);
-        var obj = flag(this, 'object');
+        const obj = flag(this, 'object');
         this.assert(
             obj.hasOwnProperty(name)
           , 'expected #{this} to have own property ' + _.inspect(name)
@@ -1118,9 +1105,9 @@
 
       function assertLength (n, msg) {
         if (msg) flag(this, 'message', msg);
-        var obj = flag(this, 'object');
+        const obj = flag(this, 'object');
         new Assertion(obj, msg).to.have.property('length');
-        var len = obj.length;
+        const len = obj.length;
 
         this.assert(
             len == n
@@ -1149,7 +1136,7 @@
 
       Assertion.addMethod('match', function (re, msg) {
         if (msg) flag(this, 'message', msg);
-        var obj = flag(this, 'object');
+        const obj = flag(this, 'object');
         this.assert(
             re.exec(obj)
           , 'expected #{this} to match ' + re
@@ -1172,7 +1159,7 @@
 
       Assertion.addMethod('string', function (str, msg) {
         if (msg) flag(this, 'message', msg);
-        var obj = flag(this, 'object');
+        const obj = flag(this, 'object');
         new Assertion(obj, msg).is.a('string');
 
         this.assert(
@@ -1200,9 +1187,9 @@
        */
 
       function assertKeys (keys) {
-        var obj = flag(this, 'object')
-          , str
-          , ok = true;
+        const obj = flag(this, 'object');
+        let str;
+        let ok = true;
 
         keys = keys instanceof Array
           ? keys
@@ -1210,8 +1197,7 @@
 
         if (!keys.length) throw new Error('keys required');
 
-        var actual = Object.keys(obj)
-          , len = keys.length;
+        const actual = Object.keys(obj), len = keys.length;
 
         // Inclusion
         ok = keys.every(function(key){
@@ -1228,7 +1214,7 @@
           keys = keys.map(function(key){
             return _.inspect(key);
           });
-          var last = keys.pop();
+          const last = keys.pop();
           str = keys.join(', ') + ', and ' + last;
         } else {
           str = _.inspect(keys[0]);
@@ -1288,13 +1274,10 @@
 
       function assertThrows (constructor, errMsg, msg) {
         if (msg) flag(this, 'message', msg);
-        var obj = flag(this, 'object');
+        const obj = flag(this, 'object');
         new Assertion(obj, msg).is.a('function');
 
-        var thrown = false
-          , desiredError = null
-          , name = null
-          , thrownError = null;
+        let thrown = false, desiredError = null, name = null, thrownError = null;
 
         if (arguments.length === 0) {
           errMsg = null;
@@ -1340,7 +1323,7 @@
             if (!errMsg) return this;
           }
           // next, check message
-          var message = 'object' === _.type(err) && "message" in err
+          const message = 'object' === _.type(err) && "message" in err
             ? err.message
             : '' + err;
 
@@ -1370,8 +1353,9 @@
           }
         }
 
-        var actuallyGot = ''
-          , expectedThrown = name !== null
+        let actuallyGot = '';
+
+        const expectedThrown = name !== null
             ? name
             : desiredError
               ? '#{exp}' //_.inspect(desiredError)
@@ -1417,11 +1401,11 @@
 
       Assertion.addMethod('respondTo', function (method, msg) {
         if (msg) flag(this, 'message', msg);
-        var obj = flag(this, 'object')
-          , itself = flag(this, 'itself')
-          , context = ('function' === _.type(obj) && !itself)
-            ? obj.prototype[method]
-            : obj[method];
+        const obj = flag(this, 'object'),
+              itself = flag(this, 'itself'),
+              context = ('function' === _.type(obj) && !itself)
+                  ? obj.prototype[method]
+                  : obj[method];
 
         this.assert(
             'function' === typeof context
@@ -1465,7 +1449,7 @@
 
       Assertion.addMethod('satisfy', function (matcher, msg) {
         if (msg) flag(this, 'message', msg);
-        var obj = flag(this, 'object');
+        const obj = flag(this, 'object');
         this.assert(
             matcher(obj)
           , 'expected #{this} to satisfy ' + _.objDisplay(matcher)
@@ -1491,7 +1475,7 @@
 
       Assertion.addMethod('closeTo', function (expected, delta, msg) {
         if (msg) flag(this, 'message', msg);
-        var obj = flag(this, 'object');
+        const obj = flag(this, 'object');
         this.assert(
             Math.abs(obj - expected) <= delta
           , 'expected #{this} to be close to ' + expected + ' +/- ' + delta
@@ -1542,7 +1526,7 @@
       this.showDiff = options.showDiff;
 
       if (options.stackStartFunction && Error.captureStackTrace) {
-        var stackStartFunction = options.stackStartFunction;
+        const stackStartFunction = options.stackStartFunction;
         Error.captureStackTrace(this, stackStartFunction);
       }
     }
@@ -1581,8 +1565,7 @@
        * Chai dependencies.
        */
 
-      var Assertion = chai.Assertion
-        , flag = util.flag;
+      const Assertion = chai.Assertion, flag = util.flag;
 
       /*!
        * Module export.
@@ -1602,8 +1585,8 @@
        * @api public
        */
 
-      var assert = chai.assert = function (express, errmsg) {
-        var test = new Assertion(null);
+      const assert = chai.assert = function (express, errmsg) {
+        const test = new Assertion(null);
         test.assert(
             express
           , errmsg
@@ -1667,7 +1650,7 @@
        */
 
       assert.equal = function (act, exp, msg) {
-        var test = new Assertion(act, msg);
+        const test = new Assertion(act, msg);
 
         test.assert(
             exp == flag(test, 'object')
@@ -1693,7 +1676,7 @@
        */
 
       assert.notEqual = function (act, exp, msg) {
-        var test = new Assertion(act, msg);
+        const test = new Assertion(act, msg);
 
         test.assert(
             exp != flag(test, 'object')
@@ -2209,7 +2192,7 @@
        */
 
       assert.include = function (exp, inc, msg) {
-        var obj = new Assertion(exp, msg);
+        const obj = new Assertion(exp, msg);
 
         if (Array.isArray(exp)) {
           obj.to.include(inc);
@@ -2509,7 +2492,7 @@
         if (!~['==', '===', '>', '>=', '<', '<=', '!=', '!=='].indexOf(operator)) {
           throw new Error('Invalid operator "' + operator + '"');
         }
-        var test = new Assertion(eval(val + operator + val2), msg);
+        const test = new Assertion(eval(val + operator + val2), msg);
         test.assert(
             true === flag(test, 'object')
           , 'expected ' + util.inspect(val) + ' to be ' + operator + ' ' + util.inspect(val2)
@@ -2581,7 +2564,7 @@
      */
 
     module.exports = function (chai, util) {
-      var Assertion = chai.Assertion;
+      const Assertion = chai.Assertion;
 
       function loadShould () {
         // modify Object.prototype to have `should`
@@ -2612,7 +2595,7 @@
           , configurable: true
         });
 
-        var should = {};
+        const should = {};
 
         should.equal = function (val1, val2, msg) {
           new Assertion(val1, msg).to.equal(val2);
@@ -2664,19 +2647,19 @@
      * Module dependencies
      */
 
-    var transferFlags = require('./transferFlags');
+    const transferFlags = require('./transferFlags');
 
     /*!
      * Module variables
      */
 
     // Check whether `__proto__` is supported
-    var hasProtoSupport = '__proto__' in Object;
+    const hasProtoSupport = '__proto__' in Object;
 
     // Without `__proto__` support, this module will need to add properties to a function.
     // However, some Function.prototype methods cannot be overwritten,
     // and there seems no easy cross-platform way to detect them (@see chaijs/chai/issues/69).
-    var excludeNames = /^(?:length|name|arguments|caller)$/;
+    const excludeNames = /^(?:length|name|arguments|caller)$/;
 
     /**
      * ### addChainableMethod (ctx, name, method, chainingBehavior)
@@ -2714,8 +2697,8 @@
         { get: function () {
             chainingBehavior.call(this);
 
-            var assert = function () {
-              var result = method.apply(this, arguments);
+            const assert = function () {
+              const result = method.apply(this, arguments);
               return result === undefined ? this : result;
             };
 
@@ -2725,10 +2708,10 @@
             }
             // Otherwise, redefine all properties (slow!)
             else {
-              var asserterNames = Object.getOwnPropertyNames(ctx);
+              const asserterNames = Object.getOwnPropertyNames(ctx);
               asserterNames.forEach(function (asserterName) {
                 if (!excludeNames.test(asserterName)) {
-                  var pd = Object.getOwnPropertyDescriptor(ctx, asserterName);
+                  const pd = Object.getOwnPropertyDescriptor(ctx, asserterName);
                   Object.defineProperty(assert, asserterName, pd);
                 }
               });
@@ -2777,7 +2760,7 @@
 
     module.exports = function (ctx, name, method) {
       ctx[name] = function () {
-        var result = method.apply(this, arguments);
+        const result = method.apply(this, arguments);
         return result === undefined ? this : result;
       };
     };
@@ -2819,7 +2802,7 @@
     module.exports = function (ctx, name, getter) {
       Object.defineProperty(ctx, name,
         { get: function () {
-            var result = getter.call(this);
+            const result = getter.call(this);
             return result === undefined ? this : result;
           }
         , configurable: true
@@ -2834,10 +2817,10 @@
 
     module.exports = _deepEqual;
 
-    var getEnumerableProperties = require('./getEnumerableProperties');
+    const getEnumerableProperties = require('./getEnumerableProperties');
 
     // for the browser
-    var Buffer;
+    let Buffer;
     try {
       Buffer = require('buffer').Buffer;
     } catch (ex) {
@@ -2855,7 +2838,7 @@
       } else if (Buffer.isBuffer(actual) && Buffer.isBuffer(expected)) {
         if (actual.length != expected.length) return false;
 
-        for (var i = 0; i < actual.length; i++) {
+        for (let i = 0; i < actual.length; i++) {
           if (actual[i] !== expected[i]) return false;
         }
 
@@ -2898,7 +2881,7 @@
       if (a.prototype !== b.prototype) return false;
 
       // check if we have already compared a and b
-      var i;
+      let i;
       if (memos) {
         for(i = 0; i < memos.length; i++) {
           if ((memos[i][0] === a && memos[i][1] === b) ||
@@ -2982,7 +2965,7 @@
      */
 
     module.exports = function (obj, key, value) {
-      var flags = obj.__flags || (obj.__flags = Object.create(null));
+      const flags = obj.__flags || (obj.__flags = Object.create(null));
       if (arguments.length === 3) {
         flags[key] = value;
       } else {
@@ -3009,7 +2992,7 @@
      */
 
     module.exports = function (obj, args) {
-      var actual = args[4];
+      const actual = args[4];
       return 'undefined' !== typeof actual ? actual : obj._obj;
     };
 
@@ -3035,8 +3018,8 @@
      */
 
     module.exports = function getEnumerableProperties(object) {
-      var result = [];
-      for (var name in object) {
+      const result = [];
+      for (const name in object) {
         result.push(name);
       }
       return result;
@@ -3055,10 +3038,7 @@
      * Module dependancies
      */
 
-    var flag = require('./flag')
-      , getActual = require('./getActual')
-      , inspect = require('./inspect')
-      , objDisplay = require('./objDisplay');
+    const flag = require('./flag'), getActual = require('./getActual'), inspect = require('./inspect'), objDisplay = require('./objDisplay');
 
     /**
      * ### .getMessage(object, message, negateMessage)
@@ -3079,12 +3059,12 @@
      */
 
     module.exports = function (obj, args) {
-      var negate = flag(obj, 'negate')
-        , val = flag(obj, 'object')
-        , expected = args[3]
-        , actual = getActual(obj, args)
-        , msg = negate ? args[2] : args[1]
-        , flagMsg = flag(obj, 'message');
+      const negate = flag(obj, 'negate');
+      const val = flag(obj, 'object');
+      const expected = args[3];
+      const actual = getActual(obj, args);
+      let msg = negate ? args[2] : args[1];
+      const flagMsg = flag(obj, 'message');
 
       msg = msg || '';
       msg = msg
@@ -3115,7 +3095,7 @@
     module.exports = function (func) {
       if (func.name) return func.name;
 
-      var match = /^\s?function ([^(]*)\(/.exec(func);
+      const match = /^\s?function ([^(]*)\(/.exec(func);
       return match && match[1] ? match[1] : "";
     };
 
@@ -3159,8 +3139,8 @@
      * @api public
      */
 
-    var getPathValue = module.exports = function (path, obj) {
-      var parsed = parsePath(path);
+    const getPathValue = module.exports = function (path, obj) {
+      const parsed = parsePath(path);
       return _getPathValue(parsed, obj);
     };
 
@@ -3183,11 +3163,9 @@
      */
 
     function parsePath (path) {
-      var str = path.replace(/\[/g, '.[')
-        , parts = str.match(/(\\\.|[^.]+?)+/g);
+      const str = path.replace(/\[/g, '.['), parts = str.match(/(\\\.|[^.]+?)+/g);
       return parts.map(function (value) {
-        var re = /\[(\d+)\]$/
-          , mArr = re.exec(value)
+        const re = /\[(\d+)\]$/, mArr = re.exec(value);
         if (mArr) return { i: parseFloat(mArr[1]) };
         else return { p: value };
       });
@@ -3208,10 +3186,9 @@
      */
 
     function _getPathValue (parsed, obj) {
-      var tmp = obj
-        , res;
-      for (var i = 0, l = parsed.length; i < l; i++) {
-        var part = parsed[i];
+      let tmp = obj, res;
+      for (let i = 0, l = parsed.length; i < l; i++) {
+        const part = parsed[i];
         if (tmp) {
           if ('undefined' !== typeof part.p)
             tmp = tmp[part.p];
@@ -3247,7 +3224,7 @@
      */
 
     module.exports = function getProperties(object) {
-      var result = Object.getOwnPropertyNames(subject);
+      const result = Object.getOwnPropertyNames(subject);
 
       function addProperty(property) {
         if (result.indexOf(property) === -1) {
@@ -3255,7 +3232,7 @@
         }
       }
 
-      var proto = Object.getPrototypeOf(subject);
+      let proto = Object.getPrototypeOf(subject);
       while (proto !== null) {
         Object.getOwnPropertyNames(proto).forEach(addProperty);
         proto = Object.getPrototypeOf(proto);
@@ -3382,9 +3359,9 @@
     // This is (almost) directly from Node.js utils
     // https://github.com/joyent/node/blob/f8c335d0caf47f16d31413f89aa28eda3878e3aa/lib/util.js
 
-    var getName = require('./getName');
-    var getProperties = require('./getProperties');
-    var getEnumerableProperties = require('./getEnumerableProperties');
+    const getName = require('./getName');
+    const getProperties = require('./getProperties');
+    const getEnumerableProperties = require('./getEnumerableProperties');
 
     module.exports = inspect;
 
@@ -3400,7 +3377,7 @@
      *    output. Default is false (no coloring).
      */
     function inspect(obj, showHidden, depth, colors) {
-      var ctx = {
+      const ctx = {
         showHidden: showHidden,
         seen: [],
         stylize: function (str) { return str; }
@@ -3409,13 +3386,13 @@
     }
 
     // https://gist.github.com/1044128/
-    var getOuterHTML = function(element) {
+    const getOuterHTML = function(element) {
       if ('outerHTML' in element) return element.outerHTML;
-      var ns = "http://www.w3.org/1999/xhtml";
-      var container = document.createElementNS(ns, '_');
-      var elemProto = (window.HTMLElement || window.Element).prototype;
-      var xmlSerializer = new XMLSerializer();
-      var html;
+      const ns = "http://www.w3.org/1999/xhtml";
+      const container = document.createElementNS(ns, '_');
+      const elemProto = (window.HTMLElement || window.Element).prototype;
+      const xmlSerializer = new XMLSerializer();
+      let html;
       if (document.xmlVersion) {
         return xmlSerializer.serializeToString(element);
       } else {
@@ -3427,7 +3404,7 @@
     };
 
     // Returns true if object is a DOM element.
-    var isDOMElement = function (object) {
+    const isDOMElement = function (object) {
       if (typeof HTMLElement === 'object') {
         return object instanceof HTMLElement;
       } else {
@@ -3450,7 +3427,7 @@
       }
 
       // Primitive types cannot have properties
-      var primitive = formatPrimitive(ctx, value);
+      const primitive = formatPrimitive(ctx, value);
       if (primitive) {
         return primitive;
       }
@@ -3461,8 +3438,8 @@
       }
 
       // Look up the keys of the object.
-      var visibleKeys = getEnumerableProperties(value);
-      var keys = ctx.showHidden ? getProperties(value) : visibleKeys;
+      const visibleKeys = getEnumerableProperties(value);
+      const keys = ctx.showHidden ? getProperties(value) : visibleKeys;
 
       // Some type of object without properties can be shortcutted.
       // In IE, errors have a single `stack` property, or if they are vanilla `Error`,
@@ -3487,7 +3464,7 @@
         }
       }
 
-      var base = '', array = false, braces = ['{', '}'];
+      let base = '', array = false, braces = ['{', '}'];
 
       // Make Array say that they are Array
       if (isArray(value)) {
@@ -3531,7 +3508,7 @@
 
       ctx.seen.push(value);
 
-      var output;
+      let output;
       if (array) {
         output = formatArray(ctx, value, recurseTimes, visibleKeys, keys);
       } else {
@@ -3552,7 +3529,7 @@
           return ctx.stylize('undefined', 'undefined');
 
         case 'string':
-          var simple = '\'' + JSON.stringify(value).replace(/^"|"$/g, '')
+          const simple = '\'' + JSON.stringify(value).replace(/^"|"$/g, '')
                                                    .replace(/'/g, "\\'")
                                                    .replace(/\\"/g, '"') + '\'';
           return ctx.stylize(simple, 'string');
@@ -3576,8 +3553,8 @@
 
 
     function formatArray(ctx, value, recurseTimes, visibleKeys, keys) {
-      var output = [];
-      for (var i = 0, l = value.length; i < l; ++i) {
+      const output = [];
+      for (let i = 0, l = value.length; i < l; ++i) {
         if (Object.prototype.hasOwnProperty.call(value, String(i))) {
           output.push(formatProperty(ctx, value, recurseTimes, visibleKeys,
               String(i), true));
@@ -3596,7 +3573,7 @@
 
 
     function formatProperty(ctx, value, recurseTimes, visibleKeys, key, array) {
-      var name, str;
+      let name, str;
       if (value.__lookupGetter__) {
         if (value.__lookupGetter__(key)) {
           if (value.__lookupSetter__(key)) {
@@ -3656,8 +3633,8 @@
 
 
     function reduceToSingleString(output, base, braces) {
-      var numLinesEst = 0;
-      var length = output.reduce(function(prev, cur) {
+      let numLinesEst = 0;
+      const length = output.reduce(function(prev, cur) {
         numLinesEst++;
         if (cur.indexOf('\n') >= 0) numLinesEst++;
         return prev + cur.length + 1;
@@ -3709,7 +3686,7 @@
      * Module dependancies
      */
 
-    var inspect = require('./inspect');
+    const inspect = require('./inspect');
 
     /**
      * ### .objDisplay (object)
@@ -3724,8 +3701,7 @@
      */
 
     module.exports = function (obj) {
-      var str = inspect(obj)
-        , type = Object.prototype.toString.call(obj);
+      const str = inspect(obj), type = Object.prototype.toString.call(obj);
 
       if (str.length >= 40) {
         if (type === '[object Function]') {
@@ -3735,10 +3711,10 @@
         } else if (type === '[object Array]') {
           return '[ Array(' + obj.length + ') ]';
         } else if (type === '[object Object]') {
-          var keys = Object.keys(obj)
-            , kstr = keys.length > 2
-              ? keys.splice(0, 2).join(', ') + ', ...'
-              : keys.join(', ');
+          const keys = Object.keys(obj),
+                kstr = keys.length > 2
+                    ? keys.splice(0, 2).join(', ') + ', ...'
+                    : keys.join(', ');
           return '{ Object (' + kstr + ') }';
         } else {
           return str;
@@ -3791,14 +3767,14 @@
      */
 
     module.exports = function (ctx, name, method) {
-      var _method = ctx[name]
-        , _super = function () { return this; };
+      const _method = ctx[name];
+      let _super = function () { return this; };
 
       if (_method && 'function' === typeof _method)
         _super = _method;
 
       ctx[name] = function () {
-        var result = method(_super).apply(this, arguments);
+        const result = method(_super).apply(this, arguments);
         return result === undefined ? this : result;
       }
     };
@@ -3846,15 +3822,15 @@
      */
 
     module.exports = function (ctx, name, getter) {
-      var _get = Object.getOwnPropertyDescriptor(ctx, name)
-        , _super = function () {};
+      const _get = Object.getOwnPropertyDescriptor(ctx, name);
+      let _super = function () {};
 
       if (_get && 'function' === typeof _get.get)
         _super = _get.get
 
       Object.defineProperty(ctx, name,
         { get: function () {
-            var result = getter(_super).call(this);
+            const result = getter(_super).call(this);
             return result === undefined ? this : result;
           }
         , configurable: true
@@ -3874,7 +3850,7 @@
      * Module dependancies
      */
 
-    var flag = require('./flag');
+    const flag = require('./flag');
 
     /**
      * # test(object, expression)
@@ -3886,8 +3862,7 @@
      */
 
     module.exports = function (obj, args) {
-      var negate = flag(obj, 'negate')
-        , expr = args[0];
+      const negate = flag(obj, 'negate'), expr = args[0];
       return negate ? !expr : expr;
     };
 
@@ -3923,7 +3898,7 @@
      */
 
     module.exports = function (assertion, object, includeAll) {
-      var flags = assertion.__flags || (assertion.__flags = Object.create(null));
+      const flags = assertion.__flags || (assertion.__flags = Object.create(null));
 
       if (!object.__flags) {
         object.__flags = Object.create(null);
@@ -3931,7 +3906,7 @@
 
       includeAll = arguments.length === 3 ? includeAll : true;
 
-      for (var flag in flags) {
+      for (const flag in flags) {
         if (includeAll ||
             (flag !== 'object' && flag !== 'ssfi' && flag != 'message')) {
           object.__flags[flag] = flags[flag];
@@ -3952,7 +3927,7 @@
      * Detectable javascript natives
      */
 
-    var natives = {
+    const natives = {
         '[object Arguments]': 'arguments'
       , '[object Array]': 'array'
       , '[object Date]': 'date'
@@ -3980,7 +3955,7 @@
      */
 
     module.exports = function (obj) {
-      var str = Object.prototype.toString.call(obj);
+      const str = Object.prototype.toString.call(obj);
       if (natives[str]) return natives[str];
       if (obj === null) return 'null';
       if (obj === undefined) return 'undefined';

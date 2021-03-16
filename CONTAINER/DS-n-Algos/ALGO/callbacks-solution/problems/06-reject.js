@@ -20,7 +20,7 @@ console.log(reject(['breadth', 'GRAPH', 'depth', 'height'], hasA)); // [ 'depth'
 
 function reject(array, cb) {
   let items = [];
-  array.forEach(function(el, i) {
+  array.forEach((el, i) => {
     if (cb(el) === false) {
       items.push(el);
     }

@@ -1,4 +1,4 @@
- const  allUnique = function (array) {
+ const  allUnique = array => {
     let valuesSoFar = [];
     for (let i = 0; i < array.length; ++i) {
       let value = array[i];

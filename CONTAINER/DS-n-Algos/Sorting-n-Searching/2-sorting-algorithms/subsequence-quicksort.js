@@ -1,7 +1,7 @@
 //I hate using var but in this case the fact that it is function scope is rather advantageous.... substituting in let for var does not accurately sort the array in this case ... a exclusivley let declared implementation can be found in the 05-quicksort.js file above.
 //1.) swap helper func
 function swap( array, i, j ) {
-  var temp = array[ i ];
+  const temp = array[ i ];
   array[ i ] = array[ j ];
   array[ j ] = temp;
 }
@@ -12,7 +12,7 @@ function flexiSort( array, left, right ) {
   //---> (length -1).
   left = left || 0;
   right = right || array.length - 1;
-  var pivot = partition( array, left, right );
+  const pivot = partition( array, left, right );
   if ( left < pivot - 1 ) {
     flexiSort( array, left, pivot - 1 );
   }
@@ -22,7 +22,7 @@ function flexiSort( array, left, right ) {
   return array;
 }
 function partition( array, left, right ) {
-  var pivot = Math.floor( ( left + right ) / 2 );
+  const pivot = Math.floor( ( left + right ) / 2 );
   while ( left < right ) {
     while ( array[ left ] < array[ pivot ] ) {
       left++
@@ -47,9 +47,9 @@ function getRandomInt( min, max ) {
   //https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random
 }
 //--------------------------------------------------------------------------
-var arr = [];
+let arr = [];
 // random unsorted array of integers
-for ( var i = 0; i < 10; i++ ) {
+for ( let i = 0; i < 10; i++ ) {
   arr.push( getRandomInt( 1, 100 ) );
 }
 console.log( "-----------------------------------------------------------------" );

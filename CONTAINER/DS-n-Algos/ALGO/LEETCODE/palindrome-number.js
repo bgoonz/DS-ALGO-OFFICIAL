@@ -4,24 +4,24 @@ Determine whether an integer is a palindrome. Do this without extra space.*/
 
 // SOLUTION - 1 //  The logic is same as reverse_integer.js
 
-var isPalindrome = function (x) {
+const isPalindrome = x => {
 	// First reverse the string without using any sting method.
-	var y = Math.abs(x);
-	var result = 0;
+	let y = Math.abs(x);
+	let result = 0;
 
 	while (y > 0) {
 		result = result * 10 + (y % 10);
 		y = parseInt(y / 10);
 	}
 	return result === x;
-}
+};
 
 console.log(isPalindrome(323));
 
 // Alternative by reversing string. But this would require extra non-constant space for creating the string
-var isPalindrome1 = function(x) {
+const isPalindrome1 = x => {
 	return x.toString().split('').reverse().join('') === x.toString();
-}
+};
 
 console.log(isPalindrome1(323));
 

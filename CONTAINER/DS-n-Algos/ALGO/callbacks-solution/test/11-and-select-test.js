@@ -1,13 +1,13 @@
 const assert = require("assert");
 const andSelect = require("../problems/11-and-select.js");
 
-describe("andSelect", function() {
-  it("", function() {
-    let isEven = function(n) {
+describe("andSelect", () => {
+  it("", () => {
+    let isEven = n => {
       return n % 2 === 0;
     };
 
-    let isPositive = function(n) {
+    let isPositive = n => {
       return n > 0;
     };
 
@@ -15,11 +15,11 @@ describe("andSelect", function() {
     const expected1 = [8, 6, 12];
     assert.deepEqual(actual1, expected1);
 
-    let isUpperCase = function(s) {
+    let isUpperCase = s => {
       return s === s.toUpperCase();
     };
 
-    let startsWithA = function(s) {
+    let startsWithA = s => {
       return s[0].toUpperCase() === "A";
     };
     const actual2 = andSelect(

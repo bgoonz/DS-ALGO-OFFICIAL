@@ -38,7 +38,7 @@ Return value - A new string containing the specified part of the given string.
 
 */
 
-var licenseKeyFormatting = function(S, K) {
+const licenseKeyFormatting = (S, K) => {
 
     let cleanStr = S.toUpperCase().replace(/-/g, '');
 

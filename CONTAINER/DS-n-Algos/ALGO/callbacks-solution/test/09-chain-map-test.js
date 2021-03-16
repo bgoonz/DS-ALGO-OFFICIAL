@@ -1,17 +1,17 @@
 const assert = require("assert");
 const chainMap = require("../problems/09-chain-map.js");
 
-describe("chainMap", function() {
-  it("", function() {
-    let add5 = function(n) {
+describe("chainMap", () => {
+  it("", () => {
+    let add5 = n => {
       return n + 5;
     };
 
-    let half = function(n) {
+    let half = n => {
       return n / 2;
     };
 
-    let square = function(n) {
+    let square = n => {
       return n * n;
     };
 

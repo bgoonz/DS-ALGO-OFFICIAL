@@ -1,14 +1,14 @@
 const assert = require("assert");
 const exactly = require("../problems/12-exactly.js");
 
-describe("exactly", function() {
-  it("", function() {
-    let result1 = exactly([18, 5, 32, 7, 100], 3, function(n) {
+describe("exactly", () => {
+  it("", () => {
+    let result1 = exactly([18, 5, 32, 7, 100], 3, n => {
       return n % 2 === 0;
     });
     assert.equal(result1, true);
 
-    let result2 = exactly([18, 5, 32, 7, 100], 2, function(n) {
+    let result2 = exactly([18, 5, 32, 7, 100], 2, n => {
       return n % 2 === 0;
     });
     assert.equal(result2, false);
@@ -16,7 +16,7 @@ describe("exactly", function() {
     let result3 = exactly(
       ["follow", "the", "yellow", "brick", "road"],
       1,
-      function(str) {
+      str => {
         return str.includes("x");
       }
     );
@@ -25,7 +25,7 @@ describe("exactly", function() {
     let result4 = exactly(
       ["follow", "the", "yellow", "brick", "road"],
       0,
-      function(str) {
+      str => {
         return str.includes("x");
       }
     );

@@ -1,16 +1,16 @@
 // Please note: This can be accomplished using `JSON.parse('[' + csv + ']')`
-module.exports = function (csv) {
-  var isNumber = false,
-      isInput  = false,
-      curr     = '',
-      stack    = [],
-      i        = 0,
-      char,
-      pushStack;
+module.exports = csv => {
+  let isNumber = false;
+  let isInput  = false;
+  let curr     = '';
+  const stack    = [];
+  let i        = 0;
+  let char;
+  let pushStack;
 
   csv = csv.trim();
 
-  pushStack = function (input) {
+  pushStack = input => {
     isNumber && (input = +input);
     // Resets
     curr     = '';

@@ -29,7 +29,7 @@ console.log(result4); // true
 
 function exactly(array, num, cb) {
   let count = 0;
-  array.forEach(function(el) {
+  array.forEach(el => {
     if (cb(el)) {
       count++;
     }

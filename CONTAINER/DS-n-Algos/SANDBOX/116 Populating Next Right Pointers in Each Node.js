@@ -14,7 +14,7 @@
  * @param {TreeLinkNode} root
  * @return {void} Do not return anything, modify tree in-place instead.
  */
-var connect = function(root) {
+const connect = root => {
     if(root === null){
         return;
     }

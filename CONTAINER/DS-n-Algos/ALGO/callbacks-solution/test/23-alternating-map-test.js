@@ -1,13 +1,13 @@
 const assert = require("assert");
 const alternatingMap = require("../problems/23-alternating-map.js");
 
-describe("alternatingMap", function() {
-  it("", function() {
-    const triple = function(n) {
+describe("alternatingMap", () => {
+  it("", () => {
+    const triple = n => {
       return 3 * n;
     };
 
-    const half = function(n) {
+    const half = n => {
       return n / 2;
     };
 
@@ -15,11 +15,11 @@ describe("alternatingMap", function() {
     const expected1 = [21, 1.5, 6, 4.5, 24];
     assert.deepEqual(actual1, expected1);
 
-    const yell = function(s) {
+    const yell = s => {
       return s.toUpperCase() + "!";
     };
 
-    const whisper = function(s) {
+    const whisper = s => {
       return ".." + s.toLowerCase() + "..";
     };
 

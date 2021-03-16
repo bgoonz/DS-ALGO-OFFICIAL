@@ -1,11 +1,10 @@
-module.exports = function (string) {
-  var checkChar,
-      prevCharacter;
+module.exports = string => {
+  let checkChar, prevCharacter;
 
-  checkChar = (function () {
-    var repeated = false;
+  checkChar = (() => {
+    let repeated = false;
 
-    return function (char) {
+    return char => {
       if (prevCharacter && char === prevCharacter) {
         repeated = true;
       }
@@ -20,7 +19,7 @@ module.exports = function (string) {
   })();
 
   // Interate one extra time past the last character
-  for (var i = 0; i <= string.length; i++) {
+  for (let i = 0; i <= string.length; i++) {
     if (checkChar(string[i])) { return prevCharacter; }
   }
 };

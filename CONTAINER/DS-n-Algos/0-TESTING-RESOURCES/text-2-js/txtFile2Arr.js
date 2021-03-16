@@ -6,7 +6,7 @@
 const fs = require( 'fs' );
 let filename = './streetNames.txt';
 let finalArr = [];
- fs.readFile( filename, function ( err, text ) {
+ fs.readFile( filename, (err, text) => {
   
   if ( err ) throw err;
 

@@ -1,6 +1,6 @@
-var distance = function ( x, y ) {
-  var difference = x - y;
-  var euclideanDistance = Math.sqrt( difference * difference );
+const distance = (x, y) => {
+  const difference = x - y;
+  const euclideanDistance = Math.sqrt( difference * difference );
   return euclideanDistance;
 };
 

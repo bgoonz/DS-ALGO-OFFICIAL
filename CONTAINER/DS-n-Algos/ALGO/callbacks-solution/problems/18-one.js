@@ -39,7 +39,7 @@ console.log(result6);   // true
 
 function one(array, cb) {
   let count = 0;
-  array.forEach(function(el, i) {
+  array.forEach((el, i) => {
     if (cb(el, i, array) === true) {
       count++;
     }

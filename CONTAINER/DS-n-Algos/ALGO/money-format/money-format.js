@@ -1,8 +1,8 @@
-module.exports = function (value) {
-  var remaining = value - ~~value,
-      string    = '' + ~~value,
-      length    = string.length,
-      places    = 0;
+module.exports = value => {
+  const remaining = value - ~~value;
+  let string    = '' + ~~value;
+  let length    = string.length;
+  let places    = 0;
 
   while (--length) {
     places += 1;

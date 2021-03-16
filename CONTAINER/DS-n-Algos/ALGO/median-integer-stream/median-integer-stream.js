@@ -2,40 +2,42 @@
 // track of the median node in the linked list - then inserting either before
 // or after the node and moving the node left/right.
 
-var LinkedList = function (value) {
-  this.value = value;
-};
+class LinkedList {
+  constructor(value) {
+    this.value = value;
+  }
 
-LinkedList.prototype.append = function (value) {
-  var node  = new LinkedList(value);
-  node.prev = this;
-  node.next = this.next;
-  // Fix the linked list node references.
-  this.next && (this.next.prev = node);
-  this.next = node;
-  return node;
-};
+  append(value) {
+    const node  = new LinkedList(value);
+    node.prev = this;
+    node.next = this.next;
+    // Fix the linked list node references.
+    this.next && (this.next.prev = node);
+    this.next = node;
+    return node;
+  }
 
-LinkedList.prototype.prepend = function (value) {
-  var node  = new LinkedList(value);
-  node.prev = this.prev;
-  node.next = this;
-  // Fix the linked list node references.
-  this.prev && (this.prev.next = node);
-  this.prev = node;
-  return node;
-};
+  prepend(value) {
+    const node  = new LinkedList(value);
+    node.prev = this.prev;
+    node.next = this;
+    // Fix the linked list node references.
+    this.prev && (this.prev.next = node);
+    this.prev = node;
+    return node;
+  }
+}
 
-module.exports = function () {
+module.exports = () => {
   return {
-    insert: function (number) {
+    insert(number) {
       if (!this._median) {
         this._median = new LinkedList(number);
         return;
       }
 
-      var node = this._median;
-      var prevNode;
+      let node = this._median;
+      let prevNode;
 
       // If the number is greater than the median value, need to insert
       // somewhere after the current median node.
@@ -69,7 +71,7 @@ module.exports = function () {
         --this._right;
       }
     },
-    getMedian: function () {
+    getMedian() {
       // If the left and right node counts are identical, we can return the
       // value exactly.
       if (this._left === this._right) {

@@ -6,17 +6,17 @@
  * @param {number} rowIndex
  * @return {number[]}
  */
-var getRow = function(rowIndex) {
+const getRow = rowIndex => {
     if(rowIndex === null || rowIndex < 0){
         return [];
     }
     
-    var result = [1];
+    let result = [1];
     
-    for(var i = 1; i <= rowIndex; i++){
-        var cur = [];
+    for(let i = 1; i <= rowIndex; i++){
+        const cur = [];
         
-        for(var j = 0; j <= i; j++){
+        for(let j = 0; j <= i; j++){
             cur[j] = (result[j - 1] || 0) + (result[j] || 0);
         }
 

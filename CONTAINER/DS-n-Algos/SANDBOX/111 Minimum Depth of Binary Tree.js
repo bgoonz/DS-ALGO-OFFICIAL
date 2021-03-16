@@ -13,22 +13,22 @@
  * @param {TreeNode} root
  * @return {number}
  */
-var minDepth = function(root) {
+const minDepth = root => {
     if(root === null){
         return 0;
     }
     
-    var queue = [];
+    const queue = [];
     
     queue.push(root);
     
-    var height = 1;
+    let height = 1;
     
-    var curLvlCnt = 1;
-    var nextLvlCnt = 0;
+    let curLvlCnt = 1;
+    let nextLvlCnt = 0;
     
     while(queue.length !== 0){
-        var node = queue.shift();
+        const node = queue.shift();
         
         curLvlCnt--;
         

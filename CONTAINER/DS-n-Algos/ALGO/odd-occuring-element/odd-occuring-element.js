@@ -1,5 +1,5 @@
-module.exports = function (array) {
-  return array.reduce(function (memo, number) {
+module.exports = array => {
+  return array.reduce((memo, number) => {
     return memo ^ number;
   }, 0);
 };

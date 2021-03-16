@@ -1,4 +1,4 @@
-let countChange = function ( money, coins ) {
+let countChange = (money, coins) => {
   function countChangeSub ( money, coins, n ) {
     if ( money == 0 ) return 1;
     if ( money < 0 || coins.length == n ) return 0;

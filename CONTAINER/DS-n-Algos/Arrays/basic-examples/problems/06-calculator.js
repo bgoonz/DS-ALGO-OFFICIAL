@@ -22,19 +22,19 @@ calculator.total // => returns 30
 
 const calculator = {
   total: 0,
-  add: function (num) {
+  add(num) {
     this.total += num;
     return this.total;
   },
-  subtract: function (num) {
+  subtract(num) {
     this.total -= num;
     return this.total;
   },
-  divide: function (num) {
+  divide(num) {
     this.total /= num;
     return this.total;
   },
-  multiply: function (num) {
+  multiply(num) {
     this.total *= num;
     return this.total;
   }

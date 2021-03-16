@@ -74,7 +74,7 @@ const layout = {
 
 for (const id in layout) {
   if (!graph[id]) { graph[id] = {} }
-  layout[id].forEach(function (aid) {
+  layout[id].forEach(aid => {
     graph[id][aid] = 1
     if (!graph[aid]) { graph[aid] = {} }
     graph[aid][id] = 1

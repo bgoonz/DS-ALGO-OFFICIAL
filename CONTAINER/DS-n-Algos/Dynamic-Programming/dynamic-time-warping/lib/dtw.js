@@ -1,7 +1,7 @@
-var debug = require( 'debug' )( 'dtw' );
-var validate = require( './validate' );
-var matrix = require( './matrix' );
-var comparison = require( './comparison' );
+const debug = require( 'debug' )( 'dtw' );
+const validate = require( './validate' );
+const matrix = require( './matrix' );
+const comparison = require( './comparison' );
 
 function validateOptions( options ) {
   if ( typeof options !== 'object' ) {
@@ -12,7 +12,7 @@ function validateOptions( options ) {
     throw new Error( 'Invalid parameters: provide either a distance metric or function but not both' );
   }
   if ( typeof options.distanceMetric === 'string' ) {
-    var normalizedDistanceMetric = options.distanceMetric.toLowerCase();
+    const normalizedDistanceMetric = options.distanceMetric.toLowerCase();
     if ( normalizedDistanceMetric !== 'manhattan' && normalizedDistanceMetric !== 'euclidean' &&
       normalizedDistanceMetric !== 'squaredeuclidean' ) {
       throw new Error( 'Invalid parameter value: Unknown distance metric \'' + options.distanceMetric + '\'' );
@@ -21,8 +21,8 @@ function validateOptions( options ) {
 }
 
 function retrieveDistanceFunction( distanceMetric ) {
-  var normalizedDistanceMetric = distanceMetric.toLowerCase();
-  var distanceFunction = null;
+  const normalizedDistanceMetric = distanceMetric.toLowerCase();
+  let distanceFunction = null;
   if ( normalizedDistanceMetric === 'manhattan' ) {
     distanceFunction = require( './distanceFunctions/manhattan' ).distance;
   } else if ( normalizedDistanceMetric === 'euclidean' ) {
@@ -32,8 +32,8 @@ function retrieveDistanceFunction( distanceMetric ) {
   }
   return distanceFunction;
 }
-var DTW = function ( options ) {
-  var state = {
+const DTW = function ( options ) {
+  const state = {
     distanceCostMatrix: null
   };
   if ( typeof options === 'undefined' ) {
@@ -46,8 +46,8 @@ var DTW = function ( options ) {
       state.distance = options.distanceFunction;
     }
   }
-  this.compute = function ( firstSequence, secondSequence, window ) {
-    var cost = Number.POSITIVE_INFINITY;
+  this.compute = (firstSequence, secondSequence, window) => {
+    let cost = Number.POSITIVE_INFINITY;
     if ( typeof window === 'undefined' ) {
       cost = computeOptimalPath( firstSequence, secondSequence, state );
     } else if ( typeof window === 'number' ) {
@@ -57,8 +57,8 @@ var DTW = function ( options ) {
     }
     return cost;
   };
-  this.path = function () {
-    var path = null;
+  this.path = () => {
+    let path = null;
     if ( state.distanceCostMatrix instanceof Array ) {
       path = retrieveOptimalPath( state );
     }
@@ -74,10 +74,10 @@ function validateComputeParameters( s, t ) {
 function computeOptimalPath( s, t, state ) {
   debug( '> computeOptimalPath' );
   validateComputeParameters( s, t );
-  var start = new Date().getTime();
+  const start = new Date().getTime();
   state.m = s.length;
   state.n = t.length;
-  var distanceCostMatrix = matrix.create( state.m, state.n, Number.POSITIVE_INFINITY );
+  const distanceCostMatrix = matrix.create( state.m, state.n, Number.POSITIVE_INFINITY );
   distanceCostMatrix[ 0 ][ 0 ] = state.distance( s[ 0 ], t[ 0 ] );
   for ( var rowIndex = 1; rowIndex < state.m; rowIndex++ ) {
     var cost = state.distance( s[ rowIndex ], t[ 0 ] );
@@ -97,8 +97,8 @@ function computeOptimalPath( s, t, state ) {
           distanceCostMatrix[ rowIndex - 1 ][ columnIndex - 1 ] );
     }
   }
-  var end = new Date().getTime();
-  var time = end - start;
+  const end = new Date().getTime();
+  const time = end - start;
   debug( '< computeOptimalPath (' + time + ' ms)' );
   state.distanceCostMatrix = distanceCostMatrix;
   state.similarity = distanceCostMatrix[ state.m - 1 ][ state.n - 1 ];
@@ -108,15 +108,15 @@ function computeOptimalPath( s, t, state ) {
 function computeOptimalPathWithWindow( s, t, w, state ) {
   debug( '> computeOptimalPathWithWindow' );
   validateComputeParameters( s, t );
-  var start = new Date().getTime();
+  const start = new Date().getTime();
   state.m = s.length;
   state.n = t.length;
-  var window = Math.max( w, Math.abs( s.length - t.length ) );
-  var distanceCostMatrix = matrix.create( state.m + 1, state.n + 1, Number.POSITIVE_INFINITY );
+  const window = Math.max( w, Math.abs( s.length - t.length ) );
+  let distanceCostMatrix = matrix.create( state.m + 1, state.n + 1, Number.POSITIVE_INFINITY );
   distanceCostMatrix[ 0 ][ 0 ] = 0;
-  for ( var rowIndex = 1; rowIndex <= state.m; rowIndex++ ) {
-    for ( var columnIndex = Math.max( 1, rowIndex - window ); columnIndex <= Math.min( state.n, rowIndex + window ); columnIndex++ ) {
-      var cost = state.distance( s[ rowIndex - 1 ], t[ columnIndex - 1 ] );
+  for ( let rowIndex = 1; rowIndex <= state.m; rowIndex++ ) {
+    for ( let columnIndex = Math.max( 1, rowIndex - window ); columnIndex <= Math.min( state.n, rowIndex + window ); columnIndex++ ) {
+      const cost = state.distance( s[ rowIndex - 1 ], t[ columnIndex - 1 ] );
       distanceCostMatrix[ rowIndex ][ columnIndex ] =
         cost + Math.min(
           distanceCostMatrix[ rowIndex - 1 ][ columnIndex ],
@@ -124,11 +124,11 @@ function computeOptimalPathWithWindow( s, t, w, state ) {
           distanceCostMatrix[ rowIndex - 1 ][ columnIndex - 1 ] );
     }
   }
-  var end = new Date().getTime();
-  var time = end - start;
+  const end = new Date().getTime();
+  const time = end - start;
   debug( '< computeOptimalPathWithWindow (' + time + ' ms)' );
   distanceCostMatrix.shift();
-  distanceCostMatrix = distanceCostMatrix.map( function ( row ) {
+  distanceCostMatrix = distanceCostMatrix.map( row => {
     return row.slice( 1, row.length );
   } );
   state.distanceCostMatrix = distanceCostMatrix;
@@ -138,16 +138,16 @@ function computeOptimalPathWithWindow( s, t, w, state ) {
 
 function retrieveOptimalPath( state ) {
   debug( '> retrieveOptimalPath' );
-  var start = new Date().getTime();
-  var rowIndex = state.m - 1;
-  var columnIndex = state.n - 1;
-  var path = [
+  const start = new Date().getTime();
+  let rowIndex = state.m - 1;
+  let columnIndex = state.n - 1;
+  const path = [
     [ rowIndex, columnIndex ]
   ];
-  var epsilon = 1e-14;
+  const epsilon = 1e-14;
   while ( ( rowIndex > 0 ) || ( columnIndex > 0 ) ) {
     if ( ( rowIndex > 0 ) && ( columnIndex > 0 ) ) {
-      var min = Math.min(
+      const min = Math.min(
         state.distanceCostMatrix[ rowIndex - 1 ][ columnIndex ],
         state.distanceCostMatrix[ rowIndex ][ columnIndex - 1 ],
         state.distanceCostMatrix[ rowIndex - 1 ][ columnIndex - 1 ] );
@@ -166,8 +166,8 @@ function retrieveOptimalPath( state ) {
     }
     path.push( [ rowIndex, columnIndex ] );
   }
-  var end = new Date().getTime();
-  var time = end - start;
+  const end = new Date().getTime();
+  const time = end - start;
   debug( '< retrieveOptimalPath (' + time + ' ms)' );
   return path.reverse();
 }

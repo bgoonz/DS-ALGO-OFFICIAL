@@ -8,52 +8,54 @@
 // Functions: push, pop, peek, view, length
 
 // Creates a stack constructor
-var Stack = (function () {
-  function Stack () {
-    // The top of the Stack
-    this.top = 0
-    // The array representation of the stack
-    this.stack = []
-  }
-
-  // Adds a value onto the end of the stack
-  Stack.prototype.push = function (value) {
-    this.stack[this.top] = value
-    this.top++
-  }
-
-  // Removes and returns the value at the end of the stack
-  Stack.prototype.pop = function () {
-    if (this.top === 0) {
-      return 'Stack is Empty'
+const Stack = (() => {
+  class Stack {
+    constructor() {
+      // The top of the Stack
+      this.top = 0
+      // The array representation of the stack
+      this.stack = []
     }
 
-    this.top--
-    var result = this.stack[this.top]
-    this.stack = this.stack.splice(0, this.top)
-    return result
-  }
+    // Adds a value onto the end of the stack
+    push(value) {
+      this.stack[this.top] = value
+      this.top++
+    }
 
-  // Returns the size of the stack
-  Stack.prototype.size = function () {
-    return this.top
-  }
+    // Removes and returns the value at the end of the stack
+    pop() {
+      if (this.top === 0) {
+        return 'Stack is Empty'
+      }
 
-  // Returns the value at the end of the stack
-  Stack.prototype.peek = function () {
-    return this.stack[this.top - 1]
-  }
+      this.top--
+      const result = this.stack[this.top];
+      this.stack = this.stack.splice(0, this.top)
+      return result
+    }
 
-  // To see all the elements in the stack
-  Stack.prototype.view = function () {
-    for (var i = 0; i < this.top; i++) { console.log(this.stack[i]) }
+    // Returns the size of the stack
+    size() {
+      return this.top
+    }
+
+    // Returns the value at the end of the stack
+    peek() {
+      return this.stack[this.top - 1]
+    }
+
+    // To see all the elements in the stack
+    view() {
+      for (let i = 0; i < this.top; i++) { console.log(this.stack[i]) }
+    }
   }
 
   return Stack
-}())
+})();
 
 // Implementation
-var myStack = new Stack()
+const myStack = new Stack();
 
 myStack.push(1)
 myStack.push(5)

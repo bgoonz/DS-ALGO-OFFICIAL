@@ -1,8 +1,9 @@
 // Simple solution using a hash to look up numbers from the second array in the
 // first array. When the number doesn't exist in the hash - you know we have
 // found the missing number
-exports.iterative = function (a, b) {
-  var hash = {}, i;
+exports.iterative = (a, b) => {
+  const hash = {};
+  let i;
 
   for (i = 0; i < b.length; i++) {
     hash[b[i]] = hash[b[i]] + 1 || 1;
@@ -18,9 +19,9 @@ exports.iterative = function (a, b) {
 
 // Bitwise solution using XOR to cancel each of the corresponding numbers out
 // with eachother until we end up with a number that isn't cancelled out
-exports.bitwise = function (a, b) {
-  var result = 0;
-  a.concat(b).forEach(function (num) {
+exports.bitwise = (a, b) => {
+  let result = 0;
+  a.concat(b).forEach(num => {
     result ^= num;
   });
   return result;
@@ -28,8 +29,8 @@ exports.bitwise = function (a, b) {
 
 // Maybe the simplest solution, but you can very easily add the two arrays and
 // take the result of `b` away from `a` to get the missing number
-exports.sum = function (a, b) {
-  var add = function (a, b) {
+exports.sum = (a, b) => {
+  const add = (a, b) => {
     return a + b;
   };
 

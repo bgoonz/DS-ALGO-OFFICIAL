@@ -1,15 +1,15 @@
 // Use an object to map sets of brackets to their opposites
-var brackets = {
+const brackets = {
   '(': ')',
   '{': '}',
   '[': ']'
 };
 
 // On each input string, process it using the balance checker
-module.exports = function (string) {
-  var stack = [];
+module.exports = string => {
+  const stack = [];
   // Process every character on input
-  for (var i = 0; i < string.length; i++) {
+  for (let i = 0; i < string.length; i++) {
     if (brackets[stack[stack.length - 1]] === string[i]) {
       stack.pop();
     } else {

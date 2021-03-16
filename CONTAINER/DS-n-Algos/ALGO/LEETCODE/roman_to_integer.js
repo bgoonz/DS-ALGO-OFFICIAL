@@ -33,9 +33,9 @@ That, is the next comparison will be between i = 3 and i = 4 i.e. between "I" an
 
 */
 
-var romanToInt = function ( s ) {
+const romanToInt = s => {
 
-  var hashTable = {
+  const hashTable = {
 
     "I": 1,
     "X": 10,
@@ -47,14 +47,14 @@ var romanToInt = function ( s ) {
 
   };
 
-  var resultSum = 0;
+  let resultSum = 0;
 
-  for ( var i = 0; i < s.length; i++ ) {
+  for ( let i = 0; i < s.length; i++ ) {
     // console.log(i);
 
-    var currentItem = hashTable[ s[ i ] ];
+    const currentItem = hashTable[ s[ i ] ];
 
-    var nextItem = i + 1 === s.length ? 0 : hashTable[ s[ i + 1 ] ];
+    const nextItem = i + 1 === s.length ? 0 : hashTable[ s[ i + 1 ] ];
 
     if ( nextItem > currentItem ) {
       resultSum += nextItem - currentItem;

@@ -1,10 +1,10 @@
-var Stack = module.exports = function () {
+const Stack = module.exports = function () {
   this.head   = null;
   this.length = 0;
 };
 
 Stack.prototype.push = function (value) {
-  var node = {
+  const node = {
     value: value,
     next: null
   };
@@ -23,7 +23,7 @@ Stack.prototype.pop = function () {
   // If there is no head node, return `undefined`
   if (!this.head) { return; }
 
-  var node = this.head;
+  const node = this.head;
 
   // Update the head reference and remove the next node reference from the
   // previous head.

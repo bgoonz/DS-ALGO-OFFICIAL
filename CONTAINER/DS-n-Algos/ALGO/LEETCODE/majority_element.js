@@ -4,17 +4,17 @@ Given an array of size n, find the majority element. The majority element is the
 
 You may assume that the array is non-empty and the majority element always exist in the array.*/
 
-var majorityElement = function(nums) {
+const majorityElement = nums => {
 
-	var len = nums.length;
+	const len = nums.length;
 
 	if (len == 1) return nums[0];
 
 	// Empty hash to hold a key-value pair. The key is the majority-element, and the value being the number of times of occurrances of the majority element
-	var majorElement = {};
+	const majorElement = {};
 
-	for ( var i = 0; i < len; i++) {
-		var currentElm = nums[i];
+	for ( let i = 0; i < len; i++) {
+		const currentElm = nums[i];
 
 		// If the current element already exist in the hash, then increment the count of it. Also check if the count has exceeded [n/2] after incrementing then just reuturn that element, and program execution stops here.
 		
@@ -27,7 +27,7 @@ var majorityElement = function(nums) {
 	}
 	return "not found";
 
-}
+};
 
-var num = [1,1, 1, 1, 3,4,5];
+const num = [1,1, 1, 1, 3,4,5];
 console.log(majorityElement(num));

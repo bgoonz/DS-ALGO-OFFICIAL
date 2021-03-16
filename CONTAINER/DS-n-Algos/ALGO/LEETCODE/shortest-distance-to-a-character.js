@@ -11,7 +11,7 @@ C is a single character, and guaranteed to be in string S.
 All letters in S and C are lowercase.
  */
 
-var shortestToChar = function (S, C) {
+var shortestToChar = (S, C) => {
     // first get the index-position of the character C
     let c_position = S.indexOf(C);
 
@@ -32,7 +32,7 @@ var shortestToChar = function (S, C) {
     B> So, run a for loop to re-calculate the distance from each character to the right of next_c_position and if the new distance is smaller than earlier one, update resultElementDistance[i] with the new distance.
     */
 
-    for (var i = c_position + 1; i < S.length; i++) {
+    for (let i = c_position + 1; i < S.length; i++) {
         let newDistance = Math.abs(next_c_position - i);
         if (resultElementDistance[i] > newDistance) {
             resultElementDistance[i] = newDistance;
@@ -53,7 +53,7 @@ B> Lets say, 'allCIndexPositions' becomes [ 3, 5, 6, 11 ]
 C> Now I only have to find the minimum numerical difference of all other element's positional index value from each of these values i.e. 3, 5, 6 , 11
 
 */
-var shortestToChar = function(S, C) {
+var shortestToChar = (S, C) => {
     let all_CIndexPositions = S.split('').reduce((accumulator, element, index) => {
         if (element === C) {
             accumulator.push(index);

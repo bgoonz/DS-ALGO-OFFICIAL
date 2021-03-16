@@ -1,9 +1,9 @@
-var Stack = function() {
-  var someInstance = {};
+let Stack = function() {
+  let someInstance = {};
 
   // Use an object with numeric keys to store values
-  var storage = {};
-  var length = 0;
+  let storage = {};
+  let length = 0;
 
   // Implement the methods below
   someInstance.push = function(value) {

@@ -1,8 +1,8 @@
-module.exports = function (string) {
-  var output = '',
-      hash   = {};
+module.exports = string => {
+  let output = '';
+  const hash   = {};
 
-  for (var i = 0; i < string.length; i++) {
+  for (let i = 0; i < string.length; i++) {
     if (!hash[string[i]]) {
       output += string[i];
     }

@@ -7,7 +7,7 @@ You may assume that nums1 has enough space (size that is greater or equal to m +
 
  // My solution
 
-var merge = function (nums1, m, nums2, n) {
+const merge = (nums1, m, nums2, n) => {
 	// Start the merging process from the end (last index) of the final merged array i.e. index no ( m + n - 1)
 	while ( m > 0 && n > 0) {
 		if (nums1[m - 1] > nums2[n - 1]) {
@@ -25,7 +25,7 @@ var merge = function (nums1, m, nums2, n) {
 		n--;
 	}
 	return nums1.sort();
-}
+};
 
 /* A)  Note, the original question specifically asked for not returning the final array, but just modifying the array in place. So, the line < return nums1; > was not there in my solution to Leetcode
 

@@ -1,4 +1,4 @@
-var createArray = function ( length, value ) {
+const createArray = (length, value) => {
   if ( typeof length !== 'number' ) {
     throw new TypeError( 'Invalid length type' );
   }
@@ -7,17 +7,17 @@ var createArray = function ( length, value ) {
     throw new Error( 'Invalid value: expected a value to be provided' );
   }
 
-  var array = new Array( length );
-  for ( var index = 0; index < length; index++ ) {
+  const array = new Array( length );
+  for ( let index = 0; index < length; index++ ) {
     array[ index ] = value;
   }
 
   return array;
 };
 
-var createMatrix = function ( m, n, value ) {
-  var matrix = [];
-  for ( var rowIndex = 0; rowIndex < m; rowIndex++ ) {
+const createMatrix = (m, n, value) => {
+  const matrix = [];
+  for ( let rowIndex = 0; rowIndex < m; rowIndex++ ) {
     matrix.push( createArray( n, value ) );
   }
 

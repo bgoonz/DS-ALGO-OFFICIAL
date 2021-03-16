@@ -23,7 +23,7 @@ C> And after all the above, at each iteration of the loop, we are reassigning th
 */
 
 // SOLUTION-1
-var lengthOfLongestSubstring = function (s) {
+const lengthOfLongestSubstring = s => {
 
   let newSubStr = [], maxLen = 0, index;
 
@@ -43,7 +43,7 @@ var lengthOfLongestSubstring = function (s) {
  }
 
   return maxLen;
-}
+};
 
 // console.log(lengthOfLongestSubstring("abcabcbb"));   // => 3
 // console.log(lengthOfLongestSubstring("bbbbb"));   // => 1

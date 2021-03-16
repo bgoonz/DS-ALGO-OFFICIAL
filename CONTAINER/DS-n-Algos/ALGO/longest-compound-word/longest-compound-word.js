@@ -1,14 +1,14 @@
-module.exports = function (list) {
-  var prefixes      = {};
-  var possibleWords = [];
-  var longestWords  = [];
-  var longestLength = 0;
+module.exports = list => {
+  const prefixes      = {};
+  const possibleWords = [];
+  let longestWords  = [];
+  let longestLength = 0;
 
   // Inserts a word into the prefix tree structure.
-  var insertWord = function (word) {
-    var index  = 0;
-    var active = prefixes;
-    var char;
+  const insertWord = word => {
+    let index  = 0;
+    let active = prefixes;
+    let char;
 
     while (char = word[index++]) {
       active = (active[char] = active[char] || {});
@@ -18,12 +18,12 @@ module.exports = function (list) {
   };
 
   // Finds the longest prefix we can make using the word.
-  var findPrefixes = function (word) {
-    var prefix = '';
-    var found  = [];
-    var index  = 0;
-    var active = prefixes;
-    var char;
+  const findPrefixes = word => {
+    let prefix = '';
+    const found  = [];
+    let index  = 0;
+    let active = prefixes;
+    let char;
 
     while (char = word[index++]) {
       if (!active[char]) { break; }
@@ -38,8 +38,8 @@ module.exports = function (list) {
   };
 
   // Loop through each of words in the list, adding them to the prefixes tree
-  list.forEach(function (word) {
-    var prefix;
+  list.forEach(word => {
+    let prefix;
 
     // If we can find a closest possible word, it may be possible to create a
     // compound word - but we won't be able to check until we reach the end.
@@ -51,15 +51,15 @@ module.exports = function (list) {
     insertWord(word);
   });
 
-  possibleWords.forEach(function (possible) {
-    var word     = possible[0];
-    var prefixes = possible[1];
-    var found    = false;
+  possibleWords.forEach(possible => {
+    const word     = possible[0];
+    const prefixes = possible[1];
+    let found    = false;
 
-    var findCompoundWord = function (suffix) {
+    const findCompoundWord = suffix => {
       // Find all future prefixes and continue search.
       if (suffix) {
-        return findPrefixes(suffix).forEach(function (prefix) {
+        return findPrefixes(suffix).forEach(prefix => {
           !found && loopPrefixes(prefix, suffix);
         });
       }
@@ -80,11 +80,11 @@ module.exports = function (list) {
       }
     };
 
-    var loopPrefixes = function (prefix, word) {
+    var loopPrefixes = (prefix, word) => {
       findCompoundWord(word.substr(prefix.length));
     };
 
-    prefixes.forEach(function (prefix) {
+    prefixes.forEach(prefix => {
       loopPrefixes(prefix, word);
     });
   });

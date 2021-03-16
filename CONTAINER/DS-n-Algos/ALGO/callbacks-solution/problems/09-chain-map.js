@@ -30,7 +30,7 @@ console.log(chainMap(4, half, square));         // 4
 *******************************************************************************/
 
 function chainMap(val, ...callbacks) {
-  callbacks.forEach(function(cb) {
+  callbacks.forEach(cb => {
     val = cb(val);
   });
   return val;

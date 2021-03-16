@@ -3,9 +3,7 @@ function preserveCamelCase(string) {
   let isLastCharUpper = false;
   let isLastLastCharUpper = false;
 
-  for (let i = 0; i < string.length; i++) {
-    const c = string[i];
-
+  string.forEach((c, i) => {
     if (isLastCharLower && /[a-zA-Z]/.test(c) && c.toUpperCase() === c) {
       string = string.substr(0, i) + "-" + string.substr(i);
       isLastCharLower = false;
@@ -27,7 +25,7 @@ function preserveCamelCase(string) {
       isLastLastCharUpper = isLastCharUpper;
       isLastCharUpper = c.toUpperCase() === c;
     }
-  }
+  });
 
   return string;
 }

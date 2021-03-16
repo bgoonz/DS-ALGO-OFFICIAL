@@ -1,12 +1,12 @@
 const assert = require("assert");
 const atMost = require("../problems/21-at-most.js");
 
-describe("atMost", function() {
-  it("", function() {
-    let isPositive = function(n) {
+describe("atMost", () => {
+  it("", () => {
+    let isPositive = n => {
       return n > 0;
     };
-    let startsWithA = function(s) {
+    let startsWithA = s => {
       return s[0].toUpperCase() === "A";
     };
 

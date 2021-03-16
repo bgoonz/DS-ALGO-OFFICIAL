@@ -12,7 +12,7 @@ If you have figured out the O(n) solution, try coding another solution using the
 */
 //-------------------------------(soln)--------------------------
 const testArr = [-2, 1, -3, 4, -1, 2, 1, -5, 4];
-let maxSubArray = function (nums) {
+let maxSubArray = nums => {
   let dp = nums[0];
   let max = dp || 0;
   for (let i = 1; i < nums.length; i++) {

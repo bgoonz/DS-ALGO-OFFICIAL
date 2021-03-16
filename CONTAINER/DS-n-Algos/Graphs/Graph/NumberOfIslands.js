@@ -73,13 +73,12 @@ const islands = (matrixGrid) => {
   }
 
   for (let row = 0; row < matrix.length; row += 1) {
-    for (let col = 0; col < matrix[row].length; col += 1) {
-      const current = matrix[row][col]
+    matrix[row].forEach((current, col) => {
       if (current === '1') {
         flood(row, col)
         counter += 1
       }
-    }
+    });
   }
   return counter
 }

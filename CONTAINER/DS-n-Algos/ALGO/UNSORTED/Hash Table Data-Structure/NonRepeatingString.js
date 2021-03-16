@@ -1,7 +1,7 @@
 //Condition: str are lowercase letters with no spaces or symbols.
 
 function FirstNonRepeatingStr(s){
-    for(var i=0; i<s.length; i++){
+    for(let i=0; i<s.length; i++){
         if(s.indexOf(s.charAt(i)) === s.lastIndexOf(s.charAt(i))){
 return s[i]
         }

@@ -1,6 +1,6 @@
-var Stack = function() {
-  var someInstance = Object.create(stackMethods);
-  // var someInstance = Object.create(Stack.prototype);
+let Stack = function() {
+  let someInstance = Object.create(stackMethods);
+  // let someInstance = Object.create(Stack.prototype);
 
   someInstance.length = 0;
   someInstance.storage = {};
@@ -21,7 +21,7 @@ var Stack = function() {
 //   return this.length;
 // };
 
-var stackMethods = {
+let stackMethods = {
   
   push: function(value) {
     this.storage[this.length] = value;

@@ -12,17 +12,17 @@ As an example, longest common prefix of "abcdefgh" and "abcefgh" is "abc".
   */
 
 // My solution
-var longestCommonPrefix = function (strs) {
+const longestCommonPrefix = strs => {
     if (strs.length === 0) {
         return '';
     }
 
-    return strs.reduce(function (accm, next) {
-        var tmp = accm.split('');
+    return strs.reduce((accm, next) => {
+        const tmp = accm.split('');
         // This tmp variable remains constant throughout the program, which is the first string element of the array split by ''
-        var result = '';
+        let result = '';
 
-        for (var i = 0; i < tmp.length; i++) {
+        for (let i = 0; i < tmp.length; i++) {
             if (tmp[i] !== next[i]) {
                 break;
             } else
@@ -30,10 +30,10 @@ var longestCommonPrefix = function (strs) {
         }
         return result;
     });
-}
+};
 
 //Alternative Solution - slightly better speed.
-var longestCommonPrefixAlt = function (strs) {
+const longestCommonPrefixAlt = strs => {
     return strs.reduce((prev, next) => {
         let i = 0;
         while (prev[i] && next[i] && prev[i] === next[i]) {
@@ -41,7 +41,7 @@ var longestCommonPrefixAlt = function (strs) {
         }
         return prev.slice(0, i);
     })
-}
+};
 
 
 

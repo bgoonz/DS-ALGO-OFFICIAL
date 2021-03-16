@@ -20,7 +20,7 @@ class TreeNode {
 let pre
 let ins
 let inmap = {}
-const buildTree = function(preorder, inorder) {
+const buildTree = (preorder, inorder) => {
     pre = preorder
     ins = inorder
     for(let i = 0; i < inorder.length; i++) {

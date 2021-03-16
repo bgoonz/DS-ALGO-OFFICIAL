@@ -23,13 +23,13 @@
 console.log(longestPalindrome("hellosanasmith"))//saanaas
 console.log(longestPalindrome("abcdef")) //null
 function longestPalindrome(str){
-    var arr = str.split("");
-    var endArr = [];
+    const arr = str.split("");
+    const endArr = [];
     for(var i = 0; i < arr.length; i++){
-        var temp = "";
+        let temp = "";
         temp = arr[i];
  
-        for(var j = i + 1; j < arr.length; j++){
+        for(let j = i + 1; j < arr.length; j++){
            temp += arr[j];
            if(temp.length > 2 && temp === temp.split("").reverse().join("")){
               endArr.push(temp);
@@ -39,8 +39,8 @@ function longestPalindrome(str){
  
  }
  
- var count = 0;
- var longestPalindrome = "";
+ let count = 0;
+ let longestPalindrome = "";
  for(var i = 0; i < endArr.length; i++){
     if(count >= endArr[i].length){
       longestPalindrome = endArr[i-1]; 

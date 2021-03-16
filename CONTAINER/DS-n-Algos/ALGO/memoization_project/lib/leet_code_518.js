@@ -23,7 +23,7 @@ Input: amount = 10, coins = [10]
 Output: 1
 */
 
-let change = function (amount, coins, memo={}) {
+let change = (amount, coins, memo={}) => {
   let key = amount + '-' + coins;
   if (key in memo) return memo[key];
   if (amount === 0) return 1;

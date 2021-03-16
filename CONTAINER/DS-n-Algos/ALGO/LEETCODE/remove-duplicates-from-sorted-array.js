@@ -17,11 +17,11 @@ A>> Because the array is sorted, duplicate elements will be side-by-side.
 B>> So, I will start from the last element of the array ( i = nums.length), moving left, by decrementing i. And with each non-duplicate element found, I will increment the "resultLength" variable by 1
 C>> For first iteration, i.e. the last element of the array I have to increment the resultLength anyway. Hence, the condition  < if ( i === nums.length - 1) > Only for the first iteration of the for loop this will be satisfied and so resultLength will be incremented by 1
 */
-var removeDuplicates = function(nums) {
+const removeDuplicates = nums => {
 
-	var resultLength = 0;
+	let resultLength = 0;
 
-	for ( var i = nums.length; i--; ) {
+	for ( let i = nums.length; i--; ) {
 		if ( i === nums.length - 1) {
 			resultLength++;
 		} 
@@ -32,7 +32,7 @@ var removeDuplicates = function(nums) {
 		}
 	}
 	return resultLength;
-}
+};
 
 
 console.log(removeDuplicates([1,1,2]));

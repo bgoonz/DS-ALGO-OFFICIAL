@@ -13,7 +13,7 @@ flatten([1, [2, [3]]]); // => [1, 2, 3]
 function flatten(arr) {
   let newArray = [];
 
-  arr.forEach(function (contents) {
+  arr.forEach(contents => {
       if (Array.isArray(contents)) {
         newArray.push(...flatten(contents));
       } else {

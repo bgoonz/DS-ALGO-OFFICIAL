@@ -11,7 +11,7 @@ function DoubleLinkedList () {
   let tail = null
 
   // Add new element
-  this.append = function (element) {
+  this.append = element => {
     const node = new Node(element)
 
     if (!head) {
@@ -27,7 +27,7 @@ function DoubleLinkedList () {
   }
 
   // Add element
-  this.insert = function (position, element) {
+  this.insert = (position, element) => {
     // Check of out-of-bound values
     if (position >= 0 && position <= length) {
       const node = new Node(element)
@@ -71,7 +71,7 @@ function DoubleLinkedList () {
   }
 
   // Remove element at any position
-  this.removeAt = function (position) {
+  this.removeAt = position => {
     // look for out-of-bounds value
     if (position > -1 && position < length) {
       let current = head
@@ -111,7 +111,7 @@ function DoubleLinkedList () {
   }
 
   // Get the indexOf item
-  this.indexOf = function (elm) {
+  this.indexOf = elm => {
     let current = head
     let index = -1
 
@@ -150,7 +150,7 @@ function DoubleLinkedList () {
   }
 
   // Print item of the string
-  this.toString = function () {
+  this.toString = () => {
     let current = head
     let string = ''
 
@@ -163,7 +163,7 @@ function DoubleLinkedList () {
   }
 
   // Convert list to array
-  this.toArray = function () {
+  this.toArray = () => {
     const arr = []
     let current = head
 
@@ -176,22 +176,22 @@ function DoubleLinkedList () {
   }
 
   // Check if list is empty
-  this.isEmpty = function () {
+  this.isEmpty = () => {
     return length === 0
   }
 
   // Get the size of the list
-  this.size = function () {
+  this.size = () => {
     return length
   }
 
   // Get the head
-  this.getHead = function () {
+  this.getHead = () => {
     return head
   }
 
   // Get the tail
-  this.getTail = function () {
+  this.getTail = () => {
     return tail
   }
 }

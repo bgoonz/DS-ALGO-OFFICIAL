@@ -6,7 +6,7 @@
 
 */
 
-const longestPalindromeSubsequence = function ( s ) {
+const longestPalindromeSubsequence = s => {
   const n = s.length
 
   const dp = new Array( n ).fill( 0 ).map( item => new Array( n ).fill( 0 ).map( item => 0 ) )

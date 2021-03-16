@@ -1,12 +1,12 @@
 //Method 4 (Using In-Order Traversal) 
 //Reference: 
 // http://www.geeksforgeeks.org/a-program-to-check-if-a-binary-tree-is-bst-or-not/
-module.exports = function(bst) {
+module.exports = bst => {
   if (!bst || bst.value == null) {
     return false;
   }
 
-  var prev;
+  let prev;
 
   return (function isBst(root) {
     if (!root) {

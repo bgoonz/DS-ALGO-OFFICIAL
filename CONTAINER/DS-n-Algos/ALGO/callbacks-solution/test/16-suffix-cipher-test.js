@@ -1,13 +1,13 @@
 const assert = require("assert");
 const suffixCipher = require("../problems/16-suffix-cipher.js");
 
-describe("suffixCipher", function() {
-  it("", function() {
+describe("suffixCipher", () => {
+  it("", () => {
     let cipher1 = {
-      ly: function(word) {
+      ly(word) {
         return word.slice(0, -1) + "ee";
       },
-      ize: function(word) {
+      ize(word) {
         return word + "r";
       }
     };
@@ -16,10 +16,10 @@ describe("suffixCipher", function() {
     assert.equal(actual1, expected1);
 
     let cipher2 = {
-      tal: function(word) {
+      tal(word) {
         return word.toUpperCase();
       },
-      s: function(word) {
+      s(word) {
         return word + "th";
       }
     };

@@ -1,9 +1,9 @@
 module.exports = function flatten (array) {
-  var copy = [];
+  const copy = [];
 
-  for (var i = 0; i < array.length; i++) {
+  for (let i = 0; i < array.length; i++) {
     if (Array.isArray(array[i])) {
-      copy.push.apply(copy, flatten(array[i]));
+      copy.push(...flatten(array[i]));
     } else {
       copy.push(array[i]);
     }

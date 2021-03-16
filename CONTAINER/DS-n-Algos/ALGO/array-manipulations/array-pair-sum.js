@@ -1,11 +1,10 @@
-module.exports = function (k, array) {
-  var hash  = {},
-      pairs = [];
+module.exports = (k, array) => {
+  const hash  = {}, pairs = [];
 
   // Loop through the array once, storing the results in an object for a
   // time complexity of O(n) - the naive solution consists of two for loops
   // which results in a complexity of O(n^2)
-  array.forEach(function (number) {
+  array.forEach(number => {
     // Make sure the value in unused and it's a unique pair
     if (hash[k - number] === false && k - number !== number) {
       pairs.push([number, k - number]);

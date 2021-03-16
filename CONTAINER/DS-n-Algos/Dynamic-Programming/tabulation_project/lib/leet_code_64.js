@@ -1,7 +1,7 @@
 // Work through this problem on https://leetcode.com/problems/minimum-path-sum/ and use the specs given there.
 // Feel free to use this file for scratch work.
 
-var minPathSum = function ( grid ) {
+const minPathSum = grid => {
   const table = new Array( grid.length ).fill().map( () => new Array( grid[ 0 ].length ).fill( Infinity ) );
   table[ 0 ][ 0 ] = grid[ 0 ][ 0 ];
 

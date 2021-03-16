@@ -1,7 +1,7 @@
 // Work through this problem on https://leetcode.com/problems/climbing-stairs/ and use the specs given there.
 // Feel free to use this file for scratch work.
 
-var climbStairs = function ( n ) {
+const climbStairs = n => {
   let table = new Array( n + 1 ).fill( 0 );
   table[ 0 ] = 1;
 

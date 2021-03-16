@@ -6,16 +6,16 @@
  * @param {number[][]} triangle
  * @return {number}
  */
-var minimumTotal = function(triangle) {
-    var curLvlIndex = 0;
-    var cur = triangle[curLvlIndex];
-    var next;
+const minimumTotal = triangle => {
+    let curLvlIndex = 0;
+    let cur = triangle[curLvlIndex];
+    let next;
     
     while(curLvlIndex < (triangle.length-1)){
         next = triangle[curLvlIndex + 1];
         
-        for(var i = 0; i < next.length; i++){
-            var a,b;
+        for(let i = 0; i < next.length; i++){
+            let a, b;
             if(i === 0){
                 b = Infinity;
             } else {

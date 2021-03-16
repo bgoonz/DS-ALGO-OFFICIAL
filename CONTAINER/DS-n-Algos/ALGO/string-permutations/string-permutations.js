@@ -1,5 +1,5 @@
-module.exports = function (string) {
-  var result = {};
+module.exports = string => {
+  const result = {};
 
   // Using an immediately invoked named function for recursion.
   (function makeWord (word, remaining) {
@@ -9,7 +9,7 @@ module.exports = function (string) {
 
     // Loop through all the remaining letters and recurse slicing the character
     // out of the remaining stack and into the solution word.
-    for (var i = 0; i < remaining.length; i++) {
+    for (let i = 0; i < remaining.length; i++) {
       makeWord(
         word + remaining[i],
         remaining.substr(0, i) + remaining.substr(i + 1)

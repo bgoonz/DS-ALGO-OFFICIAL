@@ -1,7 +1,7 @@
 module.exports = function quickSort (array, compare) {
-  var lesser  = [],
-      greater = [],
-      pivot;
+  const lesser  = [];
+  const greater = [];
+  let pivot;
 
   // Not an array, empty or array of 1 is already sorted
   if (!Array.isArray(array) || array.length < 2) {
@@ -10,7 +10,7 @@ module.exports = function quickSort (array, compare) {
 
   // Create a compare func if not passed in
   if (typeof compare !== 'function') {
-    compare = function (a, b) {
+    compare = (a, b) => {
       return a > b ? 1 : -1;
     };
   }
@@ -20,7 +20,7 @@ module.exports = function quickSort (array, compare) {
 
   // Iterate and put vals into either lesser or greater lists compared
   // to the pivot
-  for (var i = 0; i < array.length; i++) {
+  for (let i = 0; i < array.length; i++) {
     if (compare(array[i], pivot) < 1) {
       lesser.push(array[i]);
     } else {

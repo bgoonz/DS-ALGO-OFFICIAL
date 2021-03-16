@@ -1,11 +1,11 @@
-module.exports = function (string) {
-  var length = 0;
+module.exports = string => {
+  let length = 0;
   // Store the list of longest words in an object to automatically filter
   // for duplicates.
-  var hash   = {};
+  let hash   = {};
 
   // Simplistic splitting on spaces, could improve to trim punctuation as well.
-  string.split(' ').forEach(function (word) {
+  string.split(' ').forEach(word => {
     // If the word's length is longer than the previous longest, we want to
     // update the length and reset the hash back to be empty.
     if (word.length > length) {

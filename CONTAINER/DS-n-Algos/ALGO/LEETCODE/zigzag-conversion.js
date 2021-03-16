@@ -81,11 +81,11 @@ But now, the the code for the mniddle row starts, as the condition ( i !==0 && i
 
 */
 
-var convert = function(s, numRows) {	
-	var periodSize = (numRows * 2) - 2;
-	var len = s.length;
-	var result = '';
-	var i, j, secondJ;
+const convert = (s, numRows) => {	
+	const periodSize = (numRows * 2) - 2;
+	const len = s.length;
+	let result = '';
+	let i, j, secondJ;
 
 	if (numRows === 1) {
 		return s;
@@ -109,7 +109,7 @@ var convert = function(s, numRows) {
 		}
 	}
 	return result;
-}
+};
 
 
 console.log(convert("PAYPALISHIRING", 3)); // should return "PAHNAPLSIIGYIR"

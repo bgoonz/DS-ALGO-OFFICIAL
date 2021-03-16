@@ -14,7 +14,7 @@
  * @param {number} sum
  * @return {boolean}
  */
-var hasPathSum = function(root, sum) {
+var hasPathSum = (root, sum) => {
     if(root === null){
         return false;
     }
@@ -38,13 +38,13 @@ var hasPathSum = function(root, sum) {
  * @param {number} sum
  * @return {boolean}
  */
-var hasPathSum = function(root, sum) {
+var hasPathSum = (root, sum) => {
     if (root === null) {
         return false;
     }
     
-    var left = root.left;
-    var right = root.right;
+    const left = root.left;
+    const right = root.right;
     
     if (left === null && right === null) {
         return root.val === sum;

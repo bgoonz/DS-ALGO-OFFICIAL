@@ -41,7 +41,7 @@ isUgly = (num) => {
 
 	let primeFactors = [2, 3, 5];
 
-	for ( var i of primeFactors ) {
+	for ( const i of primeFactors ) {
 		while ( num % i === 0 ) {
 			num /= i;
 		}

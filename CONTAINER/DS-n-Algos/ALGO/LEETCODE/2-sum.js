@@ -14,11 +14,11 @@ return [0, 1].
 */
 
 // My Solution
-var twoSum = function (nums, target) {
-	var result = [];
+const twoSum = (nums, target) => {
+	const result = [];
 
-	for (var i = 0; i < nums.length; i++) {
-		for (var j = i + 1; j < nums.length; j++) {
+	for (let i = 0; i < nums.length; i++) {
+		for (let j = i + 1; j < nums.length; j++) {
 			if (nums[i] + nums[j] === target) {
 				result.push(i);
 				result.push(j);
@@ -26,7 +26,7 @@ var twoSum = function (nums, target) {
 		}
 	}
 	return result;
-}
+};
 
 // console.log(twoSum([2, 7, 11, 15], 17));
 /* Complexity Analysis of above solution by me - https://leetcode.com/problems/two-sum/solution/
@@ -34,18 +34,18 @@ var twoSum = function (nums, target) {
  Time complexity : O(n^2). For each element, we try to find its complement by looping through the rest of array which takes O(n)O(n) time. Therefore, the time complexity is O(n^2). Space complexity : O(1). */
 
 // Alternative solution
-var twoSumAlt = function(nums, target) {
-	var result = [];
-	nums.forEach(function(num, i) {
-		var diff = target - num;
-		var k = nums.indexOf(diff);
+const twoSumAlt = (nums, target) => {
+	const result = [];
+	nums.forEach((num, i) => {
+		const diff = target - num;
+		const k = nums.indexOf(diff);
 		if ( k > -1 && k !== i) {
 			result.push(i);
 			result.push(k);
 		}
 	});
 	return result;
-}
+};
 
 /*There are 3 approaches to this solution:
 
@@ -123,7 +123,7 @@ Space complexity : O(n). The extra space required depends on the number of items
 
 // Performance Test - First create a random array with 3000 elements
 
-var arr = Array.from({length: 3000}, () => Math.floor(Math.random() * 3000));
+const arr = Array.from({length: 3000}, () => Math.floor(Math.random() * 3000));
 
 
 console.time("Solution-1-Brute Force");

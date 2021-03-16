@@ -1,14 +1,14 @@
 const assert = require("assert");
 const sentenceMapper = require("../problems/15-sentence-mapper.js");
 
-describe("sentenceMapper", function() {
-  it("", function() {
-    let result1 = sentenceMapper("what is the answer?", function(word) {
+describe("sentenceMapper", () => {
+  it("", () => {
+    let result1 = sentenceMapper("what is the answer?", word => {
       return word.toUpperCase() + "!";
     });
     assert.equal(result1, "WHAT! IS! THE! ANSWER?!");
 
-    let removeVowels = function(word) {
+    let removeVowels = word => {
       let newWord = "";
       for (let i = 0; i < word.length; i++) {
         let char = word[i];

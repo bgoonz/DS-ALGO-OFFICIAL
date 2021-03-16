@@ -1,13 +1,13 @@
-module.exports = function (text) {
-  var trie   = {},
-      pos    = 0,
-      active = trie; // Start the active structure as the root trie structure
+module.exports = text => {
+  const trie   = {}; // Start the active structure as the root trie structure
+  let pos    = 0;
+  let active = trie;
 
   // Suffix a space after the text to make life easier
   text += ' ';
 
   // Loop through the input text adding it to the trie structure
-  for (var i = 0; i < text.length; i++) {
+  for (let i = 0; i < text.length; i++) {
     // When the character is a space, restart
     if (text[i] === ' ') {
       // If the current active doesn't equal the root, set the position
@@ -26,9 +26,8 @@ module.exports = function (text) {
   }
 
   // Return a function that accepts a word and looks it up in the trie structure
-  return function (word) {
-    var i      = -1,
-        active = trie;
+  return word => {
+    let i      = -1, active = trie;
 
     while (word[++i]) {
       if (!active[word[i]]) { return []; }

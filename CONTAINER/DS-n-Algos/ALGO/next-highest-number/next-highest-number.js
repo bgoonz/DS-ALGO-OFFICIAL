@@ -1,8 +1,8 @@
-module.exports = function (number) {
-  var numberString = ('' + number);
-  var length       = numberString.length - 1;
-  var string       = '';
-  var sorter;
+module.exports = number => {
+  const numberString = ('' + number);
+  let length       = numberString.length - 1;
+  let string       = '';
+  let sorter;
 
   // Loop in reverse comparing all the digits to the one beside it.
   while (length--) {
@@ -15,7 +15,7 @@ module.exports = function (number) {
 
       // Loop through all the numbers and if the next largest number than the
       // pivot.
-      for (var i = 0; i < sorter.length; i++) {
+      for (let i = 0; i < sorter.length; i++) {
         if (sorter[i] > numberString.charAt(length)) {
           // Splice the number from it's position and append it to the current
           // string.

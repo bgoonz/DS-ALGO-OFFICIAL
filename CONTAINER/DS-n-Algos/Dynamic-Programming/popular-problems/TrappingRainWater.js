@@ -39,11 +39,11 @@ function trap( heights ) {
   const maxes = new Array( heights.length ).fill( 0 )
 
   let leftMax = 0
-  for ( let i = 0; i < heights.length; i++ ) {
-    const height = heights[ i ]
+
+  heights.forEach((height, i) => {
     maxes[ i ] = leftMax
     leftMax = Math.max( leftMax, height )
-  }
+  });
 
   let rightMax = 0
   for ( let i = heights.length - 1; i >= 0; i -= 1 ) {

@@ -6,10 +6,10 @@ exports.recursive = function factorial (number) {
 };
 
 // Iterative solution
-exports.iterative = function (number) {
-  var result = 1;
+exports.iterative = number => {
+  let result = 1;
 
-  for (var i = 1; i <= number; i++) {
+  for (let i = 1; i <= number; i++) {
     result *= i;
   }
 
@@ -17,8 +17,8 @@ exports.iterative = function (number) {
 };
 
 // Iterative using a reverse loop
-exports.iterativeReverse = function (number) {
-  var result = 1;
+exports.iterativeReverse = number => {
+  let result = 1;
 
   while (number) {
     result *= number;

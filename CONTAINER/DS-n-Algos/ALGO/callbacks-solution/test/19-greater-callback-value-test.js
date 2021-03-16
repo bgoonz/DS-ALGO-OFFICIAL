@@ -1,13 +1,13 @@
 const assert = require("assert");
 const greaterCallbackValue = require("../problems/19-greater-callback-value.js");
 
-describe("greaterCallbackValue", function() {
-  it("", function() {
-    let doubler = function(n) {
+describe("greaterCallbackValue", () => {
+  it("", () => {
+    let doubler = n => {
       return 2 * n;
     };
 
-    let squarer = function(n) {
+    let squarer = n => {
       return n * n;
     };
 

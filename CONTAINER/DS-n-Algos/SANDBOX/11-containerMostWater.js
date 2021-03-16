@@ -3,13 +3,13 @@
  * @param {number[]} height
  * @return {number}
  */
-var maxArea = function(height) {
-    var start = 0;
-    var end = height.length - 1;
-    var area = 0;
+const maxArea = height => {
+    let start = 0;
+    let end = height.length - 1;
+    let area = 0;
 
     while (start < end) {
-        var minHeight = Math.min(height[start], height[end]);
+        const minHeight = Math.min(height[start], height[end]);
         area = Math.max(area, minHeight * (end - start));
         while (start < end && height[start] <= minHeight) {
             start++;

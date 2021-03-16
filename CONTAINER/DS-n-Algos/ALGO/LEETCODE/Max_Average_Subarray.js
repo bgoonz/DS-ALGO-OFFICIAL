@@ -36,13 +36,13 @@ function findMaxAverage(nums, k) {
     curr_max += nums[i]
   }
 
-  var max_so_far = curr_max
+  let max_so_far = curr_max;
 
   // Now add one element to the front of the 'max_so_far' and delete one element from the back of 'max_so_far'
   // For example if nums.length is 5 and my k is 3 then the first time 'max_so_far' is calculated it will be the
   // first 3 items, then I have to add the 4-th item i.e. num[3] and delete the first item which will be
   // nums[j - k] i.e. num[3 - 3]
-  for (var j = k; j < nums.length; j++) {
+  for (let j = k; j < nums.length; j++) {
     curr_max += nums[j] - nums[j - k]
 
     // Each time we get a new curr_sum compare it with max_so_far and update max_so_far if it is greater than max_so_far
@@ -61,16 +61,16 @@ In the below solutions we start at all positions of the array and calculate runn
 
 */
 function findMaxSubArrayBruteForce2(arr) {
-  var max_so_far = Number.NEGATIVE_INFINITY
+  let max_so_far = Number.NEGATIVE_INFINITY;
 
-  var leftIndex = 0,
-    rightIndex = arr.length - 1,
-    len = arr.length
+  let leftIndex = 0;
+  let rightIndex = arr.length - 1;
+  const len = arr.length;
 
-  for (var i = 0; i < len; i++) {
+  for (let i = 0; i < len; i++) {
     maxSum = 0
 
-    for (var j = i; j < len; j++) {
+    for (let j = i; j < len; j++) {
       maxSum += arr[j]
 
       if (max_so_far < maxSum) {
@@ -100,15 +100,15 @@ The difference between the O(N^2) and O(N^3) functions is that in the O(N^2) fun
 */
 
 function findMaxSubArrayBruteForce3(arr) {
-  var max_so_far = Number.NEGATIVE_INFINITY
-  var leftIndex = 0,
-    rightIndex = arr.length - 1,
-    len = arr.length
+  let max_so_far = Number.NEGATIVE_INFINITY;
+  let leftIndex = 0;
+  let rightIndex = arr.length - 1;
+  const len = arr.length;
 
-  for (var i = 0; i < len; i++) {
-    for (var j = i; j < len; j++) {
+  for (let i = 0; i < len; i++) {
+    for (let j = i; j < len; j++) {
       maxSum = 0
-      for (var k = i; k <= j; k++) {
+      for (let k = i; k <= j; k++) {
         maxSum += arr[k]
 
         if (max_so_far < maxSum) {

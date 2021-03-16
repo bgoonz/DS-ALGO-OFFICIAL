@@ -1,9 +1,9 @@
 // our two sum function which will return all pairs in the array that sum up to S
 function twoSum(arr, S) {
-    var sums = [];
-    var hashTable = {};
-    for (var i = 0; i < arr.length; i++) {
-      var sumMinusElement = S - arr[i];
+    const sums = [];
+    const hashTable = {};
+    for (let i = 0; i < arr.length; i++) {
+      const sumMinusElement = S - arr[i];
       // check if this number exists in hash table
       // if so then we found a pair of numbers that sum to S
       if (hashTable[sumMinusElement.toString()] !== undefined) { 

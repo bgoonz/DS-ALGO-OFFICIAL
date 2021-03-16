@@ -43,7 +43,7 @@ A> Because t
 */
 function findAllSelfDividingNum_Alt(left, right) {
 	let result = [];
-	for (var i = 0; i <= right; i++) {
+	for (let i = 0; i <= right; i++) {
 		if(isSelfDivisingNum(i)) {
 			result.push(i);
 		}

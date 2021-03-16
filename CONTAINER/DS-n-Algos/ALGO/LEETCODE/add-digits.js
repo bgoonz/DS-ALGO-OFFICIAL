@@ -11,12 +11,12 @@ Could you do it without any loop/recursion in O(1) runtime?*/
 
 // My solution using recursion
 
-var addDigits = function(num) {
+const addDigits = num => {
     if(num < 10) {
 		return num;
 	} else {
-		var str = num.toString().split('');
-		var repeatSum = str.reduce(function(prev, curr) {
+		const str = num.toString().split('');
+		const repeatSum = str.reduce((prev, curr) => {
 			return parseInt(prev, 10) + parseInt(curr, 10);
 		});
 		return addDigits(repeatSum);

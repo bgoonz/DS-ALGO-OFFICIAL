@@ -12,11 +12,11 @@ B> So, while, traversing the array, create an empty temporaray array to which I 
 C> and all matched parenthesis are popped.
 */
 
-var isValid = function(s) {
-	var tempArray = [];	
+const isValid = s => {
+	const tempArray = [];	
 
-	s.split('').forEach(function(currentParenthesis) {
-		var lastUnmatchedParenthesis = tempArray[tempArray.length - 1];
+	s.split('').forEach(currentParenthesis => {
+		const lastUnmatchedParenthesis = tempArray[tempArray.length - 1];
 		if ( lastUnmatchedParenthesis === "(" && currentParenthesis === ")" || 
 		lastUnmatchedParenthesis === "{" && currentParenthesis === "}" ||
 		lastUnmatchedParenthesis === "[" && currentParenthesis === "]" ) {
@@ -28,9 +28,9 @@ var isValid = function(s) {
 
 	return tempArray.length === 0;
 
-}
+};
 
-var str = "(){}[]["
+const str = "(){}[][";
 
 console.log(isValid((str)));
 

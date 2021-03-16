@@ -28,7 +28,7 @@ console.log(result4); // 0
 
 function count(array, cb) {
   let numTrue = 0;
-  array.forEach(function(el) {
+  array.forEach(el => {
     if (cb(el)) {
       numTrue++;
     }

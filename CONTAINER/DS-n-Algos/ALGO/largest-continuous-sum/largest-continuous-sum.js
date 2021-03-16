@@ -1,12 +1,12 @@
-module.exports = function (array) {
+module.exports = array => {
   if (!array || !array.length) { return; }
 
-  var currentSum, maximumSum;
+  let currentSum, maximumSum;
 
   // Set the starting sum as the first number
   currentSum = maximumSum = array.shift();
 
-  array.forEach(function (num) {
+  array.forEach(num => {
     currentSum = Math.max(currentSum + num, num);
     maximumSum = Math.max(currentSum, maximumSum);
   });

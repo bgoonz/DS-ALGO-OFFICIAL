@@ -1,11 +1,4 @@
-var root,
-  createNode,
-  add,
-  search,
-  addSubNode,
-  findRightMost,
-  replaceNodeInParent,
-  binaryTreeDelete; // not overwrite keyword.
+let root, createNode, add, search, addSubNode, findRightMost, replaceNodeInParent, binaryTreeDelete; // not overwrite keyword.
 
 createNode = function createNode(num) {
   return {
@@ -18,7 +11,7 @@ createNode = function createNode(num) {
   };
 };
 
-addSubNode = function(node, direct, num) {
+addSubNode = (node, direct, num) => {
   if (node[direct] === undefined) {
     node[direct] = createNode(num);
   } else {
@@ -53,14 +46,14 @@ search = function(num) {
   }
 };
 
-findRightMost = function(node) {
+findRightMost = node => {
   if (node.right === undefined) {
     return node;
   }
   return findRightMost(node.right);
 };
 
-replaceNodeInParent = function(node, parent, newNode) {
+replaceNodeInParent = (node, parent, newNode) => {
   // root's parent is undefined.
   if (parent === undefined) {
     if (newNode) {
@@ -82,7 +75,7 @@ replaceNodeInParent = function(node, parent, newNode) {
 
 
 binaryTreeDelete = function(num, parent) {
-  var successor;
+  let successor;
   if (num < this.value) {
     return this.left ? this.left.delete(num, this) : root;
   } else if (num > this.value) {

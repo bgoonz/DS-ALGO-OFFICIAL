@@ -1,6 +1,6 @@
-module.exports = function (str1, str2, combined) {
+module.exports = (str1, str2, combined) => {
   // Generate all the posible paths between `str1` and `str2`
-  var paths = {};
+  const paths = {};
 
   // Check the string lengths are the same to begin
   if ((str1 + str2).length !== combined.length) {

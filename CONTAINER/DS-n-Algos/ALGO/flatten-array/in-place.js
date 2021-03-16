@@ -1,9 +1,9 @@
-module.exports = function (array) {
-  var i = 0;
+module.exports = array => {
+  let i = 0;
 
   while (i < array.length) {
     if (Array.isArray(array[i])) {
-      array.splice.apply(array, [i, 1].concat(array[i]));
+      array.splice(...[i, 1].concat(array[i]));
     } else {
       i += 1;
     }

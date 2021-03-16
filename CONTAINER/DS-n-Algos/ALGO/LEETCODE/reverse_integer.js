@@ -22,19 +22,19 @@ And lower bound is -(2^31 - 1)
 */
 
 // SOLUTION-1 My solution
-var reverse = function ( x ) {
-  var reversedX = +Math.abs( x ).toString().split( '' ).reverse().join( '' );
+const reverse = x => {
+  const reversedX = +Math.abs( x ).toString().split( '' ).reverse().join( '' );
   return reversedX > 2147483647 ? 0 : x < 0 ? -reversedX : reversedX;
-}
+};
 
 // console.log(reverse(123));  // => 321
 
 // console.log(reverse(-123));  // => -321
 
 // // SOLUTION-2 - Best Performing solution. And also if the Problems asks for not to use any string related methods.
-var reverseBest = function ( x ) {
+const reverseBest = x => {
 
-  var y = Math.abs( x );
+  let y = Math.abs( x );
   var result = 0;
 
   while ( y ) {
@@ -47,7 +47,7 @@ var reverseBest = function ( x ) {
   x > 0 ? result = result : result = -result;
   if ( result > 2147483648 || result < -2147483648 ) return 0;
   return result;
-}
+};
 
 // console.log(reverseBest(123)); // => 321
 // console.log(reverseBest(-123)); // => -321

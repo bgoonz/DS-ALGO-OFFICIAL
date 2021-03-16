@@ -1,12 +1,14 @@
 module.exports = function nextPalindrome (number) {
-  var numberString = ('' + number),
-      numberLength = numberString.length,
-      oddDigits    = numberLength & 1,
-      leftHalf     = numberString.substr(0, ~~(numberLength / 2)),
-      middleNumber = numberString.charAt(Math.ceil(numberLength / 2)),
-      increment, newNumber, reverseString;
+  const numberString = ('' + number);
+  const numberLength = numberString.length;
+  const oddDigits    = numberLength & 1;
+  const leftHalf     = numberString.substr(0, ~~(numberLength / 2));
+  const middleNumber = numberString.charAt(Math.ceil(numberLength / 2));
+  let increment;
+  let newNumber;
+  let reverseString;
 
-  reverseString = function (string) {
+  reverseString = string => {
     return string.length > 1 ? string.split('').reverse().join('') : string;
   };
 

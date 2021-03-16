@@ -1,6 +1,6 @@
-module.exports = function (array, number) {
+module.exports = (array, number) => {
   return (function searchNumber (left, right) {
-    var center = left + Math.floor((right - left) / 2);
+    const center = left + Math.floor((right - left) / 2);
 
     // If the numbers match, return the center index.
     if (array[center] === number) { return center; }

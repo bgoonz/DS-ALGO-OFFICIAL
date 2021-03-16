@@ -21,7 +21,7 @@ console.log(result2);      // ['choose', 'words', 'only']
 
 function myFilter(array, cb) {
     let filtered = [];
-    array.forEach(function(ele, i) {
+    array.forEach((ele, i) => {
         if (cb(ele)) {
             filtered.push(ele)
         }

@@ -7,48 +7,50 @@
 
 // Functions: enqueue, dequeue, peek, view, length
 
-const Queue = (function () {
+const Queue = (() => {
   // constructor
-  function Queue () {
-    // This is the array representation of the queue
-    this.queue = []
-  }
-
-  // methods
-  // Add a value to the end of the queue
-  Queue.prototype.enqueue = function (item) {
-    this.queue.push(item)
-  }
-
-  // Removes the value at the front of the queue
-  Queue.prototype.dequeue = function () {
-    if (this.queue.length === 0) {
-      throw new Error('Queue is Empty')
+  class Queue {
+    constructor() {
+      // This is the array representation of the queue
+      this.queue = []
     }
 
-    const result = this.queue[0]
-    this.queue.splice(0, 1) // remove the item at position 0 from the array
+    // methods
+    // Add a value to the end of the queue
+    enqueue(item) {
+      this.queue.push(item)
+    }
 
-    return result
-  }
+    // Removes the value at the front of the queue
+    dequeue() {
+      if (this.queue.length === 0) {
+        throw new Error('Queue is Empty')
+      }
 
-  // Return the length of the queue
-  Queue.prototype.length = function () {
-    return this.queue.length
-  }
+      const result = this.queue[0]
+      this.queue.splice(0, 1) // remove the item at position 0 from the array
 
-  // Return the item at the front of the queue
-  Queue.prototype.peek = function () {
-    return this.queue[0]
-  }
+      return result
+    }
 
-  // List all the items in the queue
-  Queue.prototype.view = function () {
-    console.log(this.queue)
+    // Return the length of the queue
+    length() {
+      return this.queue.length
+    }
+
+    // Return the item at the front of the queue
+    peek() {
+      return this.queue[0]
+    }
+
+    // List all the items in the queue
+    view() {
+      console.log(this.queue)
+    }
   }
 
   return Queue
-}())
+})()
 
 // Implementation
 const myQueue = new Queue()

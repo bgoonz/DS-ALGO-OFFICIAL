@@ -23,7 +23,7 @@ Notice that the answer must be a substring, "pwke" is a subsequence and not a su
 */
 
 
-let lengthOfLongestSubstring = function ( string ) {
+let lengthOfLongestSubstring = string => {
   if (string.length === 0) {
     return 0;
   }

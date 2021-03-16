@@ -13,9 +13,9 @@
  * @param {TreeNode} root
  * @return {void} Do not return anything, modify root in-place instead.
  */
-var flatten = function(root) {
-    var stack = [];
-    var p = root;
+var flatten = root => {
+    const stack = [];
+    let p = root;
 
     while(p !== null || stack.length !== 0){
         if(p.right  !== null){
@@ -26,7 +26,7 @@ var flatten = function(root) {
             p.right = p.left;
             p.left = null;
         } else if(stack.length !== 0){
-            var node = stack.pop();
+            const node = stack.pop();
             p.right = node;
         }
 
@@ -36,13 +36,13 @@ var flatten = function(root) {
 
 // Recursive solution
 
-var flatten = function(root) {
+var flatten = root => {
     if(root === null || (root.left === null && root.right === null)) {
         return;
     }
 
-    var rootLeft = root.left;
-    var rootRight = root.right;
+    const rootLeft = root.left;
+    const rootRight = root.right;
     root.left = null;
     root.right = null;
 
@@ -51,7 +51,7 @@ var flatten = function(root) {
 
     root.right = rootLeft;
 
-    var aux = root;
+    let aux = root;
     while(aux !== null && aux.right !== null) {
         aux = aux.right;
     }

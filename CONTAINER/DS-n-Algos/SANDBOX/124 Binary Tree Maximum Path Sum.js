@@ -23,8 +23,8 @@
  * @param {TreeNode} root
  * @return {number}
  */
-var maxPathSum = function(root) {
-    var maxVal = -Infinity;
+const maxPathSum = root => {
+    let maxVal = -Infinity;
     findMaxPath(root);
     return maxVal;
     
@@ -33,12 +33,12 @@ var maxPathSum = function(root) {
             return 0;
         }
         
-        var leftVal = Math.max(findMaxPath(node.left), 0);
-        var rightVal = Math.max(findMaxPath(node.right), 0);
+        const leftVal = Math.max(findMaxPath(node.left), 0);
+        const rightVal = Math.max(findMaxPath(node.right), 0);
         
-        var ps1 = node.val + Math.max(leftVal, rightVal);
+        const ps1 = node.val + Math.max(leftVal, rightVal);
         // ps2 means taking this current node as parent node and stop there
-        var ps2 = node.val + leftVal + rightVal;
+        const ps2 = node.val + leftVal + rightVal;
         
         // maxVal as if we end counting value here, what will be the maximum val
         // leftVal and rightVal can be negative values

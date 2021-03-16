@@ -1,9 +1,9 @@
-var generateGrid = function (width, height) {
-  var output = [],
-      number = 0;
+const generateGrid = (width, height) => {
+  const output = [];
+  let number = 0;
 
-  for (var i = 0; i < height; i++) {
-    for (var l = 0; l < width; l++) {
+  for (let i = 0; i < height; i++) {
+    for (let l = 0; l < width; l++) {
       output[i] || (output[i] = []);
       output[i].push(number += 1);
     }
@@ -12,22 +12,24 @@ var generateGrid = function (width, height) {
   return output;
 };
 
-var spiralTraversal = function (grid, top, left) {
-  var length    = 1, // This will be the length to traverse to
-      output    = [],
-      UP        = 0,
-      LEFT      = 1,
-      DOWN      = 2,
-      RIGHT     = 3,
-      maxLength,
-      pushNumber;
+const spiralTraversal = (grid, top, left) => {
+  const // This will be the length to traverse to
+  length    = 1;
+
+  const output    = [];
+  const UP        = 0;
+  const LEFT      = 1;
+  const DOWN      = 2;
+  const RIGHT     = 3;
+  let maxLength;
+  let pushNumber;
 
   top  = top - 1;
   left = left - 1;
 
   maxLength = (grid.length > grid[0].length ? grid.length : grid[0].length);
 
-  pushNumber = function (y, x) {
+  pushNumber = (y, x) => {
     top  = y;
     left = x;
     return grid[top] && grid[top][left] && output.push(grid[top][left]);
@@ -37,7 +39,7 @@ var spiralTraversal = function (grid, top, left) {
   pushNumber(top, left);
 
   (function traverse (direction, length) {
-    var i = length;
+    let i = length;
 
     while (i--) {
       if (direction === UP) {
@@ -69,6 +71,6 @@ var spiralTraversal = function (grid, top, left) {
 };
 
 // Generate the traversed output
-module.exports = function (h, w, r, c) {
+module.exports = (h, w, r, c) => {
   return spiralTraversal(generateGrid(w, h), r, c);
 };

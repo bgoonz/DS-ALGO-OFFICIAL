@@ -1,7 +1,7 @@
-exports.iterative = function (number) {
-  var string = ('' + number).split('.'),
-      length = string[0].length,
-      places = 0;
+exports.iterative = number => {
+  const string = ('' + number).split('.');
+  let length = string[0].length;
+  let places = 0;
 
   while (--length) {
     places += 1;
@@ -14,8 +14,8 @@ exports.iterative = function (number) {
   return string.join('.');
 };
 
-exports.regexp = function (number) {
-  var string = ('' + number).split('.');
+exports.regexp = number => {
+  const string = ('' + number).split('.');
 
   string[0] = string[0].replace(/(\d)(?=(?:\d{3})+(?:\.|$))/g, '$1,');
 

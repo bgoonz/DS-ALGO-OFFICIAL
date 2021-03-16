@@ -5,18 +5,18 @@ chai.use(spies);
 
 const myForEach = require("../problems/01-my-for-each.js");
 
-describe("myForEach", function() {
-  it("should mimic the built-in Array#forEach", function() {
+describe("myForEach", () => {
+  it("should mimic the built-in Array#forEach", () => {
     let test = [];
-    myForEach(['laika', 'belka'], function (el) {
+    myForEach(['laika', 'belka'], el => {
         test.push(el.toUpperCase());
     });
     expect(test).to.eql(['LAIKA', 'BELKA']);
   });
 
-  it("should not call the built-in Array#forEach", function() {
+  it("should not call the built-in Array#forEach", () => {
     const forEachSpy = chai.spy.on(Array.prototype, "forEach");
-    myForEach(['laika', 'belka'], function () {});
+    myForEach(['laika', 'belka'], () => {});
     expect(forEachSpy).to.have.not.been.called();
   });
 });

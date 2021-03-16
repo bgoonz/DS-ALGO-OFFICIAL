@@ -122,7 +122,7 @@ describe('Queue', () => {
       });      
 
       it('Should not throw an error when calling dequeue on an empty queue', () => {
-        expect(function() {queue.dequeue()}).to.not.throw();
+        expect(() => {queue.dequeue()}).to.not.throw();
       });      
 
       it('Should return null if called on an empty queue', () => {

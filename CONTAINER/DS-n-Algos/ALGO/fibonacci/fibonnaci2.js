@@ -7,10 +7,10 @@ exports.recursive = function fibonacci (n) {
 
 // Implementing iterative solution
 exports.iterative = function fibonacci (n) {
-  var results = [0, 1];
+  const results = [0, 1];
 
   if (n > 2) {
-    for (var i = 2; i < n; i++) {
+    for (let i = 2; i < n; i++) {
       results[i] = results[i - 2] + results[i - 1];
     }
   }
@@ -19,11 +19,11 @@ exports.iterative = function fibonacci (n) {
 };
 
 // Implementing O(logn) matrix solution
-exports.matrix = function (n) {
-  var memo = [0, [[0, 1], [1, 1]]];
+exports.matrix = n => {
+  const memo = [0, [[0, 1], [1, 1]]];
 
-  var matrixMultiply = function (A, B) {
-    var C;
+  const matrixMultiply = (A, B) => {
+    let C;
 
     if (Array.isArray(B[0])) {
       C = [[], []];
@@ -41,9 +41,9 @@ exports.matrix = function (n) {
   };
 
   // Calculates fibonacci spiral transformation matrix
-  var calcFibSpiral = function (n) {
-    var count = 1;
-    var T;
+  const calcFibSpiral = n => {
+    let count = 1;
+    let T;
 
     if (n & 1) {
       T = [[0, 1], [1, 1]];
@@ -69,8 +69,8 @@ exports.matrix = function (n) {
 };
 
 // Implements closed form solution.
-exports.closedForm = (function (phi) {
-  return function (n) {
+exports.closedForm = (phi => {
+  return n => {
     return Math.floor(Math.pow(phi, n) / Math.sqrt(5) + 0.5);
   };
 })((1 + Math.sqrt(5)) / 2);
