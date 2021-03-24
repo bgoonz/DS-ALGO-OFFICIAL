@@ -22,15 +22,35 @@
             width: device-width;
         }
         body {
+  background: linear-gradient(-45deg, #da0000, #0008ffe5, #23d5a2d8, #2f2fbce5);
+  background-size: 400% 400%;
+  -webkit-animation: gradient 15s ease infinite;
+  animation: gradient 15s ease infinite;
             -ms-overflow-style: scrollbar;
-		zoom:0.9;
+		zoom:0.73;
         }
-        @media screen and (max-width: 480px) {
-            html,
-            body {
-             
-            }
-        }
+@-webkit-keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
         html {
             box-sizing: border-box;
         }
@@ -56,33 +76,19 @@
         }
         /* Type */
         html {
-            font-size: 13pt;
+            font-size: 11pt;
         }
-        @media screen and (max-width: 1680px) {
-            html {
-                font-size: 10pt;
-            }
-        }
-        @media screen and (max-width: 1280px) {
-            html {
-                font-size: 11pt;
-            }
-        }
-        @media screen and (max-width: 360px) {
-            html {
-                font-size: 10pt;
-            }
-        }
+       
         body {
-            color: #212931;
+            color: whitesmoke;
         }
         body,
         input,
         select,
         textarea {
             font-family: "Merriweather", Georgia, serif;
-            font-weight: 300;
-            font-size: 1rem;
+            font-weight: 200;
+            font-size: 0.8rem;
           
         }
         a {
@@ -104,13 +110,13 @@
         }
         BODY {
             background: black font-family: 'Open Sans', sans-serif;
-            font-weight: 300;
+            font-weight: 150;
          
             color: #A7A1AE;
             background-color: #1F2739;
         }
         h1 {
-            font-size: 3em;
+            font-size: 2em;
             font-weight: 300;
          
             text-align: left;
@@ -121,6 +127,7 @@
         }
         A {
             text-decoration: none color:black;
+            overflow-wrap: break-word;
         }
         A:hover {
             color: red;
@@ -133,10 +140,10 @@
             background: #fffefe;
             border-left: 3px solid;
             border-collapse: collapse;
-            margin: 25px 0;
+            margin: 15px 0;
             font-size: 0.8em;
             font-family: sans-serif;
-            min-width: 350px;
+            min-width: 250px;
             box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
             border-top: 1px solid;
             border-bottom: 0px solid;
@@ -145,6 +152,7 @@
             width: 80%;
             display: table;
             padding: 0 0 8em 0;
+overflow-wrap: break-word;
         }
         TABLE.fancy TD {
             border-right: 1px solid;
@@ -179,6 +187,7 @@
             -moz-border-radius: 10px;
             -ms-border-radius: 10px;
             -o-border-radius: 20px;
+overflow-wrap: break-word;
         }
         TABLE.fancy tr:nth-child(odd) {
             background-color: #323C50;
@@ -523,27 +532,24 @@ div.clear {
 <body>
 
 <table border="0" cellspacing="0" cellpadding="3" summary="file table" class="fancy centered">
-<tr><td colspan="10" class="dark-blue" style="text-align: center"><b>Folders</b></td></tr>
-<tr><td class="left"><a href="../right.html" target="rframe">&lt;parent&gt;</a></td><td class="left">&nbsp;<a href="Hash%20Table%20Data-Structure/right.html" target="rframe">Hash Table Data-Structure</a></td></tr>
+<tr><td colspan="6" class="dark-blue" style="text-align: center"><b>Folders</b></td></tr>
+<tr><td class="left"><a href="../right.html" target="rframe">&lt;Go Back&gt;</a></td><td class="left">&nbsp;<a href="Hash%20Table%20Data-Structure/right.html" target="rframe">Hash Tab...cture</a></td></tr>
 </table>
 <br>
 
 <table border="0" cellspacing="0" cellpadding="3" summary="file table" class="fancy centered">
-<tr><th><b>File</b></th><th><b>File</b></th><th><b>File</b></th><th><b>File</b></th><th><b>File</b></th><th><b>File</b></th></tr>
-<tr><td class="left"><a href="right.html">right.html</a>&nbsp;</td><td class="left"><a href="CountCharInAString.js">CountCharInAString.js</a>&nbsp;</td><td class="left"><a href="Frequency%20Counter%20Anagram.js">Frequency Counter Anagram.js</a>&nbsp;</td><td class="left"><a href="numberToRoman.js">numberToRoman.js</a>&nbsp;</td><td class="left"><a href="Recursion-fibonacciseries.js">Recursion-fibonacciseries.js</a>&nbsp;</td><td class="left"><a href="Spinal%20Tap%20Case.js">Spinal Tap Case.js</a>&nbsp;</td></tr>
-<tr class="row2"><td class="left"><a href="Arguments%20In%20An%20Array.js">Arguments In An Array.js</a>&nbsp;</td><td class="left"><a href="DNA%20Pairing.js">DNA Pairing.js</a>&nbsp;</td><td class="left"><a href="Frequency%20Counter%20Pattern.js">Frequency Counter Pattern.js</a>&nbsp;</td><td class="left"><a href="PalindromeChecker.js">PalindromeChecker.js</a>&nbsp;</td><td class="left"><a href="RepeatString.js">RepeatString.js</a>&nbsp;</td><td class="left"><a href="Sum-multiples-of%203%20and%205.js">Sum-multiples-of 3 and 5.js</a>&nbsp;</td></tr>
-<tr><td class="left"><a href="arrayTo2Darray.js">arrayTo2Darray.js</a>&nbsp;</td><td class="left"><a href="Factorial.js">Factorial.js</a>&nbsp;</td><td class="left"><a href="GroupAnagrams.js">GroupAnagrams.js</a>&nbsp;</td><td class="left"><a href="Pig%20Latin.js">Pig Latin.js</a>&nbsp;</td><td class="left"><a href="RestrictUsername.js">RestrictUsername.js</a>&nbsp;</td><td class="left"><a href="Sum-of-series.js">Sum-of-series.js</a>&nbsp;</td></tr>
-<tr class="row2"><td class="left"><a href="ArrayToList.js">ArrayToList.js</a>&nbsp;</td><td class="left"><a href="Falsy%20Bouncer.js">Falsy Bouncer.js</a>&nbsp;</td><td class="left"><a href="LargestNumsInArrays.js">LargestNumsInArrays.js</a>&nbsp;</td><td class="left"><a href="Range.js">Range.js</a>&nbsp;</td><td class="left"><a href="ReverseString.js">ReverseString.js</a>&nbsp;</td><td class="left"><a href="SumRange.js">SumRange.js</a>&nbsp;</td></tr>
-<tr><td class="left"><a href="CheckBoolean.js">CheckBoolean.js</a>&nbsp;</td><td class="left"><a href="FilteredArray.js">FilteredArray.js</a>&nbsp;</td><td class="left"><a href="ListToArray.js">ListToArray.js</a>&nbsp;</td><td class="left"><a href="RangeWithAStep.js">RangeWithAStep.js</a>&nbsp;</td><td class="left"><a href="Search%20and%20Replace.js">Search and Replace.js</a>&nbsp;</td><td class="left"><a href="Symmetric%20Difference-in%20Arrays.js">Symmetric Difference-in Arrays.js</a>&nbsp;</td></tr>
-<tr class="row2"><td class="left"><a href="CheckMutations.js">CheckMutations.js</a>&nbsp;</td><td class="left"><a href="FindIntersection.js">FindIntersection.js</a>&nbsp;</td><td class="left"><a href="LongestWordInAString.js">LongestWordInAString.js</a>&nbsp;</td><td class="left"><a href="Recursion-countdown.js">Recursion-countdown.js</a>&nbsp;</td><td class="left"><a href="Slice()&amp;Splice().js">Slice()&amp;Splice().js</a>&nbsp;</td><td class="left"><a href="TitleCase.js">TitleCase.js</a>&nbsp;</td></tr>
-<tr><td class="left"><a href="Confirm-The-Ending.js">Confirm-The-Ending.js</a>&nbsp;</td><td class="left"><a href="FindThEending.js">FindThEending.js</a>&nbsp;</td><td class="left"><a href="Missing%20Letters.js">Missing Letters.js</a>&nbsp;</td><td class="left"><a href="Recursion-factorial.js">Recursion-factorial.js</a>&nbsp;</td><td class="left"><a href="Sortarray.js">Sortarray.js</a>&nbsp;</td><td class="left"><a href="Truncate-String.js">Truncate-String.js</a>&nbsp;</td></tr>
-<tr class="row2"><td class="left"><a href="CopyMachine.js">CopyMachine.js</a>&nbsp;</td><td class="left"><a href="FizzBuzz.js">FizzBuzz.js</a>&nbsp;</td><td class="left"></td><td class="left"></td><td class="left"></td><td class="left"></td></tr>
+<tr><th><b>File</b></th><th><b>File</b></th><th><b>File</b></th><th><b>File</b></th><th><b>File</b></th><th><b>File</b></th><th><b>File</b></th><th><b>File</b></th></tr>
+<tr><td class="left"><a href="right.html">right.html</a>&nbsp;</td><td class="left"><a href="CheckMutations.js">CheckMut...ns.js</a>&nbsp;</td><td class="left"><a href="even-occuring-element.js">even-occ...nt.js</a>&nbsp;</td><td class="left"><a href="Frequency%20Counter%20Anagram.js">Frequenc...am.js</a>&nbsp;</td><td class="left"><a href="Pig%20Latin.js">Pig Latin.js</a>&nbsp;</td><td class="left"><a href="Recursion-fibonacciseries.js">Recursio...es.js</a>&nbsp;</td><td class="left"><a href="Slice()&amp;Splice().js">Slice()&amp;...().js</a>&nbsp;</td><td class="left"><a href="Sum-of-series.js">Sum-of-series.js</a>&nbsp;</td></tr>
+<tr class="row2"><td class="left"><a href="Arguments%20In%20An%20Array.js">Argument...ay.js</a>&nbsp;</td><td class="left"><a href="Confirm-The-Ending.js">Confirm-...ng.js</a>&nbsp;</td><td class="left"><a href="Factorial.js">Factorial.js</a>&nbsp;</td><td class="left"><a href="LongestWordInAString.js">LongestW...ng.js</a>&nbsp;</td><td class="left"><a href="Range.js">Range.js</a>&nbsp;</td><td class="left"><a href="RepeatString.js">RepeatString.js</a>&nbsp;</td><td class="left"><a href="Sortarray.js">Sortarray.js</a>&nbsp;</td><td class="left"><a href="SumRange.js">SumRange.js</a>&nbsp;</td></tr>
+<tr><td class="left"><a href="arrayTo2Darray.js">arrayTo2...ay.js</a>&nbsp;</td><td class="left"><a href="CopyMachine.js">CopyMachine.js</a>&nbsp;</td><td class="left"><a href="Falsy%20Bouncer.js">Falsy Bouncer.js</a>&nbsp;</td><td class="left"><a href="Missing%20Letters.js">Missing ...rs.js</a>&nbsp;</td><td class="left"><a href="RangeWithAStep.js">RangeWit...ep.js</a>&nbsp;</td><td class="left"><a href="RestrictUsername.js">Restrict...me.js</a>&nbsp;</td><td class="left"><a href="Spinal%20Tap%20Case.js">Spinal T...se.js</a>&nbsp;</td><td class="left"><a href="TitleCase.js">TitleCase.js</a>&nbsp;</td></tr>
+<tr class="row2"><td class="left"><a href="balanced-brackets.js">balanced...ts.js</a>&nbsp;</td><td class="left"><a href="CountCharInAString.js">CountCha...ng.js</a>&nbsp;</td><td class="left"><a href="FindIntersection.js">FindInte...on.js</a>&nbsp;</td><td class="left"><a href="numberToRoman.js">numberToRoman.js</a>&nbsp;</td><td class="left"><a href="Recursion-countdown.js">Recursio...wn.js</a>&nbsp;</td><td class="left"><a href="ReverseString.js">ReverseString.js</a>&nbsp;</td><td class="left"><a href="Sum-multiples-of%203%20and%205.js">Sum-mult... 5.js</a>&nbsp;</td><td class="left"><a href="Truncate-String.js">Truncate...ng.js</a>&nbsp;</td></tr>
+<tr><td class="left"><a href="byte-format.js">byte-format.js</a>&nbsp;</td><td class="left"><a href="DNA%20Pairing.js">DNA Pairing.js</a>&nbsp;</td><td class="left"><a href="FizzBuzz.js">FizzBuzz.js</a>&nbsp;</td><td class="left"><a href="PalindromeChecker.js">Palindro...er.js</a>&nbsp;</td><td class="left"><a href="Recursion-factorial.js">Recursio...al.js</a>&nbsp;</td><td class="left"><a href="Search%20and%20Replace.js">Search a...ce.js</a>&nbsp;</td><td class="left"></td><td class="left"></td></tr>
 </table>
 
 <p style="font-weight: bold; margin-bottom: 0px">
 Folders:  2<br>
-Files: 44<br>
-Size of all files: 44315 K</p>
+Files: 38<br>
+Size of all files: 40671 KB</p>
 
 </body>
 </html>

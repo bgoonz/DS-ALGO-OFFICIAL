@@ -22,15 +22,35 @@
             width: device-width;
         }
         body {
+  background: linear-gradient(-45deg, #da0000, #0008ffe5, #23d5a2d8, #2f2fbce5);
+  background-size: 400% 400%;
+  -webkit-animation: gradient 15s ease infinite;
+  animation: gradient 15s ease infinite;
             -ms-overflow-style: scrollbar;
-		zoom:0.9;
+		zoom:0.73;
         }
-        @media screen and (max-width: 480px) {
-            html,
-            body {
-             
-            }
-        }
+@-webkit-keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
         html {
             box-sizing: border-box;
         }
@@ -56,33 +76,19 @@
         }
         /* Type */
         html {
-            font-size: 13pt;
+            font-size: 11pt;
         }
-        @media screen and (max-width: 1680px) {
-            html {
-                font-size: 10pt;
-            }
-        }
-        @media screen and (max-width: 1280px) {
-            html {
-                font-size: 11pt;
-            }
-        }
-        @media screen and (max-width: 360px) {
-            html {
-                font-size: 10pt;
-            }
-        }
+       
         body {
-            color: #212931;
+            color: whitesmoke;
         }
         body,
         input,
         select,
         textarea {
             font-family: "Merriweather", Georgia, serif;
-            font-weight: 300;
-            font-size: 1rem;
+            font-weight: 200;
+            font-size: 0.8rem;
           
         }
         a {
@@ -104,13 +110,13 @@
         }
         BODY {
             background: black font-family: 'Open Sans', sans-serif;
-            font-weight: 300;
+            font-weight: 150;
          
             color: #A7A1AE;
             background-color: #1F2739;
         }
         h1 {
-            font-size: 3em;
+            font-size: 2em;
             font-weight: 300;
          
             text-align: left;
@@ -121,6 +127,7 @@
         }
         A {
             text-decoration: none color:black;
+            overflow-wrap: break-word;
         }
         A:hover {
             color: red;
@@ -133,10 +140,10 @@
             background: #fffefe;
             border-left: 3px solid;
             border-collapse: collapse;
-            margin: 25px 0;
+            margin: 15px 0;
             font-size: 0.8em;
             font-family: sans-serif;
-            min-width: 350px;
+            min-width: 250px;
             box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
             border-top: 1px solid;
             border-bottom: 0px solid;
@@ -145,6 +152,7 @@
             width: 80%;
             display: table;
             padding: 0 0 8em 0;
+overflow-wrap: break-word;
         }
         TABLE.fancy TD {
             border-right: 1px solid;
@@ -179,6 +187,7 @@
             -moz-border-radius: 10px;
             -ms-border-radius: 10px;
             -o-border-radius: 20px;
+overflow-wrap: break-word;
         }
         TABLE.fancy tr:nth-child(odd) {
             background-color: #323C50;
@@ -523,22 +532,31 @@ div.clear {
 <body>
 
 <table border="0" cellspacing="0" cellpadding="3" summary="file table" class="fancy centered">
-<tr><td colspan="10" class="dark-blue" style="text-align: center"><b>Folders</b></td></tr>
-<tr><td class="left"><a href="../right.html" target="rframe">&lt;parent&gt;</a></td><td class="left">&nbsp;<a href="callbacks-solution/right.html" target="rframe">callbacks-solution</a></td><td class="left">&nbsp;<a href="dice-roll/right.html" target="rframe">dice-roll</a></td><td class="left">&nbsp;<a href="egg-drop/right.html" target="rframe">egg-drop</a></td><td class="left">&nbsp;<a href="fib/right.html" target="rframe">fib</a></td><td class="left">&nbsp;<a href="fizzbuzz/right.html" target="rframe">fizzbuzz</a></td><td class="left">&nbsp;<a href="LEETCODE/right.html" target="rframe">LEETCODE</a></td><td class="left">&nbsp;<a href="palindrome/right.html" target="rframe">palindrome</a></td><td class="left">&nbsp;<a href="steps/right.html" target="rframe">steps</a></td><td class="left">&nbsp;<a href="UNSORTED/right.html" target="rframe">UNSORTED</a></td></tr>
-<tr class="row2"><td class="left"><a href="anagrams/right.html" target="rframe">anagrams</a></td><td class="left">&nbsp;<a href="coin-change/right.html" target="rframe">coin-change</a></td><td class="left">&nbsp;<a href="Dynamic-Programming/right.html" target="rframe">Dynamic-Programming</a></td><td class="left">&nbsp;<a href="factorial/right.html" target="rframe">factorial</a></td><td class="left">&nbsp;<a href="fibonacci/right.html" target="rframe">fibonacci</a></td><td class="left">&nbsp;<a href="fromlast/right.html" target="rframe">fromlast</a></td><td class="left">&nbsp;<a href="memoization_project/right.html" target="rframe">memoization_project</a></td><td class="left">&nbsp;<a href="radix_sort_project/right.html" target="rframe">radix_sort_project</a></td><td class="left">&nbsp;<a href="tabulation_project/right.html" target="rframe">tabulation_project</a></td><td class="left">&nbsp;<a href="vowels/right.html" target="rframe">vowels</a></td></tr>
-<tr><td class="left"><a href="binary_search_project/right.html" target="rframe">binary_search_project</a></td><td class="left">&nbsp;<a href="computational-complexity/right.html" target="rframe">computational-complexity</a></td><td class="left"></td><td class="left"></td><td class="left"></td><td class="left"></td><td class="left"></td><td class="left"></td><td class="left"></td><td class="left"></td></tr>
+<tr><td colspan="6" class="dark-blue" style="text-align: center"><b>Folders</b></td></tr>
+<tr><td class="left"><a href="../right.html" target="rframe">&lt;Go Back&gt;</a></td><td class="left">&nbsp;<a href="fib/right.html" target="rframe">fib</a></td><td class="left">&nbsp;<a href="largest-palindrome/right.html" target="rframe">largest-...drome</a></td><td class="left">&nbsp;<a href="money-format/right.html" target="rframe">money-format</a></td><td class="left">&nbsp;<a href="radix_sort_project/right.html" target="rframe">radix_so...oject</a></td><td class="left">&nbsp;<a href="string-permutations/right.html" target="rframe">string-p...tions</a></td></tr>
+<tr class="row2"><td class="left"><a href="anagrams/right.html" target="rframe">anagrams</a></td><td class="left">&nbsp;<a href="fibonacci/right.html" target="rframe">fibonacci</a></td><td class="left">&nbsp;<a href="LEETCODE/right.html" target="rframe">LEETCODE</a></td><td class="left">&nbsp;<a href="multiples-of-3-and-5/right.html" target="rframe">multiple...and-5</a></td><td class="left">&nbsp;<a href="remove-duplicates-from-string/right.html" target="rframe">remove-d...tring</a></td><td class="left">&nbsp;<a href="string-rotation/right.html" target="rframe">string-rotation</a></td></tr>
+<tr><td class="left"><a href="array-manipulations/right.html" target="rframe">array-ma...tions</a></td><td class="left">&nbsp;<a href="fizzbuzz/right.html" target="rframe">fizzbuzz</a></td><td class="left">&nbsp;<a href="linked-list/right.html" target="rframe">linked-list</a></td><td class="left">&nbsp;<a href="next-highest-number/right.html" target="rframe">next-hig...umber</a></td><td class="left">&nbsp;<a href="reverse-words-in-string/right.html" target="rframe">reverse-...tring</a></td><td class="left">&nbsp;<a href="sum-of-array-plus-one/right.html" target="rframe">sum-of-a...s-one</a></td></tr>
+<tr class="row2"><td class="left"><a href="binary_search_project/right.html" target="rframe">binary_s...oject</a></td><td class="left">&nbsp;<a href="flatten-array/right.html" target="rframe">flatten-array</a></td><td class="left">&nbsp;<a href="longest-common-prefix/right.html" target="rframe">longest-...refix</a></td><td class="left">&nbsp;<a href="next-palindrome-number/right.html" target="rframe">next-pal...umber</a></td><td class="left">&nbsp;<a href="search-unknown-length-array/right.html" target="rframe">search-u...array</a></td><td class="left">&nbsp;<a href="tabulation_project/right.html" target="rframe">tabulati...oject</a></td></tr>
+<tr><td class="left"><a href="callbacks-solution/right.html" target="rframe">callback...ution</a></td><td class="left">&nbsp;<a href="fromlast/right.html" target="rframe">fromlast</a></td><td class="left">&nbsp;<a href="longest-compound-word/right.html" target="rframe">longest-...-word</a></td><td class="left">&nbsp;<a href="number-format/right.html" target="rframe">number-format</a></td><td class="left">&nbsp;<a href="selection-sort/right.html" target="rframe">selection-sort</a></td><td class="left">&nbsp;<a href="throttle/right.html" target="rframe">throttle</a></td></tr>
+<tr class="row2"><td class="left"><a href="coin-change/right.html" target="rframe">coin-change</a></td><td class="left">&nbsp;<a href="hotel-room/right.html" target="rframe">hotel-room</a></td><td class="left">&nbsp;<a href="longest-words/right.html" target="rframe">longest-words</a></td><td class="left">&nbsp;<a href="odd-occuring-element/right.html" target="rframe">odd-occu...ement</a></td><td class="left">&nbsp;<a href="shortest-fizz-buzz/right.html" target="rframe">shortest...-buzz</a></td><td class="left">&nbsp;<a href="transform-word/right.html" target="rframe">transform-word</a></td></tr>
+<tr><td class="left"><a href="computational-complexity/right.html" target="rframe">computat...exity</a></td><td class="left">&nbsp;<a href="insertion-sort/right.html" target="rframe">insertion-sort</a></td><td class="left">&nbsp;<a href="matching-nodes/right.html" target="rframe">matching-nodes</a></td><td class="left">&nbsp;<a href="once/right.html" target="rframe">once</a></td><td class="left">&nbsp;<a href="sorted-array-search/right.html" target="rframe">sorted-a...earch</a></td><td class="left">&nbsp;<a href="tree-level-order-print/right.html" target="rframe">tree-lev...print</a></td></tr>
+<tr class="row2"><td class="left"><a href="dice-roll/right.html" target="rframe">dice-roll</a></td><td class="left">&nbsp;<a href="integer-difference/right.html" target="rframe">integer-...rence</a></td><td class="left">&nbsp;<a href="median-integer-stream/right.html" target="rframe">median-i...tream</a></td><td class="left">&nbsp;<a href="palindrome/right.html" target="rframe">palindrome</a></td><td class="left">&nbsp;<a href="spiral/right.html" target="rframe">spiral</a></td><td class="left">&nbsp;<a href="UNSORTED/right.html" target="rframe">UNSORTED</a></td></tr>
+<tr><td class="left"><a href="DOM-manipulation/right.html" target="rframe">DOM-manipulation</a></td><td class="left">&nbsp;<a href="integer-length/right.html" target="rframe">integer-length</a></td><td class="left">&nbsp;<a href="memoization_project/right.html" target="rframe">memoizat...oject</a></td><td class="left">&nbsp;<a href="prime-number/right.html" target="rframe">prime-number</a></td><td class="left">&nbsp;<a href="stack/right.html" target="rframe">stack</a></td><td class="left">&nbsp;<a href="vowels/right.html" target="rframe">vowels</a></td></tr>
+<tr class="row2"><td class="left"><a href="Dynamic-Programming/right.html" target="rframe">Dynamic-...mming</a></td><td class="left">&nbsp;<a href="kth-largest-element-in-array/right.html" target="rframe">kth-larg...array</a></td><td class="left">&nbsp;<a href="merge-sort/right.html" target="rframe">merge-sort</a></td><td class="left">&nbsp;<a href="queue/right.html" target="rframe">queue</a></td><td class="left">&nbsp;<a href="steps/right.html" target="rframe">steps</a></td><td class="left">&nbsp;<a href="word-analytics/right.html" target="rframe">word-analytics</a></td></tr>
+<tr><td class="left"><a href="egg-drop/right.html" target="rframe">egg-drop</a></td><td class="left">&nbsp;<a href="largest-continuous-sum/right.html" target="rframe">largest-...s-sum</a></td><td class="left">&nbsp;<a href="missing-number/right.html" target="rframe">missing-number</a></td><td class="left">&nbsp;<a href="quick-sort/right.html" target="rframe">quick-sort</a></td><td class="left">&nbsp;<a href="string-format/right.html" target="rframe">string-format</a></td><td class="left">&nbsp;<a href="word-positions/right.html" target="rframe">word-positions</a></td></tr>
+<tr class="row2"><td class="left"><a href="factorial/right.html" target="rframe">factorial</a></td><td class="left"></td><td class="left"></td><td class="left"></td><td class="left"></td><td class="left"></td></tr>
 </table>
 <br>
 
 <table border="0" cellspacing="0" cellpadding="3" summary="file table" class="fancy centered">
-<tr><th><b>File</b></th><th><b>File</b></th><th><b>File</b></th><th><b>File</b></th><th><b>File</b></th><th><b>File</b></th></tr>
+<tr><th><b>File</b></th><th><b>File</b></th><th><b>File</b></th><th><b>File</b></th><th><b>File</b></th><th><b>File</b></th><th><b>File</b></th><th><b>File</b></th></tr>
 <tr><td class="left"><a href="right.html">right.html</a>&nbsp;</td></tr>
 </table>
 
 <p style="font-weight: bold; margin-bottom: 0px">
-Folders:  22<br>
+Folders:  67<br>
 Files: 1<br>
-Size of all files: 16006 K</p>
+Size of all files: 16006 KB</p>
 
 </body>
 </html>

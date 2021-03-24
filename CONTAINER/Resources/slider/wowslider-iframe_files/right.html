@@ -22,15 +22,35 @@
             width: device-width;
         }
         body {
+  background: linear-gradient(-45deg, #da0000, #0008ffe5, #23d5a2d8, #2f2fbce5);
+  background-size: 400% 400%;
+  -webkit-animation: gradient 15s ease infinite;
+  animation: gradient 15s ease infinite;
             -ms-overflow-style: scrollbar;
-		zoom:0.9;
+		zoom:0.73;
         }
-        @media screen and (max-width: 480px) {
-            html,
-            body {
-             
-            }
-        }
+@-webkit-keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
         html {
             box-sizing: border-box;
         }
@@ -56,33 +76,19 @@
         }
         /* Type */
         html {
-            font-size: 13pt;
+            font-size: 11pt;
         }
-        @media screen and (max-width: 1680px) {
-            html {
-                font-size: 10pt;
-            }
-        }
-        @media screen and (max-width: 1280px) {
-            html {
-                font-size: 11pt;
-            }
-        }
-        @media screen and (max-width: 360px) {
-            html {
-                font-size: 10pt;
-            }
-        }
+       
         body {
-            color: #212931;
+            color: whitesmoke;
         }
         body,
         input,
         select,
         textarea {
             font-family: "Merriweather", Georgia, serif;
-            font-weight: 300;
-            font-size: 1rem;
+            font-weight: 200;
+            font-size: 0.8rem;
           
         }
         a {
@@ -104,13 +110,13 @@
         }
         BODY {
             background: black font-family: 'Open Sans', sans-serif;
-            font-weight: 300;
+            font-weight: 150;
          
             color: #A7A1AE;
             background-color: #1F2739;
         }
         h1 {
-            font-size: 3em;
+            font-size: 2em;
             font-weight: 300;
          
             text-align: left;
@@ -121,6 +127,7 @@
         }
         A {
             text-decoration: none color:black;
+            overflow-wrap: break-word;
         }
         A:hover {
             color: red;
@@ -133,10 +140,10 @@
             background: #fffefe;
             border-left: 3px solid;
             border-collapse: collapse;
-            margin: 25px 0;
+            margin: 15px 0;
             font-size: 0.8em;
             font-family: sans-serif;
-            min-width: 350px;
+            min-width: 250px;
             box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
             border-top: 1px solid;
             border-bottom: 0px solid;
@@ -145,6 +152,7 @@
             width: 80%;
             display: table;
             padding: 0 0 8em 0;
+overflow-wrap: break-word;
         }
         TABLE.fancy TD {
             border-right: 1px solid;
@@ -179,6 +187,7 @@
             -moz-border-radius: 10px;
             -ms-border-radius: 10px;
             -o-border-radius: 20px;
+overflow-wrap: break-word;
         }
         TABLE.fancy tr:nth-child(odd) {
             background-color: #323C50;
@@ -523,39 +532,41 @@ div.clear {
 <body>
 
 <table border="0" cellspacing="0" cellpadding="3" summary="file table" class="fancy centered">
-<tr><td colspan="10" class="dark-blue" style="text-align: center"><b>Folders</b></td></tr>
-<tr><td class="left"><a href="../right.html" target="rframe">&lt;parent&gt;</a></td></tr>
+<tr><td colspan="6" class="dark-blue" style="text-align: center"><b>Folders</b></td></tr>
+<tr><td class="left"><a href="../right.html" target="rframe">&lt;Go Back&gt;</a></td></tr>
 </table>
 <br>
 
 <table border="0" cellspacing="0" cellpadding="3" summary="file table" class="fancy centered">
-<tr><th><b>File</b></th><th><b>File</b></th><th><b>File</b></th><th><b>File</b></th><th><b>File</b></th><th><b>File</b></th></tr>
-<tr><td class="left"><a href="style.css">style.css</a>&nbsp;</td><td class="left"><a href="obj2array(1).jpg">obj2array(1).jpg</a>&nbsp;</td><td class="left"><a href="250pxsudokubyl2g20050714.svg(1).png">250pxsudokubyl2g20050714.svg(1).png</a>&nbsp;</td><td class="left"><a href="bstmidele.png">bstmidele.png</a>&nbsp;</td><td class="left"><a href="graphmd(1).png">graphmd(1).png</a>&nbsp;</td><td class="left"><a href="preandinordertraversal.png">preandinordertraversal.png</a>&nbsp;</td></tr>
-<tr class="row2"><td class="left"><a href="jquery.js.download">jquery.js.download</a>&nbsp;</td><td class="left"><a href="obj2array.jpg">obj2array.jpg</a>&nbsp;</td><td class="left"><a href="250pxsudokubyl2g20050714.svg.png">250pxsudokubyl2g20050714.svg.png</a>&nbsp;</td><td class="left"><a href="bvstrda(1).png">bvstrda(1).png</a>&nbsp;</td><td class="left"><a href="graphmd.png">graphmd.png</a>&nbsp;</td><td class="left"><a href="queue_0(1).png">queue_0(1).png</a>&nbsp;</td></tr>
-<tr><td class="left"><a href="script.js.download">script.js.download</a>&nbsp;</td><td class="left"><a href="pascaltriangleanimated2(1).jpg">pascaltriangleanimated2(1).jpg</a>&nbsp;</td><td class="left"><a href="250pxsudokubyl2g20050714_solution.svg(1).png">250pxsudokubyl2g20050714_solution.svg(1).png</a>&nbsp;</td><td class="left"><a href="bvstrda.png">bvstrda.png</a>&nbsp;</td><td class="left"><a href="histogram(1).png">histogram(1).png</a>&nbsp;</td><td class="left"><a href="queue_0.png">queue_0.png</a>&nbsp;</td></tr>
-<tr class="row2"><td class="left"><a href="wowslider.js.download">wowslider.js.download</a>&nbsp;</td><td class="left"><a href="pascaltriangleanimated2.jpg">pascaltriangleanimated2.jpg</a>&nbsp;</td><td class="left"><a href="250pxsudokubyl2g20050714_solution.svg.png">250pxsudokubyl2g20050714_solution.svg.png</a>&nbsp;</td><td class="left"><a href="dfs(1).png">dfs(1).png</a>&nbsp;</td><td class="left"><a href="histogram.png">histogram.png</a>&nbsp;</td><td class="left"><a href="rainwatertrap(1).png">rainwatertrap(1).png</a>&nbsp;</td></tr>
-<tr><td class="left"><a href="right.html">right.html</a>&nbsp;</td><td class="left"><a href="queue(1).jpg">queue(1).jpg</a>&nbsp;</td><td class="left"><a href="3(1).png">3(1).png</a>&nbsp;</td><td class="left"><a href="dfs.png">dfs.png</a>&nbsp;</td><td class="left"><a href="histogram_area(1).png">histogram_area(1).png</a>&nbsp;</td><td class="left"><a href="rainwatertrap.png">rainwatertrap.png</a>&nbsp;</td></tr>
-<tr class="row2"><td class="left"><a href="wowslider.html">wowslider.html</a>&nbsp;</td><td class="left"><a href="queue.jpg">queue.jpg</a>&nbsp;</td><td class="left"><a href="3.png">3.png</a>&nbsp;</td><td class="left"><a href="directedorundirectedcycles(1).png">directedorundirectedcycles(1).png</a>&nbsp;</td><td class="left"><a href="histogram_area.png">histogram_area.png</a>&nbsp;</td><td class="left"><a href="robot_maze(1).png">robot_maze(1).png</a>&nbsp;</td></tr>
-<tr><td class="left"><a href="balance_1(1).jpg">balance_1(1).jpg</a>&nbsp;</td><td class="left"><a href="quicksort(1).jpg">quicksort(1).jpg</a>&nbsp;</td><td class="left"><a href="8queens(1).png">8queens(1).png</a>&nbsp;</td><td class="left"><a href="directedorundirectedcycles.png">directedorundirectedcycles.png</a>&nbsp;</td><td class="left"><a href="image001(1).png">image001(1).png</a>&nbsp;</td><td class="left"><a href="robot_maze.png">robot_maze.png</a>&nbsp;</td></tr>
-<tr class="row2"><td class="left"><a href="balance_1.jpg">balance_1.jpg</a>&nbsp;</td><td class="left"><a href="quicksort.jpg">quicksort.jpg</a>&nbsp;</td><td class="left"><a href="8queens.png">8queens.png</a>&nbsp;</td><td class="left"><a href="error(1).png">error(1).png</a>&nbsp;</td><td class="left"><a href="image001.png">image001.png</a>&nbsp;</td><td class="left"><a href="slldiagram(1).png">slldiagram(1).png</a>&nbsp;</td></tr>
-<tr><td class="left"><a href="balance_2(1).jpg">balance_2(1).jpg</a>&nbsp;</td><td class="left"><a href="recursionflow(1).jpg">recursionflow(1).jpg</a>&nbsp;</td><td class="left"><a href="a1(1).png">a1(1).png</a>&nbsp;</td><td class="left"><a href="error.png">error.png</a>&nbsp;</td><td class="left"><a href="leavesdepthheight(1).png">leavesdepthheight(1).png</a>&nbsp;</td><td class="left"><a href="slldiagram.png">slldiagram.png</a>&nbsp;</td></tr>
-<tr class="row2"><td class="left"><a href="balance_2.jpg">balance_2.jpg</a>&nbsp;</td><td class="left"><a href="recursionflow.jpg">recursionflow.jpg</a>&nbsp;</td><td class="left"><a href="a1.png">a1.png</a>&nbsp;</td><td class="left"><a href="fib_memoized(1).png">fib_memoized(1).png</a>&nbsp;</td><td class="left"><a href="leavesdepthheight.png">leavesdepthheight.png</a>&nbsp;</td><td class="left"><a href="stack_0(1).png">stack_0(1).png</a>&nbsp;</td></tr>
-<tr><td class="left"><a href="bubblesort(1).jpg">bubblesort(1).jpg</a>&nbsp;</td><td class="left"><a href="selectionsort(1).jpg">selectionsort(1).jpg</a>&nbsp;</td><td class="left"><a href="arr1(1).png">arr1(1).png</a>&nbsp;</td><td class="left"><a href="fib_memoized.png">fib_memoized.png</a>&nbsp;</td><td class="left"><a href="linkedlist(1).png">linkedlist(1).png</a>&nbsp;</td><td class="left"><a href="stack_0.png">stack_0.png</a>&nbsp;</td></tr>
-<tr class="row2"><td class="left"><a href="bubblesort.jpg">bubblesort.jpg</a>&nbsp;</td><td class="left"><a href="selectionsort.jpg">selectionsort.jpg</a>&nbsp;</td><td class="left"><a href="arr1.png">arr1.png</a>&nbsp;</td><td class="left"><a href="fib_tree(1).png">fib_tree(1).png</a>&nbsp;</td><td class="left"><a href="linkedlist.png">linkedlist.png</a>&nbsp;</td><td class="left"><a href="traversals(1).png">traversals(1).png</a>&nbsp;</td></tr>
-<tr><td class="left"><a href="del_node_1(1).jpg">del_node_1(1).jpg</a>&nbsp;</td><td class="left"><a href="stack(1).jpg">stack(1).jpg</a>&nbsp;</td><td class="left"><a href="array(1).png">array(1).png</a>&nbsp;</td><td class="left"><a href="fib_tree.png">fib_tree.png</a>&nbsp;</td><td class="left"><a href="maximumsumcircularsubarray(1).png">maximumsumcircularsubarray(1).png</a>&nbsp;</td><td class="left"><a href="traversals.png">traversals.png</a>&nbsp;</td></tr>
-<tr class="row2"><td class="left"><a href="del_node_1.jpg">del_node_1.jpg</a>&nbsp;</td><td class="left"><a href="stack.jpg">stack.jpg</a>&nbsp;</td><td class="left"><a href="array.png">array.png</a>&nbsp;</td><td class="left"><a href="fib_tree_duplicates(1).png">fib_tree_duplicates(1).png</a>&nbsp;</td><td class="left"><a href="maximumsumcircularsubarray.png">maximumsumcircularsubarray.png</a>&nbsp;</td><td class="left"><a href="tree(1).png">tree(1).png</a>&nbsp;</td></tr>
-<tr><td class="left"><a href="del_node_supp(1).jpg">del_node_supp(1).jpg</a>&nbsp;</td><td class="left"><a href="1604180981115(1).png">1604180981115(1).png</a>&nbsp;</td><td class="left"><a href="arrayinmemory(1).png">arrayinmemory(1).png</a>&nbsp;</td><td class="left"><a href="fib_tree_duplicates.png">fib_tree_duplicates.png</a>&nbsp;</td><td class="left"><a href="ok(1).png">ok(1).png</a>&nbsp;</td><td class="left"><a href="tree.png">tree.png</a>&nbsp;</td></tr>
-<tr class="row2"><td class="left"><a href="del_node_supp.jpg">del_node_supp.jpg</a>&nbsp;</td><td class="left"><a href="1604180981115.png">1604180981115.png</a>&nbsp;</td><td class="left"><a href="arrayinmemory.png">arrayinmemory.png</a>&nbsp;</td><td class="left"><a href="githubrepomenubarwiki(1).png">githubrepomenubarwiki(1).png</a>&nbsp;</td><td class="left"><a href="ok.png">ok.png</a>&nbsp;</td><td class="left"><a href="weightedorunweighted(1).png">weightedorunweighted(1).png</a>&nbsp;</td></tr>
-<tr><td class="left"><a href="insertionsort(1).jpg">insertionsort(1).jpg</a>&nbsp;</td><td class="left"><a href="2(1).png">2(1).png</a>&nbsp;</td><td class="left"><a href="binarytree(1).png">binarytree(1).png</a>&nbsp;</td><td class="left"><a href="githubrepomenubarwiki.png">githubrepomenubarwiki.png</a>&nbsp;</td><td class="left"><a href="postorder(1).png">postorder(1).png</a>&nbsp;</td><td class="left"><a href="weightedorunweighted.png">weightedorunweighted.png</a>&nbsp;</td></tr>
-<tr class="row2"><td class="left"><a href="insertionsort.jpg">insertionsort.jpg</a>&nbsp;</td><td class="left"><a href="2.png">2.png</a>&nbsp;</td><td class="left"><a href="binarytree.png">binarytree.png</a>&nbsp;</td><td class="left"><a href="graph(1).png">graph(1).png</a>&nbsp;</td><td class="left"><a href="postorder.png">postorder.png</a>&nbsp;</td><td class="left"><a href="ya(1).png">ya(1).png</a>&nbsp;</td></tr>
-<tr><td class="left"><a href="mergesort(1).jpg">mergesort(1).jpg</a>&nbsp;</td><td class="left"><a href="200pxtelephonekeypad2.svg(1).png">200pxtelephonekeypad2.svg(1).png</a>&nbsp;</td><td class="left"><a href="bstmidele(1).png">bstmidele(1).png</a>&nbsp;</td><td class="left"><a href="graph.png">graph.png</a>&nbsp;</td><td class="left"><a href="preandinordertraversal(1).png">preandinordertraversal(1).png</a>&nbsp;</td><td class="left"><a href="ya.png">ya.png</a>&nbsp;</td></tr>
-<tr class="row2"><td class="left"><a href="mergesort.jpg">mergesort.jpg</a>&nbsp;</td><td class="left"><a href="200pxtelephonekeypad2.svg.png">200pxtelephonekeypad2.svg.png</a>&nbsp;</td><td class="left"></td><td class="left"></td><td class="left"></td><td class="left"></td></tr>
+<tr><th><b>File</b></th><th><b>File</b></th><th><b>File</b></th><th><b>File</b></th><th><b>File</b></th><th><b>File</b></th><th><b>File</b></th><th><b>File</b></th></tr>
+<tr><td class="left"><a href="style.css">style.css</a>&nbsp;</td><td class="left"><a href="balance_2(1).jpg">balance_2(1).jpg</a>&nbsp;</td><td class="left"><a href="selectionsort(1).jpg">selectio...).jpg</a>&nbsp;</td><td class="left"><a href="A-a-week-8-converted-05.png">A-a-week...5.png</a>&nbsp;</td><td class="left"><a href="A-a-week-8-converted-27.png">A-a-week...7.png</a>&nbsp;</td><td class="left"><a href="array.png">array.png</a>&nbsp;</td><td class="left"><a href="githubrepomenubarwiki(1).png">githubre...).png</a>&nbsp;</td><td class="left"><a href="postorder.png">postorder.png</a>&nbsp;</td></tr>
+<tr class="row2"><td class="left"><a href="jquery.js.download">jquery.j...nload</a>&nbsp;</td><td class="left"><a href="balance_2.jpg">balance_2.jpg</a>&nbsp;</td><td class="left"><a href="selectionsort.jpg">selectio...t.jpg</a>&nbsp;</td><td class="left"><a href="A-a-week-8-converted-06.png">A-a-week...6.png</a>&nbsp;</td><td class="left"><a href="A-a-week-8-converted-28.png">A-a-week...8.png</a>&nbsp;</td><td class="left"><a href="arrayinmemory(1).png">arrayinm...).png</a>&nbsp;</td><td class="left"><a href="githubrepomenubarwiki.png">githubre...i.png</a>&nbsp;</td><td class="left"><a href="preandinordertraversal(1).png">preandin...).png</a>&nbsp;</td></tr>
+<tr><td class="left"><a href="script.js.download">script.j...nload</a>&nbsp;</td><td class="left"><a href="bubblesort(1).jpg">bubbleso...).jpg</a>&nbsp;</td><td class="left"><a href="stack(1).jpg">stack(1).jpg</a>&nbsp;</td><td class="left"><a href="A-a-week-8-converted-07.png">A-a-week...7.png</a>&nbsp;</td><td class="left"><a href="A-a-week-8-converted-29.png">A-a-week...9.png</a>&nbsp;</td><td class="left"><a href="arrayinmemory.png">arrayinm...y.png</a>&nbsp;</td><td class="left"><a href="graph(1).png">graph(1).png</a>&nbsp;</td><td class="left"><a href="preandinordertraversal.png">preandin...l.png</a>&nbsp;</td></tr>
+<tr class="row2"><td class="left"><a href="wowslider.js.download">wowslide...nload</a>&nbsp;</td><td class="left"><a href="bubblesort.jpg">bubblesort.jpg</a>&nbsp;</td><td class="left"><a href="stack.jpg">stack.jpg</a>&nbsp;</td><td class="left"><a href="A-a-week-8-converted-08.png">A-a-week...8.png</a>&nbsp;</td><td class="left"><a href="A-a-week-8-converted-30.png">A-a-week...0.png</a>&nbsp;</td><td class="left"><a href="binarytree(1).png">binarytr...).png</a>&nbsp;</td><td class="left"><a href="graph.png">graph.png</a>&nbsp;</td><td class="left"><a href="queue_0(1).png">queue_0(1).png</a>&nbsp;</td></tr>
+<tr><td class="left"><a href="binary-search-in-java-1.gif">binary-s...1.gif</a>&nbsp;</td><td class="left"><a href="del_node_1(1).jpg">del_node...).jpg</a>&nbsp;</td><td class="left"><a href="1604180981115(1).png">16041809...).png</a>&nbsp;</td><td class="left"><a href="A-a-week-8-converted-09.png">A-a-week...9.png</a>&nbsp;</td><td class="left"><a href="A-a-week-8-converted-31.png">A-a-week...1.png</a>&nbsp;</td><td class="left"><a href="binarytree.png">binarytree.png</a>&nbsp;</td><td class="left"><a href="graphmd(1).png">graphmd(1).png</a>&nbsp;</td><td class="left"><a href="queue_0.png">queue_0.png</a>&nbsp;</td></tr>
+<tr class="row2"><td class="left"><a href="binarysearch.gif">binarysearch.gif</a>&nbsp;</td><td class="left"><a href="del_node_1.jpg">del_node_1.jpg</a>&nbsp;</td><td class="left"><a href="1604180981115.png">16041809...5.png</a>&nbsp;</td><td class="left"><a href="A-a-week-8-converted-10.png">A-a-week...0.png</a>&nbsp;</td><td class="left"><a href="A-a-week-8-converted-32.png">A-a-week...2.png</a>&nbsp;</td><td class="left"><a href="bstmidele(1).png">bstmidele(1).png</a>&nbsp;</td><td class="left"><a href="graphmd.png">graphmd.png</a>&nbsp;</td><td class="left"><a href="rainwatertrap(1).png">rainwate...).png</a>&nbsp;</td></tr>
+<tr><td class="left"><a href="BubbleSort.gif">BubbleSort.gif</a>&nbsp;</td><td class="left"><a href="del_node_supp(1).jpg">del_node...).jpg</a>&nbsp;</td><td class="left"><a href="2(1).png">2(1).png</a>&nbsp;</td><td class="left"><a href="A-a-week-8-converted-11.png">A-a-week...1.png</a>&nbsp;</td><td class="left"><a href="A-a-week-8-converted-33.png">A-a-week...3.png</a>&nbsp;</td><td class="left"><a href="bstmidele.png">bstmidele.png</a>&nbsp;</td><td class="left"><a href="histogram(1).png">histogram(1).png</a>&nbsp;</td><td class="left"><a href="rainwatertrap.png">rainwate...p.png</a>&nbsp;</td></tr>
+<tr class="row2"><td class="left"><a href="bubblesort2.gif">bubblesort2.gif</a>&nbsp;</td><td class="left"><a href="del_node_supp.jpg">del_node...p.jpg</a>&nbsp;</td><td class="left"><a href="2.png">2.png</a>&nbsp;</td><td class="left"><a href="A-a-week-8-converted-12.png">A-a-week...2.png</a>&nbsp;</td><td class="left"><a href="A-a-week-8-converted-34.png">A-a-week...4.png</a>&nbsp;</td><td class="left"><a href="bvstrda(1).png">bvstrda(1).png</a>&nbsp;</td><td class="left"><a href="histogram.png">histogram.png</a>&nbsp;</td><td class="left"><a href="robot_maze(1).png">robot_ma...).png</a>&nbsp;</td></tr>
+<tr><td class="left"><a href="InsertionSort.gif">Insertio...t.gif</a>&nbsp;</td><td class="left"><a href="insertionsort(1).jpg">insertio...).jpg</a>&nbsp;</td><td class="left"><a href="200pxtelephonekeypad2.svg(1).png">200pxtel...).png</a>&nbsp;</td><td class="left"><a href="A-a-week-8-converted-13.png">A-a-week...3.png</a>&nbsp;</td><td class="left"><a href="A-a-week-8-converted-35.png">A-a-week...5.png</a>&nbsp;</td><td class="left"><a href="bvstrda.png">bvstrda.png</a>&nbsp;</td><td class="left"><a href="histogram_area(1).png">histogra...).png</a>&nbsp;</td><td class="left"><a href="robot_maze.png">robot_maze.png</a>&nbsp;</td></tr>
+<tr class="row2"><td class="left"><a href="insertionsort2.gif">insertio...2.gif</a>&nbsp;</td><td class="left"><a href="insertionsort.jpg">insertio...t.jpg</a>&nbsp;</td><td class="left"><a href="200pxtelephonekeypad2.svg.png">200pxtel...g.png</a>&nbsp;</td><td class="left"><a href="A-a-week-8-converted-14.png">A-a-week...4.png</a>&nbsp;</td><td class="left"><a href="A-a-week-8-converted-36.png">A-a-week...6.png</a>&nbsp;</td><td class="left"><a href="dfs(1).png">dfs(1).png</a>&nbsp;</td><td class="left"><a href="histogram_area.png">histogra...a.png</a>&nbsp;</td><td class="left"><a href="slldiagram(1).png">slldiagr...).png</a>&nbsp;</td></tr>
+<tr><td class="left"><a href="MergeSort.gif">MergeSort.gif</a>&nbsp;</td><td class="left"><a href="mergesort(1).jpg">mergesort(1).jpg</a>&nbsp;</td><td class="left"><a href="250pxsudokubyl2g20050714.svg(1).png">250pxsud...).png</a>&nbsp;</td><td class="left"><a href="A-a-week-8-converted-15.png">A-a-week...5.png</a>&nbsp;</td><td class="left"><a href="A-a-week-8-converted-37.png">A-a-week...7.png</a>&nbsp;</td><td class="left"><a href="dfs.png">dfs.png</a>&nbsp;</td><td class="left"><a href="image001(1).png">image001(1).png</a>&nbsp;</td><td class="left"><a href="slldiagram.png">slldiagram.png</a>&nbsp;</td></tr>
+<tr class="row2"><td class="left"><a href="mergesort2.gif">mergesort2.gif</a>&nbsp;</td><td class="left"><a href="mergesort.jpg">mergesort.jpg</a>&nbsp;</td><td class="left"><a href="250pxsudokubyl2g20050714.svg.png">250pxsud...g.png</a>&nbsp;</td><td class="left"><a href="A-a-week-8-converted-16.png">A-a-week...6.png</a>&nbsp;</td><td class="left"><a href="A-a-week-8-converted-38.png">A-a-week...8.png</a>&nbsp;</td><td class="left"><a href="directedorundirectedcycles(1).png">directed...).png</a>&nbsp;</td><td class="left"><a href="image001.png">image001.png</a>&nbsp;</td><td class="left"><a href="stack_0(1).png">stack_0(1).png</a>&nbsp;</td></tr>
+<tr><td class="left"><a href="queue.gif">queue.gif</a>&nbsp;</td><td class="left"><a href="obj2array(1).jpg">obj2array(1).jpg</a>&nbsp;</td><td class="left"><a href="250pxsudokubyl2g20050714_solution.svg(1).png">250pxsud...).png</a>&nbsp;</td><td class="left"><a href="A-a-week-8-converted-17.png">A-a-week...7.png</a>&nbsp;</td><td class="left"><a href="A-a-week-8-converted-40.png">A-a-week...0.png</a>&nbsp;</td><td class="left"><a href="directedorundirectedcycles.png">directed...s.png</a>&nbsp;</td><td class="left"><a href="leavesdepthheight(1).png">leavesde...).png</a>&nbsp;</td><td class="left"><a href="stack_0.png">stack_0.png</a>&nbsp;</td></tr>
+<tr class="row2"><td class="left"><a href="QuickSort.gif">QuickSort.gif</a>&nbsp;</td><td class="left"><a href="obj2array.jpg">obj2array.jpg</a>&nbsp;</td><td class="left"><a href="250pxsudokubyl2g20050714_solution.svg.png">250pxsud...g.png</a>&nbsp;</td><td class="left"><a href="A-a-week-8-converted-18.png">A-a-week...8.png</a>&nbsp;</td><td class="left"><a href="A-a-week-8-converted-41.png">A-a-week...1.png</a>&nbsp;</td><td class="left"><a href="error(1).png">error(1).png</a>&nbsp;</td><td class="left"><a href="leavesdepthheight.png">leavesde...t.png</a>&nbsp;</td><td class="left"><a href="traversals(1).png">traversa...).png</a>&nbsp;</td></tr>
+<tr><td class="left"><a href="quicksort2.gif">quicksort2.gif</a>&nbsp;</td><td class="left"><a href="pascaltriangleanimated2(1).jpg">pascaltr...).jpg</a>&nbsp;</td><td class="left"><a href="3(1).png">3(1).png</a>&nbsp;</td><td class="left"><a href="A-a-week-8-converted-19.png">A-a-week...9.png</a>&nbsp;</td><td class="left"><a href="A-a-week-8-converted-42.png">A-a-week...2.png</a>&nbsp;</td><td class="left"><a href="error.png">error.png</a>&nbsp;</td><td class="left"><a href="linkedlist(1).png">linkedli...).png</a>&nbsp;</td><td class="left"><a href="traversals.png">traversals.png</a>&nbsp;</td></tr>
+<tr class="row2"><td class="left"><a href="SelectionSort.gif">Selectio...t.gif</a>&nbsp;</td><td class="left"><a href="pascaltriangleanimated2.jpg">pascaltr...2.jpg</a>&nbsp;</td><td class="left"><a href="3.png">3.png</a>&nbsp;</td><td class="left"><a href="A-a-week-8-converted-20.png">A-a-week...0.png</a>&nbsp;</td><td class="left"><a href="A-a-week-8-converted-43.png">A-a-week...3.png</a>&nbsp;</td><td class="left"><a href="fib_memoized(1).png">fib_memo...).png</a>&nbsp;</td><td class="left"><a href="linkedlist.png">linkedlist.png</a>&nbsp;</td><td class="left"><a href="tree(1).png">tree(1).png</a>&nbsp;</td></tr>
+<tr><td class="left"><a href="selectionsort2.gif">selectio...2.gif</a>&nbsp;</td><td class="left"><a href="queue(1).jpg">queue(1).jpg</a>&nbsp;</td><td class="left"><a href="8queens(1).png">8queens(1).png</a>&nbsp;</td><td class="left"><a href="A-a-week-8-converted-21.png">A-a-week...1.png</a>&nbsp;</td><td class="left"><a href="a1(1).png">a1(1).png</a>&nbsp;</td><td class="left"><a href="fib_memoized.png">fib_memoized.png</a>&nbsp;</td><td class="left"><a href="maximumsumcircularsubarray(1).png">maximums...).png</a>&nbsp;</td><td class="left"><a href="tree.png">tree.png</a>&nbsp;</td></tr>
+<tr class="row2"><td class="left"><a href="stack.gif">stack.gif</a>&nbsp;</td><td class="left"><a href="queue.jpg">queue.jpg</a>&nbsp;</td><td class="left"><a href="8queens.png">8queens.png</a>&nbsp;</td><td class="left"><a href="A-a-week-8-converted-22.png">A-a-week...2.png</a>&nbsp;</td><td class="left"><a href="a1.png">a1.png</a>&nbsp;</td><td class="left"><a href="fib_tree(1).png">fib_tree(1).png</a>&nbsp;</td><td class="left"><a href="maximumsumcircularsubarray.png">maximums...y.png</a>&nbsp;</td><td class="left"><a href="weightedorunweighted(1).png">weighted...).png</a>&nbsp;</td></tr>
+<tr><td class="left"><a href="right.html">right.html</a>&nbsp;</td><td class="left"><a href="quicksort(1).jpg">quicksort(1).jpg</a>&nbsp;</td><td class="left"><a href="A-a-week-8-converted-01.png">A-a-week...1.png</a>&nbsp;</td><td class="left"><a href="A-a-week-8-converted-23.png">A-a-week...3.png</a>&nbsp;</td><td class="left"><a href="arr1(1).png">arr1(1).png</a>&nbsp;</td><td class="left"><a href="fib_tree.png">fib_tree.png</a>&nbsp;</td><td class="left"><a href="ok(1).png">ok(1).png</a>&nbsp;</td><td class="left"><a href="weightedorunweighted.png">weighted...d.png</a>&nbsp;</td></tr>
+<tr class="row2"><td class="left"><a href="wowslider.html">wowslider.html</a>&nbsp;</td><td class="left"><a href="quicksort.jpg">quicksort.jpg</a>&nbsp;</td><td class="left"><a href="A-a-week-8-converted-02.png">A-a-week...2.png</a>&nbsp;</td><td class="left"><a href="A-a-week-8-converted-24.png">A-a-week...4.png</a>&nbsp;</td><td class="left"><a href="arr1.png">arr1.png</a>&nbsp;</td><td class="left"><a href="fib_tree_duplicates(1).png">fib_tree...).png</a>&nbsp;</td><td class="left"><a href="ok.png">ok.png</a>&nbsp;</td><td class="left"><a href="ya(1).png">ya(1).png</a>&nbsp;</td></tr>
+<tr><td class="left"><a href="balance_1(1).jpg">balance_1(1).jpg</a>&nbsp;</td><td class="left"><a href="recursionflow(1).jpg">recursio...).jpg</a>&nbsp;</td><td class="left"><a href="A-a-week-8-converted-03.png">A-a-week...3.png</a>&nbsp;</td><td class="left"><a href="A-a-week-8-converted-25.png">A-a-week...5.png</a>&nbsp;</td><td class="left"><a href="array(1).png">array(1).png</a>&nbsp;</td><td class="left"><a href="fib_tree_duplicates.png">fib_tree...s.png</a>&nbsp;</td><td class="left"><a href="postorder(1).png">postorder(1).png</a>&nbsp;</td><td class="left"><a href="ya.png">ya.png</a>&nbsp;</td></tr>
+<tr class="row2"><td class="left"><a href="balance_1.jpg">balance_1.jpg</a>&nbsp;</td><td class="left"><a href="recursionflow.jpg">recursio...w.jpg</a>&nbsp;</td><td class="left"><a href="A-a-week-8-converted-04.png">A-a-week...4.png</a>&nbsp;</td><td class="left"><a href="A-a-week-8-converted-26.png">A-a-week...6.png</a>&nbsp;</td><td class="left"></td><td class="left"></td><td class="left"></td><td class="left"></td></tr>
 </table>
 
 <p style="font-weight: bold; margin-bottom: 0px">
 Folders:  1<br>
-Files: 116<br>
-Size of all files: 5949625 K</p>
+Files: 172<br>
+Size of all files: 114399401 KB</p>
 
 </body>
 </html>

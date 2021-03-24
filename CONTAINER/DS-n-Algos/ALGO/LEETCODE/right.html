@@ -22,15 +22,35 @@
             width: device-width;
         }
         body {
+  background: linear-gradient(-45deg, #da0000, #0008ffe5, #23d5a2d8, #2f2fbce5);
+  background-size: 400% 400%;
+  -webkit-animation: gradient 15s ease infinite;
+  animation: gradient 15s ease infinite;
             -ms-overflow-style: scrollbar;
-		zoom:0.9;
+		zoom:0.73;
         }
-        @media screen and (max-width: 480px) {
-            html,
-            body {
-             
-            }
-        }
+@-webkit-keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
         html {
             box-sizing: border-box;
         }
@@ -56,33 +76,19 @@
         }
         /* Type */
         html {
-            font-size: 13pt;
+            font-size: 11pt;
         }
-        @media screen and (max-width: 1680px) {
-            html {
-                font-size: 10pt;
-            }
-        }
-        @media screen and (max-width: 1280px) {
-            html {
-                font-size: 11pt;
-            }
-        }
-        @media screen and (max-width: 360px) {
-            html {
-                font-size: 10pt;
-            }
-        }
+       
         body {
-            color: #212931;
+            color: whitesmoke;
         }
         body,
         input,
         select,
         textarea {
             font-family: "Merriweather", Georgia, serif;
-            font-weight: 300;
-            font-size: 1rem;
+            font-weight: 200;
+            font-size: 0.8rem;
           
         }
         a {
@@ -104,13 +110,13 @@
         }
         BODY {
             background: black font-family: 'Open Sans', sans-serif;
-            font-weight: 300;
+            font-weight: 150;
          
             color: #A7A1AE;
             background-color: #1F2739;
         }
         h1 {
-            font-size: 3em;
+            font-size: 2em;
             font-weight: 300;
          
             text-align: left;
@@ -121,6 +127,7 @@
         }
         A {
             text-decoration: none color:black;
+            overflow-wrap: break-word;
         }
         A:hover {
             color: red;
@@ -133,10 +140,10 @@
             background: #fffefe;
             border-left: 3px solid;
             border-collapse: collapse;
-            margin: 25px 0;
+            margin: 15px 0;
             font-size: 0.8em;
             font-family: sans-serif;
-            min-width: 350px;
+            min-width: 250px;
             box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
             border-top: 1px solid;
             border-bottom: 0px solid;
@@ -145,6 +152,7 @@
             width: 80%;
             display: table;
             padding: 0 0 8em 0;
+overflow-wrap: break-word;
         }
         TABLE.fancy TD {
             border-right: 1px solid;
@@ -179,6 +187,7 @@
             -moz-border-radius: 10px;
             -ms-border-radius: 10px;
             -o-border-radius: 20px;
+overflow-wrap: break-word;
         }
         TABLE.fancy tr:nth-child(odd) {
             background-color: #323C50;
@@ -523,24 +532,23 @@ div.clear {
 <body>
 
 <table border="0" cellspacing="0" cellpadding="3" summary="file table" class="fancy centered">
-<tr><td colspan="10" class="dark-blue" style="text-align: center"><b>Folders</b></td></tr>
-<tr><td class="left"><a href="../right.html" target="rframe">&lt;parent&gt;</a></td></tr>
+<tr><td colspan="6" class="dark-blue" style="text-align: center"><b>Folders</b></td></tr>
+<tr><td class="left"><a href="../right.html" target="rframe">&lt;Go Back&gt;</a></td></tr>
 </table>
 <br>
 
 <table border="0" cellspacing="0" cellpadding="3" summary="file table" class="fancy centered">
-<tr><th><b>File</b></th><th><b>File</b></th><th><b>File</b></th><th><b>File</b></th><th><b>File</b></th><th><b>File</b></th></tr>
-<tr><td class="left"><a href="right.html">right.html</a>&nbsp;</td><td class="left"><a href="isSuperUgly.js">isSuperUgly.js</a>&nbsp;</td><td class="left"><a href="longest_substring_without_repeating_char.js">longest_substring_without_repeating_char.js</a>&nbsp;</td><td class="left"><a href="Max_Average_Subarray.js">Max_Average_Subarray.js</a>&nbsp;</td><td class="left"><a href="remove-duplicates-from-sorted-array.js">remove-duplicates-from-sorted-array.js</a>&nbsp;</td><td class="left"><a href="shortest-distance-to-a-character.js">shortest-distance-to-a-character.js</a>&nbsp;</td></tr>
-<tr class="row2"><td class="left"><a href="2-sum.js">2-sum.js</a>&nbsp;</td><td class="left"><a href="isUgly-Find-nth-Ugly.js">isUgly-Find-nth-Ugly.js</a>&nbsp;</td><td class="left"><a href="majority_element.js">majority_element.js</a>&nbsp;</td><td class="left"><a href="merge-sorted-array.js">merge-sorted-array.js</a>&nbsp;</td><td class="left"><a href="Remove_Nth_Node_From_End_of_LinkedList.js">Remove_Nth_Node_From_End_of_LinkedList.js</a>&nbsp;</td><td class="left"><a href="string-to-integer-atoi-1.js">string-to-integer-atoi-1.js</a>&nbsp;</td></tr>
-<tr><td class="left"><a href="add-digits.js">add-digits.js</a>&nbsp;</td><td class="left"><a href="isUgly.js">isUgly.js</a>&nbsp;</td><td class="left"><a href="max-contiguous-subarray-general-Solution.js">max-contiguous-subarray-general-Solution.js</a>&nbsp;</td><td class="left"><a href="merge-two-sorted-linked-lists.js">merge-two-sorted-linked-lists.js</a>&nbsp;</td><td class="left"><a href="reverse_integer.js">reverse_integer.js</a>&nbsp;</td><td class="left"><a href="string-to-integer-atoi-2.js">string-to-integer-atoi-2.js</a>&nbsp;</td></tr>
-<tr class="row2"><td class="left"><a href="E027_remove_element.js">E027_remove_element.js</a>&nbsp;</td><td class="left"><a href="license-Key-Formatting.js">license-Key-Formatting.js</a>&nbsp;</td><td class="left"><a href="max-sum-subarray.js">max-sum-subarray.js</a>&nbsp;</td><td class="left"><a href="palindrome-number.js">palindrome-number.js</a>&nbsp;</td><td class="left"><a href="roman_to_integer.js">roman_to_integer.js</a>&nbsp;</td><td class="left"><a href="valid-parentheses.js">valid-parentheses.js</a>&nbsp;</td></tr>
-<tr><td class="left"><a href="integer_to_roman.js">integer_to_roman.js</a>&nbsp;</td><td class="left"><a href="longest-Common-Prefix.js">longest-Common-Prefix.js</a>&nbsp;</td><td class="left"><a href="Max_Average_Subarray-2.js">Max_Average_Subarray-2.js</a>&nbsp;</td><td class="left"><a href="RangeSumQuery.js">RangeSumQuery.js</a>&nbsp;</td><td class="left"><a href="self-dividing-number.js">self-dividing-number.js</a>&nbsp;</td><td class="left"><a href="zigzag-conversion.js">zigzag-conversion.js</a>&nbsp;</td></tr>
+<tr><th><b>File</b></th><th><b>File</b></th><th><b>File</b></th><th><b>File</b></th><th><b>File</b></th><th><b>File</b></th><th><b>File</b></th><th><b>File</b></th></tr>
+<tr><td class="left"><a href="right.html">right.html</a>&nbsp;</td><td class="left"><a href="integer_to_roman.js">integer_...an.js</a>&nbsp;</td><td class="left"><a href="license-Key-Formatting.js">license-...ng.js</a>&nbsp;</td><td class="left"><a href="majority_element.js">majority...nt.js</a>&nbsp;</td><td class="left"><a href="Max_Average_Subarray-2.js">Max_Aver...-2.js</a>&nbsp;</td><td class="left"><a href="palindrome-number.js">palindro...er.js</a>&nbsp;</td><td class="left"><a href="roman_to_integer.js">roman_to...er.js</a>&nbsp;</td><td class="left"><a href="string-to-integer-atoi-2.js">string-t...-2.js</a>&nbsp;</td></tr>
+<tr class="row2"><td class="left"><a href="2-sum.js">2-sum.js</a>&nbsp;</td><td class="left"><a href="isUgly-Find-nth-Ugly.js">isUgly-F...ly.js</a>&nbsp;</td><td class="left"><a href="longest-Common-Prefix.js">longest-...ix.js</a>&nbsp;</td><td class="left"><a href="max-contiguous-subarray-general-Solution.js">max-cont...on.js</a>&nbsp;</td><td class="left"><a href="Max_Average_Subarray.js">Max_Aver...ay.js</a>&nbsp;</td><td class="left"><a href="remove-duplicates-from-sorted-array.js">remove-d...ay.js</a>&nbsp;</td><td class="left"><a href="self-dividing-number.js">self-div...er.js</a>&nbsp;</td><td class="left"><a href="valid-parentheses.js">valid-pa...es.js</a>&nbsp;</td></tr>
+<tr><td class="left"><a href="add-digits.js">add-digits.js</a>&nbsp;</td><td class="left"><a href="isUgly.js">isUgly.js</a>&nbsp;</td><td class="left"><a href="longest_substring_without_repeating_char.js">longest_...ar.js</a>&nbsp;</td><td class="left"><a href="max-sum-subarray.js">max-sum-...ay.js</a>&nbsp;</td><td class="left"><a href="merge-sorted-array.js">merge-so...ay.js</a>&nbsp;</td><td class="left"><a href="reverse_integer.js">reverse_...er.js</a>&nbsp;</td><td class="left"><a href="shortest-distance-to-a-character.js">shortest...er.js</a>&nbsp;</td><td class="left"><a href="zigzag-conversion.js">zigzag-c...on.js</a>&nbsp;</td></tr>
+<tr class="row2"><td class="left"><a href="E027_remove_element.js">E027_rem...nt.js</a>&nbsp;</td><td class="left"></td><td class="left"></td><td class="left"></td><td class="left"></td><td class="left"></td><td class="left"></td><td class="left"></td></tr>
 </table>
 
 <p style="font-weight: bold; margin-bottom: 0px">
 Folders:  1<br>
-Files: 30<br>
-Size of all files: 95853 K</p>
+Files: 25<br>
+Size of all files: 85104 KB</p>
 
 </body>
 </html>
