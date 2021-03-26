@@ -1,7 +1,7 @@
 // Leetcode #141
 // Language: Javascript
 // Problem: https://leetcode.com/problems/linked-list-cycle/
-// Author: Chihung Yu
+// Author: Bryan Guner 
 /**
  * Definition for singly-linked list.
  * function ListNode(val) {

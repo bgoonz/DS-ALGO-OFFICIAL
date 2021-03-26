@@ -1,7 +1,7 @@
 // Leetcode #203
 // Language: Javascript
 // Problem: https://leetcode.com/problems/remove-linked-list-elements/
-// Author: Chihung Yu
+// Author: Bryan Guner 
 /**
  * Definition for singly-linked list.
  * function ListNode(val) {

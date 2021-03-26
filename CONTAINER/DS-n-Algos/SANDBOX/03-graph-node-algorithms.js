@@ -1,11 +1,11 @@
-const chai = require('chai');
+import chai from 'chai';
 chai.use(require('chai-spies'));
 const { expect, spy } = chai;
 
-const { GraphNode } = require('../lib/graph_node');
-const { breadthFirstSearch } = require('../lib/breadth_first_search');
-const { maxValue } = require('../lib/max_value');
-const { numRegions } = require('../lib/num_regions');
+import {GraphNode} from '../lib/graph_node';
+import {breadthFirstSearch} from '../lib/breadth_first_search';
+import {maxValue} from '../lib/max_value';
+import {numRegions} from '../lib/num_regions';
 
 describe('GraphNode Algorithms', () => {
     describe('breadthFirstSearch(startingNode, targetVal)', () => {

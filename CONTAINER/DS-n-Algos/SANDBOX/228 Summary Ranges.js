@@ -1,7 +1,7 @@
 // Leetcode #228 
 // Language: Javascript
 // Problem: https://leetcode.com/problems/summary-ranges/
-// Author: Chihung Yu
+// Author: Bryan Guner 
 /**
  * @param {number[]} nums
  * @return {string[]}

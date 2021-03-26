@@ -1,7 +1,7 @@
 // Leetcode #189
 // Language: Javascript
 // Problem: https://leetcode.com/problems/rotate-array/
-// Author: Chihung Yu
+// Author: Bryan Guner 
 /**
  * @param {number[]} nums
  * @param {number} k

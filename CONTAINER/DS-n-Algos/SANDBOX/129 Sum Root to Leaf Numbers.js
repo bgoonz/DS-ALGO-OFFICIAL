@@ -1,7 +1,7 @@
 // Leetcode 129
 // Language: Javascript
 // Problem: https://leetcode.com/problems/sum-root-to-leaf-numbers/
-// Author: Chihung Yu
+// Author: Bryan Guner 
 /**
  * Definition for a binary tree node.
  * function TreeNode(val) {

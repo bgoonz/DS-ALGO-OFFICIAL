@@ -1,7 +1,7 @@
 // Leetcode #166
 // Language: Javascript
 // Problem: https://leetcode.com/problems/fraction-to-recurring-decimal/
-// Author: Chihung Yu
+// Author: Bryan Guner 
 /**
  * @param {number} numerator
  * @param {number} denominator

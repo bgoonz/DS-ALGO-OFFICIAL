@@ -1,7 +1,7 @@
 // Leetcode #168
 // Language: Javascript
 // Problem: https://leetcode.com/problems/excel-sheet-column-title/
-// Author: Chihung Yu
+// Author: Bryan Guner 
 /**
  * @param {number} n
  * @return {string}

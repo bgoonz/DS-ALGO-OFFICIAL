@@ -1,7 +1,7 @@
 // Leetcode #112 
 // Language: Javascript
 // Problem: https://leetcode.com/problems/path-sum/
-// Author: Chihung Yu
+// Author: Bryan Guner 
 /**
  * Definition for a binary tree node.
  * function TreeNode(val) {

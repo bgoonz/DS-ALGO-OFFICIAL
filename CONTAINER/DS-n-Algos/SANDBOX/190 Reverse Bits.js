@@ -1,7 +1,7 @@
 // Leetcode #190
 // Language: Javascript
 // Problem: https://leetcode.com/problems/reverse-bits/
-// Author: Chihung Yu
+// Author: Bryan Guner 
 /**
  * @param {number} n - a positive integer
  * @return {number} - a positive integer

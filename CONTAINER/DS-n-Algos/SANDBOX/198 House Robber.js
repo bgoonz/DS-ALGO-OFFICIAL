@@ -14,7 +14,7 @@
 // Leetcode #198
 // Language: Javascript
 // Problem: https://leetcode.com/problems/house-robber/
-// Author: Chihung Yu
+// Author: Bryan Guner 
 /**
  * @param {number[]} nums
  * @return {number}

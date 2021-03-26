@@ -1,7 +1,7 @@
 // Leetcode #155
 // Language: Javascript
 // Problem: https://leetcode.com/problems/min-stack/
-// Author: Chihung Yu
+// Author: Bryan Guner 
 /**
  * @constructor
  */

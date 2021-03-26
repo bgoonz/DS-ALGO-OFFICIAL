@@ -1,7 +1,7 @@
 // Leetcode 114
 // Language: Javascript
 // Problem: https://leetcode.com/problems/flatten-binary-tree-to-linked-list/
-// Author: Chihung Yu
+// Author: Bryan Guner 
 /**
  * Definition for a binary tree node.
  * function TreeNode(val) {

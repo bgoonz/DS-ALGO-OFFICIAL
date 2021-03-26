@@ -1,7 +1,7 @@
 // Leetcode 120
 // Language: Javascript
 // Problem: https://leetcode.com/problems/triangle/
-// Author: Chihung Yu
+// Author: 
 /**
  * @param {number[][]} triangle
  * @return {number}
@@ -15,19 +15,20 @@ const minimumTotal = triangle => {
         next = triangle[curLvlIndex + 1];
         
         for(let i = 0; i < next.length; i++){
-            let a, b;
+            let a;
+            let b;
             if(i === 0){
                 b = Infinity;
             } else {
                 b = cur[i-1];
             }
-            
+
             if(i < cur.length){
                 a = cur[i];
             } else {
                 a = Infinity;
             }
-            
+
             next[i] += Math.min(a,b);
         }
         cur = next;

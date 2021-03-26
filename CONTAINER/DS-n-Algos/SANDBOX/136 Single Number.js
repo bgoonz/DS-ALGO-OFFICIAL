@@ -1,7 +1,7 @@
 // Leetcode 136
 // Language: Javascript
 // Problem: https://leetcode.com/problems/single-number/
-// Author: Chihung Yu
+// Author: Bryan Guner 
 /**
  * @param {number[]} nums
  * @return {number}

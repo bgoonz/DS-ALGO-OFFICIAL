@@ -5,7 +5,7 @@
 // Leetcode #204
 // Language: Javascript
 // Problem: https://leetcode.com/problems/count-primes/
-// Author: Chihung Yu
+// Author: Bryan Guner 
 /**
  * @param {number} n
  * @return {number}

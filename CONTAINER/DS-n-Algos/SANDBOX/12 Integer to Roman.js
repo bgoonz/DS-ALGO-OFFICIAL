@@ -1,7 +1,7 @@
 // Leetcode 12
 // Language: Javascript
 // Problem: https://leetcode.com/problems/integer-to-roman/
-// Author: Chihung Yu
+// Author: Bryan Guner 
 /**
  * @param {number} num
  * @return {string}

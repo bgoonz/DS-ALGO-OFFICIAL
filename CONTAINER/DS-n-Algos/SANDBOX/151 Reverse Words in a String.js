@@ -1,7 +1,7 @@
 // Leetcode #151
 // Language: Javascript
 // Problem: https://leetcode.com/problems/reverse-words-in-a-string/
-// Author: Chihung Yu
+// Author: Bryan Guner 
 /**
  * @param {string} str
  * @returns {string}

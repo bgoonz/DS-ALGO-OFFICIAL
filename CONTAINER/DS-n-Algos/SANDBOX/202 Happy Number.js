@@ -1,7 +1,7 @@
 // Leetcode #202
 // Language: Javascript
 // Problem: https://leetcode.com/problems/happy-number/
-// Author: Chihung Yu
+// Author: Bryan Guner 
 /**
  * @param {number} n
  * @return {boolean}

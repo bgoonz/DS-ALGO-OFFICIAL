@@ -1,7 +1,7 @@
 // Leetcode #229
 // Language: Javascript
 // Problem: https://leetcode.com/problems/majority-element-ii/
-// Author: Chihung Yu
+// Author: Bryan Guner 
 /**
  * @param {number[]} nums
  * @return {number[]}

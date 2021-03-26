@@ -1,7 +1,7 @@
 // Leetcode 318
 // Language: Javascript
 // Problem: https://leetcode.com/problems/maximum-product-of-word-lengths/
-// Author: Chihung Yu
+// Author: Bryan Guner 
 /**
  * @param {string[]} words
  * @return {number}

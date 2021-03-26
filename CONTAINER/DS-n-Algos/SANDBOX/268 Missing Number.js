@@ -1,7 +1,7 @@
 // Leetcode 268
 // Language: Javascript
 // Problem: https://leetcode.com/problems/missing-number/
-// Author: Chihung Yu
+// Author: Bryan Guner 
 /**
  * @param {number[]} nums
  * @return {number}

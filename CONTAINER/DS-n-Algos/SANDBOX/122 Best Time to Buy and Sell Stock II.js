@@ -1,7 +1,7 @@
 // Leetcode 122
 // Language: Javascript
 // Problem: https://leetcode.com/problems/best-time-to-buy-and-sell-stock-ii/
-// Author: Chihung Yu
+// Author: Bryan Guner 
 /**
  * @param {number[]} prices
  * @return {number}

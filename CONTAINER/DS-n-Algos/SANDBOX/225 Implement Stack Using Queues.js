@@ -1,7 +1,7 @@
 // Leetcode #225
 // Language: Javascript
 // Problem: https://leetcode.com/problems/implement-stack-using-queues/
-// Author: Chihung Yu
+// Author: Bryan Guner 
 /**
  * @constructor
  */

@@ -1,7 +1,7 @@
 // Leetcode #219
 // Language: Javascript
 // Problem: https://leetcode.com/problems/contains-duplicate-ii/
-// Author: Chihung Yu
+// Author: Bryan Guner 
 /**
  * @param {number[]} nums
  * @param {number} k

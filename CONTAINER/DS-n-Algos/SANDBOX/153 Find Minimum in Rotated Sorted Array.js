@@ -1,7 +1,7 @@
 // Leetcode #153
 // Language: Javascript
 // Problem: https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/
-// Author: Chihung Yu
+// Author: Bryan Guner 
 /**
  * @param {number[]} nums
  * @return {number}

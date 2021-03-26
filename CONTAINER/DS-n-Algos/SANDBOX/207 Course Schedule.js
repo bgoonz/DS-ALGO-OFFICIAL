@@ -1,7 +1,7 @@
 // Leetcode #225
 // Language: Javascript
 // Problem: https://leetcode.com/problems/course-schedule/
-// Author: Chihung Yu
+// Author: Bryan Guner 
 
 // Non-recursion version 144ms
 // more generic solution to problem that doesn't need information of numCourses and can deal with duplicated prerequisites

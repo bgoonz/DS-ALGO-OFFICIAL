@@ -1,7 +1,7 @@
 // Leetcode 111
 // Language: Javascript
 // Problem: https://leetcode.com/problems/minimum-depth-of-binary-tree/
-// Author: Chihung Yu
+// Author: Bryan Guner 
 /**
  * Definition for a binary tree node.
  * function TreeNode(val) {

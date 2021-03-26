@@ -1,7 +1,7 @@
 // Leetcode #206
 // Language: Javascript
 // Problem: https://leetcode.com/problems/reverse-linked-list/
-// Author: Chihung Yu
+// Author: Bryan Guner 
 
 
 // Reverse a singly linked list.

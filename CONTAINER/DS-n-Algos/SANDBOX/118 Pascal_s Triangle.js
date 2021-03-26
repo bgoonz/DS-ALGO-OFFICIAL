@@ -1,7 +1,7 @@
 // Leetcode 118
 // Language: Javascript
 // Problem: https://leetcode.com/problems/pascals-triangle/
-// Author: Chihung Yu
+// Author: Bryan Guner 
 /**
  * @param {number} numRows
  * @return {number[][]}

@@ -1,7 +1,7 @@
 // Leetcode 46
 // Language: Javascript
 // Problem: https://leetcode.com/problems/permutations/
-// Author: Chihung Yu
+// Author: 
 /**
  * @param {number[]} nums
  * @return {number[][]}

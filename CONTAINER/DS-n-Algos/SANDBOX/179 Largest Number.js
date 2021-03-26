@@ -1,7 +1,7 @@
 // Leetcode #179
 // Language: Javascript
 // Problem: https://leetcode.com/problems/largest-number/
-// Author: Chihung Yu
+// Author: Bryan Guner 
 /**
  * @param {number[]} nums
  * @return {string}

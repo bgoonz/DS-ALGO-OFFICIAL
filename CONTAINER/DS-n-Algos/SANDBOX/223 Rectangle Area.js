@@ -1,7 +1,7 @@
 // Leetcode #223
 // Language: Javascript
 // Problem: https://leetcode.com/problems/rectangle-area/
-// Author: Chihung Yu
+// Author: Bryan Guner 
 /**
  * @param {number} A
  * @param {number} B

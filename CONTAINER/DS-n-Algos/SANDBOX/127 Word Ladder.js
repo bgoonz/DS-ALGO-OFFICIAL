@@ -21,7 +21,7 @@
 // Leetcode 127
 // Language: Javascript
 // Problem: https://leetcode.com/problems/word-ladder/
-// Author: Chihung Yu
+// Author: Bryan Guner 
 
 /**
  * @param {string} beginWord

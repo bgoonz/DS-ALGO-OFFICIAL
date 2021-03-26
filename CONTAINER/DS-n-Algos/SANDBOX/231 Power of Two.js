@@ -1,7 +1,7 @@
 // Leetcode #231 
 // Language: Javascript
 // Problem: https://leetcode.com/problems/power-of-two/
-// Author: Chihung Yu
+// Author: Bryan Guner 
 // Given an integer, write a function to determine if it is a power of two.
 
 // Credits:

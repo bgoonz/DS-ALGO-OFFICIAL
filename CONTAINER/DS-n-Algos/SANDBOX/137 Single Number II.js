@@ -1,7 +1,7 @@
 // Leetcode 137
 // Language: Javascript
 // Problem: https://leetcode.com/problems/single-number-ii/
-// Author: Chihung Yu
+// Author: Bryan Guner 
 /**
  * @param {number[]} nums
  * @return {number}

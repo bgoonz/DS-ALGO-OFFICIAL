@@ -1,7 +1,7 @@
 // Leetcode #234
 // Language: Javascript
 // Problem: https://leetcode.com/problems/palindrome-linked-list/
-// Author: Chihung Yu
+// Author: Bryan Guner 
 /**
  * Definition for singly-linked list.
  * function ListNode(val) {

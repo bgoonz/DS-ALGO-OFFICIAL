@@ -21,7 +21,7 @@
 // Leetcode #226 
 // Language: Javascript
 // Problem: https://leetcode.com/problems/invert-binary-tree/
-// Author: Chihung Yu
+// Author: Bryan Guner 
 /**
  * Definition for a binary tree node.
  * function TreeNode(val) {

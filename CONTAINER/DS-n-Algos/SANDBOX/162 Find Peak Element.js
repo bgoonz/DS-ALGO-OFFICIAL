@@ -1,7 +1,7 @@
 // Leetcode #162
 // Language: Javascript
 // Problem: https://leetcode.com/problems/find-peak-element/
-// Author: Chihung Yu
+// Author: Bryan Guner 
 /**
  * @param {number[]} nums
  * @return {number}

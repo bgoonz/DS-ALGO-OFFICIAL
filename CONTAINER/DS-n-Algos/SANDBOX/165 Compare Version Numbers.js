@@ -1,7 +1,7 @@
 // Leetcode #165
 // Language: Javascript
 // Problem: https://leetcode.com/problems/compare-version-numbers/
-// Author: Chihung Yu
+// Author: Bryan Guner 
 /**
  * @param {string} version1
  * @param {string} version2

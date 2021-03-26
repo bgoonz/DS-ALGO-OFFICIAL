@@ -1,7 +1,7 @@
 // Leetcode #172
 // Language: Javascript
 // Problem: https://leetcode.com/problems/factorial-trailing-zeroes/
-// Author: Chihung Yu
+// Author: Bryan Guner 
 /**
  * @param {number} n
  * @return {number}

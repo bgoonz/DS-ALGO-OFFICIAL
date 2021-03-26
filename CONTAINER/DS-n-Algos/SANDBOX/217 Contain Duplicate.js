@@ -1,7 +1,7 @@
 // Leetcode #217
 // Language: Javascript
 // Problem: https://leetcode.com/problems/contains-duplicate/
-// Author: Chihung Yu
+// Author: Bryan Guner 
 /**
  * @param {number[]} nums
  * @return {boolean}

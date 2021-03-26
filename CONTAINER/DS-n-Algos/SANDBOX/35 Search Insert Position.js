@@ -1,7 +1,7 @@
 // Leetcode 35
 // Language: Javascript
 // Problem: https://leetcode.com/problems/search-insert-position/
-// Author: Chihung Yu
+// Author: Bryan Guner 
 /**
  * @param {number[]} nums
  * @param {number} target

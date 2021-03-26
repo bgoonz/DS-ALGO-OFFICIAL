@@ -1,7 +1,7 @@
 // Leetcode #144
 // Language: Javascript
 // Problem: https://leetcode.com/problems/binary-tree-preorder-traversal/
-// Author: Chihung Yu
+// Author: Bryan Guner 
 /**
  * Definition for a binary tree node.
  * function TreeNode(val) {

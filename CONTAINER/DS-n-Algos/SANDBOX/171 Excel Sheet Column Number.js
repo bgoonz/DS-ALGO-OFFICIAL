@@ -1,7 +1,7 @@
 // Leetcode #171
 // Language: Javascript
 // Problem: https://leetcode.com/problems/excel-sheet-column-number/
-// Author: Chihung Yu
+// Author: Bryan Guner 
 /**
  * @param {string} s
  * @return {number}

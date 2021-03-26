@@ -1,7 +1,7 @@
 // Leetcode #237 
 // Language: Javascript
 // Problem: https://leetcode.com/problems/delete-node-in-a-linked-list/
-// Author: Chihung Yu
+// Author: Bryan Guner 
 /**
  * Definition for singly-linked list.
  * function ListNode(val) {

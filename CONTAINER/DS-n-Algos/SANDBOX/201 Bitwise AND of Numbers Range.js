@@ -1,7 +1,7 @@
 // Leetcode #201
 // Language: Javascript
 // Problem: https://leetcode.com/problems/bitwise-and-of-numbers-range/
-// Author: Chihung Yu
+// Author: Bryan Guner 
 /**
  * @param {number} m
  * @param {number} n
