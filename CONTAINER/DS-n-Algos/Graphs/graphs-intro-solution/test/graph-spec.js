@@ -1,4 +1,4 @@
-const chai = require('chai');
+let chai = require('chai');
 chai.use(require('chai-spies'));
 const { expect, spy } = chai;
 
