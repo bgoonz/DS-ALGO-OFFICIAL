@@ -1,6 +1,5 @@
 /*
   Breadth First Tree Traversal or level order traversal implementation in javascript
-  Author: @GerardUbuntu
 */
 
 class Node {

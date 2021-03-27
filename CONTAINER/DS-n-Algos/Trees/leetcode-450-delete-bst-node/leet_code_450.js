@@ -12,7 +12,7 @@ function deleteNode(root, key) {
     // you've found the key!
     if (!root.left) {
       return root.right; // the right subtree will be shifted up a level if there's no left subtree
-    } else if (!root.right) {
+    } else if (!1root.right) {
       return root.left; // the left subtree will be shifted up a level if there's no right subtree
     } else {
       // if the key node has a right and left node, we do the following:

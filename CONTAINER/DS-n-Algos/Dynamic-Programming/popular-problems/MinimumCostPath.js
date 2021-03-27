@@ -1,4 +1,3 @@
-// Problem Statement => https://www.youtube.com/watch?v=lBRtnuxg-gU
 
 const minCostPath = ( matrix ) => {
   /*
