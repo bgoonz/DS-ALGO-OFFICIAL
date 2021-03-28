@@ -14,7 +14,8 @@
 
 # ➤ Wiki
 
-[Netlify Status](https://api.netlify.com/api/v1/badges/9a8afdc2-08b5-4bab-a4c3-b889548d04a8/deploy-status)](https://pensive-meitner-1ea8c4.netlify.app/)
+
+[![Netlify Status](https://api.netlify.com/api/v1/badges/274fc2e2-6ccd-42af-8d83-473278f504fe/deploy-status)](https://app.netlify.com/sites/trusting-dijkstra-4d3b17/deploys)
 
 [Deployment](https://trusting-dijkstra-4d3b17.netlify.app/)
 
@@ -26,14 +27,10 @@
 [npm](https://www.npmjs.com/package/ds-algo-study)
 
 
-
----
-
-
----
+[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#the-idea-behind-big-o-notation)
 
 
-#### Author:Bryan Guner
+# ➤ Author:Bryan Guner
 
 
 [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#the-idea-behind-big-o-notation)
