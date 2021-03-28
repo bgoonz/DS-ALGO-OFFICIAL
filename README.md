@@ -1,9 +1,20 @@
-<!-- ⚠️ This README has been generated from the file(s) "blueprint.md" ⚠️-->
-[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#wiki)
+
+<!-- HEADER -->
+<div align="center">
+
+  <!-- SHIELDS -->
+  <!-- For how-to notes on shield badges, see docs: https://shields.io/ -->
+
+
+ ![logo](https://avatars.githubusercontent.com/u/66654881?s=460&u=fa9d2cc45bc228dd9b7d3dee6d4653f940fab35a&v=4)
+ 
+ 
+ 
+ </div>
 
 # ➤ Wiki
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/9a8afdc2-08b5-4bab-a4c3-b889548d04a8/deploy-status)](https://pensive-meitner-1ea8c4.netlify.app/)
+[Netlify Status](https://api.netlify.com/api/v1/badges/9a8afdc2-08b5-4bab-a4c3-b889548d04a8/deploy-status)](https://pensive-meitner-1ea8c4.netlify.app/)
 
 [Deployment](https://trusting-dijkstra-4d3b17.netlify.app/)
 
@@ -22,7 +33,7 @@
 ---
 
 
-####Author:Bryan Guner
+#### Author:Bryan Guner
 
 
 [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#the-idea-behind-big-o-notation)
@@ -12585,3 +12596,43 @@ const minMeetingRooms = function(intervals) {
   return rooms
 }
 ```
+
+[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#-)
+
+
+
+  
+  
+## ➤Contact
+
+Thank you very much for your interest in this project.  
+Feel free to reach out to provide feedback, bug reports, or anything else :) .  
+
+<!-- CONTRIBUTOR PROFILE -->
+<!-- Include: Name, title, job/search status, (opt) photo, (opt) summary of contributions, (opt) a few words or a quote, socials badges (github follow, linkedin, angellist, email, resume, portfolio, twitter, etc.), (opt) team/contact page from app's site -->
+
+  <img 
+    src="[docs/images/portrait.png](https://avatars.githubusercontent.com/u/66654881?s=460&u=fa9d2cc45bc228dd9b7d3dee6d4653f940fab35a&v=4)" 
+    alt="Bryan Gimer" 
+    height="100px"
+    align="left">
+</div>
+
+##Bryan Guner
+*(Full-stack software developer)*  
+
+[![Portfolio](https://img.shields.io/badge/-❤_Portfolio-f58?style=flat-square&logo=a&logoColor=white&link=https://bgoonz.github.io/)](https://bgoonz.github.io) 
+<a href="https://github.com/bgoonz/resume-cv-portfolio-samples/blob/master/2021-resume/bryan-guner-resume-2021.pdf" download>![Resume PDF](https://img.shields.io/badge/-Resume-f00?style=flat-square&logo=adobe-acrobat-reader&logoColor=white)</a> 
+[![Bryan's email](https://img.shields.io/badge/bryan.guner@gmail.com-f4b400?style=flat-square&logo=gmail&logoColor=black&link=mailto:bryan.guner@gmail.com)](mailto:bryan.guner@gmail.com) 
+[![Blog](https://img.shields.io/badge/-Blog-21759b?style=flat-square&logo=WordPress&logoColor=white&link=https://web-dev-hub.com/)](https://web-dev-hub.com/) 
+[![Linkedin](https://img.shields.io/badge/-LinkedIn-0077b5?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/bryan-guner-046199128/)](https://www.linkedin.com/in/bryan-guner-046199128/) 
+[![AngelList](https://img.shields.io/badge/-AngelList-black?style=flat-square&logo=AngelList&logoColor=white&link=https://angel.co/u/bryan-guner)](https://angel.co/u/bryan-guner) 
+[![GitHub bgoonz](https://img.shields.io/github/followers/bgoonz?label=follow&style=social)](https://github.com/bgoonz) 
+
+</div>
+
+<br clear="both">
+
+---
+<!--end-->
+
