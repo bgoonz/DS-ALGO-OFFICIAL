@@ -1,303 +1,306 @@
 <!DOCTYPE html>
 <html>
-<!------------------------------------------------------------------------------------------------------------------------------------------------->
+  <!------------------------------------------------------------------------------------------------------------------------------------------------->
 
-<head>
-  <meta http-equiv="Content-Type" content="text/html">
-  <meta name="Author" content="Bryan Guner">
-  <TITLE> Data Structures Interactive Playground</TITLE>
-  
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-  <link rel=stylesheet href="./index-style.css">
-  <link rel="stylesheet" href="./toc.css">
-  <link rel="stylesheet" href="./gradient.css">
-  <script async defer src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
-  </script>
-  <script async defer src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.1/umd/popper.min.js"
-    integrity="sha512-g2PN+aYR0KupTVwea5Ppqw4bxWLLypWdd+h7E0ydT8zF+/Y2Qpk8Y1SnzVw6ZCVJPrgB/91s3VfhVhP7Y4+ucw=="
-    crossorigin="anonymous">
-  </script>
-  <script async defer src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
-    integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous">
-  </script>
-  <script async defer src="./toc.js"></script>
-  <script async defer src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <script async defer>
-    $( "#div" ).addClass( "container-closed" );
-    // click event
-    $( "#trigger" ).click( function () {
-      $( "#div" ).toggleClass( "container-closed" );
-    } );
-  </script>
-  <!---------------------------------------------------------------------------------------------------------------------------------------------------------->
-</head>
-<!------------------------------------------------------------------------------------------------------------------------------------------------->
+  <head>
+    <meta http-equiv="Content-Type" content="text/html">
+    <meta name="Author" content="Bryan Guner">
+    <TITLE> Data Structures Interactive Playground</TITLE>
 
-<body class="is-boxed has-animations">
-  <a href="https://github.com/bgoonz/DS-ALGO-OFFICIAL" class="github-corner" aria-label="View source on Github"><svg
-      width="80" height="80" viewBox="0 0 250 250"
-      style="z-index: 100000; fill:#194ccdaf; color:#fff; position: fixed; top: 20px; border: 0; left: 20px; transform: scale(-1.5, 1.5);"
-      aria-hidden="true">
-      <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
-      <path
-        d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
-        fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm">
-      </path>
-      <path
-        d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
-        fill="currentColor" class="octo-body"></path>
-    </svg></a>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel=stylesheet href="./index-style.css">
+    <link rel="stylesheet" href="./toc.css">
+    <link rel="stylesheet" href="./gradient.css">
+    <script async defer src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+    </script>
+    <script async defer src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.1/umd/popper.min.js"
+      integrity="sha512-g2PN+aYR0KupTVwea5Ppqw4bxWLLypWdd+h7E0ydT8zF+/Y2Qpk8Y1SnzVw6ZCVJPrgB/91s3VfhVhP7Y4+ucw=="
+      crossorigin="anonymous">
+    </script>
+    <script async defer src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+      integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous">
+    </script>
+    <script async defer src="./toc.js"></script>
+    <script async defer src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script async defer>
+      $( "#div" ).addClass( "container-closed" );
+      // click event
+      $( "#trigger" ).click( function () {
+        $( "#div" ).toggleClass( "container-closed" );
+      } );
+
+    </script>
+    <!---------------------------------------------------------------------------------------------------------------------------------------------------------->
+  </head>
   <!------------------------------------------------------------------------------------------------------------------------------------------------->
-  <ul>
-    <li><a style="color:white;" href="./directory.html">Navigation</a></li>
-  </ul>
-  <!------------------------------------------------------------------------------------------------------------------------------------------------->
-  </br> <br>
-  </br>
-  <br>
-  </br>
-  <br>
-  </br>
-  <!------------------------------------------------------------------------------------------------------------------------------------------------->
-  <div id="ToC" class="my_class " style="font-weight:800;">
-    RESIZABLE(bottom right corner)</div>
-  <h1>Data Structures and Algorithms Practice Site</h1>
-  <!------------------------------------------------------------------------------------------------------------------------------------------------->
-  <br>
-  </br>
-  <br>
-  </br>
-  <div class="outer">
-    <!----------------------------------------------------------------------->
-    <div id="imageDiv">
-      <br>
-      </br>
-      <div class="shadow">
+
+  <body class="is-boxed has-animations">
+    <a href="https://github.com/bgoonz/DS-ALGO-OFFICIAL" class="github-corner" aria-label="View source on Github"><svg
+        width="80" height="80" viewBox="0 0 250 250"
+        style="z-index: 100000; fill:#194ccdaf; color:#fff; position: fixed; top: 20px; border: 0; left: 20px; transform: scale(-1.5, 1.5);"
+        aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path
+          d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+          fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm">
+        </path>
+        <path
+          d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+          fill="currentColor" class="octo-body"></path>
+      </svg></a>
+    <!------------------------------------------------------------------------------------------------------------------------------------------------->
+    <ul>
+      <li><a style="color:white;" href="./directory.html">Navigation</a></li>
+    </ul>
+    <!------------------------------------------------------------------------------------------------------------------------------------------------->
+    </br> <br>
+    </br>
+    <br>
+    </br>
+    <br>
+    </br>
+    <!------------------------------------------------------------------------------------------------------------------------------------------------->
+    <div id="ToC" class="my_class " style="font-weight:800;">
+      RESIZABLE(bottom right corner)</div>
+    <h1>Data Structures and Algorithms Practice Site</h1>
+    <!------------------------------------------------------------------------------------------------------------------------------------------------->
+    <br>
+    </br>
+    <br>
+    </br>
+    <div class="outer">
+      <!----------------------------------------------------------------------->
+      <div id="imageDiv">
         <br>
         </br>
-        <br>
-        </br>
-        <br>
-        </br>
-        <br>
-        </br>
-        <!-------------------------------------------------------------------------------->
-        <div class="center" style="text-align: center;">
-          <center>
-            <h1>Ajax image loader</h1>
-            <div class="container">
-              <iframe border-radius="10px" width="75%" height="300" frameborder="0" scrolling="no" overflow="hidden"
-                src="./CONTAINER/Resources/slider/wowslider-iframe.html"></iframe>
-            </div>
-          </center>
+        <div class="shadow">
+          <br>
+          </br>
+          <br>
+          </br>
+          <br>
+          </br>
+          <br>
+          </br>
           <!-------------------------------------------------------------------------------->
-          <br>
-          </br>
-          <br>
-          </br>
-          <br>
-          </br>
+          <div class="center" style="text-align: center;">
+            <center>
+              <h1>Ajax image loader</h1>
+              <div class="container">
+                <iframe border-radius="10px" width="75%" height="300" frameborder="0" scrolling="no" overflow="hidden"
+                  src="./CONTENT/Resources/slider/wowslider-iframe.html"></iframe>
+              </div>
+            </center>
+            <!-------------------------------------------------------------------------------->
+            <br>
+            </br>
+            <br>
+            </br>
+            <br>
+            </br>
+          </div>
+          <!-------------------------------------------------------------------------------->
+          <div class="shadow">
+            <h1>REPL for this whole website</h1>
+            <iframe height="800px" width="100%" src="https://repl.it/@bgoonz/DS-ALGO-OFFICIAL?lite=true" scrolling="yes"
+              frameborder="yes" allowtransparency="true" allowfullscreen="true"
+              sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+            <!-------------------------------------------------------------------------------->
+            <h1>Playground</h1>
+            <iframe width="100%" height="300" src="//jsfiddle.net/bgoonz/L6082jrs/embedded/js,html,css,result/dark/"
+              allowfullscreen="allowfullscreen" allowpaymentrequest frameborder="0"></iframe>
+            <!-------------------------------------------------------------------------------->
+            <h1>Visualizaton</h1>
+            <p class="codepen" data-height="265" data-theme-id="dark" data-default-tab="js,result" data-user="bgoonz"
+              data-slug-hash="MWbZoOa"
+              style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;"
+              data-pen-title="Linear vs Binary Search">
+              <span>See the Pen <a href="https://codepen.io/bgoonz/pen/MWbZoOa">
+                  Linear vs Binary Search</a> by Bryan C Guner (<a href="https://codepen.io/bgoonz">@bgoonz</a>)
+                on <a href="https://codepen.io">CodePen</a>.</span>
+            </p>
+            <script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+          </div>
         </div>
         <!-------------------------------------------------------------------------------->
+        <br></br>
+        <br>
+        <!----------------------------------------------------------------------->
+
+        <br></br>
         <div class="shadow">
-          <h1>REPL for this whole website</h1>
-          <iframe height="800px" width="100%" src="https://repl.it/@bgoonz/DS-ALGO-OFFICIAL?lite=true" scrolling="yes"
+          <iframe height="800px" width="100%"
+            src="./CONTENT/Resources/visualizations/Linked-List-Visualization/index.html" scrolling="yes"
             frameborder="yes" allowtransparency="true" allowfullscreen="true"
             sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
-          <!-------------------------------------------------------------------------------->
-          <h1>Playground</h1>
-          <iframe width="100%" height="300" src="//jsfiddle.net/bgoonz/L6082jrs/embedded/js,html,css,result/dark/"
-            allowfullscreen="allowfullscreen" allowpaymentrequest frameborder="0"></iframe>
-          <!-------------------------------------------------------------------------------->
-          <h1>Visualizaton</h1>
-          <p class="codepen" data-height="265" data-theme-id="dark" data-default-tab="js,result" data-user="bgoonz"
-            data-slug-hash="MWbZoOa"
-            style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;"
-            data-pen-title="Linear vs Binary Search">
-            <span>See the Pen <a href="https://codepen.io/bgoonz/pen/MWbZoOa">
-                Linear vs Binary Search</a> by Bryan C Guner (<a href="https://codepen.io/bgoonz">@bgoonz</a>)
-              on <a href="https://codepen.io">CodePen</a>.</span>
-          </p>
-          <script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
         </div>
-      </div>
-      <!-------------------------------------------------------------------------------->
-      <br></br>
-      <br>
-      <!----------------------------------------------------------------------->
+        <!----------------------------------------------------------------------->
+        <br></br>
+        <!----------------------------------------------------------------------->
 
-      <br></br>
-      <div class="shadow">
-        <iframe height="800px" width="100%"
-          src="./CONTAINER/Resources/visualizations/Linked-List-Visualization/index.html" scrolling="yes"
-          frameborder="yes" allowtransparency="true" allowfullscreen="true"
-          sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
-      </div>
-      <!----------------------------------------------------------------------->
-      <br></br>
-      <!----------------------------------------------------------------------->
+        <br></br>
+        <div class="shadow">
+          <iframe height="800px" width="100%" src="./CONTENT/Resources/visualizations/search.html" scrolling="yes"
+            frameborder="yes" allowtransparency="true" allowfullscreen="true"
+            sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+        </div>
+        <!----------------------------------------------------------------------->
+        <br></br>
+        <br></br>
+        <!----------------------------------------------------------------------->
 
-      <br></br>
-      <div class="shadow">
-        <iframe height="800px" width="100%" src="./CONTAINER/Resources/visualizations/search.html" scrolling="yes"
-          frameborder="yes" allowtransparency="true" allowfullscreen="true"
-          sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
-      </div>
-      <!----------------------------------------------------------------------->
-      <br></br>
-      <br></br>
-      <!----------------------------------------------------------------------->
-
-      <br></br>
-      <!-- <div class="shadow">
-                     <iframe height="800px" width="100%" src="/CONTAINER/Resources/visualizations/sort.html"
+        <br></br>
+        <!-- <div class="shadow">
+                     <iframe height="800px" width="100%" src="/CONTENT/Resources/visualizations/sort.html"
                        scrolling="yes" frameborder="yes" allowtransparency="true" allowfullscreen="true"
                        sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
                    </div> -->
+        <!----------------------------------------------------------------------->
+        <br></br>
+        <!----------------------------------------------------------------------->
+        </br>
+        <br></br>
+        <!-------------------------------------------------------------------------------->
+        <p class="codepen" data-height="265" data-theme-id="dark" data-default-tab="js,result" data-user="bgoonz"
+          data-slug-hash="GRNPEdY"
+          style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;"
+          data-pen-title="Data Structures Viz">
+          <span>See the Pen <a href="https://codepen.io/bgoonz/pen/GRNPEdY">
+              Data Structures Viz</a> by Bryan C Guner (<a href="https://codepen.io/bgoonz">@bgoonz</a>)
+            on <a href="https://codepen.io">CodePen</a>.</span>
+        </p>
+        <script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+        <!-------------------------------------------------------------------------------->
+        <h1>glitch</h1>
+        <!-- Copy and Paste Me -->
+        <div class="glitch-embed-wrap" style="height: 420px; width: 100%;">
+          <iframe src="https://glitch.com/embed/#!/embed/electric-aboard-makemake?path=README.md&previewSize=0"
+            title="electric-aboard-makemake on Glitch"
+            allow="geolocation; microphone; camera; midi; vr; encrypted-media"
+            style="height: 100%; width: 100%; border: 0;">
+          </iframe>
+        </div>
+        <!-- Copy and Paste Me -->
+        <div class="glitch-embed-wrap" style="height: 420px; width: 100%;">
+          <iframe src="https://glitch.com/embed/#!/embed/electric-aboard-makemake?path=README.md&previewSize=100"
+            title="electric-aboard-makemake on Glitch"
+            allow="geolocation; microphone; camera; midi; vr; encrypted-media"
+            style="height: 100%; width: 100%; border: 0;">
+          </iframe>
+        </div>
+        <!-------------------------------------------------------------------------------->
+        <br></br>
+        <br>
+        </br>
+        <br>
+        </br>
+        <br>
+        </br>
+        <br>
+        </br>
+        <h1>Navigation without leaving this page</h1>
+        <div class="shadow">
+          <iframe height="800px" width="100%" src="./directory.html" scrolling="yes" frameborder="yes"
+            allowtransparency="true" allowfullscreen="true"
+            sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+        </div>
+        <!----------------------------------------------------------------------->
+        <br></br>
+        <br></br>
+        <br>
+        </br>
+        <br></br>
+        <div class="shadow">
+          <iframe height="800px" width="100%" src="./Readme.html" scrolling="yes" frameborder="yes"
+            allowtransparency="true" allowfullscreen="true"
+            sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+        </div>
+        <!----------------------------------------------------------------------->
+        <br></br>
+        <br>
+        </br>
+        <h1>LEETCODE</h1>
+        <br></br>
+        <div class="shadow">
+          <iframe height="800px" width="100%" src="./CONTENT/DS-n-Algos/SANDBOX/leetMD/completeLEETCODE.html"
+            scrolling="yes" frameborder="yes" allowtransparency="true" allowfullscreen="true"
+            sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+        </div>
+      </div>
       <!----------------------------------------------------------------------->
       <br></br>
-      <!----------------------------------------------------------------------->
+      <br>
       </br>
+      <h1>Recursion</h1>
       <br></br>
-      <!-------------------------------------------------------------------------------->
-      <p class="codepen" data-height="265" data-theme-id="dark" data-default-tab="js,result" data-user="bgoonz"
-        data-slug-hash="GRNPEdY"
-        style="height: 265px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;"
-        data-pen-title="Data Structures Viz">
-        <span>See the Pen <a href="https://codepen.io/bgoonz/pen/GRNPEdY">
-            Data Structures Viz</a> by Bryan C Guner (<a href="https://codepen.io/bgoonz">@bgoonz</a>)
-          on <a href="https://codepen.io">CodePen</a>.</span>
-      </p>
-      <script async src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
-      <!-------------------------------------------------------------------------------->
-      <h1>glitch</h1>
-      <!-- Copy and Paste Me -->
-      <div class="glitch-embed-wrap" style="height: 420px; width: 100%;">
-        <iframe src="https://glitch.com/embed/#!/embed/electric-aboard-makemake?path=README.md&previewSize=0"
-          title="electric-aboard-makemake on Glitch" allow="geolocation; microphone; camera; midi; vr; encrypted-media"
-          style="height: 100%; width: 100%; border: 0;">
-        </iframe>
-      </div>
-      <!-- Copy and Paste Me -->
-      <div class="glitch-embed-wrap" style="height: 420px; width: 100%;">
-        <iframe src="https://glitch.com/embed/#!/embed/electric-aboard-makemake?path=README.md&previewSize=100"
-          title="electric-aboard-makemake on Glitch" allow="geolocation; microphone; camera; midi; vr; encrypted-media"
-          style="height: 100%; width: 100%; border: 0;">
-        </iframe>
-      </div>
-      <!-------------------------------------------------------------------------------->
-      <br></br>
-      <br>
-      </br>
-      <br>
-      </br>
-      <br>
-      </br>
-      <br>
-      </br>
-      <h1>Navigation without leaving this page</h1>
       <div class="shadow">
-        <iframe height="800px" width="100%" src="./directory.html" scrolling="yes" frameborder="yes"
-          allowtransparency="true" allowfullscreen="true"
+        <iframe height="800px" width="100%"
+          src="./CONTENT/DS-n-Algos/Recursion/My-Recursion-Prac-Website/Recur-website/README.html" scrolling="yes"
+          frameborder="yes" allowtransparency="true" allowfullscreen="true"
           sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
       </div>
-      <!----------------------------------------------------------------------->
-      <br></br>
       <br></br>
       <br>
       </br>
       <br></br>
+      <br>
+      </br>
+      <h1>Recursion Practice</h1>
+      <br></br>
       <div class="shadow">
-        <iframe height="800px" width="100%" src="./Readme.html" scrolling="yes" frameborder="yes"
-          allowtransparency="true" allowfullscreen="true"
+        <iframe height="800px" width="100%"
+          src="./CONTENT/DS-n-Algos/Recursion/My-Recursion-Prac-Website/Recur-website/tabs/tabs2.html" scrolling="yes"
+          frameborder="yes" allowtransparency="true" allowfullscreen="true"
           sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
       </div>
-      <!----------------------------------------------------------------------->
       <br></br>
       <br>
       </br>
-      <h1>LEETCODE</h1>
+      <!----------------------------------------------------------------------->
+      <h1>Examples</h1>
+      <iframe height="265" style="width: 100%;" scrolling="no" title="Data-Structures"
+        src="https://codepen.io/bgoonz/embed/XWNGmyX?height=265&theme-id=dark&default-tab=js,result" frameborder="no"
+        loading="lazy" allowtransparency="true" allowfullscreen="true">
+        See the Pen <a href='https://codepen.io/bgoonz/pen/XWNGmyX'>Data-Structures</a> by Bryan C Guner
+        (<a href='https://codepen.io/bgoonz'>@bgoonz</a>) on <a href='https://codepen.io'>CodePen</a>.
+      </iframe>
+      <!----------------------------------------------------------------------->
       <br></br>
-      <div class="shadow">
-        <iframe height="800px" width="100%" src="./CONTAINER/DS-n-Algos/SANDBOX/leetMD/completeLEETCODE.html"
-          scrolling="yes" frameborder="yes" allowtransparency="true" allowfullscreen="true"
-          sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
-      </div>
-    </div>
-    <!----------------------------------------------------------------------->
-    <br></br>
-    <br>
-    </br>
-    <h1>Recursion</h1>
-    <br></br>
-    <div class="shadow">
-      <iframe height="800px" width="100%"
-        src="./CONTAINER/DS-n-Algos/Recursion/My-Recursion-Prac-Website/Recur-website/README.html" scrolling="yes"
-        frameborder="yes" allowtransparency="true" allowfullscreen="true"
+      <!----------------------------------------------------------------------->
+      <h1>Comments</h1>
+      <iframe height="400px" width="100%" src="https://replit.com/@bgoonz/Comments?lite=true" scrolling="no"
+        frameborder="no" allowtransparency="true" allowfullscreen="true"
         sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+      <div class="shadow">
+        <!-- <script src="https://gist.github.com/bgoonz/f1c9f6044dc030c1b8f1906766cdc05e.js"></script> -->
+      </div>
     </div>
-    <br></br>
-    <br>
-    </br>
-    <br></br>
-    <br>
-    </br>
-    <h1>Recursion Practice</h1>
-    <br></br>
-    <div class="shadow">
-      <iframe height="800px" width="100%"
-        src="./CONTAINER/DS-n-Algos/Recursion/My-Recursion-Prac-Website/Recur-website/tabs/tabs2.html" scrolling="yes"
-        frameborder="yes" allowtransparency="true" allowfullscreen="true"
-        sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
-    </div>
-    <br></br>
-    <br>
-    </br>
-    <!----------------------------------------------------------------------->
-    <h1>Examples</h1>
-    <iframe height="265" style="width: 100%;" scrolling="no" title="Data-Structures"
-      src="https://codepen.io/bgoonz/embed/XWNGmyX?height=265&theme-id=dark&default-tab=js,result" frameborder="no"
-      loading="lazy" allowtransparency="true" allowfullscreen="true">
-      See the Pen <a href='https://codepen.io/bgoonz/pen/XWNGmyX'>Data-Structures</a> by Bryan C Guner
-      (<a href='https://codepen.io/bgoonz'>@bgoonz</a>) on <a href='https://codepen.io'>CodePen</a>.
-    </iframe>
-    <!----------------------------------------------------------------------->
-    <br></br>
-    <!----------------------------------------------------------------------->
-    <h1>Comments</h1>
-    <iframe height="400px" width="100%" src="https://replit.com/@bgoonz/Comments?lite=true" scrolling="no"
-      frameborder="no" allowtransparency="true" allowfullscreen="true"
-      sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
-    <div class="shadow">
-      <!-- <script src="https://gist.github.com/bgoonz/f1c9f6044dc030c1b8f1906766cdc05e.js"></script> -->
-    </div>
-  </div>
 
 
 
-  <br>
-  </br>
-  <br>
-  </br>
-  <br>
-  </br>
-  <br>
-  </br>
-  <br>
-  </br>
-  <br>
-  </br>
-  <br>
-  </br>
-  <br>
-  </br>
-  <br>
-  </br>
-  <br>
-  </br>
-  <br>
-  </br>
-</body>
+    <br>
+    </br>
+    <br>
+    </br>
+    <br>
+    </br>
+    <br>
+    </br>
+    <br>
+    </br>
+    <br>
+    </br>
+    <br>
+    </br>
+    <br>
+    </br>
+    <br>
+    </br>
+    <br>
+    </br>
+    <br>
+    </br>
+  </body>
 
 </html>

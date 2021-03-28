@@ -1,373 +1,375 @@
 <!DOCTYPE html>
 <html>
 
-<head>
-  <meta http-equiv="Content-Type" content="text/html; charset=us-ascii">
-  <meta name="Generator" content="Microsoft Word 15 (filtered)">
-  <title>Data Structures</title>
-  <script async defer src="./copy-2-clip.js"></script>
-  <script async defer src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
-  <link rel="stylesheet" href="./prism.css">
-  <script async defer src="./prism.js"></script>
-  <script async defer src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <link rel="stylesheet" href="./prism.css">
-  <script async defer src="./prism.js"></script>
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-  <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
-  <style>
-    body {
-      padding: 50px;
-      text-align: center;
-      background-color: whitesmoke;
-    }
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=us-ascii">
+    <meta name="Generator" content="Microsoft Word 15 (filtered)">
+    <title>Data Structures</title>
+    <script async defer src="./copy-2-clip.js"></script>
+    <script async defer src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="./prism.css">
+    <script async defer src="./prism.js"></script>
+    <script async defer src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="./prism.css">
+    <script async defer src="./prism.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+    <style>
+      body {
+        padding: 50px;
+        text-align: center;
+        background-color: whitesmoke;
+      }
 
-    a {
-      color: black;
-      overflow: clip;
-    }
+      a {
+        color: black;
+        overflow: clip;
+      }
 
-    li {
-      border: 2px solid black !important;
-      font-size: 16px;
-      letter-spacing: 0px;
-      font-weight: 700;
-      line-height: 12px;
-      text-decoration: none !important;
-      text-transform: uppercase;
-      background: #0178c2 !important;
-      color: black !important;
-      border: none;
-      cursor: pointer;
-      justify-content: center;
-      padding: 40px 60px;
-      height: 55px;
-      text-align: center;
-      white-space: normal;
-      border-radius: 8px;
-      min-width: 50em;
-      padding: 1.4em 1.4em 0;
-      box-shadow: 0 0 5px;
-      margin: 1em;
-      display: grid;
-      -webkit-border-radius: 10px;
-      -moz-border-radius: 10px;
-      -ms-border-radius: 10px;
-      -o-border-radius: 10px;
-    }
+      li {
+        border: 2px solid black !important;
+        font-size: 16px;
+        letter-spacing: 0px;
+        font-weight: 700;
+        line-height: 12px;
+        text-decoration: none !important;
+        text-transform: uppercase;
+        background: #0178c2 !important;
+        color: black !important;
+        border: none;
+        cursor: pointer;
+        justify-content: center;
+        padding: 40px 60px;
+        height: 55px;
+        text-align: center;
+        white-space: normal;
+        border-radius: 8px;
+        min-width: 50em;
+        padding: 1.4em 1.4em 0;
+        box-shadow: 0 0 5px;
+        margin: 1em;
+        display: grid;
+        -webkit-border-radius: 10px;
+        -moz-border-radius: 10px;
+        -ms-border-radius: 10px;
+        -o-border-radius: 10px;
+      }
 
-    code,
-    pre {
-      position: relative;
-    }
+      code,
+      pre {
+        position: relative;
+      }
 
-    code,
-    pre {
-      display: block;
-      padding: 20px;
-      background: #f2f2f2;
-      color: #555755;
-    }
+      code,
+      pre {
+        display: block;
+        padding: 20px;
+        background: #f2f2f2;
+        color: #555755;
+      }
 
-    span.command-copy {
-      position: absolute;
-      top: 10px;
-      right: 10px;
-      opacity: .6;
-      font-size: 20px;
-      color: #555755;
-    }
+      span.command-copy {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        opacity: .6;
+        font-size: 20px;
+        color: #555755;
+      }
 
-    span.command-copy:hover {
-      cursor: pointer;
-    }
+      span.command-copy:hover {
+        cursor: pointer;
+      }
 
-    body {
-      zoom: 0.8;
-    }
-  </style>
-</head>
+      body {
+        zoom: 0.8;
+      }
 
-<body class="lang-js">
-  <div class="WordSection1">
-    <p class="MsoTitle"><span style="font-size:48.0pt">Fundamental Data Structures In JavaScript</p>
-    <p class="MsoNormal" style="line-height:normal"><span
-        style="font-size:13.5pt; font-family:&quot;JetBrains Mono Bold&quot;">Data structures in JavaScript
-    </p>
-    <p></p>
-    <p>Here is a website I created to practice
-      data structures!</p>
-    <p class="MsoNormal"><a href="https://amazing-mccarthy-aa9929.netlify.app/index.html"
-        title="Data Structures And Algorithms Practice"></a></p>
-    <p></p>
-    <p class="MsoNormal" style="line-height:normal"><span
-        style="font-size:13.5pt; font-family:&quot;JetBrains Mono Bold&quot;">Resources (article
-        contentbelow):</p>
-    <h2>Videos</h2>
-    <ul type="disc">
-      <li class="MsoNormal" style="line-height:normal">
-        <a href="https://amazing-mccarthy-aa9929.netlify.app/index.html"><span
-            style="font-size:18.0pt;font-family:&quot;JetBrains Mono Bold&quot;">Here is a website I created to practice
-            data structures!</a>
-      </li>
-      <li class="MsoNormal" style="line-height:normal"><a
-          href="https://www.youtube.com/watch?v=0IAPZzGSbME&amp;list=PLDN4rrl48XKpZkf03iYFl-O29szjTrs_O&amp;index=2&amp;t=0s">Abdul
-          Bari:
-          YouTubeChannel for Algorithms</a></li>
-      <li class="MsoNormal" style="line-height:normal">
-        <a href="https://www.youtube.com/watch?v=lxja8wBwN0k&amp;list=PLKKfKV1b9e8ps6dD3QA5KFfHdiWj9cB1s">Data
-          Structures and
-          algorithms</a>
-      </li>
-      <li class="MsoNormal" style="line-height:normal">
-        <a href="https://www.youtube.com/playlist?list=PLmGElG-9wxc9Us6IK6Qy-KHlG_F3IS6Q9">Data Structures and
-          algorithms
-          Course</a>
-      </li>
-      <li class="MsoNormal" style="line-height:normal">
-        <a href="https://www.khanacademy.org/computing/computer-science/algorithms">Khan Academy</a>
-      </li>
-      <li class="MsoNormal" style="line-height:normal">
-        <a href="https://www.youtube.com/playlist?list=PL2_aWCzGMAwI3W_JlcBbtYTwiQSsOTa6P">Data structures by
-          mycodeschool</a>
-      </li>
-      <li class="MsoNormal" style="line-height:normal">
-        <a href="https://www.youtube.com/watch?v=HtSuA80QTyo&amp;list=PLUl4u3cNGP61Oq3tWYp6V_F-5jb5L2iHb">MIT
-          6.006: Intro to
-          Algorithms(2011)</a>
-      </li>
-      <li class="MsoNormal" style="line-height:normal">
-        <a href="https://www.youtube.com/watch?v=5_5oE5lgrhw&amp;list=PLu0W_9lII9ahIappRPN0MCAgtOu3lQjQi">Data
-          Structures and
-          Algorithms by Codewithharry</a>
-      </li>
-    </ul>
-    <h2>Books</h2>
-    <ul type="disc">
-      <li class="MsoNormal" style="line-height:normal">
-        <a href="https://edutechlearners.com/download/Introduction_to_algorithms-3rd%20Edition.pdf">Introduction
-          to
-          Algorithms</a>
-      </li>
-      <li class="MsoNormal" style="line-height:normal">
-        <a href="http://www.sso.sy/sites/default/files/competitive%20programming%203_1.pdf">Competitive
-          Programming 3</a>
-      </li>
-      <li class="MsoNormal" style="line-height:normal">
-        <a href="https://cses.fi/book/book.pdf">Competitive Programmers Hand
-          Book</a>
-      </li>
-      <li class="MsoNormal" style="line-height:normal">
-        <a
-          href="https://github.com/Amchuz/My-Data-Structures-and-Algorithms-Resources/raw/master/Books/Data%20Structures%20and%20Algorithms%20-%20Narasimha%20Karumanchi.pdf">Data
-          Structures and
-          Algorithms Made Easy</a>
-      </li>
-      <li class="MsoNormal" style="line-height:normal">
-        <a
-          href="https://github.com/Amchuz/My-Data-Structures-and-Algorithms-Resources/raw/master/Books/Learning%20Algorithms%20Through%20Programming%20and%20Puzzle%20Solving.pdf">Learning
-          Algorithms</a>
-      </li>
-    </ul>
-    <h2>Coding Practice</h2>
-    <ul type="disc">
-      <li class="MsoNormal" style="line-height:normal">
-        <a href="https://leetcode.com/">LeetCode</a>
-      </li>
-      <li class="MsoNormal" style="line-height:normal">
-        <a href="https://www.interviewbit.com/">InterviewBit</a>
-      </li>
-      <li class="MsoNormal" style="line-height:normal">
-        <a href="https://codility.com/">Codility</a>
-      </li>
-      <li class="MsoNormal" style="line-height:normal">
-        <a href="https://www.hackerrank.com/">HackerRank</a>
-      </li>
-      <li class="MsoNormal" style="line-height:normal">
-        <a href="https://projecteuler.net/">Project Euler</a>
-      </li>
-      <li class="MsoNormal" style="line-height:normal">
-        <a href="https://spoj.com/">Spoj</a>
-      </li>
-      <li class="MsoNormal" style="line-height:normal">
-        <a href="https://code.google.com/codejam/contests.html">Google Code Jam practice
-          problems</a>
-      </li>
-      <li class="MsoNormal" style="line-height:normal">
-        <a href="https://www.hackerearth.com/">HackerEarth</a>
-      </li>
-      <li class="MsoNormal" style="line-height:normal">
-        <a href="https://www.topcoder.com/">Top Coder</a>
-      </li>
-      <li class="MsoNormal" style="line-height:normal">
-        <a href="https://www.codechef.com/">CodeChef</a>
-      </li>
-      <li class="MsoNormal" style="line-height:normal">
-        <a href="https://www.codewars.com/">Codewars</a>
-      </li>
-      <li class="MsoNormal" style="line-height:normal">
-        <a href="https://codesignal.com/">CodeSignal</a>
-      </li>
-      <li class="MsoNormal" style="line-height:normal">
-        <a href="http://codekata.com/">CodeKata</a>
-      </li>
-      <li class="MsoNormal" style="line-height:normal">
-        <a href="https://www.firecode.io/">Firecode</a>
-      </li>
-    </ul>
-    <h2>Courses</h2>
-    <ul type="disc">
-      <li class="MsoNormal" style="line-height:normal">
-        <a href="https://academy.zerotomastery.io/p/master-the-coding-interview-faang-interview-prep">Master the
-          Coding
-          Interview</a>
-      </li>
-      <li class="MsoNormal" style="line-height:normal">
-        <a href="https://realpython.com/python-data-structures">Common Python Data
-          Structures</a>
-      </li>
-      <li class="MsoNormal" style="line-height:normal">
-        <a href="https://www.geeksforgeeks.org/fork-cpp-course-structure">Fork CPP</a>
-      </li>
-      <li class="MsoNormal" style="line-height:normal">
-        <a href="https://codeforces.com/edu/course/2">EDU</a> .
-      </li>
-      <li class="MsoNormal" style="line-height:normal">
-        <a href="https://www.udacity.com/course/c-for-programmers--ud210">C++ For Programmers</a>
-        .
-      </li>
-    </ul>
-    <h1>Guides</h1>
-    <ul type="disc">
-      <li class="MsoNormal" style="line-height:normal">
-        <a href="http://www.geeksforgeeks.org/">GeeksForGeeks — </a>
-      </li>
-      <li class="MsoNormal" style="line-height:normal">
-        <a href="https://www.learneroo.com/subjects/8">Learneroo — Algorithms</a>
-      </li>
-      <li class="MsoNormal" style="line-height:normal">
-        <a href="http://www.topcoder.com/tc?d1=tutorials&amp;d2=alg_index&amp;module=Static">Top Coder
-          tutorials</a>
-      </li>
-      <li class="MsoNormal" style="line-height:normal">
-        <a href="http://www.infoarena.ro/training-path">Infoarena training path</a>
-      </li>
-    </ul>
-    <ul type="disc">
-      <li class="MsoNormal" style="line-height:normal"><span
-          style="font-size:14.0pt; font-family:&quot;JetBrains Mono Bold&quot;">The best-case complexity: when the
-          data looks the best</li>
-      <li class="MsoNormal" style="line-height:normal"><span
-          style="font-size:14.0pt; font-family:&quot;JetBrains Mono Bold&quot;">The worst-case complexity: when the
-          data looks the worst</li>
-      <li class="MsoNormal" style="line-height:normal"><span
-          style="font-size:14.0pt; font-family:&quot;JetBrains Mono Bold&quot;">The average-case complexity: when the
-          data looks average</li>
-    </ul>
-    <hr>
-    <hr>
-    <h3>space</h3>
-    <hr>
-    <p class="MsoNormal" style="margin-bottom:5.0pt;line-height:normal">The space complexity represents the
-      memory consumption of a data structure. As for most of the things in life, you can't have it all, so it is
-      with the data structures. You will generally need to trade some time for space or the other way
-      around.</p>
-    <hr>
-    <h3>time</h3>
-    <hr>
-    <p class="MsoNormal" style="margin-bottom:5.0pt;line-height:normal">The time complexity for a data structure
-      is in general more diverse than its space complexity.</p>
-    <hr>
-    <h3>Several operations</h3>
-    <hr>
-    <p class="MsoNormal" style="margin-bottom:5.0pt;line-height:normal">In contrary to algorithms, when you look
-      at the time complexity for data structures you need to express it for several operations that you can do with
-      data structures. It can be adding elements, deleting elements, accessing an element or even searching for an
-      element.</p>
-    <hr>
-    <h3>Dependent ondata</h3>
-    <hr>
-    <p class="MsoNormal" style="margin-bottom:5.0pt;line-height:normal">Something that data structure and
-      algorithms have in common when talking about time complexity is that they are both dealing with data. When you
-      deal with data you become dependent on them and as a result the time complexity is also dependent of the data
-      that you received. To solve this problem we talk about 3 different time complexity.</p>
-    <p class="MsoNormal" style="line-height:normal"><span
-        style="font-size:13.5pt; font-family:&quot;JetBrains Mono Bold&quot;">Big Onotation</p>
-    <p>The complexity is usually expressed with
-      the Big O notation. The wikipedia page about this subject is pretty complex but you can find here a good summary
-      of the different complexity for the most famous data structures and sorting algorithms.</p>
-    <p class="MsoNormal" style="line-height:normal"><span
-        style="font-size:13.5pt; font-family:&quot;JetBrains Mono Bold&quot;">The Array data structure</p>
-    <p class="MsoNormal"><img border="0" width="438" height="180" id="Picture 13"
-        src="Data-Structures-Update-Backup_files/image001.gif" alt="image001"></p>
-    <p class="MsoNormal" style="line-height:normal"><span
-        style="font-size:13.5pt; font-family:&quot;JetBrains Mono Bold&quot;">Definition</p>
-    <p>An Array data structure, or simply an
-      Array, is a data structure consisting of a collection of elements (values or variables), each identified by at
-      least one array index or key. The simplest type of data structure is a linear array, also called one-dimensional
-      array. From Wikipedia</p>
-    <p>Arrays are among the oldest and most
-      important data structures and are used by every program. They are also used to implement many other data
-      structures.</p>
-    <p class="MsoNormal" style="line-height:normal"><span
-        style="font-size:14.0pt; font-family:&quot;JetBrains Mono Bold&quot;">Complexity
-        Average
-        Access Search Insertion Deletion</p>
-    <p>O(1) O(n) O(1) O(n)</p>
-    <pre data-filter-output="(out)" data-role="codeBlock" data-info="js"
-      class="data-line line-numbers data-user data-host data-prompt data-output language-javascript"
-      data-prismjs-copy="Copy !" data-download-link=""> <code class="language-javascript">class ArrayADT {
+    </style>
+  </head>
+
+  <body class="lang-js">
+    <div class="WordSection1">
+      <p class="MsoTitle"><span style="font-size:48.0pt">Fundamental Data Structures In JavaScript</p>
+      <p class="MsoNormal" style="line-height:normal"><span
+          style="font-size:13.5pt; font-family:&quot;JetBrains Mono Bold&quot;">Data structures in JavaScript
+      </p>
+      <p></p>
+      <p>Here is a website I created to practice
+        data structures!</p>
+      <p class="MsoNormal"><a href="https://amazing-mccarthy-aa9929.netlify.app/index.html"
+          title="Data Structures And Algorithms Practice"></a></p>
+      <p></p>
+      <p class="MsoNormal" style="line-height:normal"><span
+          style="font-size:13.5pt; font-family:&quot;JetBrains Mono Bold&quot;">Resources (article
+          contentbelow):</p>
+      <h2>Videos</h2>
+      <ul type="disc">
+        <li class="MsoNormal" style="line-height:normal">
+          <a href="https://amazing-mccarthy-aa9929.netlify.app/index.html"><span
+              style="font-size:18.0pt;font-family:&quot;JetBrains Mono Bold&quot;">Here is a website I created to
+              practice
+              data structures!</a>
+        </li>
+        <li class="MsoNormal" style="line-height:normal"><a
+            href="https://www.youtube.com/watch?v=0IAPZzGSbME&amp;list=PLDN4rrl48XKpZkf03iYFl-O29szjTrs_O&amp;index=2&amp;t=0s">Abdul
+            Bari:
+            YouTubeChannel for Algorithms</a></li>
+        <li class="MsoNormal" style="line-height:normal">
+          <a href="https://www.youtube.com/watch?v=lxja8wBwN0k&amp;list=PLKKfKV1b9e8ps6dD3QA5KFfHdiWj9cB1s">Data
+            Structures and
+            algorithms</a>
+        </li>
+        <li class="MsoNormal" style="line-height:normal">
+          <a href="https://www.youtube.com/playlist?list=PLmGElG-9wxc9Us6IK6Qy-KHlG_F3IS6Q9">Data Structures and
+            algorithms
+            Course</a>
+        </li>
+        <li class="MsoNormal" style="line-height:normal">
+          <a href="https://www.khanacademy.org/computing/computer-science/algorithms">Khan Academy</a>
+        </li>
+        <li class="MsoNormal" style="line-height:normal">
+          <a href="https://www.youtube.com/playlist?list=PL2_aWCzGMAwI3W_JlcBbtYTwiQSsOTa6P">Data structures by
+            mycodeschool</a>
+        </li>
+        <li class="MsoNormal" style="line-height:normal">
+          <a href="https://www.youtube.com/watch?v=HtSuA80QTyo&amp;list=PLUl4u3cNGP61Oq3tWYp6V_F-5jb5L2iHb">MIT
+            6.006: Intro to
+            Algorithms(2011)</a>
+        </li>
+        <li class="MsoNormal" style="line-height:normal">
+          <a href="https://www.youtube.com/watch?v=5_5oE5lgrhw&amp;list=PLu0W_9lII9ahIappRPN0MCAgtOu3lQjQi">Data
+            Structures and
+            Algorithms by Codewithharry</a>
+        </li>
+      </ul>
+      <h2>Books</h2>
+      <ul type="disc">
+        <li class="MsoNormal" style="line-height:normal">
+          <a href="https://edutechlearners.com/download/Introduction_to_algorithms-3rd%20Edition.pdf">Introduction
+            to
+            Algorithms</a>
+        </li>
+        <li class="MsoNormal" style="line-height:normal">
+          <a href="http://www.sso.sy/sites/default/files/competitive%20programming%203_1.pdf">Competitive
+            Programming 3</a>
+        </li>
+        <li class="MsoNormal" style="line-height:normal">
+          <a href="https://cses.fi/book/book.pdf">Competitive Programmers Hand
+            Book</a>
+        </li>
+        <li class="MsoNormal" style="line-height:normal">
+          <a
+            href="https://github.com/Amchuz/My-Data-Structures-and-Algorithms-Resources/raw/master/Books/Data%20Structures%20and%20Algorithms%20-%20Narasimha%20Karumanchi.pdf">Data
+            Structures and
+            Algorithms Made Easy</a>
+        </li>
+        <li class="MsoNormal" style="line-height:normal">
+          <a
+            href="https://github.com/Amchuz/My-Data-Structures-and-Algorithms-Resources/raw/master/Books/Learning%20Algorithms%20Through%20Programming%20and%20Puzzle%20Solving.pdf">Learning
+            Algorithms</a>
+        </li>
+      </ul>
+      <h2>Coding Practice</h2>
+      <ul type="disc">
+        <li class="MsoNormal" style="line-height:normal">
+          <a href="https://leetcode.com/">LeetCode</a>
+        </li>
+        <li class="MsoNormal" style="line-height:normal">
+          <a href="https://www.interviewbit.com/">InterviewBit</a>
+        </li>
+        <li class="MsoNormal" style="line-height:normal">
+          <a href="https://codility.com/">Codility</a>
+        </li>
+        <li class="MsoNormal" style="line-height:normal">
+          <a href="https://www.hackerrank.com/">HackerRank</a>
+        </li>
+        <li class="MsoNormal" style="line-height:normal">
+          <a href="https://projecteuler.net/">Project Euler</a>
+        </li>
+        <li class="MsoNormal" style="line-height:normal">
+          <a href="https://spoj.com/">Spoj</a>
+        </li>
+        <li class="MsoNormal" style="line-height:normal">
+          <a href="https://code.google.com/codejam/contests.html">Google Code Jam practice
+            problems</a>
+        </li>
+        <li class="MsoNormal" style="line-height:normal">
+          <a href="https://www.hackerearth.com/">HackerEarth</a>
+        </li>
+        <li class="MsoNormal" style="line-height:normal">
+          <a href="https://www.topcoder.com/">Top Coder</a>
+        </li>
+        <li class="MsoNormal" style="line-height:normal">
+          <a href="https://www.codechef.com/">CodeChef</a>
+        </li>
+        <li class="MsoNormal" style="line-height:normal">
+          <a href="https://www.codewars.com/">Codewars</a>
+        </li>
+        <li class="MsoNormal" style="line-height:normal">
+          <a href="https://codesignal.com/">CodeSignal</a>
+        </li>
+        <li class="MsoNormal" style="line-height:normal">
+          <a href="http://codekata.com/">CodeKata</a>
+        </li>
+        <li class="MsoNormal" style="line-height:normal">
+          <a href="https://www.firecode.io/">Firecode</a>
+        </li>
+      </ul>
+      <h2>Courses</h2>
+      <ul type="disc">
+        <li class="MsoNormal" style="line-height:normal">
+          <a href="https://academy.zerotomastery.io/p/master-the-coding-interview-faang-interview-prep">Master the
+            Coding
+            Interview</a>
+        </li>
+        <li class="MsoNormal" style="line-height:normal">
+          <a href="https://realpython.com/python-data-structures">Common Python Data
+            Structures</a>
+        </li>
+        <li class="MsoNormal" style="line-height:normal">
+          <a href="https://www.geeksforgeeks.org/fork-cpp-course-structure">Fork CPP</a>
+        </li>
+        <li class="MsoNormal" style="line-height:normal">
+          <a href="https://codeforces.com/edu/course/2">EDU</a> .
+        </li>
+        <li class="MsoNormal" style="line-height:normal">
+          <a href="https://www.udacity.com/course/c-for-programmers--ud210">C++ For Programmers</a>
+          .
+        </li>
+      </ul>
+      <h1>Guides</h1>
+      <ul type="disc">
+        <li class="MsoNormal" style="line-height:normal">
+          <a href="http://www.geeksforgeeks.org/">GeeksForGeeks — </a>
+        </li>
+        <li class="MsoNormal" style="line-height:normal">
+          <a href="https://www.learneroo.com/subjects/8">Learneroo — Algorithms</a>
+        </li>
+        <li class="MsoNormal" style="line-height:normal">
+          <a href="http://www.topcoder.com/tc?d1=tutorials&amp;d2=alg_index&amp;module=Static">Top Coder
+            tutorials</a>
+        </li>
+        <li class="MsoNormal" style="line-height:normal">
+          <a href="http://www.infoarena.ro/training-path">Infoarena training path</a>
+        </li>
+      </ul>
+      <ul type="disc">
+        <li class="MsoNormal" style="line-height:normal"><span
+            style="font-size:14.0pt; font-family:&quot;JetBrains Mono Bold&quot;">The best-case complexity: when the
+            data looks the best</li>
+        <li class="MsoNormal" style="line-height:normal"><span
+            style="font-size:14.0pt; font-family:&quot;JetBrains Mono Bold&quot;">The worst-case complexity: when the
+            data looks the worst</li>
+        <li class="MsoNormal" style="line-height:normal"><span
+            style="font-size:14.0pt; font-family:&quot;JetBrains Mono Bold&quot;">The average-case complexity: when the
+            data looks average</li>
+      </ul>
+      <hr>
+      <hr>
+      <h3>space</h3>
+      <hr>
+      <p class="MsoNormal" style="margin-bottom:5.0pt;line-height:normal">The space complexity represents the
+        memory consumption of a data structure. As for most of the things in life, you can't have it all, so it is
+        with the data structures. You will generally need to trade some time for space or the other way
+        around.</p>
+      <hr>
+      <h3>time</h3>
+      <hr>
+      <p class="MsoNormal" style="margin-bottom:5.0pt;line-height:normal">The time complexity for a data structure
+        is in general more diverse than its space complexity.</p>
+      <hr>
+      <h3>Several operations</h3>
+      <hr>
+      <p class="MsoNormal" style="margin-bottom:5.0pt;line-height:normal">In contrary to algorithms, when you look
+        at the time complexity for data structures you need to express it for several operations that you can do with
+        data structures. It can be adding elements, deleting elements, accessing an element or even searching for an
+        element.</p>
+      <hr>
+      <h3>Dependent ondata</h3>
+      <hr>
+      <p class="MsoNormal" style="margin-bottom:5.0pt;line-height:normal">Something that data structure and
+        algorithms have in common when talking about time complexity is that they are both dealing with data. When you
+        deal with data you become dependent on them and as a result the time complexity is also dependent of the data
+        that you received. To solve this problem we talk about 3 different time complexity.</p>
+      <p class="MsoNormal" style="line-height:normal"><span
+          style="font-size:13.5pt; font-family:&quot;JetBrains Mono Bold&quot;">Big Onotation</p>
+      <p>The complexity is usually expressed with
+        the Big O notation. The wikipedia page about this subject is pretty complex but you can find here a good summary
+        of the different complexity for the most famous data structures and sorting algorithms.</p>
+      <p class="MsoNormal" style="line-height:normal"><span
+          style="font-size:13.5pt; font-family:&quot;JetBrains Mono Bold&quot;">The Array data structure</p>
+      <p class="MsoNormal"><img border="0" width="438" height="180" id="Picture 13"
+          src="Data-Structures-Update-Backup_files/image001.gif" alt="image001"></p>
+      <p class="MsoNormal" style="line-height:normal"><span
+          style="font-size:13.5pt; font-family:&quot;JetBrains Mono Bold&quot;">Definition</p>
+      <p>An Array data structure, or simply an
+        Array, is a data structure consisting of a collection of elements (values or variables), each identified by at
+        least one array index or key. The simplest type of data structure is a linear array, also called one-dimensional
+        array. From Wikipedia</p>
+      <p>Arrays are among the oldest and most
+        important data structures and are used by every program. They are also used to implement many other data
+        structures.</p>
+      <p class="MsoNormal" style="line-height:normal"><span
+          style="font-size:14.0pt; font-family:&quot;JetBrains Mono Bold&quot;">Complexity
+          Average
+          Access Search Insertion Deletion</p>
+      <p>O(1) O(n) O(1) O(n)</p>
+      <pre data-filter-output="(out)" data-role="codeBlock" data-info="js"
+        class="data-line line-numbers data-user data-host data-prompt data-output language-javascript"
+        data-prismjs-copy="Copy !" data-download-link=""> <code class="language-javascript">class ArrayADT {
             constructor() {
                 this.array = [];
             }</code></pre>
-    <pre data-filter-output="(out)" data-role="codeBlock" data-info="js"
-      class="data-line line-numbers data-user data-host data-prompt data-output language-javascript"
-      data-prismjs-copy="Copy !" data-download-link=""> <code class="language-javascript">    add(data) {
+      <pre data-filter-output="(out)" data-role="codeBlock" data-info="js"
+        class="data-line line-numbers data-user data-host data-prompt data-output language-javascript"
+        data-prismjs-copy="Copy !" data-download-link=""> <code class="language-javascript">    add(data) {
                 this.array.push(data);
             }</code></pre>
-    <pre data-filter-output="(out)" data-role="codeBlock" data-info="js"
-      class="data-line line-numbers data-user data-host data-prompt data-output language-javascript"
-      data-prismjs-copy="Copy !" data-download-link=""> <code class="language-javascript">    remove(data) {
+      <pre data-filter-output="(out)" data-role="codeBlock" data-info="js"
+        class="data-line line-numbers data-user data-host data-prompt data-output language-javascript"
+        data-prismjs-copy="Copy !" data-download-link=""> <code class="language-javascript">    remove(data) {
                 this.array = this.array.filter((current) = current !== data);
             }</code></pre>
-    <pre data-filter-output="(out)" data-role="codeBlock" data-info="js"
-      class="data-line line-numbers data-user data-host data-prompt data-output language-javascript"
-      data-prismjs-copy="Copy !" data-download-link=""> <code class="language-javascript">    search(data) {
+      <pre data-filter-output="(out)" data-role="codeBlock" data-info="js"
+        class="data-line line-numbers data-user data-host data-prompt data-output language-javascript"
+        data-prismjs-copy="Copy !" data-download-link=""> <code class="language-javascript">    search(data) {
                 const foundIndex = this.array.indexOf(data);
                 if (foundIndex === -1) {
                     return foundIndex;
                 }</code></pre>
-    <pre data-filter-output="(out)" data-role="codeBlock" data-info="js"
-      class="data-line line-numbers data-user data-host data-prompt data-output language-javascript"
-      data-prismjs-copy="Copy !" data-download-link=""> <code class="language-javascript">        return
+      <pre data-filter-output="(out)" data-role="codeBlock" data-info="js"
+        class="data-line line-numbers data-user data-host data-prompt data-output language-javascript"
+        data-prismjs-copy="Copy !" data-download-link=""> <code class="language-javascript">        return
         null;
             }</code></pre>
-    <pre data-filter-output="(out)" data-role="codeBlock" data-info="js"
-      class="data-line line-numbers data-user data-host data-prompt data-output language-javascript"
-      data-prismjs-copy="Copy !" data-download-link=""> <code class="language-javascript">    getAtIndex(index) {
+      <pre data-filter-output="(out)" data-role="codeBlock" data-info="js"
+        class="data-line line-numbers data-user data-host data-prompt data-output language-javascript"
+        data-prismjs-copy="Copy !" data-download-link=""> <code class="language-javascript">    getAtIndex(index) {
                 return this.array[index];
             }</code></pre>
-    <pre data-filter-output="(out)" data-role="codeBlock" data-info="js"
-      class="data-line line-numbers data-user data-host data-prompt data-output language-javascript"
-      data-prismjs-copy="Copy !" data-download-link=""> <code class="language-javascript">    length() {
+      <pre data-filter-output="(out)" data-role="codeBlock" data-info="js"
+        class="data-line line-numbers data-user data-host data-prompt data-output language-javascript"
+        data-prismjs-copy="Copy !" data-download-link=""> <code class="language-javascript">    length() {
                 return this.array.length;
             }</code></pre>
-    <pre data-filter-output="(out)" data-role="codeBlock" data-info="js"
-      class="data-line line-numbers data-user data-host data-prompt data-output language-javascript"
-      data-prismjs-copy="Copy !" data-download-link=""> <code class="language-javascript">    print() {
+      <pre data-filter-output="(out)" data-role="codeBlock" data-info="js"
+        class="data-line line-numbers data-user data-host data-prompt data-output language-javascript"
+        data-prismjs-copy="Copy !" data-download-link=""> <code class="language-javascript">    print() {
                 console.log(this.array.join(" "));
             }
         }</code></pre>
-    </pre>
-    <pre data-filter-output="(out)" data-role="codeBlock" data-info="js"
-      class="data-line line-numbers data-user data-host data-prompt data-output language-javascript"
-      data-prismjs-copy="Copy !" data-download-link=""> <code class="language-javascript">const array = new
+      </pre>
+      <pre data-filter-output="(out)" data-role="codeBlock" data-info="js"
+        class="data-line line-numbers data-user data-host data-prompt data-output language-javascript"
+        data-prismjs-copy="Copy !" data-download-link=""> <code class="language-javascript">const array = new
         ArrayADT();
         console.log("const array = new ArrayADT();: ", array);
         console.log("-------------------------------");</code></pre>
-    </pre>
-    <pre data-filter-output="(out)" data-role="codeBlock" data-info="js"
-      class="data-line line-numbers data-user data-host data-prompt data-output language-javascript"
-      data-prismjs-copy="Copy !" data-download-link=""> <code class="language-javascript">console.log("array.add(1):
+      </pre>
+      <pre data-filter-output="(out)" data-role="codeBlock" data-info="js"
+        class="data-line line-numbers data-user data-host data-prompt data-output language-javascript"
+        data-prismjs-copy="Copy !" data-download-link=""> <code class="language-javascript">console.log("array.add(1):
         ", array.add(1));
         array.add(3);
         array.add(4);
@@ -379,44 +381,44 @@
             "array.add(4); ",
             array.add(4)
         );</code></pre>
-    </pre>
-    <pre data-filter-output="(out)" data-role="codeBlock" data-info="js"
-      class="data-line line-numbers data-user data-host data-prompt data-output language-javascript"
-      data-prismjs-copy="Copy !" data-download-link=""> <code class="language-javascript">console.log("-------------------------------");
+      </pre>
+      <pre data-filter-output="(out)" data-role="codeBlock" data-info="js"
+        class="data-line line-numbers data-user data-host data-prompt data-output language-javascript"
+        data-prismjs-copy="Copy !" data-download-link=""> <code class="language-javascript">console.log("-------------------------------");
         array.print();
         console.log("-------------------------------");</code></pre>
-    </pre>
-    <pre data-filter-output="(out)" data-role="codeBlock" data-info="js"
-      class="data-line line-numbers data-user data-host data-prompt data-output language-javascript"
-      data-prismjs-copy="Copy !" data-download-link=""> <code class="language-javascript">console.log("search 3
+      </pre>
+      <pre data-filter-output="(out)" data-role="codeBlock" data-info="js"
+        class="data-line line-numbers data-user data-host data-prompt data-output language-javascript"
+        data-prismjs-copy="Copy !" data-download-link=""> <code class="language-javascript">console.log("search 3
         gives index 2:", array.search(3));
         console.log("-------------------------------");</code></pre>
-    </pre>
-    <pre data-filter-output="(out)" data-role="codeBlock" data-info="js"
-      class="data-line line-numbers data-user data-host data-prompt data-output language-javascript"
-      data-prismjs-copy="Copy !" data-download-link=""> <code class="language-javascript">console.log("getAtIndex
+      </pre>
+      <pre data-filter-output="(out)" data-role="codeBlock" data-info="js"
+        class="data-line line-numbers data-user data-host data-prompt data-output language-javascript"
+        data-prismjs-copy="Copy !" data-download-link=""> <code class="language-javascript">console.log("getAtIndex
         2 gives 3:", array.getAtIndex(2)); 
         console.log("-------------------------------");</code></pre>
-    </pre>
-    <pre data-filter-output="(out)" data-role="codeBlock" data-info="js"
-      class="data-line line-numbers data-user data-host data-prompt data-output language-javascript"
-      data-prismjs-copy="Copy !" data-download-link=""> <code class="language-javascript">console.log("length is
+      </pre>
+      <pre data-filter-output="(out)" data-role="codeBlock" data-info="js"
+        class="data-line line-numbers data-user data-host data-prompt data-output language-javascript"
+        data-prismjs-copy="Copy !" data-download-link=""> <code class="language-javascript">console.log("length is
         4:", array.length());
         console.log("-------------------------------");</code></pre>
-    </pre>
-    <pre data-filter-output="(out)" data-role="codeBlock" data-info="js"
-      class="data-line line-numbers data-user data-host data-prompt data-output language-javascript"
-      data-prismjs-copy="Copy !" data-download-link=""> <code class="language-javascript">array.remove(3);
+      </pre>
+      <pre data-filter-output="(out)" data-role="codeBlock" data-info="js"
+        class="data-line line-numbers data-user data-host data-prompt data-output language-javascript"
+        data-prismjs-copy="Copy !" data-download-link=""> <code class="language-javascript">array.remove(3);
         array.print();
         console.log("-------------------------------");</code></pre>
-    <span style="font-size:16.0pt;font-family:&quot;Courier New&quot;">array.add(5);
-      array.add(5);
-      array.print();
-      console.log("-------------------------------");
-    </pre>
-    <pre data-filter-output="(out)" data-role="codeBlock" data-info="js"
-      class="data-line line-numbers data-user data-host data-prompt data-output language-javascript"
-      data-prismjs-copy="Copy !" data-download-link=""> <code class="language-javascript">array.remove(5);
+      <span style="font-size:16.0pt;font-family:&quot;Courier New&quot;">array.add(5);
+        array.add(5);
+        array.print();
+        console.log("-------------------------------");
+      </pre>
+      <pre data-filter-output="(out)" data-role="codeBlock" data-info="js"
+        class="data-line line-numbers data-user data-host data-prompt data-output language-javascript"
+        data-prismjs-copy="Copy !" data-download-link=""> <code class="language-javascript">array.remove(5);
         array.print(); 
         console.log( 
           "-------------------------------" );
@@ -443,35 +445,36 @@
         -------------------------------
          ~ final : (master) 
          */</code></pre>
-    <img border="0" width="624" height="207" id="Picture 12" src="Data-Structures-Update-Backup_files/image002.jpg"
-      alt="image002">
-    <span style="font-size:14.0pt; font-family:&quot;JetBrains Mono Bold&quot;">indexvalue0 … this is the first
-      value,
-      stored at zero position
-      1.<span style="font:7.0pt &quot;Times New Roman&quot;"> The index of an array runs in
-        sequence
-        <span style="font-size:14.0pt; font-family:&quot;JetBrains Mono Bold&quot;">2. This could be useful for storing
-          data
-          that are required to be ordered, such as rankings or queues
-          <span style="font-size:14.0pt; font-family:&quot;JetBrains Mono Bold&quot;">3. In JavaScript, array's value
-            could be
-            mixed; meaning value of each index could be of different data, be it String,
-            Number or even Objects
-    </pre>
-    <pre data-filter-output="(out)" data-role="codeBlock" data-info="js"
-      class="data-line line-numbers data-user data-host data-prompt data-output language-javascript"
-      data-prismjs-copy="Copy !" data-download-link=""> <code class="language-javascript">// 1. Creating Arrays
+      <img border="0" width="624" height="207" id="Picture 12" src="Data-Structures-Update-Backup_files/image002.jpg"
+        alt="image002">
+      <span style="font-size:14.0pt; font-family:&quot;JetBrains Mono Bold&quot;">indexvalue0 … this is the first
+        value,
+        stored at zero position
+        1.<span style="font:7.0pt &quot;Times New Roman&quot;"> The index of an array runs in
+          sequence
+          <span style="font-size:14.0pt; font-family:&quot;JetBrains Mono Bold&quot;">2. This could be useful for
+            storing
+            data
+            that are required to be ordered, such as rankings or queues
+            <span style="font-size:14.0pt; font-family:&quot;JetBrains Mono Bold&quot;">3. In JavaScript, array's value
+              could be
+              mixed; meaning value of each index could be of different data, be it String,
+              Number or even Objects
+      </pre>
+      <pre data-filter-output="(out)" data-role="codeBlock" data-info="js"
+        class="data-line line-numbers data-user data-host data-prompt data-output language-javascript"
+        data-prismjs-copy="Copy !" data-download-link=""> <code class="language-javascript">// 1. Creating Arrays
         let firstArray = ["a","b","c"];
         let secondArray = ["d","e","f"];</code></pre>
-    </pre>
-    <pre data-filter-output="(out)" data-role="codeBlock" data-info="js"
-      class="data-line line-numbers data-user data-host data-prompt data-output language-javascript"
-      data-prismjs-copy="Copy !" data-download-link=""> <code class="language-javascript">// 2. Access an Array Item
+      </pre>
+      <pre data-filter-output="(out)" data-role="codeBlock" data-info="js"
+        class="data-line line-numbers data-user data-host data-prompt data-output language-javascript"
+        data-prismjs-copy="Copy !" data-download-link=""> <code class="language-javascript">// 2. Access an Array Item
         console.log(firstArray[0]); // Results: "a"</code></pre>
-    </pre>
-    <pre data-filter-output="(out)" data-role="codeBlock" data-info="js"
-      class="data-line line-numbers data-user data-host data-prompt data-output language-javascript"
-      data-prismjs-copy="Copy !" data-download-link=""> <code class="language-javascript">// 3. Loop over an Array
+      </pre>
+      <pre data-filter-output="(out)" data-role="codeBlock" data-info="js"
+        class="data-line line-numbers data-user data-host data-prompt data-output language-javascript"
+        data-prismjs-copy="Copy !" data-download-link=""> <code class="language-javascript">// 3. Loop over an Array
         firstArray.forEach(function(item, index, array){
             console.log(item, index); 
         });
@@ -479,155 +482,155 @@
         // a 0
         // b 1
         // c 2</code></pre>
-    </pre>
-    <pre data-filter-output="(out)" data-role="codeBlock" data-info="js"
-      class="data-line line-numbers data-user data-host data-prompt data-output language-javascript"
-      data-prismjs-copy="Copy !" data-download-link=""> <code class="language-javascript">// 4. Add new item to END of
+      </pre>
+      <pre data-filter-output="(out)" data-role="codeBlock" data-info="js"
+        class="data-line line-numbers data-user data-host data-prompt data-output language-javascript"
+        data-prismjs-copy="Copy !" data-download-link=""> <code class="language-javascript">// 4. Add new item to END of
         array
         secondArray.push('g');
         console.log(secondArray);
         // Results: ["d","e","f", "g"]</code></pre>
-    </pre>
-    <pre data-filter-output="(out)" data-role="codeBlock" data-info="js"
-      class="data-line line-numbers data-user data-host data-prompt data-output language-javascript"
-      data-prismjs-copy="Copy !" data-download-link=""> <code class="language-javascript">// 5. Remove item from END
+      </pre>
+      <pre data-filter-output="(out)" data-role="codeBlock" data-info="js"
+        class="data-line line-numbers data-user data-host data-prompt data-output language-javascript"
+        data-prismjs-copy="Copy !" data-download-link=""> <code class="language-javascript">// 5. Remove item from END
         of array
         secondArray.pop();
         console.log(secondArray);
         // Results: ["d","e","f"]</code></pre>
-    </pre>
-    <pre data-filter-output="(out)" data-role="codeBlock" data-info="js"
-      class="data-line line-numbers data-user data-host data-prompt data-output language-javascript"
-      data-prismjs-copy="Copy !" data-download-link=""> <code class="language-javascript">// 6. Remove item from FRONT
+      </pre>
+      <pre data-filter-output="(out)" data-role="codeBlock" data-info="js"
+        class="data-line line-numbers data-user data-host data-prompt data-output language-javascript"
+        data-prismjs-copy="Copy !" data-download-link=""> <code class="language-javascript">// 6. Remove item from FRONT
         of array
         secondArray.shift();
         console.log(secondArray);
         // Results: ["e","f"]</code></pre>
-    </pre>
-    <pre data-filter-output="(out)" data-role="codeBlock" data-info="js"
-      class="data-line line-numbers data-user data-host data-prompt data-output language-javascript"
-      data-prismjs-copy="Copy !" data-download-link=""> <code class="language-javascript">// 7. Add item to FRONT of
+      </pre>
+      <pre data-filter-output="(out)" data-role="codeBlock" data-info="js"
+        class="data-line line-numbers data-user data-host data-prompt data-output language-javascript"
+        data-prismjs-copy="Copy !" data-download-link=""> <code class="language-javascript">// 7. Add item to FRONT of
         array
         secondArray.unshift("d");
         console.log(secondArray);
         // Results: ["d","e","f"]</code></pre>
-    </pre>
-    <pre data-filter-output="(out)" data-role="codeBlock" data-info="js"
-      class="data-line line-numbers data-user data-host data-prompt data-output language-javascript"
-      data-prismjs-copy="Copy !" data-download-link=""> <code class="language-javascript">// 8. Find INDEX of an item
+      </pre>
+      <pre data-filter-output="(out)" data-role="codeBlock" data-info="js"
+        class="data-line line-numbers data-user data-host data-prompt data-output language-javascript"
+        data-prismjs-copy="Copy !" data-download-link=""> <code class="language-javascript">// 8. Find INDEX of an item
         in array
         let position = secondArray.indexOf('f');
         // Results: 2</code></pre>
-    </pre>
-    <pre data-filter-output="(out)" data-role="codeBlock" data-info="js"
-      class="data-line line-numbers data-user data-host data-prompt data-output language-javascript"
-      data-prismjs-copy="Copy !" data-download-link=""> <code class="language-javascript">// 9. Remove Item by Index
+      </pre>
+      <pre data-filter-output="(out)" data-role="codeBlock" data-info="js"
+        class="data-line line-numbers data-user data-host data-prompt data-output language-javascript"
+        data-prismjs-copy="Copy !" data-download-link=""> <code class="language-javascript">// 9. Remove Item by Index
         Position
         secondArray.splice(position, 1); 
         console.log(secondArray);
         // Note, the second argument, in this case "1", 
         // represent the number of array elements to be removed
         // Results:  ["d","e"]</code></pre>
-    </pre>
-    <pre data-filter-output="(out)" data-role="codeBlock" data-info="js"
-      class="data-line line-numbers data-user data-host data-prompt data-output language-javascript"
-      data-prismjs-copy="Copy !" data-download-link=""> <code class="language-javascript">// 10. Copy an Array
+      </pre>
+      <pre data-filter-output="(out)" data-role="codeBlock" data-info="js"
+        class="data-line line-numbers data-user data-host data-prompt data-output language-javascript"
+        data-prismjs-copy="Copy !" data-download-link=""> <code class="language-javascript">// 10. Copy an Array
         let shallowCopy = secondArray.slice();
         console.log(secondArray);
         console.log(shallowCopy);
         // Results: ShallowCopy === ["d","e"]</code></pre>
-    <span style="font-size:16.0pt;font-family:&quot;Courier New&quot;">// 11. JavaScript properties
-      that BEGIN with a digit MUST be accessed using bracket notation
-      renderer.3d.setTexture(model, 'character.png'); // a syntax error
-      renderer['3d'].setTexture(model, 'character.png'); // works properly
-    </pre>
-    <pre data-filter-output="(out)" data-role="codeBlock" data-info="js"
-      class="data-line line-numbers data-user data-host data-prompt data-output language-javascript"
-      data-prismjs-copy="Copy !" data-download-link=""> <code class="language-javascript">// 12. Combine two Arrays
+      <span style="font-size:16.0pt;font-family:&quot;Courier New&quot;">// 11. JavaScript properties
+        that BEGIN with a digit MUST be accessed using bracket notation
+        renderer.3d.setTexture(model, 'character.png'); // a syntax error
+        renderer['3d'].setTexture(model, 'character.png'); // works properly
+      </pre>
+      <pre data-filter-output="(out)" data-role="codeBlock" data-info="js"
+        class="data-line line-numbers data-user data-host data-prompt data-output language-javascript"
+        data-prismjs-copy="Copy !" data-download-link=""> <code class="language-javascript">// 12. Combine two Arrays
         let thirdArray = firstArray.concat(secondArray);
         console.log(thirdArray);
         // ["a","b","c", "d", "e"];</code></pre>
-    </pre>
-    <pre data-filter-output="(out)" data-role="codeBlock" data-info="js"
-      class="data-line line-numbers data-user data-host data-prompt data-output language-javascript"
-      data-prismjs-copy="Copy !" data-download-link=""> <code class="language-javascript">// 13. Combine all Array
+      </pre>
+      <pre data-filter-output="(out)" data-role="codeBlock" data-info="js"
+        class="data-line line-numbers data-user data-host data-prompt data-output language-javascript"
+        data-prismjs-copy="Copy !" data-download-link=""> <code class="language-javascript">// 13. Combine all Array
         elements into a string
         console.log(thirdArray.join()); // Results: a,b,c,d,e
         console.log(thirdArray.join('')); // Results: abcde
         console.log(thirdArray.join('-')); // Results: a-b-c-d-e</code></pre>
-    </pre>
-    <pre data-filter-output="(out)" data-role="codeBlock" data-info="js"
-      class="data-line line-numbers data-user data-host data-prompt data-output language-javascript"
-      data-prismjs-copy="Copy !" data-download-link=""> <code class="language-javascript">// 14. Reversing an Array
+      </pre>
+      <pre data-filter-output="(out)" data-role="codeBlock" data-info="js"
+        class="data-line line-numbers data-user data-host data-prompt data-output language-javascript"
+        data-prismjs-copy="Copy !" data-download-link=""> <code class="language-javascript">// 14. Reversing an Array
         (in place, i.e. destructive)
         console.log(thirdArray.reverse()); // ["e", "d",
         "c", "b", "a"]</code></pre>
-    </pre>
-    <pre data-filter-output="(out)" data-role="codeBlock" data-info="js"
-      class="data-line line-numbers data-user data-host data-prompt data-output language-javascript"
-      data-prismjs-copy="Copy !" data-download-link=""> <code class="language-javascript">// 15. sort
+      </pre>
+      <pre data-filter-output="(out)" data-role="codeBlock" data-info="js"
+        class="data-line line-numbers data-user data-host data-prompt data-output language-javascript"
+        data-prismjs-copy="Copy !" data-download-link=""> <code class="language-javascript">// 15. sort
         let unsortedArray = ["Alphabet", "Zoo",
         "Products", "Computer Science", "Computer"];
         console.log(unsortedArray.sort()); 
         // Results: ["Alphabet", "Computer", "Computer
         Science", "Products", "Zoo" ]</code></pre>
-    <span style="font-size:13.5pt; font-family:&quot;JetBrains Mono Bold&quot;">2. Objects
-      <span style="font-size:14.0pt; font-family:&quot;JetBrains Mono Bold&quot;">Think of objects as a logical
-        grouping of a
-        bunch of properties.
-        <span style="font-size:14.0pt; font-family:&quot;JetBrains Mono Bold&quot;">Properties could be some variable
-          that it's
-          storing or some methods that it's using.
-          <span style="font-size:14.0pt; font-family:&quot;JetBrains Mono Bold&quot;">I also visualize an object as a
-            table.
-            <span style="font-size:14.0pt; font-family:&quot;JetBrains Mono Bold&quot;">The main difference is that
-              object's
-              "index"
-              need not be numbers and is not necessarily sequenced.
-              <img border="0" width="624" height="94" id="Picture 11"
-                src="Data-Structures-Update-Backup_files/image003.jpg" alt="image003">
-    </pre>
-    <pre data-filter-output="(out)" data-role="codeBlock" data-info="js"
-      class="data-line line-numbers data-user data-host data-prompt data-output language-javascript"
-      data-prismjs-copy="Copy !"
-      data-download-link=""> <code class="language-javascript">// 16. Creating an Object</code></pre>
-    </pre>
-    <pre data-filter-output="(out)" data-role="codeBlock" data-info="js"
-      class="data-line line-numbers data-user data-host data-prompt data-output language-javascript"
-      data-prismjs-copy="Copy !" data-download-link=""> <code class="language-javascript">let newObj = {
+      <span style="font-size:13.5pt; font-family:&quot;JetBrains Mono Bold&quot;">2. Objects
+        <span style="font-size:14.0pt; font-family:&quot;JetBrains Mono Bold&quot;">Think of objects as a logical
+          grouping of a
+          bunch of properties.
+          <span style="font-size:14.0pt; font-family:&quot;JetBrains Mono Bold&quot;">Properties could be some variable
+            that it's
+            storing or some methods that it's using.
+            <span style="font-size:14.0pt; font-family:&quot;JetBrains Mono Bold&quot;">I also visualize an object as a
+              table.
+              <span style="font-size:14.0pt; font-family:&quot;JetBrains Mono Bold&quot;">The main difference is that
+                object's
+                "index"
+                need not be numbers and is not necessarily sequenced.
+                <img border="0" width="624" height="94" id="Picture 11"
+                  src="Data-Structures-Update-Backup_files/image003.jpg" alt="image003">
+      </pre>
+      <pre data-filter-output="(out)" data-role="codeBlock" data-info="js"
+        class="data-line line-numbers data-user data-host data-prompt data-output language-javascript"
+        data-prismjs-copy="Copy !"
+        data-download-link=""> <code class="language-javascript">// 16. Creating an Object</code></pre>
+      </pre>
+      <pre data-filter-output="(out)" data-role="codeBlock" data-info="js"
+        class="data-line line-numbers data-user data-host data-prompt data-output language-javascript"
+        data-prismjs-copy="Copy !" data-download-link=""> <code class="language-javascript">let newObj = {
             name: "I'm an object",
             values: [1,10,11,20],
             others: '',
             "1property": 'example of property name starting with digit'</code></pre>
-    </pre>
-    <pre data-filter-output="(out)" data-role="codeBlock" data-info="js"
-      class="data-line line-numbers data-user data-host data-prompt data-output language-javascript"
-      data-prismjs-copy="Copy !" data-download-link=""> <code class="language-javascript">};</code></pre>
-    </pre>
-    <pre data-filter-output="(out)" data-role="codeBlock" data-info="js"
-      class="data-line line-numbers data-user data-host data-prompt data-output language-javascript"
-      data-prismjs-copy="Copy !" data-download-link=""> <code class="language-javascript">// 17. Figure out what
+      </pre>
+      <pre data-filter-output="(out)" data-role="codeBlock" data-info="js"
+        class="data-line line-numbers data-user data-host data-prompt data-output language-javascript"
+        data-prismjs-copy="Copy !" data-download-link=""> <code class="language-javascript">};</code></pre>
+      </pre>
+      <pre data-filter-output="(out)" data-role="codeBlock" data-info="js"
+        class="data-line line-numbers data-user data-host data-prompt data-output language-javascript"
+        data-prismjs-copy="Copy !" data-download-link=""> <code class="language-javascript">// 17. Figure out what
         keys/properties are in an object
         console.log(Object.keys(newObj));
         // Results: [ 'name', 'values', 'others', '1property' ]</code></pre>
-    </pre>
-    <pre data-filter-output="(out)" data-role="codeBlock" data-info="js"
-      class="data-line line-numbers data-user data-host data-prompt data-output language-javascript"
-      data-prismjs-copy="Copy !" data-download-link=""> <code class="language-javascript">// 18. Show all values
+      </pre>
+      <pre data-filter-output="(out)" data-role="codeBlock" data-info="js"
+        class="data-line line-numbers data-user data-host data-prompt data-output language-javascript"
+        data-prismjs-copy="Copy !" data-download-link=""> <code class="language-javascript">// 18. Show all values
         stored in the object
         console.log(Object.values(newObj));</code></pre>
-    </pre>
-    <pre data-filter-output="(out)" data-role="codeBlock" data-info="js"
-      class="data-line line-numbers data-user data-host data-prompt data-output language-javascript"
-      data-prismjs-copy="Copy !" data-download-link=""> <code class="language-javascript">// Results:
+      </pre>
+      <pre data-filter-output="(out)" data-role="codeBlock" data-info="js"
+        class="data-line line-numbers data-user data-host data-prompt data-output language-javascript"
+        data-prismjs-copy="Copy !" data-download-link=""> <code class="language-javascript">// Results:
         // [ 'I\'m an object',
         //   [ 1, 10, 11, 20 ],
         //   '',
         //   'example of property name starting with digit' ]</code></pre>
-    </pre>
-    <pre data-filter-output="(out)" data-role="codeBlock" data-info="js"
-      class="data-line line-numbers data-user data-host data-prompt data-output language-javascript"
-      data-prismjs-copy="Copy !" data-download-link=""> <code class="language-javascript">// 19. Show all key and
+      </pre>
+      <pre data-filter-output="(out)" data-role="codeBlock" data-info="js"
+        class="data-line line-numbers data-user data-host data-prompt data-output language-javascript"
+        data-prismjs-copy="Copy !" data-download-link=""> <code class="language-javascript">// 19. Show all key and
         values of the object
         for (let [key, value] of Object.entries(newObj)) {
             console.log(`${key}: ${value}`);
@@ -637,48 +640,48 @@
         // values: 1,10,11,20
         // others:
         // 1property: example of property name starting with digit</code></pre>
-    </pre>
-    <pre data-filter-output="(out)" data-role="codeBlock" data-info="js"
-      class="data-line line-numbers data-user data-host data-prompt data-output language-javascript"
-      data-prismjs-copy="Copy !" data-download-link=""> <code class="language-javascript">// 20. Accessing Object's
+      </pre>
+      <pre data-filter-output="(out)" data-role="codeBlock" data-info="js"
+        class="data-line line-numbers data-user data-host data-prompt data-output language-javascript"
+        data-prismjs-copy="Copy !" data-download-link=""> <code class="language-javascript">// 20. Accessing Object's
         Properties
         // Two different ways to access properties, both produce same results
         console.log(newObj.name);
         console.log(newObj["name"]);</code></pre>
-    </pre>
-    <pre data-filter-output="(out)" data-role="codeBlock" data-info="js"
-      class="data-line line-numbers data-user data-host data-prompt data-output language-javascript"
-      data-prismjs-copy="Copy !" data-download-link=""> <code class="language-javascript">// But if the property name
+      </pre>
+      <pre data-filter-output="(out)" data-role="codeBlock" data-info="js"
+        class="data-line line-numbers data-user data-host data-prompt data-output language-javascript"
+        data-prismjs-copy="Copy !" data-download-link=""> <code class="language-javascript">// But if the property name
         starts with a digit,
         // we CANNOT use dot notation
         console.log(newObj["1property"]);</code></pre>
-    </pre>
-    <pre data-filter-output="(out)" data-role="codeBlock" data-info="js"
-      class="data-line line-numbers data-user data-host data-prompt data-output language-javascript"
-      data-prismjs-copy="Copy !" data-download-link=""> <code class="language-javascript">// 21. Adding a Method to an
+      </pre>
+      <pre data-filter-output="(out)" data-role="codeBlock" data-info="js"
+        class="data-line line-numbers data-user data-host data-prompt data-output language-javascript"
+        data-prismjs-copy="Copy !" data-download-link=""> <code class="language-javascript">// 21. Adding a Method to an
         Object
         newObj.helloWorld = function(){
             console.log("Hello World from inside an object!");
         }</code></pre>
-    </pre>
-    <pre data-filter-output="(out)" data-role="codeBlock" data-info="js"
-      class="data-line line-numbers data-user data-host data-prompt data-output language-javascript"
-      data-prismjs-copy="Copy !" data-download-link=""> <code class="language-javascript">// 22. Invoking an Object's
+      </pre>
+      <pre data-filter-output="(out)" data-role="codeBlock" data-info="js"
+        class="data-line line-numbers data-user data-host data-prompt data-output language-javascript"
+        data-prismjs-copy="Copy !" data-download-link=""> <code class="language-javascript">// 22. Invoking an Object's
         Method
         newObj.helloWorld();</code></pre>
-    <span style="font-size:13.5pt; font-family:&quot;JetBrains Mono Bold&quot;">The Hash Table
-      <img border="0" width="509" height="408" id="Picture 10" src="Data-Structures-Update-Backup_files/image004.gif"
-        alt="image004"><img border="0" width="624" height="468" id="Picture 9"
-        src="Data-Structures-Update-Backup_files/image005.gif" alt="image005">
-    </pre>
-    <hr>
-    <pre>
-</pre>
-    <h3>Definition</h3>
-    <pre>
+      <span style="font-size:13.5pt; font-family:&quot;JetBrains Mono Bold&quot;">The Hash Table
+        <img border="0" width="509" height="408" id="Picture 10" src="Data-Structures-Update-Backup_files/image004.gif"
+          alt="image004"><img border="0" width="624" height="468" id="Picture 9"
+          src="Data-Structures-Update-Backup_files/image005.gif" alt="image005">
       </pre>
-    <hr>
-    <pre>
+      <hr>
+      <pre>
+</pre>
+      <h3>Definition</h3>
+      <pre>
+      </pre>
+      <hr>
+      <pre>
     <span >A Hash Table (Hash
           Map) is a data structure used to implement an associative array, a structure
           that can map keys to values. A Hash Table uses a hash function to compute an
@@ -690,18 +693,18 @@
         Average
         Access Search Insertion Deletion
     </pre>
-    <ul type="disc">
-      <li class="MsoNormal" style="line-height:normal"><span
-          style="font-size:14.0pt; font-family:&quot;JetBrains Mono Bold&quot;">O(1) O(1) O(1)</li>
-    </ul>
-    <pre>
+      <ul type="disc">
+        <li class="MsoNormal" style="line-height:normal"><span
+            style="font-size:14.0pt; font-family:&quot;JetBrains Mono Bold&quot;">O(1) O(1) O(1)</li>
+      </ul>
+      <pre>
     <span >The code
     <span style="font-size:14.0pt; font-family:&quot;JetBrains Mono Bold&quot;">Note, here I am storing another object for
         every hash in my Hash Table.
    </pre>
-    <pre data-filter-output="(out)" data-role="codeBlock" data-info="js"
-      class="data-line line-numbers data-user data-host data-prompt data-output language-javascript"
-      data-prismjs-copy="Copy !" data-download-link=""> <code class="language-javascript">class HashTable {
+      <pre data-filter-output="(out)" data-role="codeBlock" data-info="js"
+        class="data-line line-numbers data-user data-host data-prompt data-output language-javascript"
+        data-prismjs-copy="Copy !" data-download-link=""> <code class="language-javascript">class HashTable {
             constructor( size ) {
                 this.values = {};
                 this.numberOfValues = 0;
@@ -779,45 +782,46 @@
         2 3 5
         length gives 3: 3
         */</code></pre>
-    <span style="font-size:13.5pt; font-family:&quot;JetBrains Mono Bold&quot;">The Set
-      <span style="font-size:13.5pt; font-family:&quot;JetBrains Mono Bold&quot;">Sets
-        <span style="font-size:14.0pt; font-family:&quot;JetBrains Mono Bold&quot;">Sets are pretty much what it sounds
-          like.
-          It's the same intuition as Set in Mathematics. I visualize Sets as Venn
-          Diagrams.
-    </pre>
-    <pre data-filter-output="(out)" data-role="codeBlock" data-info="js"
-      class="data-line line-numbers data-user data-host data-prompt data-output language-javascript"
-      data-prismjs-copy="Copy !" data-download-link=""> <code class="language-javascript">// 23. Creating a new Set
+      <span style="font-size:13.5pt; font-family:&quot;JetBrains Mono Bold&quot;">The Set
+        <span style="font-size:13.5pt; font-family:&quot;JetBrains Mono Bold&quot;">Sets
+          <span style="font-size:14.0pt; font-family:&quot;JetBrains Mono Bold&quot;">Sets are pretty much what it
+            sounds
+            like.
+            It's the same intuition as Set in Mathematics. I visualize Sets as Venn
+            Diagrams.
+      </pre>
+      <pre data-filter-output="(out)" data-role="codeBlock" data-info="js"
+        class="data-line line-numbers data-user data-host data-prompt data-output language-javascript"
+        data-prismjs-copy="Copy !" data-download-link=""> <code class="language-javascript">// 23. Creating a new Set
         let newSet = new Set();</code></pre>
-    </pre>
-    <pre data-filter-output="(out)" data-role="codeBlock" data-info="js"
-      class="data-line line-numbers data-user data-host data-prompt data-output language-javascript"
-      data-prismjs-copy="Copy !" data-download-link=""> <code class="language-javascript">// 24. Adding new elements
+      </pre>
+      <pre data-filter-output="(out)" data-role="codeBlock" data-info="js"
+        class="data-line line-numbers data-user data-host data-prompt data-output language-javascript"
+        data-prismjs-copy="Copy !" data-download-link=""> <code class="language-javascript">// 24. Adding new elements
         to a set
         newSet.add(1); // Set[1]
         newSet.add("text") // Set[1, "text"]</code></pre>
-    </pre>
-    <pre data-filter-output="(out)" data-role="codeBlock" data-info="js"
-      class="data-line line-numbers data-user data-host data-prompt data-output language-javascript"
-      data-prismjs-copy="Copy !" data-download-link=""> <code class="language-javascript">// 25. Check if element is
+      </pre>
+      <pre data-filter-output="(out)" data-role="codeBlock" data-info="js"
+        class="data-line line-numbers data-user data-host data-prompt data-output language-javascript"
+        data-prismjs-copy="Copy !" data-download-link=""> <code class="language-javascript">// 25. Check if element is
         in set
         newSet.has(1); // true</code></pre>
-    </pre>
-    <pre data-filter-output="(out)" data-role="codeBlock" data-info="js"
-      class="data-line line-numbers data-user data-host data-prompt data-output language-javascript"
-      data-prismjs-copy="Copy !" data-download-link=""> <code class="language-javascript">// 24. Check size of set
+      </pre>
+      <pre data-filter-output="(out)" data-role="codeBlock" data-info="js"
+        class="data-line line-numbers data-user data-host data-prompt data-output language-javascript"
+        data-prismjs-copy="Copy !" data-download-link=""> <code class="language-javascript">// 24. Check size of set
         console.log(newSet.size) // Results: 2</code></pre>
-    </pre>
-    <pre data-filter-output="(out)" data-role="codeBlock" data-info="js"
-      class="data-line line-numbers data-user data-host data-prompt data-output language-javascript"
-      data-prismjs-copy="Copy !" data-download-link=""> <code class="language-javascript">// 26. Delete element from
+      </pre>
+      <pre data-filter-output="(out)" data-role="codeBlock" data-info="js"
+        class="data-line line-numbers data-user data-host data-prompt data-output language-javascript"
+        data-prismjs-copy="Copy !" data-download-link=""> <code class="language-javascript">// 26. Delete element from
         set
         newSet.delete(1) // Set["text"]</code></pre>
-    </pre>
-    <pre data-filter-output="(out)" data-role="codeBlock" data-info="js"
-      class="data-line line-numbers data-user data-host data-prompt data-output language-javascript"
-      data-prismjs-copy="Copy !" data-download-link=""> <code class="language-javascript">// 27. Set Operations:
+      </pre>
+      <pre data-filter-output="(out)" data-role="codeBlock" data-info="js"
+        class="data-line line-numbers data-user data-host data-prompt data-output language-javascript"
+        data-prismjs-copy="Copy !" data-download-link=""> <code class="language-javascript">// 27. Set Operations:
         isSuperSet
         function isSuperset(set, subset) {
             for (let elem of subset) {
@@ -835,10 +839,10 @@
             }
             return _union;
         }</code></pre>
-    </pre>
-    <pre data-filter-output="(out)" data-role="codeBlock" data-info="js"
-      class="data-line line-numbers data-user data-host data-prompt data-output language-javascript"
-      data-prismjs-copy="Copy !" data-download-link=""> <code class="language-javascript">// 29. Set Operations:
+      </pre>
+      <pre data-filter-output="(out)" data-role="codeBlock" data-info="js"
+        class="data-line line-numbers data-user data-host data-prompt data-output language-javascript"
+        data-prismjs-copy="Copy !" data-download-link=""> <code class="language-javascript">// 29. Set Operations:
         intersection
         function intersection(setA, setB) {
             let _intersection = new Set();
@@ -869,17 +873,17 @@
             }
             return _difference;
         }</code></pre>
-    </pre>
-    <pre data-filter-output="(out)" data-role="codeBlock" data-info="js"
-      class="data-line line-numbers data-user data-host data-prompt data-output language-javascript"
-      data-prismjs-copy="Copy !" data-download-link=""> <code class="language-javascript">// Examples
+      </pre>
+      <pre data-filter-output="(out)" data-role="codeBlock" data-info="js"
+        class="data-line line-numbers data-user data-host data-prompt data-output language-javascript"
+        data-prismjs-copy="Copy !" data-download-link=""> <code class="language-javascript">// Examples
         let setA = new Set([1, 2, 3, 4]);
         let setB = new Set([2, 3]);
         let setC = new Set([3, 4, 5, 6]);</code></pre>
-    </pre>
-    <pre data-filter-output="(out)" data-role="codeBlock" data-info="js"
-      class="data-line line-numbers data-user data-host data-prompt data-output language-javascript"
-      data-prismjs-copy="Copy !" data-download-link=""> <code class="language-javascript">console.log(isSuperset(setA,
+      </pre>
+      <pre data-filter-output="(out)" data-role="codeBlock" data-info="js"
+        class="data-line line-numbers data-user data-host data-prompt data-output language-javascript"
+        data-prismjs-copy="Copy !" data-download-link=""> <code class="language-javascript">console.log(isSuperset(setA,
         setB));            // = true
         console.log(union(setA,
         setC));                 // =
@@ -889,17 +893,17 @@
         console.log(symmetricDifference(setA, setC));   // = Set [1, 2, 5, 6]
         console.log(difference(setA, setC));            // =
         Set [1, 2]</code></pre>
-    <img border="0" width="290" height="243" id="Picture 8" src="Data-Structures-Update-Backup_files/image006.jpg"
-      alt="image006">
-    </pre>
-    <hr>
-    <pre>
-</pre>
-    <h3>Definition</h3>
-    <pre>
+      <img border="0" width="290" height="243" id="Picture 8" src="Data-Structures-Update-Backup_files/image006.jpg"
+        alt="image006">
       </pre>
-    <hr>
-    <pre>
+      <hr>
+      <pre>
+</pre>
+      <h3>Definition</h3>
+      <pre>
+      </pre>
+      <hr>
+      <pre>
     <span >A Set is an abstract
           data type that can store certain values, without any particular order, and no
           repeated values. It is a computer implementation of the mathematical concept of
@@ -912,16 +916,16 @@
         Average
         Access Search Insertion Deletion
     </pre>
-    <ul type="disc">
-      <li class="MsoNormal" style="line-height:normal"><span
-          style="font-size:14.0pt; font-family:&quot;JetBrains Mono Bold&quot;">O(n) O(n) O(n)</li>
-    </ul>
-    <pre>
+      <ul type="disc">
+        <li class="MsoNormal" style="line-height:normal"><span
+            style="font-size:14.0pt; font-family:&quot;JetBrains Mono Bold&quot;">O(n) O(n) O(n)</li>
+      </ul>
+      <pre>
     <span >The code
    </pre>
-    <pre data-filter-output="(out)" data-role="codeBlock" data-info="js"
-      class="data-line line-numbers data-user data-host data-prompt data-output language-javascript"
-      data-prismjs-copy="Copy !" data-download-link=""> <code class="language-javascript">function Set() {
+      <pre data-filter-output="(out)" data-role="codeBlock" data-info="js"
+        class="data-line line-numbers data-user data-host data-prompt data-output language-javascript"
+        data-prismjs-copy="Copy !" data-download-link=""> <code class="language-javascript">function Set() {
               this.values = [];
               this.numberOfValues = 0;
             }
@@ -1011,18 +1015,18 @@
         false
             console.log('set1 length gives 2:', set1.length()); // = 2
             console.log('set3 length gives 3:', set3.length()); // = 3</code></pre>
-    <span style="font-size:13.5pt; font-family:&quot;JetBrains Mono Bold&quot;">The Singly Linked List
-      <img border="0" width="624" height="468" id="Picture 7" src="Data-Structures-Update-Backup_files/image007.gif"
-        alt="image007">
-    </pre>
-    <hr>
-    <pre>
-</pre>
-    <h3>Definition</h3>
-    <pre>
+      <span style="font-size:13.5pt; font-family:&quot;JetBrains Mono Bold&quot;">The Singly Linked List
+        <img border="0" width="624" height="468" id="Picture 7" src="Data-Structures-Update-Backup_files/image007.gif"
+          alt="image007">
       </pre>
-    <hr>
-    <pre>
+      <hr>
+      <pre>
+</pre>
+      <h3>Definition</h3>
+      <pre>
+      </pre>
+      <hr>
+      <pre>
     <span >A Singly Linked List
           is a linear collection of data elements, called nodes pointing to the next node
           by means of pointer. It is a data structure consisting of a group of nodes
@@ -1038,30 +1042,30 @@
         O(n) O(n) O(1) O(1)
     <span >The code
     </pre>
-    <div class="MsoNormal" align="center" style="margin-bottom:0in;text-align:center; line-height:normal">
-      <hr size="2" width="100%" align="center">
-    </div>
-    <pre>
+      <div class="MsoNormal" align="center" style="margin-bottom:0in;text-align:center; line-height:normal">
+        <hr size="2" width="100%" align="center">
+      </div>
+      <pre>
    </pre>
-    <pre data-filter-output="(out)" data-role="codeBlock" data-info="js"
-      class="data-line line-numbers data-user data-host data-prompt data-output language-javascript"
-      data-prismjs-copy="Copy !" data-download-link=""> <code class="language-javascript">function Node(data) {
+      <pre data-filter-output="(out)" data-role="codeBlock" data-info="js"
+        class="data-line line-numbers data-user data-host data-prompt data-output language-javascript"
+        data-prismjs-copy="Copy !" data-download-link=""> <code class="language-javascript">function Node(data) {
           this.data = data;
           this.next = null;
         }</code></pre>
-    </pre>
-    <pre data-filter-output="(out)" data-role="codeBlock" data-info="js"
-      class="data-line line-numbers data-user data-host data-prompt data-output language-javascript"
-      data-prismjs-copy="Copy !" data-download-link=""> <code class="language-javascript">function SinglyLinkedList()
+      </pre>
+      <pre data-filter-output="(out)" data-role="codeBlock" data-info="js"
+        class="data-line line-numbers data-user data-host data-prompt data-output language-javascript"
+        data-prismjs-copy="Copy !" data-download-link=""> <code class="language-javascript">function SinglyLinkedList()
         {
           this.head = null;
           this.tail = null;
           this.numberOfValues = 0;
         }</code></pre>
-    </pre>
-    <pre data-filter-output="(out)" data-role="codeBlock" data-info="js"
-      class="data-line line-numbers data-user data-host data-prompt data-output language-javascript"
-      data-prismjs-copy="Copy !" data-download-link=""> <code class="language-javascript">SinglyLinkedList.prototype.add
+      </pre>
+      <pre data-filter-output="(out)" data-role="codeBlock" data-info="js"
+        class="data-line line-numbers data-user data-host data-prompt data-output language-javascript"
+        data-prismjs-copy="Copy !" data-download-link=""> <code class="language-javascript">SinglyLinkedList.prototype.add
         = function(data) {
           let node = new Node(data);
           if(!this.head) {
@@ -1130,10 +1134,10 @@
           }
           console.log(string.trim());
         };</code></pre>
-    </pre>
-    <pre data-filter-output="(out)" data-role="codeBlock" data-info="js"
-      class="data-line line-numbers data-user data-host data-prompt data-output language-javascript"
-      data-prismjs-copy="Copy !" data-download-link=""> <code class="language-javascript">let singlyLinkedList = new
+      </pre>
+      <pre data-filter-output="(out)" data-role="codeBlock" data-info="js"
+        class="data-line line-numbers data-user data-host data-prompt data-output language-javascript"
+        data-prismjs-copy="Copy !" data-download-link=""> <code class="language-javascript">let singlyLinkedList = new
         SinglyLinkedList();
         singlyLinkedList.print(); // = ''
         singlyLinkedList.add(1);
@@ -1170,18 +1174,18 @@
         singlyLinkedList.traverse(function(node) { console.log(node.data); }); // =
         12 13 14 15 16 17 18
         console.log('length is 7:', singlyLinkedList.length()); // = 7</code></pre>
-    <span style="font-size:13.5pt; font-family:&quot;JetBrains Mono Bold&quot;">The Doubly Linked List
-      <img border="0" width="624" height="172" id="Picture 6" src="Data-Structures-Update-Backup_files/image008.gif"
-        alt="image008">
-    </pre>
-    <hr>
-    <pre>
-</pre>
-    <h3>Definition</h3>
-    <pre>
+      <span style="font-size:13.5pt; font-family:&quot;JetBrains Mono Bold&quot;">The Doubly Linked List
+        <img border="0" width="624" height="172" id="Picture 6" src="Data-Structures-Update-Backup_files/image008.gif"
+          alt="image008">
       </pre>
-    <hr>
-    <pre>
+      <hr>
+      <pre>
+</pre>
+      <h3>Definition</h3>
+      <pre>
+      </pre>
+      <hr>
+      <pre>
     <span >A Doubly Linked List
           is a linked data structure that consists of a set of sequentially linked
           records called nodes. Each node contains two fields, called links, that are
@@ -1196,9 +1200,9 @@
         O(n) O(n) O(1) O(1)
     <span >The code
    </pre>
-    <pre data-filter-output="(out)" data-role="codeBlock" data-info="js"
-      class="data-line line-numbers data-user data-host data-prompt data-output language-javascript"
-      data-prismjs-copy="Copy !" data-download-link=""> <code class="language-javascript">class Node {
+      <pre data-filter-output="(out)" data-role="codeBlock" data-info="js"
+        class="data-line line-numbers data-user data-host data-prompt data-output language-javascript"
+        data-prismjs-copy="Copy !" data-download-link=""> <code class="language-javascript">class Node {
             constructor(data) {
                 this.data = data;
                 this.previous = null;
@@ -1211,11 +1215,11 @@
                 this.tail = null;
                 this.numberOfValues = 0;
             }</code></pre>
-    <pre>
+      <pre>
    </pre>
-    <pre data-filter-output="(out)" data-role="codeBlock" data-info="js"
-      class="data-line line-numbers data-user data-host data-prompt data-output language-javascript"
-      data-prismjs-copy="Copy !" data-download-link=""> <code class="language-javascript">    add(data) {
+      <pre data-filter-output="(out)" data-role="codeBlock" data-info="js"
+        class="data-line line-numbers data-user data-host data-prompt data-output language-javascript"
+        data-prismjs-copy="Copy !" data-download-link=""> <code class="language-javascript">    add(data) {
                 let node = new Node(data);
                 if (!this.head) {
                     this.head = node;
@@ -1303,10 +1307,10 @@
                 console.log(string.trim());
             }
         }</code></pre>
-    </pre>
-    <pre data-filter-output="(out)" data-role="codeBlock" data-info="js"
-      class="data-line line-numbers data-user data-host data-prompt data-output language-javascript"
-      data-prismjs-copy="Copy !" data-download-link=""> <code class="language-javascript">let doublyLinkedList = new
+      </pre>
+      <pre data-filter-output="(out)" data-role="codeBlock" data-info="js"
+        class="data-line line-numbers data-user data-host data-prompt data-output language-javascript"
+        data-prismjs-copy="Copy !" data-download-link=""> <code class="language-javascript">let doublyLinkedList = new
         DoublyLinkedList();
         doublyLinkedList.print(); // = ''
         doublyLinkedList.add(1);
@@ -1360,20 +1364,20 @@
         console.log("length is 7:", doublyLinkedList.length()); // = 7
         /*
            ~ js-files : (master) node double-linked-list.js </code></pre>
-    </pre>
-    <pre data-filter-output="(out)" data-role="codeBlock" data-info="js"
-      class="data-line line-numbers data-user data-host data-prompt data-output language-javascript"
-      data-prismjs-copy="Copy !" data-download-link=""> <code class="language-javascript">1 2 3 4
+      </pre>
+      <pre data-filter-output="(out)" data-role="codeBlock" data-info="js"
+        class="data-line line-numbers data-user data-host data-prompt data-output language-javascript"
+        data-prismjs-copy="Copy !" data-download-link=""> <code class="language-javascript">1 2 3 4
         length is 4: 4
         1 2 4
         1 2 4
         2 4
         2
         length is 1: 1</code></pre>
-    </pre>
-    <pre data-filter-output="(out)" data-role="codeBlock" data-info="js"
-      class="data-line line-numbers data-user data-host data-prompt data-output language-javascript"
-      data-prismjs-copy="Copy !" data-download-link=""> <code class="language-javascript">length is 0: 0
+      </pre>
+      <pre data-filter-output="(out)" data-role="codeBlock" data-info="js"
+        class="data-line line-numbers data-user data-host data-prompt data-output language-javascript"
+        data-prismjs-copy="Copy !" data-download-link=""> <code class="language-javascript">length is 0: 0
         2 6
         2 3 6
         6
@@ -1404,18 +1408,18 @@
         length is 7: 7
          ~ js-files : (master) 
         */</code></pre>
-    <span style="font-size:13.5pt; font-family:&quot;JetBrains Mono Bold&quot;">The Stack
-      <img border="0" width="623" height="350" id="Picture 5" src="Data-Structures-Update-Backup_files/image009.gif"
-        alt="image009">
-    </pre>
-    <hr>
-    <pre>
-</pre>
-    <h3>Definition</h3>
-    <pre>
+      <span style="font-size:13.5pt; font-family:&quot;JetBrains Mono Bold&quot;">The Stack
+        <img border="0" width="623" height="350" id="Picture 5" src="Data-Structures-Update-Backup_files/image009.gif"
+          alt="image009">
       </pre>
-    <hr>
-    <pre>
+      <hr>
+      <pre>
+</pre>
+      <h3>Definition</h3>
+      <pre>
+      </pre>
+      <hr>
+      <pre>
     <span >A Stack is an
           abstract data type that serves as a collection of elements, with two principal
           operations: push, which adds an element to the collection, and pop, which
@@ -1430,15 +1434,15 @@
         O(n) O(n) O(1) O(1)
     <span >The code
    </pre>
-    <pre data-filter-output="(out)" data-role="codeBlock" data-info="js"
-      class="data-line line-numbers data-user data-host data-prompt data-output language-javascript"
-      data-prismjs-copy="Copy !" data-download-link=""> <code class="language-javascript">function Stack() {
+      <pre data-filter-output="(out)" data-role="codeBlock" data-info="js"
+        class="data-line line-numbers data-user data-host data-prompt data-output language-javascript"
+        data-prismjs-copy="Copy !" data-download-link=""> <code class="language-javascript">function Stack() {
           this.stack = [];
         }</code></pre>
-    </pre>
-    <pre data-filter-output="(out)" data-role="codeBlock" data-info="js"
-      class="data-line line-numbers data-user data-host data-prompt data-output language-javascript"
-      data-prismjs-copy="Copy !" data-download-link=""> <code class="language-javascript">Stack.prototype.push =
+      </pre>
+      <pre data-filter-output="(out)" data-role="codeBlock" data-info="js"
+        class="data-line line-numbers data-user data-host data-prompt data-output language-javascript"
+        data-prismjs-copy="Copy !" data-download-link=""> <code class="language-javascript">Stack.prototype.push =
         function(value) {
           this.stack.push(value);
         };
@@ -1454,10 +1458,10 @@
         Stack.prototype.print = function() {
           console.log(this.stack.join(' '));
         };</code></pre>
-    </pre>
-    <pre data-filter-output="(out)" data-role="codeBlock" data-info="js"
-      class="data-line line-numbers data-user data-host data-prompt data-output language-javascript"
-      data-prismjs-copy="Copy !" data-download-link=""> <code class="language-javascript">let stack = new Stack();
+      </pre>
+      <pre data-filter-output="(out)" data-role="codeBlock" data-info="js"
+        class="data-line line-numbers data-user data-host data-prompt data-output language-javascript"
+        data-prismjs-copy="Copy !" data-download-link=""> <code class="language-javascript">let stack = new Stack();
         stack.push(1);
         stack.push(2);
         stack.push(3);
@@ -1472,18 +1476,18 @@
         stack.print(); // = ''
         console.log('peek is undefined:', stack.peek()); // = undefined
         console.log('pop is undefined:', stack.pop()); // = undefined</code></pre>
-    <span style="font-size:13.5pt; font-family:&quot;JetBrains Mono Bold&quot;">The Queue
-      <img border="0" width="624" height="350" id="Picture 4" src="Data-Structures-Update-Backup_files/image010.gif"
-        alt="image010">
-    </pre>
-    <hr>
-    <pre>
-</pre>
-    <h3>Definition</h3>
-    <pre>
+      <span style="font-size:13.5pt; font-family:&quot;JetBrains Mono Bold&quot;">The Queue
+        <img border="0" width="624" height="350" id="Picture 4" src="Data-Structures-Update-Backup_files/image010.gif"
+          alt="image010">
       </pre>
-    <hr>
-    <pre>
+      <hr>
+      <pre>
+</pre>
+      <h3>Definition</h3>
+      <pre>
+      </pre>
+      <hr>
+      <pre>
     <span >A Queue is a particular
           kind of abstract data type or collection in which the entities in the
           collection are kept in order and the principal operations are the addition of
@@ -1500,15 +1504,15 @@
         O(n) O(n) O(1) O(n)
     <span >The code
    </pre>
-    <pre data-filter-output="(out)" data-role="codeBlock" data-info="js"
-      class="data-line line-numbers data-user data-host data-prompt data-output language-javascript"
-      data-prismjs-copy="Copy !" data-download-link=""> <code class="language-javascript">function Queue() {
+      <pre data-filter-output="(out)" data-role="codeBlock" data-info="js"
+        class="data-line line-numbers data-user data-host data-prompt data-output language-javascript"
+        data-prismjs-copy="Copy !" data-download-link=""> <code class="language-javascript">function Queue() {
           this.queue = [];
         }</code></pre>
-    </pre>
-    <pre data-filter-output="(out)" data-role="codeBlock" data-info="js"
-      class="data-line line-numbers data-user data-host data-prompt data-output language-javascript"
-      data-prismjs-copy="Copy !" data-download-link=""> <code class="language-javascript">Queue.prototype.enqueue =
+      </pre>
+      <pre data-filter-output="(out)" data-role="codeBlock" data-info="js"
+        class="data-line line-numbers data-user data-host data-prompt data-output language-javascript"
+        data-prismjs-copy="Copy !" data-download-link=""> <code class="language-javascript">Queue.prototype.enqueue =
         function(value) {
           this.queue.push(value);
         };
@@ -1524,10 +1528,10 @@
         Queue.prototype.print = function() {
           console.log(this.queue.join(' '));
         };</code></pre>
-    </pre>
-    <pre data-filter-output="(out)" data-role="codeBlock" data-info="js"
-      class="data-line line-numbers data-user data-host data-prompt data-output language-javascript"
-      data-prismjs-copy="Copy !" data-download-link=""> <code class="language-javascript">let queue = new Queue();
+      </pre>
+      <pre data-filter-output="(out)" data-role="codeBlock" data-info="js"
+        class="data-line line-numbers data-user data-host data-prompt data-output language-javascript"
+        data-prismjs-copy="Copy !" data-download-link=""> <code class="language-javascript">let queue = new Queue();
         queue.enqueue(1);
         queue.enqueue(2);
         queue.enqueue(3);
@@ -1542,18 +1546,18 @@
         queue.print(); // = ''
         console.log('peek is undefined:', queue.peek()); // = undefined
         console.log('dequeue is undefined:', queue.dequeue()); // = undefined</code></pre>
-    <span style="font-size:13.5pt; font-family:&quot;JetBrains Mono Bold&quot;">The Tree
-      <img border="0" width="450" height="378" id="Picture 3" src="Data-Structures-Update-Backup_files/image011.gif"
-        alt="image011">
-    </pre>
-    <hr>
-    <pre>
-</pre>
-    <h3>Definition</h3>
-    <pre>
+      <span style="font-size:13.5pt; font-family:&quot;JetBrains Mono Bold&quot;">The Tree
+        <img border="0" width="450" height="378" id="Picture 3" src="Data-Structures-Update-Backup_files/image011.gif"
+          alt="image011">
       </pre>
-    <hr>
-    <pre>
+      <hr>
+      <pre>
+</pre>
+      <h3>Definition</h3>
+      <pre>
+      </pre>
+      <hr>
+      <pre>
     <span >A Tree is a widely
           used data structure that simulates a hierarchical tree structure, with a root
           value and subtrees of children with a parent node. A tree data structure can be
@@ -1570,22 +1574,22 @@
     <span ><img border="0" width="624" height="650" id="Picture 2" src="Data-Structures-Update-Backup_files/image012.jpg" alt="image012">
     <span >The code
    </pre>
-    <pre data-filter-output="(out)" data-role="codeBlock" data-info="js"
-      class="data-line line-numbers data-user data-host data-prompt data-output language-javascript"
-      data-prismjs-copy="Copy !" data-download-link=""> <code class="language-javascript">function Node(data) {
+      <pre data-filter-output="(out)" data-role="codeBlock" data-info="js"
+        class="data-line line-numbers data-user data-host data-prompt data-output language-javascript"
+        data-prismjs-copy="Copy !" data-download-link=""> <code class="language-javascript">function Node(data) {
           this.data = data;
           this.children = [];
         }</code></pre>
-    </pre>
-    <pre data-filter-output="(out)" data-role="codeBlock" data-info="js"
-      class="data-line line-numbers data-user data-host data-prompt data-output language-javascript"
-      data-prismjs-copy="Copy !" data-download-link=""> <code class="language-javascript">function Tree() {
+      </pre>
+      <pre data-filter-output="(out)" data-role="codeBlock" data-info="js"
+        class="data-line line-numbers data-user data-host data-prompt data-output language-javascript"
+        data-prismjs-copy="Copy !" data-download-link=""> <code class="language-javascript">function Tree() {
           this.root = null;
         }</code></pre>
-    </pre>
-    <pre data-filter-output="(out)" data-role="codeBlock" data-info="js"
-      class="data-line line-numbers data-user data-host data-prompt data-output language-javascript"
-      data-prismjs-copy="Copy !" data-download-link=""> <code class="language-javascript">Tree.prototype.add =
+      </pre>
+      <pre data-filter-output="(out)" data-role="codeBlock" data-info="js"
+        class="data-line line-numbers data-user data-host data-prompt data-output language-javascript"
+        data-prismjs-copy="Copy !" data-download-link=""> <code class="language-javascript">Tree.prototype.add =
         function(data, toNodeData) {
           let node = new Node(data);
           let parent = toNodeData ? this.findBFS(toNodeData) : null;
@@ -1603,11 +1607,11 @@
           if(this.root.data === data) {
             this.root = null;
           }</code></pre>
-    <pre>
+      <pre>
    </pre>
-    <pre data-filter-output="(out)" data-role="codeBlock" data-info="js"
-      class="data-line line-numbers data-user data-host data-prompt data-output language-javascript"
-      data-prismjs-copy="Copy !" data-download-link=""> <code class="language-javascript">  let queue = [this.root];
+      <pre data-filter-output="(out)" data-role="codeBlock" data-info="js"
+        class="data-line line-numbers data-user data-host data-prompt data-output language-javascript"
+        data-prismjs-copy="Copy !" data-download-link=""> <code class="language-javascript">  let queue = [this.root];
           while(queue.length) {
             let node = queue.shift();
             for(let i = 0; i &lt; node.children.length; i++) {
@@ -1713,10 +1717,10 @@
           }
           console.log(string.trim());
         };</code></pre>
-    </pre>
-    <pre data-filter-output="(out)" data-role="codeBlock" data-info="js"
-      class="data-line line-numbers data-user data-host data-prompt data-output language-javascript"
-      data-prismjs-copy="Copy !" data-download-link=""> <code class="language-javascript">let tree = new Tree();
+      </pre>
+      <pre data-filter-output="(out)" data-role="codeBlock" data-info="js"
+        class="data-line line-numbers data-user data-host data-prompt data-output language-javascript"
+        data-prismjs-copy="Copy !" data-download-link=""> <code class="language-javascript">let tree = new Tree();
         tree.add('ceo');
         tree.add('cto', 'ceo');
         tree.add('dev1', 'cto');
@@ -1744,18 +1748,18 @@
         tree.print(); // = ceo | cto cfo | dev1 dev2 dev3 accountant
         tree.remove('cfo');
         tree.print(); // = ceo | cto | dev1 dev2 dev3</code></pre>
-    <span style="font-size:13.5pt; font-family:&quot;JetBrains Mono Bold&quot;">The Graph
-      <img border="0" width="624" height="351" id="Picture 1" src="Data-Structures-Update-Backup_files/image013.gif"
-        alt="image013">
-    </pre>
-    <hr>
-    <pre>
-</pre>
-    <h3>Definition</h3>
-    <pre>
+      <span style="font-size:13.5pt; font-family:&quot;JetBrains Mono Bold&quot;">The Graph
+        <img border="0" width="624" height="351" id="Picture 1" src="Data-Structures-Update-Backup_files/image013.gif"
+          alt="image013">
       </pre>
-    <hr>
-    <pre>
+      <hr>
+      <pre>
+</pre>
+      <h3>Definition</h3>
+      <pre>
+      </pre>
+      <hr>
+      <pre>
     <span >A Graph data structure
           consists of a finite (and possibly mutable) set of vertices or nodes or points,
           together with a set of unordered pairs of these vertices for an undirected
@@ -1787,19 +1791,19 @@
     <span style="font-size:14.0pt; font-family:&quot;JetBrains Mono Bold&quot;">Graph
     <span >The code
     </pre>
-    <div class="MsoNormal" align="center" style="margin-bottom:0in;text-align:center; line-height:normal">
-      <hr size="2" width="100%" align="center">
-    </div>
-    <pre>
+      <div class="MsoNormal" align="center" style="margin-bottom:0in;text-align:center; line-height:normal">
+        <hr size="2" width="100%" align="center">
+      </div>
+      <pre>
    </pre>
-    <pre data-filter-output="(out)" data-role="codeBlock" data-info="js"
-      class="data-line line-numbers data-user data-host data-prompt data-output language-javascript"
-      data-prismjs-copy="Copy !" data-download-link=""> <code class="language-javascript">//below uses the adjacency
+      <pre data-filter-output="(out)" data-role="codeBlock" data-info="js"
+        class="data-line line-numbers data-user data-host data-prompt data-output language-javascript"
+        data-prismjs-copy="Copy !" data-download-link=""> <code class="language-javascript">//below uses the adjacency
         list representation.</code></pre>
-    </pre>
-    <pre data-filter-output="(out)" data-role="codeBlock" data-info="js"
-      class="data-line line-numbers data-user data-host data-prompt data-output language-javascript"
-      data-prismjs-copy="Copy !" data-download-link=""> <code class="language-javascript">    function Graph() {
+      </pre>
+      <pre data-filter-output="(out)" data-role="codeBlock" data-info="js"
+        class="data-line line-numbers data-user data-host data-prompt data-output language-javascript"
+        data-prismjs-copy="Copy !" data-download-link=""> <code class="language-javascript">    function Graph() {
               this.vertices = [];
               this.edges = [];
               this.numberOfEdges = 0;
@@ -1966,21 +1970,21 @@
         = 4
             console.log('path from 6 to 1:', graph.pathFromTo(6, 1)); // =
         6-4-3-2-1</code></pre>
-    <span>If you found this guide helpful feel
-      free to checkout my github/gists where I host similar content:
+      <span>If you found this guide helpful feel
+        free to checkout my github/gists where I host similar content:
 
-      <a href="https://gist.github.com/bgoonz">bgoonz's gists · GitHub</a>
-      <a href="https://github.com/bgoonz" title="https://github.com/bgoonz">bgoonz — Overview
-        Web Developer, Electrical Engineer
-        JavaScript | CSS | Bootstrap | Python | React | Node.js | Express | Sequelize…github.com</a>
-      Or Checkout my personal Resource
-      Site:
-      <a href="https://goofy-euclid-1cd736.netlify.app/"
-        title="https://goofy-euclid-1cd736.netlify.app/">a/A-Student-Resources Edit
-        descriptiongoofy-euclid-1cd736.netlify.app</a>
-      <span style="font-size:14.0pt; font-family:&quot;JetBrains Mono Bold&quot;">
-    </pre>
-  </div>
-</body>
+        <a href="https://gist.github.com/bgoonz">bgoonz's gists · GitHub</a>
+        <a href="https://github.com/bgoonz" title="https://github.com/bgoonz">bgoonz — Overview
+          Web Developer, Electrical Engineer
+          JavaScript | CSS | Bootstrap | Python | React | Node.js | Express | Sequelize…github.com</a>
+        Or Checkout my personal Resource
+        Site:
+        <a href="https://goofy-euclid-1cd736.netlify.app/"
+          title="https://goofy-euclid-1cd736.netlify.app/">a/A-Student-Resources Edit
+          descriptiongoofy-euclid-1cd736.netlify.app</a>
+        <span style="font-size:14.0pt; font-family:&quot;JetBrains Mono Bold&quot;">
+      </pre>
+    </div>
+  </body>
 
 </html>

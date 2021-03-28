@@ -21,6 +21,7 @@
   overflow-wrap: break-word;
   zoom: 0.5;
 }
+
 div.my_class {
   resize: both;
   overflow: auto;
