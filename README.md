@@ -35,6 +35,12 @@
 
 [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#the-idea-behind-big-o-notation)
 
+# Clones:
+
+![clones](./clones.PNG)
+
+[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#the-idea-behind-big-o-notation)
+
 ## ➤ The idea behind big O notation
 
 **Big O notation is the language we use for talking about how long an
