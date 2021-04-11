@@ -12,23 +12,92 @@
         integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous"
         type="text/css" />
     <!-- Latest compiled and minified JavaScript -->
-    <!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
         integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"
-        type="text/javascript"></script>-->
+        type="text/javascript"></script>
     <style type="text/css">
         /*<![CDATA[*/
         /* Basic */
         @-ms-viewport {
             width: device-width;
         }
-        body {
-  background: linear-gradient(-45deg, #da0000, #0008ffe5, #23d5a2d8, #2f2fbce5);
-  background-size: 400% 400%;
-  -webkit-animation: gradient 15s ease infinite;
-  animation: gradient 15s ease infinite;
-            -ms-overflow-style: scrollbar;
-		zoom:0.73;
-        }
+  
+a {
+  text-transform: inherit;
+  box-shadow: 0 5px 0 gold;
+  color: white;
+  padding: 1em 1.em;
+  position: relative;
+  text-transform: uppercase;
+}
+a:hover {
+  background-color: yellow;
+}
+a:active {
+  box-shadow: none;
+  top: 8px;
+}
+/* Non-Demo Styles */
+body {
+  justify-content: center;
+  align-items: center;
+}
+body {
+  background: url(https://i.gifer.com/76YS.gif);
+  padding: 2em;
+  zoom: 1.4;
+  font-family: 'Raleway', sans-serif;
+  padding: 1em 2em;
+  font-size: 18px;
+  color: #aaa
+}
+.btn {
+  font: bold 11px Arial;
+  text-decoration: none;
+  background-color: transparent;
+  color: #ffffff;
+  padding: 2px 6px 2px 6px;
+  border-radius: 10px;
+  border-top: 1px solid #CCCCCC;
+  border-right: 1px solid #333333;
+  border-bottom: 1px solid #333333;
+  border-left: 1px solid #18047a;
+}
+iframe.animate {
+  overflow-y: scroll;
+  border-radius: 2px;
+  min-width: 45em;
+  /* padding: 1.2em 1em 0; */
+  box-shadow: 0 0 9px;
+  margin: 0.5em;
+  /* display: grid; */
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+}
+iframe.embed {
+  overflow-y: scroll;
+  padding: 2em;
+  margin: auto;
+  overflow: auto;
+  border: solid 4px rgb(41, 54, 204);
+  -moz-border-radius: 6px 6px 4px 4px;
+  -webkit-border-radius: 6px 6px 4px 4px;
+  border-radius: 6px 6px 6px 6px;
+}
+h1,
+h2 {
+  font-weight: 900;
+  margin: 0.4em 0;
+}
+h1 {
+  font-size: 3.5em;
+}
+h2 {
+  color: #888;
+  font-size: 2em;
+}
 @-webkit-keyframes gradient {
   0% {
     background-position: 0% 50%;
@@ -137,13 +206,19 @@
             padding-right: 3px;
         }
         TABLE.fancy {
-            background: #fffefe;
+           background: url(https://i.gifer.com/76YS.gif);
+  padding: 2em;
+  zoom: 0.85;
+  font-family: 'Raleway', sans-serif;
+  padding: 1em 2em;
+  font-size: 18px;
+  color: #aaa
             border-left: 3px solid;
             border-collapse: collapse;
             margin: 15px 0;
             font-size: 0.8em;
             font-family: sans-serif;
-            min-width: 250px;
+            min-width: 150px;
             box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
             border-top: 1px solid;
             border-bottom: 0px solid;
@@ -152,34 +227,41 @@
             width: 80%;
             display: table;
             padding: 0 0 8em 0;
-overflow-wrap: break-word;
+overflow:auto:: ;
         }
         TABLE.fancy TD {
+  background: url(https://i.gifer.com/76YS.gif);
+  padding: 2em;
+  zoom: 0.85;
+  font-family: 'Raleway', sans-serif;
+  padding: 1em 2em;
+  font-size: 18px;
+  color: #aaa
             border-right: 1px solid;
             border-bottom: 1px solid;
             border-color: #FFF;
             text-align: left;
-            padding-right: 2%px;
-            padding-bottom: 2%;
-            padding-top: 2%;
-            padding-left: 2%;
-            border: 4px solid gold !important;
-            font-size: 16px;
-            letter-spacing: 1px;
-            font-weight: 570;
+            padding-right: 4%px;
+            padding-bottom: 4%;
+            padding-top: 4%;
+            padding-left: 4%;
+            border: 2px solid gold !important;
+            font-size: 12px;
+            letter-spacing: 0.8px;
+            font-weight: 470;
             line-height: 18px;
             text-decoration: none !important;
             text-transform: uppercase;
-            background: #07122daf !important;
-            color: black !important;
+     
+           
             cursor: pointer;
-            justify-content: center;
-            padding: 30px 50px;
-            height: 55px;
-            text-align: center;
+            justify-content: left;
+            padding: 20px 300px;
+            height: 75px;
+            text-align:left;
             white-space: normal;
             border-radius: 10px;
-            min-width: 10em;
+            min-width: 14em;
             padding: .9em .9em 0;
             box-shadow: 0 0 5px;
             margin: 1em;
@@ -187,8 +269,6 @@ overflow-wrap: break-word;
             -moz-border-radius: 10px;
             -ms-border-radius: 10px;
             -o-border-radius: 20px;
-overflow-wrap: break-word;
-        }
         TABLE.fancy tr:nth-child(odd) {
             background-color: #323C50;
         }
@@ -262,8 +342,13 @@ overflow-wrap: break-word;
             border-top: 0px solid;
             text-align: left;
             border-bottom: 1px solid;
-            background: black;
-            color: #FFF
+            background: url(https://i.gifer.com/76YS.gif);
+  padding: 2em;
+  zoom: 0.85;
+  font-family: 'Raleway', sans-serif;
+  padding: 1em 2em;
+  font-size: 18px;
+  color: #aaa  
         }
         .no-top-border {
             border-top: 0px
@@ -539,20 +624,19 @@ div.clear {
 
 <table border="0" cellspacing="0" cellpadding="3" summary="file table" class="fancy centered">
 <tr><th><b>File</b></th><th><b>File</b></th><th><b>File</b></th><th><b>File</b></th><th><b>File</b></th><th><b>File</b></th><th><b>File</b></th><th><b>File</b></th></tr>
-<tr><td class="left"><a href="right.html">right.html</a>&nbsp;</td><td class="left"><a href="03-set-key-in-object.js">03-set-k...ct.js</a>&nbsp;</td><td class="left"><a href="05-does-key-exist.js">05-does-...st.js</a>&nbsp;</td><td class="left"><a href="08-fuzz-bizz.js">08-fuzz-bizz.js</a>&nbsp;</td><td class="left"><a href="11-spread-it-out.js">11-sprea...ut.js</a>&nbsp;</td><td class="left"><a href="15-interrupter.js">15-inter...er.js</a>&nbsp;</td><td class="left"><a href="22-dynamic-divide.js">22-dynam...de.js</a>&nbsp;</td><td class="left"><a href="29-planned-intersection.js">29-plann...on.js</a>&nbsp;</td></tr>
-<tr class="row2"><td class="left"><a href="01-diff-array-lens.js">01-diff-...ns.js</a>&nbsp;</td><td class="left"><a href="03-tripler.js">03-tripler.js</a>&nbsp;</td><td class="left"><a href="05-recursive-flatten.js">05-recur...en.js</a>&nbsp;</td><td class="left"><a href="09-apple-counter.js">09-apple...er.js</a>&nbsp;</td><td class="left"><a href="12-array-converter.js">12-array...er.js</a>&nbsp;</td><td class="left"><a href="16-count-down.js">16-count-down.js</a>&nbsp;</td><td class="left"><a href="23-smoothie-machine.js">23-smoot...ne.js</a>&nbsp;</td><td class="left"><a href="30-coin-collector.js">30-coin-...or.js</a>&nbsp;</td></tr>
-<tr><td class="left"><a href="01-keys-in-object.js">01-keys-...ct.js</a>&nbsp;</td><td class="left"><a href="04-arrow-average-value.js">04-arrow...ue.js</a>&nbsp;</td><td class="left"><a href="06-calculator.js">06-calculator.js</a>&nbsp;</td><td class="left"><a href="09-closure-sandwiches.js">09-closu...es.js</a>&nbsp;</td><td class="left"><a href="12-set-time-out.js">12-set-t...ut.js</a>&nbsp;</td><td class="left"><a href="17-all-the-args.js">17-all-t...gs.js</a>&nbsp;</td><td class="left"><a href="24-closure-dynamic-multi.js">24-closu...ti.js</a>&nbsp;</td><td class="left"><a href="31-curried-sum.js">31-curri...um.js</a>&nbsp;</td></tr>
-<tr class="row2"><td class="left"><a href="01-recursive-fibonacci.js">01-recur...ci.js</a>&nbsp;</td><td class="left"><a href="04-get-full-name.js">04-get-f...me.js</a>&nbsp;</td><td class="left"><a href="06-reverse-string.js">06-rever...ng.js</a>&nbsp;</td><td class="left"><a href="09-mirror-array.js">09-mirro...ay.js</a>&nbsp;</td><td class="left"><a href="13-hidden-counter.js">13-hidde...er.js</a>&nbsp;</td><td class="left"><a href="18-call-me-later.js">18-call-...er.js</a>&nbsp;</td><td class="left"><a href="25-party-planner.js">25-party...er.js</a>&nbsp;</td><td class="left"><a href="my-map.js">my-map.js</a>&nbsp;</td></tr>
-<tr><td class="left"><a href="02-recursive-factorial.js">02-recur...al.js</a>&nbsp;</td><td class="left"><a href="04-odd-range.js">04-odd-range.js</a>&nbsp;</td><td class="left"><a href="07-break-down-object.js">07-break...ct.js</a>&nbsp;</td><td class="left"><a href="10-change-context.js">10-chang...xt.js</a>&nbsp;</td><td class="left"><a href="13-string-converter.js">13-strin...er.js</a>&nbsp;</td><td class="left"><a href="19-lazy-adder.js">19-lazy-adder.js</a>&nbsp;</td><td class="left"><a href="26-coupon.js">26-coupon.js</a>&nbsp;</td><td class="left"><a href="number-fun.js">number-fun.js</a>&nbsp;</td></tr>
-<tr class="row2"><td class="left"><a href="02-values-in-object.js">02-value...ct.js</a>&nbsp;</td><td class="left"><a href="04-recursive-sum.js">04-recur...um.js</a>&nbsp;</td><td class="left"><a href="07-intersect-arrays.js">07-inter...ys.js</a>&nbsp;</td><td class="left"><a href="10-rest-sum.js">10-rest-sum.js</a>&nbsp;</td><td class="left"><a href="14-count-scores.js">14-count...es.js</a>&nbsp;</td><td class="left"><a href="20-call-on-target.js">20-call-...et.js</a>&nbsp;</td><td class="left"><a href="27-arrow-reverse.js">27-arrow...se.js</a>&nbsp;</td><td class="left"><a href="person.js">person.js</a>&nbsp;</td></tr>
-<tr><td class="left"><a href="03-arrow-rest-sum.js">03-arrow...um.js</a>&nbsp;</td><td class="left"><a href="05-car-drive.js">05-car-drive.js</a>&nbsp;</td><td class="left"><a href="08-arrow-mirror-array.js">08-arrow...ay.js</a>&nbsp;</td><td class="left"><a href="11-bound-by-arg.js">11-bound...rg.js</a>&nbsp;</td><td class="left"><a href="14-fancy-calculator.js">14-fancy...or.js</a>&nbsp;</td><td class="left"><a href="21-volume.js">21-volume.js</a>&nbsp;</td><td class="left"><a href="28-bind-set-time-out.js">28-bind-...ut.js</a>&nbsp;</td><td class="left"><a href="reverse-string.js">reverse-...ng.js</a>&nbsp;</td></tr>
-<tr class="row2"><td class="left"><a href="03-recursive-exponent.js">03-recur...nt.js</a>&nbsp;</td><td class="left"></td><td class="left"></td><td class="left"></td><td class="left"></td><td class="left"></td><td class="left"></td><td class="left"></td></tr>
+<tr><td class="left"><a href="01-diff-array-lens.js">01-diff-...ns.js</a>&nbsp;</td><td class="left"><a href="03-set-key-in-object.js">03-set-k...ct.js</a>&nbsp;</td><td class="left"><a href="05-does-key-exist.js">05-does-...st.js</a>&nbsp;</td><td class="left"><a href="08-fuzz-bizz.js">08-fuzz-bizz.js</a>&nbsp;</td><td class="left"><a href="11-spread-it-out.js">11-sprea...ut.js</a>&nbsp;</td><td class="left"><a href="15-interrupter.js">15-inter...er.js</a>&nbsp;</td><td class="left"><a href="22-dynamic-divide.js">22-dynam...de.js</a>&nbsp;</td><td class="left"><a href="29-planned-intersection.js">29-plann...on.js</a>&nbsp;</td></tr>
+<tr class="row2"><td class="left"><a href="01-keys-in-object.js">01-keys-...ct.js</a>&nbsp;</td><td class="left"><a href="03-tripler.js">03-tripler.js</a>&nbsp;</td><td class="left"><a href="05-recursive-flatten.js">05-recur...en.js</a>&nbsp;</td><td class="left"><a href="09-apple-counter.js">09-apple...er.js</a>&nbsp;</td><td class="left"><a href="12-array-converter.js">12-array...er.js</a>&nbsp;</td><td class="left"><a href="16-count-down.js">16-count-down.js</a>&nbsp;</td><td class="left"><a href="23-smoothie-machine.js">23-smoot...ne.js</a>&nbsp;</td><td class="left"><a href="30-coin-collector.js">30-coin-...or.js</a>&nbsp;</td></tr>
+<tr><td class="left"><a href="01-recursive-fibonacci.js">01-recur...ci.js</a>&nbsp;</td><td class="left"><a href="04-arrow-average-value.js">04-arrow...ue.js</a>&nbsp;</td><td class="left"><a href="06-calculator.js">06-calculator.js</a>&nbsp;</td><td class="left"><a href="09-closure-sandwiches.js">09-closu...es.js</a>&nbsp;</td><td class="left"><a href="12-set-time-out.js">12-set-t...ut.js</a>&nbsp;</td><td class="left"><a href="17-all-the-args.js">17-all-t...gs.js</a>&nbsp;</td><td class="left"><a href="24-closure-dynamic-multi.js">24-closu...ti.js</a>&nbsp;</td><td class="left"><a href="31-curried-sum.js">31-curri...um.js</a>&nbsp;</td></tr>
+<tr class="row2"><td class="left"><a href="02-recursive-factorial.js">02-recur...al.js</a>&nbsp;</td><td class="left"><a href="04-get-full-name.js">04-get-f...me.js</a>&nbsp;</td><td class="left"><a href="06-reverse-string.js">06-rever...ng.js</a>&nbsp;</td><td class="left"><a href="09-mirror-array.js">09-mirro...ay.js</a>&nbsp;</td><td class="left"><a href="13-hidden-counter.js">13-hidde...er.js</a>&nbsp;</td><td class="left"><a href="18-call-me-later.js">18-call-...er.js</a>&nbsp;</td><td class="left"><a href="25-party-planner.js">25-party...er.js</a>&nbsp;</td><td class="left"><a href="my-map.js">my-map.js</a>&nbsp;</td></tr>
+<tr><td class="left"><a href="02-values-in-object.js">02-value...ct.js</a>&nbsp;</td><td class="left"><a href="04-odd-range.js">04-odd-range.js</a>&nbsp;</td><td class="left"><a href="07-break-down-object.js">07-break...ct.js</a>&nbsp;</td><td class="left"><a href="10-change-context.js">10-chang...xt.js</a>&nbsp;</td><td class="left"><a href="13-string-converter.js">13-strin...er.js</a>&nbsp;</td><td class="left"><a href="19-lazy-adder.js">19-lazy-adder.js</a>&nbsp;</td><td class="left"><a href="26-coupon.js">26-coupon.js</a>&nbsp;</td><td class="left"><a href="number-fun.js">number-fun.js</a>&nbsp;</td></tr>
+<tr class="row2"><td class="left"><a href="03-arrow-rest-sum.js">03-arrow...um.js</a>&nbsp;</td><td class="left"><a href="04-recursive-sum.js">04-recur...um.js</a>&nbsp;</td><td class="left"><a href="07-intersect-arrays.js">07-inter...ys.js</a>&nbsp;</td><td class="left"><a href="10-rest-sum.js">10-rest-sum.js</a>&nbsp;</td><td class="left"><a href="14-count-scores.js">14-count...es.js</a>&nbsp;</td><td class="left"><a href="20-call-on-target.js">20-call-...et.js</a>&nbsp;</td><td class="left"><a href="27-arrow-reverse.js">27-arrow...se.js</a>&nbsp;</td><td class="left"><a href="person.js">person.js</a>&nbsp;</td></tr>
+<tr><td class="left"><a href="03-recursive-exponent.js">03-recur...nt.js</a>&nbsp;</td><td class="left"><a href="05-car-drive.js">05-car-drive.js</a>&nbsp;</td><td class="left"><a href="08-arrow-mirror-array.js">08-arrow...ay.js</a>&nbsp;</td><td class="left"><a href="11-bound-by-arg.js">11-bound...rg.js</a>&nbsp;</td><td class="left"><a href="14-fancy-calculator.js">14-fancy...or.js</a>&nbsp;</td><td class="left"><a href="21-volume.js">21-volume.js</a>&nbsp;</td><td class="left"><a href="28-bind-set-time-out.js">28-bind-...ut.js</a>&nbsp;</td><td class="left"><a href="reverse-string.js">reverse-...ng.js</a>&nbsp;</td></tr>
 </table>
 
 <p style="font-weight: bold; margin-bottom: 0px">
 Folders:  1<br>
-Files: 57<br>
-Size of all files: 71337 KB</p>
+Files: 56<br>
+Size of all files: 52668 KB</p>
 
 </body>
 </html>
