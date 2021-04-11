@@ -20,6 +20,8 @@
 [Deployment](https://trusting-dijkstra-4d3b17.netlify.app/)
 
 
+[github-pages](https://bgoonz.github.io/DS-ALGO-OFFICIAL/)
+
 [vercel](https://ds-algo-official-hm2a9mlnr-bgoonz.vercel.app/)
 
 [Navigation](https://pensive-meitner-1ea8c4.netlify.app/directory.html)
