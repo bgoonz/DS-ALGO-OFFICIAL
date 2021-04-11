@@ -29,9 +29,8 @@ we could express our speed in seconds. Since we're measuring _how quickly our ru
 
     "asymptotic analysis.")
 
-------
----
-<==(----------------------------------------------------------------------------------------------------------------------)==>
+
+
 ---
 ------
 
@@ -125,7 +124,7 @@ a = LinkedListNode(5) b = LinkedListNode(1) c = LinkedListNode(9) a.next = b b.n
 
 ------
 ---
-<==(----------------------------------------------------------------------------------------------------------------------)==>
+
 ---
 ------
 
@@ -211,7 +210,7 @@ That's the tradeoff. Arrays have fast lookups ( time), but each item in the arra
 
 ------ 
 ---
- <==(----------------------------------------------------------------------------------------------------------------------)==>
+ 
 --- 
 ------
 
@@ -273,7 +272,7 @@ This slowdown isn't reflected in the big O time cost. Lookups in this pointer-ba
 
 ------ 
 ---
- <==(----------------------------------------------------------------------------------------------------------------------)==>
+ 
 --- 
 ------
 
@@ -451,7 +450,7 @@ So the tradeoff with linked lists is they have faster prepends and faster append
 
 ------ 
 ---
- <==(----------------------------------------------------------------------------------------------------------------------)==>
+ 
 --- 
 ------
 
@@ -477,7 +476,7 @@ So iterating through a linked list is usually quite a bit slower than iterating 
 
 ------ 
 ---
- <==(----------------------------------------------------------------------------------------------------------------------)==>
+ 
 --- 
 ------
 
@@ -567,7 +566,9 @@ One problem—how do we know which count is for "lies" and which is for "foes"? 
 
 In industry though, we usually wave our hands and say **collisions are rare enough that on _average_ lookups in a hash table are time**. And there are fancy algorithms that keep the number of collisions low and keep the lengths of our linked lists nice and short. 
 
-But that's sort of the tradeoff with hash tables. You get fast lookups by key...except _some_ lookups could be slow. And of course, you only get those fast lookups in one direction—looking up the _key_ for a given _value_ still takes time. ------ --- <==(------------------------------------------------------------------------------------------------------)==> --- ------ 
+But that's sort of the tradeoff with hash tables. You get fast lookups by key...except _some_ lookups could be slow. And of course, you only get those fast lookups in one direction—looking up the _key_ for a given _value_ still takes time
+
+
 
 # Breadth-First Search (BFS) and Breadth-First Traversal 
 
