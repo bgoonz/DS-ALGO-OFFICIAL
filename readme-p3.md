@@ -1,886 +1,1976 @@
 
-<!-- HEADER -->
-<div align="center">
+* * *
 
-  <!-- SHIELDS -->
-  <!-- For how-to notes on shield badges, see docs: https://shields.io/ -->
+Self-Similarity
+---------------
 
+> Recursion is the root of computation since it trades description for time.—Alan Perlis, [Epigrams in Programming](http://www.cs.yale.edu/homes/perlis-alan/quotes.html)
 
- ![logo](https://avatars.githubusercontent.com/u/66654881?s=460&u=fa9d2cc45bc228dd9b7d3dee6d4653f940fab35a&v=4)
- 
- 
- 
- </div>
+In [Arrays and Destructuring Arguments](#arraysanddestructuring), we worked with the basic idea that putting an array together with a literal array expression was the reverse or opposite of taking it apart with a destructuring assignment.
 
+We saw that the basic idea that putting an array together with a literal array expression was the reverse or opposite of taking it apart with a destructuring assignment.
 
+Let's be more specific. Some data structures, like lists, can obviously be seen as a collection of items. Some are empty, some have three items, some forty-two, some contain numbers, some contain strings, some a mixture of elements, there are all kinds of lists.
 
+But we can also define a list by describing a rule for building lists. One of the simplest, and longest-standing in computer science, is to say that a list is:
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/274fc2e2-6ccd-42af-8d83-473278f504fe/deploy-status)](https://app.netlify.com/sites/trusting-dijkstra-4d3b17/deploys)
+0.  Empty, or;
+1.  Consists of an element concatenated with a list .
 
-[Deployment](https://trusting-dijkstra-4d3b17.netlify.app/)
+Let's convert our rules to array literals. The first rule is simple: `[]` is a list. How about the second rule? We can express that using a spread. Given an element `e` and a list `list` , `[e, ...list]` is a list. We can test this manually by building up a list:
 
+Thanks to the parallel between array literals + spreads with destructuring + rests, we can also use the same rules to decompose lists:
 
-[github-pages](https://bgoonz.github.io/DS-ALGO-OFFICIAL/)
+For the purpose of this exploration, we will presume the following:[1](#fn1)
 
-[vercel](https://ds-algo-official-hm2a9mlnr-bgoonz.vercel.app/)
+Armed with our definition of an empty list and with what we've already learned, we can build a great many functions that operate on arrays. We know that we can get the length of an array using its `.length` . But as an exercise, how would we write a `length` function using just what we have already?
 
-[Navigation](https://pensive-meitner-1ea8c4.netlify.app/directory.html)
+First, we pick what we call a _terminal case_. What is the length of an empty array? `0` . So let's start our function with the observation that if an array is empty, the length is `0` :
 
-[npm](https://www.npmjs.com/package/ds-algo-study)
+We need something for when the array isn't empty. If an array is not empty, and we break it into two pieces, `first` and `rest` , the length of our array is going to be `length(first) + length(rest)` . Well, the length of `first` is `1` , there's just one element at the front. But we don't know the length of `rest` . If only there was a function we could call… Like `length` !
 
+Let's try it!
 
-[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#the-idea-behind-big-o-notation)
+Our `length` function is _recursive_, it calls itself. This makes sense because our definition of a list is recursive, and if a list is self-similar, it is natural to create an algorithm that is also self-similar.
 
+### linear recursion
 
-# ➤ Author:Bryan Guner
+"Recursion" sometimes seems like an elaborate party trick. There's even a joke about this:
 
+> When promising students are trying to choose between pure mathematics and applied engineering, they are given a two-part aptitude test. In the first part, they are led to a laboratory bench and told to follow the instructions printed on the card. They find a bunsen burner, a sparker, a tap, an empty beaker, a stand, and a card with the instructions "boil water."
 
-[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#the-idea-behind-big-o-notation)
+> Of course, all the students know what to do: They fill the beaker with water, place the stand on the burner and the beaker on the stand, then they turn the burner on and use the sparker to ignite the flame. After a bit the water boils, and they turn off the burner and are lead to a second bench.
 
-# Clones: 185 to date
+> Once again, there is a card that reads, "boil water." But this time, the beaker is on the stand over the burner, as left behind by the previous student. The engineers light the burner immediately. Whereas the mathematicians take the beaker off the stand and empty it, thus reducing the situation to a problem they have already solved.
 
-![clones](./clones.PNG)
+There is more to recursive solutions that simply functions that invoke themselves. Recursive algorithms follow the "divide and conquer" strategy for solving a problem:
 
-[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#the-idea-behind-big-o-notation)
+0.  Divide the problem into smaller problems
+1.  If a smaller problem is solvable, solve the small problem
+2.  If a smaller problem is not solvable, divide and conquer that problem
+3.  When all small problems have been solved, compose the solutions into one big solution
 
-## ➤ The idea behind big O notation
+The big elements of divide and conquer are a method for decomposing a problem into smaller problems, a test for the smallest possible problem, and a means of putting the pieces back together. Our solutions are a little simpler in that we don't really break a problem down into multiple pieces, we break a piece off the problem that may or may not be solvable, and solve that before sticking it onto a solution for the rest of the problem.
 
-**Big O notation is the language we use for talking about how long an
-algorithm takes to run**. It's how we compare the efficiency of
-different approaches to a problem.
+This simpler form of "divide and conquer" is called _linear recursion_. It's very useful and simple to understand. Let's take another example. Sometimes we want to _flatten_ an array, that is, an array of arrays needs to be turned into one array of elements that aren't arrays.[2](#fn2)
 
-With big O notation we express the runtime in terms of
+We already know how to divide arrays into smaller pieces. How do we decide whether a smaller problem is solvable? We need a test for the terminal case. Happily, there is something along these lines provided for us:
 
-### how quickly it grows relative to the input, as the input gets arbitrarily large_.
+The usual "terminal case" will be that flattening an empty array will produce an empty array. The next terminal case is that if an element isn't an array, we don't flatten it, and can put it together with the rest of our solution directly. Whereas if an element is an array, we'll flatten it and put it together with the rest of our solution.
 
-1.  **how quickly the runtime grows**—
+So our first cut at a `flatten` function will look like this:
 
-It's hard to pin down the _exact runtime_ of an algorithm. 
+Once again, the solution directly displays the important elements: Dividing a problem into subproblems, detecting terminal cases, solving the terminal cases, and composing a solution from the solved portions.
 
-* It depends on the speed of the processor, 
-* what else the computer is running, etc.
+### mapping
 
- So instead of talking about the runtime directly, we use big O notation to talk about _how quickly the runtime grows_.
+Another common problem is applying a function to every element of an array. JavaScript has a built-in function for this, but let's write our own using linear recursion.
 
-2.  **relative to the input**—If we were measuring our runtime directly, 
+If we want to square each number in a list, we could write:
 
-we could express our speed in seconds. Since we're measuring _how quickly our runtime grows_, we need to express our speed in terms of...something else. With Big O notation, we use the size of the input, which we call "n." So we can say things like the runtime grows "on the order of the size of the input" () or "on the order of the square of the size of the input" (). 
+And if we wanted to "truthify" each element in a list, we could write:
 
-3.  **as the input gets arbitrarily large**—
+This specific case of linear recursion is called "mapping," and it is not necessary to constantly write out the same pattern again and again. Functions can take functions as arguments, so let's "extract" the thing to do to each element and separate it from the business of taking an array apart, doing the thing, and putting the array back together.
 
-  Our algorithm may have steps that seem expensive when n is small but are eclipsed eventually by other steps as n gets huge. For big O analysis, we care most about the stuff that grows fastest as the input grows, because everything else is quickly eclipsed as n gets very large. (If you know what an asymptote is, you might see why "big O analysis" is sometimes called "asymptotic analysis.")hy "big O analysis" is sometimes called
+Given the signature:
 
-    "asymptotic analysis.")
+We can write it out using a ternary operator. Even in this small function, we can identify the terminal condition, the piece being broken off, and recomposing the solution.
 
----
+### folding
 
+With the exception of the `length` example at the beginning, our examples so far all involve rebuilding a solution using spreads. But they needn't. A function to compute the sum of the squares of a list of numbers might look like this:
 
----
+There are two differences between `sumSquares` and our maps above:
 
+0.  Given the terminal case of an empty list, we return a `0` instead of an empty list, and;
+1.  We catenate the square of each element to the result of applying `sumSquares` to the rest of the elements.
 
+Let's rewrite `mapWith` so that we can use it to sum squares.
 
----
----
----
+And now we supply a function that does slightly more than our mapping functions:
 
+Our `foldWith` function is a generalization of our `mapWith` function. We can represent a map as a fold, we just need to supply the array rebuilding code:
 
-[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#data-structures-reference)
+And if we like, we can write `mapWith` using `foldWith` :
 
-# ➤ Data Structures Reference
+And to return to our first example, our version of `length` can be written as a fold:
 
+### summary
 
----
+Linear recursion is a basic building block of algorithms. Its basic form parallels the way linear data structures like lists are constructed: This helps make it understandable. Its specialized cases of mapping and folding are especially useful and can be used to build other functions. And finally, while folding is a special case of linear recursion, mapping is a special case of folding.
 
+* * *
 
-[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#array)
+1.  Well, actually, this does not work for arrays that contain `undefined` as a value, but we are not going to see that in our examples. A more robust implementation would be `(array) => array.length === 0` , but we are doing backflips to keep this within a very small and contrived playground.[↩](#fnref1)
+    
+2.  `flatten` is a very simple [unfold](https://en.wikipedia.org/wiki/Anamorphism), a function that takes a seed value and turns it into an array. Unfolds can be thought of a "path" through a data structure, and flattening a tree is equivalent to a depth-first traverse.[↩](#fnref2)
+    
 
-## ➤ Array
+* * *
 
-Stores things in order. Has quick lookups by index.
-![](arr1.png)
-![](array.png)
+**Memoization** is a design pattern used to reduce the overall number of calculations that can occur in algorithms that use recursive strategies to solve.
 
+Recall that recursion solves a large problem by dividing it into smaller sub-problems that are more manageable. Memoization will store the results of the sub-problems in some other data structure, meaning that you avoid duplicate calculations and only "solve" each subproblem once. There are two features that comprise memoization:
 
-[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#linked-list)
+*   the function is recursive
+*   the additional data structure used is typically an object (we refer to this as the memo!)
 
-## ➤ Linked List
+This is a trade-off between the time it takes to run an algorithm (without memoization) and the memory used to run the algorithm (with memoization). Usually memoization is a good trade-off when dealing with large data or calculations.
 
-![](queue.gif)
+You cannot always apply this technique to recursive problems. The problem must have an "overlapping subproblem structure" for memoization to be effective.
 
-Also stores things in order. Faster insertions and deletions than
-arrays, but slower lookups (you have to "walk down" the whole list).
+Here's an example of a problem that has such a structure:
 
-!
+> Using pennies, nickels, dimes, and quarters, what is the smallest combination of coins that total 27 cents?
 
+You'll explore this exact problem in depth later on. For now, here is some food for thought. Along the way to calculating the smallest coin combination of 27 cents, you should also calculate the smallest coin combination of say, 25 cents as a component of that problem. This is the essence of an overlapping subproblem structure.
 
-[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#queue)
+Memoizing factorial
+-------------------
 
-## ➤ Queue
+Here's an example of a function that computes the factorial of the number passed into it.
 
-Like the line outside a busy restaurant. "First come, first served."
-[](linked-list.png)
-![](queue.png)
+From this plain `factorial` above, it is clear that every time you call `factorial(6)` you should get the same result of `720` each time. The code is somewhat inefficient because you must go down the full recursive stack for each top level call to `factorial(6)`. It would be great if you could store the result of `factorial(6)` the first time you calculate it, then on subsequent calls to `factorial(6)` you simply fetch the stored result in constant time. You can accomplish exactly this by memoizing with an object!
 
+The `memo` object above will map an argument of `factorial` to its return value. That is, the keys will be arguments and their values will be the corresponding results returned. By using the memo, you are able to avoid duplicate recursive calls!
 
-[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#stack)
+Here's some food for thought: By the time your first call to `factorial(6)` returns, you will not have just the argument `6` stored in the memo. Rather, you will have _all_ arguments 2 to 6 stored in the memo.
 
-## ➤ Stack
+Hopefully you sense the efficiency you can get by memoizing your functions, but maybe you are not convinced by the last example for two reasons:
 
-![](stack.gif)
-![](stack.png)
-Like a stack of dirty plates in the sink. The first one you take off the
-top is the last one you put down.
+*   You didn't improve the speed of the algorithm by an order of Big-O (it is still O(n)).
+*   The code uses some global variable, so it's kind of ugly.
 
+Both of those points are true, so take a look at a more advanced example that benefits from memoization.
 
-[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#tree)
+Memoizing the Fibonacci generator
+---------------------------------
 
-## ➤ Tree
+Here's a _naive_ implementation of a function that calculates the Fibonacci number for a given input.
 
-Good for storing hierarchies. Each node can have "child" nodes.
-![](tree.png)
-![](leaves-depth-height.png)
-![](traversals.png)
-![](dfs.png)
-![](pre-and-in-order-traversal.png)
-![](post-order.png)
+Before you optimize this, ask yourself what complexity class it falls into in the first place.
 
+The time complexity of this function is not super intuitive to describe because the code branches twice recursively. Fret not! You'll find it useful to visualize the calls needed to do this with a tree. When reasoning about the time complexity for recursive functions, draw a tree that helps you see the calls. Every node of the tree represents a call of the recursion:
 
-[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#binary-search-tree)
+![fib_tree](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/images/fib_tree.png)
 
-## ➤ Binary Search Tree
+fib\_tree
 
-Everything in the left subtree is smaller than the current node, 
-everything in the right subtree is larger. lookups, but only if the tree
-is balanced!
-![](binary-tree.png)
+In general, the height of this tree will be `n`. You derive this by following the path going straight down the left side of the tree. You can also see that each internal node leads to two more nodes. Overall, this means that the tree will have roughly 2n nodes which is the same as saying that the `fib` function has an exponential time complexity of 2n. That is very slow! See for yourself, try running `fib(50)` - you'll be waiting for quite a while (it took 3 minutes on the author's machine).
 
+Okay. So the `fib` function is slow. Is there anyway to speed it up? Take a look at the tree above. Can you find any repetitive regions of the tree?
 
-[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#binary-search-tree)
+![fib_tree_duplicates](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/images/fib_tree_duplicates.png)
 
-## ➤ Binary Search Tree
+fib\_tree\_duplicates
 
+As the `n` grows bigger, the number of duplicate sub-trees grows exponentially. Luckily you can fix this using memoization by using a similar object strategy as before. You can use some JavaScript default arguments to clean things up:
 
-[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#graph)
+The code above can calculate the 50th Fibonacci number almost instantly! Thanks to the `memo` object, you only need to explore a subtree fully once. Visually, the `fastFib` recursion has this structure:
 
-## ➤ Graph
+![fib_memoized](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/images/fib_memoized.png)
 
-Good for storing networks, geography, social relationships, etc.
-![](graph.png)
-![](directed-or-undirected-cycles.png)
-![](weighted-or-unweighted.png)
+fib\_memoized
 
+You can see the marked nodes (function calls) that access the memo in green. It's easy to see that this version of the Fibonacci generator will do far less computations as `n` grows larger! In fact, this memoization has brought the time complexity down to linear `O(n)` time because the tree only branches on the left side. This is an enormous gain if you recall the complexity class hierarchy.
 
-[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#heap-)
+The memoization formula
+-----------------------
 
-## ➤ Heap 
+Now that you understand memoization, when should you apply it? Memoization is useful when attacking recursive problems that have many overlapping sub-problems. You'll find it most useful to draw out the visual tree first. If you notice duplicate sub-trees, time to memoize. Here are the hard and fast rules you can use to memoize a slow function:
 
-A binary tree where the smallest value is always at the top. Use it to implement a priority queue. 
+1.  Write the unoptimized, brute force recursion and make sure it works.
+2.  Add the memo object as an additional argument to the function. The keys will represent unique arguments to the function, and their values will represent the results for those arguments.
+3.  Add a base case condition to the function that returns the stored value if the function's argument is in the memo.
+4.  Before you return the result of the recursive case, store it in the memo as a value and make the function's argument it's key.
 
-![A binary heap is a binary tree where the nodes are organized to so that the smallest value is always at the top.] 
+What you learned
+----------------
 
-### Adjacency list 
+You learned a secret to possibly changing an algorithm of one complexity class to a lower complexity class by using memory to store intermediate results. This is a powerful technique to use to make sure your programs that must do recursive calculations can benefit from running much faster.
 
-A list where the index represents the node and the value at that index is a list of the node's neighbors: 
+* * *
 
-graph = [ [1], [0, 2, 3], [1, 3], [1, 2], ] 
+Now that you are familiar with _memoization_, you can explore a related method of algorithmic optimization: **Tabulation**. There are two main features that comprise the Tabulation strategy:
 
-Since node 3 has edges to nodes 1 and 2, graph[3] has the adjacency list [1, 2]. 
+*   the function is iterative and _not_ recursive
+*   the additional data structure used is typically an array, commonly referred to as the table
 
-We could also use [a dictionary](https://www.interviewcake.com/concept/hash-map) where the keys represent the node and the values are the lists of neighbors. 
+Many problems that can be solved with memoization can also be solved with tabulation as long as you convert the recursion to iteration. The first example is the canonical example of recursion, calculating the Fibonacci number for an input. However, in the example, you'll see the iteration version of it for a fresh start!
 
-graph = { 0: [1], 1: [0, 2, 3], 2: [1, 3], 3: [1, 2], } 
+Tabulating the Fibonacci number
+-------------------------------
 
-This would be useful if the nodes were represented by strings, objects, or otherwise didn't map cleanly to list indices. 
+Tabulation is all about creating a table (array) and filling it out with elements. In general, you will complete the table by filling entries from "left to right". This means that the first entry of the table (first element of the array) will correspond to the smallest subproblem. Naturally, the final entry of the table (last element of the array) will correspond to the largest problem, which is also the final answer.
 
-### Adjacency matrix 
+Here's a way to use tabulation to store the intermediary calculations so that later calculations can refer back to the table.
 
-A matrix of 0s and 1s indicating whether node x connects to node y (0 means no, 1 means yes). 
+When you initialized the table and seeded the first two values, it looked like this:
 
-graph = [ [0, 1, 0, 0], [1, 0, 1, 1], [0, 1, 0, 1], [0, 1, 1, 0], ] 
+| i          | 0   | 1   | 2   | 3   | 4   | 5   | 6   | 7   |
+| ---------- | --- | --- | --- | --- | --- | --- | --- | --- |
+| `table[i]` | `0` | `1` |     |     |     |     |     |     |
 
-Since node 3 has edges to nodes 1 and 2, graph[3][1] and graph[3][2] have value 1. 
+After the loop finishes, the final table will be:
 
-a = LinkedListNode(5) b = LinkedListNode(1) c = LinkedListNode(9) a.next = b b.next = c
+| i          | 0   | 1   | 2   | 3   | 4   | 5   | 6   | 7    |
+| ---------- | --- | --- | --- | --- | --- | --- | --- | ---- |
+| `table[i]` | `0` | `1` | `1` | `2` | `3` | `5` | `8` | `13` |
 
----
+Similar to the previous `memo`, by the time the function completes, the `table` will contain the final solution as well as all sub-solutions calculated along the way.
 
+To compute the complexity class of this `tabulatedFib` is very straightforward since the code is iterative. The dominant operation in the function is the loop used to fill out the entire table. The length of the table is roughly `n` elements long, so the algorithm will have an _O(n)_ runtime. The space taken by our algorithm is also _O(n)_ due to the size of the table. Overall, this should be a satisfying solution for the efficiency of the algorithm.
 
+Aside: Refactoring for O(1) Space
+---------------------------------
 
-[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#arrays-)
+You may notice that you can cut down on the space used by the function. At any point of the loop, the calculation really only need the previous two subproblems' results. There is little utility to storing the full array. This refactor is easy to do by using two variables:
 
-## ➤ Arrays 
+Bam! You now have O(n) runtime and O(1) space. This is the most optimal algorithm for calculating a Fibonacci number. Note that this strategy is a pared down form of tabulation, since it uses only the last two values.
 
-Ok, so we know how to store individual numbers. Let's talk about storing _several numbers_. 
+### The Tabulation Formula
 
-That's right, things are starting to _heat up_. 
+Here are the general guidelines for implementing the tabulation strategy. This is just a general recipe, so adjust for taste depending on your problem:
 
-Suppose we wanted to keep a count of how many bottles of kombucha we drink every day. 
+1.  Create the table array based off of the size of the input, which isn't always straightforward if you have multiple input values
+2.  Initialize some values in the table that "answer" the trivially small subproblem usually by initializing the first entry (or entries) of the table
+3.  Iterate through the array and fill in remaining entries, using previous entries in the table to perform the current calculation
+4.  Your final answer is (usually) the last entry in the table
 
-Let's store each day's kombucha count in an 8-bit, fixed-width, unsigned integer. That should be plenty—we're not likely to get through more than 256 (2\^8) bottles in a _single day_, right? 
+What you learned
+----------------
 
-And let's store the kombucha counts right next to each other in RAM, starting at memory address 0: 
+You learned another way of possibly changing an algorithm of one complexity class to a lower complexity class by using memory to store intermediate results. This is a powerful technique to use to make sure your programs that must do iterative calculations can benefit from running much faster.
 
-![A stack of RAM in which we store kombucha counts starting at index 0.](https://www.interviewcake.com/images/svgs/cs_for_hackers__array_kombucha_counts.svg?bust=209)
+* * *
 
- 
+Consider the following search algorithm known as **linear search**.
 
-Bam. That's an **array**. RAM is _basically_ an array already. 
+Most Big-O analysis is done on the "worst-case scenario" and provides an upper bound. In the worst case analysis, you calculate the upper bound on running time of an algorithm. You must know the case that causes the maximum number of operations to be executed.
 
-Just like with RAM, the elements of an array are numbered. We call that number the **index** of the array element (plural: indices). In _this_ example, each array element's index is the same as its address in RAM. 
+For _linear search_, the worst case happens when the element to be searched (`term` in the above code) is not present in the array. When `term` is not present, the `search` function compares it with all the elements of `array` one by one. Therefore, the worst-case time complexity of linear search would be O(n).
 
-But that's not usually true. Suppose another program like Spotify had already stored some information at memory address 2: 
+* * *
 
-![A column of 9 RAM slots representing an array. The row at index 2 is highlighted because it is being used by Spotify.](https://www.interviewcake.com/images/svgs/cs_for_hackers__array5_occupied.svg?bust=209)
+Consider the following search algorithm known as the **binary search**. This kind of search only works if the array is already sorted.
 
- 
+For the _binary search_, you cut the search space in half every time. This means that it reduces the number of searches you must do by half, every time. That means the number of steps it takes to get to the desired item (if it exists in the array), in the worst case takes the same amount of steps for every number within a range defined by the powers of 2.
 
-We'd have to start our array below it, for example at memory address 3. So index 0 in our array would be at memory address 3, and index 1 would be at memory address 4, etc.: 
+*   7 -> 4 -> 2 -> 1
+*   8 -> 4 -> 2 -> 1
+*   9 -> 5 -> 3 -> 2 -> 1
+*   15 -> 8 -> 4 -> 2 -> 1
+*   16 -> 8 -> 4 -> 2 -> 1
+*   17 -> 9 -> 5 -> 3 -> 2 -> 1
+*   31 -> 16 -> 8 -> 4 -> 2 -> 1
+*   32 -> 16 -> 8 -> 4 -> 2 -> 1
+*   33 -> 17 -> 9 -> 5 -> 3 -> 2 -> 1
 
-![A column of 9 RAM slots representing an array. The row at index 2 is highlighted, and the rows at indices 3 through 7 are selected with a bracket.](https://www.interviewcake.com/images/svgs/cs_for_hackers__array5.svg?bust=209)
+So, for any number of items in the sorted array between 2n-1 and 2n, it takes _n_ number of steps. That means if you have _k_ items in the array, then it will take _log__2__k_.
 
- 
+Binary searches are _O_(_log__2__n_).
 
-Suppose we wanted to get the kombucha count at index 4 in our array. How do we figure out what _address in memory_ to go to? Simple math: 
+* * *
 
-Take the array's starting address (3), add the index we're looking for (4), and that's the address of the item we're looking for. 3 + 4 = 7. In general, for getting the nth item in our array: 
+Consider the following divide-and-conquer sort method known as the **merge sort**.
 
-\\text{address of nth item in array} = \\text{address of array start} + n 
+For the _merge sort_, you cut the sort space in half every time. In each of those halves, you have to loop through the number of items in the array. That means that, for the worst case, you get that same _log__2__n_ but it must be multiplied by the number of elements in the array, _n_.
 
-This works out nicely because the size of the addressed memory slots and the size of each kombucha count are _both_ 1 byte. So a slot in our array corresponds to a slot in RAM. 
+Merge sorts are _O_(_n\*log__2__n_).
 
-But that's not always the case. In fact, it's _usually not_ the case. We _usually_ use _64-bit_ integers. 
+* * *
 
-So how do we build an array of _64-bit_ (8 byte) integers on top of our _8-bit_ (1 byte) memory slots? 
+Consider the following sort algorithm known as the **bubble sort**.
 
-We simply give each array index _8_ address slots instead of 1: 
+For the _bubble sort_, the worst case is the same as the best case because it always makes nested loops. So, the outer loop loops the number of times of the items in the array. For each one of those loops, the inner loop loops again a number of times for the items in the array. So, if there are _n_ values in the array, then a loop inside a loop is _n_ \* _n_. So, this is O(n2). That's polynomial, which ain't that good.
 
-![A column of RAM slots representing an array of 64-bit integers. Every 8 buckets of RAM represents one integer.](https://www.interviewcake.com/images/svgs/cs_for_hackers__array64_long.svg?bust=209)
+* * *
 
- 
+use the LeetCode platform to check your work rather than relying on local mocha tests. If you don't already have an account at LeetCode.com, please click https://leetcode.com/accounts/signup/ to sign up for a free account.
 
-So we can still use simple math to grab the start of the nth item in our array—just gotta throw in some multiplication: 
+After you sign up for the account, please verify the account with the email address that you used so that you can actually run your solution on LeetCode.com.
 
-\\text{address of nth item in array} = \\text{address of array start} + (n \* \\text{size of each item in bytes}) 
+In the projects, you will see files that are named "leet\_code\_«number».js". When you open those, you will see a link in the file that you can use to go directly to the corresponding problem on LeetCode.com.
 
-Don't worry—adding this multiplication doesn't really slow us down. Remember: addition, subtraction, multiplication, and division of fixed-width integers takes time. So _all_ the math we're using here to get the address of the nth item in the array takes time. 
+Use the local JavaScript file in Visual Studio Code to collaborate on the solution. Then, you can run the proposed solution in the LeetCode.com code runner to validate its correctness.
 
-And remember how we said the memory controller has a _direct connection_ to each slot in RAM? That means we can read the stuff at any given memory address in time. 
+* * *
 
-![A memory controller connected to a section of RAM.](https://www.interviewcake.com/images/svgs/cs_for_hackers__arrays_no_processor_ram_memory_controller.svg?bust=209)
+This project contains two test-driven problems and one problem on LeetCode.com.
 
- 
+*   Clone the project from https://github.com/appacademy-starters/algorithms-memoization-project.
+*   `cd` into the project folder
+*   `npm install` to install dependencies in the project root directory
+*   `npx test` to run the specs
+*   You can view the test cases in `/test/test.js`. Your job is to write code in the `/lib` files to pass all specs.
+    *   In `problems.js`, you will write code to make the `lucasNumberMemo` and `minChange` functions pass.
+    *   In `leet_code_518.js`, you will use that file as a scratch pad to work on the LeetCode.com problem at https://leetcode.com/problems/coin-change-2/.
 
-**Together, this means looking up the contents of a given array index is time.** This fast lookup capability is the most important property of arrays. 
+* * *
 
-But the formula we used to get the address of the nth item in our array only works _if_: 
+This project contains two test-driven problems and one problem on LeetCode.com.
 
-1.  **Each item in the array is the _same size_** (takes up the same 
+*   Clone the project from https://github.com/appacademy-starters/algorithms-tabulation-project.
+*   `cd` into the project folder
+*   `npm install` to install dependencies in the project root directory
+*   `npx test` to run the specs
+*   You can view the test cases in `/test/test.js`. Your job is to write code in the `/lib` files to pass all specs.
+    *   In `problems.js`, you will write code to make the `stepper`, `maxNonAdjacentSum`, and `minChange` functions pass.
+    *   In `leet_code_64.js`, you will use that file as a scratch pad to work on the LeetCode.com problem at https://leetcode.com/problems/minimum-path-sum/.
+    *   In `leet_code_70.js`, you will use that file as a scratch pad to work on the LeetCode.com problem at https://leetcode.com/problems/climbing-stairs/.
 
-number of bytes). 
+* * *
 
-2.  **The array is _uninterrupted_ (contiguous) in memory**. There can't 
+* * *
 
-be any gaps in the array...like to "skip over" a memory slot Spotify was already using. 
+**The objective of this lesson** is for you to get experience implementing common sorting algorithms that will come up during a lot of interviews. It is also important for you to understand how different sorting algorithms behave when given output.
 
-These things make our formula for finding the nth item _work_ because they make our array _predictable_. We can _predict_ exactly where in memory the nth element of our array will be. 
+At the end of this, you will be able to
 
-But they also constrain what kinds of things we can put in an array. Every item has to be the same size. And if our array is going to store a _lot_ of stuff, we'll need a _bunch_ of uninterrupted free space in RAM. Which gets hard when most of our RAM is already occupied by other programs (like Spotify). 
+1.  Explain the complexity of and write a function that performs `bubble sort` on an array of numbers.
+2.  Explain the complexity of and write a function that performs `selection sort` on an array of numbers.
+3.  Explain the complexity of and write a function that performs `insertion sort` on an array of numbers.
+4.  Explain the complexity of and write a function that performs `merge sort` on an array of numbers.
+5.  Explain the complexity of and write a function that performs `quick sort` on an array of numbers.
+6.  Explain the complexity of and write a function that performs a binary search on a sorted array of numbers.nce implementing common sorting algorithms that will come up during a lot of interviews. It is also important for you to understand how different sorting algorithms behave when given output.
 
-That's the tradeoff. Arrays have fast lookups ( time), but each item in the array needs to be the same size, and you need a big block of uninterrupted free memory to store the array. 
+At the end of this, you will be able to
 
------- 
+1.  Explain the complexity of and write a function that performs `bubble sort` on an array of numbers.
+2.  Explain the complexity of and write a function that performs `selection sort` on an array of numbers.
+3.  Explain the complexity of and write a function that performs `insertion sort` on an array of numbers.
+4.  Explain the complexity of and write a function that performs `merge sort` on an array of numbers.
+5.  Explain the complexity of and write a function that performs `quick sort` on an array of numbers.
+6.  Explain the complexity of and write a function that performs a binary search on a sorted array of numbers.
 
----
- 
+* * *
 
+Bubble Sort is generally the first major sorting algorithm to come up in most introductory programming courses. Learning about this algorithm is useful educationally, as it provides a good introduction to the challenges you face when tasked with converting unsorted data into sorted data, such as conducting logical comparisons, making swaps while iterating, and making optimizations. It's also quite simple to implement, and can be done quickly.
 
----
+Bubble Sort is _almost never_ a good choice in production. simply because:
 
- ## Pointers 
+*   It is not efficient
+*   It is not commonly used
+*   There is a stigma attached to using it
 
-Remember how we said every item in an array had to be the same size? Let's dig into that a little more. 
+_"But…then…why are we…"_
+------------------------
 
-Suppose we wanted to store a bunch of ideas for baby names. Because we've got some _really_ cute ones. 
+It is _quite useful_ as an educational base for you, and as a conversational base for you while interviewing, because you can discuss how other more elegant and efficient algorithms improve upon it. Taking naive code and improving upon it by weighing the technical tradeoffs of your other options is 100% the name of the game when trying to level yourself up from a junior engineer to a senior engineer.
 
-Each name is a string. Which is really an array. And now we want to store _those arrays_ in an array. _Whoa_. 
+The algorithm bubbles up
+------------------------
 
-Now, what if our baby names have different lengths? That'd violate our rule that all the items in an array need to be the same size! 
+As you progress through the algorithms and data structures of this course, you'll eventually notice that there are some recurring funny terms. "Bubbling up" is one of those terms.
 
-We could put our baby names in arbitrarily large arrays (say, 13 characters each), and just use a special character to mark the end of the string within each array... 
+When someone writes that an item in a collection "bubbles up," you should infer that:
 
-![Strings represented in RAM as arrays of 13 characters, with the end of the strings being denoted by a special "null" character. The last 8 rows are marked as wasted space because the name Bill (along with the null character) only takes up 5 out of 13 available characters.](https://www.interviewcake.com/images/svgs/cs_for_hackers__pointers_baby_names.svg?bust=209)
+*   The item is _in motion_
+*   The item is moving _in some direction_
+*   The item _has some final resting destination_
 
- 
+When invoking Bubble Sort to sort an array of integers in ascending order, the largest integers will "bubble up" to the "top" (the end) of the array, one at a time.
 
-"Wigglesworth" is a cute baby name, right? 
+The largest values are captured, put into motion in the direction defined by the desired sort (ascending right now), and traverse the array until they arrive at their end destination. See if you can observe this behavior in the following animation (courtesy http://visualgo.net):
 
-But look at all that wasted space after "Bill". And what if we wanted to store a string that was _more_ than 13 characters? We'd be out of luck. 
+![bubble sort](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/images/BubbleSort.gif)
 
-There's a better way. Instead of storing the strings right inside our array, let's just put the strings wherever we can fit them in memory. Then we'll have each element in our array hold the _address in memory_ of its corresponding string. Each address is an integer, so really our outer array is just an array of integers. We can call each of these integers a **pointer**, since it points to another spot in memory. 
+bubble sort
 
-![An array of names represented in RAM. The names are stored out of order, but an array holds the address in memory of each of name with arrows pointing from the number to the memory address.](https://www.interviewcake.com/images/svgs/cs_for_hackers__pointers_pointer_array.svg?bust=209)
+As the algorithm iterates through the array, it compares each element to the element's right neighbor. If the current element is larger than its neighbor, the algorithm swaps them. This continues until all elements in the array are sorted.
 
- 
+How does a pass of Bubble Sort work?
+------------------------------------
 
-The pointers are marked with a \* at the beginning. 
+Bubble sort works by performing multiple _passes_ to move elements closer to their final positions. A single pass will iterate through the entire array once.
 
-Pretty clever, right? This fixes _both_ the disadvantages of arrays: 
+A pass works by scanning the array from left to right, two elements at a time, and checking if they are ordered correctly. To be ordered correctly the first element must be less than or equal to the second. If the two elements are not ordered properly, then we swap them to correct their order. Afterwards, it scans the next two numbers and continue repeat this process until we have gone through the entire array.
 
-1.  The items don't have to be the same length—each string can be as 
+See one pass of bubble sort on the array `[2, 8, 5, 2, 6]`. On each step the elements currently being scanned are in **bold**.
 
-long or as short as we want. 
+*   \[**2**, **8**, 5, 2, 6\] - ordered, so leave them alone
+*   \[2, **8**, **5**, 2, 6\] - not ordered, so swap
+*   \[2, 5, **8**, **2**, 6\] - not ordered, so swap
+*   \[2, 5, 2, **8**, **6**\] - not ordered, so swap
+*   \[2, 5, 2, 6, 8\] - the first pass is complete
 
-2.  We don't need enough uninterrupted free memory to store all our 
+Because at least one swap occurred, the algorithm knows that it wasn't sorted. It needs to make another pass. It starts over again at the first entry and goes to the next-to-last entry doing the comparisons, again. It only needs to go to the next-to-last entry because the previous "bubbling" put the largest entry in the last position.
 
-strings next to each other—we can place each of them separately, wherever there's space in RAM. 
+*   \[**2**, **5**, 2, 6, 8\] - ordered, so leave them alone
+*   \[2, **5**, **2**, 6, 8\] - not ordered, so swap
+*   \[2, 2, **5**, **6**, 8\] - ordered, so leave them alone
+*   \[2, 2, 5, 6, 8\] - the second pass is complete
 
-We fixed it! No more tradeoffs. Right? 
+Because at least one swap occurred, the algorithm knows that it wasn't sorted. Now, it can bubble from the first position to the last-2 position because the last two values are sorted.
 
-Nope. Now we have a _new_ tradeoff: 
+*   \[**2**, **2**, 5, 6, 8\] - ordered, so leave them alone
+*   \[2, **2**, **5**, 6, 8\] - ordered, so leave them alone
+*   \[2, 2, 5, 6, 8\] - the third pass is complete
 
-Remember how the memory controller sends the contents of _nearby_ memory addresses to the processor with each read? And the processor caches them? So reading sequential addresses in RAM is _faster_ because we can get most of those reads right from the cache? 
+No swap occurred, so the Bubble Sort stops.
 
-![A series of caches inside of the memory controller, where the processor stores what it has recently read from RAM.](https://www.interviewcake.com/images/svgs/cs_for_hackers__ram_cache.svg?bust=209)
+Ending the Bubble Sort
+----------------------
 
- 
+During Bubble Sort, you can tell if the array is in sorted order by checking if a swap was made during the previous pass performed. If a swap was not performed during the previous pass, then the array must be totally sorted and the algorithm can stop.
 
-Our original array was very **cache-friendly**, because everything was sequential. So reading from the 0th index, then the 1st index, then the 2nd, etc. got an extra speedup from the processor cache. 
+You're probably wondering why that makes sense. Recall that a pass of Bubble Sort checks if any adjacent elements are **out of order** and swaps them if they are. If we don't make any swaps during a pass, then everything must be already **in order**, so our job is done. Let that marinate for a bit.
 
-**But the pointers in this array make it _not_ cache-friendly**, because the baby names are scattered randomly around RAM. So reading from the 0th index, then the 1st index, etc. doesn't get that extra speedup from the cache. 
+Pseudocode for Bubble Sort
+--------------------------
 
-That's the tradeoff. This pointer-based array requires less uninterrupted memory and can accommodate elements that aren't all the same size, _but_ it's _slower_ because it's not cache-friendly. 
+* * *
 
-This slowdown isn't reflected in the big O time cost. Lookups in this pointer-based array are _still_ time. 
+Selection Sort is very similar to Bubble Sort. The major difference between the two is that Bubble Sort bubbles the _largest_ elements up to the end of the array, while Selection Sort selects the _smallest_ elements of the array and directly places them at the beginning of the array in sorted position. Selection sort will utilize swapping just as bubble sort did. Let's carefully break this sorting algorithm down.
 
------- 
+The algorithm: select the next smallest
+---------------------------------------
 
----
- 
+Selection sort works by maintaining a sorted region on the left side of the input array; this sorted region will grow by one element with every "pass" of the algorithm. A single "pass" of selection sort will select the next smallest element of unsorted region of the array and move it to the sorted region. Because a single pass of selection sort will move an element of the unsorted region into the sorted region, this means a single pass will shrink the unsorted region by 1 element whilst increasing the sorted region by 1 element. Selection sort is complete when the sorted region spans the entire array and the unsorted region is empty!
 
+![selection sort](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/images/SelectionSort.gif)
 
----
+selection sort
 
- 
+The algorithm can be summarized as the following:
 
+1.  Set MIN to location 0
+2.  Search the minimum element in the list
+3.  Swap with value at location MIN
+4.  Increment MIN to point to next element
+5.  Repeat until list is sorted
 
-[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#linked-lists-)
+The pseudocode
+--------------
 
-## ➤ Linked lists 
+In pseudocode, the Selection Sort can be written as this.
 
-Our word processor is definitely going to need fast appends—appending to the document is like the _main thing_ you do with a word processor. 
+* * *
 
-Can we build a data structure that can store a string, has fast appends, _and_ doesn't require you to say how long the string will be ahead of time? 
+With Bubble Sort and Selection Sort now in your tool box, you're starting to get some experience points under your belt! Time to learn one more "naive" sorting algorithm before you get to the efficient sorting algorithms.
 
-Let's focus first on not having to know the length of our string ahead of time. Remember how we used _pointers_ to get around length issues with our array of baby names? 
+The algorithm: insert into the sorted region
+--------------------------------------------
 
-What if we pushed that idea even further? 
+Insertion Sort is similar to Selection Sort in that it gradually builds up a larger and larger sorted region at the left-most end of the array.
 
-What if each _character_ in our string were a _two-index array_ with: 
+However, Insertion Sort differs from Selection Sort because this algorithm does not focus on searching for the right element to place (the next smallest in our Selection Sort) on each pass through the array. Instead, it focuses on sorting each element in the order they appear from left to right, regardless of their value, and inserting them in the most appropriate position in the sorted region.
 
-1.  the character itself 2.  a pointer to the next character 
+See if you can observe the behavior described above in the following animation:
 
-![An example of a linked list storing the string "DEAR." Each element of the linked list is an array composed of two items: a character and a pointer that points to the next element.](https://www.interviewcake.com/images/svgs/cs_for_hackers__linked_lists_sample.svg?bust=209)
+![insertion sort](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/images/InsertionSort.gif)
 
- 
+insertion sort
 
-We would call each of these two-item arrays a **node** and we'd call this series of nodes a **linked list**. 
+The Steps
+---------
 
-Here's how we'd actually implement it in memory: 
+Insertion Sort grows a sorted array on the left side of the input array by:
 
-![The same linked list represented in RAM, showing the nodes scattered in memory but connected by pointers.](https://www.interviewcake.com/images/svgs/cs_for_hackers__linked_lists_in_memory.svg?bust=209)
+1.  If it is the first element, it is already sorted. return 1;
+2.  Pick next element
+3.  Compare with all elements in the sorted sub-list
+4.  Shift all the elements in the sorted sub-list that is greater than the value to be sorted
+5.  Insert the value
+6.  Repeat until list is sorted
 
- 
+These steps are easy to confuse with selection sort, so you'll want to watch the video lecture and drawing that accompanies this reading as always!
 
-Notice how we're free to store our nodes wherever we can find two open slots in memory. They don't have to be next to each other. They don't even have to be _in order_: 
+The pseudocode
+--------------
 
-![The same linked list represented in RAM. This time the characters are stored out of order to show that the pointers still keep everything in place.](https://www.interviewcake.com/images/svgs/cs_for_hackers__linked_lists_in_memory_out_of_order.svg?bust=209)
+* * *
 
- 
+You've explored a few sorting algorithms already, all of them being quite slow with a runtime of O(n2). It's time to level up and learn your first time-efficient sorting algorithm! You'll explore **merge sort** in detail soon, but first, you should jot down some key ideas for now. The following points are not steps to an algorithm yet; rather, they are ideas that will motivate how you can derive this algorithm.
 
-"But that's not cache-friendly, " you may be thinking. Good point! We'll get to that. 
+*   it is easy to merge elements of two sorted arrays into a single sorted array
+*   you can consider an array containing only a single element as already trivially sorted
+*   you can also consider an empty array as trivially sorted
 
-The first node of a linked list is called the **head**, and the last node is usually called the **tail**. 
+The algorithm: divide and conquer
+---------------------------------
 
-Confusingly, some people prefer to use "tail" to refer to _everything after the head_ of a linked list. In an interview it's fine to use either definition. Briefly say which definition you're using, just to be clear. 
+You're going to need a helper function that solves the first major point from above. How might you merge two sorted arrays? In other words you want a `merge` function that will behave like so:
 
-It's important to have a pointer variable referencing the head of the list—otherwise we'd be unable to find our way back to the start of the list! 
+Once you have that, you get to the "divide and conquer" bit.
 
-We'll also sometimes keep a pointer to the tail. That comes in handy when we want to add something new to the end of the linked list. In fact, let's try that out: 
+The algorithm for merge sort is actually _really_ simple.
 
-Suppose we had the string "LOG" stored in a linked list: 
+1.  if there is only one element in the list, it is already sorted. return that array.
+2.  otherwise, divide the list recursively into two halves until it can no more be divided.
+3.  merge the smaller lists into new list in sorted order.
 
-![A linked list with head and tail pointers storing the word "LOG." The *head points to the first character "L, " and the tail points to the last letter "G."](https://www.interviewcake.com/images/svgs/cs_for_hackers__linked_lists_log_string.svg?bust=209)
+The process is visualized below. When elements are moved to the bottom of the picture, they are going through the `merge` step:
 
- 
+![merge sort](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/images/MergeSort.gif)
 
-Suppose we wanted to add an "S" to the end, to make it "LOGS". How would we do that? 
+merge sort
 
-Easy. We just put it in a new node: 
+The pseudocode for the algorithm is as follows.
 
-![A linked list with head and tail pointers storing the word "LOG." A new unconnected node storing the character "S" is added to the bottom and bolded.](https://www.interviewcake.com/images/svgs/cs_for_hackers__linked_lists_log_string_add_node.svg?bust=209)
+* * *
 
- 
+Quick Sort has a similar "divide and conquer" strategy to Merge Sort. Here are a few key ideas that will motivate the design:
 
-And tweak some pointers: 
+*   it is easy to sort elements of an array relative to a particular target value
+*   an array of 0 or 1 elements is already trivially sorted
 
-​1. Grab the last letter, which is "G". Our tail pointer lets us do this in time. 
+Regarding that first point, for example given `[7, 3, 8, 9, 2]` and a target of `5`, we know `[3, 2]` are numbers less than `5` and `[7, 8, 9]` are numbers greater than `5`.
 
-![A linked list with head and tail pointers storing the word "LOG." The *tail pointer and the character "G" are bolded.](https://www.interviewcake.com/images/svgs/cs_for_hackers__linked_lists_logs_string_grab_last_letter.svg?bust=209)
+How does it work?
+-----------------
 
- 
+In general, the strategy is to divide the input array into two subarrays: one with the smaller elements, and one with the larger elements. Then, it recursively operates on the two new subarrays. It continues this process until of dividing into smaller arrays until it reaches subarrays of length 1 or smaller. As you have seen with Merge Sort, arrays of such length are automatically sorted.
 
-​2. Point the last letter's next to the letter we're appending ("S"). 
+The steps, when discussed on a high level, are simple:
 
-![A linked list with head and tail pointers storing the word "LOG." The "G"'s *next pointer is bolded and pointing to the appended "S".](https://www.interviewcake.com/images/svgs/cs_for_hackers__linked_lists_logs_string_point_next.svg?bust=209)
+1.  choose an element called "the pivot", how that's done is up to the implementation
+2.  take two variables to point left and right of the list excluding pivot
+3.  left points to the low index
+4.  right points to the high
+5.  while value at left is less than pivot move right
+6.  while value at right is greater than pivot move left
+7.  if both step 5 and step 6 does not match swap left and right
+8.  if left ≥ right, the point where they met is new pivot
+9.  repeat, recursively calling this for smaller and smaller arrays
 
- 
+Before we move forward, see if you can observe the behavior described above in the following animation:
 
-​3. Update the tail pointer to point to our _new_ last letter, "S". 
+![quick sort](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/images/QuickSort.gif)
 
-![A linked list with head and tail pointers storing the word "LOGS." The *tail pointer is now pointed to the new last letter: "S".](https://www.interviewcake.com/images/svgs/cs_for_hackers__linked_lists_logs_string_tweak_pointers.svg?bust=209)
+quick sort
 
- 
+The algorithm: divide and conquer
+---------------------------------
 
-That's time. 
+Formally, we want to partition elements of an array relative to a pivot value. That is, we want elements less than the pivot to be separated from elements that are greater than or equal to the pivot. Our goal is to create a function with this behavior:
 
-Why is it time? Because the runtime doesn't get bigger if the string gets bigger. No matter how many characters are in our string, we still just have to tweak a couple pointers for any append. 
+### Partition
 
-Now, what if instead of a linked list, our string had been a _dynamic array_? We might not have any room at the end, forcing us to do one of those doubling operations to make space: 
+Seems simple enough! Let's implement it in JavaScript:
 
-![A dynamic array containing the word "LOG" going through a doubling operation to make space for an appended letter.](https://www.interviewcake.com/images/svgs/cs_for_hackers__linked_lists_log_string_doubled_array.svg?bust=209)
+You don't have to use an explicit `partition` helper function in your Quick Sort implementation; however, we will borrow heavily from this pattern. As you design algorithms, it helps to think about key patterns in isolation, although your solution may not feature that exact helper. Some would say we like to divide and conquer.
 
- 
+The pseudocode
+--------------
 
-So with a dynamic array, our append would have a _worst-case_ time cost of . 
+It is _so_ small, this algorithm. It's amazing that it performs so well with so little code!
 
-**Linked lists have worst-case -time appends, which is better than the worst-case time of dynamic arrays.** 
+* * *
 
-That _worst-case_ part is important. The _average case_ runtime for appends to linked lists and dynamic arrays is the same: . 
+We've explored many ways to sort arrays so far, but why did we go through all of that trouble? By sorting elements of an array, we are organizing the data in a way that gives us a quick way to look up elements later on. For simplicity, we have been using arrays of numbers up until this point. However, these sorting concepts can be generalized to other data types. For example, it would be easy to modify our comparison-based sorting algorithms to sort strings: instead of leveraging facts like `0 < 1`, we can say `'A' < 'B'`.
 
-Now, what if we wanted to *pre*pend something to our string? Let's say we wanted to put a "B" at the beginning. 
+Think of a dictionary. A dictionary contains alphabetically sorted words and their definitions. A dictionary is pretty much only useful if it is ordered in this way. Let's say you wanted to look up the definition of "stupendous." What steps might you take?
 
-For our linked list, it's just as easy as appending. Create the node: 
+*   you open up the dictionary at the roughly middle page
+    *   you land in the "m" section
+*   you know "s" comes somewhere after "m" in the book, so you disregard all pages before the "m" section. Instead, you flip to the roughly middle page between "m" and "z"
+    *   you land in the "u" section
+*   you know "s" comes somewhere before "u", so you can disregard all pages after the "u" section. Instead, you flip to the roughly middle page between the previous "m" page and "u"
+*   …
 
-![A linked list with head and tail pointers storing the word "LOGS." A new unconnected node storing the character "B" is added to the top and bolded.](https://www.interviewcake.com/images/svgs/cs_for_hackers__linked_lists_logs_string_add_node.svg?bust=209)
+You are essentially using the `binarySearch` algorithm in the real world.
 
- 
+The Algorithm: "check the middle and half the search space"
+-----------------------------------------------------------
 
-And tweak some pointers: 
+Formally, our `binarySearch` will seek to solve the following problem:
 
-1.  Point "B"'s next to "L". 2.  Point the head to "B". 
+Programmatically, we want to satisfy the following behavior:
 
-![A linked list with head and tail pointers storing the word "LOGS." The "B"'s *next pointer is bolded and pointing to the letter "L, " and the *head pointer is bolded and pointing to the prepended letter "B".](https://www.interviewcake.com/images/svgs/cs_for_hackers__linked_lists_blogs_string_tweak_pointers.svg?bust=209)
+Before we move on, really internalize the fact that `binarySearch` will only work on **sorted** arrays! Obviously we can search any array, sorted or unsorted, in `O(n)` time. But now our goal is be able to search the array with a sub-linear time complexity (less than `O(n)`).
 
- 
+The pseudocode
+--------------
 
-Bam. time again. 
+* * *
 
-But if our string were a _dynamic array_... 
+Bubble Sort manipulates the array by swapping the position of two elements. To implement Bubble Sort in JS, you'll need to perform this operation. It helps to have a function to do that. A key detail in this function is that you need an extra variable to store one of the elements since you will be overwriting them in the array:
 
-![A dynamic array storing the string "LOGS."](https://www.interviewcake.com/images/svgs/cs_for_hackers__linked_lists_log_string_dynamic_array.svg?bust=209)
+Note that the swap function does not create or return a new array. It mutates the original array:
 
- 
+### Bubble Sort JS Implementation
 
-And we wanted to add in that "B": 
+Take a look at the snippet below and try to understand how it corresponds to the conceptual understanding of the algorithm. Scroll down to the commented version when you get stuck.
 
-![A dynamic array storing the string "LOGS." A bolded "B" is added above the array.](https://www.interviewcake.com/images/svgs/cs_for_hackers__linked_lists_log_string_dynamic_array_add_b.svg?bust=209)
+Time Complexity: O(n2)
+----------------------
 
- 
+Picture the worst case scenario where the input array is completely unsorted. Say it's sorted in fully decreasing order, but the goal is to sort it in increasing order:
 
-Eep. We have to _make room_ for the "B"! 
+*   n is the length of the input array
+*   The inner `for` loop along contributes _O(n)_ in isolation
+*   The outer while loop contributes _O(n)_ in isolation because a single iteration of the while loop will bring one element to its final resting position. In other words, it keeps running the while loop until the array is fully sorted. To fully sort the array we will need to bring all `n` elements into their final resting positions.
+*   Those two loops are nested so the total time complexity is O(n \* n) = O(n2).
 
-We have to move _each character_ one space down: 
+It's worth mentioning that the best case scenario is when the input array is already fully sorted. This will cause our for loop to conduct a single pass without performing any swap, so the `while` loop will not trigger further iterations. This means best case time complexity is _O(n)_ for bubble sort. This best case linear time is probably the only advantage of bubble sort. Programmers are usually interested only in the worst-case analysis and ignore best-case analysis.
 
-![A dynamic array storing the string "LOGS" with the letter "B" floating above. The "S" is bolded with an arrow attached showing how the character is being moved one index up.](https://www.interviewcake.com/images/svgs/cs_for_hackers__linked_lists_log_string_dynamic_array_move_s.svg?bust=209)
+Space Complexity: O(1)
+----------------------
 
- 
+Bubble Sort is a constant space, O(1), algorithm. The amount of memory consumed by the algorithm does not increase relative to the size of the input array. It uses the same amount of memory and create the same amount of variables regardless of the size of the input, making this algorithm quite space efficient. The space efficiency mostly comes from the fact that it mutates the input array in-place. This is known as a **destructive sort** because it "destroys" the positions of the values in the array.
 
-![A dynamic array storing the string "LOGS" with the letter "B" floating above. The "G" is bolded with an arrow attached showing how the character is being moved one index up.](https://www.interviewcake.com/images/svgs/cs_for_hackers__linked_lists_log_string_dynamic_array_move_g.svg?bust=209)
+When should you use Bubble Sort?
+--------------------------------
 
- 
+Nearly never, but it may be a good choice in the following list of special cases:
 
-![A dynamic array storing the string "LOGS" with the letter "B" floating above. The "O" is bolded with an arrow attached showing how the character is being moved one index up.](https://www.interviewcake.com/images/svgs/cs_for_hackers__linked_lists_log_string_dynamic_array_move_o.svg?bust=209)
+*   When sorting really small arrays where run time will be negligible no matter what algorithm you choose.
+*   When sorting arrays that you expect to already be nearly sorted.
+*   At parties
 
- 
+* * *
 
-![A dynamic array storing the string "LOGS" with the letter "B" floating above. The "L" is bolded with an arrow attached showing how the character is being moved one index up.](https://www.interviewcake.com/images/svgs/cs_for_hackers__linked_lists_log_string_dynamic_array_move_l.svg?bust=209)
+Since a component of Selection Sort requires us to locate the smallest value in the array, let's focus on that pattern in isolation:
 
- 
+Pretty basic code right? We won't use this explicit helper function to solve selection sort, however we will borrow from this pattern soon.
 
-_Now_ we can drop the "B" in there: 
+Selection Sort JS Implementation
+--------------------------------
 
-![A dynamic array storing the string "LOGS" with the letter "B" floating above. The "B" is bolded with an arrow attached showing how the character is now being placed in the first index.](https://www.interviewcake.com/images/svgs/cs_for_hackers__linked_lists_log_string_dynamic_array_chars_moved.svg?bust=209)
+We'll also utilize the classic swap pattern that we introduced in the bubble sort. To refresh:
 
- 
+Now for the punchline! Take a look at the snippet below and try to understand how it corresponds to our conceptual understanding of the selection sort algorithm. Scroll down to the commented version when you get stuck.
 
-What's our time cost here? 
+Time Complexity Analysis
+------------------------
 
-It's all in the step where we made room for the first letter. We had to move _all n_ characters in our string. One at a time. That's time. 
+Selection Sort runtime is O(n2) because:
 
-**So linked lists have faster *pre*pends ( time) than dynamic arrays ( time).** 
+*   `n` is the length of the input array
+*   The outer loop i contributes O(n) in isolation, this is plain to see
+*   The inner loop j is more complicated, it will make one less iteration for every iteration of i.
+    *   for example, let's say we have an array of 10 elements, `n = 10`.
+    *   the first full cycle of `j` will have 9 iterations
+    *   the second full cycle of `j` will have 8 iterations
+    *   the third full cycle of `j` will have 7 iterations
+    *   …
+    *   the last full cycle of `j` will have 1 iteration
+    *   This means that the inner loop j will contribute roughly O(n / 2) on average
+*   The two loops are nested so our total time complexity is O(n \* n / 2) = O(n2)
 
-No "worst case" caveat this time—prepends for dynamic arrays are _always_ time. And prepends for linked lists are _always_ time. 
+You'll notice that during this analysis we said something silly like O(n / 2). In some analyses such as this one, we'll prefer to drop the constants only at the end of the sketch so you understand the logical steps we took to derive a complicated time complexity.
 
-These quick appends and prepends for linked lists come from the fact that linked list nodes can go anywhere in memory. They don't have to sit right next to each other the way items in an array do. 
+Space Complexity Analysis: O(1)
+-------------------------------
 
-So if linked lists are so great, why do we usually store strings in an array? **Because [arrays have -time lookups](#constant-time-array-lookups).** And those constant-time lookups _come from_ the fact that all the array elements are lined up next to each other in memory. 
+The amount of memory consumed by the algorithm does not increase relative to the size of the input array. We use the same amount of memory and create the same amount of variables regardless of the size of our input. A quick indicator of this is the fact that we don't create any arrays.
 
-Lookups with a linked list are more of a process, because we have no way of knowing where the ith node is in memory. So we have to walk through the linked list node by node, counting as we go, until we hit the ith item. 
+When should we use Selection Sort?
+----------------------------------
 
-def get_ith_item_in_linked_list(head, i): if i \< 0: raise ValueError("i can't be negative: %d" % i) current_node = head current_position = 0 while current_node: if current_position == i: \# Found it! return current_node \# Move on to the next node current_node = current_node.next current_position += 1 raise ValueError('List has fewer than i + 1 (%d) nodes' % (i + 1)) 
+There is really only one use case where Selection Sort becomes superior to Bubble Sort. Both algorithms are quadratic in time and constant in space, but the point at which they differ is in the _number of swaps_ they make.
 
-That's i + 1 steps down our linked list to get to the ith node (we made our function zero-based to match indices in arrays). **So linked lists have -time lookups.** Much slower than the -time lookups for arrays and dynamic arrays. 
+Bubble Sort, in the worst case, invokes a swap on every single comparison. Selection Sort only swaps once our inner loop has completely finished traversing the array. Therefore, Selection Sort is optimized to make the least possible number of swaps.
 
-Not only that—**walking down a linked list is _not_ cache-friendly.** Because the next node could be _anywhere_ in memory, we don't get any benefit from the processor cache. This means lookups in a linked list are even slower. 
+Selection Sort becomes advantageous when making a swap is the most expensive operation in your system. You will likely rarely encounter this scenario, but in a situation where you've built (or have inherited) a system with suboptimal write speed ability, for instance, maybe you're sorting data in a specialized database tuned strictly for fast read speeds at the expense of slow write speeds, using Selection Sort would save you a ton of expensive operations that could potential crash your system under peak load.
 
-So the tradeoff with linked lists is they have faster prepends and faster appends than dynamic arrays, _but_ they have slower lookups. 
+Though in industry this situation is very rare, the insights above make for a fantastic conversational piece when weighing technical tradeoffs while strategizing solutions in an interview setting. This commentary may help deliver the impression that you are well-versed in system design and technical analysis, a key indicator that someone is prepared for a senior level position.
 
------- 
+* * *
 
----
- 
+Take a look at the snippet below and try to understand how it corresponds to our conceptual understanding of the Insertion Sort algorithm. Scroll down to the commented version when you get stuck:
 
+There are a few key pieces to point out in the above solution before moving forward:
 
----
+1.  The outer `for` loop starts at the 1st index, not the 0th index, and moves to the right.
+    
+2.  The inner `for` loop starts immediately to the left of the current element, and moves to the left.
+    
+3.  The condition for the inner `for` loop is complicated, and behaves similarly to a while loop!
+    *   It continues iterating to the left toward `j = 0`, _only while_ the `currElement` is less than `arr[j]`.
+    *   It does this over and over until it finds the proper place to insert `currElement`, and then we exit the inner loop!
+4.  When shifting elements in the sorted region to the right, it _does not_ replace the value at their old index! If the input array is `[1, 2, 4, 3]`, and `currElement` is `3`, after comparing `4` and `3`, but before inserting `3` between `2` and `4`, the array will look like this: `[1, 2, 4, 4]`.
+    
 
- ## Doubly Linked Lists 
+If you are currently scratching your head, that is perfectly okay because when this one clicks, it clicks for good.
 
-In a basic linked list, each item stores a single pointer to the next element. 
+If you're struggling, you should try taking out a pen and paper and step through the solution provided above one step at a time. Keep track of `i`, `j`, `currElement`, `arr[j]`, and the input `arr` itself _at every step_. After going through this a few times, you'll have your "ah HA!" moment.
 
-In a **doubly linked list**, items have pointers to the next _and the previous_ nodes. 
+Time and Space Complexity Analysis
+----------------------------------
 
-![A doubly-linked list with 3 nodes. The first node has value 5 with a "next" arrow pointing ahead to the second node and a "previous" arrow pointing back to "None." The second node has value 1 with a "next" arrow pointing ahead to the third node and a "previous" arrow pointing back to the first node. The third node has value 9 with a "next" arrow pointing ahead to "None" and a "previous" arrow pointing back to the second node.](https://www.interviewcake.com/images/svgs/linked_list__doubly_linked_nodes_and_pointers.svg?bust=209)
+Insertion Sort runtime is O(n2) because:
 
- 
+In the **worst case scenario** where our input array is entirely unsorted, since this algorithm contains a nested loop, its run time behaves similarly to `bubbleSort` and `selectionSort`. In this case, we are forced to make a comparison at each iteration of the inner loop. Not convinced? Let's derive the complexity. We'll use much of the same argument as we did in `selectionSort`. Say we had the worst case scenario where are input array is sorted in full decreasing order, but we wanted to sort it in increasing order:
 
-Doubly linked lists allow us to traverse our list _backwards_. In a _singly_ linked list, if you just had a pointer to a node in the _middle_ of a list, there would be _no way_ to know what nodes came before it. Not a problem in a doubly linked list. 
+*   `n` is the length of the input array
+*   The outer loop i contributes O(n) in isolation, this is plain to see
+*   The inner loop j is more complicated. We know j will iterate until it finds an appropriate place to insert the `currElement` into the sorted region. However, since we are discussing the case where the data is already in decreasing order, the element must travel the maximum distance to find it's insertion point! We know this insertion point to be index 0, since every `currElement` will be the next smallest of the array. So:
+    *   the 1st element travels 1 distance to be inserted
+    *   the 2nd element travels 2 distance to be inserted
+    *   the 3rd element travels 3 distance to be inserted
+    *   …
+    *   the n-1th element travels n-1 distance to be inserted
+    *   This means that our inner loop j will contribute roughly O(n / 2) on average
+*   The two loops are nested so our total time complexity is O(n \* n / 2) = O(n2)
 
+### Space Complexity: O(1)
 
-[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#not-cache-friendly-)
+The amount of memory consumed by the algorithm does not increase relative to the size of the input array. We use the same amount of memory and create the same amount of variables regardless of the size of our input. A quick indicator of this is the fact that we don't create any arrays.
 
-## ➤ Not cache-friendly 
+When should you use Insertion Sort?
+-----------------------------------
 
-Most computers have [caching systems that make reading from sequential addresses in memory faster than reading from scattered addresses](https://www.interviewcake.com/article/data-structures-coding-interview#ram). 
+Insertion Sort has one advantage that makes it absolutely supreme in one special case. Insertion Sort is what's known as an "online" algorithm. Online algorithms are great when you're dealing with _streaming data_, because they can sort the data live _as it is received_.
 
-[Array](https://www.interviewcake.com/concept/array) items are always located right next to each other in computer memory, but linked list nodes can be scattered all over. 
+If you must sort a set of data that is ever-incoming, for example, maybe you are sorting the most relevant posts in a social media feed so that those posts that are most likely to impact the site's audience always appear at the top of the feed, an online algorithm like Insertion Sort is a great option.
 
-So iterating through a linked list is usually quite a bit slower than iterating through the items in an array, even though they're both theoretically time. 
+Insertion Sort works well in this situation because the left side of the array is always sorted, and in the case of nearly sorted arrays, it can run in linear time. The absolute best case scenario for Insertion Sort is when there is only one unsorted element, and it is located all the way to the right of the array.
 
------- 
+Well, if you have data constantly being pushed to the array, it will always be added to the right side. If you keep your algorithm constantly running, the left side will always be sorted. Now you have linear time sort.
 
----
- 
+Otherwise, Insertion Sort is, in general, useful in all the same situations as Bubble Sort. It's a good option when:
 
+*   You are sorting really small arrays where run time will be negligible no matter what algorithm we choose.
+*   You are sorting an array that you expect to already be nearly sorted.
 
----
+* * *
 
- ## Hash tables 
+You needed to come up with two pieces of code to make merge sort work.
 
-Quick lookups are often really important. For that reason, we tend to use arrays (-time lookups) much more often than linked lists (-time lookups). 
+Full code
+---------
 
-For example, suppose we wanted to count how many times each ASCII character appears in [Romeo and Juliet](https://raw.githubusercontent.com/GITenberg/The-Tragedy-of-Romeo-and-Juliet_1112/master/1112.txt). How would we store those counts? 
+Merging two sorted arrays
+-------------------------
 
-We can use arrays in a clever way here. Remember—characters are just numbers. In ASCII (a common character encoding) 'A' is 65, 'B' is 66, etc. 
+Merging two sorted arrays is simple. Since both arrays are sorted, we know the smallest numbers to always be at the front of the arrays. We can construct the new array by comparing the first elements of both input arrays. We remove the smaller element from it's respective array and add it to our new array. Do this until both input arrays are empty:
 
-So we can use the character('s number value) as the _index_ in our array, and store the _count_ for that character _at that index_ in the array: 
+Remember the following about JavaScript to understand the above code.
 
-![An array showing indices 63 through 68. To the left of the indices are the ASCII characters that correspond to the numeric indices with arrows pointing from each character to its corresponding number.](https://www.interviewcake.com/images/svgs/cs_for_hackers__hash_tables_chars_to_ints.svg?bust=209)
+*   `0` is considered a falsey value, meaning it acts like `false` when used in Boolean expressions. All other numbers are truthy.
+*   `Infinity` is a value that is guaranteed to be greater than any other quantity
+*   `shift` is an array method that removes and returns the first element
 
- 
+Here's the annotated version.
 
-With this array, we can look up (and edit) the count for any character in constant time. Because we can access any index in our array in constant time. 
+By using `Infinity` as the default element when an array is empty, we are able to elegantly handle the scenario where one array empties before the other. We know that any actual element will be less than `Infinity` so we will continually take the other element into our merged array.
 
-Something interesting is happening here—this array isn't just a list of values. This array is storing _two_ things: characters and counts. The characters are _implied_ by the indices. 
+In other words, we can safely handle this edge case:
 
-**So we can think of an array as a _table_ with _two columns_...except you don't really get to pick the values in one column (the indices)—they're always 0, 1, 2, 3, etc.** 
+Nice! We now have a way to merge two sorted arrays into a single sorted array. It's worth mentioning that `merge` will have a `O(n)` runtime where `n` is the combined length of the two input arrays. This is what we meant when we said it was "easy" to merge two sorted arrays; linear time is fast! We'll find fact this useful later.
 
-But what if we wanted to put _any_ value in that column and still get quick lookups? 
+Divide and conquer, step-by-step
+--------------------------------
 
-Suppose we wanted to count the number of times each _word_ appears in Romeo and Juliet. Can we adapt our array? 
+Now that we satisfied the merge idea, let's handle the second point. That is, we say an array of 1 or 0 elements is already sorted. This will be the base case of our recursion. Let's begin adding this code:
 
-Translating a _character_ into an array index was easy. But we'll have to do something more clever to translate a _word_ (a string) into an array index... 
+If our base case pertains to an array of a very small size, then the design of our recursive case should make progress toward hitting this base scenario. In other words, we should recursively call `mergeSort` on smaller and smaller arrays. A logical way to do this is to take the input array and split it into left and right halves.
 
-![A blank array except for the value 20 stored at index 9. To the left the array is the word "lies" with an arrow pointing to the right at diamond with a question mark in the middle. The diamond points to the 9th index of the array.](https://www.interviewcake.com/images/svgs/cs_for_hackers__hash_tables_lies_key_unlabeled.svg?bust=209)
+Here is the part of the recursion where we do a lot of hand waving and we take things on faith. We know that `mergeSort` will take in an array and return the sorted version; we assume that it works. That means the two recursive calls will return the `sortedLeft` and `sortedRight` halves.
 
- 
+Okay, so we have two sorted arrays. We want to return one sorted array. So `merge` them! Using the `merge` function we designed earlier:
 
-Here's one way we could do it: 
+Wow. that's it. Notice how light the implementation of `mergeSort` is. Much of the heavy lifting (the actually comparisons) is done by the `merge` helper.
 
-Grab the number value for each character and add those up. 
+`mergeSort` is a classic example of a "Divide and Conquer" algorithm. In other words, we keep breaking the array into smaller and smaller sub arrays. This is the same as saying we take the problem and break it down into smaller and smaller subproblems. We do this until the subproblems are so small that we trivially know the answer to them (an array length 0 or 1 is already sorted). Once we have those subanswers we can combine to reconstruct the larger problems that we previously divided (merge the left and right subarrays).
 
-![The word "lies" in quotes. Arrows point from each character down to their corresponding number values, which are separated by plus signs and shown in sum to equal 429.](https://www.interviewcake.com/images/svgs/cs_for_hackers__hash_tables_lies_chars.svg?bust=209)
+Time and Space Complexity Analysis
+----------------------------------
 
- 
+### Time Complexity: O(n log(n))
 
-The result is 429. But what if we only have _30_ slots in our array? We'll use a common trick for forcing a number into a specific range: the modulus operator (%). Modding our sum by 30 ensures we get a whole number that's less than 30 (and at least 0): 
+*   `n` is the length of the input array
+*   We must calculate how many recursive calls we make. The number of recursive calls is the number of times we must split the array to reach the base case. Since we split in half each time, the number of recursive calls is `O(log(n))`.
+    *   for example, say we had an array of length `32`
+    *   then the length would change as `32 -> 16 -> 8 -> 4 -> 2 -> 1`, we have to split 5 times before reaching the base case, `log(32) = 5`
+    *   in our algorithm, **log(n)** describes how many times we must halve **n** until the quantity reaches 1.
+*   Besides the recursive calls, we must consider the while loop within the `merge` function, which contributes `O(n)` in isolation
+*   We call `merge` in every recursive `mergeSort` call, so the total complexity is **O(n \* log(n))**
 
-429 \\: \\% \\: 30 = 9 
+### Space Complexity: O(n)
 
-Bam. That'll get us from a word (or any string) to an array index. 
+Merge Sort is the first non-O(1) space sorting algorithm we've seen thus far.
 
-This data structure is called a **hash table** or **hash map**. In our hash table, the _counts_ are the **values** and the _words_ ("lies, " etc.) are the **keys** (analogous to the _indices_ in an array). The process we used to translate a key into an array index is called a **hashing function**. 
+The larger the size of our input array, the greater the number of subarrays we must create in memory. These are not free! They each take up finite space, and we will need a new subarray for each element in the original input. Therefore, Merge Sort has a linear space complexity, O(n).
 
-![A blank array except for a 20, labeled as the value, stored at index 
+### When should you use Merge Sort?
 
-9. To the left the array is the word "lies," labeled as the key, with an 
+Unless we, the engineers, have access in advance to some unique, exploitable insight about our dataset, it turns out that O(n log n) time is _the best_ we can do when sorting unknown datasets.
 
-arrow pointing to the right at diamond with a question mark in the middle, labeled as the hashing function. The diamond points to the 9th index of the array.](https://www.interviewcake.com/images/svgs/cs_for_hackers__hash_tables_lies_key_labeled.svg?bust=209) 
+That means that Merge Sort is fast! It's way faster than Bubble Sort, Selection Sort, and Insertion Sort. However, due to its linear space complexity, we must always weigh the trade off between speed and memory consumption when making the choice to use Merge Sort. Consider the following:
 
-The hashing functions used in modern systems get pretty complicated—the one we used here is a simplified example. 
+*   If you have unlimited memory available, use it, it's fast!
+*   If you have a decent amount of memory available and a medium sized dataset, run some tests first, but use it!
+*   In other cases, maybe you should consider other options.
 
-Note that our quick lookups are only in one direction—we can quickly get the value for a given key, but the only way to get the key for a given value is to walk through all the values and keys. 
+* * *
 
-Same thing with arrays—we can quickly look up the value at a given index, but the only way to figure out the index for a given value is to walk through the whole array. 
+Let's begin structuring the recursion. The base case of any recursive problem is where the input is so trivial, we immediately know the answer without calculation. If our problem is to sort an array, what is the trivial array? An array of 1 or 0 elements! Let's establish the code:
 
-One problem—what if two keys hash to the same index in our array? Look at "lies" and "foes": 
+If our base case pertains to an array of a very small size, then the design of our recursive case should make progress toward hitting this base scenario. In other words, we should recursively call `quickSort` on smaller and smaller arrays. This is very similar to our previous `mergeSort`, except we don't just split the array down the middle. Instead we should arbitrarily choose an element of the array as a pivot and partition the remaining elements relative to this pivot:
 
-![The word "lies" in quotes and the word "foes" in quotes. Arrows point from the characters of each word to their corresponding number values. The sum of the characters of both words is shown to equal 429.](https://www.interviewcake.com/images/svgs/cs_for_hackers__hash_tables_lies_and_foes_addition.svg?bust=209)
+Here is what to notice about the partition step above: 1. the pivot is an element of the array; we arbitrarily chose the first element 2. we removed the pivot from the master array before we filter into the left and right partitions
 
- 
+Now that we have the two subarrays of `left` and `right` we have our subproblems! To solve these subproblems we must sort the subarrays. I wish we had a function that sorts an array…oh wait we do, `quickSort`! Recursively:
 
-They both sum up to 429! So of course they'll have the same answer when we mod by 30: 
+Okay, so we have the two sorted partitions. This means we have the two subsolutions. But how do we put them together? Think about how we partitioned them in the first place. Everything in `leftSorted` is **guaranteed** to be less than everything in `rightSorted`. On top of that, `pivot` should be placed after the last element in `leftSorted`, but before the first element in `rightSorted`. So all we need to do is to combine the elements in the order "left, pivot, right"!
 
-429 \\: \\% \\: 30 = 9 
+That last `concat` line is a bit clunky. Bonus JS Lesson: we can use the spread `...` operator to elegantly concatenate arrays. In general:
 
-So our hashing function gives us the same answer for "lies" and "foes." This is called a **hash collision**. There are a few different strategies for dealing with them. 
+Utilizing that spread pattern gives us this final implementation:
 
-Here's a common one: instead of storing the actual values in our array, let's have each array slot hold a _pointer_ to a _linked list_ holding the counts for all the words that hash to that index: 
+### Quicksort Sort JS Implementation
 
-![An array storing pointers. Three of the pointers have arrows pointing to linked lists to the right of the array.](https://www.interviewcake.com/images/svgs/cs_for_hackers__hash_tables_hash_collision.svg?bust=209)
+That code was so clean we should show it again. Here's the complete code for your reference, for when you `ctrl+F "quicksort"` the night before an interview:
 
- 
+Time and Space Complexity Analysis
+----------------------------------
 
-One problem—how do we know which count is for "lies" and which is for "foes"? To fix this, we'll store the _word_ as well as the count in each linked list node: 
+Here is a summary of the complexity.
 
-![An array storing pointers. The pointer at index 9 has an arrow pointing to a linked list to the right of the array. Each linked list node now stores the word as well as its count and a pointer.](https://www.interviewcake.com/images/svgs/cs_for_hackers__hash_tables_hash_collision_key_val.svg?bust=209)
+### Time Complexity
 
- 
+*   Avg Case: O(n log(n))
+*   Worst Case: O(n2)
 
-"But wait!" you may be thinking, "Now lookups in our hash table take time in the worst case, since we have to walk down a linked list." That's true! You could even say that in the worst case _every_ key creates a hash collision, so our whole hash table _degrades to a linked list_. 
+The runtime analysis of `quickSort` is more complex than `mergeSort`
 
-In industry though, we usually wave our hands and say **collisions are rare enough that on _average_ lookups in a hash table are time**. And there are fancy algorithms that keep the number of collisions low and keep the lengths of our linked lists nice and short. 
+*   `n` is the length of the input array
+*   The partition step alone is `O(n)`
+*   We must calculate how many recursive calls we make. The number of recursive calls is the number of times we must split the array to reach the base case. This is dependent on how we choose the pivot. Let's analyze the best and worst case:
+    *   **Best Case:** We are lucky and always choose the median as the pivot. This means the left and right partitions will have equal length. This will halve the array length at every step of the recursion. We benefit from this halving with `O(log(n))` recursive calls to reach the base case.
+    *   **Worst Case:** We are unlucky and always choose the min or max as the pivot. This means one partition will contain everything, and the other partition is empty. This will decrease the array length by 1 at every step of the recursion. We suffer from `O(n)` recursive calls to reach the base case.
+*   The partition step occurs in every recursive call, so our total complexities are:
+    *   **Best Case:** O(n \* log(n))
+    *   **Worst Case:** O(n2)
 
-But that's sort of the tradeoff with hash tables. You get fast lookups by key...except _some_ lookups could be slow. And of course, you only get those fast lookups in one direction—looking up the _key_ for a given _value_ still takes time. ------ --- <==(------------------------------------------------------------------------------------------------------)==> --- ------ 
+Although we typically take the worst case when describing Big-O for an algorithm, much research on `quickSort` has shown the worst case to be an exceedingly rare occurrence even if we choose the pivot at random. Because of this we still consider `quickSort` an efficient algorithm. This is a common interview talking point, so you should be familiar with the relationship between the choice of pivot and efficiency of the algorithm.
 
+Just in case: A somewhat common question a student may ask when studying `quickSort` is, "If the median is the best pivot, why don't we always just choose the median when we partition?" Don't overthink this. To know the median of an array, it must be sorted in the first place.
 
-[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#breadth-first-search-bfs-and-breadth-first-traversal-)
+### Space Complexity
 
-# ➤ Breadth-First Search (BFS) and Breadth-First Traversal 
+Our implementation of `quickSort` uses `O(n)` space because of the partition arrays we create. There is an in-place version of `quickSort` that uses `O(log(n))` space. `O(log(n))` space is not huge benefit over `O(n)`. You'll also find our version of `quickSort` as easier to remember, easier to implement. Just know that a `O(logn)` space `quickSort` exists.
 
-**Breadth-first search** (BFS) is a method for exploring a tree or graph. In a BFS, you first explore all the nodes one step away, then all the nodes two steps away, etc. 
+### When should you use Quick Sort?
 
-Breadth-first search is like throwing a stone in the center of a pond. The nodes you explore "ripple out" from the starting point. 
+*   When you are in a pinch and need to throw down an efficient sort (on average). The recursive code is light and simple to implement; much smaller than `mergeSort`.
+*   When constant space is important to you, use the in-place version. This will of course trade off some simplicity of implementation.
 
-Here's a how a BFS would traverse this tree, starting with the root: 
+If you know some constraints about dataset you can make some modifications to optimize pivot choice. Here's some food for thought. Our implementation of `quickSort` will always take the first element as the pivot. This means we will suffer from the worst case time complexity in the event that we are given an already sorted array (ironic isn't it?). If you know your input data to be mostly already sorted, randomize the choice of pivot - this is a very easy change. Bam. Solved like a true engineer.
 
-![A 4-row binary tree represented by circles connected with lines. Our breadth-first search has us start at the root node at the top of the tree.](https://www.interviewcake.com/images/svgs/breadth_first_search_root.svg?bust=209)
+* * *
 
- 
+We'll implement binary search recursively. As always, we start with a base case that captures the scenario of the input array being so trivial, that we know the answer without further calculation. If we are given an empty array and a target, we can be certain that the target is not inside of the array:
 
-We'd visit all the immediate children (all the nodes that're one step away from our starting node): 
+Now for our recursive case. If we want to get a time complexity less than `O(n)`, we must avoid touching all `n` elements. Adopting our dictionary strategy, let's find the middle element and grab references to the left and right halves of the sorted array:
 
-![The same 4-row binary tree with all nodes at depth 1 (second row) bolded after being visited.](https://www.interviewcake.com/images/svgs/breadth_first_search_first_level.svg?bust=209)
+It's worth pointing out that the left and right halves do not contain the middle element we chose.
 
- 
+Here is where we leverage the sorted property of the array. If the target is less than the middle, then the target must be in the left half of the array. If the target is greater than the middle, then the target must be in the right half of the array. So we can narrow our search to one of these halves, and ignore the other. Luckily we have a function that can search the half, its `binarySearch`:
 
-Then we'd move on to all _those_ nodes' children (all the nodes that're _two steps_ away from our starting node): 
+We know `binarySeach` will return the correct Boolean, so we just pass that result up by returning it ourselves. However, something is lacking in our code. It is only possible to get a false from the literal `return false` line, but there is no `return true`. Looking at our conditionals, we handle the cases where the target is less than middle or the target is greater than the middle, but what if the product is **equal** to the middle? If the target is equal to the middle, then we found the target and should `return true`! This is easy to add with an `else`:
 
-![The same 4-row binary tree with all nodes at depth 2 (third row) bolded after being visited.](https://www.interviewcake.com/images/svgs/breadth_first_search_second_level.svg?bust=209)
+To wrap up, we have confidence of our base case will eventually be hit because we are continually halving the array. We halve the array until it's length is 0 or we actually find the target.
 
- 
+### Binary Search JS Implementation
 
-And so on: 
+Here is the code again for your quick reference:
 
-![The same 4-row binary tree with all nodes at depth 3 (fourth and final row) bolded after being visited.](https://www.interviewcake.com/images/svgs/breadth_first_search_third_level.svg?bust=209)
+Time and Space Complexity Analysis
+----------------------------------
 
- 
+The complexity analysis of this algorithm is easier to explain through visuals, so we **highly encourage** you to watch the lecture that accompanies this reading. In any case, here is a summary of the complexity:
 
-Until we reach the end. 
+### Time Complexity: O(log(n))
 
-Breadth-first search is often compared with **depth-first search**. 
+*   `n` is the length of the input array
+*   We have no loops, so we must only consider the number of recursive calls it takes to hit the base case
+*   The number of recursive calls is the number of times we must halve the array until it's length becomes 0. This number can be described by `log(n)`
+    *   for example, say we had an array of 8 elements, `n = 8`
+    *   the length would halve as `8 -> 4 -> 2 -> 1`
+    *   it takes 3 calls, `log(8) = 3`
 
-Advantages: 
+### Space Complexity: O(n)
 
-*   A BFS will find the **shortest path** between the starting point and 
+Our implementation uses `n` space due to half arrays we create using slice. Note that JavaScript `slice` creates a new array, so it requires additional memory to be allocated.
 
-any other reachable node. A depth-first search will not necessarily find the shortest path. 
+### When should we use Binary Search?
 
-Disadvantages 
+Use this algorithm when the input data is sorted!!! This is a heavy requirement, but if you have it, you'll have an insanely fast algorithm. Of course, you can use one of your high-functioning sorting algorithms to sort the input and _then_ perform the binary search!
 
-*   A BFS on a binary tree _generally_ requires more memory than a DFS. 
+* * *
 
-![A binary search tree with nodes containing integers. The root node contains the integer 50. Each child node to the left of the root contains integers less than 50, and each child node to the right of the root contains integers greater than 50.](https://www.interviewcake.com/images/svgs/binary_search_tree__preview.svg?bust=209)
+This project contains a skeleton for you to implement Bubble Sort. In the file **lib/bubble\_sort.js**, you should implement the Bubble Sort. This is a description of how the Bubble Sort works (and is also in the code file).
 
- 
+Instructions
+------------
 
+*   Clone the project from https://github.com/appacademy-starters/algorithms-bubble-sort-starter.
+*   `cd` into the project folder
+*   `npm install` to install dependencies in the project root directory
+*   `npm test` to run the specs
+*   You can view the test cases in `/test/test.js`. Your job is to write code in the `/lib/bubble_sort.js` that implements the Bubble Sort.
 
-[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#binary-search-tree-)
+* * *
 
-# ➤ Binary Search Tree 
+This project contains a skeleton for you to implement Selection Sort. In the file **lib/selection\_sort.js**, you should implement the Selection Sort. You can use the same `swap` function from Bubble Sort; however, try to implement it on your own, first.
 
-A **binary tree** is a **tree** where <==(_**every node has two or fewer children**_)==>. 
-The children are usually called **_left_** and _**right**_. 
+The algorithm can be summarized as the following:
 
-class BinaryTreeNode(object): 
+1.  Set MIN to location 0
+2.  Search the minimum element in the list
+3.  Swap with value at location MIN
+4.  Increment MIN to point to next element
+5.  Repeat until list is sorted
 
-This lets us build a structure like this: 
+This is a description of how the Selection Sort works (and is also in the code file).
 
-![A tree represented by circles connected with lines. The root node is on top, and connects to 2 children below it. Each of those children connect to 2 children below them, which all connect to their own 2 children, which all connect to their own 2 children.](https://www.interviewcake.com/images/svgs/binary_tree__depth_5.svg?bust=209)
+Instructions
+------------
 
- 
+*   Clone the project from https://github.com/appacademy-starters/algorithms-selection-sort-starter.
+*   `cd` into the project folder
+*   `npm install` to install dependencies in the project root directory
+*   `npm test` to run the specs
+*   You can view the test cases in `/test/test.js`. Your job is to write code in the `/lib/selection_sort.js` that implements the Selection Sort.
 
-That particular example is special because every level of the tree is completely full. There are no "gaps." We call this kind of tree "**perfect**." 
+* * *
 
-Binary trees have a few interesting properties when they're perfect: 
+This project contains a skeleton for you to implement Insertion Sort. In the file **lib/insertion\_sort.js**, you should implement the Insertion Sort.
 
-**Property 1: the number of total nodes on each "level" doubles as we move down the tree.** 
+The algorithm can be summarized as the following:
 
-![A binary tree with 5 rows of nodes. The root node is on top, and every node has 2 children in the row below. Each row is labelled with the number of nodes in the row, which doubles from the top down: 1, 2, 4, 8, 16.](https://www.interviewcake.com/images/svgs/binary_tree__depth_5_with_number_of_nodes_labelled.svg?bust=209)
+1.  If it is the first element, it is already sorted. return 1;
+2.  Pick next element
+3.  Compare with all elements in the sorted sub-list
+4.  Shift all the elements in the sorted sub-list that is greater than the value to be sorted
+5.  Insert the value
+6.  Repeat until list is sorted
 
- 
+This is a description of how the Insertion Sort works (and is also in the code file).
 
-**Property 2: the number of nodes on the last level is equal to the sum of the number of nodes on all other levels (plus 1).** In other words, about _half_ of our nodes are on the last level. 
+Instructions
+------------
 
-<==(_**Let's call the number of nodes n, **_)==>
+*   Clone the project from https://github.com/appacademy-starters/algorithms-insertion-sort-starter.
+*   `cd` into the project folder
+*   `npm install` to install dependencies in the project root directory
+*   `npm test` to run the specs
+*   You can view the test cases in `/test/test.js`. Your job is to write code in the `/lib/insertion_sort.js` that implements the Insertion Sort.
 
-<==(**_**and the height of the tree h. **_**)==>
+* * *
 
-**h can also be thought of as the "number of levels."**
+This project contains a skeleton for you to implement Merge Sort. In the file **lib/merge\_sort.js**, you should implement the Merge Sort.
 
-If we had h, how could we calculate n? 
+The algorithm can be summarized as the following:
 
-Let's just add up the number of nodes on each level! 
+1.  if there is only one element in the list, it is already sorted. return that array.
+2.  otherwise, divide the list recursively into two halves until it can no more be divided.
+3.  merge the smaller lists into new list in sorted order.
 
-If we zero-index the levels, the number of nodes on the xth level is exactly 2\^x. 
+This is a description of how the Merge Sort works (and is also in the code file).
 
-1.  Level 0: 2\^0 nodes, 
-2.  2.  Level 1: 2\^1 nodes, 
-3.  3.  Level 2: 2\^2 nodes, 
-4.  4.  Level 3: 2\^3 nodes, 
-5.  5.  _etc_ 
+Instructions
+------------
 
-So our total number of nodes is: 
+*   Clone the project from https://github.com/appacademy-starters/algorithms-merge-sort-starter.
+*   `cd` into the project folder
+*   `npm install` to install dependencies in the project root directory
+*   `npm test` to run the specs
+*   You can view the test cases in `/test/test.js`. Your job is to write code in the `/lib/merge_sort.js` that implements the Merge Sort.
 
-**n = 2\^0 + 2\^1 + 2\^2 + 2\^3 + ... + 2\^{h-1}**
+* * *
 
-Why only up to 2\^{h-1}? 
+This project contains a skeleton for you to implement Quick Sort. In the file **lib/quick\_sort.js**, you should implement the Quick Sort. This is a description of how the Quick Sort works (and is also in the code file).
 
-Notice that we **started counting our levels at 0.**
+Instructions
+------------
 
-* So if we have h levels in total, 
-* the last level is actually the "h-1"-th level. 
-* That means the number of nodes on the last level is 2\^{h-1}. 
+*   Clone the project from https://github.com/appacademy-starters/algorithms-quick-sort-starter.
+*   `cd` into the project folder
+*   `npm install` to install dependencies in the project root directory
+*   `npm test` to run the specs
+*   You can view the test cases in `/test/test.js`. Your job is to write code in the `/lib/quick_sort.js` that implements the Quick Sort.
 
-But we can simplify.
+* * *
 
-**Property 2 tells us that the number of nodes on the last level is (1 more than) half of the total number of nodes**, 
+This project contains a skeleton for you to implement Binary Search. In the file **lib/binary\_search.js**, you should implement the Binary Search and its cousin Binary Search Index.
 
-**so we can just take the number of nodes on the last level, multiply it by 2, and subtract 1 to get the number of nodes overall**.
+The Binary Search algorithm can be summarized as the following:
 
-* We know the number of nodes on the last level is 2\^{h-1}, 
+1.  If the array is empty, then return false
+2.  Check the value in the middle of the array against the target value
+3.  If the value is equal to the target value, then return true
+4.  If the value is less than the target value, then return the binary search on the left half of the array for the target
+5.  If the value is greater than the target value, then return the binary search on the right half of the array for the target
+
+This is a description of how the Binary Search works (and is also in the code file).
+
+Then you need to adapt that to return _the index_ of the found item rather than a Boolean value. The pseudocode is also in the code file.
+
+Instructions
+------------
+
+*   Clone the project from https://github.com/appacademy-starters/algorithms-binary-search-starter.
+*   `cd` into the project folder
+*   `npm install` to install dependencies in the project root directory
+*   `npm test` to run the specs
+*   You can view the test cases in `/test/test.js`. Your job is to write code in the `/lib/binary_search.js` that implements the Binary Search and Binary Search Index.
+
+* * *
+
+* * *
+
+**The objective of this lesson** is for you to become comfortable with implementing common data structures. This is important because questions about data structures are incredibly likely to be interview questions for software engineers from junior to senior levels. Moreover, understanding how different data structures work will influence the libraries and frameworks that you choose when writing software.
+
+When you are done, you will be able to:
+
+1.  Explain and implement a List.
+2.  Explain and implement a Stack.
+3.  Explain and implement a Queue.me comfortable with implementing common data structures. This is important because questions about data structures are incredibly likely to be interview questions for software engineers from junior to senior levels. Moreover, understanding how different data structures work will influence the libraries and frameworks that you choose when writing software.
+
+When you are done, you will be able to:
+
+1.  Explain and implement a List.
+2.  Explain and implement a Stack.
+3.  Explain and implement a Queue.
+
+* * *
+
+In the university setting, it's common for Linked Lists to appear early on in an undergraduate's Computer Science coursework. While they don't always have the most practical real-world applications in industry, Linked Lists make for an important and effective educational tool in helping develop a student's mental model on what data structures actually are to begin with.
+
+Linked lists are simple. They have many compelling, reoccurring edge cases to consider that emphasize to the student the need for care and intent while implementing data structures. They can be applied as the underlying data structure while implementing a variety of other prevalent abstract data types, such as Lists, Stacks, and Queues, and they have a level of versatility high enough to clearly illustrate the value of the Object Oriented Programming paradigm.
+
+They also come up in software engineering interviews quite often.
+
+What is a Linked List?
+----------------------
+
+A Linked List data structure represents a linear sequence of "vertices" (or "nodes"), and tracks three important properties.
+
+**Linked List Properties:**
+
+| Property | Description                                         |
+| -------- | --------------------------------------------------- |
+| `head`   | The first node in the list.                         |
+| `tail`   | The last node in the list.                          |
+| `length` | The number of nodes in the list; the list's length. |
+
+The data being tracked by a particular Linked List does not live inside the Linked List instance itself. Instead, each vertex is actually an instance of an even simpler, smaller data structure, often referred to as a "Node".
+
+Depending on the type of Linked List (there are many), Node instances track some very important properties as well.
+
+**Linked List Node Properties:**
+
+| Property   | Description                                            |
+| ---------- | ------------------------------------------------------ |
+| `value`    | The actual value this node represents.                 |
+| `next`     | The next node in the list (relative to this node).     |
+| `previous` | The previous node in the list (relative to this node). |
+
+**NOTE:** The `previous` property is for Doubly Linked Lists only!
+
+Linked Lists contain _ordered_ data, just like arrays. The first node in the list is, indeed, first. From the perspective of the very first node in the list, the _next_ node is the second node. From the perspective of the second node in the list, the _previous_ node is the first node, and the _next_ node is the third node. And so it goes.
+
+#### _"So…this sounds a lot like an Array…"_
+
+Admittedly, this does _sound_ a lot like an Array so far, and that's because Arrays and Linked Lists are both implementations of the List ADT. However, there is an incredibly important distinction to be made between Arrays and Linked Lists, and that is how they _physically store_ their data. (As opposed to how they _represent_ the order of their data.)
+
+Recall that Arrays contain _contiguous_ data. Each element of an array is actually stored _next to_ it's neighboring element _in the actual hardware of your machine_, in a single continuous block in memory.
+
+![Array in Memory](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/images/array-in-memory.png)
+
+_An Array's contiguous data being stored in a continuous block of addresses in memory._
+
+Unlike Arrays, Linked Lists contain _non-contiguous_ data. Though Linked Lists _represent_ data that is ordered linearly, that mental model is just that - an interpretation of the _representation_ of information, not reality.
+
+In reality, in the actual hardware of your machine, whether it be in disk or in memory, a Linked List's Nodes are not stored in a single continuous block of addresses. Rather, Linked List Nodes live at randomly distributed addresses throughout your machine! The only reason we know which node comes next in the list is because we've assigned its reference to the current node's `next` pointer.
+
+![Array in Memory](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/images/SLL-diagram.png)
+
+_A Singly Linked List's non-contiguous data (Nodes) being stored at randomly distributed addresses in memory._
+
+For this reason, Linked List Nodes have _no indices_, and no _random access_. Without random access, we do not have the ability to look up an individual Linked List Node in constant time. Instead, to find a particular Node, we have to start at the very first Node and iterate through the Linked List one node at a time, checking each Node's _next_ Node until we find the one we're interested in.
+
+So when implementing a Linked List, we actually must implement both the Linked List class _and_ the Node class. Since the actual data lives in the Nodes, it's simpler to implement the Node class first.
+
+Types of Linked Lists
+---------------------
+
+There are four flavors of Linked List you should be familiar with when walking into your job interviews.
+
+**Linked List Types:**
 
   
+| List Type         | Description                                                                                                     | Directionality                |
+| ----------------- | --------------------------------------------------------------------------------------------------------------- | ----------------------------- |
+| Singly Linked     | Nodes have a single pointer connecting them in a single direction.                                              | Head→Tail                     |
+| Doubly Linked     | Nodes have two pointers connecting them bi-directionally.                                                       | Head⇄Tail                     |
+| Multiply Linked   | Nodes have two or more pointers, providing a variety of potential node orderings.                               | Head⇄Tail, A→Z, Jan→Dec, etc. |
+| Circularly Linked | Final node's `next` pointer points to the first node, creating a non-linear, circular version of a Linked List. | Head→Tail→Head→Tail           |
 
-* So: 
+**NOTE:** These Linked List types are not always mutually exclusive.
 
-**n = 2\^{h-1} \* 2 - 1 
-n = 2\^{h-1} \* 2\^1 - 1 
-n = 2\^{h-1+1}- 1 
-n = 2\^{h} - 1** 
+For instance:
 
-So that's how we can go from h to n. What about the other direction? 
+*   Any type of Linked List can be implemented Circularly (e.g. A Circular Doubly Linked List).
+*   A Doubly Linked List is actually just a special case of a Multiply Linked List.
 
-We need to bring the h down from the exponent. 
+You are most likely to encounter Singly and Doubly Linked Lists in your upcoming job search, so we are going to focus exclusively on those two moving forward. However, in more senior level interviews, it is very valuable to have some familiarity with the other types of Linked Lists. Though you may not actually code them out, _you will win extra points by illustrating your ability to weigh the tradeoffs of your technical decisions_ by discussing how your choice of Linked List type may affect the efficiency of the solutions you propose.
 
-That's what logs are for! 
+Linked List Methods
+-------------------
 
-First, some quick review. 
+Linked Lists are great foundation builders when learning about data structures because they share a number of similar methods (and edge cases) with many other common data structures. You will find that many of the concepts discussed here will repeat themselves as we dive into some of the more complex non-linear data structures later on, like Trees and Graphs.
 
-<==(log\_{10} (100) )==>
+In the project that follows, we will implement the following Linked List methods:
 
-simply means, 
-
- **"What power must you raise 10 to in order to get 100?"**.
- 
-  Which is 2, 
   
-  because . 
+| Type      | Name         | Description                                                         | Returns             |
+| --------- | ------------ | ------------------------------------------------------------------- | ------------------- |
+| Insertion | `addToTail`  | Adds a new node to the tail of the Linked List.                     | Updated Linked List |
+| Insertion | `addToHead`  | Adds a new node to the head of the Linked List.                     | Updated Linked List |
+| Insertion | `insertAt`   | Inserts a new node at the "index", or position, specified.          | Boolean             |
+| Deletion  | `removeTail` | Removes the node at the tail of the Linked List.                    | Removed node        |
+| Deletion  | `removeHead` | Removes the node at the head of the Linked List.                    | Removed node        |
+| Deletion  | `removeFrom` | Removes the node at the "index", or position, specified.            | Removed node        |
+| Search    | `contains`   | Searches the Linked List for a node with the value specified.       | Boolean             |
+| Access    | `get`        | Gets the node at the "index", or position, specified.               | Node at index       |
+| Access    | `set`        | Updates the value of a node at the "index", or position, specified. | Boolean             |
+| Meta      | `size`       | Returns the current size of the Linked List.                        | Integer             |
 
-<==(10\^2 = 100 )==>
+Time and Space Complexity Analysis
+----------------------------------
+
+Before we begin our analysis, here is a quick summary of the Time and Space constraints of each Linked List Operation. The complexities below apply to both Singly and Doubly Linked Lists:
+
+  
+| Data Structure Operation | Time Complexity (Avg) | Time Complexity (Worst) | Space Complexity (Worst) |
+| ------------------------ | --------------------- | ----------------------- | ------------------------ |
+| Access                   | `Θ(n)`                | `O(n)`                  | `O(n)`                   |
+| Search                   | `Θ(n)`                | `O(n)`                  | `O(n)`                   |
+| Insertion                | `Θ(1)`                | `O(1)`                  | `O(n)`                   |
+| Deletion                 | `Θ(1)`                | `O(1)`                  | `O(n)`                   |
+
+Before moving forward, see if you can reason to yourself why each operation has the time and space complexity listed above!
+
+Time Complexity - Access and Search:
+------------------------------------
+
+### Scenarios:
+
+1.  We have a Linked List, and we'd like to find the 8th item in the list.
+2.  We have a Linked List of sorted alphabet letters, and we'd like to see if the letter "Q" is inside that list.
+
+### Discussion:
+
+Unlike Arrays, Linked Lists Nodes are not stored contiguously in memory, and thereby do not have an indexed set of memory addresses at which we can quickly lookup individual nodes in constant time. Instead, we must begin at the head of the list (or possibly at the tail, if we have a Doubly Linked List), and iterate through the list until we arrive at the node of interest.
+
+In Scenario 1, we'll know we're there because we've iterated 8 times. In Scenario 2, we'll know we're there because, while iterating, we've checked each node's value and found one that matches our target value, "Q".
+
+In the worst case scenario, we may have to traverse the entire Linked List until we arrive at the final node. This makes both Access & Search **Linear Time** operations.
+
+Time Complexity - Insertion and Deletion:
+-----------------------------------------
+
+### Scenarios:
+
+1.  We have an empty Linked List, and we'd like to insert our first node.
+2.  We have a Linked List, and we'd like to insert or delete a node at the Head or Tail.
+3.  We have a Linked List, and we'd like to insert or delete a node from somewhere in the middle of the list.
+
+### Discussion:
+
+Since we have our Linked List Nodes stored in a non-contiguous manner that relies on pointers to keep track of where the next and previous nodes live, Linked Lists liberate us from the linear time nature of Array insertions and deletions. We no longer have to adjust the position at which each node/element is stored after making an insertion at a particular position in the list. Instead, if we want to insert a new node at position `i`, we can simply:
+
+1.  Create a new node.
+2.  Set the new node's `next` and `previous` pointers to the nodes that live at positions `i` and `i - 1`, respectively.
+3.  Adjust the `next` pointer of the node that lives at position `i - 1` to point to the new node.
+4.  Adjust the `previous` pointer of the node that lives at position `i` to point to the new node.
+
+And we're done, in Constant Time. No iterating across the entire list necessary.
+
+"But hold on one second," you may be thinking. "In order to insert a new node in the middle of the list, don't we have to lookup its position? Doesn't that take linear time?!"
+
+Yes, it is tempting to call insertion or deletion in the middle of a Linked List a linear time operation since there is lookup involved. However, it's usually the case that you'll already have a reference to the node where your desired insertion or deletion will occur.
+
+For this reason, we separate the Access time complexity from the Insertion/Deletion time complexity, and formally state that Insertion and Deletion in a Linked List are **Constant Time** across the board.
+
+### NOTE:
+
+Without a reference to the node at which an insertion or deletion will occur, due to linear time lookup, an insertion or deletion _in the middle_ of a Linked List will still take Linear Time, sum total.
+
+Space Complexity:
+-----------------
+
+### Scenarios:
+
+1.  We're given a Linked List, and need to operate on it.
+2.  We've decided to create a new Linked List as part of strategy to solve some problem.
+
+### Discussion:
+
+It's obvious that Linked Lists have one node for every one item in the list, and for that reason we know that Linked Lists take up Linear Space in memory. However, when asked in an interview setting what the Space Complexity _of your solution_ to a problem is, it's important to recognize the difference between the two scenarios above.
+
+In Scenario 1, we _are not_ creating a new Linked List. We simply need to operate on the one given. Since we are not storing a _new_ node for every node represented in the Linked List we are provided, our solution is _not necessarily_ linear in space.
+
+In Scenario 2, we _are_ creating a new Linked List. If the number of nodes we create is linearly correlated to the size of our input data, we are now operating in Linear Space.
+
+### NOTE:
+
+Linked Lists can be traversed both iteratively and recursively. _If you choose to traverse a Linked List recursively_, there will be a recursive function call added to the call stack for every node in the Linked List. Even if you're provided the Linked List, as in Scenario 1, you will still use Linear Space in the call stack, and that counts.
+
+* * *
+
+Stacks and Queues aren't really "data structures" by the strict definition of the term. The more appropriate terminology would be to call them abstract data types (ADTs), meaning that their definitions are more conceptual and related to the rules governing their user-facing behaviors rather than their core implementations.
+
+For the sake of simplicity, we'll refer to them as data structures and ADTs interchangeably throughout the course, but the distinction is an important one to be familiar with as you level up as an engineer.
+
+Now that that's out of the way, Stacks and Queues represent a linear collection of nodes or values. In this way, they are quite similar to the Linked List data structure we discussed in the previous section. In fact, you can even use a modified version of a Linked List to implement each of them. (Hint, hint.)
+
+These two ADTs are similar to each other as well, but each obey their own special rule regarding the order with which Nodes can be added and removed from the structure.
+
+Since we've covered Linked Lists in great length, these two data structures will be quick and easy. Let's break them down individually in the next couple of sections.
+
+What is a Stack?
+----------------
+
+Stacks are a Last In First Out (LIFO) data structure. The last Node added to a stack is always the first Node to be removed, and as a result, the first Node added is always the last Node removed.
+
+The name Stack actually comes from this characteristic, as it is helpful to visualize the data structure as a vertical stack of items. Personally, I like to think of a Stack as a stack of plates, or a stack of sheets of paper. This seems to make them more approachable, because the analogy relates to something in our everyday lives.
+
+If you can imagine adding items to, or removing items from, a Stack of…literally anything…you'll realize that every (sane) person naturally obeys the LIFO rule.
+
+We add things to the _top_ of a stack. We remove things from the _top_ of a stack. We never add things to, or remove things from, the _bottom_ of the stack. That's just crazy.
+
+Note: We can use JavaScript Arrays to implement a basic stack. `Array#push` adds to the top of the stack and `Array#pop` will remove from the top of the stack. In the exercise that follows, we'll build our own Stack class from scratch (without using any arrays). In an interview setting, your evaluator may be okay with you using an array as a stack.
+
+What is a Queue?
+----------------
+
+Queues are a First In First Out (FIFO) data structure. The first Node added to the queue is always the first Node to be removed.
+
+The name Queue comes from this characteristic, as it is helpful to visualize this data structure as a horizontal line of items with a beginning and an end. Personally, I like to think of a Queue as the line one waits on for an amusement park, at a grocery store checkout, or to see the teller at a bank.
+
+If you can imagine a queue of humans waiting…again, for literally anything…you'll realize that _most_ people (the civil ones) naturally obey the FIFO rule.
+
+People add themselves to the _back_ of a queue, wait their turn in line, and make their way toward the _front_. People exit from the _front_ of a queue, but only when they have made their way to being first in line.
+
+We never add ourselves to the front of a queue (unless there is no one else in line), otherwise we would be "cutting" the line, and other humans don't seem to appreciate that.
+
+Note: We can use JavaScript Arrays to implement a basic queue. `Array#push` adds to the back (enqueue) and `Array#shift` will remove from the front (dequeue). In the exercise that follows, we'll build our own Queue class from scratch (without using any arrays). In an interview setting, your evaluator may be okay with you using an array as a queue.
+
+**Translator: [CarrieOn](https://github.com/CarrieOn)**
+
+**Author: [labuladong](https://github.com/labuladong)**
+
+It's easy to reverse a single linked list using iteration, however it's kind of difficult to come up with a recursive solution. Furthermore, if only part of a linked list needs reversed, can you nail it with **recursion**?
+
+If you haven't known how to **recursively reverse a single linked list**, no worry, we will start right here and guide you step by step to a deeper level.
+
+To reverse part of a linked list means we only reverse elements in a specific interval and leave others untouched.
+
+![](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/pictures/reverse_linked_list/title.png)
+
+Note: **Index starts from 1**. Two loops needed if solve via iteration: use one for-loop to find the mth element, and then use another for-loop to reverse elements between m and n. While in recursive solution, no loop at all.
+
+Though iterative solution looks simple, you have to be careful with the details. On the contrary, recursive solution is quite elegant. Let's start reversing a whole single linked list in the recursive way.
+
+### 1\. Recursively reverse a whole single Linked List
+
+You may have already known the solution below.
+
+Do you feel lost in trying to understand code above? Well, you are not the only one. This algorithm is often used to show how clever and elegant recursion can be. Let's dig into the code together.
+
+For recursion, **the most important thing is to clarify the definition of the recursive function**. Specifically, we define `reverse` as follows:
+
+**Input a node `head` , we will reverse the list starting from `head` , and return the new head node.**
+
+After clarifying the definition, we look back at the problem. For example, we want to reverse the list below:
+
+![](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/pictures/reverse_linked_list/1.jpg)
+
+So after calling `reverse(head)` , recursion happens:
+
+Did you just step into the messy details in recursion? Oops, it's a wrong way, step back now! Focus on the recursion definition (which tells you what it does) to understand how recursive code works the wonder.
+
+![](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/pictures/reverse_linked_list/2.jpg)
+
+After executing `reverse(head.next)` , the whole linked list becomes this:
+
+![](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/pictures/reverse_linked_list/3.jpg)
+
+According to the definition of the recursive function, `reverse` needs to return the new head node, so we use variable `last` to mark it.
+
+Let's continue cracking the next piece of code:
+
+![](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/pictures/reverse_linked_list/4.jpg)
+
+Last work to do：
+
+![](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/pictures/reverse_linked_list/5.jpg)
+
+The whole linked list is successfully reversed now. Amazing, isn't it?
+
+Last but not the least, there are two things in recursion you need to pay attention to:
+
+1.  Recursion needs a base case.
+
+`java if(head.next == null) return head;`
+
+2.  After reversion, the new head is `last`, and the former `head` becomes the last node, don't forget to point its tail to null.
+
+`java head.next = null;`
+
+After understanding above, now we can proceed further, the problem below is actually an extend to the above solution.
+
+### 2\. Reverse first N nodes
+
+This time we will implement a funtion below:
+
+Take below as an example, call `reverseN(head, 3)` :
+
+![](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/pictures/reverse_linked_list/6.jpg)
+
+The idea is similar to reversing the whole linked list, only a few modifications needed:
+
+Main differences:
+
+1.  Base case `n == 1`, if reverse only one element, then new head is itself, meanwhile **remember to mark the successor node**.
+2.  In previouse solution, we set `head.next` directly to null, because after reversing the whole list, head becoms the last node. But now `head` may not be the last node after reversion, so we need mark `successor` (the (n+1)th node), and link it to `head` after reversion.
+
+![](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/pictures/reverse_linked_list/7.jpg)
+
+OK, now we are pretty close to reversing part of the linked list.
+
+### 3\. Reverse part of a linked list
+
+Given an interval `[m,n]` (index starts from 1), only reverse elements in this section.
+
+First, if `m == 1` , it is equal to reversing the first `n` elements as we discussed just now.
+
+What if `m != 1` ? If we take the index of the `head` as 1, then we need to reverse from the `mth` element. And what if we take the index of the `head.next` as 1? Then compared to `head.next` , the reverse section should start from `(m-1)th` element. And what about `head.next.next` …
+
+Different from iteration, this is how we think in the recursive way, so our code should be:
+
+Stack and Queue Properties
+--------------------------
+
+Stacks and Queues are so similar in composition that we can discuss their properties together. They track the following three properties:
+
+**Stack Properties | Queue Properties:**
+
+  
+| Stack Property | Description                                           | Queue Property | Description                                           |
+| -------------- | ----------------------------------------------------- | -------------- | ----------------------------------------------------- |
+| `top`          | The first node in the Stack                           | `front`        | The first node in the Queue.                          |
+| —-             | Stacks do not have an equivalent                      | `back`         | The last node in the Queue.                           |
+| `length`       | The number of nodes in the Stack; the Stack's length. | `length`       | The number of nodes in the Queue; the Queue's length. |
+
+Notice that rather than having a `head` and a `tail` like Linked Lists, Stacks have a `top`, and Queues have a `front` and a `back` instead. Stacks don't have the equivalent of a `tail` because you only ever push or pop things off the top of Stacks. These properties are essentially the same; pointers to the end points of the respective List ADT where important actions way take place. The differences in naming conventions are strictly for human comprehension.
+
+* * *
+
+Similarly to Linked Lists, the values stored inside a Stack or a Queue are actually contained within Stack Node and Queue Node instances. Stack, Queue, and Singly Linked List Nodes are all identical, but just as a reminder and for the sake of completion, these List Nodes track the following two properties:
+
+**Stack & Queue Node Properties:**
+
+| Property | Description                                         |
+| -------- | --------------------------------------------------- |
+| `value`  | The actual value this node represents.              |
+| `next`   | The next node in the Stack (relative to this node). |
+
+Stack Methods
+-------------
+
+In the exercise that follows, we will implement a Stack data structure along with the following Stack methods:
+
+  
+| Type      | Name   | Description                               | Returns                        |
+| --------- | ------ | ----------------------------------------- | ------------------------------ |
+| Insertion | `push` | Adds a Node to the top of the Stack.      | Integer - New size of stack    |
+| Deletion  | `pop`  | Removes a Node from the top of the Stack. | Node removed from top of Stack |
+| Meta      | `size` | Returns the current size of the Stack.    | Integer                        |
+
+Queue Methods
+-------------
+
+In the exercise that follows, we will implement a Queue data structure along with the following Queue methods:
+
+  
+| Type      | Name      | Description                                 | Returns                          |
+| --------- | --------- | ------------------------------------------- | -------------------------------- |
+| Insertion | `enqueue` | Adds a Node to the front of the Queue.      | Integer - New size of Queue      |
+| Deletion  | `dequeue` | Removes a Node from the front of the Queue. | Node removed from front of Queue |
+| Meta      | `size`    | Returns the current size of the Queue.      | Integer                          |
+
+Time and Space Complexity Analysis
+----------------------------------
+
+Before we begin our analysis, here is a quick summary of the Time and Space constraints of each Stack Operation.
+
+  
+| Data Structure Operation | Time Complexity (Avg) | Time Complexity (Worst) | Space Complexity (Worst) |
+| ------------------------ | --------------------- | ----------------------- | ------------------------ |
+| Access                   | `Θ(n)`                | `O(n)`                  | `O(n)`                   |
+| Search                   | `Θ(n)`                | `O(n)`                  | `O(n)`                   |
+| Insertion                | `Θ(1)`                | `O(1)`                  | `O(n)`                   |
+| Deletion                 | `Θ(1)`                | `O(1)`                  | `O(n)`                   |
+
+Before moving forward, see if you can reason to yourself why each operation has the time and space complexity listed above!
+
+#### Time Complexity - Access and Search:
+
+When the Stack ADT was first conceived, its inventor definitely did not prioritize searching and accessing individual Nodes or values in the list. The same idea applies for the Queue ADT. There are certainly better data structures for speedy search and lookup, and if these operations are a priority for your use case, it would be best to choose something else!
+
+Search and Access are both linear time operations for Stacks and Queues, and that shouldn't be too unclear. Both ADTs are nearly identical to Linked Lists in this way. The only way to find a Node somewhere in the middle of a Stack or a Queue, is to start at the `top` (or the `back`) and traverse downward (or forward) toward the `bottom` (or `front`) one node at a time via each Node's `next` property.
+
+This is a linear time operation, O(n).
+
+#### Time Complexity - Insertion and Deletion:
+
+For Stacks and Queues, insertion and deletion is what it's all about. If there is one feature a Stack absolutely must have, it's constant time insertion and removal to and from the `top` of the Stack (FIFO). The same applies for Queues, but with insertion occurring at the `back` and removal occurring at the `front` (LIFO).
+
+Think about it. When you add a plate to the top of a stack of plates, do you have to iterate through all of the other plates first to do so? Of course not. You simply add your plate to the top of the stack, and that's that. The concept is the same for removal.
+
+Therefore, Stacks and Queues have constant time Insertion and Deletion via their `push` and `pop` or `enqueue` and `dequeue` methods, O(1).
+
+#### Space Complexity:
+
+The space complexity of Stacks and Queues is very simple. Whether we are instantiating a new instance of a Stack or Queue to store a set of data, or we are using a Stack or Queue as part of a strategy to solve some problem, Stacks and Queues always store one Node for each value they receive as input.
+
+For this reason, we always consider Stacks and Queues to have a linear space complexity, O(n).
+
+When should we use Stacks and Queues?
+-------------------------------------
+
+At this point, we've done a lot of work understanding the ins and outs of Stacks and Queues, but we still haven't really discussed what we can use them for. The answer is actually…a lot!
+
+For one, Stacks and Queues can be used as intermediate data structures while implementing some of the more complicated data structures and methods we'll see in some of our upcoming sections.
+
+For example, the implementation of the breadth-first Tree traversal algorithm takes advantage of a Queue instance, and the depth-first Graph traversal algorithm exploits the benefits of a Stack instance.
+
+Additionally, Stacks and Queues serve as the essential underlying data structures to a wide variety of applications you use all the time. Just to name a few:
+
+#### Stacks:
+
+*   The Call Stack is a Stack data structure, and is used to manage the order of function invocations in your code.
+*   Browser History is often implemented using a Stack, with one great example being the browser history object in the very popular React Router module.
+*   Undo/Redo functionality in just about any application. For example:
+    *   When you're coding in your text editor, each of the actions you take on your keyboard are recorded by `push`ing that event to a Stack.
+    *   When you hit \[cmd + z\] to undo your most recent action, that event is `pop`ed off the Stack, because the last event that occured should be the first one to be undone (LIFO).
+    *   When you hit \[cmd + y\] to redo your most recent action, that event is `push`ed back onto the Stack.
+
+#### Queues:
+
+*   Printers use a Queue to manage incoming jobs to ensure that documents are printed in the order they are received.
+*   Chat rooms, online video games, and customer service phone lines use a Queue to ensure that patrons are served in the order they arrive.
+    *   In the case of a Chat Room, to be admitted to a size-limited room.
+    *   In the case of an Online Multi-Player Game, players wait in a lobby until there is enough space and it is their turn to be admitted to a game.
+    *   In the case of a Customer Service Phone Line…you get the point.
+*   As a more advanced use case, Queues are often used as components or services in the system design of a service-oriented architecture. A very popular and easy to use example of this is Amazon's Simple Queue Service (SQS), which is a part of their Amazon Web Services (AWS) offering.
+    *   You would add this service to your system between two other services, one that is sending information for processing, and one that is receiving information to be processed, when the volume of incoming requests is high and the integrity of the order with which those requests are processed must be maintained.
+
+* * *
+
+* * *
+
+**The objective of this lesson** is for you to become comfortable with implementing common data structures. This is important because questions about data structures are incredibly likely to be interview questions for software engineers from junior to senior levels. Moreover, understanding how different data structures work will influence the libraries and frameworks that you choose when writing software.
+
+When you are done, you will be able to:
+
+1.  Explain and implement a Heap.
+2.  Explain and implement a Graph.table with implementing common data structures. This is important because questions about data structures are incredibly likely to be interview questions for software engineers from junior to senior levels. Moreover, understanding how different data structures work will influence the libraries and frameworks that you choose when writing software.
+
+When you are done, you will be able to:
+
+1.  Explain and implement a Heap.
+2.  Explain and implement a Graph.
+
+* * *
+
+Let's explore the **Heap** data structure! In particular, we'll explore **Binary Heaps**. A binary heap is a type of binary tree. However, a heap is not a binary _search_ tree. A heap is a partially ordered data structure, whereas a BST has full order. In a heap, the root of the tree will be the maximum (max heap) or the minimum (min heap). Below is an example of a max heap:
+
+![max_heap](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/images/max_heap.png)
+
+max\_heap
+
+Notice that the heap above does not follow search tree property where all values to the left of a node are less and all values to the right are greater or equal. Instead, the max heap invariant is:
+
+*   given any node, its children must be less than or equal to the node
+
+This constraint makes heaps much more relaxed in structure compared to a search tree. There is no guaranteed order among "siblings" or "cousins" in a heap. The relationship only flows down the tree from parent to child. In other words, in a max heap, a node will be greater than all of it's children, it's grandchildren, its great-grandchildren, and so on. A consequence of this is the root being the absolute maximum of the entire tree. We'll be exploring max heaps together, but these arguments are symmetric for a min heap.
+
+### Complete Trees
+
+We'll eventually implement a max heap together, but first we'll need to take a quick detour. Our design goal is to implement a data structure with efficient operations. Since a heap is a type of binary tree, recall the circumstances where we had a "best case" binary tree. We'll need to ensure our heap has minimal height, that is, it must be a balanced tree!
+
+Our heap implementation will not only be balanced, but it will also be **complete**. To clarify, **every complete tree is also a balanced tree**, but not every balanced tree is also complete. Our definition of a complete tree is:
+
+*   a tree where all levels have the maximal number of nodes, except the bottom the level
+*   AND the bottom level has all nodes filled as far left as possible
+
+Here are few examples of the definition:
+
+![complete_tree](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/images/complete_tree.png)
+
+complete\_tree
+
+Notice that the tree is on the right fails the second point of our definition because there is a gap in the last level. Informally, you can think about a complete tree as packing its nodes as closely together as possible. This line of thinking will come into play when we code heaps later.
+
+### When to Use Heaps?
+
+Heaps are the most useful when attacking problems that require you to "partially sort" data. This usually takes form in problems that have us calculate the largest or smallest n numbers of a collection. For example: What if you were asked to find the largest 5 numbers in an array in linear time, O(n)? The fastest sorting algorithms are O(n logn), so none of those algorithms will be good enough. However, we can use a heap to solve this problem in linear time.
+
+We'll analyze this in depth when we implement a heap in the next section!
+
+One of the most common uses of a binary heap is to implement a "[priority queue](https://en.wikipedia.org/wiki/Priority_queue)". We learned before that a queue is a FIFO (First In, First Out) data structure. With a priority queue, items are removed from the queue based on a priority number. The priority number is used to place the items into the heap and pull them out in the correct priority order!
+
+* * *
+
+Binary Heap Implementation
+--------------------------
+
+Now that we are familiar with the structure of a heap, let's implement one! What may be surprising is that the usual way to implement a heap is by simply using an array. That is, we won't need to create a node class with pointers. Instead, each index of the array will represent a node, with the root being at index 1. We'll avoid using index 0 of the array so our math works out nicely. From this point, we'll use the following rules to interpret the array as a heap:
+
+*   index `i` represents a node in the heap
+*   the left child of node `i` can be found at index `2 * i`
+*   the right child of code `i` can be found at index `2 * i + 1`
+
+In other words, the array `[null, 42, 32, 24, 30, 9, 20, 18, 2, 7]` represents the heap below. Take a moment to analyze how the array indices work out to represent left and right children.
+
+![max_heap](https://s3-us-west-1.amazonaws.com/appacademy-open-assets/data_structures_algorithms/heaps/images/max_heap.png)
+
+max\_heap
+
+Pretty clever math right? We can also describe the relationship from child to parent node. Say we are given a node at index `i` in the heap, then it's parent is found at index `Math.floor(i / 2)`.
+
+It's useful to visualize heap algorithms using the classic image of nodes and edges, but we'll translate that into array index operations.
+
+### Insert
+
+What's a heap if we can't add data into it? We'll need a `insert` method that will add a new value into the heap without voiding our heap property. In our `MaxHeap`, the property states that a node must be greater than its children.
+
+#### Visualizing our heap as a tree of nodes:
+
+1.  We begin an insertion by adding the new node to the bottom leaf level of the heap, preferring to place the new node as far left in the level as possible. This ensures the tree remains complete.
+2.  Placing the new node there may momentarily break our heap property, so we need to restore it by moving the node up the tree into a legal position. Restoring the heap property is a matter of continually swapping the new node with it's parent while it's parent contains a smaller value. We refer to this process as `siftUp`
+
+#### Translating that into array operations:
+
+1.  `push` the new value to the end of the array
+2.  continually swap that value toward the front of the array (following our child-parent index rules) until heap property is restored
+
+### DeleteMax
+
+This is the "fetch" operation of a heap. Since we maintain heap property throughout, the root of the heap will always be the maximum value. We want to delete and return the root, whilst keeping the heap property.
+
+#### Visualizing our heap as a tree of nodes:
+
+1.  We begin the deletion by saving a reference to the root value (the max) to return later. We then locate the right most node of the bottom level and copy it's value into the root of the tree. We easily delete the duplicate node at the leaf level. This ensures the tree remains complete.
+2.  Copying that value into the root may momentarily break our heap property, so we need to restore it by moving the node down the tree into a legal position. Restoring the heap property is a matter of continually swapping the node with the greater of it's two children. We refer to this process as `siftDown`.
+
+#### Translating that into array operations:
+
+1.  The root is at index 1, so save it to return later. The right most node of the bottom level would just be the very last element of the array. Copy the last element into index 1, and pop off the last element (since it now appears at the root).
+2.  Continually swap the new root toward the back of the array (following our parent-child index rules) until heap property is restored. A node can have two children, so we should always prefer to swap with the greater child.
+
+### Time Complexity Analysis
+
+*   insert: `O(log(n))`
+*   deleteMax: `O(log(n))`
+
+Recall that our heap will be a complete/balanced tree. This means it's height is `log(n)` where `n` is the number of items. Both `insert` and `deleteMax` have a time complexity of `log(n)` because of `siftUp` and `siftDown` respectively. In worst case `insert`, we will have to `siftUp` a leaf all the way to the root of the tree. In the worst case `deleteMax`, we will have to `siftDown` the new root all the way down to the leaf level. In either case, we'll have to traverse the full height of the tree, `log(n)`.
+
+#### Array Heapify Analysis
+
+Now that we have established `O(log(n))` for a single insertion, let's analyze the time complexity for turning an array into a heap (we call this heapify, coming in the next project :)). The algorithm itself is simple, just perform an `insert` for every element. Since there are `n` elements and each insert requires `log(n)` time, our total complexity for heapify is `O(nlog(n))`… Or is it? There is actually a tighter bound on heapify. The proof requires some math that you won't find valuable in your job search, but do understand that the true time complexity of heapify is amortized `O(n)`. Amortized refers to the fact that our analysis is about performance over many insertions.
+
+### Space Complexity Analysis
+
+*   `O(n)`, since we use a single array to store heap data.heap, let's implement one! What may be surprising is that the usual way to implement a heap is by simply using an array. That is, we won't need to create a node class with pointers. Instead, each index of the array will represent a node, with the root being at index 1. We'll avoid using index 0 of the array so our math works out nicely. From this point, we'll use the following rules to interpret the array as a heap:
+    
+*   index `i` represents a node in the heap
+*   the left child of node `i` can be found at index `2 * i`
+*   the right child of code `i` can be found at index `2 * i + 1`
+    
+
+In other words, the array `[null, 42, 32, 24, 30, 9, 20, 18, 2, 7]` represents the heap below. Take a moment to analyze how the array indices work out to represent left and right children.
+
+![max_heap](https://s3-us-west-1.amazonaws.com/appacademy-open-assets/data_structures_algorithms/heaps/images/max_heap.png)
+
+max\_heap
+
+Pretty clever math right? We can also describe the relationship from child to parent node. Say we are given a node at index `i` in the heap, then it's parent is found at index `Math.floor(i / 2)`.
+
+It's useful to visualize heap algorithms using the classic image of nodes and edges, but we'll translate that into array index operations.
+
+### Insert
+
+What's a heap if we can't add data into it? We'll need a `insert` method that will add a new value into the heap without voiding our heap property. In our `MaxHeap`, the property states that a node must be greater than its children.
+
+#### Visualizing our heap as a tree of nodes:
+
+1.  We begin an insertion by adding the new node to the bottom leaf level of the heap, preferring to place the new node as far left in the level as possible. This ensures the tree remains complete.
+2.  Placing the new node there may momentarily break our heap property, so we need to restore it by moving the node up the tree into a legal position. Restoring the heap property is a matter of continually swapping the new node with it's parent while it's parent contains a smaller value. We refer to this process as `siftUp`
+
+#### Translating that into array operations:
+
+1.  `push` the new value to the end of the array
+2.  continually swap that value toward the front of the array (following our child-parent index rules) until heap property is restored
+
+### DeleteMax
+
+This is the "fetch" operation of a heap. Since we maintain heap property throughout, the root of the heap will always be the maximum value. We want to delete and return the root, whilst keeping the heap property.
+
+#### Visualizing our heap as a tree of nodes:
+
+1.  We begin the deletion by saving a reference to the root value (the max) to return later. We then locate the right most node of the bottom level and copy it's value into the root of the tree. We easily delete the duplicate node at the leaf level. This ensures the tree remains complete.
+2.  Copying that value into the root may momentarily break our heap property, so we need to restore it by moving the node down the tree into a legal position. Restoring the heap property is a matter of continually swapping the node with the greater of it's two children. We refer to this process as `siftDown`.
+
+#### Translating that into array operations:
+
+1.  The root is at index 1, so save it to return later. The right most node of the bottom level would just be the very last element of the array. Copy the last element into index 1, and pop off the last element (since it now appears at the root).
+2.  Continually swap the new root toward the back of the array (following our parent-child index rules) until heap property is restored. A node can have two children, so we should always prefer to swap with the greater child.
+
+### Time Complexity Analysis
+
+*   insert: `O(log(n))`
+*   deleteMax: `O(log(n))`
+
+Recall that our heap will be a complete/balanced tree. This means it's height is `log(n)` where `n` is the number of items. Both `insert` and `deleteMax` have a time complexity of `log(n)` because of `siftUp` and `siftDown` respectively. In worst case `insert`, we will have to `siftUp` a leaf all the way to the root of the tree. In the worst case `deleteMax`, we will have to `siftDown` the new root all the way down to the leaf level. In either case, we'll have to traverse the full height of the tree, `log(n)`.
+
+#### Array Heapify Analysis
+
+Now that we have established `O(log(n))` for a single insertion, let's analyze the time complexity for turning an array into a heap (we call this heapify, coming in the next project :)). The algorithm itself is simple, just perform an `insert` for every element. Since there are `n` elements and each insert requires `log(n)` time, our total complexity for heapify is `O(nlog(n))`… Or is it? There is actually a tighter bound on heapify. The proof requires some math that you won't find valuable in your job search, but do understand that the true time complexity of heapify is amortized `O(n)`. Amortized refers to the fact that our analysis is about performance over many insertions.
+
+### Space Complexity Analysis
+
+*   `O(n)`, since we use a single array to store heap data.
+
+* * *
+
+Heap Sort
+---------
+
+We've emphasized heavily that heaps are a _partially ordered_ data structure. However, we can still leverage heaps in a sorting algorithm to end up with fully sorted array. The strategy is simple using our previous `MaxHeap` implementation:
+
+1.  build the heap: `insert` all elements of the array into a `MaxHeap`
+2.  construct the sorted list: continue to `deleteMax` until the heap is empty, every deletion will return the next element in decreasing order
+
+The code is straightforward:
+
+### Time Complexity Analysis: O(nlog(n))
+
+*   `n` is the size of the input array
+*   step-1 requires `O(n)` time as previously discussed
+*   step-2's while loop requires `n` steps in isolation and each `deleteMax` will require `log(n)` steps to restore max heap property (due to sifting-down). This means step 2 costs `O(nlog(n))`
+*   the total time complexity of the algorithm is `O(n + nlog(n)) = O(nlog(n))`
+
+### Space Complexity Analysis:
+
+So `heapSort` performs as fast as our other efficient sorting algorithms, but how does it fair in space complexity? Our implementation above requires an extra `O(n)` amount of space because the heap is maintained separately from the input array. If we can figure out a way to do all of these heap operations in-place we can get constant `O(1)` space! Let's work on this now.
+
+In-Place Heap Sort
+------------------
+
+The in-place algorithm will have the same 2 steps, but it will differ in the implementation details. Since we need to have all operations take place in a single array, we're going to have to denote two regions of the array. That is, we'll need a heap region and a sorted region. We begin by turning the entire region into a heap. Then we continually delete max to get the next element in increasing order. As the heap region shrinks, the sorted region will grow.
+
+### Heapify
+
+Let's focus on designing step-1 as an in-place algorithm. In other words, we'll need to reorder elements of the input array so they follow max heap property. This is usually refered to as `heapify`. Our `heapify` will use much of the same logic as `MaxHeap#siftDown`.
+
+We weren't kidding when we said this would be similar to `MaxHeap#siftDown`. If you are not convinced, flip to the previous section and take a look! The few differences we want to emphasize are:
+
+*   Given a node at index `i`, it's left index is `2 * i + 1` and it's right index is `2 * i + 2`
+    *   Using these as our child index formulas will allow us to avoid using a placeholder element at index 0. The root of the heap will be at index 0.
+*   The parameter `n` represents the number of nodes in the heap
+    *   You may feel that `array.length` also represents the number of nodes in the heap. That is true, but only in step-1. Later we will need to dynamically state the size of the heap. Remember, we are trying to do this without creating any extra arrays. We'll need to separate the heap and sorted regions of the array and `n` will dictate the end of the heap.
+*   We created a separate `swap` helper function.
+    *   Nothing fancy here. Swapping will be valuable in step-2 of the algorithm as well, so we'll want to keep our code DRY (don't repeat yourself).
+
+To correctly convert the input array into a heap, we'll need to call `heapify` on children nodes before their parents. This is easy to do, just call `heapify` on each element right-to-left in the array:
+
+Nice! Now the elements of the array have been moved around to obey max heap property.
+
+### Construct the Sorted Array
+
+To put everything together, we'll need to continually "delete max" from our heap. From our previous lecture, we learned the steps for deletion are to swap the last node of the heap into the root and then sift the new root down to restore max heap property. We'll follow the same logic here, except we'll need to account for the sorted region of the array. The array will contain the heap region in the front and the sorted region at the rear:
+
+You'll definitely want to watch the lecture that follows this reading to get a visual of how the array is divided into the heap and sorted regions.
 
 
-[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#graph-data-structure-directed-acyclic-etc-)
-
-# ➤ Graph Data Structure: Directed, Acyclic, etc 
-
-Graph ===== ![](graph-md.png) 
-
-
-[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#binary-numbers-)
-
-## ➤ Binary numbers 
-
-Let's put those bits to use. Let's store some stuff. Starting with numbers. 
-
-The number system we usually use (the one you probably learned in elementary school) is called **base 10**, because each digit has _ten_ possible values (1, 2, 3, 4, 5, 6, 7, 8, 9, and 0). 
-
-But computers don't have digits with ten possible values. They have _bits_ with _two_ possible values. So they use **base 2** numbers. 
-
-Base 10 is also called **decimal**. Base 2 is also called **binary**. 
-
-To understand binary, let's take a closer look at how decimal numbers work. Take the number "101" in decimal: 
-
-![In base 10, the digits 101 represent 1 hundred, 0 tens, and 1 one.](https://www.interviewcake.com/images/svgs/cs_for_hackers__binary_numbers_base_10_101.svg?bust=209)
-
- 
-
-Notice we have two "1"s here, but they don't _mean_ the same thing. The leftmost "1" _means_ 100, and the rightmost "1" _means_ 1. That's because the leftmost "1" is in the hundreds place, while the rightmost "1" is in the ones place. And the "0" between them is in the tens place. 
-
-![In base 10, the digits 101 represent 1 hundred, 0 tens, and 1 one.](https://www.interviewcake.com/images/svgs/cs_for_hackers__binary_numbers_base_10_digits.svg?bust=209)
-
- 
-
-**So this "101" in base 10 is telling us we have "1 hundred, 0 tens, and 1 one."** 
-
-![In base 10, the digits 101 represent 1 hundred, 0 tens, and 1 one, which add to give the value one hundred and one.](https://www.interviewcake.com/images/svgs/cs_for_hackers__binary_numbers_base_10.svg?bust=209)
-
- 
-
-Notice how the _places_ in base 10 (ones place, tens place, hundreds place, etc.) are _sequential powers of 10_: 
-
-*   10\^0=1 *   10\^1=10 *   10\^2=100 *   10\^3=1000 *   etc. 
-
-**The places in _binary_ (base 2) are sequential powers of _2_:** 
-
-*   2\^0=1 *   2\^1=2 *   2\^2=4 *   2\^3=8 *   etc. 
-
-So let's take that same "101" but this time let's read it as a _binary_ number: 
-
-![In base 2, the digits 101 represent 1 four, 0 twos, and 1 one.](https://www.interviewcake.com/images/svgs/cs_for_hackers__binary_numbers_base_2_digits.svg?bust=209)
-
- 
-
-Reading this from right to left: we have a 1 in the ones place, a 0 in the twos place, and a 1 in the fours place. So our total is 4 + 0 + 1 which is 5. 
-
-![In base 2, the digits 101 represent 1 four, 0 twos, and 1 one, which add to give the value five.](https://www.interviewcake.com/images/svgs/cs_for_hackers__binary_numbers_base_2.svg?bust=209)
-
- 
 
 
 
+### [CONTENT/DS-n-Algos/Recursion/My-Recursion-Prac-Website/Recur-website/tree.md](CONTENT/DS-n-Algos/Recursion/My-Recursion-Prac-Website/Recur-website/tree.md)
+
+.
+├── AUX_MATERIALS
+│   ├── recursion-flow.PNG
+│   ├── right.html
+│   ├── sandbox
+│   │   ├── LOs.js
+│   │   ├── example2.js
+│   │   ├── examples.js
+│   │   ├── exponent.js
+│   │   ├── factorial.js
+│   │   ├── fibonacci.js
+│   │   ├── flatten.js
+│   │   ├── memoize.js
+│   │   ├── recursiveCallStack.js
+│   │   ├── recursiveIsEven.js
+│   │   ├── recursiveRange.js
+│   │   ├── right.html
+│   │   ├── sum.js
+│   │   └── tabulate.js
+│   ├── solved.pdf
+│   └── unzolved.pdf
+├── README.html
+├── README.md
+├── blank
+│   ├── README.md
+│   ├── SpecRunner.html
+│   ├── lib
+│   │   ├── chai.js
+│   │   ├── css
+│   │   │   ├── mocha.css
+│   │   │   └── right.html
+│   │   ├── jquery.js
+│   │   ├── mocha.js
+│   │   ├── right.html
+│   │   ├── sinon.js
+│   │   └── testSupport.js
+│   ├── right.html
+│   ├── spec
+│   │   ├── part1.js
+│   │   ├── part2.js
+│   │   └── right.html
+│   ├── src
+│   │   ├── recursion.js
+│   │   └── right.html
+│   └── testing
+│       ├── directory1.html
+│       ├── left1.html
+│       ├── prism.css
+│       ├── prism.js
+│       ├── right.html
+│       ├── right1.html
+│       └── starter.html
+├── dir.md
+├── directory.html
+├── images
+│   ├── BubbleSort.gif
+│   ├── InsertionSort.gif
+│   ├── MergeSort.gif
+│   ├── QuickSort.gif
+│   ├── SLL-diagram.png
+│   ├── SelectionSort.gif
+│   ├── array-in-memory.png
+│   ├── fib_memoized.png
+│   ├── fib_tree.png
+│   ├── fib_tree_duplicates.png
+│   ├── github-repo-menu-bar-wiki.png
+│   └── right.html
+├── index.html
+├── left.html
+├── my-solutions
+│   ├── README.md
+│   ├── SpecRunner.html
+│   ├── complete.html
+│   ├── lib
+│   │   ├── chai.js
+│   │   ├── css
+│   │   │   ├── mocha.css
+│   │   │   └── right.html
+│   │   ├── jquery.js
+│   │   ├── mocha.js
+│   │   ├── right.html
+│   │   ├── sinon.js
+│   │   └── testSupport.js
+│   ├── prism.css
+│   ├── prism.js
+│   ├── right.html
+│   ├── spec
+│   │   ├── part1.js
+│   │   ├── part2.js
+│   │   └── right.html
+│   ├── src
+│   │   ├── recursion.js
+│   │   └── right.html
+│   └── style.css
+├── part-2
+│   ├── README.md
+│   ├── SpecRunner.html
+│   ├── lib
+│   │   ├── jasmine-1.0.0
+│   │   │   ├── MIT.LICENSE
+│   │   │   ├── jasmine-html.js
+│   │   │   ├── jasmine.css
+│   │   │   ├── jasmine.js
+│   │   │   └── right.html
+│   │   ├── right.html
+│   │   └── underscore.js
+│   ├── right.html
+│   ├── solutions
+│   │   ├── binarySearchTree.js
+│   │   ├── hashTable.js
+│   │   ├── hashTableHelpers.js
+│   │   ├── linkedList.js
+│   │   ├── right.html
+│   │   ├── set.js
+│   │   └── tree.js
+│   ├── spec
+│   │   ├── binarySearchTreeSpec.js
+│   │   ├── hashTableSpec.js
+│   │   ├── linkedListSpec.js
+│   │   ├── right.html
+│   │   ├── setSpec.js
+│   │   └── treeSpec.js
+│   └── src
+│       ├── binarySearchTree.js
+│       ├── hashTable.js
+│       ├── hashTableHelpers.js
+│       ├── linkedList.js
+│       ├── right.html
+│       ├── set.js
+│       └── tree.js
+├── prism.css
+├── prism.js
+├── right.html
+├── style.css
+├── tabs
+│   ├── right.html
+│   ├── tabs.html
+│   ├── tabs2.html
+│   └── template-files
+│       ├── LmfE5ZMlM8QjZWyylbaJdeYzodpJKK3mlCt6sCr3jaw.js
+│       ├── about-us-page-template.jpg
+│       ├── ad_status.js
+│       ├── agency-template.jpg
+│       ├── analytics.js
+│       ├── application-template.jpg
+│       ├── article-template.jpg
+│       ├── base.js
+│       ├── best-bootstrap-templates-492x492.jpg
+│       ├── blog.jpg
+│       ├── bootstrap-basic-template-492x492.jpg
+│       ├── bootstrap-ecommerce-template-492x492.jpg
+│       ├── bootstrap-grid.min.css
+│       ├── bootstrap-landing-page-template-492x492.jpg
+│       ├── bootstrap-layout-templates-492x492.jpg
+│       ├── bootstrap-login-page-template-492x492.jpg
+│       ├── bootstrap-one-page-template-492x492.jpg
+│       ├── bootstrap-page-templates-492x492.jpg
+│       ├── bootstrap-portfolio-template-600x600.jpg
+│       ├── bootstrap-reboot.min.css
+│       ├── bootstrap-responsive-website-templates-600x600.jpg
+│       ├── bootstrap-sample-template-492x492.jpg
+│       ├── bootstrap-single-page-template-492x492.jpg
+│       ├── bootstrap-starter-template-492x492.jpg
+│       ├── bootstrap-templates-examples-492x492.jpg
+│       ├── bootstrap-theme-template-492x492.jpg
+│       ├── bootstrap.min.css
+│       ├── bootstrap.min.js
+│       ├── business-template.jpg
+│       ├── carousel-template.jpg
+│       ├── cast_sender.js
+│       ├── coming-soon-template.jpg
+│       ├── contact-form-template-1.jpg
+│       ├── corporate-template.jpg
+│       ├── documentation-template.jpg
+│       ├── download-bootstrap-template-492x492.jpg
+│       ├── education-template.jpg
+│       ├── embed.js
+│       ├── error-template.jpg
+│       ├── event-template.jpg
+│       ├── f(1).txt
+│       ├── f.txt
+│       ├── faq-template.jpg
+│       ├── fbevents.js
+│       ├── fetch-polyfill.js
+│       ├── footer-template.jpg
+│       ├── form-templates.jpg
+│       ├── free-html5-bootstrap-templates-600x600.jpg
+│       ├── gallery-template.jpg
+│       ├── google-maps-template.jpg
+│       ├── grid-template.jpg
+│       ├── gtm.js
+│       ├── hGaQaBeUfGw.html
+│       ├── header-template.jpg
+│       ├── homepage-template.jpg
+│       ├── hotel-template.jpg
+│       ├── jarallax.min.js
+│       ├── jquery.min.js
+│       ├── jquery.touch-swipe.min.js
+│       ├── landing-page-template.jpg
+│       ├── list-template.jpg
+│       ├── magazine-template.jpg
+│       ├── map-template.jpg
+│       ├── mbr-additional.css
+│       ├── menu-template.jpg
+│       ├── mobirise-icons.css
+│       ├── multi-page-template.jpg
+│       ├── navbar-template.jpg
+│       ├── navigation-menu.jpg
+│       ├── news-template.jpg
+│       ├── one-page-1.jpg
+│       ├── ootstrap-design-template-492x492.jpg
+│       ├── parallax-scrolling-template.jpg
+│       ├── parallax-template.jpg
+│       ├── personal-website-template.jpg
+│       ├── photo-gallery-template.jpg
+│       ├── photography-template.jpg
+│       ├── popper.min.js
+│       ├── premium-bootstrap-templates-492x492.jpg
+│       ├── profile-template.jpg
+│       ├── real-estate-template.jpg
+│       ├── registration-form-template.jpg
+│       ├── remote.js
+│       ├── restaurant-template.jpg
+│       ├── right.html
+│       ├── script.js
+│       ├── script.min.js
+│       ├── shopping-cart.jpg
+│       ├── simple-bootstrap-template-492x492.jpg
+│       ├── slider-template.jpg
+│       ├── slider.jpg
+│       ├── smooth-scroll.js
+│       ├── social-network-template.jpg
+│       ├── store-template.jpg
+│       ├── style(1).css
+│       ├── style.css
+│       ├── tab-template.jpg
+│       ├── table-template.jpg
+│       ├── tether.min.css
+│       ├── tether.min.js
+│       ├── travel-template.jpg
+│       ├── video-bg-template.jpg
+│       ├── video-bg.jpg
+│       ├── video-gallery-template.jpg
+│       ├── video-template.jpg
+│       ├── warren-wong-200912-2000x1304.jpg
+│       ├── web-application-template.jpg
+│       ├── wedding-template.jpg
+│       ├── www-embed-player.js
+│       └── www-player-webp.css
+└── tree.md
+
+22 directories, 227 files
 
 
 
-[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#leetcode-patterns)
+</details><details> <summary>CONTENT/DS-n-Algos/SANDBOX/</summary>
 
-# ➤ Leetcode Patterns
+### [CONTENT/DS-n-Algos/SANDBOX/LEETCODE.md](CONTENT/DS-n-Algos/SANDBOX/LEETCODE.md)
+# Leetcode Patterns
 
+## Table of Contents
 
+- [Background](#background)
+- [Preface](#preface)
+- [Notes](#notes)
+- [Question List](#question-list)
+- [Solutions](#solutions)
+- [Leetcode Discuss](#leetcode-discuss)
+- [Tips to Consider](#tips-to-consider)
+- [Suggestions](#suggestions)
+- [Acknowledgements](#acknowledgements)
 
-
-[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#background)
-
-## ➤ Background
+## Background
 
 This repo is intended for any individual wanting to improve their problem
 solving skills for software engineering interviews.
@@ -890,10 +1980,7 @@ repeatedly applying common patterns rather than randomly tackling questions.
 
 All questions are available on [leetcode.com] with some requiring [leetcode premium].
 
-
-[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#preface)
-
-## ➤ Preface
+## Preface
 
 It is highly recommended to read chapters 1, 2, 3, 4, 8, and 10 of [Cracking The Coding Interview]
 to familiarize yourself with the following data structures and their operations:
@@ -914,16 +2001,32 @@ In addition, you should have a good grasp on common algorithms such as:
 - Binary search
 - Recursion
 
+## Notes
 
-[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#notes)
+[This pdf] contains useful information for the built-in data structures in Java.
 
-## ➤ Notes
+Other useful methods to know include [`substring()`](https://docs.oracle.com/javase/8/docs/api/java/lang/String.html#substring-int-int-), [`toCharArray()`](https://docs.oracle.com/javase/8/docs/api/java/lang/String.html#toCharArray--), [`Math.max()`](https://docs.oracle.com/javase/8/docs/api/java/lang/Math.html#max-int-int-),
+[`Math.min()`](https://docs.oracle.com/javase/8/docs/api/java/lang/Math.html#min-int-int-), and [`Arrays.fill()`](https://docs.oracle.com/javase/8/docs/api/java/util/Arrays.html#fill-int:A-int-).
 
+## Question List
 
+The entire question list can be found here:
+https://seanprashad.com/leetcode-patterns/.
 
-[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#tips-to-consider)
+In addition to viewing the question list, companies that have previously asked
+the question in the past 6 months (_as of January 2020_) will be listed. You can
+also use the checkboxes to mark which questions you've completed!
 
-## ➤ Tips to Consider
+## Solutions
+
+Solutions written in Java can be found in the [solutions] branch.
+
+## Leetcode Discuss
+
+[Leetcode discuss] is an amazing resource and features previous interview
+questions, as well as compensation and general career advice.
+
+## Tips to Consider
 
 ```
 If input array is sorted then
@@ -962,636 +2065,43 @@ Else
     - Sort input for O(nlogn) time and O(1) space
 ```
 
-
-[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#suggestions)
-
-## ➤ Suggestions
+## Suggestions
 
 Think a question should/shouldn't be included? Wish there was another feature?
+Feel free to open an [issue] with your suggestion!
 
-[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#repo-directory-structure)
+## Acknowledgements
 
-# ➤ REPO Directory Structure
-```
-.
-├── CONTAINER
-│   ├── DS-n-Algos
-│   │   ├── 0-TESTING-RESOURCES
-│   │   │   ├── main-data
-│   │   │   │   ├── 01-Person-Data.txt
-│   │   │   │   ├── cities.txt
-│   │   │   │   ├── city-state-country.txt
-│   │   │   │   ├── common-surnames.txt
-│   │   │   │   ├── dates.txt
-│   │   │   │   ├── html-colors.txt
-│   │   │   │   ├── numbers1-100.txt
-│   │   │   │   ├── output.txt
-│   │   │   │   ├── right.html
-│   │   │   │   ├── street-names.txt
-│   │   │   │   ├── test-data.md
-│   │   │   │   ├── testdata.js
-│   │   │   │   └── zip-codes.txt
-│   │   │   ├── right.html
-│   │   │   ├── text-2-js
-│   │   │   │   ├── right.html
-│   │   │   │   ├── streetNames.txt
-│   │   │   │   ├── txtFile2Arr.js
-│   │   │   │   └── zip-codes.txt
-│   │   │   └── useful.js
-│   │   ├── ALGO
-│   │   │   ├── Dynamic-Programming
-│   │   │   │   ├── primes.js
-│   │   │   │   
-│   │   │   ├── LEETCODE
-│   │   │   │   ├── 2-sum.js
-│   │   │   │   ├── E027_remove_element.js
-│   │   │   │   ├── Max_Average_Subarray-2.js
-│   │   │   │   ├── Max_Average_Subarray.js
-│   │   │   │   ├── RangeSumQuery.js
-│   │   │   │   ├── Remove_Nth_Node_From_End_of_LinkedList.js
-│   │   │   │   ├── add-digits.js
-│   │   │   │   ├── integer_to_roman.js
-│   │   │   │   ├── isSuperUgly.js
-│   │   │   │   ├── isUgly-Find-nth-Ugly.js
-│   │   │   │   ├── isUgly.js
-│   │   │   │   ├── license-Key-Formatting.js
-│   │   │   │   ├── longest-Common-Prefix.js
-│   │   │   │   ├── longest_substring_without_repeating_char.js
-│   │   │   │   ├── majority_element.js
-│   │   │   │   ├── max-contiguous-subarray-general-Solution.js
-│   │   │   │   ├── max-sum-subarray.js
-│   │   │   │   ├── merge-sorted-array.js
-│   │   │   │   ├── merge-two-sorted-linked-lists.js
-│   │   │   │   ├── palindrome-number.js
-│   │   │   │   ├── remove-duplicates-from-sorted-array.js
-│   │   │   │   ├── reverse_integer.js
-│   │   │   │   ├── right.html
-│   │   │   │   ├── roman_to_integer.js
-│   │   │   │   ├── self-dividing-number.js
-│   │   │   │   ├── shortest-distance-to-a-character.js
-│   │   │   │   ├── string-to-integer-atoi-1.js
-│   │   │   │   ├── string-to-integer-atoi-2.js
-│   │   │   │   ├── valid-parentheses.js
-│   │   │   │   └── zigzag-conversion.js
-│   │   │   ├── UNSORTED
-│   │   │   │   ├── Arguments In An Array.js
-│   │   │   │   ├── ArrayToList.js
-│   │   │   │   ├── CheckBoolean.js
-│   │   │   │   ├── CheckMutations.js
-│   │   │   │   ├── Confirm-The-Ending.js
-│   │   │   │   ├── CopyMachine.js
-│   │   │   │   ├── CountCharInAString.js
-│   │   │   │   ├── DNA Pairing.js
-│   │   │   │   ├── Factorial.js
-│   │   │   │   ├── Falsy Bouncer.js
-│   │   │   │   ├── FilteredArray.js
-│   │   │   │   ├── FindIntersection.js
-│   │   │   │   ├── FindThEending.js
-│   │   │   │   ├── FizzBuzz.js
-│   │   │   │   ├── Frequency Counter Anagram.js
-│   │   │   │   ├── Frequency Counter Pattern.js
-│   │   │   │   ├── GroupAnagrams.js
-│   │   │   │   ├── Hash Table Data-Structure
-│   │   │   │   ├── LargestNumsInArrays.js
-│   │   │   │   ├── ListToArray.js
-│   │   │   │   ├── LongestWordInAString.js
-│   │   │   │   ├── Missing Letters.js
-│   │   │   │   ├── PalindromeChecker.js
-│   │   │   │   ├── Pig Latin.js
-│   │   │   │   ├── Range.js
-│   │   │   │   ├── RangeWithAStep.js
-│   │   │   │   ├── Recursion-countdown.js
-│   │   │   │   ├── Recursion-factorial.js
-│   │   │   │   ├── Recursion-fibonacciseries.js
-│   │   │   │   ├── RepeatString.js
-│   │   │   │   ├── RestrictUsername.js
-│   │   │   │   ├── ReverseString.js
-│   │   │   │   ├── Search and Replace.js
-│   │   │   │   ├── Slice()&Splice().js
-│   │   │   │   ├── Sortarray.js
-│   │   │   │   ├── Spinal Tap Case.js
-│   │   │   │   ├── Sum-multiples-of 3 and 5.js
-│   │   │   │   ├── Sum-of-series.js
-│   │   │   │   ├── SumRange.js
-│   │   │   │   ├── Symmetric Difference-in Arrays.js
-│   │   │   │   ├── TitleCase.js
-│   │   │   │   ├── Truncate-String.js
-│   │   │   │   ├── arrayTo2Darray.js
-│   │   │   │   ├── numberToRoman.js
-│   │   │   │   
-│   │   │   ├── anagrams
-│   │   │   │   ├── index.js
-│   │   │   │   ├── right.html
-│   │   │   │   └── test.js
-│   │   │   ├── binary_search_project
-│   │   │   │   ├── lib
-│   │   │   │   ├── right.html
-│   │   │   │   └── test
-│   │   │   ├── callbacks-solution
-│   │   │   │   ├── package-lock.json
-│   │   │   │   ├── package.json
-│   │   │   │   ├── problems
-│   │   │   │   ├── right.html
-│   │   │   │   └── test
-│   │   │   ├── coin-change
-│   │   │   │   ├── MINchange
-│   │   │   │   ├── coinchange-memoized
-│   │   │   │   ├── coinchange.js
-│   │   │   │   ├── coinchange.md
-│   │   │   │   ├── itterative-4-fun
-│   │   │   │   ├── right.html
-│   │   │   │   └── set-Denominations.js
-│   │   │   ├── computational-complexity
-│   │   │   │   ├── O(1).js
-│   │   │   │   ├── O(2^n).js
-│   │   │   │   ├── O(log(n)).js
-│   │   │   │   ├── O(n!).js
-│   │   │   │   ├── O(n).js
-│   │   │   │   ├── O(n^2).js
-│   │   │   │   ├── O(nlog(n)).js
-│   │   │   │   
-│   │   │   ├── dice-roll
-│   │   │   │   ├── dice.js
-│   │   │   │   
-│   │   │   ├── egg-drop
-│   │   │   │   ├── egg-drop.js
-│   │   │   │   
-│   │   │   ├── factorial
-│   │   │   │   ├── factorial.js
-│   │   │   │   
-│   │   │   ├── fib
-│   │   │   │   ├── index.js
-│   │   │   │   ├── right.html
-│   │   │   │   └── test.js
-│   │   │   ├── fibonacci
-│   │   │   │   ├── fibonacci-memo.js
-│   │   │   │   ├── fibonacci-tab.js
-│   │   │   │   
-│   │   │   ├── fizzbuzz
-│   │   │   │   ├── index.js
-│   │   │   │   ├── right.html
-│   │   │   │   └── test.js
-│   │   │   ├── fromlast
-│   │   │   │   ├── index.js
-│   │   │   │   ├── linkedlist.js
-│   │   │   │   ├── right.html
-│   │   │   │   └── test.js
-│   │   │   ├── memoization_project
-│   │   │   │   ├── lib
-│   │   │   │   ├── right.html
-│   │   │   │   └── test
-│   │   │   ├── palindrome
-│   │   │   │   ├── index.js
-│   │   │   │   ├── right.html
-│   │   │   │   └── test.js
-│   │   │   ├── radix_sort_project
-│   │   │   │   ├── lib
-│   │   │   │   ├── package-lock.json
-│   │   │   │   ├── package.json
-│   │   │   │   ├── right.html
-│   │   │   │   └── test
-│   │   │   ├── right.html
-│   │   │   ├── steps
-│   │   │   │   ├── index.js
-│   │   │   │   ├── right.html
-│   │   │   │   └── test.js
-│   │   │   ├── tabulation_project
-│   │   │   │   ├── lib
-│   │   │   │   ├── right.html
-│   │   │   │   └── test
-│   │   │   └── vowels
-│   │   │       ├── index.js
-│   │   │       ├── right.html
-│   │   │       └── test.js
-│   │   ├── Arrays
-│   │   │   ├── 53-max-subArr
-│   │   │   │   ├── 53max-sub-arr.js
-│   │   │   │   
-│   │   │   ├── All Unique
-│   │   │   │   ├── all-unique.java
-│   │   │   │   ├── all-unique.js
-│   │   │   │   ├── allUnique-set.js
-│   │   │   │   ├── allunique-allTypes-O(n^2).js
-│   │   │   │   ├── right.html
-│   │   │   │   ├── stupid-oneliner.js
-│   │   │   │   └── test
-│   │   │   ├── Array
-│   │   │   │   ├── QuickSelect.js
-│   │   │   │   
-│   │   │   ├── Array-Flatten
-│   │   │   │   ├── arrflat.js
-│   │   │   │   
-│   │   │   ├── Intersection
-│   │   │   │   ├── intersection.js
-│   │   │   │   ├── intersection.md
-│   │   │   │   
-│   │   │   ├── Transpose-2-d-array
-│   │   │   │   ├── right.html
-│   │   │   │   └── t2dArray.js
-│   │   │   ├── all
-│   │   │   │   ├── Array.prototype.every().html
-│   │   │   │   ├── Array.prototype.every().md
-│   │   │   │   ├── all.html
-│   │   │   │   ├── all.js
-│   │   │   │   ├── all.md
-│   │   │   │   ├── boolean-constructor.html
-│   │   │   │   ├── boolean-constructor.md
-│   │   │   │   
-│   │   │   ├── append-arr
-│   │   │   │   ├── arrAppend.js
-│   │   │   │   
-│   │   │   ├── append.js
-│   │   │   ├── array-helpers
-│   │   │   │   ├── array-sum.js
-│   │   │   │   ├── flatten-arrays.js
-│   │   │   │   ├── right.html
-│   │   │   │   ├── sum-of-arr-sums.js
-│   │   │   │   └── swap.js
-│   │   │   ├── array-of-cumulative-partial-sums
-│   │   │   │   ├── partial-sum-arr.js
-│   │   │   │   ├── right.html
-│   │   │   │   └── using-recursion.js
-│   │   │   ├── array-of-nums-in-range
-│   │   │   │   ├── arrayf1toN.js
-│   │   │   │   
-│   │   │   ├── atleast
-│   │   │   │   ├── atLeast.js
-│   │   │   │   
-│   │   │   ├── average
-│   │   │   │   ├── average.js
-│   │   │   │   
-│   │   │   ├── basic-examples
-│   │   │   │   ├── problems
-│   │   │   │   
-│   │   │   ├── chunk
-│   │   │   │   ├── index.js
-│   │   │   │   ├── right.html
-│   │   │   │   └── test.js
-│   │   │   ├── collect.js
-│   │   │   ├── combine.js
-│   │   │   ├── deep-map
-│   │   │   │   ├── deep-map.js
-│   │   │   │   
-│   │   │   ├── difference-between-arrays
-│   │   │   │   ├── array-diff.js
-│   │   │   │   
-│   │   │   ├── flatten
-│   │   │   │   ├── flatten1.html
-│   │   │   │   ├── flatten1.js
-│   │   │   │   ├── flatten1.md
-│   │   │   │   ├── flatten2.html
-│   │   │   │   ├── flatten2.js
-│   │   │   │   ├── flatten2.md
-│   │   │   │   ├── flatten3.js
-│   │   │   │   
-│   │   │   ├── python
-│   │   │   │   ├── right.html
-│   │   │   │   ├── sum-arr-dir
-│   │   │   │   └── sum-avg
-│   │   │   ├── resize-array
-│   │   │   │   ├── recursive-ND-arr-resize.js
-│   │   │   │   
-│   │   │   ├── right.html
-│   │   │   └── stringify-arr
-│   │   │       ├── right.html
-│   │   │       └── stringifyArr.js
-│   │   ├── Binary-Trees
-│   │   │   ├── 105-construct-b-tree
-│   │   │   │   ├── 105-Construct Binary Tree from Preorder and Inorder Traversal.js
-│   │   │   │   ├── 105-redo.js
-│   │   │   │   ├── 105-with comments.html
-│   │   │   │   ├── 105-with comments.md
-│   │   │   │   
-│   │   │   ├── binary-tree-reading.html
-│   │   │   ├── binary-tree-reading.md
-│   │   │   ├── leetcode110-balanced-bin-tree
-│   │   │   │   ├── Balanced Binary Tree - LeetCode.html
-│   │   │   │   ├── Balanced Binary Tree - LeetCode.md
-│   │   │   │   ├── leet_code_110.js
-│   │   │   │   
-│   │   │   ├── levelwidth
-│   │   │   │   ├── index.js
-│   │   │   │   ├── node.js
-│   │   │   │   ├── right.html
-│   │   │   │   └── test.js
-│   │   │   ├── right.html
-│   │   │   └── tree_order_project
-│   │   │       ├── lib
-│   │   │       ├── package-lock.json
-│   │   │       ├── package.json
-│   │   │       ├── right.html
-│   │   │       └── test
-│   │   ├── Dynamic-Programming
-│   │   │   ├── dynamic-time-warping
-│   │   │   │   ├── Dynamic Time Warping.md
-│   │   │   │   ├── doc
-│   │   │   │   ├── index.js
-│   │   │   │   ├── lib
-│   │   │   │   ├── ms
-│   │   │   │   ├── node_modules
-│   │   │   │   ├── package-lock.json
-│   │   │   │   ├── package.json
-│   │   │   │   ├── right.html
-│   │   │   │   └── tests
-│   │   │   ├── popular-problems
-│   │   │   │   ├── ClimbingStairs.js
-│   │   │   │   ├── CoinChange.js
-│   │   │   │   ├── EditDistance.js
-│   │   │   │   ├── FibonacciNumber.js
-│   │   │   │   ├── KadaneAlgo.js
-│   │   │   │   ├── LevenshteinDistance.js
-│   │   │   │   ├── LongestCommonSubsequence.js
-│   │   │   │   ├── LongestIncreasingSubsequence.js
-│   │   │   │   ├── LongestPalindromicSubsequence.js
-│   │   │   │   ├── LongestValidParentheses.js
-│   │   │   │   ├── MaxNonAdjacentSum.js
-│   │   │   │   ├── MinimumCostPath.js
-│   │   │   │   ├── NumberOfSubsetEqualToGivenSum.js
-│   │   │   │   ├── SieveOfEratosthenes.js
-│   │   │   │   ├── SudokuSolver.js
-│   │   │   │   ├── TrappingRainWater.js
-│   │   │   │   ├── ZeroOneKnapsack.js
-│   │   │   │   
-│   │   │   ├── right.html
-│   │   │   └── tabulation_project
-│   │   │       ├── lib
-│   │   │       ├── package-lock.json
-│   │   │       ├── package.json
-│   │   │       ├── right.html
-│   │   │       └── test
-│   │   ├── Fifo-Lifo
-│   │   │   ├── QUEUE_S
-│   │   │   │   
-│   │   │   ├── Queue
-│   │   │   │   ├── Queue.js
-│   │   │   │   ├── QueueUsing2Stacks.js
-│   │   │   │   ├── index.js
-│   │   │   │   ├── qfroms
-│   │   │   │   ├── queue_project
-│   │   │   │   ├── right.html
-│   │   │   │   └── test.js
-│   │   │   ├── STACK_S
-│   │   │   │   ├── Stack
-│   │   │   │   ├── right.html
-│   │   │   │   ├── simple-queue.js
-│   │   │   │   ├── simple-stack.js
-│   │   │   │   ├── stack-array.js
-│   │   │   │   ├── stack.js
-│   │   │   │   ├── stack_project
-│   │   │   │   └── stack_queue_interview_problems
-│   │   │   ├── deque.js
-│   │   │   ├── queue-compact.js
-│   │   │   ├── queue-compact_es6.js
-│   │   │   ├── queue.js
-│   │   │   ├── right.html
-│   │   │   └── weave
-│   │   │       ├── index.js
-│   │   │       ├── queue.js
-│   │   │       ├── right.html
-│   │   │       └── test.js
-│   │   ├── File-System
-│   │   │   ├── file-name-from-path
-│   │   │   │   ├── nameFromPath.js
-│   │   │   │   
-│   │   │   ├── file-utilities
-│   │   │   │   ├── cp.js
-│   │   │   │   ├── file-name-from-path.js
-│   │   │   │   ├── head.js
-│   │   │   │   ├── package-lock.json
-│   │   │   │   ├── package.json
-│   │   │   │   ├── right.html
-│   │   │   │   ├── rm.js
-│   │   │   │   ├── short.txt
-│   │   │   │   ├── touch.js
-│   │   │   │   ├── utils-group.js
-│   │   │   │   └── wc.js
-│   │   │   ├── guessing-game
-│   │   │   │   ├── guessing-game.js
-│   │   │   │   
-│   │   │   ├── is-valid-file-name
-│   │   │   │   ├── right.html
-│   │   │   │   └── vaid-filename.js
-│   │   │   ├── recursive-read-folder
-│   │   │   │   ├── rec-read-dir.js
-│   │   │   │   
-│   │   │   
-│   │   ├── Graphs
-│   │   │   ├── Graph
-│   │   │   │   ├── ConnectedComponents.js
-│   │   │   │   ├── Density.js
-│   │   │   │   ├── DepthFirstSearchIterative.js
-│   │   │   │   ├── DepthFirstSearchRecursive.js
-│   │   │   │   ├── Dijkstra.js
-│   │   │   │   ├── DijkstraSmallestPath.js
-│   │   │   │   ├── KruskalMST.js
-│   │   │   │   ├── NodeNeighbors.js
-│   │   │   │   ├── NumberOfIslands.js
-│   │   │   │   ├── PrimMST.js
-│   │   │   │   ├── basic
-│   │   │   │   
-│   │   │   ├── advanced
-│   │   │   │   ├── Graph.js
-│   │   │   │   
-│   │   │   ├── bonus-graph-project
-│   │   │   │   ├── lib
-│   │   │   │   ├── package-lock.json
-│   │   │   │   ├── package.json
-│   │   │   │   ├── right.html
-│   │   │   │   └── test
-│   │   │   ├── directedGraph.js
-│   │   │   ├── full-implementation.js
-│   │   │   ├── graph_project
-│   │   │   │   ├── lib
-│   │   │   │   ├── package-lock.json
-│   │   │   │   ├── package.json
-│   │   │   │   ├── right.html
-│   │   │   │   └── test
-│   │   │   ├── graphs-intro-solution
-│   │   │   │   ├── package-lock.json
-│   │   │   │   ├── package.json
-│   │   │   │   ├── problems
-│   │   │   │   ├── right.html
-│   │   │   │   └── test
-│   │   │   ├── graphs-solution
-│   │   │   │   ├── package-lock.json
-│   │   │   │   ├── package.json
-│   │   │   │   ├── problems
-│   │   │   │   ├── right.html
-│   │   │   │   └── test
-│   │   │   ├── graphs.html
-│   │   │   ├── graphs.md
-│   │   │   
-│   │   ├── Hash-Table
-│   │   │   ├── advanced
-│   │   │   │   ├── hash-tab.js
-│   │   │   │   
-│   │   │   
-│   │   ├── Heap
-│   │   │   ├── MaxHeap.js
-│   │   │   ├── MinPriorityQueue.js
-│   │   │   
-│   │   ├── Lists
-│   │   │   ├── Linked-List
-│   │   │   │   ├── CycleDetection.js
-│   │   │   │   ├── DoublyLinkedList.js
-│   │   │   │   ├── RotateListRight.js
-│   │   │   │   ├── SingleCircularLinkedList.js.js
-│   │   │   │   ├── SinglyLinkList.js
-│   │   │   │   
-│   │   │   ├── advanced
-│   │   │   │   ├── advancedll.js
-│   │   │   │   ├── linked-list-test.js
-│   │   │   │   
-│   │   │   ├── advanced-linked-list.js
-│   │   │   ├── circular
-│   │   │   │   ├── index.js
-│   │   │   │   ├── linkedlist.js
-│   │   │   │   ├── right.html
-│   │   │   │   └── test.js
-│   │   │   ├── linked_list_interview_problems
-│   │   │   │   ├── lib
-│   │   │   │   ├── package-lock.json
-│   │   │   │   ├── package.json
-│   │   │   │   ├── right.html
-│   │   │   │   └── test
-│   │   │   ├── linked_list_project
-│   │   │   │   ├── lib
-│   │   │   │   ├── right.html
-│   │   │   │   └── test
-│   │   │   ├── linkedlist
-│   │   │   │   ├── directions.html
-│   │   │   │   ├── index.js
-│   │   │   │   ├── right.html
-│   │   │   │   └── test.js
-│   │   │   ├── midpoint
-│   │   │   │   ├── index.js
-│   │   │   │   ├── linkedlist.js
-│   │   │   │   ├── right.html
-│   │   │   │   └── test.js
-│   │   │   ├── right.html
-│   │   │   └── simple-singly-linked-list.js
-│   │   ├── Misc
-│   │   │   ├── console.table
-│   │   │   │   ├── consoleTable.js
-│   │   │   │   
-│   │   │   ├── data-structures-html-spec-runner
-│   │   │   │   ├── lib
-│   │   │   │   ├── right.html
-│   │   │   │   ├── sprint-one
-│   │   │   │   └── sprint-two
-│   │   │   ├── heaps_project
-│   │   │   │   ├── lib
-│   │   │   │   ├── package-lock.json
-│   │   │   │   ├── package.json
-│   │   │   │   ├── right.html
-│   │   │   │   └── test
-│   │   │   ├── is-reserved-wordJS
-│   │   │   │   ├── isreservedES6.js
-│   │   │   │   
-│   │   │   ├── playground.js
-│   │   │   ├── problem-set-1.js
-│   │   │   ├── right.html
-│   │   │   ├── set-utils
-│   │   │   │   ├── check-subset.js
-│   │   │   │   ├── inSet.js
-│   │   │   │   ├── right.html
-│   │   │   │   └── set-intersect.js
-│   │   │   ├── tree
-│   │   │   │   ├── right.html
-│   │   │   │   ├── tree-itterators.js
-│   │   │   │   └── tree.js
-│   │   │   ├── trie_project
-│   │   │   │   ├── lib
-│   │   │   │   ├── package-lock.json
-│   │   │   │   ├── package.json
-│   │   │   │   ├── right.html
-│   │   │   │   └── test
-│   │   │   ├── type-checker
-│   │   │   │   ├── right.html
-│   │   │   │   └── simple-checker.js
-│   │   │   └── whiteboarding
-│   │   │       ├── right.html
-│   │   │       ├── whiteboarding-problems.html
-│   │   │       ├── whiteboarding-problems.md
-│   │   │       ├── whiteboarding-solutions-2.js
-│   │   │       └── whiteboarding-solutions.js
-│   │   ├── Numbers_Math
-│   │   │   ├── C++
-│   │   │   │   ├── right.html
-│   │   │   │   ├── sqroot-table.cxx
-│   │   │   │   └── sqroot.cxx
-│   │   │   ├── base-converter
-│   │   │   │   ├── dec-2-otherBase.js
-│   │   │   │   
-│   │   │   ├── basic-examples
-│   │   │   │   ├── 00-arrow-addfive.js
-│   │   │   │   
-│   │   │   ├── count-steps.js
-│   │   │   ├── euclidean-distance
-│   │   │   │   ├── euclidian-dist.js
-│   │   │   │   
-│   │   │   ├── frequency-pattern.js
-│   │   │   ├── is-prime.js
-│   │   │   ├── isBase
-│   │   │   │   ├── numbase.js
-│   │   │   │   
-│   │   │   ├── reverseint
-│   │   │   │   ├── index.js
-│   │   │   │   ├── right.html
-│   │   │   │   └── test.js
-│   │   │   ├── right.html
-│   │   │   └── xor.js
-│   │   ├── POJOs
-│   │   │   ├── basic-examples
-│   │   │   │   ├── 01-arrow-full-name.js
-│   │   │   │   
-│   │   │   ├── clone
-│   │   │   │   ├── obj-clone.js
-│   │   │   │   
-│   │   │   ├── extend-obj-prop
-│   │   │   │   ├── extend-obj-prop.js
-│   │   │   │   
-│   │   │   ├── obj-utils.js
-│   │   │   ├── obj2Array
-│   │   │   │   ├── arraify-Objs.js
-│   │   │   │   ├── obj2Array.PNG
-│   │   │   │   
-│   │   │   ├── objPropMap
-│   │   │   │   ├── obj-prop-map.js
-│   │   │   │   
-│   │   │   ├── right.html
-│   │   │   ├── utils.html
-│   │   │   └── utils.md
-│   │   ├── Recursion
-│   │   │   ├── My-Recursion-Prac-Website
-│   │   │   │   ├── Recur-website
-│   │   │   │   
-│   │   │   ├── Recursive
-│   │   │   │   ├── BinarySearch.js
-│   │   │   │   ├── EucledianGCD.js
-│   │   │   │   ├── FibonacciNumberRecursive.js
-│   │   │   │   ├── Palindrome.js
-│   │   │   │   ├── TowerOfHanoi.js
-│   │   │   │   ├── factorial.js
-│   │   │   │   ├── min-change.js
-│   │   │   │   
-│   │   │   ├── binary-search
-│   │   │   │   ├── binary-search.java
-│   │   │   │   ├── binary-search.js
-│   │   │   │   
-│   │   │   ├── fibonacci
-│   │   │   │   ├── README.html
-│   │   │   │   ├── README.md
-│   │   │   │   ├── __test__
-│   │   │ 
-```                                        
+This list is heavily inspired from [Grokking the Coding Interview] with
+additional problems extracted from the [Blind 75 list] and this medium article
+on [14 patterns to ace any coding interview question].
 
+[leetcode.com]: https://leetcode.com
+[leetcode premium]: https://leetcode.com/subscribe/
+[this pdf]: https://drive.google.com/open?id=1ao4ZA28zzBttDkuS6MLQI52gDs_CJZEm
+[cracking the coding interview]: http://www.crackingthecodinginterview.com/contents.html
+[here]: https://hackernoon.com/14-patterns-to-ace-any-coding-interview-question-c5bb3357f6ed
+[topcoder]: https://www.topcoder.com/community/competitive-programming/tutorials/dynamic-programming-from-novice-to-advanced/
+[back to back swe youtube channel]: https://www.youtube.com/watch?v=jgiZlGzXMBw
+[solutions]: https://github.com/SeanPrashad/leetcode-patterns/tree/solutions
+[leetcode discuss]: https://leetcode.com/discuss/interview-question
+[grokking the coding interview]: https://www.educative.io/courses/grokking-the-coding-interview
+[issue]: https://github.com/SeanPrashad/leetcode-patterns/issues/new
+[blind 75 list]: https://www.teamblind.com/article/New-Year-Gift---Curated-List-of-Top-100-LeetCode-Questions-to-Save-Your-Time-OaM1orEU?utm_source=share&utm_medium=ios_app
+[14 patterns to ace any coding interview question]: https://hackernoon.com/14-patterns-to-ace-any-coding-interview-question-c5bb3357f6ed                                                                ---
+Difficulty: Medium
+Related Topics:
+  "Linked List": https://leetcode.com/tag/linked-list
+  "Math": https://leetcode.com/tag/math
+Similar Questions:
+  "Multiply Strings": https://leetcode.com/problems/multiply-strings
+  "Add Binary": https://leetcode.com/problems/add-binary
+  "Sum of Two Integers": https://leetcode.com/problems/sum-of-two-integers
+  "Add Strings": https://leetcode.com/problems/add-strings
+  "Add Two Numbers II": https://leetcode.com/problems/add-two-numbers-ii
 ---
 
-
-[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#2-add-two-numbershttpsleetcodecomproblemsadd-two-numbersdescription)
-
-## ➤ [2. Add Two Numbers](https://leetcode.com/problems/add-two-numbers/description/)
+## [2. Add Two Numbers](https://leetcode.com/problems/add-two-numbers/description/)
 
 ### Problem:
 
@@ -1647,23 +2157,17 @@ let addTwoNumbers = function(l1, l2) {
 };
 ```
 
-
-
+*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
 
 ---
-
 Difficulty: Hard
 Related Topics:
   "Array": https://leetcode.com/tag/array
   "Binary Search": https://leetcode.com/tag/binary-search
   "Divide and Conquer": https://leetcode.com/tag/divide-and-conquer
-
 ---
 
-
-[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#4-median-of-two-sorted-arrayshttpsleetcodecomproblemsmedian-of-two-sorted-arraysdescription)
-
-## ➤ [4. Median of Two Sorted Arrays](https://leetcode.com/problems/median-of-two-sorted-arrays/description/)
+## [4. Median of Two Sorted Arrays](https://leetcode.com/problems/median-of-two-sorted-arrays/description/)
 
 ### Problem:
 
@@ -1766,21 +2270,15 @@ function _find (nums1, nums2, k) {
 };
 ```
 
-
-
+*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
 
 ---
-
 Difficulty: Medium
 Related Topics:
   "String": https://leetcode.com/tag/string
-
 ---
 
-
-[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#6-zigzag-conversionhttpsleetcodecomproblemszigzag-conversiondescription)
-
-## ➤ [6. ZigZag Conversion](https://leetcode.com/problems/zigzag-conversion/description/)
+## [6. ZigZag Conversion](https://leetcode.com/problems/zigzag-conversion/description/)
 
 ### Problem:
 
@@ -1898,23 +2396,17 @@ let convert = function(s, numRows) {
 };
 ```
 
-
-
+*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
 
 ---
-
 Difficulty: Easy
 Related Topics:
   "Math": https://leetcode.com/tag/math
 Similar Questions:
   "String to Integer (atoi)": https://leetcode.com/problems/string-to-integer-atoi
-
 ---
 
-
-[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#7-reverse-integerhttpsleetcodecomproblemsreverse-integerdescription)
-
-## ➤ [7. Reverse Integer](https://leetcode.com/problems/reverse-integer/description/)
+## [7. Reverse Integer](https://leetcode.com/problems/reverse-integer/description/)
 
 ### Problem:
 
@@ -1982,11 +2474,9 @@ let reverse = function(x) {
 ```
 
 
-
-
+*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
 
 ---
-
 Difficulty: Medium
 Related Topics:
   "Math": https://leetcode.com/tag/math
@@ -1994,13 +2484,9 @@ Related Topics:
 Similar Questions:
   "Reverse Integer": https://leetcode.com/problems/reverse-integer
   "Valid Number": https://leetcode.com/problems/valid-number
-
 ---
 
-
-[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#8-string-to-integer-atoihttpsleetcodecomproblemsstring-to-integer-atoidescription)
-
-## ➤ [8. String to Integer (atoi)](https://leetcode.com/problems/string-to-integer-atoi/description/)
+## [8. String to Integer (atoi)](https://leetcode.com/problems/string-to-integer-atoi/description/)
 
 ### Problem:
 
@@ -2130,23 +2616,17 @@ let myAtoi = function (str) {
 };
 ```
 
-
-
+*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
 
 ---
-
 Difficulty: Easy
 Related Topics:
   "Math": https://leetcode.com/tag/math
 Similar Questions:
   "Palindrome Linked List": https://leetcode.com/problems/palindrome-linked-list
-
 ---
 
-
-[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#9-palindrome-numberhttpsleetcodecomproblemspalindrome-numberdescription)
-
-## ➤ [9. Palindrome Number](https://leetcode.com/problems/palindrome-number/description/)
+## [9. Palindrome Number](https://leetcode.com/problems/palindrome-number/description/)
 
 ### Problem:
 
@@ -2244,11 +2724,9 @@ function reverse (x) {
 ```
 
 
-
-
+*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
 
 ---
-
 Difficulty: Hard
 Related Topics:
   "String": https://leetcode.com/tag/string
@@ -2256,13 +2734,9 @@ Related Topics:
   "Backtracking": https://leetcode.com/tag/backtracking
 Similar Questions:
   "Wildcard Matching": https://leetcode.com/problems/wildcard-matching
-
 ---
 
-
-[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#10-regular-expression-matchinghttpsleetcodecomproblemsregular-expression-matchingdescription)
-
-## ➤ [10. Regular Expression Matching](https://leetcode.com/problems/regular-expression-matching/description/)
+## [10. Regular Expression Matching](https://leetcode.com/problems/regular-expression-matching/description/)
 
 ### Problem:
 
@@ -2407,24 +2881,18 @@ let isMatch = function(s, p) {
 ```
 
 
-
-
+*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
 
 ---
-
 Difficulty: Medium
 Related Topics:
   "Array": https://leetcode.com/tag/array
   "Two Pointers": https://leetcode.com/tag/two-pointers
 Similar Questions:
   "Trapping Rain Water": https://leetcode.com/problems/trapping-rain-water
-
 ---
 
-
-[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#11-container-with-most-waterhttpsleetcodecomproblemscontainer-with-most-waterdescription)
-
-## ➤ [11. Container With Most Water](https://leetcode.com/problems/container-with-most-water/description/)
+## [11. Container With Most Water](https://leetcode.com/problems/container-with-most-water/description/)
 
 ### Problem:
 
@@ -2467,11 +2935,9 @@ let maxArea = function (height) {
 };
 ```
 
-
-
+*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
 
 ---
-
 Difficulty: Medium
 Related Topics:
   "Math": https://leetcode.com/tag/math
@@ -2479,13 +2945,9 @@ Related Topics:
 Similar Questions:
   "Roman to Integer": https://leetcode.com/problems/roman-to-integer
   "Integer to English Words": https://leetcode.com/problems/integer-to-english-words
-
 ---
 
-
-[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#12-integer-to-romanhttpsleetcodecomproblemsinteger-to-romandescription)
-
-## ➤ [12. Integer to Roman](https://leetcode.com/problems/integer-to-roman/description/)
+## [12. Integer to Roman](https://leetcode.com/problems/integer-to-roman/description/)
 
 ### Problem:
 
@@ -2576,24 +3038,18 @@ let intToRoman = function(num) {
 ```
 
 
-
-
+*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
 
 ---
-
 Difficulty: Easy
 Related Topics:
   "Math": https://leetcode.com/tag/math
   "String": https://leetcode.com/tag/string
 Similar Questions:
   "Integer to Roman": https://leetcode.com/problems/integer-to-roman
-
 ---
 
-
-[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#13-roman-to-integerhttpsleetcodecomproblemsroman-to-integerdescription)
-
-## ➤ [13. Roman to Integer](https://leetcode.com/problems/roman-to-integer/description/)
+## [13. Roman to Integer](https://leetcode.com/problems/roman-to-integer/description/)
 
 ### Problem:
 
@@ -2688,21 +3144,15 @@ let romanToInt = function (s) {
 ```
 
 
-
-
+*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
 
 ---
-
 Difficulty: Easy
 Related Topics:
   "String": https://leetcode.com/tag/string
-
 ---
 
-
-[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#14-longest-common-prefixhttpsleetcodecomproblemslongest-common-prefixdescription)
-
-## ➤ [14. Longest Common Prefix](https://leetcode.com/problems/longest-common-prefix/description/)
+## [14. Longest Common Prefix](https://leetcode.com/problems/longest-common-prefix/description/)
 
 ### Problem:
 
@@ -2800,11 +3250,9 @@ let longestCommonPrefix = function (strs) {
 };
 ```
 
-
-
+*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
 
 ---
-
 Difficulty: Medium
 Related Topics:
   "Array": https://leetcode.com/tag/array
@@ -2814,13 +3262,9 @@ Similar Questions:
   "3Sum Closest": https://leetcode.com/problems/3sum-closest
   "4Sum": https://leetcode.com/problems/4sum
   "3Sum Smaller": https://leetcode.com/problems/3sum-smaller
-
 ---
 
-
-[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#15-3sumhttpsleetcodecomproblems3sumdescription)
-
-## ➤ [15. 3Sum](https://leetcode.com/problems/3sum/description/)
+## [15. 3Sum](https://leetcode.com/problems/3sum/description/)
 
 ### Problem:
 
@@ -2900,11 +3344,9 @@ let threeSum = function (nums) {
 };
 ```
 
-
-
+*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
 
 ---
-
 Difficulty: Medium
 Related Topics:
   "Array": https://leetcode.com/tag/array
@@ -2912,13 +3354,9 @@ Related Topics:
 Similar Questions:
   "3Sum": https://leetcode.com/problems/3sum
   "3Sum Smaller": https://leetcode.com/problems/3sum-smaller
-
 ---
 
-
-[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#16-3sum-closesthttpsleetcodecomproblems3sum-closestdescription)
-
-## ➤ [16. 3Sum Closest](https://leetcode.com/problems/3sum-closest/description/)
+## [16. 3Sum Closest](https://leetcode.com/problems/3sum-closest/description/)
 
 ### Problem:
 
@@ -2977,11 +3415,9 @@ let threeSumClosest = function(nums, target) {
 };
 ```
 
-
-
+*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
 
 ---
-
 Difficulty: Medium
 Related Topics:
   "String": https://leetcode.com/tag/string
@@ -2990,13 +3426,9 @@ Similar Questions:
   "Generate Parentheses": https://leetcode.com/problems/generate-parentheses
   "Combination Sum": https://leetcode.com/problems/combination-sum
   "Binary Watch": https://leetcode.com/problems/binary-watch
-
 ---
 
-
-[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#17-letter-combinations-of-a-phone-numberhttpsleetcodecomproblemsletter-combinations-of-a-phone-numberdescription)
-
-## ➤ [17. Letter Combinations of a Phone Number](https://leetcode.com/problems/letter-combinations-of-a-phone-number/description/)
+## [17. Letter Combinations of a Phone Number](https://leetcode.com/problems/letter-combinations-of-a-phone-number/description/)
 
 ### Problem:
 
@@ -3092,11 +3524,9 @@ function dfs (digits, idigit, path, letters, result) {
 ```
 
 
-
-
+*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
 
 ---
-
 Difficulty: Medium
 Related Topics:
   "Array": https://leetcode.com/tag/array
@@ -3106,13 +3536,9 @@ Similar Questions:
   "Two Sum": https://leetcode.com/problems/two-sum
   "3Sum": https://leetcode.com/problems/3sum
   "4Sum II": https://leetcode.com/problems/4sum-ii
-
 ---
 
-
-[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#18-4sumhttpsleetcodecomproblems4sumdescription)
-
-## ➤ [18. 4Sum](https://leetcode.com/problems/4sum/description/)
+## [18. 4Sum](https://leetcode.com/problems/4sum/description/)
 
 ### Problem:
 
@@ -3184,22 +3610,16 @@ let fourSum = function(nums, target) {
 ```
 
 
-
-
+*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
 
 ---
-
 Difficulty: Medium
 Related Topics:
   "Linked List": https://leetcode.com/tag/linked-list
   "Two Pointers": https://leetcode.com/tag/two-pointers
-
 ---
 
-
-[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#19-remove-nth-node-from-end-of-listhttpsleetcodecomproblemsremove-nth-node-from-end-of-listdescription)
-
-## ➤ [19. Remove Nth Node From End of List](https://leetcode.com/problems/remove-nth-node-from-end-of-list/description/)
+## [19. Remove Nth Node From End of List](https://leetcode.com/problems/remove-nth-node-from-end-of-list/description/)
 
 ### Problem:
 
@@ -3265,11 +3685,9 @@ let removeNthFromEnd = function(head, n) {
 ```
 
 
-
-
+*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
 
 ---
-
 Difficulty: Easy
 Related Topics:
   "String": https://leetcode.com/tag/string
@@ -3278,13 +3696,9 @@ Similar Questions:
   "Generate Parentheses": https://leetcode.com/problems/generate-parentheses
   "Longest Valid Parentheses": https://leetcode.com/problems/longest-valid-parentheses
   "Remove Invalid Parentheses": https://leetcode.com/problems/remove-invalid-parentheses
-
 ---
 
-
-[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#20-valid-parentheseshttpsleetcodecomproblemsvalid-parenthesesdescription)
-
-## ➤ [20. Valid Parentheses](https://leetcode.com/problems/valid-parentheses/description/)
+## [20. Valid Parentheses](https://leetcode.com/problems/valid-parentheses/description/)
 
 ### Problem:
 
@@ -3369,11 +3783,9 @@ let isValid = function(s) {
 ```
 
 
-
-
+*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
 
 ---
-
 Difficulty: Easy
 Related Topics:
   "Linked List": https://leetcode.com/tag/linked-list
@@ -3382,13 +3794,9 @@ Similar Questions:
   "Merge Sorted Array": https://leetcode.com/problems/merge-sorted-array
   "Sort List": https://leetcode.com/problems/sort-list
   "Shortest Word Distance II": https://leetcode.com/problems/shortest-word-distance-ii
-
 ---
 
-
-[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#21-merge-two-sorted-listshttpsleetcodecomproblemsmerge-two-sorted-listsdescription)
-
-## ➤ [21. Merge Two Sorted Lists](https://leetcode.com/problems/merge-two-sorted-lists/description/)
+## [21. Merge Two Sorted Lists](https://leetcode.com/problems/merge-two-sorted-lists/description/)
 
 ### Problem:
 
@@ -3444,11 +3852,9 @@ let mergeTwoLists = function(l1, l2) {
 ```
 
 
-
-
+*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
 
 ---
-
 Difficulty: Medium
 Related Topics:
   "String": https://leetcode.com/tag/string
@@ -3456,13 +3862,9 @@ Related Topics:
 Similar Questions:
   "Letter Combinations of a Phone Number": https://leetcode.com/problems/letter-combinations-of-a-phone-number
   "Valid Parentheses": https://leetcode.com/problems/valid-parentheses
-
 ---
 
-
-[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#22-generate-parentheseshttpsleetcodecomproblemsgenerate-parenthesesdescription)
-
-## ➤ [22. Generate Parentheses](https://leetcode.com/problems/generate-parentheses/description/)
+## [22. Generate Parentheses](https://leetcode.com/problems/generate-parentheses/description/)
 
 ### Problem:
 
@@ -3470,7 +3872,7 @@ Given n pairs of parentheses, write a function to generate all combinations of w
 
 For example, given n = 3, a solution set is:
 
-```js
+```
 [
   "((()))",
   "(()())",
@@ -3561,11 +3963,9 @@ let generateParenthesis = function(n) {
 };
 ```
 
-
-
+*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
 
 ---
-
 Difficulty: Hard
 Related Topics:
   "Linked List": https://leetcode.com/tag/linked-list
@@ -3574,13 +3974,9 @@ Related Topics:
 Similar Questions:
   "Merge Two Sorted Lists": https://leetcode.com/problems/merge-two-sorted-lists
   "Ugly Number II": https://leetcode.com/problems/ugly-number-ii
-
 ---
 
-
-[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#23-merge-k-sorted-listshttpsleetcodecomproblemsmerge-k-sorted-listsdescription)
-
-## ➤ [23. Merge k Sorted Lists](https://leetcode.com/problems/merge-k-sorted-lists/description/)
+## [23. Merge k Sorted Lists](https://leetcode.com/problems/merge-k-sorted-lists/description/)
 
 ### Problem:
 
@@ -3674,23 +4070,17 @@ function mergeTwoLists (l1, l2) {
 ```
 
 
-
-
+*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
 
 ---
-
 Difficulty: Medium
 Related Topics:
   "Linked List": https://leetcode.com/tag/linked-list
 Similar Questions:
   "Reverse Nodes in k-Group": https://leetcode.com/problems/reverse-nodes-in-k-group
-
 ---
 
-
-[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#24-swap-nodes-in-pairshttpsleetcodecomproblemsswap-nodes-in-pairsdescription)
-
-## ➤ [24. Swap Nodes in Pairs](https://leetcode.com/problems/swap-nodes-in-pairs/description/)
+## [24. Swap Nodes in Pairs](https://leetcode.com/problems/swap-nodes-in-pairs/description/)
 
 ### Problem:
 
@@ -3741,23 +4131,17 @@ let swapPairs = function(head) {
 ```
 
 
-
-
+*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
 
 ---
-
 Difficulty: Hard
 Related Topics:
   "Linked List": https://leetcode.com/tag/linked-list
 Similar Questions:
   "Swap Nodes in Pairs": https://leetcode.com/problems/swap-nodes-in-pairs
-
 ---
 
-
-[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#25-reverse-nodes-in-k-grouphttpsleetcodecomproblemsreverse-nodes-in-k-groupdescription)
-
-## ➤ [25. Reverse Nodes in k-Group](https://leetcode.com/problems/reverse-nodes-in-k-group/description/)
+## [25. Reverse Nodes in k-Group](https://leetcode.com/problems/reverse-nodes-in-k-group/description/)
 
 ### Problem:
 
@@ -3835,11 +4219,9 @@ function reverseLinkList (head, nullNode = null) {
 ```
 
 
-
-
+*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
 
 ---
-
 Difficulty: Easy
 Related Topics:
   "Array": https://leetcode.com/tag/array
@@ -3847,13 +4229,9 @@ Related Topics:
 Similar Questions:
   "Remove Element": https://leetcode.com/problems/remove-element
   "Remove Duplicates from Sorted Array II": https://leetcode.com/problems/remove-duplicates-from-sorted-array-ii
-
 ---
 
-
-[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#26-remove-duplicates-from-sorted-arrayhttpsleetcodecomproblemsremove-duplicates-from-sorted-arraydescription)
-
-## ➤ [26. Remove Duplicates from Sorted Array](https://leetcode.com/problems/remove-duplicates-from-sorted-array/description/)
+## [26. Remove Duplicates from Sorted Array](https://leetcode.com/problems/remove-duplicates-from-sorted-array/description/)
 
 ### Problem:
 
@@ -3921,11 +4299,9 @@ let removeDuplicates = function(nums) {
 ```
 
 
-
-
+*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
 
 ---
-
 Difficulty: Easy
 Related Topics:
   "Array": https://leetcode.com/tag/array
@@ -3934,13 +4310,9 @@ Similar Questions:
   "Remove Duplicates from Sorted Array": https://leetcode.com/problems/remove-duplicates-from-sorted-array
   "Remove Linked List Elements": https://leetcode.com/problems/remove-linked-list-elements
   "Move Zeroes": https://leetcode.com/problems/move-zeroes
-
 ---
 
-
-[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#27-remove-elementhttpsleetcodecomproblemsremove-elementdescription)
-
-## ➤ [27. Remove Element](https://leetcode.com/problems/remove-element/description/)
+## [27. Remove Element](https://leetcode.com/problems/remove-element/description/)
 
 ### Problem:
 
@@ -4013,22 +4385,16 @@ let removeElement = function(nums, val) {
 ```
 
 
-
-
+*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
 
 ---
-
 Difficulty: Medium
 Related Topics:
   "Math": https://leetcode.com/tag/math
   "Binary Search": https://leetcode.com/tag/binary-search
-
 ---
 
-
-[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#29-divide-two-integershttpsleetcodecomproblemsdivide-two-integersdescription)
-
-## ➤ [29. Divide Two Integers](https://leetcode.com/problems/divide-two-integers/description/)
+## [29. Divide Two Integers](https://leetcode.com/problems/divide-two-integers/description/)
 
 ### Problem:
 
@@ -4102,11 +4468,9 @@ let divide = function(dividend, divisor) {
 ```
 
 
-
-
+*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
 
 ---
-
 Difficulty: Medium
 Related Topics:
   "Array": https://leetcode.com/tag/array
@@ -4115,13 +4479,9 @@ Similar Questions:
   "Permutations II": https://leetcode.com/problems/permutations-ii
   "Permutation Sequence": https://leetcode.com/problems/permutation-sequence
   "Palindrome Permutation II": https://leetcode.com/problems/palindrome-permutation-ii
-
 ---
 
-
-[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#31-next-permutationhttpsleetcodecomproblemsnext-permutationdescription)
-
-## ➤ [31. Next Permutation](https://leetcode.com/problems/next-permutation/description/)
+## [31. Next Permutation](https://leetcode.com/problems/next-permutation/description/)
 
 ### Problem:
 
@@ -4185,11 +4545,9 @@ let nextPermutation = function(nums) {
 ```
 
 
-
-
+*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
 
 ---
-
 Difficulty: Medium
 Related Topics:
   "Array": https://leetcode.com/tag/array
@@ -4197,13 +4555,9 @@ Related Topics:
 Similar Questions:
   "Search in Rotated Sorted Array II": https://leetcode.com/problems/search-in-rotated-sorted-array-ii
   "Find Minimum in Rotated Sorted Array": https://leetcode.com/problems/find-minimum-in-rotated-sorted-array
-
 ---
 
-
-[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#33-search-in-rotated-sorted-arrayhttpsleetcodecomproblemssearch-in-rotated-sorted-arraydescription)
-
-## ➤ [33. Search in Rotated Sorted Array](https://leetcode.com/problems/search-in-rotated-sorted-array/description/)
+## [33. Search in Rotated Sorted Array](https://leetcode.com/problems/search-in-rotated-sorted-array/description/)
 
 ### Problem:
 
@@ -4287,24 +4641,18 @@ let search = function(nums, target) {
 };
 ```
 
-
-
+*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
 
 ---
-
 Difficulty: Medium
 Related Topics:
   "Array": https://leetcode.com/tag/array
   "Binary Search": https://leetcode.com/tag/binary-search
 Similar Questions:
   "First Bad Version": https://leetcode.com/problems/first-bad-version
-
 ---
 
-
-[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#34-find-first-and-last-position-of-element-in-sorted-arrayhttpsleetcodecomproblemsfind-first-and-last-position-of-element-in-sorted-arraydescription)
-
-## ➤ [34. Find First and Last Position of Element in Sorted Array](https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array/description/)
+## [34. Find First and Last Position of Element in Sorted Array](https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array/description/)
 
 ### Problem:
 
@@ -4395,24 +4743,18 @@ function searchLast (nums, target, s, e) {
 ```
 
 
-
-
+*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
 
 ---
-
 Difficulty: Easy
 Related Topics:
   "Array": https://leetcode.com/tag/array
   "Binary Search": https://leetcode.com/tag/binary-search
 Similar Questions:
   "First Bad Version": https://leetcode.com/problems/first-bad-version
-
 ---
 
-
-[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#35-search-insert-positionhttpsleetcodecomproblemssearch-insert-positiondescription)
-
-## ➤ [35. Search Insert Position](https://leetcode.com/problems/search-insert-position/description/)
+## [35. Search Insert Position](https://leetcode.com/problems/search-insert-position/description/)
 
 ### Problem:
 
@@ -4479,23 +4821,17 @@ let searchInsert = function(nums, target) {
 ```
 
 
-
-
+*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
 
 ---
-
 Difficulty: Medium
 Related Topics:
   "Hash Table": https://leetcode.com/tag/hash-table
 Similar Questions:
   "Sudoku Solver": https://leetcode.com/problems/sudoku-solver
-
 ---
 
-
-[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#36-valid-sudokuhttpsleetcodecomproblemsvalid-sudokudescription)
-
-## ➤ [36. Valid Sudoku](https://leetcode.com/problems/valid-sudoku/description/)
+## [36. Valid Sudoku](https://leetcode.com/problems/valid-sudoku/description/)
 
 ### Problem:
 
@@ -4599,24 +4935,18 @@ let isValidSudoku = function(board) {
 ```
 
 
-
-
+*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
 
 ---
-
 Difficulty: Hard
 Related Topics:
   "Hash Table": https://leetcode.com/tag/hash-table
   "Backtracking": https://leetcode.com/tag/backtracking
 Similar Questions:
   "Valid Sudoku": https://leetcode.com/problems/valid-sudoku
-
 ---
 
-
-[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#37-sudoku-solverhttpsleetcodecomproblemssudoku-solverdescription)
-
-## ➤ [37. Sudoku Solver](https://leetcode.com/problems/sudoku-solver/description/)
+## [37. Sudoku Solver](https://leetcode.com/problems/sudoku-solver/description/)
 
 ### Problem:
 
@@ -4714,24 +5044,18 @@ function dfs (board, col, row, sub, pos) {
 ```
 
 
-
-
+*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
 
 ---
-
 Difficulty: Easy
 Related Topics:
   "String": https://leetcode.com/tag/string
 Similar Questions:
   "Encode and Decode Strings": https://leetcode.com/problems/encode-and-decode-strings
   "String Compression": https://leetcode.com/problems/string-compression
-
 ---
 
-
-[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#38-count-and-sayhttpsleetcodecomproblemscount-and-saydescription)
-
-## ➤ [38. Count and Say](https://leetcode.com/problems/count-and-say/description/)
+## [38. Count and Say](https://leetcode.com/problems/count-and-say/description/)
 
 ### Problem:
 
@@ -4819,11 +5143,9 @@ let countAndSay = function(n) {
 ```
 
 
-
-
+*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
 
 ---
-
 Difficulty: Medium
 Related Topics:
   "Array": https://leetcode.com/tag/array
@@ -4835,13 +5157,9 @@ Similar Questions:
   "Combination Sum III": https://leetcode.com/problems/combination-sum-iii
   "Factor Combinations": https://leetcode.com/problems/factor-combinations
   "Combination Sum IV": https://leetcode.com/problems/combination-sum-iv
-
 ---
 
-
-[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#39-combination-sumhttpsleetcodecomproblemscombination-sumdescription)
-
-## ➤ [39. Combination Sum](https://leetcode.com/problems/combination-sum/description/)
+## [39. Combination Sum](https://leetcode.com/problems/combination-sum/description/)
 
 ### Problem:
 
@@ -4916,24 +5234,18 @@ function dfs (candidates, target, result, path, start) {
 
 
 
-
-
+*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
 
 ---
-
 Difficulty: Medium
 Related Topics:
   "Array": https://leetcode.com/tag/array
   "Backtracking": https://leetcode.com/tag/backtracking
 Similar Questions:
   "Combination Sum": https://leetcode.com/problems/combination-sum
-
 ---
 
-
-[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#40-combination-sum-iihttpsleetcodecomproblemscombination-sum-iidescription)
-
-## ➤ [40. Combination Sum II](https://leetcode.com/problems/combination-sum-ii/description/)
+## [40. Combination Sum II](https://leetcode.com/problems/combination-sum-ii/description/)
 
 ### Problem:
 
@@ -5018,11 +5330,9 @@ function dfs (candidates, target, result, path, start) {
 ```
 
 
-
-
+*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
 
 ---
-
 Difficulty: Hard
 Related Topics:
   "Array": https://leetcode.com/tag/array
@@ -5031,13 +5341,9 @@ Similar Questions:
   "Find the Duplicate Number": https://leetcode.com/problems/find-the-duplicate-number
   "Find All Numbers Disappeared in an Array": https://leetcode.com/problems/find-all-numbers-disappeared-in-an-array
   "Couples Holding Hands": https://leetcode.com/problems/couples-holding-hands
-
 ---
 
-
-[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#41-first-missing-positivehttpsleetcodecomproblemsfirst-missing-positivedescription)
-
-## ➤ [41. First Missing Positive](https://leetcode.com/problems/first-missing-positive/description/)
+## [41. First Missing Positive](https://leetcode.com/problems/first-missing-positive/description/)
 
 ### Problem:
 
@@ -5110,11 +5416,9 @@ let firstMissingPositive = function(nums) {
 };
 ```
 
-
-
+*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
 
 ---
-
 Difficulty: Hard
 Related Topics:
   "Array": https://leetcode.com/tag/array
@@ -5125,13 +5429,9 @@ Similar Questions:
   "Product of Array Except Self": https://leetcode.com/problems/product-of-array-except-self
   "Trapping Rain Water II": https://leetcode.com/problems/trapping-rain-water-ii
   "Pour Water": https://leetcode.com/problems/pour-water
-
 ---
 
-
-[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#42-trapping-rain-waterhttpsleetcodecomproblemstrapping-rain-waterdescription)
-
-## ➤ [42. Trapping Rain Water](https://leetcode.com/problems/trapping-rain-water/description/)
+## [42. Trapping Rain Water](https://leetcode.com/problems/trapping-rain-water/description/)
 
 ### Problem:
 
@@ -5187,11 +5487,9 @@ let trap = function(height) {
 };
 ```
 
-
-
+*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
 
 ---
-
 Difficulty: Medium
 Related Topics:
   "Math": https://leetcode.com/tag/math
@@ -5201,13 +5499,9 @@ Similar Questions:
   "Plus One": https://leetcode.com/problems/plus-one
   "Add Binary": https://leetcode.com/problems/add-binary
   "Add Strings": https://leetcode.com/problems/add-strings
-
 ---
 
-
-[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#43-multiply-stringshttpsleetcodecomproblemsmultiply-stringsdescription)
-
-## ➤ [43. Multiply Strings](https://leetcode.com/problems/multiply-strings/description/)
+## [43. Multiply Strings](https://leetcode.com/problems/multiply-strings/description/)
 
 ### Problem:
 
@@ -5260,24 +5554,18 @@ let multiply = function(num1, num2) {
 ```
 
 
-
-
+*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
 
 ---
-
 Difficulty: Hard
 Related Topics:
   "Array": https://leetcode.com/tag/array
   "Greedy": https://leetcode.com/tag/greedy
 Similar Questions:
   "Jump Game": https://leetcode.com/problems/jump-game
-
 ---
 
-
-[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#45-jump-game-iihttpsleetcodecomproblemsjump-game-iidescription)
-
-## ➤ [45. Jump Game II](https://leetcode.com/problems/jump-game-ii/description/)
+## [45. Jump Game II](https://leetcode.com/problems/jump-game-ii/description/)
 
 ### Problem:
 
@@ -5328,11 +5616,9 @@ let jump = function(nums) {
 ```
 
 
-
-
+*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
 
 ---
-
 Difficulty: Medium
 Related Topics:
   "Backtracking": https://leetcode.com/tag/backtracking
@@ -5341,13 +5627,9 @@ Similar Questions:
   "Permutations II": https://leetcode.com/problems/permutations-ii
   "Permutation Sequence": https://leetcode.com/problems/permutation-sequence
   "Combinations": https://leetcode.com/problems/combinations
-
 ---
 
-
-[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#46-permutationshttpsleetcodecomproblemspermutationsdescription)
-
-## ➤ [46. Permutations](https://leetcode.com/problems/permutations/description/)
+## [46. Permutations](https://leetcode.com/problems/permutations/description/)
 
 ### Problem:
 
@@ -5404,11 +5686,9 @@ function _permute (nums, start, result) {
 ```
 
 
-
-
+*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
 
 ---
-
 Difficulty: Medium
 Related Topics:
   "Backtracking": https://leetcode.com/tag/backtracking
@@ -5416,13 +5696,9 @@ Similar Questions:
   "Next Permutation": https://leetcode.com/problems/next-permutation
   "Permutations": https://leetcode.com/problems/permutations
   "Palindrome Permutation II": https://leetcode.com/problems/palindrome-permutation-ii
-
 ---
 
-
-[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#47-permutations-iihttpsleetcodecomproblemspermutations-iidescription)
-
-## ➤ [47. Permutations II](https://leetcode.com/problems/permutations-ii/description/)
+## [47. Permutations II](https://leetcode.com/problems/permutations-ii/description/)
 
 ### Problem:
 
@@ -5483,21 +5759,15 @@ function _permuteUnique (nums, start, result) {
 ```
 
 
-
-
+*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
 
 ---
-
 Difficulty: Medium
 Related Topics:
   "Array": https://leetcode.com/tag/array
-
 ---
 
-
-[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#48-rotate-imagehttpsleetcodecomproblemsrotate-imagedescription)
-
-## ➤ [48. Rotate Image](https://leetcode.com/problems/rotate-image/description/)
+## [48. Rotate Image](https://leetcode.com/problems/rotate-image/description/)
 
 ### Problem:
 
@@ -5578,11 +5848,9 @@ let rotate = function(matrix) {
 ```
 
 
-
-
+*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
 
 ---
-
 Difficulty: Medium
 Related Topics:
   "Hash Table": https://leetcode.com/tag/hash-table
@@ -5590,13 +5858,9 @@ Related Topics:
 Similar Questions:
   "Valid Anagram": https://leetcode.com/problems/valid-anagram
   "Group Shifted Strings": https://leetcode.com/problems/group-shifted-strings
-
 ---
 
-
-[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#49-group-anagramshttpsleetcodecomproblemsgroup-anagramsdescription)
-
-## ➤ [49. Group Anagrams](https://leetcode.com/problems/group-anagrams/description/)
+## [49. Group Anagrams](https://leetcode.com/problems/group-anagrams/description/)
 
 ### Problem:
 
@@ -5670,11 +5934,9 @@ let groupAnagrams = function(strs) {
 ```
 
 
-
-
+*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
 
 ---
-
 Difficulty: Medium
 Related Topics:
   "Math": https://leetcode.com/tag/math
@@ -5682,13 +5944,9 @@ Related Topics:
 Similar Questions:
   "Sqrt(x)": https://leetcode.com/problems/sqrtx
   "Super Pow": https://leetcode.com/problems/super-pow
-
 ---
 
-
-[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#50-powx-nhttpsleetcodecomproblemspowx-ndescription)
-
-## ➤ [50. Pow(x, n)](https://leetcode.com/problems/powx-n/description/)
+## [50. Pow(x, n)](https://leetcode.com/problems/powx-n/description/)
 
 ### Problem:
 
@@ -5755,23 +6013,17 @@ let myPow = function(x, n) {
 ```
 
 
-
-
+*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
 
 ---
-
 Difficulty: Hard
 Related Topics:
   "Backtracking": https://leetcode.com/tag/backtracking
 Similar Questions:
   "N-Queens II": https://leetcode.com/problems/n-queens-ii
-
 ---
 
-
-[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#51-n-queenshttpsleetcodecomproblemsn-queensdescription)
-
-## ➤ [51. N-Queens](https://leetcode.com/problems/n-queens/description/)
+## [51. N-Queens](https://leetcode.com/problems/n-queens/description/)
 
 ### Problem:
 
@@ -5919,23 +6171,17 @@ function _genBoard (queens) {
 };
 ```
 
-
-
+*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
 
 ---
-
 Difficulty: Hard
 Related Topics:
   "Backtracking": https://leetcode.com/tag/backtracking
 Similar Questions:
   "N-Queens": https://leetcode.com/problems/n-queens
-
 ---
 
-
-[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#52-n-queens-iihttpsleetcodecomproblemsn-queens-iidescription)
-
-## ➤ [52. N-Queens II](https://leetcode.com/problems/n-queens-ii/description/)
+## [52. N-Queens II](https://leetcode.com/problems/n-queens-ii/description/)
 
 ### Problem:
 
@@ -6013,11 +6259,9 @@ function _testDiagonal(queens, iStart) {
 ```
 
 
-
-
+*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
 
 ---
-
 Difficulty: Easy
 Related Topics:
   "Array": https://leetcode.com/tag/array
@@ -6027,13 +6271,9 @@ Similar Questions:
   "Best Time to Buy and Sell Stock": https://leetcode.com/problems/best-time-to-buy-and-sell-stock
   "Maximum Product Subarray": https://leetcode.com/problems/maximum-product-subarray
   "Degree of an Array": https://leetcode.com/problems/degree-of-an-array
-
 ---
 
-
-[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#53-maximum-subarrayhttpsleetcodecomproblemsmaximum-subarraydescription)
-
-## ➤ [53. Maximum Subarray](https://leetcode.com/problems/maximum-subarray/description/)
+## [53. Maximum Subarray](https://leetcode.com/problems/maximum-subarray/description/)
 
 ### Problem:
 
@@ -6100,23 +6340,17 @@ let maxSubArray = function(nums) {
 ```
 
 
-
-
+*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
 
 ---
-
 Difficulty: Medium
 Related Topics:
   "Array": https://leetcode.com/tag/array
 Similar Questions:
   "Spiral Matrix II": https://leetcode.com/problems/spiral-matrix-ii
-
 ---
 
-
-[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#54-spiral-matrixhttpsleetcodecomproblemsspiral-matrixdescription)
-
-## ➤ [54. Spiral Matrix](https://leetcode.com/problems/spiral-matrix/description/)
+## [54. Spiral Matrix](https://leetcode.com/problems/spiral-matrix/description/)
 
 ### Problem:
 
@@ -6188,24 +6422,18 @@ let spiralOrder = function(matrix) {
 ```
 
 
-
-
+*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
 
 ---
-
 Difficulty: Medium
 Related Topics:
   "Array": https://leetcode.com/tag/array
   "Greedy": https://leetcode.com/tag/greedy
 Similar Questions:
   "Jump Game II": https://leetcode.com/problems/jump-game-ii
-
 ---
 
-
-[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#55-jump-gamehttpsleetcodecomproblemsjump-gamedescription)
-
-## ➤ [55. Jump Game](https://leetcode.com/problems/jump-game/description/)
+## [55. Jump Game](https://leetcode.com/problems/jump-game/description/)
 
 ### Problem:
 
@@ -6282,11 +6510,9 @@ let canJump = function(nums) {
 };
 ```
 
-
-
+*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
 
 ---
-
 Difficulty: Medium
 Related Topics:
   "Array": https://leetcode.com/tag/array
@@ -6300,13 +6526,9 @@ Similar Questions:
   "Range Module": https://leetcode.com/problems/range-module
   "Employee Free Time": https://leetcode.com/problems/employee-free-time
   "Partition Labels": https://leetcode.com/problems/partition-labels
-
 ---
 
-
-[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#56-merge-intervalshttpsleetcodecomproblemsmerge-intervalsdescription)
-
-## ➤ [56. Merge Intervals](https://leetcode.com/problems/merge-intervals/description/)
+## [56. Merge Intervals](https://leetcode.com/problems/merge-intervals/description/)
 
 ### Problem:
 
@@ -6363,11 +6585,9 @@ let merge = function(intervals) {
 ```
 
 
-
-
+*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
 
 ---
-
 Difficulty: Hard
 Related Topics:
   "Array": https://leetcode.com/tag/array
@@ -6375,13 +6595,9 @@ Related Topics:
 Similar Questions:
   "Merge Intervals": https://leetcode.com/problems/merge-intervals
   "Range Module": https://leetcode.com/problems/range-module
-
 ---
 
-
-[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#57-insert-intervalhttpsleetcodecomproblemsinsert-intervaldescription)
-
-## ➤ [57. Insert Interval](https://leetcode.com/problems/insert-interval/description/)
+## [57. Insert Interval](https://leetcode.com/problems/insert-interval/description/)
 
 ### Problem:
 
@@ -6448,21 +6664,15 @@ let insert = function(intervals, newInterval) {
 ```
 
 
-
-
+*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
 
 ---
-
 Difficulty: Easy
 Related Topics:
   "String": https://leetcode.com/tag/string
-
 ---
 
-
-[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#58-length-of-last-wordhttpsleetcodecomproblemslength-of-last-worddescription)
-
-## ➤ [58. Length of Last Word](https://leetcode.com/problems/length-of-last-word/description/)
+## [58. Length of Last Word](https://leetcode.com/problems/length-of-last-word/description/)
 
 ### Problem:
 
@@ -6533,23 +6743,17 @@ let lengthOfLastWord = function(s) {
 };
 ```
 
-
-
+*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
 
 ---
-
 Difficulty: Medium
 Related Topics:
   "Array": https://leetcode.com/tag/array
 Similar Questions:
   "Spiral Matrix": https://leetcode.com/problems/spiral-matrix
-
 ---
 
-
-[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#59-spiral-matrix-iihttpsleetcodecomproblemsspiral-matrix-iidescription)
-
-## ➤ [59. Spiral Matrix II](https://leetcode.com/problems/spiral-matrix-ii/description/)
+## [59. Spiral Matrix II](https://leetcode.com/problems/spiral-matrix-ii/description/)
 
 ### Problem:
 
@@ -6600,11 +6804,9 @@ let generateMatrix = function(n) {
 ```
 
 
-
-
+*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
 
 ---
-
 Difficulty: Medium
 Related Topics:
   "Math": https://leetcode.com/tag/math
@@ -6612,13 +6814,9 @@ Related Topics:
 Similar Questions:
   "Next Permutation": https://leetcode.com/problems/next-permutation
   "Permutations": https://leetcode.com/problems/permutations
-
 ---
 
-
-[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#60-permutation-sequencehttpsleetcodecomproblemspermutation-sequencedescription)
-
-## ➤ [60. Permutation Sequence](https://leetcode.com/problems/permutation-sequence/description/)
+## [60. Permutation Sequence](https://leetcode.com/problems/permutation-sequence/description/)
 
 ### Problem:
 
@@ -6690,11 +6888,9 @@ let getPermutation = function(n, k) {
 };
 ```
 
-
-
+*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
 
 ---
-
 Difficulty: Medium
 Related Topics:
   "Linked List": https://leetcode.com/tag/linked-list
@@ -6702,13 +6898,9 @@ Related Topics:
 Similar Questions:
   "Rotate Array": https://leetcode.com/problems/rotate-array
   "Split Linked List in Parts": https://leetcode.com/problems/split-linked-list-in-parts
-
 ---
 
-
-[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#61-rotate-listhttpsleetcodecomproblemsrotate-listdescription)
-
-## ➤ [61. Rotate List](https://leetcode.com/problems/rotate-list/description/)
+## [61. Rotate List](https://leetcode.com/problems/rotate-list/description/)
 
 ### Problem:
 
@@ -6794,11 +6986,9 @@ let rotateRight = function(head, k) {
 };
 ```
 
-
-
+*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
 
 ---
-
 Difficulty: Medium
 Related Topics:
   "Array": https://leetcode.com/tag/array
@@ -6807,13 +6997,9 @@ Similar Questions:
   "Unique Paths II": https://leetcode.com/problems/unique-paths-ii
   "Minimum Path Sum": https://leetcode.com/problems/minimum-path-sum
   "Dungeon Game": https://leetcode.com/problems/dungeon-game
-
 ---
 
-
-[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#62-unique-pathshttpsleetcodecomproblemsunique-pathsdescription)
-
-## ➤ [62. Unique Paths](https://leetcode.com/problems/unique-paths/description/)
+## [62. Unique Paths](https://leetcode.com/problems/unique-paths/description/)
 
 ### Problem:
 
@@ -6879,11 +7065,9 @@ let uniquePaths = function(m, n) {
 };
 ```
 
-
-
+*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
 
 ---
-
 Difficulty: Medium
 Related Topics:
   "Array": https://leetcode.com/tag/array
@@ -6892,13 +7076,9 @@ Similar Questions:
   "Unique Paths": https://leetcode.com/problems/unique-paths
   "Dungeon Game": https://leetcode.com/problems/dungeon-game
   "Cherry Pickup": https://leetcode.com/problems/cherry-pickup
-
 ---
 
-
-[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#64-minimum-path-sumhttpsleetcodecomproblemsminimum-path-sumdescription)
-
-## ➤ [64. Minimum Path Sum](https://leetcode.com/problems/minimum-path-sum/description/)
+## [64. Minimum Path Sum](https://leetcode.com/problems/minimum-path-sum/description/)
 
 ### Problem:
 
@@ -6957,24 +7137,18 @@ let minPathSum = function(grid) {
 ```
 
 
-
-
+*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
 
 ---
-
 Difficulty: Hard
 Related Topics:
   "Math": https://leetcode.com/tag/math
   "String": https://leetcode.com/tag/string
 Similar Questions:
   "String to Integer (atoi)": https://leetcode.com/problems/string-to-integer-atoi
-
 ---
 
-
-[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#65-valid-numberhttpsleetcodecomproblemsvalid-numberdescription)
-
-## ➤ [65. Valid Number](https://leetcode.com/problems/valid-number/description/)
+## [65. Valid Number](https://leetcode.com/problems/valid-number/description/)
 
 ### Problem:
 
@@ -7169,11 +7343,9 @@ function parseExponentPart (s, start) {
 }
 ```
 
-
-
+*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
 
 ---
-
 Difficulty: Easy
 Related Topics:
   "Array": https://leetcode.com/tag/array
@@ -7182,13 +7354,9 @@ Similar Questions:
   "Multiply Strings": https://leetcode.com/problems/multiply-strings
   "Add Binary": https://leetcode.com/problems/add-binary
   "Plus One Linked List": https://leetcode.com/problems/plus-one-linked-list
-
 ---
 
-
-[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#66-plus-onehttpsleetcodecomproblemsplus-onedescription)
-
-## ➤ [66. Plus One](https://leetcode.com/problems/plus-one/description/)
+## [66. Plus One](https://leetcode.com/problems/plus-one/description/)
 
 ### Problem:
 
@@ -7265,21 +7433,15 @@ let plusOne = function(digits) {
 ```
 
 
-
-
+*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
 
 ---
-
 Difficulty: Hard
 Related Topics:
   "String": https://leetcode.com/tag/string
-
 ---
 
-
-[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#68-text-justificationhttpsleetcodecomproblemstext-justificationdescription)
-
-## ➤ [68. Text Justification](https://leetcode.com/problems/text-justification/description/)
+## [68. Text Justification](https://leetcode.com/problems/text-justification/description/)
 
 ### Problem:
 
@@ -7401,11 +7563,9 @@ let fullJustify = function(words, maxWidth) {
 ```
 
 
-
-
+*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
 
 ---
-
 Difficulty: Easy
 Related Topics:
   "Math": https://leetcode.com/tag/math
@@ -7413,13 +7573,9 @@ Related Topics:
 Similar Questions:
   "Pow(x, n)": https://leetcode.com/problems/powx-n
   "Valid Perfect Square": https://leetcode.com/problems/valid-perfect-square
-
 ---
 
-
-[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#69-sqrtxhttpsleetcodecomproblemssqrtxdescription)
-
-## ➤ [69. Sqrt(x)](https://leetcode.com/problems/sqrtx/description/)
+## [69. Sqrt(x)](https://leetcode.com/problems/sqrtx/description/)
 
 ### Problem:
 
@@ -7473,22 +7629,16 @@ let mySqrt = function(x) {
 ```
 
 
-
-
+*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
 
 ---
-
 Difficulty: Medium
 Related Topics:
   "String": https://leetcode.com/tag/string
   "Stack": https://leetcode.com/tag/stack
-
 ---
 
-
-[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#71-simplify-pathhttpsleetcodecomproblemssimplify-pathdescription)
-
-## ➤ [71. Simplify Path](https://leetcode.com/problems/simplify-path/description/)
+## [71. Simplify Path](https://leetcode.com/problems/simplify-path/description/)
 
 ### Problem:
 
@@ -7566,11 +7716,9 @@ let simplifyPath = function(path) {
 };
 ```
 
-
-
+*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
 
 ---
-
 Difficulty: Hard
 Related Topics:
   "String": https://leetcode.com/tag/string
@@ -7579,13 +7727,9 @@ Similar Questions:
   "One Edit Distance": https://leetcode.com/problems/one-edit-distance
   "Delete Operation for Two Strings": https://leetcode.com/problems/delete-operation-for-two-strings
   "Minimum ASCII Delete Sum for Two Strings": https://leetcode.com/problems/minimum-ascii-delete-sum-for-two-strings
-
 ---
 
-
-[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#72-edit-distancehttpsleetcodecomproblemsedit-distancedescription)
-
-## ➤ [72. Edit Distance](https://leetcode.com/problems/edit-distance/description/)
+## [72. Edit Distance](https://leetcode.com/problems/edit-distance/description/)
 
 ### Problem:
 
@@ -7677,23 +7821,17 @@ let minDistance = function(word1, word2) {
 ```
 
 
-
-
+*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
 
 ---
-
 Difficulty: Medium
 Related Topics:
   "Array": https://leetcode.com/tag/array
 Similar Questions:
   "Game of Life": https://leetcode.com/problems/game-of-life
-
 ---
 
-
-[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#73-set-matrix-zeroeshttpsleetcodecomproblemsset-matrix-zeroesdescription)
-
-## ➤ [73. Set Matrix Zeroes](https://leetcode.com/problems/set-matrix-zeroes/description/)
+## [73. Set Matrix Zeroes](https://leetcode.com/problems/set-matrix-zeroes/description/)
 
 ### Problem:
 
@@ -7852,24 +7990,18 @@ let setZeroes = function(matrix) {
 ```
 
 
-
-
+*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
 
 ---
-
 Difficulty: Medium
 Related Topics:
   "Array": https://leetcode.com/tag/array
   "Binary Search": https://leetcode.com/tag/binary-search
 Similar Questions:
   "Search a 2D Matrix II": https://leetcode.com/problems/search-a-2d-matrix-ii
-
 ---
 
-
-[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#74-search-a-2d-matrixhttpsleetcodecomproblemssearch-a-2d-matrixdescription)
-
-## ➤ [74. Search a 2D Matrix](https://leetcode.com/problems/search-a-2d-matrix/description/)
+## [74. Search a 2D Matrix](https://leetcode.com/problems/search-a-2d-matrix/description/)
 
 ### Problem:
 
@@ -7978,11 +8110,9 @@ let searchMatrix = function(matrix, target) {
 ```
 
 
-
-
+*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
 
 ---
-
 Difficulty: Medium
 Related Topics:
   "Array": https://leetcode.com/tag/array
@@ -7992,13 +8122,9 @@ Similar Questions:
   "Sort List": https://leetcode.com/problems/sort-list
   "Wiggle Sort": https://leetcode.com/problems/wiggle-sort
   "Wiggle Sort II": https://leetcode.com/problems/wiggle-sort-ii
-
 ---
 
-
-[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#75-sort-colorshttpsleetcodecomproblemssort-colorsdescription)
-
-## ➤ [75. Sort Colors](https://leetcode.com/problems/sort-colors/description/)
+## [75. Sort Colors](https://leetcode.com/problems/sort-colors/description/)
 
 ### Problem:
 
@@ -8058,24 +8184,18 @@ let sortColors = function(nums) {
 ```
 
 
-
-
+*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
 
 ---
-
 Difficulty: Medium
 Related Topics:
   "Backtracking": https://leetcode.com/tag/backtracking
 Similar Questions:
   "Combination Sum": https://leetcode.com/problems/combination-sum
   "Permutations": https://leetcode.com/problems/permutations
-
 ---
 
-
-[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#77-combinationshttpsleetcodecomproblemscombinationsdescription)
-
-## ➤ [77. Combinations](https://leetcode.com/problems/combinations/description/)
+## [77. Combinations](https://leetcode.com/problems/combinations/description/)
 
 ### Problem:
 
@@ -8126,11 +8246,9 @@ function _combine (cur, path, n, k, result) {
 ```
 
 
-
-
+*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
 
 ---
-
 Difficulty: Medium
 Related Topics:
   "Array": https://leetcode.com/tag/array
@@ -8140,13 +8258,9 @@ Similar Questions:
   "Subsets II": https://leetcode.com/problems/subsets-ii
   "Generalized Abbreviation": https://leetcode.com/problems/generalized-abbreviation
   "Letter Case Permutation": https://leetcode.com/problems/letter-case-permutation
-
 ---
 
-
-[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#78-subsetshttpsleetcodecomproblemssubsetsdescription)
-
-## ➤ [78. Subsets](https://leetcode.com/problems/subsets/description/)
+## [78. Subsets](https://leetcode.com/problems/subsets/description/)
 
 ### Problem:
 
@@ -8230,24 +8344,18 @@ function _subsets(nums, start, path, result) {
 }
 ```
 
-
-
+*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
 
 ---
-
 Difficulty: Medium
 Related Topics:
   "Array": https://leetcode.com/tag/array
   "Backtracking": https://leetcode.com/tag/backtracking
 Similar Questions:
   "Word Search II": https://leetcode.com/problems/word-search-ii
-
 ---
 
-
-[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#79-word-searchhttpsleetcodecomproblemsword-searchdescription)
-
-## ➤ [79. Word Search](https://leetcode.com/problems/word-search/description/)
+## [79. Word Search](https://leetcode.com/problems/word-search/description/)
 
 ### Problem:
 
@@ -8324,24 +8432,18 @@ function _exist (board, word, iWord, directions, row, col) {
 ```
 
 
-
-
+*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
 
 ---
-
 Difficulty: Medium
 Related Topics:
   "Array": https://leetcode.com/tag/array
   "Two Pointers": https://leetcode.com/tag/two-pointers
 Similar Questions:
   "Remove Duplicates from Sorted Array": https://leetcode.com/problems/remove-duplicates-from-sorted-array
-
 ---
 
-
-[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#80-remove-duplicates-from-sorted-array-iihttpsleetcodecomproblemsremove-duplicates-from-sorted-array-iidescription)
-
-## ➤ [80. Remove Duplicates from Sorted Array II](https://leetcode.com/problems/remove-duplicates-from-sorted-array-ii/description/)
+## [80. Remove Duplicates from Sorted Array II](https://leetcode.com/problems/remove-duplicates-from-sorted-array-ii/description/)
 
 ### Problem:
 
@@ -8409,24 +8511,18 @@ let removeDuplicates = function(nums) {
 ```
 
 
-
-
+*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
 
 ---
-
 Difficulty: Medium
 Related Topics:
   "Array": https://leetcode.com/tag/array
   "Binary Search": https://leetcode.com/tag/binary-search
 Similar Questions:
   "Search in Rotated Sorted Array": https://leetcode.com/problems/search-in-rotated-sorted-array
-
 ---
 
-
-[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#81-search-in-rotated-sorted-array-iihttpsleetcodecomproblemssearch-in-rotated-sorted-array-iidescription)
-
-## ➤ [81. Search in Rotated Sorted Array II](https://leetcode.com/problems/search-in-rotated-sorted-array-ii/description/)
+## [81. Search in Rotated Sorted Array II](https://leetcode.com/problems/search-in-rotated-sorted-array-ii/description/)
 
 ### Problem:
 
@@ -8499,23 +8595,17 @@ let search = function(nums, target) {
 ```
 
 
-
-
+*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
 
 ---
-
 Difficulty: Medium
 Related Topics:
   "Linked List": https://leetcode.com/tag/linked-list
 Similar Questions:
   "Remove Duplicates from Sorted List": https://leetcode.com/problems/remove-duplicates-from-sorted-list
-
 ---
 
-
-[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#82-remove-duplicates-from-sorted-list-iihttpsleetcodecomproblemsremove-duplicates-from-sorted-list-iidescription)
-
-## ➤ [82. Remove Duplicates from Sorted List II](https://leetcode.com/problems/remove-duplicates-from-sorted-list-ii/description/)
+## [82. Remove Duplicates from Sorted List II](https://leetcode.com/problems/remove-duplicates-from-sorted-list-ii/description/)
 
 ### Problem:
 
@@ -8576,23 +8666,17 @@ let deleteDuplicates = function(head) {
 ```
 
 
-
-
+*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
 
 ---
-
 Difficulty: Easy
 Related Topics:
   "Linked List": https://leetcode.com/tag/linked-list
 Similar Questions:
   "Remove Duplicates from Sorted List II": https://leetcode.com/problems/remove-duplicates-from-sorted-list-ii
-
 ---
 
-
-[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#83-remove-duplicates-from-sorted-listhttpsleetcodecomproblemsremove-duplicates-from-sorted-listdescription)
-
-## ➤ [83. Remove Duplicates from Sorted List](https://leetcode.com/problems/remove-duplicates-from-sorted-list/description/)
+## [83. Remove Duplicates from Sorted List](https://leetcode.com/problems/remove-duplicates-from-sorted-list/description/)
 
 ### Problem:
 
@@ -8684,24 +8768,18 @@ let deleteDuplicates = function(head) {
 };
 ```
 
-
-
+*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
 
 ---
-
 Difficulty: Hard
 Related Topics:
   "Array": https://leetcode.com/tag/array
   "Stack": https://leetcode.com/tag/stack
 Similar Questions:
   "Maximal Rectangle": https://leetcode.com/problems/maximal-rectangle
-
 ---
 
-
-[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#84-largest-rectangle-in-histogramhttpsleetcodecomproblemslargest-rectangle-in-histogramdescription)
-
-## ➤ [84. Largest Rectangle in Histogram](https://leetcode.com/problems/largest-rectangle-in-histogram/description/)
+## [84. Largest Rectangle in Histogram](https://leetcode.com/problems/largest-rectangle-in-histogram/description/)
 
 ### Problem:
 
@@ -8765,11 +8843,9 @@ let largestRectangleArea = function(heights) {
 
 ```
 
-
-
+*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
 
 ---
-
 Difficulty: Hard
 Related Topics:
   "Array": https://leetcode.com/tag/array
@@ -8779,13 +8855,9 @@ Related Topics:
 Similar Questions:
   "Largest Rectangle in Histogram": https://leetcode.com/problems/largest-rectangle-in-histogram
   "Maximal Square": https://leetcode.com/problems/maximal-square
-
 ---
 
-
-[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#85-maximal-rectanglehttpsleetcodecomproblemsmaximal-rectangledescription)
-
-## ➤ [85. Maximal Rectangle](https://leetcode.com/problems/maximal-rectangle/description/)
+## [85. Maximal Rectangle](https://leetcode.com/problems/maximal-rectangle/description/)
 
 ### Problem:
 
@@ -8945,22 +9017,16 @@ let maximalRectangle = function(matrix) {
 };
 ```
 
-
-
+*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
 
 ---
-
 Difficulty: Medium
 Related Topics:
   "Linked List": https://leetcode.com/tag/linked-list
   "Two Pointers": https://leetcode.com/tag/two-pointers
-
 ---
 
-
-[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#86-partition-listhttpsleetcodecomproblemspartition-listdescription)
-
-## ➤ [86. Partition List](https://leetcode.com/problems/partition-list/description/)
+## [86. Partition List](https://leetcode.com/problems/partition-list/description/)
 
 ### Problem:
 
@@ -9020,24 +9086,18 @@ let partition = function(head, x) {
 ```
 
 
-
-
+*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
 
 ---
-
 Difficulty: Easy
 Related Topics:
   "Array": https://leetcode.com/tag/array
   "Two Pointers": https://leetcode.com/tag/two-pointers
 Similar Questions:
   "Merge Two Sorted Lists": https://leetcode.com/problems/merge-two-sorted-lists
-
 ---
 
-
-[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#88-merge-sorted-arrayhttpsleetcodecomproblemsmerge-sorted-arraydescription)
-
-## ➤ [88. Merge Sorted Array](https://leetcode.com/problems/merge-sorted-array/description/)
+## [88. Merge Sorted Array](https://leetcode.com/problems/merge-sorted-array/description/)
 
 ### Problem:
 
@@ -9079,23 +9139,17 @@ let merge = function(nums1, m, nums2, n) {
 ```
 
 
-
-
+*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
 
 ---
-
 Difficulty: Medium
 Related Topics:
   "Backtracking": https://leetcode.com/tag/backtracking
 Similar Questions:
   "1-bit and 2-bit Characters": https://leetcode.com/problems/1-bit-and-2-bit-characters
-
 ---
 
-
-[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#89-gray-codehttpsleetcodecomproblemsgray-codedescription)
-
-## ➤ [89. Gray Code](https://leetcode.com/problems/gray-code/description/)
+## [89. Gray Code](https://leetcode.com/problems/gray-code/description/)
 
 ### Problem:
 
@@ -9164,24 +9218,18 @@ let grayCode = function(n) {
 };
 ```
 
-
-
+*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
 
 ---
-
 Difficulty: Medium
 Related Topics:
   "Array": https://leetcode.com/tag/array
   "Backtracking": https://leetcode.com/tag/backtracking
 Similar Questions:
   "Subsets": https://leetcode.com/problems/subsets
-
 ---
 
-
-[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#90-subsets-iihttpsleetcodecomproblemssubsets-iidescription)
-
-## ➤ [90. Subsets II](https://leetcode.com/problems/subsets-ii/description/)
+## [90. Subsets II](https://leetcode.com/problems/subsets-ii/description/)
 
 ### Problem:
 
@@ -9235,24 +9283,18 @@ function _subsetsWithDup(nums, start, path, result) {
 }
 ```
 
-
-
+*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
 
 ---
-
 Difficulty: Medium
 Related Topics:
   "String": https://leetcode.com/tag/string
   "Dynamic Programming": https://leetcode.com/tag/dynamic-programming
 Similar Questions:
   "Decode Ways II": https://leetcode.com/problems/decode-ways-ii
-
 ---
 
-
-[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#91-decode-wayshttpsleetcodecomproblemsdecode-waysdescription)
-
-## ➤ [91. Decode Ways](https://leetcode.com/problems/decode-ways/description/)
+## [91. Decode Ways](https://leetcode.com/problems/decode-ways/description/)
 
 ### Problem:
 
@@ -9325,23 +9367,17 @@ let numDecodings = function(s) {
 };
 ```
 
-
-
+*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
 
 ---
-
 Difficulty: Medium
 Related Topics:
   "Linked List": https://leetcode.com/tag/linked-list
 Similar Questions:
   "Reverse Linked List": https://leetcode.com/problems/reverse-linked-list
-
 ---
 
-
-[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#92-reverse-linked-list-iihttpsleetcodecomproblemsreverse-linked-list-iidescription)
-
-## ➤ [92. Reverse Linked List II](https://leetcode.com/problems/reverse-linked-list-ii/description/)
+## [92. Reverse Linked List II](https://leetcode.com/problems/reverse-linked-list-ii/description/)
 
 ### Problem:
 
@@ -9404,24 +9440,18 @@ let reverseBetween = function(head, m, n) {
 ```
 
 
-
-
+*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
 
 ---
-
 Difficulty: Medium
 Related Topics:
   "String": https://leetcode.com/tag/string
   "Backtracking": https://leetcode.com/tag/backtracking
 Similar Questions:
   "IP to CIDR": https://leetcode.com/problems/ip-to-cidr
-
 ---
 
-
-[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#93-restore-ip-addresseshttpsleetcodecomproblemsrestore-ip-addressesdescription)
-
-## ➤ [93. Restore IP Addresses](https://leetcode.com/problems/restore-ip-addresses/description/)
+## [93. Restore IP Addresses](https://leetcode.com/problems/restore-ip-addresses/description/)
 
 ### Problem:
 
@@ -9479,22 +9509,16 @@ let restoreIpAddresses = function(s, i = 0, path = [], result = []) {
 ```
 
 
-
-
+*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
 
 ---
-
 Difficulty: Hard
 Related Topics:
   "String": https://leetcode.com/tag/string
   "Dynamic Programming": https://leetcode.com/tag/dynamic-programming
-
 ---
 
-
-[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#97-interleaving-stringhttpsleetcodecomproblemsinterleaving-stringdescription)
-
-## ➤ [97. Interleaving String](https://leetcode.com/problems/interleaving-string/description/)
+## [97. Interleaving String](https://leetcode.com/problems/interleaving-string/description/)
 
 ### Problem:
 
@@ -9551,22 +9575,16 @@ let isInterleave = function(s1, s2, s3) {
 };
 ```
 
-
-
+*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
 
 ---
-
 Difficulty: Easy
 Related Topics:
   "Tree": https://leetcode.com/tag/tree
   "Depth-first Search": https://leetcode.com/tag/depth-first-search
-
 ---
 
-
-[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#100-same-treehttpsleetcodecomproblemssame-treedescription)
-
-## ➤ [100. Same Tree](https://leetcode.com/problems/same-tree/description/)
+## [100. Same Tree](https://leetcode.com/problems/same-tree/description/)
 
 ### Problem:
 
@@ -9634,23 +9652,17 @@ let isSameTree = function(p, q) {
 ```
 
 
-
-
+*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
 
 ---
-
 Difficulty: Easy
 Related Topics:
   "Tree": https://leetcode.com/tag/tree
   "Depth-first Search": https://leetcode.com/tag/depth-first-search
   "Breadth-first Search": https://leetcode.com/tag/breadth-first-search
-
 ---
 
-
-[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#101-symmetric-treehttpsleetcodecomproblemssymmetric-treedescription)
-
-## ➤ [101. Symmetric Tree](https://leetcode.com/problems/symmetric-tree/description/)
+## [101. Symmetric Tree](https://leetcode.com/problems/symmetric-tree/description/)
 
 ### Problem:
 
@@ -9759,11 +9771,9 @@ let isSymmetric = function(root) {
 };
 ```
 
-
-
+*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
 
 ---
-
 Difficulty: Medium
 Related Topics:
   "Tree": https://leetcode.com/tag/tree
@@ -9775,13 +9785,9 @@ Similar Questions:
   "Binary Tree Vertical Order Traversal": https://leetcode.com/problems/binary-tree-vertical-order-traversal
   "Average of Levels in Binary Tree": https://leetcode.com/problems/average-of-levels-in-binary-tree
   "N-ary Tree Level Order Traversal": https://leetcode.com/problems/n-ary-tree-level-order-traversal
-
 ---
 
-
-[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#102-binary-tree-level-order-traversalhttpsleetcodecomproblemsbinary-tree-level-order-traversaldescription)
-
-## ➤ [102. Binary Tree Level Order Traversal](https://leetcode.com/problems/binary-tree-level-order-traversal/description/)
+## [102. Binary Tree Level Order Traversal](https://leetcode.com/problems/binary-tree-level-order-traversal/description/)
 
 ### Problem:
 
@@ -9845,11 +9851,9 @@ let levelOrder = function(root) {
 ```
 
 
-
-
+*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
 
 ---
-
 Difficulty: Medium
 Related Topics:
   "Stack": https://leetcode.com/tag/stack
@@ -9857,13 +9861,9 @@ Related Topics:
   "Breadth-first Search": https://leetcode.com/tag/breadth-first-search
 Similar Questions:
   "Binary Tree Level Order Traversal": https://leetcode.com/problems/binary-tree-level-order-traversal
-
 ---
 
-
-[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#103-binary-tree-zigzag-level-order-traversalhttpsleetcodecomproblemsbinary-tree-zigzag-level-order-traversaldescription)
-
-## ➤ [103. Binary Tree Zigzag Level Order Traversal](https://leetcode.com/problems/binary-tree-zigzag-level-order-traversal/description/)
+## [103. Binary Tree Zigzag Level Order Traversal](https://leetcode.com/problems/binary-tree-zigzag-level-order-traversal/description/)
 
 ### Problem:
 
@@ -9932,11 +9932,9 @@ let zigzagLevelOrder = function(root) {
 ```
 
 
-
-
+*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
 
 ---
-
 Difficulty: Easy
 Related Topics:
   "Tree": https://leetcode.com/tag/tree
@@ -9945,13 +9943,9 @@ Similar Questions:
   "Balanced Binary Tree": https://leetcode.com/problems/balanced-binary-tree
   "Minimum Depth of Binary Tree": https://leetcode.com/problems/minimum-depth-of-binary-tree
   "Maximum Depth of N-ary Tree": https://leetcode.com/problems/maximum-depth-of-n-ary-tree
-
 ---
 
-
-[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#104-maximum-depth-of-binary-treehttpsleetcodecomproblemsmaximum-depth-of-binary-treedescription)
-
-## ➤ [104. Maximum Depth of Binary Tree](https://leetcode.com/problems/maximum-depth-of-binary-tree/description/)
+## [104. Maximum Depth of Binary Tree](https://leetcode.com/problems/maximum-depth-of-binary-tree/description/)
 
 ### Problem:
 
@@ -9999,11 +9993,9 @@ let maxDepth = function(root) {
 ```
 
 
-
-
+*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
 
 ---
-
 Difficulty: Medium
 Related Topics:
   "Array": https://leetcode.com/tag/array
@@ -10011,13 +10003,9 @@ Related Topics:
   "Depth-first Search": https://leetcode.com/tag/depth-first-search
 Similar Questions:
   "Construct Binary Tree from Inorder and Postorder Traversal": https://leetcode.com/problems/construct-binary-tree-from-inorder-and-postorder-traversal
-
 ---
 
-
-[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#105-construct-binary-tree-from-preorder-and-inorder-traversalhttpsleetcodecomproblemsconstruct-binary-tree-from-preorder-and-inorder-traversaldescription)
-
-## ➤ [105. Construct Binary Tree from Preorder and Inorder Traversal](https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/description/)
+## [105. Construct Binary Tree from Preorder and Inorder Traversal](https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/description/)
 
 ### Problem:
 
@@ -10087,11 +10075,9 @@ function _buildTree (preorder, inorder, pStart, pEnd, iStart, iEnd) {
 }
 ```
 
-
-
+*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
 
 ---
-
 Difficulty: Medium
 Related Topics:
   "Array": https://leetcode.com/tag/array
@@ -10099,13 +10085,9 @@ Related Topics:
   "Depth-first Search": https://leetcode.com/tag/depth-first-search
 Similar Questions:
   "Construct Binary Tree from Preorder and Inorder Traversal": https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal
-
 ---
 
-
-[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#106-construct-binary-tree-from-inorder-and-postorder-traversalhttpsleetcodecomproblemsconstruct-binary-tree-from-inorder-and-postorder-traversaldescription)
-
-## ➤ [106. Construct Binary Tree from Inorder and Postorder Traversal](https://leetcode.com/problems/construct-binary-tree-from-inorder-and-postorder-traversal/description/)
+## [106. Construct Binary Tree from Inorder and Postorder Traversal](https://leetcode.com/problems/construct-binary-tree-from-inorder-and-postorder-traversal/description/)
 
 ### Problem:
 
@@ -10175,11 +10157,9 @@ function _buildTree (postorder, inorder, pStart, pEnd, iStart, iEnd) {
 }
 ```
 
-
-
+*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
 
 ---
-
 Difficulty: Easy
 Related Topics:
   "Tree": https://leetcode.com/tag/tree
@@ -10187,13 +10167,9 @@ Related Topics:
 Similar Questions:
   "Binary Tree Level Order Traversal": https://leetcode.com/problems/binary-tree-level-order-traversal
   "Average of Levels in Binary Tree": https://leetcode.com/problems/average-of-levels-in-binary-tree
-
 ---
 
-
-[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#107-binary-tree-level-order-traversal-iihttpsleetcodecomproblemsbinary-tree-level-order-traversal-iidescription)
-
-## ➤ [107. Binary Tree Level Order Traversal II](https://leetcode.com/problems/binary-tree-level-order-traversal-ii/description/)
+## [107. Binary Tree Level Order Traversal II](https://leetcode.com/problems/binary-tree-level-order-traversal-ii/description/)
 
 ### Problem:
 
@@ -10258,24 +10234,18 @@ let levelOrderBottom = function(root) {
 
 
 
-
-
+*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
 
 ---
-
 Difficulty: Easy
 Related Topics:
   "Tree": https://leetcode.com/tag/tree
   "Depth-first Search": https://leetcode.com/tag/depth-first-search
 Similar Questions:
   "Maximum Depth of Binary Tree": https://leetcode.com/problems/maximum-depth-of-binary-tree
-
 ---
 
-
-[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#110-balanced-binary-treehttpsleetcodecomproblemsbalanced-binary-treedescription)
-
-## ➤ [110. Balanced Binary Tree](https://leetcode.com/problems/balanced-binary-tree/description/)
+## [110. Balanced Binary Tree](https://leetcode.com/problems/balanced-binary-tree/description/)
 
 ### Problem:
 
@@ -10346,11 +10316,9 @@ function getDepth (root) {
 ```
 
 
-
-
+*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
 
 ---
-
 Difficulty: Easy
 Related Topics:
   "Tree": https://leetcode.com/tag/tree
@@ -10359,13 +10327,9 @@ Related Topics:
 Similar Questions:
   "Binary Tree Level Order Traversal": https://leetcode.com/problems/binary-tree-level-order-traversal
   "Maximum Depth of Binary Tree": https://leetcode.com/problems/maximum-depth-of-binary-tree
-
 ---
 
-
-[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#111-minimum-depth-of-binary-treehttpsleetcodecomproblemsminimum-depth-of-binary-treedescription)
-
-## ➤ [111. Minimum Depth of Binary Tree](https://leetcode.com/problems/minimum-depth-of-binary-tree/description/)
+## [111. Minimum Depth of Binary Tree](https://leetcode.com/problems/minimum-depth-of-binary-tree/description/)
 
 ### Problem:
 
@@ -10415,251 +10379,4 @@ let minDepth = function(root) {
     return minDepth(root.right) + 1
   }
 };
-```
-
-
-
-
-
----
-
-Difficulty: Easy
-Related Topics:
-  "Tree": https://leetcode.com/tag/tree
-  "Depth-first Search": https://leetcode.com/tag/depth-first-search
-Similar Questions:
-  "Path Sum II": https://leetcode.com/problems/path-sum-ii
-  "Binary Tree Maximum Path Sum": https://leetcode.com/problems/binary-tree-maximum-path-sum
-  "Sum Root to Leaf Numbers": https://leetcode.com/problems/sum-root-to-leaf-numbers
-  "Path Sum III": https://leetcode.com/problems/path-sum-iii
-  "Path Sum IV": https://leetcode.com/problems/path-sum-iv
-
----
-
-
-[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#112-path-sumhttpsleetcodecomproblemspath-sumdescription)
-
-## ➤ [112. Path Sum](https://leetcode.com/problems/path-sum/description/)
-
-### Problem:
-
-Given a binary tree and a sum, determine if the tree has a root-to-leaf path such that adding up all the values along the path equals the given sum.
-
-**Note:** A leaf is a node with no children.
-
-**Example:**
-
-Given the below binary tree and `sum = 22`,
-
-```
-      5
-     / \
-    4   8
-   /   / \
-  11  13  4
- /  \      \
-7    2      1
-```
-
-return true, as there exist a root-to-leaf path `5->4->11->2` which sum is 22.
-
-### Solution:
-
-Note that node value could be negative so pruning can not be performed.
-
-```javascript
-/**
- * Definition for a binary tree node.
- * function TreeNode(val) {
- *     this.val = val;
- *     this.left = this.right = null;
- * }
- */
-/**
- * @param {TreeNode} root
- * @param {number} sum
- * @return {boolean}
- */
-let hasPathSum = function(root, sum) {
-  if (!root) { return false }
-  if (root.left === null && root.right === null) { return root.val === sum }
-  return hasPathSum(root.left, sum - root.val) || hasPathSum(root.right, sum - root.val)
-};
-```
-
-
-
-
----
-
-Difficulty: Medium
-Related Topics:
-  "Tree": https://leetcode.com/tag/tree
-  "Depth-first Search": https://leetcode.com/tag/depth-first-search
-Similar Questions:
-  "Path Sum": https://leetcode.com/problems/path-sum
-  "Binary Tree Paths": https://leetcode.com/problems/binary-tree-paths
-  "Path Sum III": https://leetcode.com/problems/path-sum-iii
-  "Path Sum IV": https://leetcode.com/problems/path-sum-iv
-
----
-
-
-[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#113-path-sum-iihttpsleetcodecomproblemspath-sum-iidescription)
-
-## ➤ [113. Path Sum II](https://leetcode.com/problems/path-sum-ii/description/)
-
-### Problem:
-
-Given a binary tree and a sum, find all root-to-leaf paths where each path's sum equals the given sum.
-
-**Note:** A leaf is a node with no children.
-
-**Example:**
-
-Given the below binary tree and `sum = 22`,
-
-```
-      5
-     / \
-    4   8
-   /   / \
-  11  13  4
- /  \    / \
-7    2  5   1
-```
-
-Return:
-
-```
-[
-   [5,4,11,2],
-   [5,8,4,5]
-]
-```
-
-### Solution:
-
-Simple backtracking.
-
-```javascript
-/**
- * Definition for a binary tree node.
- * function TreeNode(val) {
- *     this.val = val;
- *     this.left = this.right = null;
- * }
- */
-/**
- * @param {TreeNode} root
- * @param {number} sum
- * @return {number[][]}
- */
-let pathSum = function(root, sum, path = [], result = []) {
-  if (!root) { return result }
-
-  if (root.left === null && root.right === null) {
-    if (root.val === sum) {
-      result.push([...path, root.val])
-    }
-    return result
-  }
-
-  path.push(root.val)
-  pathSum(root.left, sum - root.val, path, result)
-  pathSum(root.right, sum - root.val, path, result)
-  path.pop()
-
-  return result
-};
-```
-
-
-
-
-
----
-
-Difficulty: Medium
-Related Topics:
-  "Tree": https://leetcode.com/tag/tree
-  "Depth-first Search": https://leetcode.com/tag/depth-first-search
-Similar Questions:
-  "Flatten a Multilevel Doubly Linked List": https://leetcode.com/problems/flatten-a-multilevel-doubly-linked-list
-
----
-
-
-[![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#114-flatten-binary-tree-to-linked-listhttpsleetcodecomproblemsflatten-binary-tree-to-linked-listdescription)
-
-## ➤ [114. Flatten Binary Tree to Linked List](https://leetcode.com/problems/flatten-binary-tree-to-linked-list/description/)
-
-### Problem:
-
-Given a binary tree, flatten it to a linked list in-place.
-
-For example, given the following tree:
-
-```
-    1
-   / \
-  2   5
- / \   \
-3   4   6
-```
-
-The flattened tree should look like:
-
-```
-1
- \
-  2
-   \
-    3
-     \
-      4
-       \
-        5
-         \
-          6
-```
-
-### Solution:
-
-Return the leaf node of a flattened subtree for concatenation.
-
-```javascript
-/**
- * Definition for a binary tree node.
- * function TreeNode(val) {
- *     this.val = val;
- *     this.left = this.right = null;
- * }
- */
-/**
- * @param {TreeNode} root
- * @return {void} Do not return anything, modify root in-place instead.
- */
-let flatten = function(root) {
-  _flatten(root)
-};
-
-/**
- * @param {TreeNode} root
- * @return {TreeNode} leaf node of a flattened subtree
- */
-function _flatten (root) {
-  if (!root) { return null }
-  const leftLeaf = _flatten(root.left)
-  const rightLeaf = _flatten(root.right)
-  if (leftLeaf !== null) {
-    leftLeaf.right = root.right
-    root.right = root.left
-  } else if (rightLeaf === null) {
-    return root
-  }
-  
-  root.left = null
-  return rightLeaf || leftLeaf
-}
 ```
