@@ -1,4 +1,22 @@
 
+[Readme](https://github.com/bgoonz/DS-ALGO-OFFICIAL/blob/master/README.md)
+
+
+
+
+[readme part 2](https://github.com/bgoonz/DS-ALGO-OFFICIAL/blob/master/readme-p2.md)
+
+
+
+[readme part 3](https://github.com/bgoonz/DS-ALGO-OFFICIAL/blob/master/readme-p3.md)
+
+
+
+[readme part 4](https://github.com/bgoonz/DS-ALGO-OFFICIAL/blob/master/readme-p4.md)
+
+
+
+
 * * *
 
 Self-Similarity
