@@ -13,7 +13,7 @@
  </div>
 
 
-![history](./dsago.PNG)
+![history](./site-resources/dsago.PNG)
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/274fc2e2-6ccd-42af-8d83-473278f504fe/deploy-status)](https://app.netlify.com/sites/trusting-dijkstra-4d3b17/deploys)
 
