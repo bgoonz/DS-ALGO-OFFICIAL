@@ -1,7 +1,7 @@
 # Common settings that generally should always be used with your language specific settings
 
 
-*.html linguist-vendored=false
+*.html linguist-vendored=true
 
 
 # Linguist::FileBlob.new("./*.html").vendored? # => true
@@ -81,6 +81,3 @@
 # Exclude files from exporting
 #
 
-.gitattributes export-ignore
-.gitignore     export-ignore
-.gitkeep       export-ignore
