@@ -4,7 +4,7 @@
   "description": "Dynamic time warping",
   "main": "index.js",
   "dependencies": {
-  "mustache": ">=2.2.1"
+  "mustache": "4.2.0"
 },
   "devDependencies": {
     "jsdox": "*",
