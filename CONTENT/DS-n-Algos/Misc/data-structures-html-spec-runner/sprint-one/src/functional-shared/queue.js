@@ -1,21 +1,21 @@
-let Queue = function() {
+let Queue = function () {
   let someInstance = {
     storage: {},
     length: 0,
   };
-  
+
   _.extend(someInstance, queueMethods);
 
   return someInstance;
 };
 
 let queueMethods = {
-  enqueue: function(value) {
+  enqueue: function (value) {
     this.storage[this.length] = value;
     this.length++;
   },
 
-  dequeue: function() {
+  dequeue: function () {
     let first = this.storage[0];
     delete this.storage[0];
     let cnt = 0;
@@ -28,9 +28,7 @@ let queueMethods = {
     return first;
   },
 
-  size: function() {
+  size: function () {
     return this.length;
-  }
+  },
 };
-
-

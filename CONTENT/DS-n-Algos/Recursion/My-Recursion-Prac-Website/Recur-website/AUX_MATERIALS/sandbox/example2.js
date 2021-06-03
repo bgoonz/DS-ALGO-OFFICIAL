@@ -6,20 +6,20 @@
 */
 // -------------------------------------------------Fibonacci-----------------------------------------------------------------------------------------------  //
 //! Write a recursive function that takes in a number, n, argument and calculates the n-th number of the Fibonacci sequence.
-function fib( n ) {
+function fib(n) {
   // Base cases (n < 3)
-  if ( n < 1 ) {
+  if (n < 1) {
     return null;
   }
-  if ( n < 3 ) {
+  if (n < 3) {
     return 1;
   }
 
   // Recursive case (n >= 3)
-  return fib( n - 2 ) + fib( n - 1 ); // Recursive step (invoking fib with n-1 and n-2)
+  return fib(n - 2) + fib(n - 1); // Recursive step (invoking fib with n-1 and n-2)
 }
 
-console.log( fib( 4 ) ); // 3
+console.log(fib(4)); // 3
 
 /*
 // Tracing the call stack:
@@ -31,16 +31,16 @@ fib(4)
 //* ------------------------------------------------------------------------------------------------------------------------------------------------  //
 // ---------------------------------------Factorial---------------------------------------------------------------------------------------------------------  //
 //! Write a function that calculates a factorial recursively.
-function factorial( n ) {
+function factorial(n) {
   // Base case (n < 2)
-  if ( n < 2 ) {
+  if (n < 2) {
     return 1;
   }
   // Recursive case (n >= 2)
-  return n * factorial( n - 1 ); // Recursive step (invoking factorial with n-1)
+  return n * factorial(n - 1); // Recursive step (invoking factorial with n-1)
 }
 
-console.log( factorial( 5 ) ); // 120
+console.log(factorial(5)); // 120
 /*
   // Tracing the call stack:
 factorial(5)
@@ -53,23 +53,23 @@ factorial(5)
 //* ------------------------------------------------------------------------------------------------------------------------------------------------  //
 // ----------------------------------------------Exponent--------------------------------------------------------------------------------------------------  //
 //!Write a function that calculates an exponent (positive and negative) recursively.
-function exponent( base, power ) {
+function exponent(base, power) {
   // Base case ( power === 1)
-  if ( power === 0 ) {
+  if (power === 0) {
     return 1;
   }
 
   // If we have a negative power, we can do 1 / (base ^ positive power)
   // For each recursive call to exponent, power will now be positive and work towards our base case like normal
-  if ( power < 0 ) {
-    return 1 / exponent( base, -1 * power );
+  if (power < 0) {
+    return 1 / exponent(base, -1 * power);
   }
 
   // Recursive case (power > 0)
-  return base * exponent( base, power - 1 ); // Recursive step (power - 1)
+  return base * exponent(base, power - 1); // Recursive step (power - 1)
 }
 
-console.log( exponent( 2, 4 ) ); // 16
+console.log(exponent(2, 4)); // 16
 
 /*
   // Tracing the call stack:
@@ -84,20 +84,20 @@ exponent(2, 4)
 //* ------------------------------------------------------------------------------------------------------------------------------------------------  //
 // --------------------------------------------------SumArray----------------------------------------------------------------------------------------------  //
 //!Write a function that sums all elements of an array recursively.
-function sumArray( array ) {
+function sumArray(array) {
   // If our array is empty, return 0
-  if ( array.length === 0 ) {
+  if (array.length === 0) {
     // Base case
     return 0;
   }
 
   // Otherwise, return the first number plus the result of our function with the smaller array (everything after the first number)
   // Recursive case
-  return array[ 0 ] + sumArray( array.slice( 1 ) );
+  return array[0] + sumArray(array.slice(1));
   // The recursive step is slicing our array, making a smaller array the argument to our function. This is working towards our base case of having an array of length 0.
 }
 
-console.log( sumArray( [ 4, 6, 12, 3 ] ) ); // 25
+console.log(sumArray([4, 6, 12, 3])); // 25
 
 /*
   // Tracing the call stack:
@@ -121,28 +121,28 @@ sumArray([4, 6, 12, 3])
   -We know the return value is itself going to be an array with one level, 
   -so we spread the results into the new array we are creating.
 */
-function flatten( array ) {
+function flatten(array) {
   // This is the array we are building out with non-Array elements
   let newArray = [];
 
   // We are iterating through each element of the array...
-  array.forEach( function ( element ) {
+  array.forEach(function (element) {
     // ... if it is an array, flatten it, spread each individual element into the new array
-    if ( Array.isArray( element ) ) {
+    if (Array.isArray(element)) {
       // Recursive case (the element is an array)
-      newArray.push( ...flatten( element ) ); // Recursive step (flatten this nested array - at a certain point we will get to our deepest level of nesting and not recurse any more)
+      newArray.push(...flatten(element)); // Recursive step (flatten this nested array - at a certain point we will get to our deepest level of nesting and not recurse any more)
       // ... if it is a non-Array element, push it directly into the new array
     } else {
       // Base case (the element is not an array)
-      newArray.push( element );
+      newArray.push(element);
     }
-  } );
+  });
 
   // Now that we've built up our array with non-Array elements, return it
   return newArray;
 }
 
-console.log( flatten( [ 1, "a", [ "hello", [ "world", "1" ] ] ] ) ); // [1, "a", "hello", "world", "1"]
+console.log(flatten([1, "a", ["hello", ["world", "1"]]])); // [1, "a", "hello", "world", "1"]
 /*
 // Tracing the call stack:
 flatten([1, "a", ["hello", ["world", "1"]]])
@@ -193,8 +193,8 @@ flatten([1, "a", ["hello", ["world", "1"]]])
 // doForAll([1, 2, 3], (x) => x + 1); // => [2, 3, 4]
 // doForAll(["a", "b", "c"]), (x) => x.toUpperCase()); // => ["A", "B", "C"]
 //? ---------------------------------------------------------------------------
-function doForAll1( arr, action ) {
-  return [ action( arr[ 0 ] ), ...doForAll1( arr.slice( 1 ), action ) ];
+function doForAll1(arr, action) {
+  return [action(arr[0]), ...doForAll1(arr.slice(1), action)];
 }
 
 /*
@@ -203,9 +203,9 @@ function doForAll1( arr, action ) {
 - When we run into a stack overflow, 
 -the first thing we should do is go over our function and see if we can identify each of these components.
   */
-function doForAll( arr, action ) {
+function doForAll(arr, action) {
   // We are making a recursive step by slicing our array, performing our function on a smaller array.
-  // We know that slice is eventually going to return an empty array. 
+  // We know that slice is eventually going to return an empty array.
   //// ["first", "second"].slice(1) -> ["second"]
   //// ["second"].slice(1) -> []
   //// [].slice(1) -> []
@@ -213,18 +213,16 @@ function doForAll( arr, action ) {
   //// [].slice(1) -> []
   //// ...etc. This is what is causing our stack overflow. We need to stop recursing when our array is empty.
   // When we reach this point we will have performed our action on every element and should be able to exit our recursion. This is our potential base case that we have not accounted for in our code.
-  return [ action( arr[ 0 ] ), ...doForAll( arr.slice( 1 ), action ) ];
+  return [action(arr[0]), ...doForAll(arr.slice(1), action)];
 }
-``
-`
+```
   - By adding in our base case, we will have an exit point for our recursion:
-  `
-``
-js
+  ```;
+js;
 
-function doForAll( arr, action ) {
+function doForAll(arr, action) {
   // Adding this conditional will account for our base case and stop our recursion.
-  if ( arr.length === 0 ) {
+  if (arr.length === 0) {
     return [];
     // Instead of continuing to call doForAll, we return the empty array directly
 
@@ -241,6 +239,6 @@ function doForAll( arr, action ) {
     //// console.log(mySecondArr); // [1] (emptyArr had no elements, so nothing is added)
   }
 
-  return [ action( arr[ 0 ] ), ...doForAll( arr.slice( 1 ), action ) ];
+  return [action(arr[0]), ...doForAll(arr.slice(1), action)];
 }
 //* ------------------------------------------------------------------------------------------------------------------------------------------------  //

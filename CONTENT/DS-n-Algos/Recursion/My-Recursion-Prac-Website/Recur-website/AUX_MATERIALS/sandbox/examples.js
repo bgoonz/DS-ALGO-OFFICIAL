@@ -7,11 +7,11 @@ Factorial: the product of a given positive integer multiplied by all lesser posi
 The quantity four factorial (4!) = 4 ⋅ 3 ⋅ 2 ⋅ 1 = 24. 
 Symbol:n!, where n is the given integer.
  */
-function factorial( n ) {
-  if ( n === 1 ) return 1; //* Base Case ... 1 * 1 = 1
-  return n * factorial( n - 1 ); //*  n! = n * (n-1) *  (n-2) * (n-3) * ... * 1
+function factorial(n) {
+  if (n === 1) return 1; //* Base Case ... 1 * 1 = 1
+  return n * factorial(n - 1); //*  n! = n * (n-1) *  (n-2) * (n-3) * ... * 1
 }
-factorial( 5 ); //*5 * 4 * 3 * 2 * 1 = 120 <----expected
+factorial(5); //*5 * 4 * 3 * 2 * 1 = 120 <----expected
 //console.log( "factorial(5): ", factorial( 5 ) ); //-    factorial(5):  120
 /* 
 Fibonacci numbers are the numbers such that every number in the series after the first two is the sum of the two preceding ones.
@@ -20,11 +20,11 @@ Mathematical Expression: fib(n) = fib(n−1) + fib(n−2)
 ! fib-tree-structure-diagram.png
 https://miro.medium.com/max/700/1*svQ784qk1hvBE3iz7VGGgQ.jpeg
  */
-function fibonacci( n ) {
-  if ( n === 1 || n === 2 ) return 1;
-  return fibonacci( n - 1 ) + fibonacci( n - 2 );
+function fibonacci(n) {
+  if (n === 1 || n === 2) return 1;
+  return fibonacci(n - 1) + fibonacci(n - 2);
 }
-fibonacci( 5 );
+fibonacci(5);
 //console.log("fib(5): ", fibonacci(5)); //-  fib(5):  5
 /*
 the major differences between tabulation and memoization are:
@@ -36,25 +36,25 @@ const memo = {
   1: 0,
   2: 1,
 };
-const fib = ( n ) => {
-  if ( memo[ n ] !== undefined ) return memo[ n ];
-  const n1 = fib( n - 1 );
-  const n2 = fib( n - 2 );
-  memo[ n ] = fib( n - 1 ) + fib( n - 2 );
-  return memo[ n ];
+const fib = (n) => {
+  if (memo[n] !== undefined) return memo[n];
+  const n1 = fib(n - 1);
+  const n2 = fib(n - 2);
+  memo[n] = fib(n - 1) + fib(n - 2);
+  return memo[n];
 };
 //console.log("fib(50): ", fib(20));      //-  fib(50):  4181
 /******************End of Common Algorithms for Analysis*****************/
 /***********Comparing two functions that calculate the sum of all numbers from 1 up to n**********************/
-function addUpTo( n ) {
+function addUpTo(n) {
   let total = 0;
-  for ( let i = 0; i <= n; i++ ) {
+  for (let i = 0; i <= n; i++) {
     //! Number of operations will grow with input n.
     total += i;
   }
   return total;
 }
-addUpTo( 4 );
+addUpTo(4);
 //console.log("addUpTo( 4 ): ", addUpTo(4)); //-  addUpTo( 4 ):  10
 //! Would be O(n) or Linear Time.
 //----------------------------------------------------------------
@@ -64,10 +64,10 @@ The nth partial sum of the series is the triangular number( https://en.wikipedia
 addUpTo(n)=(n * (n + 1)) / 2
 https://wikimedia.org/api/rest_v1/media/math/render/svg/99476e25466549387c585cb4de44e90f6cbe4cf2
 */
-function constantAddUpTo( n ) {
-  return ( n * ( n + 1 ) ) / 2;
+function constantAddUpTo(n) {
+  return (n * (n + 1)) / 2;
 }
-constantAddUpTo( 4 ); //-  constantAddUpTo(4):  10
+constantAddUpTo(4); //-  constantAddUpTo(4):  10
 //console.log("constantAddUpTo(4): ", constantAddUpTo(4));
 //! Has three simple operations: 1 Multiplication 1 Addition 1 Division.
 //!(Regardless of n) Would be O(1) or Constant Time.
@@ -135,8 +135,8 @@ countUpAndDown(5):  undefined //- because there was no return statment... only c
 //! In a loop, the complexity is the length of the loop times the complexity of whatever is inside of the loop.
 /**************************More Examples**********************/
 //---------------------logAtLeast5---------------------------------
-function logAtLeast5( n ) {
-  for ( let i = 1; i <= Math.max( 5, n ); i++ ) {
+function logAtLeast5(n) {
+  for (let i = 1; i <= Math.max(5, n); i++) {
     //console.log(i);
   }
 }
@@ -152,12 +152,12 @@ function logAtLeast5( n ) {
 1	2	3	4	5	6
 */
 //---------------------logAtMost5---------------------------------
-function logAtMost5( n ) {
-  for ( var i = 1; i <= Math.min( 5, n ); i++ ) {
+function logAtMost5(n) {
+  for (var i = 1; i <= Math.min(5, n); i++) {
     //console.log(i);
   }
 }
-logAtMost5( 20 );
+logAtMost5(20);
 //! O(1) Constant Time.
 /*
 1	2	3	4	5
@@ -167,17 +167,17 @@ logAtMost5( 20 );
 //! O(1) Constant
 The algorithm takes roughly the same number of steps for any input size.
 */
-function constant1( n ) {
+function constant1(n) {
   return n * 2 + 1;
 }
-constant1( 5 ); //constant1(5):  11
+constant1(5); //constant1(5):  11
 //console.log("constant1(5): ", constant1(5));
 //--------
 //! O(1)
 //--------
-function constant2( n ) {
-  for ( let i = 1; i <= 100; i++ ) {
-    console.log( i );
+function constant2(n) {
+  for (let i = 1; i <= 100; i++) {
+    console.log(i);
   }
 }
 //constant2(5);
@@ -191,24 +191,24 @@ log complexity algo's will typically display 'halving' the size of the input ??
 ? (like binary search!)
 */
 // O(log(n))
-function logarithmic1( n ) {
-  if ( n <= 1 ) {
+function logarithmic1(n) {
+  if (n <= 1) {
     return "base case";
   } else {
-    return logarithmic1( n / 2 ); //*Recursive call on **half** the input
+    return logarithmic1(n / 2); //*Recursive call on **half** the input
   }
 }
 //! O(log(n))
-function logarithmic2( n ) {
+function logarithmic2(n) {
   let i = n;
-  while ( i > 1 ) {
+  while (i > 1) {
     i /= 2;
     return i;
   }
 }
-logarithmic1( 5 );
+logarithmic1(5);
 ////console.log("logarithmic1(5): ", logarithmic1(5)); //logarithmic1(5):  base case
-logarithmic2( 6 );
+logarithmic2(6);
 ////console.log("logarithmic2(6): ", logarithmic2(6)); //logarithmic2(6):  3
 //------------------------------------------
 /*
@@ -216,32 +216,32 @@ logarithmic2( 6 );
 Linear algo's will access each item of the input "once".
  */
 // O(n)
-function linear1( n ) {
-  for ( let i = 1; i <= n; i++ ) {
+function linear1(n) {
+  for (let i = 1; i <= n; i++) {
     //console.log("linear1", i);
   }
 }
-linear1( 3 );
+linear1(3);
 /*
 linear1 1
 linear1 2
 linear1 3
 */
 // O(n), where n is the length of the array
-function linear2( array ) {
-  for ( let i = 0; i < array.length; i++ ) {
+function linear2(array) {
+  for (let i = 0; i < array.length; i++) {
     //console.log("linear2", i);
   }
 }
-linear2( [ 1, 2, 3 ] );
+linear2([1, 2, 3]);
 /*
 linear2 0
 linear2 1
 linear2 2
 */
 //!  O(n)
-function linear3( n ) {
-  if ( n === 1 ) {
+function linear3(n) {
+  if (n === 1) {
     return 1;
   } else {
     //console.log(`linear3(${n})--->`, linear3(n - 1));
@@ -290,19 +290,19 @@ for an input (n=2): we are on the 2'th itteration where i = 2
    new n is = (2)
    new n is = (4)
 */
-function loglinear( n ) {
-  if ( n <= 1 ) return; // base case
-  for ( let i = 1; i <= n; i++ ) {
+function loglinear(n) {
+  if (n <= 1) return; // base case
+  for (let i = 1; i <= n; i++) {
     console.log(
-      `for an input (n=${ n }):`,
-      `we are on the ${ i }'th itteration where i = ${ i }`
+      `for an input (n=${n}):`,
+      `we are on the ${i}'th itteration where i = ${i}`
     );
   }
-  console.log( " first call n('old n'):", n, `new n is = (${ n / 2 })` );
-  loglinear( n / 2 );
-  console.log( `   new n is = (${ n })` );
-  loglinear( n / 2 );
-  console.log( `   Second Call : new n is = (${ n })` );
+  console.log(" first call n('old n'):", n, `new n is = (${n / 2})`);
+  loglinear(n / 2);
+  console.log(`   new n is = (${n})`);
+  loglinear(n / 2);
+  console.log(`   Second Call : new n is = (${n})`);
 }
 //loglinear(4);
 /* 
@@ -330,20 +330,20 @@ O(nc) Polynomial
 C is a fixed constant.
  */
 // O(n^3)
-function cubic( n ) {
+function cubic(n) {
   let count = 0;
-  for ( let i = 1; i <= n; i++ ) {
+  for (let i = 1; i <= n; i++) {
     //console.log(`i is ${i}`, "count:", count);
-    for ( let j = 1; j <= n; j++ ) {
+    for (let j = 1; j <= n; j++) {
       //console.log(`  for i:    ${i}      j is:${j}`);
-      for ( let k = 1; k <= n; k++ ) {
+      for (let k = 1; k <= n; k++) {
         count += 1;
         // console.log(  `     itteration #${count}:       i: is  ${i},   j: is  ${j},     k:is   ${k}`);
       }
     }
   }
 }
-cubic( 3 );
+cubic(3);
 /*
 i is 1 count: 0
   for i:    1      j is:1
@@ -393,10 +393,10 @@ C is now the number of recursive calls made in each stack frame.
 -Algo's with exponential time are VERY SLOW.
 */
 // O(3^n)
-function exponential3n( n ) {
-  if ( n === 0 ) return;
+function exponential3n(n) {
+  if (n === 0) return;
   //console.log("1.)  first call n('old n'):", n, `....new n is = (${n - 1})`);
-  exponential3n( n - 1 );
+  exponential3n(n - 1);
 
   // console.log("---------------------(__1__)---------------------------", "\n");
   // console.log(
@@ -405,7 +405,7 @@ function exponential3n( n ) {
   //   `....new n is = (${n - 1})`
   // );
 
-  exponential3n( n - 1 );
+  exponential3n(n - 1);
 
   //console.log("-------------------------(__2__)---------------------", "\n");
   //console.log(
@@ -414,7 +414,7 @@ function exponential3n( n ) {
   //   `....new n is = (${n - 1})`
   // );
 
-  exponential3n( n - 1 );
+  exponential3n(n - 1);
 
   //console.log("-----------------------(__3__)-------------------------", "\n");
   //console.log(
@@ -423,7 +423,7 @@ function exponential3n( n ) {
   // `....new n is = (${n - 1})`
   //);
 }
-exponential3n( 3 );
+exponential3n(3);
 
 //***********************__Memoization__*************************** */
 /* 
@@ -447,13 +447,13 @@ Two features that comprise memoization:
 //   memo[n] = fib(n - 1, memo) + fib(n - 2, memo);
 //   return memo[n];
 // }
-function factorial( n, memo2 = {} ) {
-  const key = JSON.stringify( n );
-  if ( key in memo2 ) return memo2[ key ];
-  if ( n === 1 ) return 1;
-  memo2[ key ] = n * factorial( n - 1, memo2 );
+function factorial(n, memo2 = {}) {
+  const key = JSON.stringify(n);
+  if (key in memo2) return memo2[key];
+  if (n === 1) return 1;
+  memo2[key] = n * factorial(n - 1, memo2);
   //console.log("this is memo", memo2);
-  return memo2[ key ];
+  return memo2[key];
 }
 
 //console.log(memo2);
@@ -499,11 +499,11 @@ function's argument it's key.
 *2. When you notice duplicate sub-tree's that means we can memoize.
 
 */
-function fastFib( n, memo = {} ) {
-  if ( n in memo ) return memo[ n ];
-  if ( n === 1 || n === 2 ) return 1;
-  memo[ n ] = fastFib( n - 1, memo ) + fastFib( n - 2, memo );
-  return memo[ n ];
+function fastFib(n, memo = {}) {
+  if (n in memo) return memo[n];
+  if (n === 1 || n === 2) return 1;
+  memo[n] = fastFib(n - 1, memo) + fastFib(n - 2, memo);
+  return memo[n];
 }
 //fastFib(6); // => 8
 //console.log("fastFib(6): ", fastFib(6)); //fastFib(6):  8
@@ -517,23 +517,23 @@ Tabulation Strategy
 -The function is iterative and not recursive.
 -The accompanying Data Structure is usually an array.
 */
-function fibTab( n ) {
-  let table = [ 0, 1, 1 ];
+function fibTab(n) {
+  let table = [0, 1, 1];
 
   // if(n === 0 || n === 1){
   //    return 1;
   // }
 
-  while ( table.length - 1 < n ) {
-    table.push( table[ table.length - 1 ] + table[ table.length - 2 ] );
+  while (table.length - 1 < n) {
+    table.push(table[table.length - 1] + table[table.length - 2]);
   }
 
-  return table[ n ];
+  return table[n];
 }
 
-console.log( fibTab( 1 ) ); //1
-console.log( fibTab( 2 ) ); //1
-console.log( fibTab( 3 ) ); //2
-console.log( fibTab( 4 ) ); //3
-console.log( fibTab( 5 ) ); //5
-console.log( fibTab( 50 ) ); //12586269025
+console.log(fibTab(1)); //1
+console.log(fibTab(2)); //1
+console.log(fibTab(3)); //2
+console.log(fibTab(4)); //3
+console.log(fibTab(5)); //5
+console.log(fibTab(50)); //12586269025

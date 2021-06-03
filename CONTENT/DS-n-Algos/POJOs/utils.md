@@ -1,16 +1,14 @@
-
-
 ## Clone an object
-      clone(x)
-  Can clone any primitive type, array, and object.
-  If x has a function clone, this function will be invoked to clone the object.
-  >param {} x
-  >return {} clone
 
+      clone(x)
+
+Can clone any primitive type, array, and object.
+If x has a function clone, this function will be invoked to clone the object.
+
+> param {} x
+> return {} clone
 
 ```js
-
-
 export function clone(x) {
   const type = typeof x;
   // immutable primitive types
@@ -38,18 +36,15 @@ export function clone(x) {
   // object
   return mapObject(x, clone);
 }
-
 ```
 
 ## Apply map to all properties of an object
-  >param {Object} object
-  >param {function} callback
-  >return {Object} Returns a copy of the object with mapped properties
 
+> param {Object} object
+> param {function} callback
+> return {Object} Returns a copy of the object with mapped properties
 
 ```js
-
-
 export function mapObject(object, callback) {
   const clone = {};
   for (const key in object) {
@@ -59,18 +54,15 @@ export function mapObject(object, callback) {
   }
   return clone;
 }
-
 ```
 
 ## Extend object a with the properties of object b
-  >param {Object} a
-  >param {Object} b
-  >return {Object} a
 
+> param {Object} a
+> param {Object} b
+> return {Object} a
 
 ```js
-
-
 export function extend(a, b) {
   for (const prop in b) {
     if (hasOwnProperty(b, prop)) {
@@ -79,21 +71,17 @@ export function extend(a, b) {
   }
   return a;
 }
-
 ```
 
-
-
 ## Deep test equality of all fields in two pairs of arrays or objects.
-  Compares values and functions strictly (ie. 2 is not the same as '2').
-  >param {Array | Object} a
-  >param {Array | Object} b
-  >returns {boolean}
 
+Compares values and functions strictly (ie. 2 is not the same as '2').
+
+> param {Array | Object} a
+> param {Array | Object} b
+> returns {boolean}
 
 ```js
-
-
 export function deepStrictEqual(a, b) {
   let prop, i, len;
   if (Array.isArray(a)) {
@@ -132,17 +120,14 @@ export function deepStrictEqual(a, b) {
     return a === b;
   }
 }
-
 ```
 
 ## Recursively flatten a nested object.
-  >param {Object} nestedObject
-  >return {Object} Returns the flattened object
 
+> param {Object} nestedObject
+> return {Object} Returns the flattened object
 
 ```js
-
-
 export function deepFlatten(nestedObject) {
   const flattenedObject = {};
   _deepFlatten(nestedObject, flattenedObject);
@@ -161,16 +146,13 @@ function _deepFlatten(nestedObject, flattenedObject) {
     }
   }
 }
-
 ```
 
 ## Test whether the current JavaScript engine supports Object.defineProperty
-  >returns {boolean} returns true if supported
 
+> returns {boolean} returns true if supported
 
 ```js
-
-
 export function canDefineProperty() {
   // test needed for broken IE8 implementation
   try {
@@ -181,20 +163,19 @@ export function canDefineProperty() {
   } catch (e) {}
   return false;
 }
-
 ```
 
 ## Attach a lazy loading property to a constant.
-  The given function `fn` is called once when the property is first requested.
-  >param {Object} object         Object where to add the property
-  >param {string} prop           Property name
-  >param {Function} valueResolver Function returning the property value. Called
+
+The given function `fn` is called once when the property is first requested.
+
+> param {Object} object Object where to add the property
+> param {string} prop Property name
+> param {Function} valueResolver Function returning the property value. Called
+
                                  without arguments.
 
-
 ```js
-
-
 export function lazy(object, prop, valueResolver) {
   let _uninitialized = true;
   let _value;
@@ -214,18 +195,15 @@ export function lazy(object, prop, valueResolver) {
     enumerable: true,
   });
 }
-
 ```
 
 ## Get a nested property from an object
-  >param {Object} object
-  >param {string | string[]} path
-  >returns {Object}
 
+> param {Object} object
+> param {string | string[]} path
+> returns {Object}
 
 ```js
-
-
 export function get(object, path) {
   if (typeof path === "string") {
     if (isPath(path)) {
@@ -241,21 +219,19 @@ export function get(object, path) {
   }
   return child;
 }
-
 ```
 
 ## Set a nested property in an object
-  Mutates the object itself
-  If the path doesn't exist, it will be created
-  >param {Object} object
-  >param {string | string[]} path
-  >param {} value
-  >returns {Object}
 
+Mutates the object itself
+If the path doesn't exist, it will be created
+
+> param {Object} object
+> param {string | string[]} path
+> param {} value
+> returns {Object}
 
 ```js
-
-
 export function set(object, path, value) {
   if (typeof path === "string") {
     if (isPath(path)) {
@@ -279,7 +255,4 @@ export function set(object, path, value) {
   }
   return object;
 }
-
 ```
-
-
