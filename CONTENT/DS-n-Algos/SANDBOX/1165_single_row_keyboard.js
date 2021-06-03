@@ -30,7 +30,9 @@ word[i] is an English lowercase letter.
 const calculateTime = (keyboard, word) => {
   let totalTime = keyboard.indexOf(word[0]);
   for (let i = 1; i < word.length; i++) {
-    totalTime += Math.abs((keyboard.indexOf(word[i - 1]) - keyboard.indexOf(word[i])))
+    totalTime += Math.abs(
+      keyboard.indexOf(word[i - 1]) - keyboard.indexOf(word[i])
+    );
   }
-  return totalTime
+  return totalTime;
 };

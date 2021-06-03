@@ -5,8 +5,8 @@
  * @param {string} s
  * @return {number}
  */
-var calculate = function(s) {
-  s = s.replace(/\s/g, '');
+var calculate = function (s) {
+  s = s.replace(/\s/g, "");
   var numStack = [];
   var symStack = [];
   var len = s.length;
@@ -14,15 +14,15 @@ var calculate = function(s) {
 
   for (var i = 0; i < len; i++) {
     var item = s[i];
-    if ('-+('.indexOf(item) !== -1) {
+    if ("-+(".indexOf(item) !== -1) {
       symStack.push(item);
 
-      if (i && '0123456789'.indexOf(s[i - 1]) !== -1) {
+      if (i && "0123456789".indexOf(s[i - 1]) !== -1) {
         numStack.push(num);
         num = 0;
       }
-    } else if (item === ')') {
-      if (i && '0123456789'.indexOf(s[i - 1]) !== -1) {
+    } else if (item === ")") {
+      if (i && "0123456789".indexOf(s[i - 1]) !== -1) {
         numStack.push(num);
         num = 0;
       }
@@ -32,7 +32,7 @@ var calculate = function(s) {
 
       while (true) {
         var sym = symStack.pop();
-        if (sym === '(') {
+        if (sym === "(") {
           _numStack.unshift(numStack.pop());
           numStack.push(help(_numStack, _symStack));
           break;
@@ -42,16 +42,14 @@ var calculate = function(s) {
         _symStack.unshift(sym);
       }
     } else {
-      num = num * 10 + (+item);
+      num = num * 10 + +item;
     }
   }
 
-  if (s[len - 1] !== ')')
-    numStack.push(num);
+  if (s[len - 1] !== ")") numStack.push(num);
 
   return help(numStack, symStack);
 };
-
 
 /**
  * @param  {array} numStack
@@ -64,10 +62,8 @@ function help(numStack, symStack) {
     var a = numStack.shift();
     var b = numStack.shift();
 
-    if (sym === '+')
-      numStack.unshift(a + b);
-    else
-      numStack.unshift(a - b);
+    if (sym === "+") numStack.unshift(a + b);
+    else numStack.unshift(a - b);
   }
 
   return numStack[0];

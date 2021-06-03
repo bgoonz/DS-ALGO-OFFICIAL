@@ -14,31 +14,28 @@
  * @return {ListNode}
  */
 
-var addTwoNumbers = function(l1, l2) {
-  var add = 0
-    , ans
-    , head;
+var addTwoNumbers = function (l1, l2) {
+  var add = 0,
+    ans,
+    head;
 
-  while(l1 || l2) {
-    var a = l1 ? l1.val : 0
-      , b = l2 ? l2.val : 0;
+  while (l1 || l2) {
+    var a = l1 ? l1.val : 0,
+      b = l2 ? l2.val : 0;
 
     var sum = a + b + add;
     add = ~~(sum / 10);
 
     var node = new ListNode(sum % 10);
 
-    if (!ans)
-      ans = head = node;
+    if (!ans) ans = head = node;
     else {
       head.next = node;
-      head = node; 
+      head = node;
     }
-    
-    if (l1)
-      l1 = l1.next;
-    if (l2)
-      l2 = l2.next;
+
+    if (l1) l1 = l1.next;
+    if (l2) l2 = l2.next;
   }
 
   if (add) {

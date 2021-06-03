@@ -21,8 +21,8 @@ function dfs(root) {
   res.push(root.val);
 
   if (!root.left && !root.right) {
-    var str = res.reduce(function(pre, item) {
-      return pre + '->' + item;
+    var str = res.reduce(function (pre, item) {
+      return pre + "->" + item;
     });
 
     str = str.toString();
@@ -32,17 +32,15 @@ function dfs(root) {
     return;
   }
 
-  if (root.left) 
-    dfs(root.left);
-  
-  if (root.right)
-    dfs(root.right);
+  if (root.left) dfs(root.left);
+
+  if (root.right) dfs(root.right);
 
   res.pop();
 }
 
-var binaryTreePaths = function(root) {
-  ans = [], res = [];
+var binaryTreePaths = function (root) {
+  (ans = []), (res = []);
   dfs(root);
   return ans;
 };

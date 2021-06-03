@@ -13,11 +13,12 @@
  * @param {number} k
  * @return {number}
  */
-var kthSmallest = function(root, k) {
-  var inorderTraversal = function(root) {
+var kthSmallest = function (root, k) {
+  var inorderTraversal = function (root) {
     if (!root) return [];
 
-    var stack = [], ans = [];
+    var stack = [],
+      ans = [];
 
     stack.push(root);
 

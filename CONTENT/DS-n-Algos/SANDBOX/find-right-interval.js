@@ -14,12 +14,12 @@
  * @param {Interval[]} intervals
  * @return {number[]}
  */
-var findRightInterval = function(intervals) {
-  intervals.forEach(function(item, index) {
+var findRightInterval = function (intervals) {
+  intervals.forEach(function (item, index) {
     item.index = index;
   });
 
-  intervals.sort(function(a, b) {
+  intervals.sort(function (a, b) {
     // different starting positions
     return a.start - b.start;
   });
@@ -37,13 +37,13 @@ var findRightInterval = function(intervals) {
     f && (intervals[i].right = -1);
   }
 
-  intervals.sort(function(a, b) {
+  intervals.sort(function (a, b) {
     // different starting positions
     return a.index - b.index;
   });
 
   let ans = [];
-  intervals.forEach(function(item) {
+  intervals.forEach(function (item) {
     ans.push(item.right);
   });
 

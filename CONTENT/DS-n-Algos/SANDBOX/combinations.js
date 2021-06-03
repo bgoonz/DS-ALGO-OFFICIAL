@@ -9,12 +9,12 @@
 
 // return an array of k numbers with 1 ~ n
 
-var ans = []
-  , tmp = [];
+var ans = [],
+  tmp = [];
 
 function dfs(next, n, num, k) {
   if (num === k) {
-    var res = tmp.map(function(item) {
+    var res = tmp.map(function (item) {
       return item;
     });
 
@@ -29,8 +29,8 @@ function dfs(next, n, num, k) {
   }
 }
 
-var combine = function(n, k) {
-  ans = []; 
+var combine = function (n, k) {
+  ans = [];
   // select the 1st number
   for (var i = 1; i <= n; i++) {
     tmp[0] = i;

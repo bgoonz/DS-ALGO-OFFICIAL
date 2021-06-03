@@ -5,9 +5,8 @@
  * @param {number} num
  * @return {string}
  */
-var intToRoman = function(num) {
+var intToRoman = function (num) {
   var hash = {};
-
 
   hash["3000"] = "MMM";
   hash["2000"] = "MM";
@@ -22,7 +21,6 @@ var intToRoman = function(num) {
   hash["300"] = "CCC";
   hash["200"] = "CC";
   hash["100"] = "C";
-
 
   hash["90"] = "XC";
   hash["80"] = "LXXX";
@@ -58,15 +56,13 @@ var intToRoman = function(num) {
   num -= tmp * 100;
   str += hash[tmp * 100];
 
-
   tmp = ~~(num / 10);
   num -= tmp * 10;
   str += hash[tmp * 10];
-
 
   tmp = ~~(num / 1);
   num -= tmp * 1;
   str += hash[tmp * 1];
 
   return str;
-};  
+};

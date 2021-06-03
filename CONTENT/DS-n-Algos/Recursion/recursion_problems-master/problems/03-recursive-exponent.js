@@ -24,15 +24,15 @@ factorial(5, 5); // => 3,125
 //recursive case:
 //num * exponent(num, power - 1)
 // if power is negative
-function exponent( num, power ) {
+function exponent(num, power) {
   //if power is 0
-  if ( power < 0 ) {
-    return 1 / exponent( num, Math.abs( power ) );
+  if (power < 0) {
+    return 1 / exponent(num, Math.abs(power));
   }
-  if ( power === 1 ) {
+  if (power === 1) {
     return num;
   }
-  return num * exponent( num, power - 1 );
+  return num * exponent(num, power - 1);
 }
 
 /**************DO NOT MODIFY ANYTHING UNDER THIS LINE*****************/

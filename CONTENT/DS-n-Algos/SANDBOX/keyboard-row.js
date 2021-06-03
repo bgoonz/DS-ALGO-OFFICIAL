@@ -5,16 +5,12 @@
  * @param {string[]} words
  * @return {string[]}
  */
-var findWords = function(words) {
-  let keys = [
-    'qwertyuiop',
-    'asdfghjkl',
-    'zxcvbnm'
-  ];
+var findWords = function (words) {
+  let keys = ["qwertyuiop", "asdfghjkl", "zxcvbnm"];
 
   let ans = [];
 
-  words.forEach(function(item) {
+  words.forEach(function (item) {
     let s = new Set();
     let word = item.toLowerCase();
 
@@ -26,8 +22,7 @@ var findWords = function(words) {
         }
     }
 
-    if (s.size === 1)
-      ans.push(item);
+    if (s.size === 1) ans.push(item);
   });
 
   return ans;

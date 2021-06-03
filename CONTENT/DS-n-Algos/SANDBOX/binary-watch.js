@@ -5,7 +5,7 @@
  * @param {number} num
  * @return {string[]}
  */
-var readBinaryWatch = function(num) {
+var readBinaryWatch = function (num) {
   let hours = [1, 2, 4, 8];
   let minutes = [1, 2, 4, 8, 16, 32];
   let ans = [];
@@ -13,12 +13,11 @@ var readBinaryWatch = function(num) {
   dfs(num, 0, 0, 0, 0);
 
   function dfs(left, a, b, hoursTotal, minutesTotal) {
-    if (hoursTotal >= 12 || minutesTotal >= 60)
-      return;
+    if (hoursTotal >= 12 || minutesTotal >= 60) return;
 
     if (left === 0) {
       let str = hoursTotal + ":";
-      str += minutesTotal < 10 ? '0' + minutesTotal : minutesTotal;
+      str += minutesTotal < 10 ? "0" + minutesTotal : minutesTotal;
       ans.push(str);
       return;
     }

@@ -1,14 +1,13 @@
 // Source : https://leetcode.com/problems/combination-sum-ii/
 // Author : Bryan Guner
 
-
 /**
  * @param {number[]} candidates
  * @param {number} target
  * @return {number[][]}
  */
-var combinationSum2 = function(candidates, target) {
-  candidates.sort(function(a, b) {
+var combinationSum2 = function (candidates, target) {
+  candidates.sort(function (a, b) {
     return a - b;
   });
 
@@ -19,8 +18,7 @@ var combinationSum2 = function(candidates, target) {
   dfs(0, 0);
 
   function dfs(index, sum) {
-    if (sum > target)
-      return;
+    if (sum > target) return;
 
     if (sum === target) {
       ans.push(res.concat());
@@ -30,8 +28,7 @@ var combinationSum2 = function(candidates, target) {
     for (var i = index; i < len; i++) {
       // Point!
       // remove the duplicate combinations
-      if (i > index && candidates[i] === candidates[i - 1])
-        continue;
+      if (i > index && candidates[i] === candidates[i - 1]) continue;
       res.push(candidates[i]);
       dfs(i + 1, sum + candidates[i]);
       res.pop();

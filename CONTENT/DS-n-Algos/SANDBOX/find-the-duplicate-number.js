@@ -6,15 +6,11 @@
  * @return {number}
  */
 
-
-
-var findDuplicate = function(nums) {
+var findDuplicate = function (nums) {
   var hash = {};
   for (var i = 0, len = nums.length; i < len; i++) {
     var item = nums[i];
-    if (!hash[item])
-      hash[item] = true;
-    else 
-      return item;
+    if (!hash[item]) hash[item] = true;
+    else return item;
   }
 };

@@ -8,7 +8,7 @@
 
 function add(n) {
   var ans = 0;
-  while(n) {
+  while (n) {
     ans += (n % 10) * (n % 10);
     n /= 10;
     n = parseInt(n.toString());
@@ -16,12 +16,12 @@ function add(n) {
   return ans;
 }
 
-var isHappy = function(n) {
+var isHappy = function (n) {
   hash = [];
-  while(n) {
+  while (n) {
     if (n === 1) return true;
     if (hash[n]) return false;
     hash[n] = true;
     n = add(n);
-  }  
+  }
 };

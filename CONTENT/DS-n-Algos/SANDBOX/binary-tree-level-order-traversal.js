@@ -12,15 +12,15 @@
  * @param {TreeNode} root
  * @return {number[][]}
  */
-var levelOrder = function(root) {
+var levelOrder = function (root) {
   if (!root) return [];
 
-  var ans = []
-    , tmp = [root];
+  var ans = [],
+    tmp = [root];
 
   while (tmp.length) {
-    var res = []
-      , a = [];
+    var res = [],
+      a = [];
 
     for (var i = 0, len = tmp.length; i < len; i++) {
       if (!tmp[i]) continue;
@@ -30,8 +30,7 @@ var levelOrder = function(root) {
     }
 
     tmp = a.concat();
-    if (res.length)
-      ans.push(res);
+    if (res.length) ans.push(res);
   }
 
   return ans;

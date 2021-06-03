@@ -12,11 +12,10 @@
  * @param {number} H
  * @return {number}
  */
-var computeArea = function(A, B, C, D, E, F, G, H) {
+var computeArea = function (A, B, C, D, E, F, G, H) {
   var width, height;
 
-  if (C <= E || G <= A || D <= F || H <= B)
-    width = height = 0;
+  if (C <= E || G <= A || D <= F || H <= B) width = height = 0;
   else {
     if (E > A) {
       width = G < C ? G - E : C - E;
@@ -27,9 +26,9 @@ var computeArea = function(A, B, C, D, E, F, G, H) {
     if (F > B) {
       height = H < D ? H - F : D - F;
     } else {
-      height = D < H ? D - B: H - B;
+      height = D < H ? D - B : H - B;
     }
   }
-  
+
   return (C - A) * (D - B) + (G - E) * (H - F) - width * height;
 };

@@ -15,9 +15,8 @@
  * @param {RandomListNode} head
  * @return {RandomListNode}
  */
-var copyRandomList = function(head) {
-  if (!head)
-    return null;
+var copyRandomList = function (head) {
+  if (!head) return null;
 
   let hash = new Map();
   let newArr = [];
@@ -31,8 +30,7 @@ var copyRandomList = function(head) {
 
   node = head;
   for (let i = 0, len = newArr.length; i < len; i++) {
-    if (i !== len - 1)
-      newArr[i].next = newArr[i + 1];
+    if (i !== len - 1) newArr[i].next = newArr[i + 1];
 
     let random = node.random;
     let index = hash.get(random);

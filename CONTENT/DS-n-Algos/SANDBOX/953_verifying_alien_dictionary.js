@@ -34,36 +34,35 @@ character which is less than any other character.
 
 // iterate over the input array
 // keep track of the first word's first char index position in the alphabet.
-// go to the next word. if it's first char is the same index position, then: 
+// go to the next word. if it's first char is the same index position, then:
 //    check the next letter, in both words. if they are the same, then continue to check next
 //    once you finally get to a letter that isn't the same, do same check as below
-// if it's not the same index position, is it greater than the first one? 
+// if it's not the same index position, is it greater than the first one?
 //    if no, return false
 //    if yes, continue
 
-
 var isAlienSorted = function (words, order) {
   let charIdx = 0;
-  let wordToCheck = 0
+  let wordToCheck = 0;
   let prevIdx = order.indexOf(words[wordToCheck][charIdx]);
 
   for (let i = 1; i < words.length; i++) {
-    let currentCharIdx = order.indexOf(words[i][charIdx])
+    let currentCharIdx = order.indexOf(words[i][charIdx]);
     if (currentCharIdx < prevIdx) {
-      return false
+      return false;
     } else if (currentCharIdx === prevIdx) {
       while (currentCharIdx >= prevIdx) {
-        charIdx++
-        prevIdx = order.indexOf(words[i - 1][charIdx])
-        currentCharIdx = order.indexOf(words[i][charIdx])
+        charIdx++;
+        prevIdx = order.indexOf(words[i - 1][charIdx]);
+        currentCharIdx = order.indexOf(words[i][charIdx]);
       }
       if (currentCharIdx < prevIdx) {
-        return false
+        return false;
       }
     } else {
-      wordToCheck++
-      prevIdx = order.indexOf(words[wordToCheck][charIdx])
-    } 
+      wordToCheck++;
+      prevIdx = order.indexOf(words[wordToCheck][charIdx]);
+    }
   }
   return true;
 };
@@ -71,6 +70,20 @@ var isAlienSorted = function (words, order) {
 // console.log(isAlienSorted(["hello", "leetcode"], "hlabcdefgijkmnopqrstuvwxyz"))
 // console.log(isAlienSorted(["word", "world", "row"], "worldabcefghijkmnpqstuvxyz"))
 // console.log(isAlienSorted(["apple", "app"], "abcdefghijklmnopqrstuvwxyz"))
-console.log(isAlienSorted(["xpzurqpjimcqjp", "cpoymyvqrrkw", "jhvxpqgq", "escrktgzqpoze", 
-"tamdkoyacprfyj", "tcgkdjerydm", "czhzgfcvrmudxd", "qwbegrhcavi", "yvluklzflkjq", "pwawsolwzognjx"], 
-"xchaiwgovseknjuztmrydflqbp"))
+console.log(
+  isAlienSorted(
+    [
+      "xpzurqpjimcqjp",
+      "cpoymyvqrrkw",
+      "jhvxpqgq",
+      "escrktgzqpoze",
+      "tamdkoyacprfyj",
+      "tcgkdjerydm",
+      "czhzgfcvrmudxd",
+      "qwbegrhcavi",
+      "yvluklzflkjq",
+      "pwawsolwzognjx",
+    ],
+    "xchaiwgovseknjuztmrydflqbp"
+  )
+);
