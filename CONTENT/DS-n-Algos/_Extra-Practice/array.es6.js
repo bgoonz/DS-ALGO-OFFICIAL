@@ -8,12 +8,12 @@ class MyArray {
   }
 
   remove(data) {
-    this.array = this.array.filter(current => current !== data);
+    this.array = this.array.filter((current) => current !== data);
   }
 
   search(data) {
     const foundIndex = this.array.indexOf(data);
-    if(~foundIndex) {
+    if (~foundIndex) {
       return foundIndex;
     }
 
@@ -29,7 +29,7 @@ class MyArray {
   }
 
   print() {
-    console.log(this.array.join(' '));
+    console.log(this.array.join(" "));
   }
 }
 
@@ -39,9 +39,9 @@ array.add(2);
 array.add(3);
 array.add(4);
 array.print(); // => 1 2 3 4
-console.log('search 3 gives index 2:', array.search(3)); // => 2
-console.log('getAtIndex 2 gives 3:', array.getAtIndex(2)); // => 3
-console.log('length is 4:', array.length()); // => 4
+console.log("search 3 gives index 2:", array.search(3)); // => 2
+console.log("getAtIndex 2 gives 3:", array.getAtIndex(2)); // => 3
+console.log("length is 4:", array.length()); // => 4
 array.remove(3);
 array.print(); // => 1 2 4
 array.add(5);
