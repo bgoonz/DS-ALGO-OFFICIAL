@@ -27,19 +27,19 @@
 // -----------
 
 function iterateAcrossLinkedListBackwards(linkedList) {
-	// TODO: Implement the iterateAcrossLinkedListBackwards function here
-	if (linkedList.length === 0) return '';
-	const stack = [];
-	let curEl = linkedList.head;
-	while (curEl) {
-		stack.push(curEl.value);
-		curEl = curEl.next;
-	}
-	let reversed = `${stack.pop()}`;
-	while (stack.length > 0) {
-		reversed = reversed.concat(' -> ', stack.pop());
-	}
-	return reversed;
+  // TODO: Implement the iterateAcrossLinkedListBackwards function here
+  if (linkedList.length === 0) return "";
+  const stack = [];
+  let curEl = linkedList.head;
+  while (curEl) {
+    stack.push(curEl.value);
+    curEl = curEl.next;
+  }
+  let reversed = `${stack.pop()}`;
+  while (stack.length > 0) {
+    reversed = reversed.concat(" -> ", stack.pop());
+  }
+  return reversed;
 }
 
 exports.iterateAcrossLinkedListBackwards = iterateAcrossLinkedListBackwards;

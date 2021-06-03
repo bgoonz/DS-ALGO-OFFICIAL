@@ -1,4 +1,3 @@
-
 ```js
 /*
  View the full problem and run the test cases at:
@@ -62,12 +61,12 @@ i.right = j;
 k.left = l;
 l.right = m;
 //--------------------------------------\\
-console.log( a );
-console.log(h)
-console.log('a.val: ', a.val);
-console.log('b.val: ', b.val);
-console.log('a.left: ', a.left);
-console.log( 'a.right: ', a.right );
+console.log(a);
+console.log(h);
+console.log("a.val: ", a.val);
+console.log("b.val: ", b.val);
+console.log("a.left: ", a.left);
+console.log("a.right: ", a.right);
 console.log("h.left: ", h.left);
 //--------------------------------------------------------------------------------------\\
 console.log(
@@ -95,8 +94,8 @@ function buildTree(preorder, inorder) {
 console.log(
   "//--------------------------------------------------------------------------------------\\"
 );
-buildTree( preO, inO );
-console.log('buildTree( preO, inO ): ', buildTree( preO, inO ));
+buildTree(preO, inO);
+console.log("buildTree( preO, inO ): ", buildTree(preO, inO));
 //--------------------------results below--------------------------------------------
 /*
 node 105-Construct\ Binary\ Tree\ from\ Preorder\ and\ Inorder\ Traversal.js

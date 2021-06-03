@@ -5,5 +5,5 @@ const distance = (x, y) => {
 };
 
 module.exports = {
-  distance: distance
+  distance: distance,
 };

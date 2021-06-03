@@ -12,7 +12,7 @@
  * If everything succeeds, don't print anything.
  */
 
-const fs = require('fs');
+const fs = require("fs");
 
 const filesToRemove = process.argv.slice(2);
 
@@ -24,7 +24,7 @@ if (filesToRemove.length === 0) {
 function removeFiles([head, ...tail]) {
   if (head === undefined && tail.length === 0) return;
   if (head === undefined) removeFiles(tail);
-  fs.unlink(head, err => {
+  fs.unlink(head, (err) => {
     if (err) throw err;
     removeFiles(tail);
   });

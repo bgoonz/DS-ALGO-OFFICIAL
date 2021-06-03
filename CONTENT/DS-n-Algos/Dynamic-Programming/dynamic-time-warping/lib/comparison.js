@@ -1,14 +1,14 @@
-const EPSILON = 2.2204460492503130808472633361816E-16;
+const EPSILON = 2.2204460492503130808472633361816e-16;
 
 const nearlyEqual = (i, j, epsilon) => {
-  const iAbsolute = Math.abs( i );
-  const jAbsolute = Math.abs( j );
-  const difference = Math.abs( i - j );
+  const iAbsolute = Math.abs(i);
+  const jAbsolute = Math.abs(j);
+  const difference = Math.abs(i - j);
   let equal = i === j;
-  if ( !equal ) {
+  if (!equal) {
     equal = difference < EPSILON;
-    if ( !equal ) {
-      equal = difference <= Math.max( iAbsolute, jAbsolute ) * epsilon;
+    if (!equal) {
+      equal = difference <= Math.max(iAbsolute, jAbsolute) * epsilon;
     }
   }
 
@@ -17,5 +17,5 @@ const nearlyEqual = (i, j, epsilon) => {
 
 module.exports = {
   EPSILON: EPSILON,
-  nearlyEqual: nearlyEqual
+  nearlyEqual: nearlyEqual,
 };

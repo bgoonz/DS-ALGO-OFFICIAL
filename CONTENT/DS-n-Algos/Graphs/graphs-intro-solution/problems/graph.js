@@ -3,79 +3,81 @@ class Graph {
     this.adjList = {};
   }
 
-  addVertex( vertex ) {
-    if ( !this.adjList[ vertex ] ) this.adjList[ vertex ] = [];
+  addVertex(vertex) {
+    if (!this.adjList[vertex]) this.adjList[vertex] = [];
   }
 
-  addEdges( srcValue, destValue ) {
-    this.addVertex( srcValue );
-    this.addVertex( destValue );
+  addEdges(srcValue, destValue) {
+    this.addVertex(srcValue);
+    this.addVertex(destValue);
 
-    this.adjList[ srcValue ].push( destValue );
-    this.adjList[ destValue ].push( srcValue );
+    this.adjList[srcValue].push(destValue);
+    this.adjList[destValue].push(srcValue);
   }
 
-  buildGraph( edges ) {
-    for ( let edge of edges ) {
-      if ( edge.length === 1 ) {
-        this.addVertex( edge[ 0 ] ) // if we have a vertex with no edges
+  buildGraph(edges) {
+    for (let edge of edges) {
+      if (edge.length === 1) {
+        this.addVertex(edge[0]); // if we have a vertex with no edges
       } else {
-        this.addEdges( edge[ 0 ], edge[ 1 ] )
+        this.addEdges(edge[0], edge[1]);
       }
     }
-    return this.adjList
+    return this.adjList;
   }
 
-  breadthFirstTraversal( startingVertex ) {
+  breadthFirstTraversal(startingVertex) {
     const visited = new Set();
-    const vertices = []
-    const queue = [ startingVertex ];
+    const vertices = [];
+    const queue = [startingVertex];
 
-    while ( queue.length ) {
+    while (queue.length) {
       let currentVertex = queue.shift();
-      if ( visited.has( currentVertex ) ) continue;
-      visited.add( currentVertex )
-      vertices.push( currentVertex )
+      if (visited.has(currentVertex)) continue;
+      visited.add(currentVertex);
+      vertices.push(currentVertex);
 
-      queue.push( ...this.adjList[ currentVertex ] )
+      queue.push(...this.adjList[currentVertex]);
     }
 
-    return vertices
-  }
-
-  depthFirstTraversalIterative( startingVertex ) {
-    const visited = new Set();
-    const vertices = []
-    const stack = [ startingVertex ];
-
-    while ( stack.length ) {
-      let currentVertex = stack.pop();
-      if ( visited.has( currentVertex ) ) continue;
-      visited.add( currentVertex )
-      vertices.push( currentVertex )
-
-      stack.push( ...this.adjList[ currentVertex ] )
-    }
-
-    return vertices
-  }
-
-  depthFirstTraversalRecursive( startingVertex, visited = new Set(), vertices = [] ) {
-    if ( visited.has( startingVertex ) ) return;
-    visited.add( startingVertex );
-    vertices.push( startingVertex );
-    for ( let neighbor of this.adjList[ startingVertex ] ) {
-      this.depthFirstTraversalRecursive( neighbor, visited, vertices )
-    }
     return vertices;
   }
 
+  depthFirstTraversalIterative(startingVertex) {
+    const visited = new Set();
+    const vertices = [];
+    const stack = [startingVertex];
+
+    while (stack.length) {
+      let currentVertex = stack.pop();
+      if (visited.has(currentVertex)) continue;
+      visited.add(currentVertex);
+      vertices.push(currentVertex);
+
+      stack.push(...this.adjList[currentVertex]);
+    }
+
+    return vertices;
+  }
+
+  depthFirstTraversalRecursive(
+    startingVertex,
+    visited = new Set(),
+    vertices = []
+  ) {
+    if (visited.has(startingVertex)) return;
+    visited.add(startingVertex);
+    vertices.push(startingVertex);
+    for (let neighbor of this.adjList[startingVertex]) {
+      this.depthFirstTraversalRecursive(neighbor, visited, vertices);
+    }
+    return vertices;
+  }
 }
 
 module.exports = {
-  Graph
+  Graph,
 };
-
 
 /* testing
 const di = {

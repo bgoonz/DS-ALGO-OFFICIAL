@@ -3,7 +3,7 @@ function destroyer(arr) {
   const argsArray = Array.from(arguments);
   return argsArray[0].filter(val => {
     for (let i = 1; i < argsArray.length; i++) {
-      return argsArray.indexOf(val) == -1;
+      return !argsArray.includes(val);
     }
     return true;
   });

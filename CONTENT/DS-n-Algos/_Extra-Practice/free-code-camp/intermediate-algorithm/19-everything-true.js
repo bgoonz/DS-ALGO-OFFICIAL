@@ -6,7 +6,7 @@ function truthCheck(collection, pre) {
       return false;
     }
   });
-  if (verdict.indexOf(false) == -1) {
+  if (!verdict.includes(false)) {
     return true;
   } else {
     return false;

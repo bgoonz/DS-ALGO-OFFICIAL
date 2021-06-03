@@ -4,7 +4,7 @@ function mutation(arr) {
   //return arr1;
 
   for (let i = 0; i < str2.length; i++) {
-    if (str1.indexOf(str2[i]) == -1) {
+    if (!str1.includes(str2[i])) {
       return false;
     }
   }

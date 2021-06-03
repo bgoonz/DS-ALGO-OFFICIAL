@@ -2,8 +2,7 @@
 
 > Explanation and Code Implementation
 
-Explanation and Code Implementation
------------------------------------
+## Explanation and Code Implementation
 
 [![Jeremy Zhang](https://miro.medium.com/fit/c/56/56/0*OHP4EDyFQhdpx4uk.)](https://meatba11.medium.com/?source=post_page-----3933f25fcdd--------------------------------)
 
@@ -25,8 +24,7 @@ Before digging into the algorithm, you might have the question that is it useful
 
 Yes, in a lot of scenarios DTW is playing a key role.
 
-Sound Pattern Recognition
--------------------------
+## Sound Pattern Recognition
 
 One use case is to detect the sound pattern of the same kind. Suppose we want to recognise the voice of a person by analysing his sound track, and we are able to collect his sound track of saying `Hello` in one scenario. However, people speak in the same word in different ways, what if he speaks hello in a much slower pace like `Heeeeeeelloooooo` , we will need an algorithm to match up the sound track of different lengths and be able to identify they come from the same person.
 
@@ -34,8 +32,7 @@ One use case is to detect the sound pattern of the same kind. Suppose we want to
 
 ![Image for post](https://miro.medium.com/max/2352/1*gi1TtOqFCsb2M_U7iAUAag.png)
 
-Stock Market
-------------
+## Stock Market
 
 In a stock market, people always hope to be able to predict the future, however using general machine learning algorithms can be exhaustive, as most prediction task requires test and training set to have the same dimension of features. However, if you ever speculate in the stock market, you will know that even the same pattern of a stock can have very different length reflection on klines and indicators.
 
@@ -57,10 +54,10 @@ DTW overcomes the issue by developing a one-to-many match so that the troughs an
 
 In general, DTW is a method that calculates an optimal match between two given sequences (e.g. time series) with certain restriction and rules(comes from wiki):
 
-*   Every index from the first sequence must be matched with one or more indices from the other sequence and vice versa
-*   The first index from the first sequence must be matched with the first index from the other sequence (but it does not have to be its only match)
-*   The last index from the first sequence must be matched with the last index from the other sequence (but it does not have to be its only match)
-*   The mapping of the indices from the first sequence to indices from the other sequence must be monotonically increasing, and vice versa, i.e. if `j > i` are indices from the first sequence, then there must not be two indices `l > k` in the other sequence, such that index `i` is matched with index `l` and index `j` is matched with index `k` , and vice versa
+- Every index from the first sequence must be matched with one or more indices from the other sequence and vice versa
+- The first index from the first sequence must be matched with the first index from the other sequence (but it does not have to be its only match)
+- The last index from the first sequence must be matched with the last index from the other sequence (but it does not have to be its only match)
+- The mapping of the indices from the first sequence to indices from the other sequence must be monotonically increasing, and vice versa, i.e. if `j > i` are indices from the first sequence, then there must not be two indices `l > k` in the other sequence, such that index `i` is matched with index `l` and index `j` is matched with index `k` , and vice versa
 
 The optimal match is denoted by the match that satisfies all the restrictions and the rules and that has the minimal cost, where the cost is computed as the sum of absolute differences, for each matched pair of indices, between their values.
 
@@ -74,9 +71,9 @@ where `DTW[i, j]` is the distance between `s[1:i]` and `t[1:j]` with the best al
 
 The key lies in:
 
-DTW\[i, j\] := cost + minimum(DTW\[i-1, j  \],  
-                            DTW\[i  , j-1\],  
-                            DTW\[i-1, j-1\])
+DTW\[i, j\] := cost + minimum(DTW\[i-1, j \],  
+ DTW\[i , j-1\],  
+ DTW\[i-1, j-1\])
 
 Which is saying that the cost of between two arrays with length `i and j` equals _the distance between the tails + the minimum of cost in arrays with length_ `_i-1, j_` _,_ `_i, j-1_` _, and_ `_i-1, j-1_` _._
 
@@ -88,8 +85,7 @@ Example:
 
 The distance between `a and b` would be the last element of the matrix, which is 2.
 
-Add Window Constraint
----------------------
+## Add Window Constraint
 
 One issue of the above algorithm is that we allow one element in an array to match an unlimited number of elements in the other array(as long as the tail can match in the end), this would cause the mapping to bent over a lot, for example, the following array:
 
@@ -116,7 +112,6 @@ Lastly, you can check out the implementation [here](https://github.com/MJeremy20
 
 \[1\] [https://databricks.com/blog/2019/04/30/understanding-dynamic-time-warping.html](https://databricks.com/blog/2019/04/30/understanding-dynamic-time-warping.html)
 
-\[2\] [https://en.wikipedia.org/wiki/Dynamic\_time\_warping](https://en.wikipedia.org/wiki/Dynamic_time_warping)
-
+\[2\] [https://en.wikipedia.org/wiki/Dynamic_time_warping](https://en.wikipedia.org/wiki/Dynamic_time_warping)
 
 [Source](https://towardsdatascience.com/dynamic-time-warping-3933f25fcdd)

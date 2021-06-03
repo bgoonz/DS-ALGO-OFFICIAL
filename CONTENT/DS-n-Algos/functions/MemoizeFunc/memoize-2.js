@@ -1,11 +1,11 @@
 "use strict";
 
-function memorize( fn ) {
+function memorize(fn) {
   let memorized = false;
 
   let result = undefined;
   return () => {
-    if ( memorized ) {
+    if (memorized) {
       return result;
     } else {
       result = fn();
