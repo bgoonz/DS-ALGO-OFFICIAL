@@ -7,6 +7,6 @@
  */
 
 // I really do not know what the meaning of this problem is
-var mySqrt = function(x) {
+var mySqrt = function (x) {
   return Math.floor(Math.sqrt(x));
 };

@@ -15,22 +15,22 @@ function selectionSort(array) {
   var countInner = 0;
   var countSwap = 0;
 
-  for(var i = 0; i < array.length; i++) {
+  for (var i = 0; i < array.length; i++) {
     countOuter++;
     var min = i;
-    for(var j = i + 1; j < array.length; j++) {
+    for (var j = i + 1; j < array.length; j++) {
       countInner++;
-      if(array[j] < array[min]) {
+      if (array[j] < array[min]) {
         min = j;
       }
     }
-    if(i !== min) {
+    if (i !== min) {
       countSwap++;
       swap(array, i, min);
     }
   }
 
-  console.log('outer:', countOuter, 'inner:', countInner, 'swap:', countSwap);
+  console.log("outer:", countOuter, "inner:", countInner, "swap:", countSwap);
   return array;
 }
 

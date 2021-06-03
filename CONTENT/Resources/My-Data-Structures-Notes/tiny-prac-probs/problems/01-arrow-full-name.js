@@ -13,7 +13,6 @@ let p2 = {firstName: 'Charlie', lastName: 'Brown', age: 9};
 arrowGetFullName( p2 ); // => 'Charlie Brown'
 ***********************************************************************/
 
-const arrowGetFullName = person => person.firstName + " " + person.lastName;
-
+const arrowGetFullName = (person) => person.firstName + " " + person.lastName;
 
 module.exports = arrowGetFullName;

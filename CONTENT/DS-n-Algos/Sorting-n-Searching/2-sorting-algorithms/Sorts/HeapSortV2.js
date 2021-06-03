@@ -1,45 +1,45 @@
-let arrayLength = 0
+let arrayLength = 0;
 
 /* to create MAX  array */
 
-function heapRoot (input, i) {
-  const left = 2 * i + 1
-  const right = 2 * i + 2
-  let max = i
+function heapRoot(input, i) {
+  const left = 2 * i + 1;
+  const right = 2 * i + 2;
+  let max = i;
 
   if (left < arrayLength && input[left] > input[max]) {
-    max = left
+    max = left;
   }
 
   if (right < arrayLength && input[right] > input[max]) {
-    max = right
+    max = right;
   }
 
   if (max !== i) {
-    swap(input, i, max)
-    heapRoot(input, max)
+    swap(input, i, max);
+    heapRoot(input, max);
   }
 }
 
-function swap (input, indexA, indexB) {
-  [input[indexA], input[indexB]] = [input[indexB], input[indexA]]
+function swap(input, indexA, indexB) {
+  [input[indexA], input[indexB]] = [input[indexB], input[indexA]];
 }
 
-function heapSort (input) {
-  arrayLength = input.length
+function heapSort(input) {
+  arrayLength = input.length;
 
   for (let i = Math.floor(arrayLength / 2); i >= 0; i -= 1) {
-    heapRoot(input, i)
+    heapRoot(input, i);
   }
 
   for (let i = input.length - 1; i > 0; i--) {
-    swap(input, 0, i)
-    arrayLength--
+    swap(input, 0, i);
+    arrayLength--;
 
-    heapRoot(input, 0)
+    heapRoot(input, 0);
   }
 }
 
-const arr = [3, 0, 2, 5, -1, 4, 1]
-heapSort(arr)
-console.log(arr)
+const arr = [3, 0, 2, 5, -1, 4, 1];
+heapSort(arr);
+console.log(arr);

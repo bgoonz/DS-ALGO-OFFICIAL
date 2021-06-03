@@ -16,28 +16,24 @@ function dfs(x, y, s, n, numRows) {
     return;
   }
 
-  if (y % (numRows - 1) === 0 && x !== numRows - 1) 
+  if (y % (numRows - 1) === 0 && x !== numRows - 1)
     dfs(x + 1, y, s, n + 1, numRows);
-  else 
-    dfs(x - 1, y + 1, s, n + 1, numRows);
+  else dfs(x - 1, y + 1, s, n + 1, numRows);
 }
 
-var convert = function(s, numRows) {
-  if (numRows === 1) 
-    return s;
+var convert = function (s, numRows) {
+  if (numRows === 1) return s;
 
   ans = [];
 
-  for (var i = 0; i < numRows; i++)
-    ans[i] = [];
+  for (var i = 0; i < numRows; i++) ans[i] = [];
 
   dfs(0, 0, s, 0, numRows);
 
-  var tmp = '';
+  var tmp = "";
   for (var i = 0; i < numRows; i++)
     for (var j = 0; j <= max_column; j++)
-      if (ans[i][j] !== undefined)
-        tmp += ans[i][j];
+      if (ans[i][j] !== undefined) tmp += ans[i][j];
 
   return tmp;
 };

@@ -7,7 +7,7 @@
  * @param {number} n
  * @return {number}
  */
-var findMaxForm = function(strs, m, n) {
+var findMaxForm = function (strs, m, n) {
   /**
    * [count the number of '0' of a string]
    * @param  {string} str
@@ -15,8 +15,7 @@ var findMaxForm = function(strs, m, n) {
    */
   function count(str) {
     let num = 0;
-    for(let item of str)
-      item === '0' && num++;
+    for (let item of str) item === "0" && num++;
 
     return num;
   }
@@ -25,8 +24,7 @@ var findMaxForm = function(strs, m, n) {
   let dp = [];
   for (let i = 0; i <= m; i++) {
     dp[i] = [];
-    for (let j = 0; j <= n; j++)
-      dp[i][j] = 0;
+    for (let j = 0; j <= n; j++) dp[i][j] = 0;
   }
 
   for (let i = 0, len = strs.length; i < len; i++) {

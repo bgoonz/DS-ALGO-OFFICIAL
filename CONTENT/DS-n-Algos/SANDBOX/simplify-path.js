@@ -5,30 +5,27 @@
  * @param {string} path
  * @return {string}
  */
-var simplifyPath = function(path) {
-  let res = []
-    , str = '';
+var simplifyPath = function (path) {
+  let res = [],
+    str = "";
 
   for (let item of path) {
-    if (item === '/') {
-      if (str === '' || str === '.') {
+    if (item === "/") {
+      if (str === "" || str === ".") {
         // nothing to do
-      } else if (str === '..') {
-        if (res.length)
-          res.pop();
+      } else if (str === "..") {
+        if (res.length) res.pop();
       } else {
         res.push(str);
       }
-      str = '';
+      str = "";
     } else {
       str += item;
     }
   }
 
-  if (str && str !== '.' && str !== '..')
-    res.push(str);
-  else if (str === '..' && res.length)
-    res.pop();
+  if (str && str !== "." && str !== "..") res.push(str);
+  else if (str === ".." && res.length) res.pop();
 
-  return '/' + res.join('/');
+  return "/" + res.join("/");
 };

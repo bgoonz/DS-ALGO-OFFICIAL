@@ -5,7 +5,7 @@
  * @param {number[]} nums
  * @return {void} Do not return anything, modify nums in-place instead.
  */
-var nextPermutation = function(nums) {
+var nextPermutation = function (nums) {
   var len = nums.length;
 
   var flag = false;
@@ -21,11 +21,11 @@ var nextPermutation = function(nums) {
   }
 
   if (!flag) {
-    nums.sort(function(a, b) {
+    nums.sort(function (a, b) {
       return a - b;
     });
   } else {
-    for (var i = len - 1; ; i--) 
+    for (var i = len - 1; ; i--)
       if (nums[i] > nums[pos]) {
         var tmp = nums[i];
         nums[i] = nums[pos];
@@ -33,7 +33,7 @@ var nextPermutation = function(nums) {
         break;
       }
 
-    var tmp = nums.slice(pos + 1).sort(function(a, b) {
+    var tmp = nums.slice(pos + 1).sort(function (a, b) {
       return a - b;
     });
 
@@ -41,5 +41,4 @@ var nextPermutation = function(nums) {
 
     Array.prototype.push.apply(nums, tmp);
   }
-
 };

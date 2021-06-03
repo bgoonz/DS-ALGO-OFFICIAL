@@ -8,16 +8,16 @@
  *   https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set
  * @return {boolean}
  */
-var wordBreak = function(s, wordDict) {
+var wordBreak = function (s, wordDict) {
   var len = s.length;
 
-  var f = []; 
+  var f = [];
 
   var arr = [];
 
   var obj = {};
   obj.pos = 0;
-  obj.str = '';
+  obj.str = "";
 
   arr.push(obj);
 

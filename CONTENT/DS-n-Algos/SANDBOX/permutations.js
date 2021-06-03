@@ -9,7 +9,7 @@ var ans, res, hash, len;
 
 function dfs(num, nums) {
   if (num === len) {
-    var tmp = res.map(function(item) {
+    var tmp = res.map(function (item) {
       return item;
     });
 
@@ -27,11 +27,8 @@ function dfs(num, nums) {
   }
 }
 
-var permute = function(nums) {
-  len = nums.length,
-  ans = [],
-  res = [],
-  hash = [];
+var permute = function (nums) {
+  (len = nums.length), (ans = []), (res = []), (hash = []);
 
   dfs(0, nums);
   return ans;

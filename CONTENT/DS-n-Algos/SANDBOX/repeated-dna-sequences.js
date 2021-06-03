@@ -5,22 +5,21 @@
  * @param {string} s
  * @return {string[]}
  */
-var findRepeatedDnaSequences = function(s) {
-  var map = []
-    , hash = new Set()
-    , hash_ans = new Set()
-    , ans = [];
+var findRepeatedDnaSequences = function (s) {
+  var map = [],
+    hash = new Set(),
+    hash_ans = new Set(),
+    ans = [];
 
-  map['A'] = 0, map['C'] = 1, map['G'] = 2, map['T'] = 3;
-  
+  (map["A"] = 0), (map["C"] = 1), (map["G"] = 2), (map["T"] = 3);
+
   var tmp = 0;
   for (var i = 0, len = s.length; i < len; i++) {
-    tmp = tmp << 2 | map[s[i]];
+    tmp = (tmp << 2) | map[s[i]];
     if (i < 9) continue;
     if (i > 9) tmp = tmp & 0xfffff;
 
-    if (!hash.has(tmp)) 
-      hash.add(tmp);
+    if (!hash.has(tmp)) hash.add(tmp);
     else {
       if (!hash_ans.has(tmp)) {
         hash_ans.add(tmp);

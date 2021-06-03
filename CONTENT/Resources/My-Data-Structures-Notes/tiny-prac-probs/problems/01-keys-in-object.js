@@ -12,8 +12,8 @@ keysInObject(animals); // => ["dog", "cat", "bison"]
 keysInObject(foods); // => ["apple", "lemon", "mango"]
 ***********************************************************************/
 
-function keysInObject( obj ) {
-  return Object.keys( obj );
+function keysInObject(obj) {
+  return Object.keys(obj);
 }
 
 // solution 2
@@ -24,6 +24,5 @@ function keysInObject( obj ) {
 //   }
 //   return array;
 // }
-
 
 module.exports = keysInObject;

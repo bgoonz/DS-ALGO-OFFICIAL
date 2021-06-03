@@ -35,11 +35,10 @@ Please notice that another valid answer is \[5,2,6,null,4,null,7\] and it's also
 
 **Constraints:**
 
-*   The number of nodes in the tree is in the range `[0, 104]`.
-*   `-105 <= Node.val <= 105`
-*   Each node has a **unique** value.
-*   `root` is a valid binary search tree.
-*   `-105 <= key <= 105`
-
+- The number of nodes in the tree is in the range `[0, 104]`.
+- `-105 <= Node.val <= 105`
+- Each node has a **unique** value.
+- `root` is a valid binary search tree.
+- `-105 <= key <= 105`
 
 [Source](https://leetcode.com/problems/delete-node-in-a-bst/)

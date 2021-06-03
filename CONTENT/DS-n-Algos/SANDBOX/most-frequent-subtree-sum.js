@@ -12,9 +12,8 @@
  * @param {TreeNode} root
  * @return {number[]}
  */
-var findFrequentTreeSum = function(root) {
-  if (!root)
-    return [];
+var findFrequentTreeSum = function (root) {
+  if (!root) return [];
 
   let hash = [];
 
@@ -23,7 +22,7 @@ var findFrequentTreeSum = function(root) {
     let right = node.right ? dfs(node.right) : 0;
     let sum = node.val + left + right;
 
-    hash[sum] = (~~hash[sum]) + 1;
+    hash[sum] = ~~hash[sum] + 1;
     return sum;
   };
 
@@ -34,17 +33,16 @@ var findFrequentTreeSum = function(root) {
   for (let key in hash) {
     res.push({
       key: +key,
-      count: hash[key]
+      count: hash[key],
     });
   }
 
-  res.sort((a, b) => (b.count - a.count));
+  res.sort((a, b) => b.count - a.count);
   let ans = [];
   ans.push(res[0].key);
 
   for (let i = 1, len = res.length; i < len; i++) {
-    if (res[i].count === res[0].count)
-      ans.push(res[i].key);
+    if (res[i].count === res[0].count) ans.push(res[i].key);
   }
 
   return ans;

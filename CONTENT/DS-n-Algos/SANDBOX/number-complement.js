@@ -5,13 +5,12 @@
  * @param {number} num
  * @return {number}
  */
-var findComplement = function(num) {
-  let ans = 0
-    , add = 1;
+var findComplement = function (num) {
+  let ans = 0,
+    add = 1;
 
   while (num) {
-    if (!(num & 1))
-      ans += add;
+    if (!(num & 1)) ans += add;
     num >>= 1;
     add <<= 1;
   }

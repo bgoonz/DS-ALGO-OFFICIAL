@@ -1,5 +1,5 @@
 // insertion-sort
-'use strict';
+"use strict";
 
 module.exports = (array, compare) => {
   // Not an array, empty or array of 1 is already sorted
@@ -16,7 +16,7 @@ module.exports = (array, compare) => {
   };
 
   // Create a compare function if one is not passed in
-  if (typeof compare !== 'function') {
+  if (typeof compare !== "function") {
     compare = (a, b) => {
       return a > b ? 1 : -1;
     };
@@ -34,8 +34,8 @@ module.exports = (array, compare) => {
   for (i = 1; i < array.length; i++) {
     j = i;
     // Make sure we don't walk off the array and compare until sorted
-    while ((j - 1) >= 0 && compare(array[j], array[j - 1]) < 0) {
-      swap(array, j, j-1);
+    while (j - 1 >= 0 && compare(array[j], array[j - 1]) < 0) {
+      swap(array, j, j - 1);
       j--;
     }
   }

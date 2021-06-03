@@ -6,17 +6,15 @@
  * @return {number[]}
  */
 
-var majorityElement = function(nums) {
-  var hash_num = []
-    , len = nums.length
-    , ans = []
-    , hash_ans = [];
+var majorityElement = function (nums) {
+  var hash_num = [],
+    len = nums.length,
+    ans = [],
+    hash_ans = [];
 
-  nums.forEach(function(item, index, array) {
-    if (!hash_num[item])
-      hash_num[item] = 1;
-    else 
-      hash_num[item]++;
+  nums.forEach(function (item, index, array) {
+    if (!hash_num[item]) hash_num[item] = 1;
+    else hash_num[item]++;
 
     if (!hash_ans[item] && hash_num[item] > len / 3) {
       hash_ans[item] = true;

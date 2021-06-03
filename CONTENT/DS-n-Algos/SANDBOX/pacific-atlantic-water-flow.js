@@ -7,20 +7,22 @@
  * @param {number[][]} matrix
  * @return {number[][]}
  */
-var pacificAtlantic = function(matrix) {
-  const dir = [[1, 0], [-1, 0], [0, 1], [0, -1]];
+var pacificAtlantic = function (matrix) {
+  const dir = [
+    [1, 0],
+    [-1, 0],
+    [0, 1],
+    [0, -1],
+  ];
   let m = matrix.length;
 
-  if (m === 0)
-    return [];
+  if (m === 0) return [];
 
   let n = matrix[0].length;
 
-
   // top-left reach
   let hashA = [];
-  for (let i = 0; i < m; i++)
-    hashA[i] = [];
+  for (let i = 0; i < m; i++) hashA[i] = [];
 
   let qA = [];
   for (let i = 0; i < n; i++) {
@@ -37,8 +39,7 @@ var pacificAtlantic = function(matrix) {
 
   // right-bottom reach
   let hashB = [];
-  for (let i = 0; i < m; i++)
-    hashB[i] = [];
+  for (let i = 0; i < m; i++) hashB[i] = [];
 
   let qB = [];
   for (let i = 0; i < n; i++) {
@@ -62,7 +63,14 @@ var pacificAtlantic = function(matrix) {
         let nx = x + dir[i][0];
         let ny = y + dir[i][1];
 
-        if (nx < 0 || nx >= m || ny < 0 || ny >= n || hash[nx][ny] || matrix[nx][ny] < matrix[x][y])
+        if (
+          nx < 0 ||
+          nx >= m ||
+          ny < 0 ||
+          ny >= n ||
+          hash[nx][ny] ||
+          matrix[nx][ny] < matrix[x][y]
+        )
           continue;
 
         q.push([nx, ny, matrix[nx][ny]]);
@@ -75,8 +83,7 @@ var pacificAtlantic = function(matrix) {
   let ans = [];
   for (let i = 0; i < m; i++)
     for (let j = 0; j < n; j++) {
-      if (hashA[i][j] && hashB[i][j])
-        ans.push([i, j]);
+      if (hashA[i][j] && hashB[i][j]) ans.push([i, j]);
     }
 
   return ans;

@@ -1,4 +1,3 @@
-
 <!-- HEADER -->
 <div align="center">
 
@@ -6,37 +5,26 @@
 
 [Readme](https://github.com/bgoonz/DS-ALGO-OFFICIAL/blob/master/README.md)
 
-
 hi
 
 [readme part 2](https://github.com/bgoonz/DS-ALGO-OFFICIAL/blob/master/readme-p2.md)
 
-
-
 [readme part 3](https://github.com/bgoonz/DS-ALGO-OFFICIAL/blob/master/readme-p3.md)
 
-
-
 [readme part 4](https://github.com/bgoonz/DS-ALGO-OFFICIAL/blob/master/readme-p4.md)
-
 
   <!-- SHIELDS -->
   <!-- For how-to notes on shield badges, see docs: https://shields.io/ -->
 
+![logo](https://avatars.githubusercontent.com/u/66654881?s=460&u=fa9d2cc45bc228dd9b7d3dee6d4653f940fab35a&v=4)
 
- ![logo](https://avatars.githubusercontent.com/u/66654881?s=460&u=fa9d2cc45bc228dd9b7d3dee6d4653f940fab35a&v=4)
- 
- 
- 
  </div>
-
 
 ![history](./site-resources/dsago.PNG)
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/274fc2e2-6ccd-42af-8d83-473278f504fe/deploy-status)](https://app.netlify.com/sites/trusting-dijkstra-4d3b17/deploys)
 
 [Deployment](https://trusting-dijkstra-4d3b17.netlify.app/)
-
 
 [github-pages](https://bgoonz.github.io/DS-ALGO-OFFICIAL/)
 
@@ -46,12 +34,9 @@ hi
 
 [npm](https://www.npmjs.com/package/ds-algo-study)
 
-
 [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#the-idea-behind-big-o-notation)
 
-
 # ➤ Author:Bryan Guner
-
 
 [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#the-idea-behind-big-o-notation)
 
@@ -69,46 +54,42 @@ different approaches to a problem.
 
 With big O notation we express the runtime in terms of
 
-### how quickly it grows relative to the input, as the input gets arbitrarily large_.
+### how quickly it grows relative to the input, as the input gets arbitrarily large\_.
 
 1.  **how quickly the runtime grows**—
 
-It's hard to pin down the _exact runtime_ of an algorithm. 
+It's hard to pin down the _exact runtime_ of an algorithm.
 
-* It depends on the speed of the processor, 
-* what else the computer is running, etc.
+- It depends on the speed of the processor,
+- what else the computer is running, etc.
 
- So instead of talking about the runtime directly, we use big O notation to talk about _how quickly the runtime grows_.
+So instead of talking about the runtime directly, we use big O notation to talk about _how quickly the runtime grows_.
 
-2.  **relative to the input**—If we were measuring our runtime directly, 
+2.  **relative to the input**—If we were measuring our runtime directly,
 
-we could express our speed in seconds. Since we're measuring _how quickly our runtime grows_, we need to express our speed in terms of...something else. With Big O notation, we use the size of the input, which we call "n." So we can say things like the runtime grows "on the order of the size of the input" () or "on the order of the square of the size of the input" (). 
+we could express our speed in seconds. Since we're measuring _how quickly our runtime grows_, we need to express our speed in terms of...something else. With Big O notation, we use the size of the input, which we call "n." So we can say things like the runtime grows "on the order of the size of the input" () or "on the order of the square of the size of the input" ().
 
 3.  **as the input gets arbitrarily large**—
 
-  Our algorithm may have steps that seem expensive when n is small but are eclipsed eventually by other steps as n gets huge. For big O analysis, we care most about the stuff that grows fastest as the input grows, because everything else is quickly eclipsed as n gets very large. (If you know what an asymptote is, you might see why "big O analysis" is sometimes called "asymptotic analysis.")hy "big O analysis" is sometimes called
+Our algorithm may have steps that seem expensive when n is small but are eclipsed eventually by other steps as n gets huge. For big O analysis, we care most about the stuff that grows fastest as the input grows, because everything else is quickly eclipsed as n gets very large. (If you know what an asymptote is, you might see why "big O analysis" is sometimes called "asymptotic analysis.")hy "big O analysis" is sometimes called
 
     "asymptotic analysis.")
 
 ---
 
+---
 
 ---
 
-
-
----
----
 ---
 
+---
 
 [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#data-structures-reference)
 
 # ➤ Data Structures Reference
 
-
 ---
-
 
 [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#array)
 
@@ -117,7 +98,6 @@ we could express our speed in seconds. Since we're measuring _how quickly our ru
 Stores things in order. Has quick lookups by index.
 ![](arr1.png)
 ![](array.png)
-
 
 [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#linked-list)
 
@@ -130,7 +110,6 @@ arrays, but slower lookups (you have to "walk down" the whole list).
 
 !
 
-
 [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#queue)
 
 ## ➤ Queue
@@ -138,7 +117,6 @@ arrays, but slower lookups (you have to "walk down" the whole list).
 Like the line outside a busy restaurant. "First come, first served."
 [](linked-list.png)
 ![](queue.png)
-
 
 [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#stack)
 
@@ -148,7 +126,6 @@ Like the line outside a busy restaurant. "First come, first served."
 ![](stack.png)
 Like a stack of dirty plates in the sink. The first one you take off the
 top is the last one you put down.
-
 
 [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#tree)
 
@@ -162,21 +139,18 @@ Good for storing hierarchies. Each node can have "child" nodes.
 ![](pre-and-in-order-traversal.png)
 ![](post-order.png)
 
-
 [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#binary-search-tree)
 
 ## ➤ Binary Search Tree
 
-Everything in the left subtree is smaller than the current node, 
+Everything in the left subtree is smaller than the current node,
 everything in the right subtree is larger. lookups, but only if the tree
 is balanced!
 ![](binary-tree.png)
 
-
 [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#binary-search-tree)
 
 ## ➤ Binary Search Tree
-
 
 [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#graph)
 
@@ -187,714 +161,595 @@ Good for storing networks, geography, social relationships, etc.
 ![](directed-or-undirected-cycles.png)
 ![](weighted-or-unweighted.png)
 
-
 [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#heap-)
 
-## ➤ Heap 
+## ➤ Heap
 
-A binary tree where the smallest value is always at the top. Use it to implement a priority queue. 
+A binary tree where the smallest value is always at the top. Use it to implement a priority queue.
 
-![A binary heap is a binary tree where the nodes are organized to so that the smallest value is always at the top.] 
+![A binary heap is a binary tree where the nodes are organized to so that the smallest value is always at the top.]
 
-### Adjacency list 
+### Adjacency list
 
-A list where the index represents the node and the value at that index is a list of the node's neighbors: 
+A list where the index represents the node and the value at that index is a list of the node's neighbors:
 
-graph = [ [1], [0, 2, 3], [1, 3], [1, 2], ] 
+graph = [ [1], [0, 2, 3], [1, 3], [1, 2], ]
 
-Since node 3 has edges to nodes 1 and 2, graph[3] has the adjacency list [1, 2]. 
+Since node 3 has edges to nodes 1 and 2, graph[3] has the adjacency list [1, 2].
 
-We could also use [a dictionary](https://www.interviewcake.com/concept/hash-map) where the keys represent the node and the values are the lists of neighbors. 
+We could also use [a dictionary](https://www.interviewcake.com/concept/hash-map) where the keys represent the node and the values are the lists of neighbors.
 
-graph = { 0: [1], 1: [0, 2, 3], 2: [1, 3], 3: [1, 2], } 
+graph = { 0: [1], 1: [0, 2, 3], 2: [1, 3], 3: [1, 2], }
 
-This would be useful if the nodes were represented by strings, objects, or otherwise didn't map cleanly to list indices. 
+This would be useful if the nodes were represented by strings, objects, or otherwise didn't map cleanly to list indices.
 
-### Adjacency matrix 
+### Adjacency matrix
 
-A matrix of 0s and 1s indicating whether node x connects to node y (0 means no, 1 means yes). 
+A matrix of 0s and 1s indicating whether node x connects to node y (0 means no, 1 means yes).
 
-graph = [ [0, 1, 0, 0], [1, 0, 1, 1], [0, 1, 0, 1], [0, 1, 1, 0], ] 
+graph = [ [0, 1, 0, 0], [1, 0, 1, 1], [0, 1, 0, 1], [0, 1, 1, 0], ]
 
-Since node 3 has edges to nodes 1 and 2, graph[3][1] and graph[3][2] have value 1. 
+Since node 3 has edges to nodes 1 and 2, graph[3][1] and graph[3][2] have value 1.
 
 a = LinkedListNode(5) b = LinkedListNode(1) c = LinkedListNode(9) a.next = b b.next = c
 
 ---
 
-
-
 [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#arrays-)
 
-## ➤ Arrays 
+## ➤ Arrays
 
-Ok, so we know how to store individual numbers. Let's talk about storing _several numbers_. 
+Ok, so we know how to store individual numbers. Let's talk about storing _several numbers_.
 
-That's right, things are starting to _heat up_. 
+That's right, things are starting to _heat up_.
 
-Suppose we wanted to keep a count of how many bottles of kombucha we drink every day. 
+Suppose we wanted to keep a count of how many bottles of kombucha we drink every day.
 
-Let's store each day's kombucha count in an 8-bit, fixed-width, unsigned integer. That should be plenty—we're not likely to get through more than 256 (2\^8) bottles in a _single day_, right? 
+Let's store each day's kombucha count in an 8-bit, fixed-width, unsigned integer. That should be plenty—we're not likely to get through more than 256 (2\^8) bottles in a _single day_, right?
 
-And let's store the kombucha counts right next to each other in RAM, starting at memory address 0: 
+And let's store the kombucha counts right next to each other in RAM, starting at memory address 0:
 
 ![A stack of RAM in which we store kombucha counts starting at index 0.](https://www.interviewcake.com/images/svgs/cs_for_hackers__array_kombucha_counts.svg?bust=209)
 
- 
+Bam. That's an **array**. RAM is _basically_ an array already.
 
-Bam. That's an **array**. RAM is _basically_ an array already. 
+Just like with RAM, the elements of an array are numbered. We call that number the **index** of the array element (plural: indices). In _this_ example, each array element's index is the same as its address in RAM.
 
-Just like with RAM, the elements of an array are numbered. We call that number the **index** of the array element (plural: indices). In _this_ example, each array element's index is the same as its address in RAM. 
-
-But that's not usually true. Suppose another program like Spotify had already stored some information at memory address 2: 
+But that's not usually true. Suppose another program like Spotify had already stored some information at memory address 2:
 
 ![A column of 9 RAM slots representing an array. The row at index 2 is highlighted because it is being used by Spotify.](https://www.interviewcake.com/images/svgs/cs_for_hackers__array5_occupied.svg?bust=209)
 
- 
-
-We'd have to start our array below it, for example at memory address 3. So index 0 in our array would be at memory address 3, and index 1 would be at memory address 4, etc.: 
+We'd have to start our array below it, for example at memory address 3. So index 0 in our array would be at memory address 3, and index 1 would be at memory address 4, etc.:
 
 ![A column of 9 RAM slots representing an array. The row at index 2 is highlighted, and the rows at indices 3 through 7 are selected with a bracket.](https://www.interviewcake.com/images/svgs/cs_for_hackers__array5.svg?bust=209)
 
- 
+Suppose we wanted to get the kombucha count at index 4 in our array. How do we figure out what _address in memory_ to go to? Simple math:
 
-Suppose we wanted to get the kombucha count at index 4 in our array. How do we figure out what _address in memory_ to go to? Simple math: 
+Take the array's starting address (3), add the index we're looking for (4), and that's the address of the item we're looking for. 3 + 4 = 7. In general, for getting the nth item in our array:
 
-Take the array's starting address (3), add the index we're looking for (4), and that's the address of the item we're looking for. 3 + 4 = 7. In general, for getting the nth item in our array: 
+\\text{address of nth item in array} = \\text{address of array start} + n
 
-\\text{address of nth item in array} = \\text{address of array start} + n 
+This works out nicely because the size of the addressed memory slots and the size of each kombucha count are _both_ 1 byte. So a slot in our array corresponds to a slot in RAM.
 
-This works out nicely because the size of the addressed memory slots and the size of each kombucha count are _both_ 1 byte. So a slot in our array corresponds to a slot in RAM. 
+But that's not always the case. In fact, it's _usually not_ the case. We _usually_ use _64-bit_ integers.
 
-But that's not always the case. In fact, it's _usually not_ the case. We _usually_ use _64-bit_ integers. 
+So how do we build an array of _64-bit_ (8 byte) integers on top of our _8-bit_ (1 byte) memory slots?
 
-So how do we build an array of _64-bit_ (8 byte) integers on top of our _8-bit_ (1 byte) memory slots? 
-
-We simply give each array index _8_ address slots instead of 1: 
+We simply give each array index _8_ address slots instead of 1:
 
 ![A column of RAM slots representing an array of 64-bit integers. Every 8 buckets of RAM represents one integer.](https://www.interviewcake.com/images/svgs/cs_for_hackers__array64_long.svg?bust=209)
 
- 
+So we can still use simple math to grab the start of the nth item in our array—just gotta throw in some multiplication:
 
-So we can still use simple math to grab the start of the nth item in our array—just gotta throw in some multiplication: 
+\\text{address of nth item in array} = \\text{address of array start} + (n \* \\text{size of each item in bytes})
 
-\\text{address of nth item in array} = \\text{address of array start} + (n \* \\text{size of each item in bytes}) 
+Don't worry—adding this multiplication doesn't really slow us down. Remember: addition, subtraction, multiplication, and division of fixed-width integers takes time. So _all_ the math we're using here to get the address of the nth item in the array takes time.
 
-Don't worry—adding this multiplication doesn't really slow us down. Remember: addition, subtraction, multiplication, and division of fixed-width integers takes time. So _all_ the math we're using here to get the address of the nth item in the array takes time. 
-
-And remember how we said the memory controller has a _direct connection_ to each slot in RAM? That means we can read the stuff at any given memory address in time. 
+And remember how we said the memory controller has a _direct connection_ to each slot in RAM? That means we can read the stuff at any given memory address in time.
 
 ![A memory controller connected to a section of RAM.](https://www.interviewcake.com/images/svgs/cs_for_hackers__arrays_no_processor_ram_memory_controller.svg?bust=209)
 
- 
+**Together, this means looking up the contents of a given array index is time.** This fast lookup capability is the most important property of arrays.
 
-**Together, this means looking up the contents of a given array index is time.** This fast lookup capability is the most important property of arrays. 
+But the formula we used to get the address of the nth item in our array only works _if_:
 
-But the formula we used to get the address of the nth item in our array only works _if_: 
+1.  **Each item in the array is the _same size_** (takes up the same
 
-1.  **Each item in the array is the _same size_** (takes up the same 
+number of bytes).
 
-number of bytes). 
+2.  **The array is _uninterrupted_ (contiguous) in memory**. There can't
 
-2.  **The array is _uninterrupted_ (contiguous) in memory**. There can't 
+be any gaps in the array...like to "skip over" a memory slot Spotify was already using.
 
-be any gaps in the array...like to "skip over" a memory slot Spotify was already using. 
+These things make our formula for finding the nth item _work_ because they make our array _predictable_. We can _predict_ exactly where in memory the nth element of our array will be.
 
-These things make our formula for finding the nth item _work_ because they make our array _predictable_. We can _predict_ exactly where in memory the nth element of our array will be. 
+But they also constrain what kinds of things we can put in an array. Every item has to be the same size. And if our array is going to store a _lot_ of stuff, we'll need a _bunch_ of uninterrupted free space in RAM. Which gets hard when most of our RAM is already occupied by other programs (like Spotify).
 
-But they also constrain what kinds of things we can put in an array. Every item has to be the same size. And if our array is going to store a _lot_ of stuff, we'll need a _bunch_ of uninterrupted free space in RAM. Which gets hard when most of our RAM is already occupied by other programs (like Spotify). 
-
-That's the tradeoff. Arrays have fast lookups ( time), but each item in the array needs to be the same size, and you need a big block of uninterrupted free memory to store the array. 
-
------- 
-
----
- 
-
+That's the tradeoff. Arrays have fast lookups ( time), but each item in the array needs to be the same size, and you need a big block of uninterrupted free memory to store the array.
 
 ---
 
- ## Pointers 
+---
 
-Remember how we said every item in an array had to be the same size? Let's dig into that a little more. 
+---
 
-Suppose we wanted to store a bunch of ideas for baby names. Because we've got some _really_ cute ones. 
+## Pointers
 
-Each name is a string. Which is really an array. And now we want to store _those arrays_ in an array. _Whoa_. 
+Remember how we said every item in an array had to be the same size? Let's dig into that a little more.
 
-Now, what if our baby names have different lengths? That'd violate our rule that all the items in an array need to be the same size! 
+Suppose we wanted to store a bunch of ideas for baby names. Because we've got some _really_ cute ones.
 
-We could put our baby names in arbitrarily large arrays (say, 13 characters each), and just use a special character to mark the end of the string within each array... 
+Each name is a string. Which is really an array. And now we want to store _those arrays_ in an array. _Whoa_.
+
+Now, what if our baby names have different lengths? That'd violate our rule that all the items in an array need to be the same size!
+
+We could put our baby names in arbitrarily large arrays (say, 13 characters each), and just use a special character to mark the end of the string within each array...
 
 ![Strings represented in RAM as arrays of 13 characters, with the end of the strings being denoted by a special "null" character. The last 8 rows are marked as wasted space because the name Bill (along with the null character) only takes up 5 out of 13 available characters.](https://www.interviewcake.com/images/svgs/cs_for_hackers__pointers_baby_names.svg?bust=209)
 
- 
+"Wigglesworth" is a cute baby name, right?
 
-"Wigglesworth" is a cute baby name, right? 
+But look at all that wasted space after "Bill". And what if we wanted to store a string that was _more_ than 13 characters? We'd be out of luck.
 
-But look at all that wasted space after "Bill". And what if we wanted to store a string that was _more_ than 13 characters? We'd be out of luck. 
-
-There's a better way. Instead of storing the strings right inside our array, let's just put the strings wherever we can fit them in memory. Then we'll have each element in our array hold the _address in memory_ of its corresponding string. Each address is an integer, so really our outer array is just an array of integers. We can call each of these integers a **pointer**, since it points to another spot in memory. 
+There's a better way. Instead of storing the strings right inside our array, let's just put the strings wherever we can fit them in memory. Then we'll have each element in our array hold the _address in memory_ of its corresponding string. Each address is an integer, so really our outer array is just an array of integers. We can call each of these integers a **pointer**, since it points to another spot in memory.
 
 ![An array of names represented in RAM. The names are stored out of order, but an array holds the address in memory of each of name with arrows pointing from the number to the memory address.](https://www.interviewcake.com/images/svgs/cs_for_hackers__pointers_pointer_array.svg?bust=209)
 
- 
+The pointers are marked with a \* at the beginning.
 
-The pointers are marked with a \* at the beginning. 
+Pretty clever, right? This fixes _both_ the disadvantages of arrays:
 
-Pretty clever, right? This fixes _both_ the disadvantages of arrays: 
+1.  The items don't have to be the same length—each string can be as
 
-1.  The items don't have to be the same length—each string can be as 
+long or as short as we want.
 
-long or as short as we want. 
+2.  We don't need enough uninterrupted free memory to store all our
 
-2.  We don't need enough uninterrupted free memory to store all our 
+strings next to each other—we can place each of them separately, wherever there's space in RAM.
 
-strings next to each other—we can place each of them separately, wherever there's space in RAM. 
+We fixed it! No more tradeoffs. Right?
 
-We fixed it! No more tradeoffs. Right? 
+Nope. Now we have a _new_ tradeoff:
 
-Nope. Now we have a _new_ tradeoff: 
-
-Remember how the memory controller sends the contents of _nearby_ memory addresses to the processor with each read? And the processor caches them? So reading sequential addresses in RAM is _faster_ because we can get most of those reads right from the cache? 
+Remember how the memory controller sends the contents of _nearby_ memory addresses to the processor with each read? And the processor caches them? So reading sequential addresses in RAM is _faster_ because we can get most of those reads right from the cache?
 
 ![A series of caches inside of the memory controller, where the processor stores what it has recently read from RAM.](https://www.interviewcake.com/images/svgs/cs_for_hackers__ram_cache.svg?bust=209)
 
- 
+Our original array was very **cache-friendly**, because everything was sequential. So reading from the 0th index, then the 1st index, then the 2nd, etc. got an extra speedup from the processor cache.
 
-Our original array was very **cache-friendly**, because everything was sequential. So reading from the 0th index, then the 1st index, then the 2nd, etc. got an extra speedup from the processor cache. 
+**But the pointers in this array make it _not_ cache-friendly**, because the baby names are scattered randomly around RAM. So reading from the 0th index, then the 1st index, etc. doesn't get that extra speedup from the cache.
 
-**But the pointers in this array make it _not_ cache-friendly**, because the baby names are scattered randomly around RAM. So reading from the 0th index, then the 1st index, etc. doesn't get that extra speedup from the cache. 
+That's the tradeoff. This pointer-based array requires less uninterrupted memory and can accommodate elements that aren't all the same size, _but_ it's _slower_ because it's not cache-friendly.
 
-That's the tradeoff. This pointer-based array requires less uninterrupted memory and can accommodate elements that aren't all the same size, _but_ it's _slower_ because it's not cache-friendly. 
-
-This slowdown isn't reflected in the big O time cost. Lookups in this pointer-based array are _still_ time. 
-
------- 
-
----
- 
-
+This slowdown isn't reflected in the big O time cost. Lookups in this pointer-based array are _still_ time.
 
 ---
 
- 
+---
 
+---
 
 [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#linked-lists-)
 
-## ➤ Linked lists 
+## ➤ Linked lists
 
-Our word processor is definitely going to need fast appends—appending to the document is like the _main thing_ you do with a word processor. 
+Our word processor is definitely going to need fast appends—appending to the document is like the _main thing_ you do with a word processor.
 
-Can we build a data structure that can store a string, has fast appends, _and_ doesn't require you to say how long the string will be ahead of time? 
+Can we build a data structure that can store a string, has fast appends, _and_ doesn't require you to say how long the string will be ahead of time?
 
-Let's focus first on not having to know the length of our string ahead of time. Remember how we used _pointers_ to get around length issues with our array of baby names? 
+Let's focus first on not having to know the length of our string ahead of time. Remember how we used _pointers_ to get around length issues with our array of baby names?
 
-What if we pushed that idea even further? 
+What if we pushed that idea even further?
 
-What if each _character_ in our string were a _two-index array_ with: 
+What if each _character_ in our string were a _two-index array_ with:
 
-1.  the character itself 2.  a pointer to the next character 
+1.  the character itself 2. a pointer to the next character
 
 ![An example of a linked list storing the string "DEAR." Each element of the linked list is an array composed of two items: a character and a pointer that points to the next element.](https://www.interviewcake.com/images/svgs/cs_for_hackers__linked_lists_sample.svg?bust=209)
 
- 
+We would call each of these two-item arrays a **node** and we'd call this series of nodes a **linked list**.
 
-We would call each of these two-item arrays a **node** and we'd call this series of nodes a **linked list**. 
-
-Here's how we'd actually implement it in memory: 
+Here's how we'd actually implement it in memory:
 
 ![The same linked list represented in RAM, showing the nodes scattered in memory but connected by pointers.](https://www.interviewcake.com/images/svgs/cs_for_hackers__linked_lists_in_memory.svg?bust=209)
 
- 
-
-Notice how we're free to store our nodes wherever we can find two open slots in memory. They don't have to be next to each other. They don't even have to be _in order_: 
+Notice how we're free to store our nodes wherever we can find two open slots in memory. They don't have to be next to each other. They don't even have to be _in order_:
 
 ![The same linked list represented in RAM. This time the characters are stored out of order to show that the pointers still keep everything in place.](https://www.interviewcake.com/images/svgs/cs_for_hackers__linked_lists_in_memory_out_of_order.svg?bust=209)
 
- 
+"But that's not cache-friendly, " you may be thinking. Good point! We'll get to that.
 
-"But that's not cache-friendly, " you may be thinking. Good point! We'll get to that. 
+The first node of a linked list is called the **head**, and the last node is usually called the **tail**.
 
-The first node of a linked list is called the **head**, and the last node is usually called the **tail**. 
+Confusingly, some people prefer to use "tail" to refer to _everything after the head_ of a linked list. In an interview it's fine to use either definition. Briefly say which definition you're using, just to be clear.
 
-Confusingly, some people prefer to use "tail" to refer to _everything after the head_ of a linked list. In an interview it's fine to use either definition. Briefly say which definition you're using, just to be clear. 
+It's important to have a pointer variable referencing the head of the list—otherwise we'd be unable to find our way back to the start of the list!
 
-It's important to have a pointer variable referencing the head of the list—otherwise we'd be unable to find our way back to the start of the list! 
+We'll also sometimes keep a pointer to the tail. That comes in handy when we want to add something new to the end of the linked list. In fact, let's try that out:
 
-We'll also sometimes keep a pointer to the tail. That comes in handy when we want to add something new to the end of the linked list. In fact, let's try that out: 
-
-Suppose we had the string "LOG" stored in a linked list: 
+Suppose we had the string "LOG" stored in a linked list:
 
 ![A linked list with head and tail pointers storing the word "LOG." The *head points to the first character "L, " and the tail points to the last letter "G."](https://www.interviewcake.com/images/svgs/cs_for_hackers__linked_lists_log_string.svg?bust=209)
 
- 
+Suppose we wanted to add an "S" to the end, to make it "LOGS". How would we do that?
 
-Suppose we wanted to add an "S" to the end, to make it "LOGS". How would we do that? 
-
-Easy. We just put it in a new node: 
+Easy. We just put it in a new node:
 
 ![A linked list with head and tail pointers storing the word "LOG." A new unconnected node storing the character "S" is added to the bottom and bolded.](https://www.interviewcake.com/images/svgs/cs_for_hackers__linked_lists_log_string_add_node.svg?bust=209)
 
- 
+And tweak some pointers:
 
-And tweak some pointers: 
-
-​1. Grab the last letter, which is "G". Our tail pointer lets us do this in time. 
+​1. Grab the last letter, which is "G". Our tail pointer lets us do this in time.
 
 ![A linked list with head and tail pointers storing the word "LOG." The *tail pointer and the character "G" are bolded.](https://www.interviewcake.com/images/svgs/cs_for_hackers__linked_lists_logs_string_grab_last_letter.svg?bust=209)
 
- 
-
-​2. Point the last letter's next to the letter we're appending ("S"). 
+​2. Point the last letter's next to the letter we're appending ("S").
 
 ![A linked list with head and tail pointers storing the word "LOG." The "G"'s *next pointer is bolded and pointing to the appended "S".](https://www.interviewcake.com/images/svgs/cs_for_hackers__linked_lists_logs_string_point_next.svg?bust=209)
 
- 
-
-​3. Update the tail pointer to point to our _new_ last letter, "S". 
+​3. Update the tail pointer to point to our _new_ last letter, "S".
 
 ![A linked list with head and tail pointers storing the word "LOGS." The *tail pointer is now pointed to the new last letter: "S".](https://www.interviewcake.com/images/svgs/cs_for_hackers__linked_lists_logs_string_tweak_pointers.svg?bust=209)
 
- 
+That's time.
 
-That's time. 
+Why is it time? Because the runtime doesn't get bigger if the string gets bigger. No matter how many characters are in our string, we still just have to tweak a couple pointers for any append.
 
-Why is it time? Because the runtime doesn't get bigger if the string gets bigger. No matter how many characters are in our string, we still just have to tweak a couple pointers for any append. 
-
-Now, what if instead of a linked list, our string had been a _dynamic array_? We might not have any room at the end, forcing us to do one of those doubling operations to make space: 
+Now, what if instead of a linked list, our string had been a _dynamic array_? We might not have any room at the end, forcing us to do one of those doubling operations to make space:
 
 ![A dynamic array containing the word "LOG" going through a doubling operation to make space for an appended letter.](https://www.interviewcake.com/images/svgs/cs_for_hackers__linked_lists_log_string_doubled_array.svg?bust=209)
 
- 
+So with a dynamic array, our append would have a _worst-case_ time cost of .
 
-So with a dynamic array, our append would have a _worst-case_ time cost of . 
+**Linked lists have worst-case -time appends, which is better than the worst-case time of dynamic arrays.**
 
-**Linked lists have worst-case -time appends, which is better than the worst-case time of dynamic arrays.** 
+That _worst-case_ part is important. The _average case_ runtime for appends to linked lists and dynamic arrays is the same: .
 
-That _worst-case_ part is important. The _average case_ runtime for appends to linked lists and dynamic arrays is the same: . 
+Now, what if we wanted to *pre*pend something to our string? Let's say we wanted to put a "B" at the beginning.
 
-Now, what if we wanted to *pre*pend something to our string? Let's say we wanted to put a "B" at the beginning. 
-
-For our linked list, it's just as easy as appending. Create the node: 
+For our linked list, it's just as easy as appending. Create the node:
 
 ![A linked list with head and tail pointers storing the word "LOGS." A new unconnected node storing the character "B" is added to the top and bolded.](https://www.interviewcake.com/images/svgs/cs_for_hackers__linked_lists_logs_string_add_node.svg?bust=209)
 
- 
+And tweak some pointers:
 
-And tweak some pointers: 
-
-1.  Point "B"'s next to "L". 2.  Point the head to "B". 
+1.  Point "B"'s next to "L". 2. Point the head to "B".
 
 ![A linked list with head and tail pointers storing the word "LOGS." The "B"'s *next pointer is bolded and pointing to the letter "L, " and the *head pointer is bolded and pointing to the prepended letter "B".](https://www.interviewcake.com/images/svgs/cs_for_hackers__linked_lists_blogs_string_tweak_pointers.svg?bust=209)
 
- 
+Bam. time again.
 
-Bam. time again. 
-
-But if our string were a _dynamic array_... 
+But if our string were a _dynamic array_...
 
 ![A dynamic array storing the string "LOGS."](https://www.interviewcake.com/images/svgs/cs_for_hackers__linked_lists_log_string_dynamic_array.svg?bust=209)
 
- 
-
-And we wanted to add in that "B": 
+And we wanted to add in that "B":
 
 ![A dynamic array storing the string "LOGS." A bolded "B" is added above the array.](https://www.interviewcake.com/images/svgs/cs_for_hackers__linked_lists_log_string_dynamic_array_add_b.svg?bust=209)
 
- 
+Eep. We have to _make room_ for the "B"!
 
-Eep. We have to _make room_ for the "B"! 
-
-We have to move _each character_ one space down: 
+We have to move _each character_ one space down:
 
 ![A dynamic array storing the string "LOGS" with the letter "B" floating above. The "S" is bolded with an arrow attached showing how the character is being moved one index up.](https://www.interviewcake.com/images/svgs/cs_for_hackers__linked_lists_log_string_dynamic_array_move_s.svg?bust=209)
 
- 
-
 ![A dynamic array storing the string "LOGS" with the letter "B" floating above. The "G" is bolded with an arrow attached showing how the character is being moved one index up.](https://www.interviewcake.com/images/svgs/cs_for_hackers__linked_lists_log_string_dynamic_array_move_g.svg?bust=209)
-
- 
 
 ![A dynamic array storing the string "LOGS" with the letter "B" floating above. The "O" is bolded with an arrow attached showing how the character is being moved one index up.](https://www.interviewcake.com/images/svgs/cs_for_hackers__linked_lists_log_string_dynamic_array_move_o.svg?bust=209)
 
- 
-
 ![A dynamic array storing the string "LOGS" with the letter "B" floating above. The "L" is bolded with an arrow attached showing how the character is being moved one index up.](https://www.interviewcake.com/images/svgs/cs_for_hackers__linked_lists_log_string_dynamic_array_move_l.svg?bust=209)
 
- 
-
-_Now_ we can drop the "B" in there: 
+_Now_ we can drop the "B" in there:
 
 ![A dynamic array storing the string "LOGS" with the letter "B" floating above. The "B" is bolded with an arrow attached showing how the character is now being placed in the first index.](https://www.interviewcake.com/images/svgs/cs_for_hackers__linked_lists_log_string_dynamic_array_chars_moved.svg?bust=209)
 
- 
+What's our time cost here?
 
-What's our time cost here? 
+It's all in the step where we made room for the first letter. We had to move _all n_ characters in our string. One at a time. That's time.
 
-It's all in the step where we made room for the first letter. We had to move _all n_ characters in our string. One at a time. That's time. 
+**So linked lists have faster *pre*pends ( time) than dynamic arrays ( time).**
 
-**So linked lists have faster *pre*pends ( time) than dynamic arrays ( time).** 
+No "worst case" caveat this time—prepends for dynamic arrays are _always_ time. And prepends for linked lists are _always_ time.
 
-No "worst case" caveat this time—prepends for dynamic arrays are _always_ time. And prepends for linked lists are _always_ time. 
+These quick appends and prepends for linked lists come from the fact that linked list nodes can go anywhere in memory. They don't have to sit right next to each other the way items in an array do.
 
-These quick appends and prepends for linked lists come from the fact that linked list nodes can go anywhere in memory. They don't have to sit right next to each other the way items in an array do. 
+So if linked lists are so great, why do we usually store strings in an array? **Because [arrays have -time lookups](#constant-time-array-lookups).** And those constant-time lookups _come from_ the fact that all the array elements are lined up next to each other in memory.
 
-So if linked lists are so great, why do we usually store strings in an array? **Because [arrays have -time lookups](#constant-time-array-lookups).** And those constant-time lookups _come from_ the fact that all the array elements are lined up next to each other in memory. 
+Lookups with a linked list are more of a process, because we have no way of knowing where the ith node is in memory. So we have to walk through the linked list node by node, counting as we go, until we hit the ith item.
 
-Lookups with a linked list are more of a process, because we have no way of knowing where the ith node is in memory. So we have to walk through the linked list node by node, counting as we go, until we hit the ith item. 
+def get_ith_item_in_linked_list(head, i): if i \< 0: raise ValueError("i can't be negative: %d" % i) current_node = head current_position = 0 while current_node: if current_position == i: \# Found it! return current_node \# Move on to the next node current_node = current_node.next current_position += 1 raise ValueError('List has fewer than i + 1 (%d) nodes' % (i + 1))
 
-def get_ith_item_in_linked_list(head, i): if i \< 0: raise ValueError("i can't be negative: %d" % i) current_node = head current_position = 0 while current_node: if current_position == i: \# Found it! return current_node \# Move on to the next node current_node = current_node.next current_position += 1 raise ValueError('List has fewer than i + 1 (%d) nodes' % (i + 1)) 
+That's i + 1 steps down our linked list to get to the ith node (we made our function zero-based to match indices in arrays). **So linked lists have -time lookups.** Much slower than the -time lookups for arrays and dynamic arrays.
 
-That's i + 1 steps down our linked list to get to the ith node (we made our function zero-based to match indices in arrays). **So linked lists have -time lookups.** Much slower than the -time lookups for arrays and dynamic arrays. 
+Not only that—**walking down a linked list is _not_ cache-friendly.** Because the next node could be _anywhere_ in memory, we don't get any benefit from the processor cache. This means lookups in a linked list are even slower.
 
-Not only that—**walking down a linked list is _not_ cache-friendly.** Because the next node could be _anywhere_ in memory, we don't get any benefit from the processor cache. This means lookups in a linked list are even slower. 
-
-So the tradeoff with linked lists is they have faster prepends and faster appends than dynamic arrays, _but_ they have slower lookups. 
-
------- 
-
----
- 
-
+So the tradeoff with linked lists is they have faster prepends and faster appends than dynamic arrays, _but_ they have slower lookups.
 
 ---
 
- ## Doubly Linked Lists 
+---
 
-In a basic linked list, each item stores a single pointer to the next element. 
+---
 
-In a **doubly linked list**, items have pointers to the next _and the previous_ nodes. 
+## Doubly Linked Lists
+
+In a basic linked list, each item stores a single pointer to the next element.
+
+In a **doubly linked list**, items have pointers to the next _and the previous_ nodes.
 
 ![A doubly-linked list with 3 nodes. The first node has value 5 with a "next" arrow pointing ahead to the second node and a "previous" arrow pointing back to "None." The second node has value 1 with a "next" arrow pointing ahead to the third node and a "previous" arrow pointing back to the first node. The third node has value 9 with a "next" arrow pointing ahead to "None" and a "previous" arrow pointing back to the second node.](https://www.interviewcake.com/images/svgs/linked_list__doubly_linked_nodes_and_pointers.svg?bust=209)
 
- 
-
-Doubly linked lists allow us to traverse our list _backwards_. In a _singly_ linked list, if you just had a pointer to a node in the _middle_ of a list, there would be _no way_ to know what nodes came before it. Not a problem in a doubly linked list. 
-
+Doubly linked lists allow us to traverse our list _backwards_. In a _singly_ linked list, if you just had a pointer to a node in the _middle_ of a list, there would be _no way_ to know what nodes came before it. Not a problem in a doubly linked list.
 
 [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#not-cache-friendly-)
 
-## ➤ Not cache-friendly 
+## ➤ Not cache-friendly
 
-Most computers have [caching systems that make reading from sequential addresses in memory faster than reading from scattered addresses](https://www.interviewcake.com/article/data-structures-coding-interview#ram). 
+Most computers have [caching systems that make reading from sequential addresses in memory faster than reading from scattered addresses](https://www.interviewcake.com/article/data-structures-coding-interview#ram).
 
-[Array](https://www.interviewcake.com/concept/array) items are always located right next to each other in computer memory, but linked list nodes can be scattered all over. 
+[Array](https://www.interviewcake.com/concept/array) items are always located right next to each other in computer memory, but linked list nodes can be scattered all over.
 
-So iterating through a linked list is usually quite a bit slower than iterating through the items in an array, even though they're both theoretically time. 
-
------- 
-
----
- 
-
+So iterating through a linked list is usually quite a bit slower than iterating through the items in an array, even though they're both theoretically time.
 
 ---
 
- ## Hash tables 
+---
 
-Quick lookups are often really important. For that reason, we tend to use arrays (-time lookups) much more often than linked lists (-time lookups). 
+---
 
-For example, suppose we wanted to count how many times each ASCII character appears in [Romeo and Juliet](https://raw.githubusercontent.com/GITenberg/The-Tragedy-of-Romeo-and-Juliet_1112/master/1112.txt). How would we store those counts? 
+## Hash tables
 
-We can use arrays in a clever way here. Remember—characters are just numbers. In ASCII (a common character encoding) 'A' is 65, 'B' is 66, etc. 
+Quick lookups are often really important. For that reason, we tend to use arrays (-time lookups) much more often than linked lists (-time lookups).
 
-So we can use the character('s number value) as the _index_ in our array, and store the _count_ for that character _at that index_ in the array: 
+For example, suppose we wanted to count how many times each ASCII character appears in [Romeo and Juliet](https://raw.githubusercontent.com/GITenberg/The-Tragedy-of-Romeo-and-Juliet_1112/master/1112.txt). How would we store those counts?
+
+We can use arrays in a clever way here. Remember—characters are just numbers. In ASCII (a common character encoding) 'A' is 65, 'B' is 66, etc.
+
+So we can use the character('s number value) as the _index_ in our array, and store the _count_ for that character _at that index_ in the array:
 
 ![An array showing indices 63 through 68. To the left of the indices are the ASCII characters that correspond to the numeric indices with arrows pointing from each character to its corresponding number.](https://www.interviewcake.com/images/svgs/cs_for_hackers__hash_tables_chars_to_ints.svg?bust=209)
 
- 
+With this array, we can look up (and edit) the count for any character in constant time. Because we can access any index in our array in constant time.
 
-With this array, we can look up (and edit) the count for any character in constant time. Because we can access any index in our array in constant time. 
+Something interesting is happening here—this array isn't just a list of values. This array is storing _two_ things: characters and counts. The characters are _implied_ by the indices.
 
-Something interesting is happening here—this array isn't just a list of values. This array is storing _two_ things: characters and counts. The characters are _implied_ by the indices. 
+**So we can think of an array as a _table_ with _two columns_...except you don't really get to pick the values in one column (the indices)—they're always 0, 1, 2, 3, etc.**
 
-**So we can think of an array as a _table_ with _two columns_...except you don't really get to pick the values in one column (the indices)—they're always 0, 1, 2, 3, etc.** 
+But what if we wanted to put _any_ value in that column and still get quick lookups?
 
-But what if we wanted to put _any_ value in that column and still get quick lookups? 
+Suppose we wanted to count the number of times each _word_ appears in Romeo and Juliet. Can we adapt our array?
 
-Suppose we wanted to count the number of times each _word_ appears in Romeo and Juliet. Can we adapt our array? 
-
-Translating a _character_ into an array index was easy. But we'll have to do something more clever to translate a _word_ (a string) into an array index... 
+Translating a _character_ into an array index was easy. But we'll have to do something more clever to translate a _word_ (a string) into an array index...
 
 ![A blank array except for the value 20 stored at index 9. To the left the array is the word "lies" with an arrow pointing to the right at diamond with a question mark in the middle. The diamond points to the 9th index of the array.](https://www.interviewcake.com/images/svgs/cs_for_hackers__hash_tables_lies_key_unlabeled.svg?bust=209)
 
- 
+Here's one way we could do it:
 
-Here's one way we could do it: 
-
-Grab the number value for each character and add those up. 
+Grab the number value for each character and add those up.
 
 ![The word "lies" in quotes. Arrows point from each character down to their corresponding number values, which are separated by plus signs and shown in sum to equal 429.](https://www.interviewcake.com/images/svgs/cs_for_hackers__hash_tables_lies_chars.svg?bust=209)
 
- 
+The result is 429. But what if we only have _30_ slots in our array? We'll use a common trick for forcing a number into a specific range: the modulus operator (%). Modding our sum by 30 ensures we get a whole number that's less than 30 (and at least 0):
 
-The result is 429. But what if we only have _30_ slots in our array? We'll use a common trick for forcing a number into a specific range: the modulus operator (%). Modding our sum by 30 ensures we get a whole number that's less than 30 (and at least 0): 
+429 \\: \\% \\: 30 = 9
 
-429 \\: \\% \\: 30 = 9 
+Bam. That'll get us from a word (or any string) to an array index.
 
-Bam. That'll get us from a word (or any string) to an array index. 
+This data structure is called a **hash table** or **hash map**. In our hash table, the _counts_ are the **values** and the _words_ ("lies, " etc.) are the **keys** (analogous to the _indices_ in an array). The process we used to translate a key into an array index is called a **hashing function**.
 
-This data structure is called a **hash table** or **hash map**. In our hash table, the _counts_ are the **values** and the _words_ ("lies, " etc.) are the **keys** (analogous to the _indices_ in an array). The process we used to translate a key into an array index is called a **hashing function**. 
+![A blank array except for a 20, labeled as the value, stored at index
 
-![A blank array except for a 20, labeled as the value, stored at index 
+9. To the left the array is the word "lies," labeled as the key, with an
 
-9. To the left the array is the word "lies," labeled as the key, with an 
+arrow pointing to the right at diamond with a question mark in the middle, labeled as the hashing function. The diamond points to the 9th index of the array.](https://www.interviewcake.com/images/svgs/cs_for_hackers__hash_tables_lies_key_labeled.svg?bust=209)
 
-arrow pointing to the right at diamond with a question mark in the middle, labeled as the hashing function. The diamond points to the 9th index of the array.](https://www.interviewcake.com/images/svgs/cs_for_hackers__hash_tables_lies_key_labeled.svg?bust=209) 
+The hashing functions used in modern systems get pretty complicated—the one we used here is a simplified example.
 
-The hashing functions used in modern systems get pretty complicated—the one we used here is a simplified example. 
+Note that our quick lookups are only in one direction—we can quickly get the value for a given key, but the only way to get the key for a given value is to walk through all the values and keys.
 
-Note that our quick lookups are only in one direction—we can quickly get the value for a given key, but the only way to get the key for a given value is to walk through all the values and keys. 
+Same thing with arrays—we can quickly look up the value at a given index, but the only way to figure out the index for a given value is to walk through the whole array.
 
-Same thing with arrays—we can quickly look up the value at a given index, but the only way to figure out the index for a given value is to walk through the whole array. 
-
-One problem—what if two keys hash to the same index in our array? Look at "lies" and "foes": 
+One problem—what if two keys hash to the same index in our array? Look at "lies" and "foes":
 
 ![The word "lies" in quotes and the word "foes" in quotes. Arrows point from the characters of each word to their corresponding number values. The sum of the characters of both words is shown to equal 429.](https://www.interviewcake.com/images/svgs/cs_for_hackers__hash_tables_lies_and_foes_addition.svg?bust=209)
 
- 
+They both sum up to 429! So of course they'll have the same answer when we mod by 30:
 
-They both sum up to 429! So of course they'll have the same answer when we mod by 30: 
+429 \\: \\% \\: 30 = 9
 
-429 \\: \\% \\: 30 = 9 
+So our hashing function gives us the same answer for "lies" and "foes." This is called a **hash collision**. There are a few different strategies for dealing with them.
 
-So our hashing function gives us the same answer for "lies" and "foes." This is called a **hash collision**. There are a few different strategies for dealing with them. 
-
-Here's a common one: instead of storing the actual values in our array, let's have each array slot hold a _pointer_ to a _linked list_ holding the counts for all the words that hash to that index: 
+Here's a common one: instead of storing the actual values in our array, let's have each array slot hold a _pointer_ to a _linked list_ holding the counts for all the words that hash to that index:
 
 ![An array storing pointers. Three of the pointers have arrows pointing to linked lists to the right of the array.](https://www.interviewcake.com/images/svgs/cs_for_hackers__hash_tables_hash_collision.svg?bust=209)
 
- 
-
-One problem—how do we know which count is for "lies" and which is for "foes"? To fix this, we'll store the _word_ as well as the count in each linked list node: 
+One problem—how do we know which count is for "lies" and which is for "foes"? To fix this, we'll store the _word_ as well as the count in each linked list node:
 
 ![An array storing pointers. The pointer at index 9 has an arrow pointing to a linked list to the right of the array. Each linked list node now stores the word as well as its count and a pointer.](https://www.interviewcake.com/images/svgs/cs_for_hackers__hash_tables_hash_collision_key_val.svg?bust=209)
 
- 
+"But wait!" you may be thinking, "Now lookups in our hash table take time in the worst case, since we have to walk down a linked list." That's true! You could even say that in the worst case _every_ key creates a hash collision, so our whole hash table _degrades to a linked list_.
 
-"But wait!" you may be thinking, "Now lookups in our hash table take time in the worst case, since we have to walk down a linked list." That's true! You could even say that in the worst case _every_ key creates a hash collision, so our whole hash table _degrades to a linked list_. 
+In industry though, we usually wave our hands and say **collisions are rare enough that on _average_ lookups in a hash table are time**. And there are fancy algorithms that keep the number of collisions low and keep the lengths of our linked lists nice and short.
 
-In industry though, we usually wave our hands and say **collisions are rare enough that on _average_ lookups in a hash table are time**. And there are fancy algorithms that keep the number of collisions low and keep the lengths of our linked lists nice and short. 
-
-But that's sort of the tradeoff with hash tables. You get fast lookups by key...except _some_ lookups could be slow. And of course, you only get those fast lookups in one direction—looking up the _key_ for a given _value_ still takes time. ------ --- <==(------------------------------------------------------------------------------------------------------)==> --- ------ 
-
+But that's sort of the tradeoff with hash tables. You get fast lookups by key...except _some_ lookups could be slow. And of course, you only get those fast lookups in one direction—looking up the _key_ for a given _value_ still takes time. ------ --- <==(------------------------------------------------------------------------------------------------------)==> --- ------
 
 [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#breadth-first-search-bfs-and-breadth-first-traversal-)
 
-# ➤ Breadth-First Search (BFS) and Breadth-First Traversal 
+# ➤ Breadth-First Search (BFS) and Breadth-First Traversal
 
-**Breadth-first search** (BFS) is a method for exploring a tree or graph. In a BFS, you first explore all the nodes one step away, then all the nodes two steps away, etc. 
+**Breadth-first search** (BFS) is a method for exploring a tree or graph. In a BFS, you first explore all the nodes one step away, then all the nodes two steps away, etc.
 
-Breadth-first search is like throwing a stone in the center of a pond. The nodes you explore "ripple out" from the starting point. 
+Breadth-first search is like throwing a stone in the center of a pond. The nodes you explore "ripple out" from the starting point.
 
-Here's a how a BFS would traverse this tree, starting with the root: 
+Here's a how a BFS would traverse this tree, starting with the root:
 
 ![A 4-row binary tree represented by circles connected with lines. Our breadth-first search has us start at the root node at the top of the tree.](https://www.interviewcake.com/images/svgs/breadth_first_search_root.svg?bust=209)
 
- 
-
-We'd visit all the immediate children (all the nodes that're one step away from our starting node): 
+We'd visit all the immediate children (all the nodes that're one step away from our starting node):
 
 ![The same 4-row binary tree with all nodes at depth 1 (second row) bolded after being visited.](https://www.interviewcake.com/images/svgs/breadth_first_search_first_level.svg?bust=209)
 
- 
-
-Then we'd move on to all _those_ nodes' children (all the nodes that're _two steps_ away from our starting node): 
+Then we'd move on to all _those_ nodes' children (all the nodes that're _two steps_ away from our starting node):
 
 ![The same 4-row binary tree with all nodes at depth 2 (third row) bolded after being visited.](https://www.interviewcake.com/images/svgs/breadth_first_search_second_level.svg?bust=209)
 
- 
-
-And so on: 
+And so on:
 
 ![The same 4-row binary tree with all nodes at depth 3 (fourth and final row) bolded after being visited.](https://www.interviewcake.com/images/svgs/breadth_first_search_third_level.svg?bust=209)
 
- 
+Until we reach the end.
 
-Until we reach the end. 
+Breadth-first search is often compared with **depth-first search**.
 
-Breadth-first search is often compared with **depth-first search**. 
+Advantages:
 
-Advantages: 
+- A BFS will find the **shortest path** between the starting point and
 
-*   A BFS will find the **shortest path** between the starting point and 
+any other reachable node. A depth-first search will not necessarily find the shortest path.
 
-any other reachable node. A depth-first search will not necessarily find the shortest path. 
+Disadvantages
 
-Disadvantages 
-
-*   A BFS on a binary tree _generally_ requires more memory than a DFS. 
+- A BFS on a binary tree _generally_ requires more memory than a DFS.
 
 ![A binary search tree with nodes containing integers. The root node contains the integer 50. Each child node to the left of the root contains integers less than 50, and each child node to the right of the root contains integers greater than 50.](https://www.interviewcake.com/images/svgs/binary_search_tree__preview.svg?bust=209)
 
- 
-
-
 [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#binary-search-tree-)
 
-# ➤ Binary Search Tree 
+# ➤ Binary Search Tree
 
-A **binary tree** is a **tree** where <==(_**every node has two or fewer children**_)==>. 
-The children are usually called **_left_** and _**right**_. 
+A **binary tree** is a **tree** where <==(_**every node has two or fewer children**_)==>.
+The children are usually called **_left_** and _**right**_.
 
-class BinaryTreeNode(object): 
+class BinaryTreeNode(object):
 
-This lets us build a structure like this: 
+This lets us build a structure like this:
 
 ![A tree represented by circles connected with lines. The root node is on top, and connects to 2 children below it. Each of those children connect to 2 children below them, which all connect to their own 2 children, which all connect to their own 2 children.](https://www.interviewcake.com/images/svgs/binary_tree__depth_5.svg?bust=209)
 
- 
+That particular example is special because every level of the tree is completely full. There are no "gaps." We call this kind of tree "**perfect**."
 
-That particular example is special because every level of the tree is completely full. There are no "gaps." We call this kind of tree "**perfect**." 
+Binary trees have a few interesting properties when they're perfect:
 
-Binary trees have a few interesting properties when they're perfect: 
-
-**Property 1: the number of total nodes on each "level" doubles as we move down the tree.** 
+**Property 1: the number of total nodes on each "level" doubles as we move down the tree.**
 
 ![A binary tree with 5 rows of nodes. The root node is on top, and every node has 2 children in the row below. Each row is labelled with the number of nodes in the row, which doubles from the top down: 1, 2, 4, 8, 16.](https://www.interviewcake.com/images/svgs/binary_tree__depth_5_with_number_of_nodes_labelled.svg?bust=209)
 
- 
-
-**Property 2: the number of nodes on the last level is equal to the sum of the number of nodes on all other levels (plus 1).** In other words, about _half_ of our nodes are on the last level. 
+**Property 2: the number of nodes on the last level is equal to the sum of the number of nodes on all other levels (plus 1).** In other words, about _half_ of our nodes are on the last level.
 
 <==(_**Let's call the number of nodes n, **_)==>
 
-<==(**_**and the height of the tree h. **_**)==>
+<==(**\_**and the height of the tree h. **\_**)==>
 
 **h can also be thought of as the "number of levels."**
 
-If we had h, how could we calculate n? 
+If we had h, how could we calculate n?
 
-Let's just add up the number of nodes on each level! 
+Let's just add up the number of nodes on each level!
 
-If we zero-index the levels, the number of nodes on the xth level is exactly 2\^x. 
+If we zero-index the levels, the number of nodes on the xth level is exactly 2\^x.
 
-1.  Level 0: 2\^0 nodes, 
-2.  2.  Level 1: 2\^1 nodes, 
-3.  3.  Level 2: 2\^2 nodes, 
-4.  4.  Level 3: 2\^3 nodes, 
-5.  5.  _etc_ 
+1.  Level 0: 2\^0 nodes,
+2.  2.  Level 1: 2\^1 nodes,
+3.  3.  Level 2: 2\^2 nodes,
+4.  4.  Level 3: 2\^3 nodes,
+5.  5.  _etc_
 
-So our total number of nodes is: 
+So our total number of nodes is:
 
 **n = 2\^0 + 2\^1 + 2\^2 + 2\^3 + ... + 2\^{h-1}**
 
-Why only up to 2\^{h-1}? 
+Why only up to 2\^{h-1}?
 
 Notice that we **started counting our levels at 0.**
 
-* So if we have h levels in total, 
-* the last level is actually the "h-1"-th level. 
-* That means the number of nodes on the last level is 2\^{h-1}. 
+- So if we have h levels in total,
+- the last level is actually the "h-1"-th level.
+- That means the number of nodes on the last level is 2\^{h-1}.
 
 But we can simplify.
 
-**Property 2 tells us that the number of nodes on the last level is (1 more than) half of the total number of nodes**, 
+**Property 2 tells us that the number of nodes on the last level is (1 more than) half of the total number of nodes**,
 
 **so we can just take the number of nodes on the last level, multiply it by 2, and subtract 1 to get the number of nodes overall**.
 
-* We know the number of nodes on the last level is 2\^{h-1}, 
+- We know the number of nodes on the last level is 2\^{h-1},
 
-  
+- So:
 
-* So: 
+**n = 2\^{h-1} \* 2 - 1
+n = 2\^{h-1} \* 2\^1 - 1
+n = 2\^{h-1+1}- 1
+n = 2\^{h} - 1**
 
-**n = 2\^{h-1} \* 2 - 1 
-n = 2\^{h-1} \* 2\^1 - 1 
-n = 2\^{h-1+1}- 1 
-n = 2\^{h} - 1** 
+So that's how we can go from h to n. What about the other direction?
 
-So that's how we can go from h to n. What about the other direction? 
+We need to bring the h down from the exponent.
 
-We need to bring the h down from the exponent. 
+That's what logs are for!
 
-That's what logs are for! 
-
-First, some quick review. 
+First, some quick review.
 
 <==(log\_{10} (100) )==>
 
-simply means, 
+simply means,
 
- **"What power must you raise 10 to in order to get 100?"**.
- 
-  Which is 2, 
-  
-  because . 
+**"What power must you raise 10 to in order to get 100?"**.
+
+Which is 2,
+
+because .
 
 <==(10\^2 = 100 )==>
 
-
 [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#graph-data-structure-directed-acyclic-etc-)
 
-# ➤ Graph Data Structure: Directed, Acyclic, etc 
+# ➤ Graph Data Structure: Directed, Acyclic, etc
 
-Graph ===== ![](graph-md.png) 
-
+Graph ===== ![](graph-md.png)
 
 [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#binary-numbers-)
 
-## ➤ Binary numbers 
+## ➤ Binary numbers
 
-Let's put those bits to use. Let's store some stuff. Starting with numbers. 
+Let's put those bits to use. Let's store some stuff. Starting with numbers.
 
-The number system we usually use (the one you probably learned in elementary school) is called **base 10**, because each digit has _ten_ possible values (1, 2, 3, 4, 5, 6, 7, 8, 9, and 0). 
+The number system we usually use (the one you probably learned in elementary school) is called **base 10**, because each digit has _ten_ possible values (1, 2, 3, 4, 5, 6, 7, 8, 9, and 0).
 
-But computers don't have digits with ten possible values. They have _bits_ with _two_ possible values. So they use **base 2** numbers. 
+But computers don't have digits with ten possible values. They have _bits_ with _two_ possible values. So they use **base 2** numbers.
 
-Base 10 is also called **decimal**. Base 2 is also called **binary**. 
+Base 10 is also called **decimal**. Base 2 is also called **binary**.
 
-To understand binary, let's take a closer look at how decimal numbers work. Take the number "101" in decimal: 
+To understand binary, let's take a closer look at how decimal numbers work. Take the number "101" in decimal:
 
 ![In base 10, the digits 101 represent 1 hundred, 0 tens, and 1 one.](https://www.interviewcake.com/images/svgs/cs_for_hackers__binary_numbers_base_10_101.svg?bust=209)
 
- 
-
-Notice we have two "1"s here, but they don't _mean_ the same thing. The leftmost "1" _means_ 100, and the rightmost "1" _means_ 1. That's because the leftmost "1" is in the hundreds place, while the rightmost "1" is in the ones place. And the "0" between them is in the tens place. 
+Notice we have two "1"s here, but they don't _mean_ the same thing. The leftmost "1" _means_ 100, and the rightmost "1" _means_ 1. That's because the leftmost "1" is in the hundreds place, while the rightmost "1" is in the ones place. And the "0" between them is in the tens place.
 
 ![In base 10, the digits 101 represent 1 hundred, 0 tens, and 1 one.](https://www.interviewcake.com/images/svgs/cs_for_hackers__binary_numbers_base_10_digits.svg?bust=209)
 
- 
-
-**So this "101" in base 10 is telling us we have "1 hundred, 0 tens, and 1 one."** 
+**So this "101" in base 10 is telling us we have "1 hundred, 0 tens, and 1 one."**
 
 ![In base 10, the digits 101 represent 1 hundred, 0 tens, and 1 one, which add to give the value one hundred and one.](https://www.interviewcake.com/images/svgs/cs_for_hackers__binary_numbers_base_10.svg?bust=209)
 
- 
+Notice how the _places_ in base 10 (ones place, tens place, hundreds place, etc.) are _sequential powers of 10_:
 
-Notice how the _places_ in base 10 (ones place, tens place, hundreds place, etc.) are _sequential powers of 10_: 
+- 10\^0=1 _ 10\^1=10 _ 10\^2=100 _ 10\^3=1000 _ etc.
 
-*   10\^0=1 *   10\^1=10 *   10\^2=100 *   10\^3=1000 *   etc. 
+**The places in _binary_ (base 2) are sequential powers of _2_:**
 
-**The places in _binary_ (base 2) are sequential powers of _2_:** 
+- 2\^0=1 _ 2\^1=2 _ 2\^2=4 _ 2\^3=8 _ etc.
 
-*   2\^0=1 *   2\^1=2 *   2\^2=4 *   2\^3=8 *   etc. 
-
-So let's take that same "101" but this time let's read it as a _binary_ number: 
+So let's take that same "101" but this time let's read it as a _binary_ number:
 
 ![In base 2, the digits 101 represent 1 four, 0 twos, and 1 one.](https://www.interviewcake.com/images/svgs/cs_for_hackers__binary_numbers_base_2_digits.svg?bust=209)
 
- 
-
-Reading this from right to left: we have a 1 in the ones place, a 0 in the twos place, and a 1 in the fours place. So our total is 4 + 0 + 1 which is 5. 
+Reading this from right to left: we have a 1 in the ones place, a 0 in the twos place, and a 1 in the fours place. So our total is 4 + 0 + 1 which is 5.
 
 ![In base 2, the digits 101 represent 1 four, 0 twos, and 1 one, which add to give the value five.](https://www.interviewcake.com/images/svgs/cs_for_hackers__binary_numbers_base_2.svg?bust=209)
-
- 
-
-
-
-
-
 
 [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#leetcode-patterns)
 
 # ➤ Leetcode Patterns
-
-
-
 
 [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#background)
 
@@ -907,7 +762,6 @@ Problems are grouped under their respective subtopic, in order to focus on
 repeatedly applying common patterns rather than randomly tackling questions.
 
 All questions are available on [leetcode.com] with some requiring [leetcode premium].
-
 
 [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#preface)
 
@@ -932,12 +786,9 @@ In addition, you should have a good grasp on common algorithms such as:
 - Binary search
 - Recursion
 
-
 [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#notes)
 
 ## ➤ Notes
-
-
 
 [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#tips-to-consider)
 
@@ -980,7 +831,6 @@ Else
     - Sort input for O(nlogn) time and O(1) space
 ```
 
-
 [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#suggestions)
 
 ## ➤ Suggestions
@@ -990,6 +840,7 @@ Think a question should/shouldn't be included? Wish there was another feature?
 [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#repo-directory-structure)
 
 # ➤ REPO Directory Structure
+
 ```
 .
 ├── CONTAINER
@@ -1019,7 +870,7 @@ Think a question should/shouldn't be included? Wish there was another feature?
 │   │   ├── ALGO
 │   │   │   ├── Dynamic-Programming
 │   │   │   │   ├── primes.js
-│   │   │   │   
+│   │   │   │  
 │   │   │   ├── LEETCODE
 │   │   │   │   ├── 2-sum.js
 │   │   │   │   ├── E027_remove_element.js
@@ -1096,7 +947,7 @@ Think a question should/shouldn't be included? Wish there was another feature?
 │   │   │   │   ├── Truncate-String.js
 │   │   │   │   ├── arrayTo2Darray.js
 │   │   │   │   ├── numberToRoman.js
-│   │   │   │   
+│   │   │   │  
 │   │   │   ├── anagrams
 │   │   │   │   ├── index.js
 │   │   │   │   ├── right.html
@@ -1127,16 +978,16 @@ Think a question should/shouldn't be included? Wish there was another feature?
 │   │   │   │   ├── O(n).js
 │   │   │   │   ├── O(n^2).js
 │   │   │   │   ├── O(nlog(n)).js
-│   │   │   │   
+│   │   │   │  
 │   │   │   ├── dice-roll
 │   │   │   │   ├── dice.js
-│   │   │   │   
+│   │   │   │  
 │   │   │   ├── egg-drop
 │   │   │   │   ├── egg-drop.js
-│   │   │   │   
+│   │   │   │  
 │   │   │   ├── factorial
 │   │   │   │   ├── factorial.js
-│   │   │   │   
+│   │   │   │  
 │   │   │   ├── fib
 │   │   │   │   ├── index.js
 │   │   │   │   ├── right.html
@@ -1144,7 +995,7 @@ Think a question should/shouldn't be included? Wish there was another feature?
 │   │   │   ├── fibonacci
 │   │   │   │   ├── fibonacci-memo.js
 │   │   │   │   ├── fibonacci-tab.js
-│   │   │   │   
+│   │   │   │  
 │   │   │   ├── fizzbuzz
 │   │   │   │   ├── index.js
 │   │   │   │   ├── right.html
@@ -1184,7 +1035,7 @@ Think a question should/shouldn't be included? Wish there was another feature?
 │   │   ├── Arrays
 │   │   │   ├── 53-max-subArr
 │   │   │   │   ├── 53max-sub-arr.js
-│   │   │   │   
+│   │   │   │  
 │   │   │   ├── All Unique
 │   │   │   │   ├── all-unique.java
 │   │   │   │   ├── all-unique.js
@@ -1195,14 +1046,14 @@ Think a question should/shouldn't be included? Wish there was another feature?
 │   │   │   │   └── test
 │   │   │   ├── Array
 │   │   │   │   ├── QuickSelect.js
-│   │   │   │   
+│   │   │   │  
 │   │   │   ├── Array-Flatten
 │   │   │   │   ├── arrflat.js
-│   │   │   │   
+│   │   │   │  
 │   │   │   ├── Intersection
 │   │   │   │   ├── intersection.js
 │   │   │   │   ├── intersection.md
-│   │   │   │   
+│   │   │   │  
 │   │   │   ├── Transpose-2-d-array
 │   │   │   │   ├── right.html
 │   │   │   │   └── t2dArray.js
@@ -1214,10 +1065,10 @@ Think a question should/shouldn't be included? Wish there was another feature?
 │   │   │   │   ├── all.md
 │   │   │   │   ├── boolean-constructor.html
 │   │   │   │   ├── boolean-constructor.md
-│   │   │   │   
+│   │   │   │  
 │   │   │   ├── append-arr
 │   │   │   │   ├── arrAppend.js
-│   │   │   │   
+│   │   │   │  
 │   │   │   ├── append.js
 │   │   │   ├── array-helpers
 │   │   │   │   ├── array-sum.js
@@ -1231,16 +1082,16 @@ Think a question should/shouldn't be included? Wish there was another feature?
 │   │   │   │   └── using-recursion.js
 │   │   │   ├── array-of-nums-in-range
 │   │   │   │   ├── arrayf1toN.js
-│   │   │   │   
+│   │   │   │  
 │   │   │   ├── atleast
 │   │   │   │   ├── atLeast.js
-│   │   │   │   
+│   │   │   │  
 │   │   │   ├── average
 │   │   │   │   ├── average.js
-│   │   │   │   
+│   │   │   │  
 │   │   │   ├── basic-examples
 │   │   │   │   ├── problems
-│   │   │   │   
+│   │   │   │  
 │   │   │   ├── chunk
 │   │   │   │   ├── index.js
 │   │   │   │   ├── right.html
@@ -1249,10 +1100,10 @@ Think a question should/shouldn't be included? Wish there was another feature?
 │   │   │   ├── combine.js
 │   │   │   ├── deep-map
 │   │   │   │   ├── deep-map.js
-│   │   │   │   
+│   │   │   │  
 │   │   │   ├── difference-between-arrays
 │   │   │   │   ├── array-diff.js
-│   │   │   │   
+│   │   │   │  
 │   │   │   ├── flatten
 │   │   │   │   ├── flatten1.html
 │   │   │   │   ├── flatten1.js
@@ -1261,14 +1112,14 @@ Think a question should/shouldn't be included? Wish there was another feature?
 │   │   │   │   ├── flatten2.js
 │   │   │   │   ├── flatten2.md
 │   │   │   │   ├── flatten3.js
-│   │   │   │   
+│   │   │   │  
 │   │   │   ├── python
 │   │   │   │   ├── right.html
 │   │   │   │   ├── sum-arr-dir
 │   │   │   │   └── sum-avg
 │   │   │   ├── resize-array
 │   │   │   │   ├── recursive-ND-arr-resize.js
-│   │   │   │   
+│   │   │   │  
 │   │   │   ├── right.html
 │   │   │   └── stringify-arr
 │   │   │       ├── right.html
@@ -1279,14 +1130,14 @@ Think a question should/shouldn't be included? Wish there was another feature?
 │   │   │   │   ├── 105-redo.js
 │   │   │   │   ├── 105-with comments.html
 │   │   │   │   ├── 105-with comments.md
-│   │   │   │   
+│   │   │   │  
 │   │   │   ├── binary-tree-reading.html
 │   │   │   ├── binary-tree-reading.md
 │   │   │   ├── leetcode110-balanced-bin-tree
 │   │   │   │   ├── Balanced Binary Tree - LeetCode.html
 │   │   │   │   ├── Balanced Binary Tree - LeetCode.md
 │   │   │   │   ├── leet_code_110.js
-│   │   │   │   
+│   │   │   │  
 │   │   │   ├── levelwidth
 │   │   │   │   ├── index.js
 │   │   │   │   ├── node.js
@@ -1329,7 +1180,7 @@ Think a question should/shouldn't be included? Wish there was another feature?
 │   │   │   │   ├── SudokuSolver.js
 │   │   │   │   ├── TrappingRainWater.js
 │   │   │   │   ├── ZeroOneKnapsack.js
-│   │   │   │   
+│   │   │   │  
 │   │   │   ├── right.html
 │   │   │   └── tabulation_project
 │   │   │       ├── lib
@@ -1339,7 +1190,7 @@ Think a question should/shouldn't be included? Wish there was another feature?
 │   │   │       └── test
 │   │   ├── Fifo-Lifo
 │   │   │   ├── QUEUE_S
-│   │   │   │   
+│   │   │   │  
 │   │   │   ├── Queue
 │   │   │   │   ├── Queue.js
 │   │   │   │   ├── QueueUsing2Stacks.js
@@ -1370,7 +1221,7 @@ Think a question should/shouldn't be included? Wish there was another feature?
 │   │   ├── File-System
 │   │   │   ├── file-name-from-path
 │   │   │   │   ├── nameFromPath.js
-│   │   │   │   
+│   │   │   │  
 │   │   │   ├── file-utilities
 │   │   │   │   ├── cp.js
 │   │   │   │   ├── file-name-from-path.js
@@ -1385,14 +1236,14 @@ Think a question should/shouldn't be included? Wish there was another feature?
 │   │   │   │   └── wc.js
 │   │   │   ├── guessing-game
 │   │   │   │   ├── guessing-game.js
-│   │   │   │   
+│   │   │   │  
 │   │   │   ├── is-valid-file-name
 │   │   │   │   ├── right.html
 │   │   │   │   └── vaid-filename.js
 │   │   │   ├── recursive-read-folder
 │   │   │   │   ├── rec-read-dir.js
-│   │   │   │   
-│   │   │   
+│   │   │   │  
+│   │   │  
 │   │   ├── Graphs
 │   │   │   ├── Graph
 │   │   │   │   ├── ConnectedComponents.js
@@ -1406,10 +1257,10 @@ Think a question should/shouldn't be included? Wish there was another feature?
 │   │   │   │   ├── NumberOfIslands.js
 │   │   │   │   ├── PrimMST.js
 │   │   │   │   ├── basic
-│   │   │   │   
+│   │   │   │  
 │   │   │   ├── advanced
 │   │   │   │   ├── Graph.js
-│   │   │   │   
+│   │   │   │  
 │   │   │   ├── bonus-graph-project
 │   │   │   │   ├── lib
 │   │   │   │   ├── package-lock.json
@@ -1438,16 +1289,16 @@ Think a question should/shouldn't be included? Wish there was another feature?
 │   │   │   │   └── test
 │   │   │   ├── graphs.html
 │   │   │   ├── graphs.md
-│   │   │   
+│   │   │  
 │   │   ├── Hash-Table
 │   │   │   ├── advanced
 │   │   │   │   ├── hash-tab.js
-│   │   │   │   
-│   │   │   
+│   │   │   │  
+│   │   │  
 │   │   ├── Heap
 │   │   │   ├── MaxHeap.js
 │   │   │   ├── MinPriorityQueue.js
-│   │   │   
+│   │   │  
 │   │   ├── Lists
 │   │   │   ├── Linked-List
 │   │   │   │   ├── CycleDetection.js
@@ -1455,11 +1306,11 @@ Think a question should/shouldn't be included? Wish there was another feature?
 │   │   │   │   ├── RotateListRight.js
 │   │   │   │   ├── SingleCircularLinkedList.js.js
 │   │   │   │   ├── SinglyLinkList.js
-│   │   │   │   
+│   │   │   │  
 │   │   │   ├── advanced
 │   │   │   │   ├── advancedll.js
 │   │   │   │   ├── linked-list-test.js
-│   │   │   │   
+│   │   │   │  
 │   │   │   ├── advanced-linked-list.js
 │   │   │   ├── circular
 │   │   │   │   ├── index.js
@@ -1491,7 +1342,7 @@ Think a question should/shouldn't be included? Wish there was another feature?
 │   │   ├── Misc
 │   │   │   ├── console.table
 │   │   │   │   ├── consoleTable.js
-│   │   │   │   
+│   │   │   │  
 │   │   │   ├── data-structures-html-spec-runner
 │   │   │   │   ├── lib
 │   │   │   │   ├── right.html
@@ -1505,7 +1356,7 @@ Think a question should/shouldn't be included? Wish there was another feature?
 │   │   │   │   └── test
 │   │   │   ├── is-reserved-wordJS
 │   │   │   │   ├── isreservedES6.js
-│   │   │   │   
+│   │   │   │  
 │   │   │   ├── playground.js
 │   │   │   ├── problem-set-1.js
 │   │   │   ├── right.html
@@ -1540,19 +1391,19 @@ Think a question should/shouldn't be included? Wish there was another feature?
 │   │   │   │   └── sqroot.cxx
 │   │   │   ├── base-converter
 │   │   │   │   ├── dec-2-otherBase.js
-│   │   │   │   
+│   │   │   │  
 │   │   │   ├── basic-examples
 │   │   │   │   ├── 00-arrow-addfive.js
-│   │   │   │   
+│   │   │   │  
 │   │   │   ├── count-steps.js
 │   │   │   ├── euclidean-distance
 │   │   │   │   ├── euclidian-dist.js
-│   │   │   │   
+│   │   │   │  
 │   │   │   ├── frequency-pattern.js
 │   │   │   ├── is-prime.js
 │   │   │   ├── isBase
 │   │   │   │   ├── numbase.js
-│   │   │   │   
+│   │   │   │  
 │   │   │   ├── reverseint
 │   │   │   │   ├── index.js
 │   │   │   │   ├── right.html
@@ -1562,28 +1413,28 @@ Think a question should/shouldn't be included? Wish there was another feature?
 │   │   ├── POJOs
 │   │   │   ├── basic-examples
 │   │   │   │   ├── 01-arrow-full-name.js
-│   │   │   │   
+│   │   │   │  
 │   │   │   ├── clone
 │   │   │   │   ├── obj-clone.js
-│   │   │   │   
+│   │   │   │  
 │   │   │   ├── extend-obj-prop
 │   │   │   │   ├── extend-obj-prop.js
-│   │   │   │   
+│   │   │   │  
 │   │   │   ├── obj-utils.js
 │   │   │   ├── obj2Array
 │   │   │   │   ├── arraify-Objs.js
 │   │   │   │   ├── obj2Array.PNG
-│   │   │   │   
+│   │   │   │  
 │   │   │   ├── objPropMap
 │   │   │   │   ├── obj-prop-map.js
-│   │   │   │   
+│   │   │   │  
 │   │   │   ├── right.html
 │   │   │   ├── utils.html
 │   │   │   └── utils.md
 │   │   ├── Recursion
 │   │   │   ├── My-Recursion-Prac-Website
 │   │   │   │   ├── Recur-website
-│   │   │   │   
+│   │   │   │  
 │   │   │   ├── Recursive
 │   │   │   │   ├── BinarySearch.js
 │   │   │   │   ├── EucledianGCD.js
@@ -1592,20 +1443,19 @@ Think a question should/shouldn't be included? Wish there was another feature?
 │   │   │   │   ├── TowerOfHanoi.js
 │   │   │   │   ├── factorial.js
 │   │   │   │   ├── min-change.js
-│   │   │   │   
+│   │   │   │  
 │   │   │   ├── binary-search
 │   │   │   │   ├── binary-search.java
 │   │   │   │   ├── binary-search.js
-│   │   │   │   
+│   │   │   │  
 │   │   │   ├── fibonacci
 │   │   │   │   ├── README.html
 │   │   │   │   ├── README.md
 │   │   │   │   ├── __test__
 │   │   │ 
-```                                        
+```
 
 ---
-
 
 [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#2-add-two-numbershttpsleetcodecomproblemsadd-two-numbersdescription)
 
@@ -1646,7 +1496,7 @@ let addTwoNumbers = function(l1, l2) {
   const prehead = new ListNode()
   let p = prehead
   let carry = 0
-  
+
   for (let p1 = l1, p2 = l2: p1 || p2 || carry > 0; p = p.next) {
     let sum = carry
     if (p1) {
@@ -1660,24 +1510,20 @@ let addTwoNumbers = function(l1, l2) {
     carry = sum / 10 | 0
     p.next = new ListNode(sum % 10)
   }
-  
+
   return prehead.next
 };
 ```
-
-
-
 
 ---
 
 Difficulty: Hard
 Related Topics:
-  "Array": https://leetcode.com/tag/array
-  "Binary Search": https://leetcode.com/tag/binary-search
-  "Divide and Conquer": https://leetcode.com/tag/divide-and-conquer
+"Array": https://leetcode.com/tag/array
+"Binary Search": https://leetcode.com/tag/binary-search
+"Divide and Conquer": https://leetcode.com/tag/divide-and-conquer
 
 ---
-
 
 [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#4-median-of-two-sorted-arrayshttpsleetcodecomproblemsmedian-of-two-sorted-arraysdescription)
 
@@ -1736,65 +1582,60 @@ Same goes `nums1[i-1] <= nums2[j] <= nums1[i]`.
  * @return {number}
  */
 let findMedianSortedArrays = function (nums1, nums2) {
-  const mid = (nums1.length + nums2.length - 1) / 2 | 0
+  const mid = ((nums1.length + nums2.length - 1) / 2) | 0;
 
   if ((nums1.length + nums2.length) % 2 === 0) {
-    return (_find(nums1, nums2, mid) + _find(nums1, nums2, mid + 1)) / 2
+    return (_find(nums1, nums2, mid) + _find(nums1, nums2, mid + 1)) / 2;
   }
 
-  return _find(nums1, nums2, mid)
-}
+  return _find(nums1, nums2, mid);
+};
 
-
-function _find (nums1, nums2, k) {
+function _find(nums1, nums2, k) {
   if (nums1.length > nums2.length) {
     // So that the `i` below is always smalller than k,
     // which makes `j` always non-negative
-    [nums1, nums2] = [nums2, nums1]
+    [nums1, nums2] = [nums2, nums1];
   }
-  let s1 = 0
-  let s2 = 0
-  let e1 = nums1.length
-  let e2 = nums2.length
+  let s1 = 0;
+  let s2 = 0;
+  let e1 = nums1.length;
+  let e2 = nums2.length;
 
   while (s1 < e1 || s2 < e2) {
-    const i = s1 + ((e1 - s1) / 2 | 0)
-    const j = k - i
-    const ni = i >= e1 ? Infinity : nums1[i]
-    const nj = j >= e2 ? Infinity : nums2[j]
-    const ni_1 = i <= 0 ? -Infinity : nums1[i-1]
-    const nj_1 = j <= 0 ? -Infinity : nums2[j-1]
+    const i = s1 + (((e1 - s1) / 2) | 0);
+    const j = k - i;
+    const ni = i >= e1 ? Infinity : nums1[i];
+    const nj = j >= e2 ? Infinity : nums2[j];
+    const ni_1 = i <= 0 ? -Infinity : nums1[i - 1];
+    const nj_1 = j <= 0 ? -Infinity : nums2[j - 1];
 
     if (nj_1 <= ni && ni <= nj) {
-      return ni
+      return ni;
     }
 
     if (ni_1 <= nj && nj <= ni) {
-      return nj
+      return nj;
     }
 
     if (ni <= nj) {
-      s1 = i + 1
-      e2 = j
+      s1 = i + 1;
+      e2 = j;
     } else {
-      s2 = j + 1
-      e1 = i
+      s2 = j + 1;
+      e1 = i;
     }
   }
-};
+}
 ```
-
-
-
 
 ---
 
 Difficulty: Medium
 Related Topics:
-  "String": https://leetcode.com/tag/string
+"String": https://leetcode.com/tag/string
 
 ---
-
 
 [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#6-zigzag-conversionhttpsleetcodecomproblemszigzag-conversiondescription)
 
@@ -1883,52 +1724,52 @@ next_i = i + numRows + (numRows - 2), if col is even && (row == 1 || row == numR
  * @param {number} numRows
  * @return {string}
  */
-let convert = function(s, numRows) {
-  if (numRows <= 1) { return s }
+let convert = function (s, numRows) {
+  if (numRows <= 1) {
+    return s;
+  }
 
-  const pairs = Math.floor(s.length / (numRows + numRows - 2))
-  const width = pairs * 2 + Math.ceil((s.length - pairs * (numRows + numRows - 2)) / numRows)
+  const pairs = Math.floor(s.length / (numRows + numRows - 2));
+  const width =
+    pairs * 2 +
+    Math.ceil((s.length - pairs * (numRows + numRows - 2)) / numRows);
 
-  let result = ''
+  let result = "";
 
   for (let row = 1; row <= numRows; row++) {
-    let i = row - 1
-    result += s[i] || ''
+    let i = row - 1;
+    result += s[i] || "";
     for (let col = 0; col < width; col++) {
       if (row === 1 || row === numRows) {
         if (col % 2 === 0) {
-          i += numRows + (numRows - 2)
+          i += numRows + (numRows - 2);
         } else {
-          continue
+          continue;
         }
       } else {
         if (col % 2 === 0) {
-          i += (numRows - row) + (numRows - row)
+          i += numRows - row + (numRows - row);
         } else {
-          i += row - 2 + row
+          i += row - 2 + row;
         }
       }
-      result += s[i] || ''
+      result += s[i] || "";
     }
   }
 
-  return result
+  return result;
 };
 ```
-
-
-
 
 ---
 
 Difficulty: Easy
 Related Topics:
-  "Math": https://leetcode.com/tag/math
+"Math": https://leetcode.com/tag/math
 Similar Questions:
-  "String to Integer (atoi)": https://leetcode.com/problems/string-to-integer-atoi
+"String to Integer (atoi)": https://leetcode.com/problems/string-to-integer-atoi
 
 ---
-
 
 [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#7-reverse-integerhttpsleetcodecomproblemsreverse-integerdescription)
 
@@ -1973,10 +1814,12 @@ This is a JavaScript specific solution. It is esay to write but slow to run beca
  * @param {number} x
  * @return {number}
  */
-let reverse = function(x) {
-  let n = Math.abs(x).toString().split('').reverse().join('')
-  if (n > 2147483647) { return 0 }
-  return (x < 0? -1: 1) * n
+let reverse = function (x) {
+  let n = Math.abs(x).toString().split("").reverse().join("");
+  if (n > 2147483647) {
+    return 0;
+  }
+  return (x < 0 ? -1 : 1) * n;
 };
 ```
 
@@ -1989,32 +1832,27 @@ Pure mathamatical solution.
  * @param {number} x
  * @return {number}
  */
-let reverse = function(x) {
-  let result = 0
+let reverse = function (x) {
+  let result = 0;
   while (x) {
-    result = result * 10 + x % 10
-    x = x / 10 | 0
+    result = result * 10 + (x % 10);
+    x = (x / 10) | 0;
   }
-  return Math.abs(result) > 2147483647 ? 0 : result
+  return Math.abs(result) > 2147483647 ? 0 : result;
 };
 ```
-
-
-
-
 
 ---
 
 Difficulty: Medium
 Related Topics:
-  "Math": https://leetcode.com/tag/math
-  "String": https://leetcode.com/tag/string
+"Math": https://leetcode.com/tag/math
+"String": https://leetcode.com/tag/string
 Similar Questions:
-  "Reverse Integer": https://leetcode.com/problems/reverse-integer
-  "Valid Number": https://leetcode.com/problems/valid-number
+"Reverse Integer": https://leetcode.com/problems/reverse-integer
+"Valid Number": https://leetcode.com/problems/valid-number
 
 ---
-
 
 [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#8-string-to-integer-atoihttpsleetcodecomproblemsstring-to-integer-atoidescription)
 
@@ -2034,8 +1872,8 @@ If no valid conversion could be performed, a zero value is returned.
 
 **Note:**
 
-  Only the space character `' '` is considered as whitespace character.
-  Assume we are dealing with an environment which could only store integers within the 32-bit signed integer range: [−231,  231 − 1]. If the numerical value is out of the range of representable values, INT_MAX (231 − 1) or INT_MIN (−231) is returned.
+Only the space character `' '` is considered as whitespace character.
+Assume we are dealing with an environment which could only store integers within the 32-bit signed integer range: [−231,  231 − 1]. If the numerical value is out of the range of representable values, INT_MAX (231 − 1) or INT_MIN (−231) is returned.
 
 **Example 1:**
 
@@ -2066,7 +1904,7 @@ Explanation: Conversion stops at digit '3' as the next character is not a numeri
 ```
 Input: "words and 987"
 Output: 0
-Explanation: The first non-whitespace character is 'w', which is not a numerical 
+Explanation: The first non-whitespace character is 'w', which is not a numerical
              digit or a +/- sign. Therefore no valid conversion could be performed.
 ```
 
@@ -2089,7 +1927,7 @@ Explanation: The number "-91283472332" is out of the range of a 32-bit signed in
  * @return {number}
  */
 let myAtoi = function (str) {
-  return Math.min(2147483647, Math.max(-2147483648, parseInt(str))) || 0
+  return Math.min(2147483647, Math.max(-2147483648, parseInt(str))) || 0;
 };
 ```
 
@@ -2103,7 +1941,10 @@ Looks like `Number()` is faster than `parseInt()`.
  * @return {number}
  */
 let myAtoi = function (str) {
-  return Math.min(2147483647, Math.max(-2147483648, (/^ *[-+]?\d+/.exec(str) || [0])[0]))
+  return Math.min(
+    2147483647,
+    Math.max(-2147483648, (/^ *[-+]?\d+/.exec(str) || [0])[0])
+  );
 };
 ```
 
@@ -2117,50 +1958,50 @@ General solution.
  * @return {number}
  */
 let myAtoi = function (str) {
-  let sign = 1
-  let i = 0
+  let sign = 1;
+  let i = 0;
 
   while (i < str.length) {
-    const cc = str.charCodeAt(i++)
-    if (cc === 45) { // -
-      sign = -1
-      break
-    } else if (cc === 43) { // +
-      break
-    } else if (cc >= 48 && cc <= 57) { // 0-9
-      i--
-      break
-    } else if (cc !== 32) { // space
-      return 0
+    const cc = str.charCodeAt(i++);
+    if (cc === 45) {
+      // -
+      sign = -1;
+      break;
+    } else if (cc === 43) {
+      // +
+      break;
+    } else if (cc >= 48 && cc <= 57) {
+      // 0-9
+      i--;
+      break;
+    } else if (cc !== 32) {
+      // space
+      return 0;
     }
   }
 
-  let result = 0
+  let result = 0;
   while (i < str.length) {
-    const digit = str.charCodeAt(i++) - 48
+    const digit = str.charCodeAt(i++) - 48;
     if (digit < 0 || digit > 9) {
-      break
+      break;
     }
-    result = result * 10 + digit
+    result = result * 10 + digit;
   }
 
-  return Math.min(2147483647, Math.max(-2147483648, result * sign))
+  return Math.min(2147483647, Math.max(-2147483648, result * sign));
 };
 ```
-
-
-
 
 ---
 
 Difficulty: Easy
 Related Topics:
-  "Math": https://leetcode.com/tag/math
+"Math": https://leetcode.com/tag/math
 Similar Questions:
-  "Palindrome Linked List": https://leetcode.com/problems/palindrome-linked-list
+"Palindrome Linked List": https://leetcode.com/problems/palindrome-linked-list
 
 ---
-
 
 [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#9-palindrome-numberhttpsleetcodecomproblemspalindrome-numberdescription)
 
@@ -2208,8 +2049,8 @@ Easy to write but slow since it generates an array.
  * @param {number} x
  * @return {boolean}
  */
-let isPalindrome = function(x) {
-  return x == String(x).split('').reverse().join('')
+let isPalindrome = function (x) {
+  return x == String(x).split("").reverse().join("");
 };
 ```
 
@@ -2222,14 +2063,14 @@ A bit faster.
  * @param {number} x
  * @return {boolean}
  */
-let isPalindrome = function(x) {
-  const s = String(x)
-  for (let i = 0, j = s.length -1; i < j; i++, j--) {
+let isPalindrome = function (x) {
+  const s = String(x);
+  for (let i = 0, j = s.length - 1; i < j; i++, j--) {
     if (s[i] !== s[j]) {
-      return false
+      return false;
     }
   }
-  return true
+  return true;
 };
 ```
 
@@ -2242,41 +2083,38 @@ General solution. Combining [7. Reverse Integer](./007.%20Reverse%20Integer.md).
  * @param {number} x
  * @return {boolean}
  */
-let isPalindrome = function(x) {
-  if (x < 0) { return false }
-  return x === reverse(x)
+let isPalindrome = function (x) {
+  if (x < 0) {
+    return false;
+  }
+  return x === reverse(x);
 };
 
 /**
  * @param {number} x
  * @return {number}
  */
-function reverse (x) {
-  let result = 0
+function reverse(x) {
+  let result = 0;
   while (x) {
-    result = result * 10 + x % 10
-    x = x / 10 | 0
+    result = result * 10 + (x % 10);
+    x = (x / 10) | 0;
   }
-  return result
-};
+  return result;
+}
 ```
-
-
-
-
 
 ---
 
 Difficulty: Hard
 Related Topics:
-  "String": https://leetcode.com/tag/string
-  "Dynamic Programming": https://leetcode.com/tag/dynamic-programming
-  "Backtracking": https://leetcode.com/tag/backtracking
+"String": https://leetcode.com/tag/string
+"Dynamic Programming": https://leetcode.com/tag/dynamic-programming
+"Backtracking": https://leetcode.com/tag/backtracking
 Similar Questions:
-  "Wildcard Matching": https://leetcode.com/problems/wildcard-matching
+"Wildcard Matching": https://leetcode.com/problems/wildcard-matching
 
 ---
-
 
 [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#10-regular-expression-matchinghttpsleetcodecomproblemsregular-expression-matchingdescription)
 
@@ -2295,8 +2133,8 @@ The matching should cover the **entire** input string (not partial).
 
 **Note:**
 
-  `s` could be empty and contains only lowercase letters `a-z`.
-  `p` could be empty and contains only lowercase letters `a-z`, and characters like `.` or `*`.
+`s` could be empty and contains only lowercase letters `a-z`.
+`p` could be empty and contains only lowercase letters `a-z`, and characters like `.` or `*`.
 
 **Example 1:**
 
@@ -2359,9 +2197,11 @@ Cheating with real RegExp matching.
  * @param {string} p
  * @return {boolean}
  */
-let isMatch = function(s, p) {
-  if (p[0] === '*') { return false }
-  return new RegExp(`^${p}$`).test(s)
+let isMatch = function (s, p) {
+  if (p[0] === "*") {
+    return false;
+  }
+  return new RegExp(`^${p}$`).test(s);
 };
 ```
 
@@ -2373,10 +2213,10 @@ Let f(i, j) be the matching result of s[0...i) and p[0...j).
 f(0, j) =
     j == 0 || // empty
     p[j-1] == '*' && f(i, j-2) // matches 0 time, which matches empty string
-    
+
 f(i, 0) = false // pattern must cover the entire input string
 
-f(i, j) = 
+f(i, j) =
     if p[j-1] == '.'
         f(i-1, j-1)
     else if p[j-1] == '*'
@@ -2392,53 +2232,49 @@ f(i, j) =
  * @param {string} p
  * @return {boolean}
  */
-let isMatch = function(s, p) {
-  if (p[0] === '*') {
-    return false
+let isMatch = function (s, p) {
+  if (p[0] === "*") {
+    return false;
   }
 
-  const dp = [[true]]
+  const dp = [[true]];
 
   for (let j = 2; j <= p.length; j++) {
-    dp[0][j] = p[j-1] === '*' && dp[0][j-2]
+    dp[0][j] = p[j - 1] === "*" && dp[0][j - 2];
   }
-    
+
   for (let i = 1; i <= s.length; i++) {
-    dp[i] = []
+    dp[i] = [];
     for (let j = 1; j <= p.length; j++) {
-      switch (p[j-1]) {
-        case '.':
-          dp[i][j] = dp[i-1][j-1]
-          break
-        case '*':
-          dp[i][j] = dp[i][j-2] ||
-            dp[i-1][j] && (p[j-2] === '.' || s[i-1] === p[j-2])
-          break
+      switch (p[j - 1]) {
+        case ".":
+          dp[i][j] = dp[i - 1][j - 1];
+          break;
+        case "*":
+          dp[i][j] =
+            dp[i][j - 2] ||
+            (dp[i - 1][j] && (p[j - 2] === "." || s[i - 1] === p[j - 2]));
+          break;
         default:
-          dp[i][j] = dp[i-1][j-1] && s[i-1] === p[j-1]
+          dp[i][j] = dp[i - 1][j - 1] && s[i - 1] === p[j - 1];
       }
     }
   }
 
-  return !!dp[s.length][p.length]
-}
+  return !!dp[s.length][p.length];
+};
 ```
-
-
-
-
 
 ---
 
 Difficulty: Medium
 Related Topics:
-  "Array": https://leetcode.com/tag/array
-  "Two Pointers": https://leetcode.com/tag/two-pointers
+"Array": https://leetcode.com/tag/array
+"Two Pointers": https://leetcode.com/tag/two-pointers
 Similar Questions:
-  "Trapping Rain Water": https://leetcode.com/problems/trapping-rain-water
+"Trapping Rain Water": https://leetcode.com/problems/trapping-rain-water
 
 ---
-
 
 [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#11-container-with-most-waterhttpsleetcodecomproblemscontainer-with-most-waterdescription)
 
@@ -2472,34 +2308,30 @@ What if `height[l] == height[r]`? It is safe to get rid of both. We do not need 
  * @return {number}
  */
 let maxArea = function (height) {
-  let max = 0
+  let max = 0;
   for (let l = 0, r = height.length - 1; l < r; l++, r--) {
-    max = Math.max(max, (r - l) * Math.min(height[l], height[r]))
+    max = Math.max(max, (r - l) * Math.min(height[l], height[r]));
     if (height[l] < height[r]) {
-      r++
+      r++;
     } else {
-      l--
+      l--;
     }
   }
-  return max
+  return max;
 };
 ```
-
-
-
 
 ---
 
 Difficulty: Medium
 Related Topics:
-  "Math": https://leetcode.com/tag/math
-  "String": https://leetcode.com/tag/string
+"Math": https://leetcode.com/tag/math
+"String": https://leetcode.com/tag/string
 Similar Questions:
-  "Roman to Integer": https://leetcode.com/problems/roman-to-integer
-  "Integer to English Words": https://leetcode.com/problems/integer-to-english-words
+"Roman to Integer": https://leetcode.com/problems/roman-to-integer
+"Integer to English Words": https://leetcode.com/problems/integer-to-english-words
 
 ---
-
 
 [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#12-integer-to-romanhttpsleetcodecomproblemsinteger-to-romandescription)
 
@@ -2524,8 +2356,8 @@ For example, two is written as `II` in Roman numeral, just two one's added tog
 
 Roman numerals are usually written largest to smallest from left to right. However, the numeral for four is not `IIII`. Instead, the number four is written as `IV`. Because the one is before the five we subtract it making four. The same principle applies to the number nine, which is written as `IX`. There are six instances where subtraction is used:
 
-- `I` can be placed before `V` (5) and `X` (10) to make 4 and 9. 
-- `X` can be placed before `L` (50) and `C` (100) to make 40 and 90. 
+- `I` can be placed before `V` (5) and `X` (10) to make 4 and 9.
+- `X` can be placed before `L` (50) and `C` (100) to make 40 and 90.
 - `C` can be placed before `D` (500) and `M` (1000) to make 400 and 900.
 
 Given an integer, convert it to a roman numeral. Input is guaranteed to be within the range from 1 to 3999.
@@ -2576,38 +2408,47 @@ Treat 4, 40, 400 and 9, 90, 900 specially.
  * @param {number} num
  * @return {string}
  */
-let intToRoman = function(num) {
-  const e = [1000, 900,  500, 400,  100, 90,   50,  40,   10,  9,    5,   4,    1  ]
-  const s = ["M",  "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I"]
+let intToRoman = function (num) {
+  const e = [1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1];
+  const s = [
+    "M",
+    "CM",
+    "D",
+    "CD",
+    "C",
+    "XC",
+    "L",
+    "XL",
+    "X",
+    "IX",
+    "V",
+    "IV",
+    "I",
+  ];
 
-  let result = ''
+  let result = "";
   for (let i = 0; num; i++) {
-    const d = e[i]
-    const v = s[i]
+    const d = e[i];
+    const v = s[i];
     while (num >= d) {
-      num -= d
-      result += v
+      num -= d;
+      result += v;
     }
   }
-  return result
+  return result;
 };
 ```
-
-
-
-
 
 ---
 
 Difficulty: Easy
 Related Topics:
-  "Math": https://leetcode.com/tag/math
-  "String": https://leetcode.com/tag/string
+"Math": https://leetcode.com/tag/math
+"String": https://leetcode.com/tag/string
 Similar Questions:
-  "Integer to Roman": https://leetcode.com/problems/integer-to-roman
+"Integer to Roman": https://leetcode.com/problems/integer-to-roman
 
 ---
-
 
 [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#13-roman-to-integerhttpsleetcodecomproblemsroman-to-integerdescription)
 
@@ -2693,30 +2534,25 @@ let romanToInt = function (s) {
     C: 100,
     D: 500,
     M: 1000,
-  }
+  };
 
-  let result = 0
+  let result = 0;
   for (let i = 0, lastDigit = Infinity; i < s.length; i++) {
-    let digit = rdigit[s[i]]
-    result += digit <= lastDigit ? digit : digit - lastDigit * 2
-    lastDigit = digit
+    let digit = rdigit[s[i]];
+    result += digit <= lastDigit ? digit : digit - lastDigit * 2;
+    lastDigit = digit;
   }
-  return result
+  return result;
 };
 ```
-
-
-
-
 
 ---
 
 Difficulty: Easy
 Related Topics:
-  "String": https://leetcode.com/tag/string
+"String": https://leetcode.com/tag/string
 
 ---
-
 
 [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#14-longest-common-prefixhttpsleetcodecomproblemslongest-common-prefixdescription)
 
@@ -2760,16 +2596,16 @@ JavaScript specific solution. Get the min len then narrow down the prefix.
  */
 let longestCommonPrefix = function (strs) {
   if (strs.length > 0) {
-    let minLen = Math.min(...strs.map(s => s.length))
-    const anyStr = strs[0]
+    let minLen = Math.min(...strs.map((s) => s.length));
+    const anyStr = strs[0];
     while (minLen) {
-      const prefix = anyStr.slice(0, minLen--)
-      if (strs.every(s => s.startsWith(prefix))) {
-        return prefix
+      const prefix = anyStr.slice(0, minLen--);
+      if (strs.every((s) => s.startsWith(prefix))) {
+        return prefix;
       }
     }
   }
-  return ''
+  return "";
 };
 ```
 
@@ -2780,14 +2616,16 @@ let longestCommonPrefix = function (strs) {
  * @param {string[]} strs
  * @return {string}
  */
-let longestCommonPrefix = function(strs) {
-  if (strs.length <= 0) { return '' }
-  
-  let i = 0
-  while (strs.every(s => s[i] && s[i] === strs[0][i])) {
-    i++
+let longestCommonPrefix = function (strs) {
+  if (strs.length <= 0) {
+    return "";
   }
-  return strs[0].slice(0, i)
+
+  let i = 0;
+  while (strs.every((s) => s[i] && s[i] === strs[0][i])) {
+    i++;
+  }
+  return strs[0].slice(0, i);
 };
 ```
 
@@ -2801,40 +2639,38 @@ General solution. Build up the prefix.
  * @return {string}
  */
 let longestCommonPrefix = function (strs) {
-  let prefix = ''
+  let prefix = "";
   if (strs.length > 0) {
     for (let i = 0; ; i++) {
-      const c = strs[0][i]
-      if (!c) { return prefix }
+      const c = strs[0][i];
+      if (!c) {
+        return prefix;
+      }
       for (let j = 0; j < strs.length; j++) {
         if (strs[j][i] !== c) {
-          return prefix
+          return prefix;
         }
       }
-      prefix += c
+      prefix += c;
     }
   }
-  return prefix
+  return prefix;
 };
 ```
-
-
-
 
 ---
 
 Difficulty: Medium
 Related Topics:
-  "Array": https://leetcode.com/tag/array
-  "Two Pointers": https://leetcode.com/tag/two-pointers
+"Array": https://leetcode.com/tag/array
+"Two Pointers": https://leetcode.com/tag/two-pointers
 Similar Questions:
-  "Two Sum": https://leetcode.com/problems/two-sum
-  "3Sum Closest": https://leetcode.com/problems/3sum-closest
-  "4Sum": https://leetcode.com/problems/4sum
-  "3Sum Smaller": https://leetcode.com/problems/3sum-smaller
+"Two Sum": https://leetcode.com/problems/two-sum
+"3Sum Closest": https://leetcode.com/problems/3sum-closest
+"4Sum": https://leetcode.com/problems/4sum
+"3Sum Smaller": https://leetcode.com/problems/3sum-smaller
 
 ---
-
 
 [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#15-3sumhttpsleetcodecomproblems3sumdescription)
 
@@ -2842,7 +2678,7 @@ Similar Questions:
 
 ### Problem:
 
-Given an array `nums` of *n* integers, are there elements *a*, *b*, *c* in `nums` such that *a* + *b* + *c* = 0? Find all unique triplets in the array which gives the sum of zero.
+Given an array `nums` of _n_ integers, are there elements _a_, _b_, _c_ in `nums` such that _a_ + _b_ + _c_ = 0? Find all unique triplets in the array which gives the sum of zero.
 
 **Note:**
 
@@ -2881,58 +2717,54 @@ Skip any duplicate number as we iterate to avoid duplicate triplets.
  * @return {number[][]}
  */
 let threeSum = function (nums) {
-  const len = nums.length
-  const sorted = nums.sort((a, b) => a - b)
-  const result = []
+  const len = nums.length;
+  const sorted = nums.sort((a, b) => a - b);
+  const result = [];
 
-  if (sorted[0] > 0 || sorted[len-1] < 0) {
-    return result
+  if (sorted[0] > 0 || sorted[len - 1] < 0) {
+    return result;
   }
 
   for (let i = 0; i < len - 2; i++) {
     if (sorted[i] > 0) {
-      break
+      break;
     }
 
-    if (i > 0 && sorted[i] === sorted[i-1]) {
-      continue
+    if (i > 0 && sorted[i] === sorted[i - 1]) {
+      continue;
     }
 
-    const twoSum = 0 - sorted[i]
+    const twoSum = 0 - sorted[i];
 
-    for (let l = i + 1, r = len - 1; l < r;) {
-      const diff = twoSum - sorted[l] - sorted[r]
+    for (let l = i + 1, r = len - 1; l < r; ) {
+      const diff = twoSum - sorted[l] - sorted[r];
       if (diff > 0) {
-        l++
+        l++;
       } else if (diff < 0) {
-        r--
+        r--;
       } else {
-        result.push([sorted[i], sorted[l], sorted[r]])
+        result.push([sorted[i], sorted[l], sorted[r]]);
         while (++l < r && sorted[l] === sorted[l - 1]);
         while (--r > l && sorted[r] === sorted[r + 1]);
       }
     }
   }
 
-  return result
+  return result;
 };
 ```
-
-
-
 
 ---
 
 Difficulty: Medium
 Related Topics:
-  "Array": https://leetcode.com/tag/array
-  "Two Pointers": https://leetcode.com/tag/two-pointers
+"Array": https://leetcode.com/tag/array
+"Two Pointers": https://leetcode.com/tag/two-pointers
 Similar Questions:
-  "3Sum": https://leetcode.com/problems/3sum
-  "3Sum Smaller": https://leetcode.com/problems/3sum-smaller
+"3Sum": https://leetcode.com/problems/3sum
+"3Sum Smaller": https://leetcode.com/problems/3sum-smaller
 
 ---
-
 
 [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#16-3sum-closesthttpsleetcodecomproblems3sum-closestdescription)
 
@@ -2940,7 +2772,7 @@ Similar Questions:
 
 ### Problem:
 
-Given an array `nums` of *n* integers and an integer `target`, find three integers in `nums` such that the sum is closest to `target`. Return the sum of the three integers. You may assume that each input would have exactly one solution.
+Given an array `nums` of _n_ integers and an integer `target`, find three integers in `nums` such that the sum is closest to `target`. Return the sum of the three integers. You may assume that each input would have exactly one solution.
 
 **Example:**
 
@@ -2960,57 +2792,53 @@ Simplified version of [15. 3Sum](./015.%203Sum.md).
  * @param {number} target
  * @return {number}
  */
-let threeSumClosest = function(nums, target) {
-  const len = nums.length
-  const sorted = nums.sort((a, b) => a - b)
+let threeSumClosest = function (nums, target) {
+  const len = nums.length;
+  const sorted = nums.sort((a, b) => a - b);
 
-  let minDiff = Infinity
+  let minDiff = Infinity;
 
   for (let i = 0; i < len - 2; i++) {
-    if (i > 0 && sorted[i] === sorted[i-1]) {
-      continue
+    if (i > 0 && sorted[i] === sorted[i - 1]) {
+      continue;
     }
 
-    const twoSum = target - sorted[i]
+    const twoSum = target - sorted[i];
 
-    for (let l = i + 1, r = len - 1; l < r;) {
-      const diff = twoSum - sorted[l] - sorted[r]
+    for (let l = i + 1, r = len - 1; l < r; ) {
+      const diff = twoSum - sorted[l] - sorted[r];
       if (diff === 0) {
-        return target
+        return target;
       } else {
         if (diff > 0) {
-          l++
+          l++;
         } else {
-          r--
+          r--;
         }
 
         if (Math.abs(diff) < Math.abs(minDiff)) {
-          minDiff = diff
+          minDiff = diff;
         }
       }
     }
   }
 
-  return target - minDiff
+  return target - minDiff;
 };
 ```
-
-
-
 
 ---
 
 Difficulty: Medium
 Related Topics:
-  "String": https://leetcode.com/tag/string
-  "Backtracking": https://leetcode.com/tag/backtracking
+"String": https://leetcode.com/tag/string
+"Backtracking": https://leetcode.com/tag/backtracking
 Similar Questions:
-  "Generate Parentheses": https://leetcode.com/problems/generate-parentheses
-  "Combination Sum": https://leetcode.com/problems/combination-sum
-  "Binary Watch": https://leetcode.com/problems/binary-watch
+"Generate Parentheses": https://leetcode.com/problems/generate-parentheses
+"Combination Sum": https://leetcode.com/problems/combination-sum
+"Binary Watch": https://leetcode.com/problems/binary-watch
 
 ---
-
 
 [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#17-letter-combinations-of-a-phone-numberhttpsleetcodecomproblemsletter-combinations-of-a-phone-numberdescription)
 
@@ -3050,32 +2878,34 @@ Also, appending string is faster than prepending.
  * @param {string} digits
  * @return {string[]}
  */
-let letterCombinations = function(digits) {
-  if (digits.length <= 0) { return [] }
+let letterCombinations = function (digits) {
+  if (digits.length <= 0) {
+    return [];
+  }
 
   const letters = [
     ,
     ,
-    ['a', 'b', 'c'],
-    ['d', 'e', 'f'],
-    ['g', 'h', 'i'],
-    ['j', 'k', 'l'],
-    ['m', 'n', 'o'],
-    ['p', 'q', 'r', 's'],
-    ['t', 'u', 'v'],
-    ['w', 'x', 'y', 'z'],
-  ]
+    ["a", "b", "c"],
+    ["d", "e", "f"],
+    ["g", "h", "i"],
+    ["j", "k", "l"],
+    ["m", "n", "o"],
+    ["p", "q", "r", "s"],
+    ["t", "u", "v"],
+    ["w", "x", "y", "z"],
+  ];
 
-  let result = ['']
+  let result = [""];
 
   for (let i = 0; i < digits.length; i++) {
-    const arr = letters[digits[i]]
-    let newResult = []
-    arr.forEach(c => newResult.push(...result.map(r => r + c)))
-    result = newResult
+    const arr = letters[digits[i]];
+    let newResult = [];
+    arr.forEach((c) => newResult.push(...result.map((r) => r + c)));
+    result = newResult;
   }
 
-  return result
+  return result;
 };
 ```
 
@@ -3088,45 +2918,51 @@ General recursive DFS solution.
  * @param {string} digits
  * @return {string[]}
  */
-let letterCombinations = function(digits) {
-  const letters = [,, 'abc', 'def', 'ghi', 'jkl', 'mno', 'pqrs', 'tuv', 'wxyz']
-  const result = []
+let letterCombinations = function (digits) {
+  const letters = [
+    ,
+    ,
+    "abc",
+    "def",
+    "ghi",
+    "jkl",
+    "mno",
+    "pqrs",
+    "tuv",
+    "wxyz",
+  ];
+  const result = [];
   if (digits.length > 0) {
-    dfs(digits, 0, '', letters, result)
+    dfs(digits, 0, "", letters, result);
   }
-  return result
+  return result;
 };
 
-function dfs (digits, idigit, path, letters, result) {
+function dfs(digits, idigit, path, letters, result) {
   if (idigit >= digits.length) {
-    result.push(path)
-    return
+    result.push(path);
+    return;
   }
-  const str = letters[digits[idigit]]
+  const str = letters[digits[idigit]];
   for (let i = 0; i < str.length; i++) {
-    dfs(digits, idigit + 1, path + str[i], letters, result)
+    dfs(digits, idigit + 1, path + str[i], letters, result);
   }
-};
+}
 ```
-
-
-
-
 
 ---
 
 Difficulty: Medium
 Related Topics:
-  "Array": https://leetcode.com/tag/array
-  "Hash Table": https://leetcode.com/tag/hash-table
-  "Two Pointers": https://leetcode.com/tag/two-pointers
+"Array": https://leetcode.com/tag/array
+"Hash Table": https://leetcode.com/tag/hash-table
+"Two Pointers": https://leetcode.com/tag/two-pointers
 Similar Questions:
-  "Two Sum": https://leetcode.com/problems/two-sum
-  "3Sum": https://leetcode.com/problems/3sum
-  "4Sum II": https://leetcode.com/problems/4sum-ii
+"Two Sum": https://leetcode.com/problems/two-sum
+"3Sum": https://leetcode.com/problems/3sum
+"4Sum II": https://leetcode.com/problems/4sum-ii
 
 ---
-
 
 [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#18-4sumhttpsleetcodecomproblems4sumdescription)
 
@@ -3134,7 +2970,7 @@ Similar Questions:
 
 ### Problem:
 
-Given an array `nums` of *n* integers and an integer `target`, are there elements *a*, *b*, *c*, and *d* in `nums` such that *a* + *b* + *c* + *d* = `target`? Find all unique quadruplets in the array which gives the sum of `target`.
+Given an array `nums` of _n_ integers and an integer `target`, are there elements _a_, _b_, _c_, and _d_ in `nums` such that _a_ + _b_ + _c_ + _d_ = `target`? Find all unique quadruplets in the array which gives the sum of `target`.
 
 **Note:**
 
@@ -3163,33 +2999,33 @@ Like [15. 3Sum](./015.%203Sum.md) and [16. 3Sum Closest](./016.%203Sum%20Closest
  * @param {number} target
  * @return {number[][]}
  */
-let fourSum = function(nums, target) {
-  const len = nums.length
-  const sorted = nums.sort((a, b) => a - b)
-  const result = []
+let fourSum = function (nums, target) {
+  const len = nums.length;
+  const sorted = nums.sort((a, b) => a - b);
+  const result = [];
 
   for (let k = 0; k < len - 3; k++) {
-    if (k > 0 && sorted[k] === sorted[k-1]) {
-      continue
+    if (k > 0 && sorted[k] === sorted[k - 1]) {
+      continue;
     }
 
-    const threeSum = target - sorted[k]
+    const threeSum = target - sorted[k];
 
-    for (let i = k+1; i < len - 2; i++) {
-      if (i > k+1 && sorted[i] === sorted[i-1]) {
-        continue
+    for (let i = k + 1; i < len - 2; i++) {
+      if (i > k + 1 && sorted[i] === sorted[i - 1]) {
+        continue;
       }
 
-      const twoSum = threeSum - sorted[i]
+      const twoSum = threeSum - sorted[i];
 
-      for (let l = i + 1, r = len - 1; l < r;) {
-        const diff = twoSum - sorted[l] - sorted[r]
+      for (let l = i + 1, r = len - 1; l < r; ) {
+        const diff = twoSum - sorted[l] - sorted[r];
         if (diff > 0) {
-          l++
+          l++;
         } else if (diff < 0) {
-          r--
+          r--;
         } else {
-          result.push([sorted[k], sorted[i], sorted[l], sorted[r]])
+          result.push([sorted[k], sorted[i], sorted[l], sorted[r]]);
           while (++l < r && sorted[l] === sorted[l - 1]);
           while (--r > l && sorted[r] === sorted[r + 1]);
         }
@@ -3197,23 +3033,18 @@ let fourSum = function(nums, target) {
     }
   }
 
-  return result
+  return result;
 };
 ```
-
-
-
-
 
 ---
 
 Difficulty: Medium
 Related Topics:
-  "Linked List": https://leetcode.com/tag/linked-list
-  "Two Pointers": https://leetcode.com/tag/two-pointers
+"Linked List": https://leetcode.com/tag/linked-list
+"Two Pointers": https://leetcode.com/tag/two-pointers
 
 ---
-
 
 [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#19-remove-nth-node-from-end-of-listhttpsleetcodecomproblemsremove-nth-node-from-end-of-listdescription)
 
@@ -3221,7 +3052,7 @@ Related Topics:
 
 ### Problem:
 
-Given a linked list, remove the *n*-th node from the end of list and return its head.
+Given a linked list, remove the _n_-th node from the end of list and return its head.
 
 **Example:**
 
@@ -3233,7 +3064,7 @@ After removing the second node from the end, the linked list becomes 1->2->3->5.
 
 **Note:**
 
-Given *n* will always be valid.
+Given _n_ will always be valid.
 
 **Follow up:**
 
@@ -3262,43 +3093,40 @@ Boundaries that should be awared of:
  * @param {number} n
  * @return {ListNode}
  */
-let removeNthFromEnd = function(head, n) {
-  let p1 = head
+let removeNthFromEnd = function (head, n) {
+  let p1 = head;
   while (p1 && n--) {
-    p1 = p1.next
+    p1 = p1.next;
   }
 
-  if (!p1) { return n ? head : head.next }
+  if (!p1) {
+    return n ? head : head.next;
+  }
 
-  let p2 = head
+  let p2 = head;
   while (p1.next) {
-    p1 = p1.next
-    p2 = p2.next
+    p1 = p1.next;
+    p2 = p2.next;
   }
 
-  p2.next = p2.next.next
+  p2.next = p2.next.next;
 
-  return head
+  return head;
 };
 ```
-
-
-
-
 
 ---
 
 Difficulty: Easy
 Related Topics:
-  "String": https://leetcode.com/tag/string
-  "Stack": https://leetcode.com/tag/stack
+"String": https://leetcode.com/tag/string
+"Stack": https://leetcode.com/tag/stack
 Similar Questions:
-  "Generate Parentheses": https://leetcode.com/problems/generate-parentheses
-  "Longest Valid Parentheses": https://leetcode.com/problems/longest-valid-parentheses
-  "Remove Invalid Parentheses": https://leetcode.com/problems/remove-invalid-parentheses
+"Generate Parentheses": https://leetcode.com/problems/generate-parentheses
+"Longest Valid Parentheses": https://leetcode.com/problems/longest-valid-parentheses
+"Remove Invalid Parentheses": https://leetcode.com/problems/remove-invalid-parentheses
 
 ---
-
 
 [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#20-valid-parentheseshttpsleetcodecomproblemsvalid-parenthesesdescription)
 
@@ -3365,44 +3193,39 @@ And since there is only bracket characters, the last open bracket happens to be 
  * @param {string} s
  * @return {boolean}
  */
-let isValid = function(s) {
-  const stack = []
+let isValid = function (s) {
+  const stack = [];
   const pairs = {
-    '}': '{',
-    ']': '[',
-    ')': '(',
-  }
+    "}": "{",
+    "]": "[",
+    ")": "(",
+  };
   for (const c of s) {
-    const open = pairs[c]
+    const open = pairs[c];
     if (open) {
       if (stack.pop() !== open) {
-        return false
+        return false;
       }
     } else {
-      stack.push(c)
+      stack.push(c);
     }
   }
-  return stack.length <= 0
+  return stack.length <= 0;
 };
 ```
-
-
-
-
 
 ---
 
 Difficulty: Easy
 Related Topics:
-  "Linked List": https://leetcode.com/tag/linked-list
+"Linked List": https://leetcode.com/tag/linked-list
 Similar Questions:
-  "Merge k Sorted Lists": https://leetcode.com/problems/merge-k-sorted-lists
-  "Merge Sorted Array": https://leetcode.com/problems/merge-sorted-array
-  "Sort List": https://leetcode.com/problems/sort-list
-  "Shortest Word Distance II": https://leetcode.com/problems/shortest-word-distance-ii
+"Merge k Sorted Lists": https://leetcode.com/problems/merge-k-sorted-lists
+"Merge Sorted Array": https://leetcode.com/problems/merge-sorted-array
+"Sort List": https://leetcode.com/problems/sort-list
+"Shortest Word Distance II": https://leetcode.com/problems/shortest-word-distance-ii
 
 ---
-
 
 [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#21-merge-two-sorted-listshttpsleetcodecomproblemsmerge-two-sorted-listsdescription)
 
@@ -3436,47 +3259,41 @@ Keep tracking the head of two lists and keep moving the pointer of smaller one t
  * @param {ListNode} l2
  * @return {ListNode}
  */
-let mergeTwoLists = function(l1, l2) {
-  let prehead = { next: null }
-  let p = prehead
-  let p1 = l1
-  let p2 = l2
+let mergeTwoLists = function (l1, l2) {
+  let prehead = { next: null };
+  let p = prehead;
+  let p1 = l1;
+  let p2 = l2;
   while (p1 && p2) {
-    let pSel
-    if  (p1.val < p2.val) {
-      pSel = p1
-      p1 = p1.next
+    let pSel;
+    if (p1.val < p2.val) {
+      pSel = p1;
+      p1 = p1.next;
     } else {
-      pSel = p2
-      p2 = p2.next
+      pSel = p2;
+      p2 = p2.next;
     }
-    p.next = pSel
-    p = pSel
+    p.next = pSel;
+    p = pSel;
   }
 
-  p.next = p1 || p2
+  p.next = p1 || p2;
 
-  return prehead.next
+  return prehead.next;
 };
-
 ```
-
-
-
-
 
 ---
 
 Difficulty: Medium
 Related Topics:
-  "String": https://leetcode.com/tag/string
-  "Backtracking": https://leetcode.com/tag/backtracking
+"String": https://leetcode.com/tag/string
+"Backtracking": https://leetcode.com/tag/backtracking
 Similar Questions:
-  "Letter Combinations of a Phone Number": https://leetcode.com/problems/letter-combinations-of-a-phone-number
-  "Valid Parentheses": https://leetcode.com/problems/valid-parentheses
+"Letter Combinations of a Phone Number": https://leetcode.com/problems/letter-combinations-of-a-phone-number
+"Valid Parentheses": https://leetcode.com/problems/valid-parentheses
 
 ---
-
 
 [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#22-generate-parentheseshttpsleetcodecomproblemsgenerate-parenthesesdescription)
 
@@ -3489,13 +3306,7 @@ Given n pairs of parentheses, write a function to generate all combinations of w
 For example, given n = 3, a solution set is:
 
 ```js
-[
-  "((()))",
-  "(()())",
-  "(())()",
-  "()(())",
-  "()()()"
-]
+["((()))", "(()())", "(())()", "()(())", "()()()"];
 ```
 
 ### Solution:
@@ -3509,28 +3320,28 @@ Recursive DFS backtracking.
  * @param {number} n
  * @return {string[]}
  */
-let generateParenthesis = function(n) {
-  const result = []
+let generateParenthesis = function (n) {
+  const result = [];
   if (n > 0) {
-    dfs(n, 0, 0, '', result)
+    dfs(n, 0, 0, "", result);
   }
-  return result
+  return result;
 };
 
-function dfs (n, nopen, nclose, path, result) {
+function dfs(n, nopen, nclose, path, result) {
   if (path.length === n * 2) {
-    result.push(path)
-    return
+    result.push(path);
+    return;
   }
 
   if (nopen < n) {
-    dfs(n, nopen + 1, nclose, path + '(', result)
+    dfs(n, nopen + 1, nclose, path + "(", result);
   }
 
   if (nclose < nopen) {
-    dfs(n, nopen, nclose + 1, path + ')', result)
+    dfs(n, nopen, nclose + 1, path + ")", result);
   }
-};
+}
 ```
 
 #### TWO
@@ -3542,59 +3353,59 @@ BFS.
  * @param {number} n
  * @return {string[]}
  */
-let generateParenthesis = function(n) {
-  if (n <= 0) { return [] }
+let generateParenthesis = function (n) {
+  if (n <= 0) {
+    return [];
+  }
 
-  const queue = [{
-    path: '(',
-    open: 1,
-    close: 0,
-  }]
+  const queue = [
+    {
+      path: "(",
+      open: 1,
+      close: 0,
+    },
+  ];
 
   while (true) {
-    const { path, open, close } = queue.shift()
+    const { path, open, close } = queue.shift();
     if (open + close === n * 2) {
-      queue.unshift({ path, open, close })
-      break
+      queue.unshift({ path, open, close });
+      break;
     }
 
     if (open < n) {
       queue.push({
-        path: path + '(',
+        path: path + "(",
         open: open + 1,
         close,
-      })
+      });
     }
 
     if (close < open) {
       queue.push({
-        path: path + ')',
+        path: path + ")",
         open,
         close: close + 1,
-      })
+      });
     }
   }
 
-  return queue.map(x => x.path)
+  return queue.map((x) => x.path);
 };
 ```
-
-
-
 
 ---
 
 Difficulty: Hard
 Related Topics:
-  "Linked List": https://leetcode.com/tag/linked-list
-  "Divide and Conquer": https://leetcode.com/tag/divide-and-conquer
-  "Heap": https://leetcode.com/tag/heap
+"Linked List": https://leetcode.com/tag/linked-list
+"Divide and Conquer": https://leetcode.com/tag/divide-and-conquer
+"Heap": https://leetcode.com/tag/heap
 Similar Questions:
-  "Merge Two Sorted Lists": https://leetcode.com/problems/merge-two-sorted-lists
-  "Ugly Number II": https://leetcode.com/problems/ugly-number-ii
+"Merge Two Sorted Lists": https://leetcode.com/problems/merge-two-sorted-lists
+"Ugly Number II": https://leetcode.com/problems/ugly-number-ii
 
 ---
-
 
 [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#23-merge-k-sorted-listshttpsleetcodecomproblemsmerge-k-sorted-listsdescription)
 
@@ -3602,7 +3413,7 @@ Similar Questions:
 
 ### Problem:
 
-Merge *k* sorted linked lists and return it as one sorted list. Analyze and describe its complexity.
+Merge _k_ sorted linked lists and return it as one sorted list. Analyze and describe its complexity.
 
 **Example:**
 
@@ -3626,13 +3437,13 @@ This is slow as it reaches O(N^2).
 
 #### TWO
 
-Priority Queue. O(N * log(K)).
+Priority Queue. O(N \* log(K)).
 
-Since JavaScript does not provide a standard built-in Priority Queue data structure, it is challenging to implement an efficient one barehanded. 
+Since JavaScript does not provide a standard built-in Priority Queue data structure, it is challenging to implement an efficient one barehanded.
 
 #### THREE
 
-Divide and conquer. Also O(N * log(K)).
+Divide and conquer. Also O(N \* log(K)).
 
 Divide N lists into ceil(N/2) pairs and merge your way up.
 
@@ -3648,11 +3459,11 @@ Divide N lists into ceil(N/2) pairs and merge your way up.
  * @param {ListNode[]} lists
  * @return {ListNode}
  */
-let mergeKLists = function(lists) {
+let mergeKLists = function (lists) {
   while (lists.length > 1) {
-    lists.unshift(mergeTwoLists(lists.pop(), lists.pop()))
+    lists.unshift(mergeTwoLists(lists.pop(), lists.pop()));
   }
-  return lists[0] || []
+  return lists[0] || [];
 };
 
 /**
@@ -3667,44 +3478,39 @@ let mergeKLists = function(lists) {
  * @param {ListNode} l2
  * @return {ListNode}
  */
-function mergeTwoLists (l1, l2) {
-  let prehead = { next: null }
-  let p = prehead
-  let p1 = l1
-  let p2 = l2
+function mergeTwoLists(l1, l2) {
+  let prehead = { next: null };
+  let p = prehead;
+  let p1 = l1;
+  let p2 = l2;
   while (p1 && p2) {
-    let pSel
-    if  (p1.val < p2.val) {
-      pSel = p1
-      p1 = p1.next
+    let pSel;
+    if (p1.val < p2.val) {
+      pSel = p1;
+      p1 = p1.next;
     } else {
-      pSel = p2
-      p2 = p2.next
+      pSel = p2;
+      p2 = p2.next;
     }
-    p.next = pSel
-    p = pSel
+    p.next = pSel;
+    p = pSel;
   }
 
-  p.next = p1 || p2
+  p.next = p1 || p2;
 
-  return prehead.next
-};
+  return prehead.next;
+}
 ```
-
-
-
-
 
 ---
 
 Difficulty: Medium
 Related Topics:
-  "Linked List": https://leetcode.com/tag/linked-list
+"Linked List": https://leetcode.com/tag/linked-list
 Similar Questions:
-  "Reverse Nodes in k-Group": https://leetcode.com/problems/reverse-nodes-in-k-group
+"Reverse Nodes in k-Group": https://leetcode.com/problems/reverse-nodes-in-k-group
 
 ---
-
 
 [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#24-swap-nodes-in-pairshttpsleetcodecomproblemsswap-nodes-in-pairsdescription)
 
@@ -3742,36 +3548,31 @@ Given 1->2->3->4, you should return the list as 2->1->4->3.
  * @param {ListNode} head
  * @return {ListNode}
  */
-let swapPairs = function(head) {
-  const prehead = { next: head }
+let swapPairs = function (head) {
+  const prehead = { next: head };
 
-  for (let p = prehead; p.next !== null && p.next.next !== null;) {
-    const p1 = p.next
-    const p2 = p1.next
-    p1.next = p2.next
-    p2.next = p1
-    p.next = p2
-    p = p1
+  for (let p = prehead; p.next !== null && p.next.next !== null; ) {
+    const p1 = p.next;
+    const p2 = p1.next;
+    p1.next = p2.next;
+    p2.next = p1;
+    p.next = p2;
+    p = p1;
   }
 
-  return prehead.next
+  return prehead.next;
 };
 ```
-
-
-
-
 
 ---
 
 Difficulty: Hard
 Related Topics:
-  "Linked List": https://leetcode.com/tag/linked-list
+"Linked List": https://leetcode.com/tag/linked-list
 Similar Questions:
-  "Swap Nodes in Pairs": https://leetcode.com/problems/swap-nodes-in-pairs
+"Swap Nodes in Pairs": https://leetcode.com/problems/swap-nodes-in-pairs
 
 ---
-
 
 [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#25-reverse-nodes-in-k-grouphttpsleetcodecomproblemsreverse-nodes-in-k-groupdescription)
 
@@ -3779,17 +3580,17 @@ Similar Questions:
 
 ### Problem:
 
-Given a linked list, reverse the nodes of a linked list *k* at a time and return its modified list.
+Given a linked list, reverse the nodes of a linked list _k_ at a time and return its modified list.
 
-*k* is a positive integer and is less than or equal to the length of the linked list. If the number of nodes is not a multiple of *k* then left-out nodes in the end should remain as it is.
+_k_ is a positive integer and is less than or equal to the length of the linked list. If the number of nodes is not a multiple of _k_ then left-out nodes in the end should remain as it is.
 
 **Example:**
 
 Given this linked list: `1->2->3->4->5`
 
-For *k* = 2, you should return: `2->1->4->3->5`
+For _k_ = 2, you should return: `2->1->4->3->5`
 
-For *k* = 3, you should return: `3->2->1->4->5`
+For _k_ = 3, you should return: `3->2->1->4->5`
 
 **Note:**
 
@@ -3816,58 +3617,53 @@ For *k* = 3, you should return: `3->2->1->4->5`
  * @param {number} k
  * @return {ListNode}
  */
-let reverseKGroup = function(head, k) {
-  const prehead = { next: head }
-  let p = prehead
+let reverseKGroup = function (head, k) {
+  const prehead = { next: head };
+  let p = prehead;
   while (true) {
-    let n = k
-    let pEndNext = p.next
+    let n = k;
+    let pEndNext = p.next;
     while (pEndNext && n) {
-      pEndNext = pEndNext.next
-      n--
+      pEndNext = pEndNext.next;
+      n--;
     }
 
     if (n !== 0) {
-      break
+      break;
     }
 
-    const nextp = p.next // The first node will be the last after reverse
-    p.next = reverseLinkList(p.next, pEndNext)
-    p = nextp
+    const nextp = p.next; // The first node will be the last after reverse
+    p.next = reverseLinkList(p.next, pEndNext);
+    p = nextp;
   }
 
-  return prehead.next
+  return prehead.next;
 };
 
-function reverseLinkList (head, nullNode = null) {
-  let prev = nullNode
-  let curr = head
+function reverseLinkList(head, nullNode = null) {
+  let prev = nullNode;
+  let curr = head;
   while (curr !== nullNode) {
-    const next = curr.next
-    curr.next = prev
-    prev = curr
-    curr = next
+    const next = curr.next;
+    curr.next = prev;
+    prev = curr;
+    curr = next;
   }
-  return prev
-};
+  return prev;
+}
 ```
-
-
-
-
 
 ---
 
 Difficulty: Easy
 Related Topics:
-  "Array": https://leetcode.com/tag/array
-  "Two Pointers": https://leetcode.com/tag/two-pointers
+"Array": https://leetcode.com/tag/array
+"Two Pointers": https://leetcode.com/tag/two-pointers
 Similar Questions:
-  "Remove Element": https://leetcode.com/problems/remove-element
-  "Remove Duplicates from Sorted Array II": https://leetcode.com/problems/remove-duplicates-from-sorted-array-ii
+"Remove Element": https://leetcode.com/problems/remove-element
+"Remove Duplicates from Sorted Array II": https://leetcode.com/problems/remove-duplicates-from-sorted-array-ii
 
 ---
-
 
 [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#26-remove-duplicates-from-sorted-arrayhttpsleetcodecomproblemsremove-duplicates-from-sorted-arraydescription)
 
@@ -3875,7 +3671,7 @@ Similar Questions:
 
 ### Problem:
 
-Given a sorted array *nums*, remove the duplicates [**in-place**](https://en.wikipedia.org/wiki/In-place_algorithm) such that each element appear only *once* and return the new length.
+Given a sorted array _nums_, remove the duplicates [**in-place**](https://en.wikipedia.org/wiki/In-place_algorithm) such that each element appear only _once_ and return the new length.
 
 Do not allocate extra space for another array, you must do this by **modifying the input array in-place** with O(1) extra memory.
 
@@ -3920,41 +3716,36 @@ for (int i = 0; i < len; i++) {
 
 ### Solution:
 
-The result array can only be shorter. That is why we can build the array in-place with the new length. 
+The result array can only be shorter. That is why we can build the array in-place with the new length.
 
 ```javascript
 /**
  * @param {number[]} nums
  * @return {number}
  */
-let removeDuplicates = function(nums) {
-  let len = 0
+let removeDuplicates = function (nums) {
+  let len = 0;
   for (let i = 0; i < nums.length; i++) {
-    if (nums[i] !== nums[i-1]) {
-      nums[len++] = nums[i]
+    if (nums[i] !== nums[i - 1]) {
+      nums[len++] = nums[i];
     }
   }
-  return len
+  return len;
 };
 ```
-
-
-
-
 
 ---
 
 Difficulty: Easy
 Related Topics:
-  "Array": https://leetcode.com/tag/array
-  "Two Pointers": https://leetcode.com/tag/two-pointers
+"Array": https://leetcode.com/tag/array
+"Two Pointers": https://leetcode.com/tag/two-pointers
 Similar Questions:
-  "Remove Duplicates from Sorted Array": https://leetcode.com/problems/remove-duplicates-from-sorted-array
-  "Remove Linked List Elements": https://leetcode.com/problems/remove-linked-list-elements
-  "Move Zeroes": https://leetcode.com/problems/move-zeroes
+"Remove Duplicates from Sorted Array": https://leetcode.com/problems/remove-duplicates-from-sorted-array
+"Remove Linked List Elements": https://leetcode.com/problems/remove-linked-list-elements
+"Move Zeroes": https://leetcode.com/problems/move-zeroes
 
 ---
-
 
 [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#27-remove-elementhttpsleetcodecomproblemsremove-elementdescription)
 
@@ -3962,7 +3753,7 @@ Similar Questions:
 
 ### Problem:
 
-Given an array *nums* and a value *val*, remove all instances of that value [**in-place**](https://en.wikipedia.org/wiki/In-place_algorithm) and return the new length.
+Given an array _nums_ and a value _val_, remove all instances of that value [**in-place**](https://en.wikipedia.org/wiki/In-place_algorithm) and return the new length.
 
 Do not allocate extra space for another array, you must do this by **modifying the input array in-place** with O(1) extra memory.
 
@@ -4019,30 +3810,25 @@ The order does not matter. So just take the last number to fill the vacancy.
  * @param {number} val
  * @return {number}
  */
-let removeElement = function(nums, val) {
-  let len = nums.length
+let removeElement = function (nums, val) {
+  let len = nums.length;
   for (let i = 0; i < len; i++) {
     if (nums[i] === val) {
-      nums[i--] = nums[--len]
+      nums[i--] = nums[--len];
     }
   }
-  return len
+  return len;
 };
 ```
-
-
-
-
 
 ---
 
 Difficulty: Medium
 Related Topics:
-  "Math": https://leetcode.com/tag/math
-  "Binary Search": https://leetcode.com/tag/binary-search
+"Math": https://leetcode.com/tag/math
+"Binary Search": https://leetcode.com/tag/binary-search
 
 ---
-
 
 [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#29-divide-two-integershttpsleetcodecomproblemsdivide-two-integersdescription)
 
@@ -4088,54 +3874,53 @@ Replace multiplication and division with binary shifting.
  * @param {number} divisor
  * @return {number}
  */
-let divide = function(dividend, divisor) {
-  if (divisor === 0 ||
-      divisor === -1 && dividend < -2147483647 ||
-      dividend > 2147483647 ||
-      dividend < -2147483648
+let divide = function (dividend, divisor) {
+  if (
+    divisor === 0 ||
+    (divisor === -1 && dividend < -2147483647) ||
+    dividend > 2147483647 ||
+    dividend < -2147483648
   ) {
-    return 2147483647
+    return 2147483647;
   }
 
-  const isNegative = dividend < 0 && divisor >= 0 || dividend >= 0 && divisor < 0
-  const pDividend = Math.abs(dividend)
-  const pDivisor = Math.abs(divisor)
+  const isNegative =
+    (dividend < 0 && divisor >= 0) || (dividend >= 0 && divisor < 0);
+  const pDividend = Math.abs(dividend);
+  const pDivisor = Math.abs(divisor);
 
-  if (dividend === 0 || pDividend < pDivisor) { return 0 }
+  if (dividend === 0 || pDividend < pDivisor) {
+    return 0;
+  }
 
-  let doubling = pDivisor
-  let count = 1
+  let doubling = pDivisor;
+  let count = 1;
   while (doubling < pDividend && !(doubling & (1 << 30))) {
-    doubling <<= 1
-    count <<= 1
+    doubling <<= 1;
+    count <<= 1;
   }
   if (doubling > pDividend) {
-    doubling >>>= 1
-    count >>>= 1
+    doubling >>>= 1;
+    count >>>= 1;
   }
 
-  const result = count + divide(pDividend - doubling, pDivisor)
-  return isNegative ? -result : result
+  const result = count + divide(pDividend - doubling, pDivisor);
+  return isNegative ? -result : result;
 };
 ```
-
-
-
-
 
 ---
 
 Difficulty: Medium
 Related Topics:
-  "Array": https://leetcode.com/tag/array
+"Array": https://leetcode.com/tag/array
 Similar Questions:
-  "Permutations": https://leetcode.com/problems/permutations
-  "Permutations II": https://leetcode.com/problems/permutations-ii
-  "Permutation Sequence": https://leetcode.com/problems/permutation-sequence
-  "Palindrome Permutation II": https://leetcode.com/problems/palindrome-permutation-ii
+"Permutations": https://leetcode.com/problems/permutations
+"Permutations II": https://leetcode.com/problems/permutations-ii
+"Permutation Sequence": https://leetcode.com/problems/permutation-sequence
+"Palindrome Permutation II": https://leetcode.com/problems/palindrome-permutation-ii
 
 ---
-
 
 [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#31-next-permutationhttpsleetcodecomproblemsnext-permutationdescription)
 
@@ -4153,7 +3938,7 @@ Here are some examples. Inputs are in the left-hand column and its corresponding
 
 `1,2,3` → `1,3,2`  
 `3,2,1` → `1,2,3`  
-`1,1,5` → `1,5,1`  
+`1,1,5` → `1,5,1`
 
 ### Solution:
 
@@ -4170,54 +3955,51 @@ Swap the two.
  * @param {number[]} nums
  * @return {void} Do not return anything, modify nums in-place instead.
  */
-let nextPermutation = function(nums) {
-  const len = nums.length
-  if (len <= 1) { return }
+let nextPermutation = function (nums) {
+  const len = nums.length;
+  if (len <= 1) {
+    return;
+  }
 
   for (let i = len - 1; i > 0; i--) {
-    if (nums[i] > nums[i-1]) {
-      let t
-      for (let s = i, e = len-1; s < e; s++, e--) {
-        t = nums[s]
-        nums[s] = nums[e]
-        nums[e]  = t
+    if (nums[i] > nums[i - 1]) {
+      let t;
+      for (let s = i, e = len - 1; s < e; s++, e--) {
+        t = nums[s];
+        nums[s] = nums[e];
+        nums[e] = t;
       }
 
-      let j = len - 1
-      while (nums[j] <= nums[i-1]) {
-        j--
+      let j = len - 1;
+      while (nums[j] <= nums[i - 1]) {
+        j--;
       }
 
-      t = nums[j]
-      nums[j] = nums[i-1]
-      nums[i-1] = t
-      
-      break
+      t = nums[j];
+      nums[j] = nums[i - 1];
+      nums[i - 1] = t;
+
+      break;
     }
   }
 
   if (i === 0) {
-    nums.reverse()
+    nums.reverse();
   }
 };
 ```
-
-
-
-
 
 ---
 
 Difficulty: Medium
 Related Topics:
-  "Array": https://leetcode.com/tag/array
-  "Binary Search": https://leetcode.com/tag/binary-search
+"Array": https://leetcode.com/tag/array
+"Binary Search": https://leetcode.com/tag/binary-search
 Similar Questions:
-  "Search in Rotated Sorted Array II": https://leetcode.com/problems/search-in-rotated-sorted-array-ii
-  "Find Minimum in Rotated Sorted Array": https://leetcode.com/problems/find-minimum-in-rotated-sorted-array
+"Search in Rotated Sorted Array II": https://leetcode.com/problems/search-in-rotated-sorted-array-ii
+"Find Minimum in Rotated Sorted Array": https://leetcode.com/problems/find-minimum-in-rotated-sorted-array
 
 ---
-
 
 [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#33-search-in-rotated-sorted-arrayhttpsleetcodecomproblemssearch-in-rotated-sorted-arraydescription)
 
@@ -4270,55 +4052,51 @@ Whenever we choose a pivot, it must be in one of the two sorted parts of the rot
  * @param {number} target
  * @return {number}
  */
-let search = function(nums, target) {
-  let s = 0
-  let e = nums.length - 1
+let search = function (nums, target) {
+  let s = 0;
+  let e = nums.length - 1;
 
   while (s <= e) {
-    const p = (e + s) / 2 | 0
-    const pivot = nums[p]
+    const p = ((e + s) / 2) | 0;
+    const pivot = nums[p];
 
     if (pivot === target) {
-      return p
+      return p;
     }
 
     if (pivot < nums[e]) {
       // right half is sorted
-      if (target > pivot  && target <= nums[e]) {
+      if (target > pivot && target <= nums[e]) {
         // target is inside the right half
-        s = p + 1
+        s = p + 1;
       } else {
-        e = p - 1
+        e = p - 1;
       }
     } else {
       // left half is sorted
       if (target < pivot && target >= nums[s]) {
         // target is inside the left half
-        e = p - 1
+        e = p - 1;
       } else {
-        s = p + 1
+        s = p + 1;
       }
     }
   }
 
-  return -1
+  return -1;
 };
 ```
-
-
-
 
 ---
 
 Difficulty: Medium
 Related Topics:
-  "Array": https://leetcode.com/tag/array
-  "Binary Search": https://leetcode.com/tag/binary-search
+"Array": https://leetcode.com/tag/array
+"Binary Search": https://leetcode.com/tag/binary-search
 Similar Questions:
-  "First Bad Version": https://leetcode.com/problems/first-bad-version
+"First Bad Version": https://leetcode.com/problems/first-bad-version
 
 ---
-
 
 [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#34-find-first-and-last-position-of-element-in-sorted-arrayhttpsleetcodecomproblemsfind-first-and-last-position-of-element-in-sorted-arraydescription)
 
@@ -4328,7 +4106,7 @@ Similar Questions:
 
 Given an array of integers `nums` sorted in ascending order, find the starting and ending position of a given `target` value.
 
-Your algorithm's runtime complexity must be in the order of *O*(log *n*).
+Your algorithm's runtime complexity must be in the order of _O_(log _n_).
 
 If the target is not found in the array, return `[-1, -1]`.
 
@@ -4360,73 +4138,68 @@ If we want to get the first, we dump the right half. Vice versa.
  * @param {number} target
  * @return {number[]}
  */
-let searchRange = function(nums, target) {
-  let s = 0
-  let e = nums.length - 1
+let searchRange = function (nums, target) {
+  let s = 0;
+  let e = nums.length - 1;
 
-  const first = searchFirst(nums, target, 0, nums.length - 1)
+  const first = searchFirst(nums, target, 0, nums.length - 1);
 
   if (first === -1) {
-    return [-1, -1]
+    return [-1, -1];
   }
 
-  return [first, searchLast(nums, target, first, nums.length - 1)]
+  return [first, searchLast(nums, target, first, nums.length - 1)];
 };
 
-function searchFirst (nums, target, s, e) {
-  let result = -1
+function searchFirst(nums, target, s, e) {
+  let result = -1;
 
   while (s <= e) {
-    const p = (s + e) / 2 | 0
-    const diff = nums[p] - target
+    const p = ((s + e) / 2) | 0;
+    const diff = nums[p] - target;
     if (diff === 0) {
-      result = p
-      e = p - 1
+      result = p;
+      e = p - 1;
     } else if (diff > 0) {
-      e = p - 1
+      e = p - 1;
     } else {
-      s = s + 1
+      s = s + 1;
     }
   }
 
-  return result
-};
+  return result;
+}
 
-function searchLast (nums, target, s, e) {
-  let result = -1
+function searchLast(nums, target, s, e) {
+  let result = -1;
 
   while (s <= e) {
-    const p = (s + e) / 2 | 0
-    const diff = nums[p] - target
+    const p = ((s + e) / 2) | 0;
+    const diff = nums[p] - target;
     if (diff === 0) {
-      result = p
-      s = p + 1
+      result = p;
+      s = p + 1;
     } else if (diff > 0) {
-      e = p - 1
+      e = p - 1;
     } else {
-      s = s + 1
+      s = s + 1;
     }
   }
 
-  return result
-};
+  return result;
+}
 ```
-
-
-
-
 
 ---
 
 Difficulty: Easy
 Related Topics:
-  "Array": https://leetcode.com/tag/array
-  "Binary Search": https://leetcode.com/tag/binary-search
+"Array": https://leetcode.com/tag/array
+"Binary Search": https://leetcode.com/tag/binary-search
 Similar Questions:
-  "First Bad Version": https://leetcode.com/problems/first-bad-version
+"First Bad Version": https://leetcode.com/problems/first-bad-version
 
 ---
-
 
 [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#35-search-insert-positionhttpsleetcodecomproblemssearch-insert-positiondescription)
 
@@ -4476,40 +4249,35 @@ Same as simple binary search except it returns the start index when does not fin
  * @param {number} target
  * @return {number}
  */
-let searchInsert = function(nums, target) {
-  let s = 0
-  let e = nums.length - 1
+let searchInsert = function (nums, target) {
+  let s = 0;
+  let e = nums.length - 1;
 
   while (s <= e) {
-    const p = (s + e) / 2 | 0
-    const diff = nums[p] - target
+    const p = ((s + e) / 2) | 0;
+    const diff = nums[p] - target;
     if (diff === 0) {
-      return p
+      return p;
     } else if (diff < 0) {
-      s = p + 1
+      s = p + 1;
     } else {
-      e = p - 1
+      e = p - 1;
     }
   }
 
-  return s
+  return s;
 };
 ```
-
-
-
-
 
 ---
 
 Difficulty: Medium
 Related Topics:
-  "Hash Table": https://leetcode.com/tag/hash-table
+"Hash Table": https://leetcode.com/tag/hash-table
 Similar Questions:
-  "Sudoku Solver": https://leetcode.com/problems/sudoku-solver
+"Sudoku Solver": https://leetcode.com/problems/sudoku-solver
 
 ---
-
 
 [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#36-valid-sudokuhttpsleetcodecomproblemsvalid-sudokudescription)
 
@@ -4563,7 +4331,7 @@ Input:
   [".",".",".",".","8",".",".","7","9"]
 ]
 Output: false
-Explanation: Same as Example 1, except with the 5 in the top left corner being 
+Explanation: Same as Example 1, except with the 5 in the top left corner being
     modified to 8. Since there are two 8's in the top left 3x3 sub-box, it is invalid.
 ```
 
@@ -4583,54 +4351,54 @@ Scan the board once.
  * @param {character[][]} board
  * @return {boolean}
  */
-let isValidSudoku = function(board) {
-  if (!board || board.length !== 9) { return false }
+let isValidSudoku = function (board) {
+  if (!board || board.length !== 9) {
+    return false;
+  }
 
-  const newArray = () => []
-  const col = board.map(newArray)
-  const row = board.map(newArray)
-  const sub = board.map(newArray)
+  const newArray = () => [];
+  const col = board.map(newArray);
+  const row = board.map(newArray);
+  const sub = board.map(newArray);
 
   for (let r = 0; r < 9; r++) {
-    if (board[r].length !== 9) { return false }
+    if (board[r].length !== 9) {
+      return false;
+    }
 
     for (let c = 0; c < 9; c++) {
-      const num = board[r][c]
-      const subOffset = 3 * (r / 3 | 0) + (c / 3 | 0)
-      if (num !== '.') {
-        if (!(num >= 1 && num <= 9) ||
-            row[r][num] ||
-            col[c][num] ||
-            sub[subOffset][num]
+      const num = board[r][c];
+      const subOffset = 3 * ((r / 3) | 0) + ((c / 3) | 0);
+      if (num !== ".") {
+        if (
+          !(num >= 1 && num <= 9) ||
+          row[r][num] ||
+          col[c][num] ||
+          sub[subOffset][num]
         ) {
-          return false
+          return false;
         }
-        row[r][num] = true
-        col[c][num] = true
-        sub[subOffset][num] = true
+        row[r][num] = true;
+        col[c][num] = true;
+        sub[subOffset][num] = true;
       }
     }
   }
 
-  return true
+  return true;
 };
 ```
-
-
-
-
 
 ---
 
 Difficulty: Hard
 Related Topics:
-  "Hash Table": https://leetcode.com/tag/hash-table
-  "Backtracking": https://leetcode.com/tag/backtracking
+"Hash Table": https://leetcode.com/tag/hash-table
+"Backtracking": https://leetcode.com/tag/backtracking
 Similar Questions:
-  "Valid Sudoku": https://leetcode.com/problems/valid-sudoku
+"Valid Sudoku": https://leetcode.com/problems/valid-sudoku
 
 ---
-
 
 [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#37-sudoku-solverhttpsleetcodecomproblemssudoku-solverdescription)
 
@@ -4677,75 +4445,72 @@ If all possible solutions fail, we just dump the current position and go back to
  * @param {character[][]} board
  * @return {void} Do not return anything, modify board in-place instead.
  */
-let solveSudoku = function(board) {
-  const newArray = () => []
-  const col = board.map(newArray)
-  const row = board.map(newArray)
-  const sub = board.map(newArray)
+let solveSudoku = function (board) {
+  const newArray = () => [];
+  const col = board.map(newArray);
+  const row = board.map(newArray);
+  const sub = board.map(newArray);
 
   for (let r = 0; r < 9; r++) {
     for (let c = 0; c < 9; c++) {
-      const num = +board[r][c]
+      const num = +board[r][c];
       if (num) {
-        const subOffset = 3 * (r / 3 | 0) + (c / 3 | 0)
-        row[r][num] = true
-        col[c][num] = true
-        sub[subOffset][num] = true
+        const subOffset = 3 * ((r / 3) | 0) + ((c / 3) | 0);
+        row[r][num] = true;
+        col[c][num] = true;
+        sub[subOffset][num] = true;
       }
     }
   }
 
-  dfs(board, col, row, sub, 0)
+  dfs(board, col, row, sub, 0);
 };
 
-function dfs (board, col, row, sub, pos) {
-  if  (pos >= 81) { return true }
-
-  const r = pos / 9 | 0
-  const c = pos % 9
-
-  if (board[r][c] !== '.') {
-    return dfs(board, col, row, sub, pos + 1)
+function dfs(board, col, row, sub, pos) {
+  if (pos >= 81) {
+    return true;
   }
 
-  const subOffset = 3 * (r / 3 | 0) + (c / 3 | 0)
+  const r = (pos / 9) | 0;
+  const c = pos % 9;
+
+  if (board[r][c] !== ".") {
+    return dfs(board, col, row, sub, pos + 1);
+  }
+
+  const subOffset = 3 * ((r / 3) | 0) + ((c / 3) | 0);
 
   for (let num = 1; num <= 9; num++) {
     if (!(row[r][num] || col[c][num] || sub[subOffset][num])) {
-      row[r][num] = true
-      col[c][num] = true
-      sub[subOffset][num] = true
+      row[r][num] = true;
+      col[c][num] = true;
+      sub[subOffset][num] = true;
 
       if (dfs(board, col, row, sub, pos + 1)) {
-        board[r][c] = num + ''
-        return true
+        board[r][c] = num + "";
+        return true;
       } else {
-        row[r][num] = false
-        col[c][num] = false
-        sub[subOffset][num] = false
+        row[r][num] = false;
+        col[c][num] = false;
+        sub[subOffset][num] = false;
       }
     }
   }
 
-  return false
-};
+  return false;
+}
 ```
-
-
-
-
 
 ---
 
 Difficulty: Easy
 Related Topics:
-  "String": https://leetcode.com/tag/string
+"String": https://leetcode.com/tag/string
 Similar Questions:
-  "Encode and Decode Strings": https://leetcode.com/problems/encode-and-decode-strings
-  "String Compression": https://leetcode.com/problems/string-compression
+"Encode and Decode Strings": https://leetcode.com/problems/encode-and-decode-strings
+"String Compression": https://leetcode.com/problems/string-compression
 
 ---
-
 
 [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#38-count-and-sayhttpsleetcodecomproblemscount-and-saydescription)
 
@@ -4798,14 +4563,17 @@ JavaScript specific.
  * @param {number} n
  * @return {string}
  */
-let countAndSay = function(n) {
-  let num = '1'
+let countAndSay = function (n) {
+  let num = "1";
 
   while (--n > 0) {
-    num = num.match(/(\d)\1*/g).map(x => x.length + x[0]).join('')
+    num = num
+      .match(/(\d)\1*/g)
+      .map((x) => x.length + x[0])
+      .join("");
   }
 
-  return num
+  return num;
 };
 ```
 
@@ -4818,44 +4586,39 @@ General solution.
  * @param {number} n
  * @return {string}
  */
-let countAndSay = function(n) {
-  let num = '1'
+let countAndSay = function (n) {
+  let num = "1";
 
   while (--n > 0) {
-    let newNum = ''
+    let newNum = "";
     for (let i = 0, accu = 1; i < num.length; i++, accu++) {
-      if (num[i] !== num[i+1]) {
-        newNum += accu + num[i]
-        accu = 0
+      if (num[i] !== num[i + 1]) {
+        newNum += accu + num[i];
+        accu = 0;
       }
     }
-    num = newNum
+    num = newNum;
   }
 
-  return num
+  return num;
 };
 ```
-
-
-
-
 
 ---
 
 Difficulty: Medium
 Related Topics:
-  "Array": https://leetcode.com/tag/array
-  "Backtracking": https://leetcode.com/tag/backtracking
+"Array": https://leetcode.com/tag/array
+"Backtracking": https://leetcode.com/tag/backtracking
 Similar Questions:
-  "Letter Combinations of a Phone Number": https://leetcode.com/problems/letter-combinations-of-a-phone-number
-  "Combination Sum II": https://leetcode.com/problems/combination-sum-ii
-  "Combinations": https://leetcode.com/problems/combinations
-  "Combination Sum III": https://leetcode.com/problems/combination-sum-iii
-  "Factor Combinations": https://leetcode.com/problems/factor-combinations
-  "Combination Sum IV": https://leetcode.com/problems/combination-sum-iv
+"Letter Combinations of a Phone Number": https://leetcode.com/problems/letter-combinations-of-a-phone-number
+"Combination Sum II": https://leetcode.com/problems/combination-sum-ii
+"Combinations": https://leetcode.com/problems/combinations
+"Combination Sum III": https://leetcode.com/problems/combination-sum-iii
+"Factor Combinations": https://leetcode.com/problems/factor-combinations
+"Combination Sum IV": https://leetcode.com/problems/combination-sum-iv
 
 ---
-
 
 [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#39-combination-sumhttpsleetcodecomproblemscombination-sumdescription)
 
@@ -4907,47 +4670,41 @@ To prevent duplications, only loop the right side of the candidates.
  * @param {number} target
  * @return {number[][]}
  */
-let combinationSum = function(candidates, target) {
-  return dfs(candidates, target, [], [], 0)
+let combinationSum = function (candidates, target) {
+  return dfs(candidates, target, [], [], 0);
 };
 
-function dfs (candidates, target, result, path, start) {
+function dfs(candidates, target, result, path, start) {
   for (let i = start; i < candidates.length; i++) {
-    const cand = candidates[i]
+    const cand = candidates[i];
 
     if (cand > target) {
-      continue
+      continue;
     }
 
-    path.push(cand)
+    path.push(cand);
     if (cand === target) {
-      result.push(path.slice())
+      result.push(path.slice());
     } else {
-      dfs(candidates, target - cand, result, path, i)
+      dfs(candidates, target - cand, result, path, i);
     }
-    path.pop(cand)
+    path.pop(cand);
   }
 
-  return result
-};
+  return result;
+}
 ```
-
-
-
-
-
 
 ---
 
 Difficulty: Medium
 Related Topics:
-  "Array": https://leetcode.com/tag/array
-  "Backtracking": https://leetcode.com/tag/backtracking
+"Array": https://leetcode.com/tag/array
+"Backtracking": https://leetcode.com/tag/backtracking
 Similar Questions:
-  "Combination Sum": https://leetcode.com/problems/combination-sum
+"Combination Sum": https://leetcode.com/problems/combination-sum
 
 ---
-
 
 [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#40-combination-sum-iihttpsleetcodecomproblemscombination-sum-iidescription)
 
@@ -5006,52 +4763,53 @@ Notice the number at `start` is immune by the rule because we assume that the cu
  * @param {number} target
  * @return {number[][]}
  */
-let combinationSum2 = function(candidates, target) {
-  return dfs(candidates.sort((a, b) => a - b), target, [], [], 0)
+let combinationSum2 = function (candidates, target) {
+  return dfs(
+    candidates.sort((a, b) => a - b),
+    target,
+    [],
+    [],
+    0
+  );
 };
 
-function dfs (candidates, target, result, path, start) {
+function dfs(candidates, target, result, path, start) {
   for (let i = start; i < candidates.length; i++) {
-    const cand = candidates[i]
+    const cand = candidates[i];
 
     if (cand > target) {
-      return result
+      return result;
     }
 
-    if (i > start && cand === candidates[i-1]) {
-      continue
+    if (i > start && cand === candidates[i - 1]) {
+      continue;
     }
 
-    path.push(cand)
+    path.push(cand);
     if (cand === target) {
-      result.push(path.slice())
+      result.push(path.slice());
     } else {
-      dfs(candidates, target - cand, result, path, i + 1)
+      dfs(candidates, target - cand, result, path, i + 1);
     }
-    path.pop()
+    path.pop();
   }
 
-  return result
-};
+  return result;
+}
 ```
-
-
-
-
 
 ---
 
 Difficulty: Hard
 Related Topics:
-  "Array": https://leetcode.com/tag/array
+"Array": https://leetcode.com/tag/array
 Similar Questions:
-  "Missing Number": https://leetcode.com/problems/missing-number
-  "Find the Duplicate Number": https://leetcode.com/problems/find-the-duplicate-number
-  "Find All Numbers Disappeared in an Array": https://leetcode.com/problems/find-all-numbers-disappeared-in-an-array
-  "Couples Holding Hands": https://leetcode.com/problems/couples-holding-hands
+"Missing Number": https://leetcode.com/problems/missing-number
+"Find the Duplicate Number": https://leetcode.com/problems/find-the-duplicate-number
+"Find All Numbers Disappeared in an Array": https://leetcode.com/problems/find-all-numbers-disappeared-in-an-array
+"Couples Holding Hands": https://leetcode.com/problems/couples-holding-hands
 
 ---
-
 
 [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#41-first-missing-positivehttpsleetcodecomproblemsfirst-missing-positivedescription)
 
@@ -5084,13 +4842,13 @@ Output: 1
 
 **Note:**
 
-Your algorithm should run in *O*(*n*) time and uses constant extra space.
+Your algorithm should run in _O_(_n_) time and uses constant extra space.
 
 ### Solution:
 
 The last requirement is why this problem is marked "hard". Though the solution feels like cheating: it modifies the array to mark numbers.
 
-So the algorithm still requires *O*(*n*) space but *O*(*1*) **extra** space.
+So the algorithm still requires _O_(_n_) space but _O_(_1_) **extra** space.
 
 The core idea of the solution is, if the length of the array is n, then the smallest missing positive integer must be within [1, n+1].
 
@@ -5107,45 +4865,41 @@ So here we reuse the array and keep trying to put integer `k` into the slot inde
  * @param {number[]} nums
  * @return {number}
  */
-let firstMissingPositive = function(nums) {
-  const n = nums.length
+let firstMissingPositive = function (nums) {
+  const n = nums.length;
 
   for (let i = 1; i < n; i++) {
     while (nums[i] <= n && nums[i] !== nums[nums[i] - 1]) {
-      const t = nums[i]
-      nums[i] = nums[t - 1]
-      nums[t - 1] = t
+      const t = nums[i];
+      nums[i] = nums[t - 1];
+      nums[t - 1] = t;
     }
   }
 
   for (let i = 0; i < n; i++) {
     if (nums[i] !== i + 1) {
-      return i + 1
+      return i + 1;
     }
   }
 
-  return n + 1
+  return n + 1;
 };
 ```
-
-
-
 
 ---
 
 Difficulty: Hard
 Related Topics:
-  "Array": https://leetcode.com/tag/array
-  "Two Pointers": https://leetcode.com/tag/two-pointers
-  "Stack": https://leetcode.com/tag/stack
+"Array": https://leetcode.com/tag/array
+"Two Pointers": https://leetcode.com/tag/two-pointers
+"Stack": https://leetcode.com/tag/stack
 Similar Questions:
-  "Container With Most Water": https://leetcode.com/problems/container-with-most-water
-  "Product of Array Except Self": https://leetcode.com/problems/product-of-array-except-self
-  "Trapping Rain Water II": https://leetcode.com/problems/trapping-rain-water-ii
-  "Pour Water": https://leetcode.com/problems/pour-water
+"Container With Most Water": https://leetcode.com/problems/container-with-most-water
+"Product of Array Except Self": https://leetcode.com/problems/product-of-array-except-self
+"Trapping Rain Water II": https://leetcode.com/problems/trapping-rain-water-ii
+"Pour Water": https://leetcode.com/problems/pour-water
 
 ---
-
 
 [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#42-trapping-rain-waterhttpsleetcodecomproblemstrapping-rain-waterdescription)
 
@@ -5153,7 +4907,7 @@ Similar Questions:
 
 ### Problem:
 
-Given *n* non-negative integers representing an elevation map where the width of each bar is 1, compute how much water it is able to trap after raining.
+Given _n_ non-negative integers representing an elevation map where the width of each bar is 1, compute how much water it is able to trap after raining.
 
 ![rainwatertrap.png](http://www.leetcode.com/static/images/problemset/rainwatertrap.png)
 The above elevation map is represented by array [0,1,0,2,1,0,1,3,2,1,2,1]. In this case, 6 units of rain water (blue section) are being trapped. **Thanks Marcos** for contributing this image!
@@ -5174,54 +4928,50 @@ Well explained by Leetcode official: <https://leetcode.com/articles/trapping-rai
  * @param {number[]} height
  * @return {number}
  */
-let trap = function(height) {
-  let i = 0
-  let j = height.length - 1
-  let lMax = 0
-  let rMax = 0
-  let result = 0
+let trap = function (height) {
+  let i = 0;
+  let j = height.length - 1;
+  let lMax = 0;
+  let rMax = 0;
+  let result = 0;
 
   while (i < j) {
-    const left = height[i]
-    const right = height[j]
+    const left = height[i];
+    const right = height[j];
     if (left < right) {
       if (left < lMax) {
-        result += lMax - left
+        result += lMax - left;
       } else {
-        lMax = left
+        lMax = left;
       }
-      i++
+      i++;
     } else {
       if (right < rMax) {
-        result += rMax - right
+        result += rMax - right;
       } else {
-        rMax = right
+        rMax = right;
       }
-      j--
+      j--;
     }
   }
 
-  return result
+  return result;
 };
 ```
-
-
-
 
 ---
 
 Difficulty: Medium
 Related Topics:
-  "Math": https://leetcode.com/tag/math
-  "String": https://leetcode.com/tag/string
+"Math": https://leetcode.com/tag/math
+"String": https://leetcode.com/tag/string
 Similar Questions:
-  "Add Two Numbers": https://leetcode.com/problems/add-two-numbers
-  "Plus One": https://leetcode.com/problems/plus-one
-  "Add Binary": https://leetcode.com/problems/add-binary
-  "Add Strings": https://leetcode.com/problems/add-strings
+"Add Two Numbers": https://leetcode.com/problems/add-two-numbers
+"Plus One": https://leetcode.com/problems/plus-one
+"Add Binary": https://leetcode.com/problems/add-binary
+"Add Strings": https://leetcode.com/problems/add-strings
 
 ---
-
 
 [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#43-multiply-stringshttpsleetcodecomproblemsmultiply-stringsdescription)
 
@@ -5262,36 +5012,31 @@ Same as we do multiplication on a paper.
  * @param {string} num2
  * @return {string}
  */
-let multiply = function(num1, num2) {
-  const result = []
+let multiply = function (num1, num2) {
+  const result = [];
 
   for (i = num1.length - 1; i >= 0; i--) {
     for (j = num2.length - 1; j >= 0; j--) {
-      const sum = num1[i] * num2[j] + (result[i+j+1] || 0)
-      result[i+j] = (sum / 10 | 0) + (result[i+j] || 0)
-      result[i+j+1] = sum % 10
+      const sum = num1[i] * num2[j] + (result[i + j + 1] || 0);
+      result[i + j] = ((sum / 10) | 0) + (result[i + j] || 0);
+      result[i + j + 1] = sum % 10;
     }
   }
 
-  return result.join('').replace(/^0+(?=[0-9])/, '')
+  return result.join("").replace(/^0+(?=[0-9])/, "");
 };
 ```
-
-
-
-
 
 ---
 
 Difficulty: Hard
 Related Topics:
-  "Array": https://leetcode.com/tag/array
-  "Greedy": https://leetcode.com/tag/greedy
+"Array": https://leetcode.com/tag/array
+"Greedy": https://leetcode.com/tag/greedy
 Similar Questions:
-  "Jump Game": https://leetcode.com/problems/jump-game
+"Jump Game": https://leetcode.com/problems/jump-game
 
 ---
-
 
 [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#45-jump-game-iihttpsleetcodecomproblemsjump-game-iidescription)
 
@@ -5327,41 +5072,36 @@ Greedy. Always pick the one that would allow to jump to the rightest.
  * @param {number[]} nums
  * @return {number}
  */
-let jump = function(nums) {
-  const len = nums.length
-  let jump = 0
+let jump = function (nums) {
+  const len = nums.length;
+  let jump = 0;
   for (let l = 0, r = 1; r < len; jump++) {
-    let rNext = r
+    let rNext = r;
     for (let i = l; i < r; i++) {
-      const rNextAtmp = i + nums[i] + 1
+      const rNextAtmp = i + nums[i] + 1;
       if (rNextAtmp > rNext) {
-        rNext = rNextAtmp
+        rNext = rNextAtmp;
       }
     }
-    l = r
-    r = rNext
+    l = r;
+    r = rNext;
   }
-  return jump
+  return jump;
 };
 ```
-
-
-
-
 
 ---
 
 Difficulty: Medium
 Related Topics:
-  "Backtracking": https://leetcode.com/tag/backtracking
+"Backtracking": https://leetcode.com/tag/backtracking
 Similar Questions:
-  "Next Permutation": https://leetcode.com/problems/next-permutation
-  "Permutations II": https://leetcode.com/problems/permutations-ii
-  "Permutation Sequence": https://leetcode.com/problems/permutation-sequence
-  "Combinations": https://leetcode.com/problems/combinations
+"Next Permutation": https://leetcode.com/problems/next-permutation
+"Permutations II": https://leetcode.com/problems/permutations-ii
+"Permutation Sequence": https://leetcode.com/problems/permutation-sequence
+"Combinations": https://leetcode.com/problems/combinations
 
 ---
-
 
 [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#46-permutationshttpsleetcodecomproblemspermutationsdescription)
 
@@ -5395,48 +5135,43 @@ One position at a time, pick a number from the unused set and put it in that pos
  * @param {number[]} nums
  * @return {number[][]}
  */
-let permute = function(nums) {
-  const result = []
-  _permute(nums, 0, result)
-  return result
+let permute = function (nums) {
+  const result = [];
+  _permute(nums, 0, result);
+  return result;
 };
 
-function _permute (nums, start, result) {
+function _permute(nums, start, result) {
   if (start === nums.length) {
-    return result.push(nums.slice())
+    return result.push(nums.slice());
   }
 
-  const begin = nums[start]
+  const begin = nums[start];
   for (let i = start; i < nums.length; i++) {
-    const next = nums[i]
+    const next = nums[i];
 
-    nums[start] = next
-    nums[i] = begin
+    nums[start] = next;
+    nums[i] = begin;
 
-    _permute(nums, start + 1, result)
+    _permute(nums, start + 1, result);
 
-    nums[start] = begin
-    nums[i] = next
+    nums[start] = begin;
+    nums[i] = next;
   }
-};
+}
 ```
-
-
-
-
 
 ---
 
 Difficulty: Medium
 Related Topics:
-  "Backtracking": https://leetcode.com/tag/backtracking
+"Backtracking": https://leetcode.com/tag/backtracking
 Similar Questions:
-  "Next Permutation": https://leetcode.com/problems/next-permutation
-  "Permutations": https://leetcode.com/problems/permutations
-  "Palindrome Permutation II": https://leetcode.com/problems/palindrome-permutation-ii
+"Next Permutation": https://leetcode.com/problems/next-permutation
+"Permutations": https://leetcode.com/problems/permutations
+"Palindrome Permutation II": https://leetcode.com/problems/palindrome-permutation-ii
 
 ---
-
 
 [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#47-permutations-iihttpsleetcodecomproblemspermutations-iidescription)
 
@@ -5467,51 +5202,46 @@ Same as [46. Permutations](./046.%20Permutations.md). To avoid duplication, when
  * @param {number[]} nums
  * @return {number[][]}
  */
-let permuteUnique = function(nums) {
-  const result = []
-  _permuteUnique(nums, 0, result)
-  return result
+let permuteUnique = function (nums) {
+  const result = [];
+  _permuteUnique(nums, 0, result);
+  return result;
 };
 
-function _permuteUnique (nums, start, result) {
+function _permuteUnique(nums, start, result) {
   if (start === nums.length) {
-    result.push(nums.slice())
+    result.push(nums.slice());
   }
 
-  const used = new Set()
-  const begin = nums[start]
+  const used = new Set();
+  const begin = nums[start];
   for (let i = start; i < nums.length; i++) {
-    const next = nums[i]
+    const next = nums[i];
 
     if (used.has(next)) {
-      continue
+      continue;
     }
 
-    used.add(next)
+    used.add(next);
 
-    nums[start] = next
-    nums[i] = begin
+    nums[start] = next;
+    nums[i] = begin;
 
-    _permuteUnique(nums, start + 1, result)
+    _permuteUnique(nums, start + 1, result);
 
-    nums[start] = begin
-    nums[i] = next
+    nums[start] = begin;
+    nums[i] = next;
   }
-};
+}
 ```
-
-
-
-
 
 ---
 
 Difficulty: Medium
 Related Topics:
-  "Array": https://leetcode.com/tag/array
+"Array": https://leetcode.com/tag/array
 
 ---
-
 
 [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#48-rotate-imagehttpsleetcodecomproblemsrotate-imagedescription)
 
@@ -5519,7 +5249,7 @@ Related Topics:
 
 ### Problem:
 
-You are given an *n* x *n* 2D matrix representing an image.
+You are given an _n_ x _n_ 2D matrix representing an image.
 
 Rotate the image by 90 degrees (clockwise).
 
@@ -5530,7 +5260,7 @@ You have to rotate the image [**in-place**](https://en.wikipedia.org/wiki/In-pla
 **Example 1:**
 
 ```
-Given input matrix = 
+Given input matrix =
 [
   [1,2,3],
   [4,5,6],
@@ -5554,7 +5284,7 @@ Given input matrix =
   [ 2, 4, 8,10],
   [13, 3, 6, 7],
   [15,14,12,16]
-], 
+],
 
 rotate the input matrix in-place such that it becomes:
 [
@@ -5574,43 +5304,38 @@ Outside-in. Rotate one square at a time.
  * @param {number[][]} matrix
  * @return {void} Do not return anything, modify matrix in-place instead.
  */
-let rotate = function(matrix) {
+let rotate = function (matrix) {
   if (!matrix || matrix.length <= 0) {
-    return
+    return;
   }
-  const width = matrix.length
-  const halfWidthFloor = Math.floor(width / 2)
-  const halfWidthCeil = Math.ceil(width / 2)
+  const width = matrix.length;
+  const halfWidthFloor = Math.floor(width / 2);
+  const halfWidthCeil = Math.ceil(width / 2);
   for (let i = 0; i < halfWidthFloor; i++) {
-    const iend = width - 1 - i
+    const iend = width - 1 - i;
     for (let j = 0; j < halfWidthCeil; j++) {
-      const jend = width - 1 - j
-      const tmp = matrix[i][j]
+      const jend = width - 1 - j;
+      const tmp = matrix[i][j];
       matrix[i][j] = matrix[jend][i];
-      matrix[jend][i] = matrix[iend][jend]
-      matrix[iend][jend] = matrix[j][iend]
-      matrix[j][iend] = tmp
+      matrix[jend][i] = matrix[iend][jend];
+      matrix[iend][jend] = matrix[j][iend];
+      matrix[j][iend] = tmp;
     }
   }
 };
 ```
 
-
-
-
-
 ---
 
 Difficulty: Medium
 Related Topics:
-  "Hash Table": https://leetcode.com/tag/hash-table
-  "String": https://leetcode.com/tag/string
+"Hash Table": https://leetcode.com/tag/hash-table
+"String": https://leetcode.com/tag/string
 Similar Questions:
-  "Valid Anagram": https://leetcode.com/problems/valid-anagram
-  "Group Shifted Strings": https://leetcode.com/problems/group-shifted-strings
+"Valid Anagram": https://leetcode.com/problems/valid-anagram
+"Group Shifted Strings": https://leetcode.com/problems/group-shifted-strings
 
 ---
-
 
 [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#49-group-anagramshttpsleetcodecomproblemsgroup-anagramsdescription)
 
@@ -5650,14 +5375,14 @@ Sort each word to get the key.
  * @param {string[]} strs
  * @return {string[][]}
  */
-let groupAnagrams = function(strs) {
+let groupAnagrams = function (strs) {
   let result = {};
   for (let i = 0; i < strs.length; i++) {
-    const hash = strs[i].split('').sort().join('');
-    result[hash] = result[hash] || []
-    result[hash].push(strs[i])
+    const hash = strs[i].split("").sort().join("");
+    result[hash] = result[hash] || [];
+    result[hash].push(strs[i]);
   }
-  return Object.values(result)
+  return Object.values(result);
 };
 ```
 
@@ -5666,43 +5391,41 @@ let groupAnagrams = function(strs) {
 Use the product of prime numbers to generate unique keys.
 
 ```javascript
-const prime = [2,3,5,7,11,13,17,19,23,29,31,37,41,43,47,53,59,61,67,71,73,79,83,89,97,101]
+const prime = [
+  2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71,
+  73, 79, 83, 89, 97, 101,
+];
 
 /**
  * @param {string[]} strs
  * @return {string[][]}
  */
-let groupAnagrams = function(strs) {
+let groupAnagrams = function (strs) {
   const result = {};
   for (let i = 0; i < strs.length; i++) {
-    const word = strs[i]
-    let hash = 1
+    const word = strs[i];
+    let hash = 1;
     for (let k = 0; k < word.length; k++) {
-      hash *= prime[word.charCodeAt(k) - 97]
+      hash *= prime[word.charCodeAt(k) - 97];
     }
-    result[hash] = result[hash] || []
-    result[hash].push(word)
+    result[hash] = result[hash] || [];
+    result[hash].push(word);
   }
-  return Object.values(result)
+  return Object.values(result);
 };
 ```
-
-
-
-
 
 ---
 
 Difficulty: Medium
 Related Topics:
-  "Math": https://leetcode.com/tag/math
-  "Binary Search": https://leetcode.com/tag/binary-search
+"Math": https://leetcode.com/tag/math
+"Binary Search": https://leetcode.com/tag/binary-search
 Similar Questions:
-  "Sqrt(x)": https://leetcode.com/problems/sqrtx
-  "Super Pow": https://leetcode.com/problems/super-pow
+"Sqrt(x)": https://leetcode.com/problems/sqrtx
+"Super Pow": https://leetcode.com/problems/super-pow
 
 ---
-
 
 [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#50-powx-nhttpsleetcodecomproblemspowx-ndescription)
 
@@ -5710,7 +5433,7 @@ Similar Questions:
 
 ### Problem:
 
-Implement [pow(*x*, *n*)](http://www.cplusplus.com/reference/valarray/pow/), which calculates *x* raised to the power *n* (xn).
+Implement [pow(_x_, _n_)](http://www.cplusplus.com/reference/valarray/pow/), which calculates *x* raised to the power _n_ (xn).
 
 **Example 1:**
 
@@ -5736,8 +5459,8 @@ Explanation: 2-2 = 1/22 = 1/4 = 0.25
 
 **Note:**
 
-- -100.0 < *x* < 100.0
-- *n* is a 32-bit signed integer, within the range [−231, 231 − 1]
+- -100.0 < _x_ < 100.0
+- _n_ is a 32-bit signed integer, within the range [−231, 231 − 1]
 
 ### Solution:
 
@@ -5759,33 +5482,34 @@ Note here we can not use any bitwise operator, `n = -2^31` might overflow.
  * @param {number} n
  * @return {number}
  */
-let myPow = function(x, n) {
-  if (n === 0) { return 1 }
-  if (n === 1) { return x }
-  if (n === -1) { return 1 / x }
-  if (n % 2 === 0) {
-    const res = myPow(x, n / 2)
-    return res * res
+let myPow = function (x, n) {
+  if (n === 0) {
+    return 1;
   }
-  const res = myPow(x, (n - 1) / 2)
-  return x * res * res
+  if (n === 1) {
+    return x;
+  }
+  if (n === -1) {
+    return 1 / x;
+  }
+  if (n % 2 === 0) {
+    const res = myPow(x, n / 2);
+    return res * res;
+  }
+  const res = myPow(x, (n - 1) / 2);
+  return x * res * res;
 };
 ```
-
-
-
-
 
 ---
 
 Difficulty: Hard
 Related Topics:
-  "Backtracking": https://leetcode.com/tag/backtracking
+"Backtracking": https://leetcode.com/tag/backtracking
 Similar Questions:
-  "N-Queens II": https://leetcode.com/problems/n-queens-ii
+"N-Queens II": https://leetcode.com/problems/n-queens-ii
 
 ---
-
 
 [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#51-n-queenshttpsleetcodecomproblemsn-queensdescription)
 
@@ -5793,13 +5517,13 @@ Similar Questions:
 
 ### Problem:
 
-The *n*-queens puzzle is the problem of placing *n* queens on an *n*×*n* chessboard such that no two queens attack each other.
+The _n_-queens puzzle is the problem of placing _n_ queens on an *n*×*n* chessboard such that no two queens attack each other.
 
 ![8-queens.png](https://leetcode.com/static/images/problemset/8-queens.png)
 
-Given an integer *n*, return all distinct solutions to the *n*-queens puzzle.
+Given an integer _n_, return all distinct solutions to the _n_-queens puzzle.
 
-Each solution contains a distinct board configuration of the *n*-queens' placement, where `'Q'` and `'.'` both indicate a queen and an empty space respectively.
+Each solution contains a distinct board configuration of the _n_-queens' placement, where `'Q'` and `'.'` both indicate a queen and an empty space respectively.
 
 **Example:**
 
@@ -5832,50 +5556,50 @@ Now use the permutation algorithm from [46. Permutations](./046.%20Permutations.
  * @param {number} n
  * @return {string[][]}
  */
-let solveNQueens = function(n) {
-  const result = []
-  const queens = [...new Array(n)].map((_, i) => i)
-  _solveNQueens(queens, 0, result)
-  return result
+let solveNQueens = function (n) {
+  const result = [];
+  const queens = [...new Array(n)].map((_, i) => i);
+  _solveNQueens(queens, 0, result);
+  return result;
 };
 
-function _solveNQueens (queens, iStart, result) {
+function _solveNQueens(queens, iStart, result) {
   if (iStart === queens.length) {
     for (let i = 0; i < queens.length; i += 1) {
       for (let j = i + 1; j < queens.length; j += 1) {
         if (Math.abs(i - j) === Math.abs(queens[i] - queens[j])) {
-          return
+          return;
         }
       }
     }
-    return result.push(_genBoard(queens))
+    return result.push(_genBoard(queens));
   }
 
-  const start = queens[iStart]
+  const start = queens[iStart];
   for (let i = iStart; i < queens.length; i++) {
-    const next = queens[i]
+    const next = queens[i];
 
-    queens[iStart] = next
-    queens[i] = start
+    queens[iStart] = next;
+    queens[i] = start;
 
-    _solveNQueens(queens, iStart + 1, result)
+    _solveNQueens(queens, iStart + 1, result);
 
-    queens[iStart] = start
-    queens[i] = next
+    queens[iStart] = start;
+    queens[i] = next;
   }
-};
+}
 
-function _genBoard (queens) {
-  const board = []
+function _genBoard(queens) {
+  const board = [];
   for (let i = 0; i < queens.length; i++) {
-    let row = ''
+    let row = "";
     for (let j = 0; j < queens.length; j++) {
-      row += queens[i] === j ? 'Q' : '.'
+      row += queens[i] === j ? "Q" : ".";
     }
-    board.push(row)
+    board.push(row);
   }
-  return board
-};
+  return board;
+}
 ```
 
 This is slow because we test diagonal in the end. We can do a tree pruning by moving it right before diving into the next recursion.
@@ -5887,69 +5611,65 @@ This is slow because we test diagonal in the end. We can do a tree pruning by mo
  * @param {number} n
  * @return {string[][]}
  */
-let solveNQueens = function(n) {
-  const result = []
-  const queens = [...new Array(n)].map((_, i) => i)
-  _solveNQueens(queens, 0, result)
-  return result
+let solveNQueens = function (n) {
+  const result = [];
+  const queens = [...new Array(n)].map((_, i) => i);
+  _solveNQueens(queens, 0, result);
+  return result;
 };
 
-function _solveNQueens (queens, iStart, result) {
+function _solveNQueens(queens, iStart, result) {
   if (iStart === queens.length) {
-    return result.push(_genBoard(queens))
+    return result.push(_genBoard(queens));
   }
 
-  const start = queens[iStart]
+  const start = queens[iStart];
   for (let i = iStart; i < queens.length; i++) {
-    const next = queens[i]
+    const next = queens[i];
 
-    queens[iStart] = next
-    queens[i] = start
+    queens[iStart] = next;
+    queens[i] = start;
 
     if (_testDiagonal(queens, iStart)) {
-      _solveNQueens(queens, iStart + 1, result)
+      _solveNQueens(queens, iStart + 1, result);
     }
 
-    queens[iStart] = start
-    queens[i] = next
+    queens[iStart] = start;
+    queens[i] = next;
   }
-};
+}
 
 function _testDiagonal(queens, iStart) {
   for (let i = 0; i < iStart; i++) {
     if (Math.abs(queens[iStart] - queens[i]) === iStart - i) {
-      return false
+      return false;
     }
   }
-  return true
-};
+  return true;
+}
 
-function _genBoard (queens) {
-  const board = []
+function _genBoard(queens) {
+  const board = [];
   for (let i = 0; i < queens.length; i++) {
-    let row = ''
+    let row = "";
     for (let j = 0; j < queens.length; j++) {
-      row += queens[i] === j ? 'Q' : '.'
+      row += queens[i] === j ? "Q" : ".";
     }
-    board.push(row)
+    board.push(row);
   }
-  return board
-};
+  return board;
+}
 ```
-
-
-
 
 ---
 
 Difficulty: Hard
 Related Topics:
-  "Backtracking": https://leetcode.com/tag/backtracking
+"Backtracking": https://leetcode.com/tag/backtracking
 Similar Questions:
-  "N-Queens": https://leetcode.com/problems/n-queens
+"N-Queens": https://leetcode.com/problems/n-queens
 
 ---
-
 
 [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#52-n-queens-iihttpsleetcodecomproblemsn-queens-iidescription)
 
@@ -5957,7 +5677,7 @@ Similar Questions:
 
 ### Problem:
 
-The *n*-queens puzzle is the problem of placing *n* queens on an *n*×*n* chessboard such that no two queens attack each other.
+The _n_-queens puzzle is the problem of placing _n_ queens on an *n*×*n* chessboard such that no two queens attack each other.
 
 ![8-queens.png](https://leetcode.com/static/images/problemset/8-queens.png)
 
@@ -5991,63 +5711,61 @@ Just modify [51. N-Queens](051.%20N-Queens.md).
  * @param {number} n
  * @return {string[][]}
  */
-let totalNQueens = function(n) {
-  return _totalNQueens([...new Array(n)].map((_, i) => i), 0)
+let totalNQueens = function (n) {
+  return _totalNQueens(
+    [...new Array(n)].map((_, i) => i),
+    0
+  );
 };
 
-function _totalNQueens (queens, iStart, result) {
+function _totalNQueens(queens, iStart, result) {
   if (iStart === queens.length) {
-    return 1
+    return 1;
   }
 
-  let count = 0
+  let count = 0;
 
-  const start = queens[iStart]
+  const start = queens[iStart];
   for (let i = iStart; i < queens.length; i++) {
-    const next = queens[i]
+    const next = queens[i];
 
-    queens[iStart] = next
-    queens[i] = start
+    queens[iStart] = next;
+    queens[i] = start;
 
     if (_testDiagonal(queens, iStart)) {
-      count += _totalNQueens(queens, iStart + 1, result)
+      count += _totalNQueens(queens, iStart + 1, result);
     }
 
-    queens[iStart] = start
-    queens[i] = next
+    queens[iStart] = start;
+    queens[i] = next;
   }
 
-  return count
-};
+  return count;
+}
 
 function _testDiagonal(queens, iStart) {
   for (let i = 0; i < iStart; i++) {
     if (Math.abs(queens[iStart] - queens[i]) === iStart - i) {
-      return false
+      return false;
     }
   }
-  return true
-};
+  return true;
+}
 ```
-
-
-
-
 
 ---
 
 Difficulty: Easy
 Related Topics:
-  "Array": https://leetcode.com/tag/array
-  "Divide and Conquer": https://leetcode.com/tag/divide-and-conquer
-  "Dynamic Programming": https://leetcode.com/tag/dynamic-programming
+"Array": https://leetcode.com/tag/array
+"Divide and Conquer": https://leetcode.com/tag/divide-and-conquer
+"Dynamic Programming": https://leetcode.com/tag/dynamic-programming
 Similar Questions:
-  "Best Time to Buy and Sell Stock": https://leetcode.com/problems/best-time-to-buy-and-sell-stock
-  "Maximum Product Subarray": https://leetcode.com/problems/maximum-product-subarray
-  "Degree of an Array": https://leetcode.com/problems/degree-of-an-array
+"Best Time to Buy and Sell Stock": https://leetcode.com/problems/best-time-to-buy-and-sell-stock
+"Maximum Product Subarray": https://leetcode.com/problems/maximum-product-subarray
+"Degree of an Array": https://leetcode.com/problems/degree-of-an-array
 
 ---
-
 
 [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#53-maximum-subarrayhttpsleetcodecomproblemsmaximum-subarraydescription)
 
@@ -6067,7 +5785,7 @@ Explanation: [4,-1,2,1] has the largest sum = 6.
 
 **Follow up:**
 
-If you have figured out the O(*n*) solution, try coding another solution using the divide and conquer approach, which is more subtle.
+If you have figured out the O(_n_) solution, try coding another solution using the divide and conquer approach, which is more subtle.
 
 ### Solution:
 
@@ -6089,14 +5807,16 @@ Then return the largest one.
  * @param {number[]} nums
  * @return {number}
  */
-let maxSubArray = function(nums) {
-  const len = nums.length
-  if (len <= 0) { return 0 }
-  const dp = [nums[0]]
-  for (let i = 1; i < len; i++) {
-    dp[i] = Math.max(dp[i-1], 0) + nums[i]
+let maxSubArray = function (nums) {
+  const len = nums.length;
+  if (len <= 0) {
+    return 0;
   }
-  return Math.max(...dp)
+  const dp = [nums[0]];
+  for (let i = 1; i < len; i++) {
+    dp[i] = Math.max(dp[i - 1], 0) + nums[i];
+  }
+  return Math.max(...dp);
 };
 ```
 
@@ -6107,30 +5827,25 @@ We can also compress the dp array:
  * @param {number[]} nums
  * @return {number}
  */
-let maxSubArray = function(nums) {
-  let dp = nums[0]
-  let max = dp || 0
+let maxSubArray = function (nums) {
+  let dp = nums[0];
+  let max = dp || 0;
   for (let i = 1; i < nums.length; i++) {
-    max = Math.max(max, dp = Math.max(dp, 0) + nums[i])
+    max = Math.max(max, (dp = Math.max(dp, 0) + nums[i]));
   }
-  return max
+  return max;
 };
 ```
-
-
-
-
 
 ---
 
 Difficulty: Medium
 Related Topics:
-  "Array": https://leetcode.com/tag/array
+"Array": https://leetcode.com/tag/array
 Similar Questions:
-  "Spiral Matrix II": https://leetcode.com/problems/spiral-matrix-ii
+"Spiral Matrix II": https://leetcode.com/problems/spiral-matrix-ii
 
 ---
-
 
 [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#54-spiral-matrixhttpsleetcodecomproblemsspiral-matrixdescription)
 
@@ -6138,7 +5853,7 @@ Similar Questions:
 
 ### Problem:
 
-Given a matrix of *m* x *n* elements (*m* rows, *n* columns), return all elements of the matrix in spiral order.
+Given a matrix of _m_ x _n_ elements (_m_ rows, _n_ columns), return all elements of the matrix in spiral order.
 
 **Example 1:**
 
@@ -6173,53 +5888,52 @@ Loop outside-in. Break each cycle into four stages. Note that the last two stage
  * @param {number[][]} matrix
  * @return {number[]}
  */
-let spiralOrder = function(matrix) {
-  const result = []
-  const height = matrix.length
-  if (height <= 1) { return matrix[0] || result }
-  const width = matrix[0].length
-  if (width <= 0) { return result }
+let spiralOrder = function (matrix) {
+  const result = [];
+  const height = matrix.length;
+  if (height <= 1) {
+    return matrix[0] || result;
+  }
+  const width = matrix[0].length;
+  if (width <= 0) {
+    return result;
+  }
 
-  const end = (Math.min(width, height) + 1) / 2 | 0
+  const end = ((Math.min(width, height) + 1) / 2) | 0;
   for (let start = 0; start < end; start++) {
-    const rowEnd = height - start - 1
-    const colEnd = width - start - 1
+    const rowEnd = height - start - 1;
+    const colEnd = width - start - 1;
     for (let col = start; col <= colEnd; col++) {
-      result.push(matrix[start][col])
+      result.push(matrix[start][col]);
     }
     for (let row = start + 1; row <= rowEnd; row++) {
-      result.push(matrix[row][colEnd])
+      result.push(matrix[row][colEnd]);
     }
     if (rowEnd > start) {
-      for (let col = colEnd - 1; col >= start ; col--) {
-        result.push(matrix[rowEnd][col])
+      for (let col = colEnd - 1; col >= start; col--) {
+        result.push(matrix[rowEnd][col]);
       }
     }
     if (colEnd > start) {
-      for (let row = rowEnd - 1; row > start ; row--) {
-        result.push(matrix[row][start])
+      for (let row = rowEnd - 1; row > start; row--) {
+        result.push(matrix[row][start]);
       }
     }
   }
-  return result
+  return result;
 };
 ```
-
-
-
-
 
 ---
 
 Difficulty: Medium
 Related Topics:
-  "Array": https://leetcode.com/tag/array
-  "Greedy": https://leetcode.com/tag/greedy
+"Array": https://leetcode.com/tag/array
+"Greedy": https://leetcode.com/tag/greedy
 Similar Questions:
-  "Jump Game II": https://leetcode.com/problems/jump-game-ii
+"Jump Game II": https://leetcode.com/problems/jump-game-ii
 
 ---
-
 
 [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#55-jump-gamehttpsleetcodecomproblemsjump-gamedescription)
 
@@ -6261,20 +5975,22 @@ See [45. Jump Game II](./045.%20Jump%20Game%20II.md). If the range does not expa
  * @param {number[]} nums
  * @return {boolean}
  */
-let canJump = function(nums) {
-  for (let l = 0, r = 1; r < nums.length;) {
-    let rNext = r
+let canJump = function (nums) {
+  for (let l = 0, r = 1; r < nums.length; ) {
+    let rNext = r;
     for (let i = l; i < r; i++) {
-      const rNextAtmp = i + nums[i] + 1
+      const rNextAtmp = i + nums[i] + 1;
       if (rNextAtmp > rNext) {
-        rNext = rNextAtmp
+        rNext = rNextAtmp;
       }
     }
-    if (rNext <= r) { return false }
-    l = r
-    r = rNext
+    if (rNext <= r) {
+      return false;
+    }
+    l = r;
+    r = rNext;
   }
-  return true
+  return true;
 };
 ```
 
@@ -6289,38 +6005,34 @@ If `nums[0]` can cover the last destination point, it is good.
  * @param {number[]} nums
  * @return {boolean}
  */
-let canJump = function(nums) {
-  let des = nums.length - 1
+let canJump = function (nums) {
+  let des = nums.length - 1;
   for (let i = des - 1; i > 0; i--) {
     if (nums[i] + i >= des) {
-      des = i
+      des = i;
     }
   }
-  return nums[0] >= des
+  return nums[0] >= des;
 };
 ```
-
-
-
 
 ---
 
 Difficulty: Medium
 Related Topics:
-  "Array": https://leetcode.com/tag/array
-  "Sort": https://leetcode.com/tag/sort
+"Array": https://leetcode.com/tag/array
+"Sort": https://leetcode.com/tag/sort
 Similar Questions:
-  "Insert Interval": https://leetcode.com/problems/insert-interval
-  "Meeting Rooms": https://leetcode.com/problems/meeting-rooms
-  "Meeting Rooms II": https://leetcode.com/problems/meeting-rooms-ii
-  "Teemo Attacking": https://leetcode.com/problems/teemo-attacking
-  "Add Bold Tag in String": https://leetcode.com/problems/add-bold-tag-in-string
-  "Range Module": https://leetcode.com/problems/range-module
-  "Employee Free Time": https://leetcode.com/problems/employee-free-time
-  "Partition Labels": https://leetcode.com/problems/partition-labels
+"Insert Interval": https://leetcode.com/problems/insert-interval
+"Meeting Rooms": https://leetcode.com/problems/meeting-rooms
+"Meeting Rooms II": https://leetcode.com/problems/meeting-rooms-ii
+"Teemo Attacking": https://leetcode.com/problems/teemo-attacking
+"Add Bold Tag in String": https://leetcode.com/problems/add-bold-tag-in-string
+"Range Module": https://leetcode.com/problems/range-module
+"Employee Free Time": https://leetcode.com/problems/employee-free-time
+"Partition Labels": https://leetcode.com/problems/partition-labels
 
 ---
-
 
 [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#56-merge-intervalshttpsleetcodecomproblemsmerge-intervalsdescription)
 
@@ -6362,40 +6074,37 @@ Sort then merge.
  * @param {Interval[]} intervals
  * @return {Interval[]}
  */
-let merge = function(intervals) {
-  if (intervals.length <= 1) { return intervals }
-  intervals.sort((a, b) => (a.start - b.start) || (a.end - b.end))
-  let last = new Interval(intervals[0].start, intervals[0].end)
-  const result = [last]
+let merge = function (intervals) {
+  if (intervals.length <= 1) {
+    return intervals;
+  }
+  intervals.sort((a, b) => a.start - b.start || a.end - b.end);
+  let last = new Interval(intervals[0].start, intervals[0].end);
+  const result = [last];
   for (let i = 1; i < intervals.length; i++) {
-    const { start, end } = intervals[i]
+    const { start, end } = intervals[i];
     if (start > last.end) {
-      last = new Interval(start, end)
-      result.push(last)
+      last = new Interval(start, end);
+      result.push(last);
     } else if (end > last.end) {
-      last.end = end
+      last.end = end;
     }
   }
-  return result
+  return result;
 };
 ```
-
-
-
-
 
 ---
 
 Difficulty: Hard
 Related Topics:
-  "Array": https://leetcode.com/tag/array
-  "Sort": https://leetcode.com/tag/sort
+"Array": https://leetcode.com/tag/array
+"Sort": https://leetcode.com/tag/sort
 Similar Questions:
-  "Merge Intervals": https://leetcode.com/problems/merge-intervals
-  "Range Module": https://leetcode.com/problems/range-module
+"Merge Intervals": https://leetcode.com/problems/merge-intervals
+"Range Module": https://leetcode.com/problems/range-module
 
 ---
-
 
 [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#57-insert-intervalhttpsleetcodecomproblemsinsert-intervaldescription)
 
@@ -6403,7 +6112,7 @@ Similar Questions:
 
 ### Problem:
 
-Given a set of *non-overlapping* intervals, insert a new interval into the intervals (merge if necessary).
+Given a set of _non-overlapping_ intervals, insert a new interval into the intervals (merge if necessary).
 
 You may assume that the intervals were initially sorted according to their start times.
 
@@ -6439,44 +6148,39 @@ The logic of the solution is pretty straight forward. Just need to carefully thi
  * @param {Interval} newInterval
  * @return {Interval[]}
  */
-let insert = function(intervals, newInterval) {
-  const result = []
-  const p = new Interval(newInterval.start, newInterval.end)
+let insert = function (intervals, newInterval) {
+  const result = [];
+  const p = new Interval(newInterval.start, newInterval.end);
   for (let i = 0; i < intervals.length; i++) {
-    const { start, end } = intervals[i]
+    const { start, end } = intervals[i];
     if (start > p.end) {
-      break
+      break;
     }
 
     if (end < p.start) {
-      result.push(intervals[i])
-      continue
+      result.push(intervals[i]);
+      continue;
     }
 
     if (start < p.start) {
-      p.start = start
+      p.start = start;
     }
 
     if (end > p.end) {
-      p.end = end
+      p.end = end;
     }
   }
-  return [...result, p, ...intervals.slice(i)]
+  return [...result, p, ...intervals.slice(i)];
 };
 ```
-
-
-
-
 
 ---
 
 Difficulty: Easy
 Related Topics:
-  "String": https://leetcode.com/tag/string
+"String": https://leetcode.com/tag/string
 
 ---
-
 
 [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#58-length-of-last-wordhttpsleetcodecomproblemslength-of-last-worddescription)
 
@@ -6508,8 +6212,8 @@ JavaScript specific solutions:
  * @param {string} s
  * @return {number}
  */
-let lengthOfLastWord = function(s) {
-  return (/\w+$/.exec(s) || [''])[0].length
+let lengthOfLastWord = function (s) {
+  return (/\w+$/.exec(s) || [""])[0].length;
 };
 ```
 
@@ -6522,8 +6226,8 @@ Super fast. `split` will guarantee that there is at least one item in the result
  * @param {string} s
  * @return {number}
  */
-let lengthOfLastWord = function(s) {
-  return s.trim().split(' ').pop().length
+let lengthOfLastWord = function (s) {
+  return s.trim().split(" ").pop().length;
 };
 ```
 
@@ -6536,34 +6240,30 @@ General solution.
  * @param {string} s
  * @return {number}
  */
-let lengthOfLastWord = function(s) {
-  let end = s.length - 1
-  while (end >= 0 && s[end] === ' ') {
-    end--
+let lengthOfLastWord = function (s) {
+  let end = s.length - 1;
+  while (end >= 0 && s[end] === " ") {
+    end--;
   }
 
-  let start = end
-  while (start >= 0 && s[start] !== ' ') {
-    start--
+  let start = end;
+  while (start >= 0 && s[start] !== " ") {
+    start--;
   }
 
-  return end - start
+  return end - start;
 };
 ```
-
-
-
 
 ---
 
 Difficulty: Medium
 Related Topics:
-  "Array": https://leetcode.com/tag/array
+"Array": https://leetcode.com/tag/array
 Similar Questions:
-  "Spiral Matrix": https://leetcode.com/problems/spiral-matrix
+"Spiral Matrix": https://leetcode.com/problems/spiral-matrix
 
 ---
-
 
 [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#59-spiral-matrix-iihttpsleetcodecomproblemsspiral-matrix-iidescription)
 
@@ -6571,7 +6271,7 @@ Similar Questions:
 
 ### Problem:
 
-Given a positive integer *n*, generate a square matrix filled with elements from 1 to *n*2 in spiral order.
+Given a positive integer _n_, generate a square matrix filled with elements from 1 to *n*2 in spiral order.
 
 **Example:**
 
@@ -6594,45 +6294,40 @@ Straight-forward.
  * @param {number} n
  * @return {number[][]}
  */
-let generateMatrix = function(n) {
-  const matrix = [...new Array(n)].map(() => [])
-  const halfN = (n + 1) / 2 | 0
-  let count = 1
+let generateMatrix = function (n) {
+  const matrix = [...new Array(n)].map(() => []);
+  const halfN = ((n + 1) / 2) | 0;
+  let count = 1;
   for (let start = 0; start < halfN; start++) {
-    const end = n - start - 1
+    const end = n - start - 1;
     for (let col = start; col <= end; col++) {
-      matrix[start][col] = count++
+      matrix[start][col] = count++;
     }
     for (let row = start + 1; row <= end; row++) {
-      matrix[row][end] = count++
+      matrix[row][end] = count++;
     }
     for (let col = end - 1; col >= start; col--) {
-      matrix[end][col] = count++
+      matrix[end][col] = count++;
     }
     for (let row = end - 1; row > start; row--) {
-      matrix[row][start] = count++
+      matrix[row][start] = count++;
     }
   }
-  return matrix
+  return matrix;
 };
 ```
-
-
-
-
 
 ---
 
 Difficulty: Medium
 Related Topics:
-  "Math": https://leetcode.com/tag/math
-  "Backtracking": https://leetcode.com/tag/backtracking
+"Math": https://leetcode.com/tag/math
+"Backtracking": https://leetcode.com/tag/backtracking
 Similar Questions:
-  "Next Permutation": https://leetcode.com/problems/next-permutation
-  "Permutations": https://leetcode.com/problems/permutations
+"Next Permutation": https://leetcode.com/problems/next-permutation
+"Permutations": https://leetcode.com/problems/permutations
 
 ---
-
 
 [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#60-permutation-sequencehttpsleetcodecomproblemspermutation-sequencedescription)
 
@@ -6640,9 +6335,9 @@ Similar Questions:
 
 ### Problem:
 
-The set `[1,2,3,...,*n*]` contains a total of *n*! unique permutations.
+The set `[1,2,3,...,*n*]` contains a total of _n_! unique permutations.
 
-By listing and labeling all of the permutations in order, we get the following sequence for *n* = 3:
+By listing and labeling all of the permutations in order, we get the following sequence for _n_ = 3:
 
 1. `"123"`
 2. `"132"`
@@ -6651,12 +6346,12 @@ By listing and labeling all of the permutations in order, we get the following s
 5. `"312"`
 6. `"321"`
 
-Given *n* and *k*, return the *k*th permutation sequence.
+Given _n_ and _k_, return the *k*th permutation sequence.
 
 **Note:**
 
-- Given *n* will be between 1 and 9 inclusive.
-- Given *k* will be between 1 and *n*! inclusive.
+- Given _n_ will be between 1 and 9 inclusive.
+- Given *k* will be between 1 and _n_! inclusive.
 
 **Example 1:**
 
@@ -6686,43 +6381,39 @@ We also need `k--` to convert `k` into index so that `k <= (n-1)!` maps `0` (and
  * @param {number} k
  * @return {string}
  */
-let getPermutation = function(n, k) {
-  const digits = []
-  let factorial = 1
+let getPermutation = function (n, k) {
+  const digits = [];
+  let factorial = 1;
   for (let i = 1; i <= n; i++) {
-    digits.push(i)
-    factorial *= i
+    digits.push(i);
+    factorial *= i;
   }
 
-  k--
+  k--;
 
-  let result = ''
+  let result = "";
   while (n > 0) {
-    factorial /= n
-    result += digits.splice(k / factorial | 0, 1)[0]
-    k %= factorial
-    n--
+    factorial /= n;
+    result += digits.splice((k / factorial) | 0, 1)[0];
+    k %= factorial;
+    n--;
   }
-  
-  return result
+
+  return result;
 };
 ```
-
-
-
 
 ---
 
 Difficulty: Medium
 Related Topics:
-  "Linked List": https://leetcode.com/tag/linked-list
-  "Two Pointers": https://leetcode.com/tag/two-pointers
+"Linked List": https://leetcode.com/tag/linked-list
+"Two Pointers": https://leetcode.com/tag/two-pointers
 Similar Questions:
-  "Rotate Array": https://leetcode.com/problems/rotate-array
-  "Split Linked List in Parts": https://leetcode.com/problems/split-linked-list-in-parts
+"Rotate Array": https://leetcode.com/problems/rotate-array
+"Split Linked List in Parts": https://leetcode.com/problems/split-linked-list-in-parts
 
 ---
-
 
 [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#61-rotate-listhttpsleetcodecomproblemsrotate-listdescription)
 
@@ -6730,7 +6421,7 @@ Similar Questions:
 
 ### Problem:
 
-Given a linked list, rotate the list to the right by *k* places, where *k* is non-negative.
+Given a linked list, rotate the list to the right by _k_ places, where _k_ is non-negative.
 
 **Example 1:**
 
@@ -6777,57 +6468,55 @@ Locate the right pointer again with `k % len`.
  * @param {number} k
  * @return {ListNode}
  */
-let rotateRight = function(head, k) {
-  if (head === null || k <= 0) { return head }
+let rotateRight = function (head, k) {
+  if (head === null || k <= 0) {
+    return head;
+  }
 
-  let right = head
-  let len = 0
-  let kk = k
+  let right = head;
+  let len = 0;
+  let kk = k;
   while (right !== null && kk > 0) {
-    right = right.next
-    kk--
-    len++
+    right = right.next;
+    kk--;
+    len++;
   }
 
   if (kk > 0) {
-    right = head
-    kk = k % len
+    right = head;
+    kk = k % len;
     while (kk--) {
-      right = right.next
+      right = right.next;
     }
   }
 
   if (right !== null) {
-    let left = head
+    let left = head;
     while (right.next !== null) {
-      left = left.next
-      right = right.next
+      left = left.next;
+      right = right.next;
     }
-    right.next = head
-    head = left.next
-    left.next = null
+    right.next = head;
+    head = left.next;
+    left.next = null;
   }
 
-  return head
+  return head;
 };
 ```
-
-
-
 
 ---
 
 Difficulty: Medium
 Related Topics:
-  "Array": https://leetcode.com/tag/array
-  "Dynamic Programming": https://leetcode.com/tag/dynamic-programming
+"Array": https://leetcode.com/tag/array
+"Dynamic Programming": https://leetcode.com/tag/dynamic-programming
 Similar Questions:
-  "Unique Paths II": https://leetcode.com/problems/unique-paths-ii
-  "Minimum Path Sum": https://leetcode.com/problems/minimum-path-sum
-  "Dungeon Game": https://leetcode.com/problems/dungeon-game
+"Unique Paths II": https://leetcode.com/problems/unique-paths-ii
+"Minimum Path Sum": https://leetcode.com/problems/minimum-path-sum
+"Dungeon Game": https://leetcode.com/problems/dungeon-game
 
 ---
-
 
 [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#62-unique-pathshttpsleetcodecomproblemsunique-pathsdescription)
 
@@ -6835,7 +6524,7 @@ Similar Questions:
 
 ### Problem:
 
-A robot is located at the top-left corner of a *m* x *n* grid (marked 'Start' in the diagram below).
+A robot is located at the top-left corner of a _m_ x _n_ grid (marked 'Start' in the diagram below).
 
 The robot can only move either down or right at any point in time. The robot is trying to reach the bottom-right corner of the grid (marked 'Finish' in the diagram below).
 
@@ -6845,7 +6534,7 @@ How many possible unique paths are there?
 
 Above is a 7 x 3 grid. How many possible unique paths are there?
 
-**Note:** *m* and *n* will be at most 100.
+**Note:** _m_ and _n_ will be at most 100.
 
 **Example 1:**
 
@@ -6886,33 +6575,29 @@ Only two previous states are dependant. Use dynamic array to reduce memory alloc
  * @param {number} n
  * @return {number}
  */
-let uniquePaths = function(m, n) {
-  const dp = new Array(m).fill(1)
+let uniquePaths = function (m, n) {
+  const dp = new Array(m).fill(1);
   while (--n > 0) {
     for (let i = 1; i < m; i++) {
-      dp[i] += dp[i-1]
+      dp[i] += dp[i - 1];
     }
   }
-  return dp[m-1] || 1
+  return dp[m - 1] || 1;
 };
 ```
-
-
-
 
 ---
 
 Difficulty: Medium
 Related Topics:
-  "Array": https://leetcode.com/tag/array
-  "Dynamic Programming": https://leetcode.com/tag/dynamic-programming
+"Array": https://leetcode.com/tag/array
+"Dynamic Programming": https://leetcode.com/tag/dynamic-programming
 Similar Questions:
-  "Unique Paths": https://leetcode.com/problems/unique-paths
-  "Dungeon Game": https://leetcode.com/problems/dungeon-game
-  "Cherry Pickup": https://leetcode.com/problems/cherry-pickup
+"Unique Paths": https://leetcode.com/problems/unique-paths
+"Dungeon Game": https://leetcode.com/problems/dungeon-game
+"Cherry Pickup": https://leetcode.com/problems/cherry-pickup
 
 ---
-
 
 [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#64-minimum-path-sumhttpsleetcodecomproblemsminimum-path-sumdescription)
 
@@ -6920,7 +6605,7 @@ Similar Questions:
 
 ### Problem:
 
-Given a *m* x *n* grid filled with non-negative numbers, find a path from top left to bottom right which *minimizes* the sum of all numbers along its path.
+Given a _m_ x _n_ grid filled with non-negative numbers, find a path from top left to bottom right which _minimizes_ the sum of all numbers along its path.
 
 **Note:** You can only move either down or right at any point in time.
 
@@ -6955,40 +6640,39 @@ Only two previous states are dependant. Use dynamic array to reduce memory alloc
  * @param {number[][]} grid
  * @return {number}
  */
-let minPathSum = function(grid) {
-  const height = grid.length
-  if (height <= 0) { return 0 }
-  const width = grid[0].length
-  if (width <= 0) { return 0 }
+let minPathSum = function (grid) {
+  const height = grid.length;
+  if (height <= 0) {
+    return 0;
+  }
+  const width = grid[0].length;
+  if (width <= 0) {
+    return 0;
+  }
 
-  const dp = new Array(width).fill(Infinity)
-  dp[0] = 0
+  const dp = new Array(width).fill(Infinity);
+  dp[0] = 0;
   for (let i = 0; i < height; i++) {
-    dp[0] += grid[i][0]
+    dp[0] += grid[i][0];
     for (let j = 1; j < width; j++) {
-      dp[j] = Math.min(dp[j], dp[j-1]) + grid[i][j]
+      dp[j] = Math.min(dp[j], dp[j - 1]) + grid[i][j];
     }
   }
 
-  return dp[width-1] || 0
+  return dp[width - 1] || 0;
 };
 ```
-
-
-
-
 
 ---
 
 Difficulty: Hard
 Related Topics:
-  "Math": https://leetcode.com/tag/math
-  "String": https://leetcode.com/tag/string
+"Math": https://leetcode.com/tag/math
+"String": https://leetcode.com/tag/string
 Similar Questions:
-  "String to Integer (atoi)": https://leetcode.com/problems/string-to-integer-atoi
+"String to Integer (atoi)": https://leetcode.com/problems/string-to-integer-atoi
 
 ---
-
 
 [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#65-valid-numberhttpsleetcodecomproblemsvalid-numberdescription)
 
@@ -7003,7 +6687,7 @@ Some examples:
 `" 0.1 "` => `true`  
 `"abc"` => `false`  
 `"1 a"` => `false`  
-`"2e10"` => `true`  
+`"2e10"` => `true`
 
 **Note:** It is intended for the problem statement to be ambiguous. You should gather all requirements up front before implementing one.
 
@@ -7024,8 +6708,8 @@ JavaScript specific solutions:
  * @param {string} s
  * @return {boolean}
  */
-let isNumber = function(s) {
-  return !!s.trim() && Math.abs(s) >= 0
+let isNumber = function (s) {
+  return !!s.trim() && Math.abs(s) >= 0;
 };
 ```
 
@@ -7039,8 +6723,8 @@ let isNumber = function(s) {
  * @param {string} s
  * @return {boolean}
  */
-let isNumber = function(s) {
-  return !!s.trim() && !isNaN(s)
+let isNumber = function (s) {
+  return !!s.trim() && !isNaN(s);
 };
 ```
 
@@ -7087,45 +6771,49 @@ Now implement the parser. It is much easier now because we have a clear mental m
  * @param {string} s
  * @return {boolean}
  */
-let isNumber = function(s) {
-  let start = 0
-  while (s[start] === ' ') {
-    start++
+let isNumber = function (s) {
+  let start = 0;
+  while (s[start] === " ") {
+    start++;
   }
-  if (s[start] === '+' || s[start] === '-') {
-    start++
+  if (s[start] === "+" || s[start] === "-") {
+    start++;
   }
-  let nextIndex = parseDecimalLiteral(s, start)
-  while (s[nextIndex] === ' ') {
-    nextIndex++
+  let nextIndex = parseDecimalLiteral(s, start);
+  while (s[nextIndex] === " ") {
+    nextIndex++;
   }
-  return nextIndex === s.length
-}
+  return nextIndex === s.length;
+};
 
 /**
  * @param {string} s
  * @param {number} start - start index
  * @return {number} next index, -1 means error
  */
-function parseDecimalLiteral (s, start) {
-  let nextIndex = -1
-  if (s[start] === '.') {
-    nextIndex = parseDecimalDigits(s, start + 1)
-    if (nextIndex === -1) { return -1 }
+function parseDecimalLiteral(s, start) {
+  let nextIndex = -1;
+  if (s[start] === ".") {
+    nextIndex = parseDecimalDigits(s, start + 1);
+    if (nextIndex === -1) {
+      return -1;
+    }
   } else {
-    nextIndex = parseDecimalDigits(s, start)
-    if (nextIndex === -1) { return -1 }
+    nextIndex = parseDecimalDigits(s, start);
+    if (nextIndex === -1) {
+      return -1;
+    }
 
-    if (s[nextIndex] === '.') {
-      const optNextIndex = parseDecimalDigits(s, ++nextIndex)
+    if (s[nextIndex] === ".") {
+      const optNextIndex = parseDecimalDigits(s, ++nextIndex);
       if (optNextIndex !== -1) {
-        nextIndex = optNextIndex
+        nextIndex = optNextIndex;
       }
     }
   }
 
-  const optNextIndex = parseExponentPart(s, nextIndex)
-  return optNextIndex === -1 ? nextIndex : optNextIndex
+  const optNextIndex = parseExponentPart(s, nextIndex);
+  return optNextIndex === -1 ? nextIndex : optNextIndex;
 }
 
 /**
@@ -7133,16 +6821,18 @@ function parseDecimalLiteral (s, start) {
  * @param {number} start - start index
  * @return {number} next index, -1 means error
  */
-function parseDecimalDigits (s, start) {
-  if (start === s.length) { return -1 }
+function parseDecimalDigits(s, start) {
+  if (start === s.length) {
+    return -1;
+  }
 
   for (let i = start; i < s.length; i++) {
-    const digit = s.charCodeAt(i) - 48
+    const digit = s.charCodeAt(i) - 48;
     if (!(digit >= 0 && digit <= 9)) {
-      return i === start ? -1 : i
+      return i === start ? -1 : i;
     }
   }
-  return s.length
+  return s.length;
 }
 
 /**
@@ -7150,22 +6840,24 @@ function parseDecimalDigits (s, start) {
  * @param {number} start - start index
  * @return {number} next index, -1 means error
  */
-function parseDecimalIntegerLiteral (s, start) {
-  if (start === s.length) { return -1 }
-
-  let nextIndex = start
-  if (s[start] === '0') {
-    nextIndex++
+function parseDecimalIntegerLiteral(s, start) {
+  if (start === s.length) {
+    return -1;
   }
 
-  const digit = s.charCodeAt(nextIndex) - 48
+  let nextIndex = start;
+  if (s[start] === "0") {
+    nextIndex++;
+  }
+
+  const digit = s.charCodeAt(nextIndex) - 48;
   if (!(digit > 0 && digit <= 9)) {
-    return nextIndex === start ? -1 : nextIndex
+    return nextIndex === start ? -1 : nextIndex;
   }
-  nextIndex++
+  nextIndex++;
 
-  const optNextIndex = parseDecimalDigits (s, nextIndex)
-  return optNextIndex === -1 ? nextIndex : optNextIndex
+  const optNextIndex = parseDecimalDigits(s, nextIndex);
+  return optNextIndex === -1 ? nextIndex : optNextIndex;
 }
 
 /**
@@ -7173,36 +6865,32 @@ function parseDecimalIntegerLiteral (s, start) {
  * @param {number} start - start index
  * @return {number} next index, -1 means error
  */
-function parseExponentPart (s, start) {
-  if (s[start] !== 'e' && s[start] !== 'E') {
-    return -1
+function parseExponentPart(s, start) {
+  if (s[start] !== "e" && s[start] !== "E") {
+    return -1;
   }
 
-  let nextIndex = start + 1
-  if (s[nextIndex] === '+' || s[nextIndex] === '-') {
-    nextIndex++
+  let nextIndex = start + 1;
+  if (s[nextIndex] === "+" || s[nextIndex] === "-") {
+    nextIndex++;
   }
 
-  return parseDecimalDigits(s, nextIndex)
+  return parseDecimalDigits(s, nextIndex);
 }
 ```
-
-
-
 
 ---
 
 Difficulty: Easy
 Related Topics:
-  "Array": https://leetcode.com/tag/array
-  "Math": https://leetcode.com/tag/math
+"Array": https://leetcode.com/tag/array
+"Math": https://leetcode.com/tag/math
 Similar Questions:
-  "Multiply Strings": https://leetcode.com/problems/multiply-strings
-  "Add Binary": https://leetcode.com/problems/add-binary
-  "Plus One Linked List": https://leetcode.com/problems/plus-one-linked-list
+"Multiply Strings": https://leetcode.com/problems/multiply-strings
+"Add Binary": https://leetcode.com/problems/add-binary
+"Plus One Linked List": https://leetcode.com/problems/plus-one-linked-list
 
 ---
-
 
 [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#66-plus-onehttpsleetcodecomproblemsplus-onedescription)
 
@@ -7243,15 +6931,15 @@ JavaScript specific solution. Note that `unshift` is much slower that expanding.
  * @param {number[]} digits
  * @return {number[]}
  */
-let plusOne = function(digits) {
+let plusOne = function (digits) {
   for (let i = digits.length - 1; i >= 0; i--) {
     if (digits[i] < 9) {
-      digits[i]++
-      return digits
+      digits[i]++;
+      return digits;
     }
-    digits[i] = 0
+    digits[i] = 0;
   }
-  return [1, ...digits]
+  return [1, ...digits];
 };
 ```
 
@@ -7264,36 +6952,31 @@ General solution.
  * @param {number[]} digits
  * @return {number[]}
  */
-let plusOne = function(digits) {
+let plusOne = function (digits) {
   for (let i = digits.length - 1; i >= 0; i--) {
     if (digits[i] < 9) {
-      digits[i]++
-      return digits
+      digits[i]++;
+      return digits;
     }
-    digits[i] = 0
+    digits[i] = 0;
   }
 
   for (let i = digits.length; i > 0; i--) {
-    digits[i] = digits[i-1]
+    digits[i] = digits[i - 1];
   }
-  digits[0] = 1
-  
-  return digits
+  digits[0] = 1;
+
+  return digits;
 };
 ```
-
-
-
-
 
 ---
 
 Difficulty: Hard
 Related Topics:
-  "String": https://leetcode.com/tag/string
+"String": https://leetcode.com/tag/string
 
 ---
-
 
 [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#68-text-justificationhttpsleetcodecomproblemstext-justificationdescription)
 
@@ -7301,9 +6984,9 @@ Related Topics:
 
 ### Problem:
 
-Given an array of words and a width *maxWidth*, format the text such that each line has exactly *maxWidth* characters and is fully (left and right) justified.
+Given an array of words and a width *maxWidth*, format the text such that each line has exactly _maxWidth_ characters and is fully (left and right) justified.
 
-You should pack your words in a greedy approach; that is, pack as many words as you can in each line. Pad extra spaces `' '` when necessary so that each line has exactly *maxWidth* characters.
+You should pack your words in a greedy approach; that is, pack as many words as you can in each line. Pad extra spaces `' '` when necessary so that each line has exactly _maxWidth_ characters.
 
 Extra spaces between words should be distributed as evenly as possible. If the number of spaces on a line do not divide evenly between words, the empty slots on the left will be assigned more spaces than the slots on the right.
 
@@ -7312,7 +6995,7 @@ For the last line of text, it should be left justified and no **extra** space is
 **Note:**
 
 - A word is defined as a character sequence consisting of non-space characters only.
-- Each word's length is guaranteed to be greater than 0 and not exceed *maxWidth*.
+- Each word's length is guaranteed to be greater than 0 and not exceed _maxWidth_.
 - The input array `words` contains at least one word.
 
 **Example 1:**
@@ -7378,62 +7061,57 @@ Output:
  * @param {number} maxWidth
  * @return {string[]}
  */
-let fullJustify = function(words, maxWidth) {
-  let start = 0
-  let end = 1
-  let lineLen = words[start].length
-  const result = []
+let fullJustify = function (words, maxWidth) {
+  let start = 0;
+  let end = 1;
+  let lineLen = words[start].length;
+  const result = [];
 
   while (end < words.length) {
-    const newLen = words[end].length + 1 + lineLen
+    const newLen = words[end].length + 1 + lineLen;
     if (newLen <= maxWidth) {
-      lineLen = newLen
+      lineLen = newLen;
     } else {
-      let line = ''
-      let nWords = end - start
+      let line = "";
+      let nWords = end - start;
       if (nWords === 1) {
-        line = words[start].padEnd(maxWidth)
+        line = words[start].padEnd(maxWidth);
       } else {
-        let nSpaces = maxWidth - (lineLen - (nWords - 1))
+        let nSpaces = maxWidth - (lineLen - (nWords - 1));
         for (let i = start; i < end; i++) {
-          const gap = Math.ceil(nSpaces / (end - i - 1))
-          line += words[i] + ' '.repeat(gap)
-          nSpaces -= gap
+          const gap = Math.ceil(nSpaces / (end - i - 1));
+          line += words[i] + " ".repeat(gap);
+          nSpaces -= gap;
         }
       }
-      result.push(line)
-      start = end
-      lineLen = words[start].length
+      result.push(line);
+      start = end;
+      lineLen = words[start].length;
     }
-    end++
+    end++;
   }
 
-  let lastline = words[start]
+  let lastline = words[start];
   for (let i = start + 1; i < end; i++) {
-    lastline += ' ' + words[i]
+    lastline += " " + words[i];
   }
-  result.push(lastline.padEnd(maxWidth))
+  result.push(lastline.padEnd(maxWidth));
 
-  return result
+  return result;
 };
 ```
-
-
-
-
 
 ---
 
 Difficulty: Easy
 Related Topics:
-  "Math": https://leetcode.com/tag/math
-  "Binary Search": https://leetcode.com/tag/binary-search
+"Math": https://leetcode.com/tag/math
+"Binary Search": https://leetcode.com/tag/binary-search
 Similar Questions:
-  "Pow(x, n)": https://leetcode.com/problems/powx-n
-  "Valid Perfect Square": https://leetcode.com/problems/valid-perfect-square
+"Pow(x, n)": https://leetcode.com/problems/powx-n
+"Valid Perfect Square": https://leetcode.com/problems/valid-perfect-square
 
 ---
-
 
 [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#69-sqrtxhttpsleetcodecomproblemssqrtxdescription)
 
@@ -7443,7 +7121,7 @@ Similar Questions:
 
 Implement `int sqrt(int x)`.
 
-Compute and return the square root of *x*, where *x* is guaranteed to be a non-negative integer.
+Compute and return the square root of _x_, where *x* is guaranteed to be a non-negative integer.
 
 Since the return type is an integer, the decimal digits are truncated and only the integer part of the result is returned.
 
@@ -7459,7 +7137,7 @@ Output: 2
 ```
 Input: 8
 Output: 2
-Explanation: The square root of 8 is 2.82842..., and since 
+Explanation: The square root of 8 is 2.82842..., and since
              the decimal part is truncated, 2 is returned.
 ```
 
@@ -7472,37 +7150,32 @@ Binary Search. The square root of x is within [0...(x+1)/2].
  * @param {number} x
  * @return {number}
  */
-let mySqrt = function(x) {
-  let max = Math.round(x / 2)
-  let min = 0
+let mySqrt = function (x) {
+  let max = Math.round(x / 2);
+  let min = 0;
   while (min <= max) {
-    const mid = Math.floor((min + max) / 2)
-    const diff = mid * mid - x
+    const mid = Math.floor((min + max) / 2);
+    const diff = mid * mid - x;
     if (diff > 0) {
-      max = mid - 1
+      max = mid - 1;
     } else if (diff < 0) {
-      min = mid + 1
+      min = mid + 1;
     } else {
-      return mid
+      return mid;
     }
   }
-  return max
+  return max;
 };
 ```
-
-
-
-
 
 ---
 
 Difficulty: Medium
 Related Topics:
-  "String": https://leetcode.com/tag/string
-  "Stack": https://leetcode.com/tag/stack
+"String": https://leetcode.com/tag/string
+"Stack": https://leetcode.com/tag/stack
 
 ---
-
 
 [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#71-simplify-pathhttpsleetcodecomproblemssimplify-pathdescription)
 
@@ -7536,17 +7209,20 @@ RegExp matching.
  * @param {string} path
  * @return {string}
  */
-let simplifyPath = function(path) {
-  return '/' + (path.match(/[^\/]+/g) || [])
-    .reduce((stack, p) => {
-      if (p === '..') {
-        stack.pop()
-      } else if (p !== '.') {
-        stack.push(p)
-      }
-      return stack
-    }, [])
-    .join('/')
+let simplifyPath = function (path) {
+  return (
+    "/" +
+    (path.match(/[^\/]+/g) || [])
+      .reduce((stack, p) => {
+        if (p === "..") {
+          stack.pop();
+        } else if (p !== ".") {
+          stack.push(p);
+        }
+        return stack;
+      }, [])
+      .join("/")
+  );
 };
 ```
 
@@ -7559,47 +7235,43 @@ Direct search.
  * @param {string} path
  * @return {string}
  */
-let simplifyPath = function(path) {
-  const len = path.length
-  const stack = []
-  let e = 0
+let simplifyPath = function (path) {
+  const len = path.length;
+  const stack = [];
+  let e = 0;
   while (e < len) {
-    while (e < len && path[e] === '/') {
-      e++
+    while (e < len && path[e] === "/") {
+      e++;
     }
-    const s = e
-    while (e < len && path[e] !== '/') {
-      e++
+    const s = e;
+    while (e < len && path[e] !== "/") {
+      e++;
     }
     if (s < e) {
-      const p = path.slice(s, e)
-      if (p === '..') {
-        stack.pop()
-      } else if (p !== '.') {
-        stack.push(p)
+      const p = path.slice(s, e);
+      if (p === "..") {
+        stack.pop();
+      } else if (p !== ".") {
+        stack.push(p);
       }
     }
   }
-  return '/' + stack.join('/')
+  return "/" + stack.join("/");
 };
 ```
-
-
-
 
 ---
 
 Difficulty: Hard
 Related Topics:
-  "String": https://leetcode.com/tag/string
-  "Dynamic Programming": https://leetcode.com/tag/dynamic-programming
+"String": https://leetcode.com/tag/string
+"Dynamic Programming": https://leetcode.com/tag/dynamic-programming
 Similar Questions:
-  "One Edit Distance": https://leetcode.com/problems/one-edit-distance
-  "Delete Operation for Two Strings": https://leetcode.com/problems/delete-operation-for-two-strings
-  "Minimum ASCII Delete Sum for Two Strings": https://leetcode.com/problems/minimum-ascii-delete-sum-for-two-strings
+"One Edit Distance": https://leetcode.com/problems/one-edit-distance
+"Delete Operation for Two Strings": https://leetcode.com/problems/delete-operation-for-two-strings
+"Minimum ASCII Delete Sum for Two Strings": https://leetcode.com/problems/minimum-ascii-delete-sum-for-two-strings
 
 ---
-
 
 [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#72-edit-distancehttpsleetcodecomproblemsedit-distancedescription)
 
@@ -7607,7 +7279,7 @@ Similar Questions:
 
 ### Problem:
 
-Given two words *word1* and *word2*, find the minimum number of operations required to convert *word1* to *word2*.
+Given two words _word1_ and _word2_, find the minimum number of operations required to convert _word1_ to _word2_.
 
 You have the following 3 operations permitted on a word:
 
@@ -7620,7 +7292,7 @@ You have the following 3 operations permitted on a word:
 ```
 Input: word1 = "horse", word2 = "ros"
 Output: 3
-Explanation: 
+Explanation:
 horse -> rorse (replace 'h' with 'r')
 rorse -> rose (remove 'r')
 rose -> ros (remove 'e')
@@ -7631,7 +7303,7 @@ rose -> ros (remove 'e')
 ```
 Input: word1 = "intention", word2 = "execution"
 Output: 5
-Explanation: 
+Explanation:
 intention -> inention (remove 't')
 inention -> enention (replace 'i' with 'e')
 enention -> exention (replace 'n' with 'x')
@@ -7662,52 +7334,47 @@ f(i, j) = min(
  * @param {string} word2
  * @return {number}
  */
-let minDistance = function(word1, word2) {
-  const len1 = word1.length
-  const len2 = word2.length
+let minDistance = function (word1, word2) {
+  const len1 = word1.length;
+  const len2 = word2.length;
 
-  if(len1 <= 0 || len2 <= 0) {
-    return len1 + len2
+  if (len1 <= 0 || len2 <= 0) {
+    return len1 + len2;
   }
 
-  const dp = []
+  const dp = [];
 
   for (let i = 0; i <= len1; i++) {
-    dp[i] = [i]
+    dp[i] = [i];
   }
 
   for (let j = 0; j <= len2; j++) {
-    dp[0][j] = j
+    dp[0][j] = j;
   }
 
   for (let i = 1; i <= len1; i++) {
     for (let j = 1; j <= len2; j++) {
       dp[i][j] = Math.min(
-        dp[i][j-1] + 1,
-        dp[i-1][j] + 1,
-        dp[i-1][j-1] + (word1[i-1] === word2[j-1] ? 0 : 1)
-      )
+        dp[i][j - 1] + 1,
+        dp[i - 1][j] + 1,
+        dp[i - 1][j - 1] + (word1[i - 1] === word2[j - 1] ? 0 : 1)
+      );
     }
   }
 
-  return dp[len1][len2]
+  return dp[len1][len2];
 };
 ```
-
-
-
-
 
 ---
 
 Difficulty: Medium
 Related Topics:
-  "Array": https://leetcode.com/tag/array
+"Array": https://leetcode.com/tag/array
 Similar Questions:
-  "Game of Life": https://leetcode.com/problems/game-of-life
+"Game of Life": https://leetcode.com/problems/game-of-life
 
 ---
-
 
 [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#73-set-matrix-zeroeshttpsleetcodecomproblemsset-matrix-zeroesdescription)
 
@@ -7715,18 +7382,18 @@ Similar Questions:
 
 ### Problem:
 
-Given a *m* x *n* matrix, if an element is 0, set its entire row and column to 0. Do it [**in-place**](https://en.wikipedia.org/wiki/In-place_algorithm).
+Given a _m_ x _n_ matrix, if an element is 0, set its entire row and column to 0. Do it [**in-place**](https://en.wikipedia.org/wiki/In-place_algorithm).
 
 **Example 1:**
 
 ```
-Input: 
+Input:
 [
   [1,1,1],
   [1,0,1],
   [1,1,1]
 ]
-Output: 
+Output:
 [
   [1,0,1],
   [0,0,0],
@@ -7737,13 +7404,13 @@ Output:
 **Example 2:**
 
 ```
-Input: 
+Input:
 [
   [0,1,2,0],
   [3,4,5,2],
   [1,3,1,5]
 ]
-Output: 
+Output:
 [
   [0,0,0,0],
   [0,4,5,0],
@@ -7753,14 +7420,14 @@ Output:
 
 **Follow up:**
 
-- A straight forward solution using O(*m**n*) space is probably a bad idea.
-- A simple improvement uses O(*m* + *n*) space, but still not the best solution.
+- A straight forward solution using O(_m\*\*n_) space is probably a bad idea.
+- A simple improvement uses O(_m_ + _n_) space, but still not the best solution.
 - Could you devise a constant space solution?
 
 ### Solution:
 
-- O(*m**n*) space solution: Copy a new matrix.
-- O(*m* + *n*) space solution: Use extra arrays to store rows and columns that need to be set 0.
+- O(_m\*\*n_) space solution: Copy a new matrix.
+- O(_m_ + _n_) space solution: Use extra arrays to store rows and columns that need to be set 0.
 - Constant space solutions:
 
 #### ONE
@@ -7780,45 +7447,49 @@ Finally set the first row and column to 0 if needed.
  * @param {number[][]} matrix
  * @return {void} Do not return anything, modify matrix in-place instead.
  */
-let setZeroes = function(matrix) {
-  const height = matrix.length
-  if (height <= 0) { return }
-  const width = matrix[0].length
-  if (width <= 0) { return }
+let setZeroes = function (matrix) {
+  const height = matrix.length;
+  if (height <= 0) {
+    return;
+  }
+  const width = matrix[0].length;
+  if (width <= 0) {
+    return;
+  }
 
-  const shouldClearFirstRow = matrix[0].some(x => x === 0)
-  const shouldClearFirstCol = matrix.some(row => row[0] === 0)
+  const shouldClearFirstRow = matrix[0].some((x) => x === 0);
+  const shouldClearFirstCol = matrix.some((row) => row[0] === 0);
 
   for (let i = 1; i < height; i++) {
     for (let j = 1; j < width; j++) {
       if (matrix[i][j] === 0) {
-        matrix[i][0] = 0
-        matrix[0][j] = 0
+        matrix[i][0] = 0;
+        matrix[0][j] = 0;
       }
     }
   }
 
   for (let i = 1; i < height; i++) {
     if (matrix[i][0] === 0) {
-      matrix[i].fill(0)
+      matrix[i].fill(0);
     }
   }
 
   for (let j = 1; j < width; j++) {
     if (matrix[0][j] === 0) {
       for (let i = 1; i < height; i++) {
-        matrix[i][j] = 0
+        matrix[i][j] = 0;
       }
     }
   }
 
   if (shouldClearFirstRow) {
-    matrix[0].fill(0)
+    matrix[0].fill(0);
   }
 
   if (shouldClearFirstCol) {
     for (let i = 0; i < height; i++) {
-      matrix[i][0] = 0
+      matrix[i][0] = 0;
     }
   }
 };
@@ -7869,21 +7540,16 @@ let setZeroes = function(matrix) {
 };
 ```
 
-
-
-
-
 ---
 
 Difficulty: Medium
 Related Topics:
-  "Array": https://leetcode.com/tag/array
-  "Binary Search": https://leetcode.com/tag/binary-search
+"Array": https://leetcode.com/tag/array
+"Binary Search": https://leetcode.com/tag/binary-search
 Similar Questions:
-  "Search a 2D Matrix II": https://leetcode.com/problems/search-a-2d-matrix-ii
+"Search a 2D Matrix II": https://leetcode.com/problems/search-a-2d-matrix-ii
 
 ---
-
 
 [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#74-search-a-2d-matrixhttpsleetcodecomproblemssearch-a-2d-matrixdescription)
 
@@ -7891,7 +7557,7 @@ Similar Questions:
 
 ### Problem:
 
-Write an efficient algorithm that searches for a value in an *m* x *n* matrix. This matrix has the following properties:
+Write an efficient algorithm that searches for a value in an _m_ x _n_ matrix. This matrix has the following properties:
 
 - Integers in each row are sorted from left to right.
 - The first integer of each row is greater than the last integer of the previous row.
@@ -7926,7 +7592,7 @@ Output: false
 
 #### ONE
 
-Search from top-left to bottom-right. O(*n*).
+Search from top-left to bottom-right. O(_n_).
 
 ```javascript
 /**
@@ -7934,26 +7600,30 @@ Search from top-left to bottom-right. O(*n*).
  * @param {number} target
  * @return {boolean}
  */
-let searchMatrix = function(matrix, target) {
-  const height = matrix.length
-  if (height <= 0) { return false }
-  const width = matrix[0].length
-  if (width <= 0) { return false }
+let searchMatrix = function (matrix, target) {
+  const height = matrix.length;
+  if (height <= 0) {
+    return false;
+  }
+  const width = matrix[0].length;
+  if (width <= 0) {
+    return false;
+  }
 
-  let i = 0
-  let j = width - 1
+  let i = 0;
+  let j = width - 1;
   while (i < height && j >= 0) {
-    const diff = matrix[i][j] - target
+    const diff = matrix[i][j] - target;
     if (diff > 0) {
-      j--
+      j--;
     } else if (diff < 0) {
-      i++
+      i++;
     } else {
-      return true
+      return true;
     }
   }
 
-  return false
+  return false;
 };
 ```
 
@@ -7971,48 +7641,47 @@ Take the algorithm from [35. Search Insert Position](./035.%20Search%20Insert%20
  * @param {number} target
  * @return {boolean}
  */
-let searchMatrix = function(matrix, target) {
-  const height = matrix.length
-  if (height <= 0) { return false }
-  const width = matrix[0].length
-  if (width <= 0) { return false }
+let searchMatrix = function (matrix, target) {
+  const height = matrix.length;
+  if (height <= 0) {
+    return false;
+  }
+  const width = matrix[0].length;
+  if (width <= 0) {
+    return false;
+  }
 
-  let s = 0
-  let e = width * height - 1
+  let s = 0;
+  let e = width * height - 1;
   while (s <= e) {
-    const mid = Math.floor((s + e) / 2)
-    const diff = matrix[Math.floor(mid / width)][mid % width] - target
+    const mid = Math.floor((s + e) / 2);
+    const diff = matrix[Math.floor(mid / width)][mid % width] - target;
     if (diff < 0) {
-      s = mid + 1
+      s = mid + 1;
     } else if (diff > 0) {
-      e = mid - 1
+      e = mid - 1;
     } else {
-      return true
+      return true;
     }
   }
 
-  return false
+  return false;
 };
 ```
-
-
-
-
 
 ---
 
 Difficulty: Medium
 Related Topics:
-  "Array": https://leetcode.com/tag/array
-  "Two Pointers": https://leetcode.com/tag/two-pointers
-  "Sort": https://leetcode.com/tag/sort
+"Array": https://leetcode.com/tag/array
+"Two Pointers": https://leetcode.com/tag/two-pointers
+"Sort": https://leetcode.com/tag/sort
 Similar Questions:
-  "Sort List": https://leetcode.com/problems/sort-list
-  "Wiggle Sort": https://leetcode.com/problems/wiggle-sort
-  "Wiggle Sort II": https://leetcode.com/problems/wiggle-sort-ii
+"Sort List": https://leetcode.com/problems/sort-list
+"Wiggle Sort": https://leetcode.com/problems/wiggle-sort
+"Wiggle Sort II": https://leetcode.com/problems/wiggle-sort-ii
 
 ---
-
 
 [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#75-sort-colorshttpsleetcodecomproblemssort-colorsdescription)
 
@@ -8020,7 +7689,7 @@ Similar Questions:
 
 ### Problem:
 
-Given an array with *n* objects colored red, white or blue, sort them **in-place**so that objects of the same color are adjacent, with the colors in the order red, white and blue.
+Given an array with _n_ objects colored red, white or blue, sort them **in-place**so that objects of the same color are adjacent, with the colors in the order red, white and blue.
 
 Here, we will use the integers 0, 1, and 2 to represent the color red, white, and blue respectively.
 
@@ -8052,44 +7721,39 @@ Count the number of sorted `0`s and `2`s so that we know where to swap.
  * @param {number[]} nums
  * @return {void} Do not return anything, modify nums in-place instead.
  */
-let sortColors = function(nums) {
-  const len = nums.length
-  let zeroEnd = 0
-  let twoStart = len - 1
-  let i = 0
+let sortColors = function (nums) {
+  const len = nums.length;
+  let zeroEnd = 0;
+  let twoStart = len - 1;
+  let i = 0;
   while (i <= twoStart) {
     if (nums[i] === 0 && i !== zeroEnd) {
-      const t = nums[i]
-      nums[i] = nums[zeroEnd]
-      nums[zeroEnd] = t
-      zeroEnd++
+      const t = nums[i];
+      nums[i] = nums[zeroEnd];
+      nums[zeroEnd] = t;
+      zeroEnd++;
     } else if (nums[i] === 2 && i !== twoStart) {
-      const t = nums[i]
-      nums[i] = nums[twoStart]
-      nums[twoStart] = t
-      twoStart--
+      const t = nums[i];
+      nums[i] = nums[twoStart];
+      nums[twoStart] = t;
+      twoStart--;
     } else {
-      i++
+      i++;
     }
   }
 };
 ```
 
-
-
-
-
 ---
 
 Difficulty: Medium
 Related Topics:
-  "Backtracking": https://leetcode.com/tag/backtracking
+"Backtracking": https://leetcode.com/tag/backtracking
 Similar Questions:
-  "Combination Sum": https://leetcode.com/problems/combination-sum
-  "Permutations": https://leetcode.com/problems/permutations
+"Combination Sum": https://leetcode.com/problems/combination-sum
+"Permutations": https://leetcode.com/problems/permutations
 
 ---
-
 
 [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#77-combinationshttpsleetcodecomproblemscombinationsdescription)
 
@@ -8097,7 +7761,7 @@ Similar Questions:
 
 ### Problem:
 
-Given two integers *n* and *k*, return all possible combinations of *k* numbers out of 1 ... *n*.
+Given two integers _n_ and _k_, return all possible combinations of _k_ numbers out of 1 ... _n_.
 
 **Example:**
 
@@ -8124,43 +7788,38 @@ Basic DFS + Backtracking.
  * @param {number} k
  * @return {number[][]}
  */
-let combine = function(n, k) {
-  const result = []
-  _combine(1, [], n, k, result)
-  return result
+let combine = function (n, k) {
+  const result = [];
+  _combine(1, [], n, k, result);
+  return result;
 };
 
-function _combine (cur, path, n, k, result) {
+function _combine(cur, path, n, k, result) {
   if (path.length === k) {
-    return result.push(path.slice())
+    return result.push(path.slice());
   }
 
   while (cur <= n) {
-    path.push(cur)
-    _combine(++cur, path, n, k, result)
-    path.pop()
+    path.push(cur);
+    _combine(++cur, path, n, k, result);
+    path.pop();
   }
 }
 ```
-
-
-
-
 
 ---
 
 Difficulty: Medium
 Related Topics:
-  "Array": https://leetcode.com/tag/array
-  "Backtracking": https://leetcode.com/tag/backtracking
-  "Bit Manipulation": https://leetcode.com/tag/bit-manipulation
+"Array": https://leetcode.com/tag/array
+"Backtracking": https://leetcode.com/tag/backtracking
+"Bit Manipulation": https://leetcode.com/tag/bit-manipulation
 Similar Questions:
-  "Subsets II": https://leetcode.com/problems/subsets-ii
-  "Generalized Abbreviation": https://leetcode.com/problems/generalized-abbreviation
-  "Letter Case Permutation": https://leetcode.com/problems/letter-case-permutation
+"Subsets II": https://leetcode.com/problems/subsets-ii
+"Generalized Abbreviation": https://leetcode.com/problems/generalized-abbreviation
+"Letter Case Permutation": https://leetcode.com/problems/letter-case-permutation
 
 ---
-
 
 [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#78-subsetshttpsleetcodecomproblemssubsetsdescription)
 
@@ -8168,7 +7827,7 @@ Similar Questions:
 
 ### Problem:
 
-Given a set of **distinct** integers, *nums*, return all possible subsets (the power set).
+Given a set of **distinct** integers, _nums_, return all possible subsets (the power set).
 
 **Note:** The solution set must not contain duplicate subsets.
 
@@ -8200,8 +7859,11 @@ BFS.
  * @param {number[]} nums
  * @return {number[][]}
  */
-let subsets = function(nums) {
-  return nums.reduce((result, num) => result.concat(result.map(r => [...r, num])), [[]])
+let subsets = function (nums) {
+  return nums.reduce(
+    (result, num) => result.concat(result.map((r) => [...r, num])),
+    [[]]
+  );
 };
 ```
 
@@ -8212,14 +7874,14 @@ Or more imperative. Loop backward to avoid crossing the boundary.
  * @param {number[]} nums
  * @return {number[][]}
  */
-let subsets = function(nums) {
-  const result = [[]]
+let subsets = function (nums) {
+  const result = [[]];
   for (let i = nums.length - 1; i >= 0; i--) {
     for (let j = result.length - 1; j >= 0; j--) {
-      result.push([nums[i], ...result[j]])
+      result.push([nums[i], ...result[j]]);
     }
   }
-  return result
+  return result;
 };
 ```
 
@@ -8232,36 +7894,32 @@ DFS + Backtracking.
  * @param {number[]} nums
  * @return {number[][]}
  */
-let subsets = function(nums) {
-  const result = []
-  _subsets(nums, 0, [], result)
-  return result
+let subsets = function (nums) {
+  const result = [];
+  _subsets(nums, 0, [], result);
+  return result;
 };
 
 function _subsets(nums, start, path, result) {
-  result.push(path.slice())
+  result.push(path.slice());
   while (start < nums.length) {
-    path.push(nums[start])
-    _subsets(nums, ++start, path, result)
-    path.pop()
+    path.push(nums[start]);
+    _subsets(nums, ++start, path, result);
+    path.pop();
   }
 }
 ```
-
-
-
 
 ---
 
 Difficulty: Medium
 Related Topics:
-  "Array": https://leetcode.com/tag/array
-  "Backtracking": https://leetcode.com/tag/backtracking
+"Array": https://leetcode.com/tag/array
+"Backtracking": https://leetcode.com/tag/backtracking
 Similar Questions:
-  "Word Search II": https://leetcode.com/problems/word-search-ii
+"Word Search II": https://leetcode.com/problems/word-search-ii
 
 ---
-
 
 [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#79-word-searchhttpsleetcodecomproblemsword-searchdescription)
 
@@ -8298,64 +7956,85 @@ DFS + Backtracking. Replace the cell with `NaN` before proceeding to the next le
  * @param {string} word
  * @return {boolean}
  */
-let exist = function(board, word) {
-  const height = board.length
-  if (height <= 0) { return false }
-  const width = board[0].length
-  if (width <= 0) { return false }
+let exist = function (board, word) {
+  const height = board.length;
+  if (height <= 0) {
+    return false;
+  }
+  const width = board[0].length;
+  if (width <= 0) {
+    return false;
+  }
 
   for (let row = 0; row < height; row++) {
     for (let col = 0; col < width; col++) {
-      if (board[row][col] === word[0] &&
-          _exist(board, word, 0, [[-1, 0], [1, 0], [0, -1], [0, 1]], row, col)
+      if (
+        board[row][col] === word[0] &&
+        _exist(
+          board,
+          word,
+          0,
+          [
+            [-1, 0],
+            [1, 0],
+            [0, -1],
+            [0, 1],
+          ],
+          row,
+          col
+        )
       ) {
-        return true
+        return true;
       }
     }
   }
 
-  return false
+  return false;
 };
 
-function _exist (board, word, iWord, directions, row, col) {
+function _exist(board, word, iWord, directions, row, col) {
   if (iWord === word.length) {
-    return true
+    return true;
   }
 
   if (!board[row] || word[iWord] !== board[row][col]) {
-    return false
+    return false;
   }
 
-  const cell = board[row][col]
-  board[row][col] = NaN
+  const cell = board[row][col];
+  board[row][col] = NaN;
 
   for (let i = directions.length - 1; i >= 0; i--) {
-    if (_exist(board, word, iWord+1, directions, row+directions[i][0], col+directions[i][1])) {
-      return true
+    if (
+      _exist(
+        board,
+        word,
+        iWord + 1,
+        directions,
+        row + directions[i][0],
+        col + directions[i][1]
+      )
+    ) {
+      return true;
     }
   }
 
-  board[row][col] = cell
+  board[row][col] = cell;
 
-  return false
+  return false;
 }
 ```
-
-
-
-
 
 ---
 
 Difficulty: Medium
 Related Topics:
-  "Array": https://leetcode.com/tag/array
-  "Two Pointers": https://leetcode.com/tag/two-pointers
+"Array": https://leetcode.com/tag/array
+"Two Pointers": https://leetcode.com/tag/two-pointers
 Similar Questions:
-  "Remove Duplicates from Sorted Array": https://leetcode.com/problems/remove-duplicates-from-sorted-array
+"Remove Duplicates from Sorted Array": https://leetcode.com/problems/remove-duplicates-from-sorted-array
 
 ---
-
 
 [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#80-remove-duplicates-from-sorted-array-iihttpsleetcodecomproblemsremove-duplicates-from-sorted-array-iidescription)
 
@@ -8363,7 +8042,7 @@ Similar Questions:
 
 ### Problem:
 
-Given a sorted array *nums*, remove the duplicates [**in-place**](https://en.wikipedia.org/wiki/In-place_algorithm) such that duplicates appeared at most *twice* and return the new length.
+Given a sorted array _nums_, remove the duplicates [**in-place**](https://en.wikipedia.org/wiki/In-place_algorithm) such that duplicates appeared at most *twice* and return the new length.
 
 Do not allocate extra space for another array, you must do this by **modifying the input array in-place** with O(1) extra memory.
 
@@ -8415,32 +8094,27 @@ Similar to [26. Remove Duplicates from Sorted Array](./026.%20Remove%20Duplicate
  * @param {number[]} nums
  * @return {number}
  */
-let removeDuplicates = function(nums) {
-  let len = 0
+let removeDuplicates = function (nums) {
+  let len = 0;
   for (let i = 0; i < nums.length; i++) {
-    if (nums[i] !== nums[len-2]) {
-      nums[len++] = nums[i]
+    if (nums[i] !== nums[len - 2]) {
+      nums[len++] = nums[i];
     }
   }
-  return len
+  return len;
 };
 ```
-
-
-
-
 
 ---
 
 Difficulty: Medium
 Related Topics:
-  "Array": https://leetcode.com/tag/array
-  "Binary Search": https://leetcode.com/tag/binary-search
+"Array": https://leetcode.com/tag/array
+"Binary Search": https://leetcode.com/tag/binary-search
 Similar Questions:
-  "Search in Rotated Sorted Array": https://leetcode.com/problems/search-in-rotated-sorted-array
+"Search in Rotated Sorted Array": https://leetcode.com/problems/search-in-rotated-sorted-array
 
 ---
-
 
 [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#81-search-in-rotated-sorted-array-iihttpsleetcodecomproblemssearch-in-rotated-sorted-array-iidescription)
 
@@ -8483,53 +8157,48 @@ See [33. Search in Rotated Sorted Array](./033.%20Search%20in%20Rotated%20Sorted
  * @param {number} target
  * @return {boolean}
  */
-let search = function(nums, target) {
-  let s = 0
-  let e = nums.length - 1
+let search = function (nums, target) {
+  let s = 0;
+  let e = nums.length - 1;
 
   while (s <= e) {
-    const p = (e + s) / 2 | 0
-    const pivot = nums[p]
+    const p = ((e + s) / 2) | 0;
+    const pivot = nums[p];
 
     if (target === pivot) {
-      return true
+      return true;
     }
 
     if (pivot < nums[e]) {
       if (target > nums[p] && target <= nums[e]) {
-        s = p + 1
+        s = p + 1;
       } else {
-        e = p - 1
+        e = p - 1;
       }
     } else if (pivot > nums[e]) {
       if (target < nums[p] && target >= nums[s]) {
-        e = p - 1
+        e = p - 1;
       } else {
-        s = p + 1
+        s = p + 1;
       }
     } else {
-      e--
+      e--;
     }
   }
 
-  return false
+  return false;
 };
 ```
-
-
-
-
 
 ---
 
 Difficulty: Medium
 Related Topics:
-  "Linked List": https://leetcode.com/tag/linked-list
+"Linked List": https://leetcode.com/tag/linked-list
 Similar Questions:
-  "Remove Duplicates from Sorted List": https://leetcode.com/problems/remove-duplicates-from-sorted-list
+"Remove Duplicates from Sorted List": https://leetcode.com/problems/remove-duplicates-from-sorted-list
 
 ---
-
 
 [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#82-remove-duplicates-from-sorted-list-iihttpsleetcodecomproblemsremove-duplicates-from-sorted-list-iidescription)
 
@@ -8537,7 +8206,7 @@ Similar Questions:
 
 ### Problem:
 
-Given a sorted linked list, delete all nodes that have duplicate numbers, leaving only *distinct* numbers from the original list.
+Given a sorted linked list, delete all nodes that have duplicate numbers, leaving only _distinct_ numbers from the original list.
 
 **Example 1:**
 
@@ -8571,42 +8240,39 @@ The list is sorted so we only need `dupVal` to keep the latest duplicate value.
  * @param {ListNode} head
  * @return {ListNode}
  */
-let deleteDuplicates = function(head) {
-  if (!head) { return null }
-  const prehead = { next: head }
+let deleteDuplicates = function (head) {
+  if (!head) {
+    return null;
+  }
+  const prehead = { next: head };
 
-  let p = prehead
-  let dupVal = NaN
+  let p = prehead;
+  let dupVal = NaN;
 
   for (let p1 = head; p1; p1 = p1.next) {
     if (p1.val === dupVal) {
-      p.next = p1.next
+      p.next = p1.next;
     } else if (p1.next && p1.val === p1.next.val) {
-      p.next = p1.next
-      dupVal = p1.val
+      p.next = p1.next;
+      dupVal = p1.val;
     } else {
-      p = p1
+      p = p1;
     }
   }
 
-  return prehead.next
+  return prehead.next;
 };
 ```
-
-
-
-
 
 ---
 
 Difficulty: Easy
 Related Topics:
-  "Linked List": https://leetcode.com/tag/linked-list
+"Linked List": https://leetcode.com/tag/linked-list
 Similar Questions:
-  "Remove Duplicates from Sorted List II": https://leetcode.com/problems/remove-duplicates-from-sorted-list-ii
+"Remove Duplicates from Sorted List II": https://leetcode.com/problems/remove-duplicates-from-sorted-list-ii
 
 ---
-
 
 [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#83-remove-duplicates-from-sorted-listhttpsleetcodecomproblemsremove-duplicates-from-sorted-listdescription)
 
@@ -8614,7 +8280,7 @@ Similar Questions:
 
 ### Problem:
 
-Given a sorted linked list, delete all duplicates such that each element appear only *once*.
+Given a sorted linked list, delete all duplicates such that each element appear only _once_.
 
 **Example 1:**
 
@@ -8648,25 +8314,27 @@ Just like [82. Remove Duplicates from Sorted List II](./082.%20Remove%20Duplicat
  * @param {ListNode} head
  * @return {ListNode}
  */
-let deleteDuplicates = function(head) {
-  if (!head) { return null }
-  const prehead = { next: head }
+let deleteDuplicates = function (head) {
+  if (!head) {
+    return null;
+  }
+  const prehead = { next: head };
 
-  let p = prehead
-  let dupVal = NaN
+  let p = prehead;
+  let dupVal = NaN;
 
   for (let p1 = head; p1; p1 = p1.next) {
     if (p1.val === dupVal) {
-      p.next = p1.next
+      p.next = p1.next;
     } else {
       if (p1.next && p1.val === p1.next.val) {
-        dupVal = p1.val
+        dupVal = p1.val;
       }
-      p = p1
+      p = p1;
     }
   }
 
-  return prehead.next
+  return prehead.next;
 };
 ```
 
@@ -8686,36 +8354,34 @@ Just compare the next node. This is way more faster.
  * @param {ListNode} head
  * @return {ListNode}
  */
-let deleteDuplicates = function(head) {
-  if (!head) { return null }
+let deleteDuplicates = function (head) {
+  if (!head) {
+    return null;
+  }
 
-  let p = head
+  let p = head;
   while (p) {
     if (p.next && p.val === p.next.val) {
-      p.next = p.next.next
+      p.next = p.next.next;
     } else {
-      p = p.next
+      p = p.next;
     }
   }
 
-  return head
+  return head;
 };
 ```
-
-
-
 
 ---
 
 Difficulty: Hard
 Related Topics:
-  "Array": https://leetcode.com/tag/array
-  "Stack": https://leetcode.com/tag/stack
+"Array": https://leetcode.com/tag/array
+"Stack": https://leetcode.com/tag/stack
 Similar Questions:
-  "Maximal Rectangle": https://leetcode.com/problems/maximal-rectangle
+"Maximal Rectangle": https://leetcode.com/problems/maximal-rectangle
 
 ---
-
 
 [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#84-largest-rectangle-in-histogramhttpsleetcodecomproblemslargest-rectangle-in-histogramdescription)
 
@@ -8723,7 +8389,7 @@ Similar Questions:
 
 ### Problem:
 
-Given *n* non-negative integers representing the histogram's bar height where the width of each bar is 1, find the area of largest rectangle in the histogram.
+Given _n_ non-negative integers representing the histogram's bar height where the width of each bar is 1, find the area of largest rectangle in the histogram.
 
 ![histogram.png](https://leetcode.com/static/images/problemset/histogram.png)
 
@@ -8760,46 +8426,41 @@ Notice that if we just loop the bars from left to right, `b1` and `b2` of each b
 
 Observe how `i1` and `i2` changes depending on the height.
 
-To reduce O(*n^2*) to O(*n*), we use a stack to store incremental `b`s. Because `b1` and `b2` are both lower than `b`, whenever we reach a bar that is lower than the top of the stack, we know it's a `b2`. So stack top is a `b`. Second top is a `b1`. Keep popping the `b` to calculate areas until `b2` is no longer lower than stack top.
+To reduce O(_n^2_) to O(_n_), we use a stack to store incremental `b`s. Because `b1` and `b2` are both lower than `b`, whenever we reach a bar that is lower than the top of the stack, we know it's a `b2`. So stack top is a `b`. Second top is a `b1`. Keep popping the `b` to calculate areas until `b2` is no longer lower than stack top.
 
 ```javascript
 /**
  * @param {number[]} heights
  * @return {number}
  */
-let largestRectangleArea = function(heights) {
-  const stack = [-1]
-  let max = 0
+let largestRectangleArea = function (heights) {
+  const stack = [-1];
+  let max = 0;
   for (let i2 = 0; i2 <= heights.length; i2++) {
-    while ((heights[i2] || 0) < heights[stack[stack.length-1]]) {
-      const i = stack.pop()
-      const i1 = stack[stack.length-1]
-      max = Math.max(max, heights[i] * (i2 - i1 - 1))
+    while ((heights[i2] || 0) < heights[stack[stack.length - 1]]) {
+      const i = stack.pop();
+      const i1 = stack[stack.length - 1];
+      max = Math.max(max, heights[i] * (i2 - i1 - 1));
     }
-    stack.push(i2)
+    stack.push(i2);
   }
-  return max
+  return max;
 };
-
 ```
-
-
-
 
 ---
 
 Difficulty: Hard
 Related Topics:
-  "Array": https://leetcode.com/tag/array
-  "Hash Table": https://leetcode.com/tag/hash-table
-  "Dynamic Programming": https://leetcode.com/tag/dynamic-programming
-  "Stack": https://leetcode.com/tag/stack
+"Array": https://leetcode.com/tag/array
+"Hash Table": https://leetcode.com/tag/hash-table
+"Dynamic Programming": https://leetcode.com/tag/dynamic-programming
+"Stack": https://leetcode.com/tag/stack
 Similar Questions:
-  "Largest Rectangle in Histogram": https://leetcode.com/problems/largest-rectangle-in-histogram
-  "Maximal Square": https://leetcode.com/problems/maximal-square
+"Largest Rectangle in Histogram": https://leetcode.com/problems/largest-rectangle-in-histogram
+"Maximal Square": https://leetcode.com/problems/maximal-square
 
 ---
-
 
 [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#85-maximal-rectanglehttpsleetcodecomproblemsmaximal-rectangledescription)
 
@@ -8833,41 +8494,45 @@ View every row as a base line then we just have to solve `height(matrix)` times 
  * @param {character[][]} matrix
  * @return {number}
  */
-let maximalRectangle = function(matrix) {
-  const height = matrix.length
-  if (height <= 0) { return 0 }
-  const width = matrix[0].length
-  if (width <= 0) { return 0 }
-
-  const heights = []
-  let max = 0
-  for (let row = 0; row < height; row++) {
-    for (let col = 0; col < width; col++) {
-      heights[col] = ((heights[col] || 0) + 1) * matrix[row][col]
-    }
-    max = Math.max(max, largestRectangleArea(heights))
+let maximalRectangle = function (matrix) {
+  const height = matrix.length;
+  if (height <= 0) {
+    return 0;
+  }
+  const width = matrix[0].length;
+  if (width <= 0) {
+    return 0;
   }
 
-  return max
+  const heights = [];
+  let max = 0;
+  for (let row = 0; row < height; row++) {
+    for (let col = 0; col < width; col++) {
+      heights[col] = ((heights[col] || 0) + 1) * matrix[row][col];
+    }
+    max = Math.max(max, largestRectangleArea(heights));
+  }
+
+  return max;
 };
 
 /**
  * @param {number[]} heights
  * @return {number}
  */
-function largestRectangleArea (heights) {
-  const stack = [-1]
-  let max = 0
+function largestRectangleArea(heights) {
+  const stack = [-1];
+  let max = 0;
   for (let i2 = 0; i2 <= heights.length; i2++) {
-    while ((heights[i2] || 0) < heights[stack[stack.length-1]]) {
-      const i = stack.pop()
-      const i1 = stack[stack.length-1]
-      max = Math.max(max, heights[i] * (i2 - i1 - 1))
+    while ((heights[i2] || 0) < heights[stack[stack.length - 1]]) {
+      const i = stack.pop();
+      const i1 = stack[stack.length - 1];
+      max = Math.max(max, heights[i] * (i2 - i1 - 1));
     }
-    stack.push(i2)
+    stack.push(i2);
   }
-  return max
-};
+  return max;
+}
 ```
 
 #### TWO
@@ -8893,11 +8558,11 @@ With `conLeft` and `conRight` we can know if the rectangle on `(row, col)` shrin
 ```javascript
 if matrix[row][col] == 1
   height(row, col) = height(row-1, col) + 1
-  
+
   // see how long this horizontal line can get
   conLeft(row, col) = conLeft(row, col-1)
   conRight(row, col) = conRight(row, col+1)
-  
+
   // width can only be shorter
   left(row, col) = max( left(row-1, col), conLeft(row, col) )
   right(row, col) = min( right(row-1, col), conRight(row, col) )
@@ -8919,62 +8584,62 @@ We only need to keep the last state. Use dynamic arrays to reduce space complexi
  * @param {character[][]} matrix
  * @return {number}
  */
-let maximalRectangle = function(matrix) {
-  const height = matrix.length
-  if (height <= 0) { return 0 }
-  const width = matrix[0].length
-  if (width <= 0) { return 0 }
+let maximalRectangle = function (matrix) {
+  const height = matrix.length;
+  if (height <= 0) {
+    return 0;
+  }
+  const width = matrix[0].length;
+  if (width <= 0) {
+    return 0;
+  }
 
-  const heights = new Array(width).fill(0)
-  const lefts = new Array(width).fill(0)
-  const rights = new Array(width).fill(width)
+  const heights = new Array(width).fill(0);
+  const lefts = new Array(width).fill(0);
+  const rights = new Array(width).fill(width);
 
-  let max = 0
+  let max = 0;
 
   for (let row = 0; row < height; row++) {
-    let conLeft = 0
-    let conRight = width - 1
+    let conLeft = 0;
+    let conRight = width - 1;
     for (let col = 0; col < width; col++) {
-      if (matrix[row][col] === '1') {
-        heights[col] = heights[col] + 1
-        lefts[col] = Math.max(lefts[col], conLeft)
+      if (matrix[row][col] === "1") {
+        heights[col] = heights[col] + 1;
+        lefts[col] = Math.max(lefts[col], conLeft);
       } else {
-        heights[col] = 0
-        lefts[col] = 0
-        conLeft = col + 1
+        heights[col] = 0;
+        lefts[col] = 0;
+        conLeft = col + 1;
       }
     }
 
     for (let col = width - 1; col >= 0; col--) {
-      if (matrix[row][col] === '1') {
-        rights[col] = Math.min(rights[col], conRight)
+      if (matrix[row][col] === "1") {
+        rights[col] = Math.min(rights[col], conRight);
       } else {
-        rights[col] = width
-        conRight = col - 1
+        rights[col] = width;
+        conRight = col - 1;
       }
     }
 
     for (let col = 0; col < width; col++) {
-      max = Math.max(max, (rights[col] - lefts[col] + 1) * heights[col])
+      max = Math.max(max, (rights[col] - lefts[col] + 1) * heights[col]);
     }
   }
 
-  return max
+  return max;
 };
 ```
-
-
-
 
 ---
 
 Difficulty: Medium
 Related Topics:
-  "Linked List": https://leetcode.com/tag/linked-list
-  "Two Pointers": https://leetcode.com/tag/two-pointers
+"Linked List": https://leetcode.com/tag/linked-list
+"Two Pointers": https://leetcode.com/tag/two-pointers
 
 ---
-
 
 [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#86-partition-listhttpsleetcodecomproblemspartition-listdescription)
 
@@ -8982,7 +8647,7 @@ Related Topics:
 
 ### Problem:
 
-Given a linked list and a value *x*, partition it such that all nodes less than *x* come before nodes greater than or equal to *x*.
+Given a linked list and a value _x_, partition it such that all nodes less than _x_ come before nodes greater than or equal to _x_.
 
 You should preserve the original relative order of the nodes in each of the two partitions.
 
@@ -9010,48 +8675,43 @@ Take the second part out as a new list and connect it back.
  * @param {number} x
  * @return {ListNode}
  */
-let partition = function(head, x) {
-  const prehead1 = { next: head }
-  let p1 = prehead1
-  let ptail1 = prehead1
+let partition = function (head, x) {
+  const prehead1 = { next: head };
+  let p1 = prehead1;
+  let ptail1 = prehead1;
 
-  const prehead2 = { next: null }
-  let p2 = prehead2
+  const prehead2 = { next: null };
+  let p2 = prehead2;
 
   while (p1) {
-    const next = p1.next
+    const next = p1.next;
     if (next && next.val >= x) {
-      p1.next = next.next
-      p2.next = next
-      p2 = next
+      p1.next = next.next;
+      p2.next = next;
+      p2 = next;
     } else {
-      ptail1 = p1
-      p1 = p1.next
+      ptail1 = p1;
+      p1 = p1.next;
     }
   }
 
-  p2.next = null
-  ptail1.next = prehead2.next
+  p2.next = null;
+  ptail1.next = prehead2.next;
 
-  return prehead1.next
+  return prehead1.next;
 };
 ```
-
-
-
-
 
 ---
 
 Difficulty: Easy
 Related Topics:
-  "Array": https://leetcode.com/tag/array
-  "Two Pointers": https://leetcode.com/tag/two-pointers
+"Array": https://leetcode.com/tag/array
+"Two Pointers": https://leetcode.com/tag/two-pointers
 Similar Questions:
-  "Merge Two Sorted Lists": https://leetcode.com/problems/merge-two-sorted-lists
+"Merge Two Sorted Lists": https://leetcode.com/problems/merge-two-sorted-lists
 
 ---
-
 
 [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#88-merge-sorted-arrayhttpsleetcodecomproblemsmerge-sorted-arraydescription)
 
@@ -9059,12 +8719,12 @@ Similar Questions:
 
 ### Problem:
 
-Given two sorted integer arrays *nums1* and *nums2*, merge *nums2* into *nums1* as one sorted array.
+Given two sorted integer arrays _nums1_ and _nums2_, merge _nums2_ into _nums1_ as one sorted array.
 
 **Note:**
 
-- The number of elements initialized in *nums1* and *nums2* are *m* and *n* respectively.
-- You may assume that *nums1* has enough space (size that is greater or equal to *m* + *n*) to hold additional elements from *nums2*.
+- The number of elements initialized in _nums1_ and _nums2_ are _m_ and _n_ respectively.
+- You may assume that _nums1_ has enough space (size that is greater or equal to _m_ + _n_) to hold additional elements from _nums2_.
 
 **Example:**
 
@@ -9088,28 +8748,23 @@ Loop backward and keep picking the larger one. `nums1` is guaranteed longer than
  * @param {number} n
  * @return {void} Do not return anything, modify nums1 in-place instead.
  */
-let merge = function(nums1, m, nums2, n) {
-  let len = (m--) + (n--)
+let merge = function (nums1, m, nums2, n) {
+  let len = m-- + n--;
   while (n >= 0) {
-    nums1[--len] = nums1[m] >= nums2[n] ? nums1[m--] : nums2[n--]
+    nums1[--len] = nums1[m] >= nums2[n] ? nums1[m--] : nums2[n--];
   }
 };
 ```
-
-
-
-
 
 ---
 
 Difficulty: Medium
 Related Topics:
-  "Backtracking": https://leetcode.com/tag/backtracking
+"Backtracking": https://leetcode.com/tag/backtracking
 Similar Questions:
-  "1-bit and 2-bit Characters": https://leetcode.com/problems/1-bit-and-2-bit-characters
+"1-bit and 2-bit Characters": https://leetcode.com/problems/1-bit-and-2-bit-characters
 
 ---
-
 
 [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#89-gray-codehttpsleetcodecomproblemsgray-codedescription)
 
@@ -9119,7 +8774,7 @@ Similar Questions:
 
 The gray code is a binary numeral system where two successive values differ in only one bit.
 
-Given a non-negative integer *n* representing the total number of bits in the code, print the sequence of gray code. A gray code sequence must begin with 0.
+Given a non-negative integer _n_ representing the total number of bits in the code, print the sequence of gray code. A gray code sequence must begin with 0.
 
 **Example 1:**
 
@@ -9153,7 +8808,6 @@ Explanation: We define the gray code sequence to begin with 0.
 
 ### Solution:
 
-
 ```
 0: [  0                                   ]
 1: [  0,   1                              ]
@@ -9170,32 +8824,28 @@ Use bitwise shift to speed up the calculation. It is unlikely to overflow since 
  * @param {number} n
  * @return {number[]}
  */
-let grayCode = function(n) {
-  const result = [0]
+let grayCode = function (n) {
+  const result = [0];
   for (let level = 0; level < n; level++) {
-    const prefix = 1 << level
+    const prefix = 1 << level;
     for (let i = result.length - 1; i >= 0; i--) {
-      result.push(result[i] + prefix)
+      result.push(result[i] + prefix);
     }
   }
-  return result
+  return result;
 };
 ```
-
-
-
 
 ---
 
 Difficulty: Medium
 Related Topics:
-  "Array": https://leetcode.com/tag/array
-  "Backtracking": https://leetcode.com/tag/backtracking
+"Array": https://leetcode.com/tag/array
+"Backtracking": https://leetcode.com/tag/backtracking
 Similar Questions:
-  "Subsets": https://leetcode.com/problems/subsets
+"Subsets": https://leetcode.com/problems/subsets
 
 ---
-
 
 [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#90-subsets-iihttpsleetcodecomproblemssubsets-iidescription)
 
@@ -9234,39 +8884,35 @@ See [78. Subsets](./078.%20Subsets.md). Except:
  * @param {number[]} nums
  * @return {number[][]}
  */
-let subsetsWithDup = function(nums) {
-  const result = []
-  _subsetsWithDup(nums.sort(), 0, [], result)
-  return result
+let subsetsWithDup = function (nums) {
+  const result = [];
+  _subsetsWithDup(nums.sort(), 0, [], result);
+  return result;
 };
 
 function _subsetsWithDup(nums, start, path, result) {
-  result.push(path.slice())
+  result.push(path.slice());
   for (let i = start; i < nums.length; i++) {
-    if(i > start && nums[i] === nums[i-1]) {
-      continue
+    if (i > start && nums[i] === nums[i - 1]) {
+      continue;
     }
-    path.push(nums[i])
-    _subsetsWithDup(nums, i + 1, path, result)
-    path.pop()
+    path.push(nums[i]);
+    _subsetsWithDup(nums, i + 1, path, result);
+    path.pop();
   }
 }
 ```
-
-
-
 
 ---
 
 Difficulty: Medium
 Related Topics:
-  "String": https://leetcode.com/tag/string
-  "Dynamic Programming": https://leetcode.com/tag/dynamic-programming
+"String": https://leetcode.com/tag/string
+"Dynamic Programming": https://leetcode.com/tag/dynamic-programming
 Similar Questions:
-  "Decode Ways II": https://leetcode.com/problems/decode-ways-ii
+"Decode Ways II": https://leetcode.com/problems/decode-ways-ii
 
 ---
-
 
 [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#91-decode-wayshttpsleetcodecomproblemsdecode-waysdescription)
 
@@ -9322,40 +8968,36 @@ Only need to store the last two states. Init `f(-1) = 1` for easy calculation.
  * @param {string} s
  * @return {number}
  */
-let numDecodings = function(s) {
-  let dp = s[0] > 0 ? 1 : 0
-  let dp_1 = dp
-  let dp_2 = 1
-  
+let numDecodings = function (s) {
+  let dp = s[0] > 0 ? 1 : 0;
+  let dp_1 = dp;
+  let dp_2 = 1;
+
   for (let i = 1; i < s.length; i++) {
-    dp = 0
-    if (s[i] !== '0') {
-      dp += dp_1
+    dp = 0;
+    if (s[i] !== "0") {
+      dp += dp_1;
     }
-    if (s[i-1] !== '0' && s[i-1] + s[i] <= 26) {
-      dp += dp_2
+    if (s[i - 1] !== "0" && s[i - 1] + s[i] <= 26) {
+      dp += dp_2;
     }
-    dp_2 = dp_1
-    dp_1 = dp
+    dp_2 = dp_1;
+    dp_1 = dp;
   }
-  
-  return dp
+
+  return dp;
 };
 ```
-
-
-
 
 ---
 
 Difficulty: Medium
 Related Topics:
-  "Linked List": https://leetcode.com/tag/linked-list
+"Linked List": https://leetcode.com/tag/linked-list
 Similar Questions:
-  "Reverse Linked List": https://leetcode.com/problems/reverse-linked-list
+"Reverse Linked List": https://leetcode.com/problems/reverse-linked-list
 
 ---
-
 
 [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#92-reverse-linked-list-iihttpsleetcodecomproblemsreverse-linked-list-iidescription)
 
@@ -9363,9 +9005,9 @@ Similar Questions:
 
 ### Problem:
 
-Reverse a linked list from position *m* to *n*. Do it in one-pass.
+Reverse a linked list from position _m_ to _n_. Do it in one-pass.
 
-**Note:**1 ≤ *m* ≤ *n* ≤ length of list.
+**Note:**1 ≤ _m_ ≤ _n_ ≤ length of list.
 
 **Example:**
 
@@ -9392,50 +9034,47 @@ Break the list into 3 parts.
  * @param {number} n
  * @return {ListNode}
  */
-let reverseBetween = function(head, m, n) {
-  if (m === n) { return head }
+let reverseBetween = function (head, m, n) {
+  if (m === n) {
+    return head;
+  }
 
-  const prehead = { next: head }
-  n = n - m
+  const prehead = { next: head };
+  n = n - m;
 
-  let l1tail = prehead
+  let l1tail = prehead;
   while (--m > 0) {
-    l1tail = l1tail.next
+    l1tail = l1tail.next;
   }
 
-  let l2prehead = l1tail
-  let l2head = l2prehead.next
-  let l2tail = l2head
+  let l2prehead = l1tail;
+  let l2head = l2prehead.next;
+  let l2tail = l2head;
   while (n-- > 0) {
-    const next = l2head.next
-    l2head.next = l2prehead
-    l2prehead = l2head
-    l2head = next
+    const next = l2head.next;
+    l2head.next = l2prehead;
+    l2prehead = l2head;
+    l2head = next;
   }
 
-  l2tail.next = l2head.next // l3head
-  l2head.next = l2prehead
-  l1tail.next = l2head
+  l2tail.next = l2head.next; // l3head
+  l2head.next = l2prehead;
+  l1tail.next = l2head;
 
-  return prehead.next
+  return prehead.next;
 };
 ```
-
-
-
-
 
 ---
 
 Difficulty: Medium
 Related Topics:
-  "String": https://leetcode.com/tag/string
-  "Backtracking": https://leetcode.com/tag/backtracking
+"String": https://leetcode.com/tag/string
+"Backtracking": https://leetcode.com/tag/backtracking
 Similar Questions:
-  "IP to CIDR": https://leetcode.com/problems/ip-to-cidr
+"IP to CIDR": https://leetcode.com/problems/ip-to-cidr
 
 ---
-
 
 [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#93-restore-ip-addresseshttpsleetcodecomproblemsrestore-ip-addressesdescription)
 
@@ -9461,54 +9100,49 @@ Backtracking. Note that leading `'0'` is not allowed except just `'0'`.
  * @param {string} s
  * @return {string[]}
  */
-let restoreIpAddresses = function(s, i = 0, path = [], result = []) {
+let restoreIpAddresses = function (s, i = 0, path = [], result = []) {
   if (i === s.length) {
     if (path.length === 4) {
-      result.push(path.join('.'))
+      result.push(path.join("."));
     }
-    return result
+    return result;
   }
 
-  const digit = s.charCodeAt(i) - 48
+  const digit = s.charCodeAt(i) - 48;
 
   if (i === 0) {
-    path[0] = digit
-    restoreIpAddresses(s, i + 1, path, result)
-    path[0] = 0
-    return result
+    path[0] = digit;
+    restoreIpAddresses(s, i + 1, path, result);
+    path[0] = 0;
+    return result;
   }
 
-  const sum = path[path.length - 1] * 10 + digit
+  const sum = path[path.length - 1] * 10 + digit;
 
   if (digit < sum && sum <= 255) {
-    path[path.length - 1] = sum
-    restoreIpAddresses(s, i + 1, path, result)
-    path[path.length - 1] = (sum - digit) / 10
+    path[path.length - 1] = sum;
+    restoreIpAddresses(s, i + 1, path, result);
+    path[path.length - 1] = (sum - digit) / 10;
   }
 
   if (path.length < 4) {
-    path.push(digit)
-    restoreIpAddresses(s, i + 1, path, result)
-    path.pop()
+    path.push(digit);
+    restoreIpAddresses(s, i + 1, path, result);
+    path.pop();
   }
 
-  return result
+  return result;
 };
 ```
-
-
-
-
 
 ---
 
 Difficulty: Hard
 Related Topics:
-  "String": https://leetcode.com/tag/string
-  "Dynamic Programming": https://leetcode.com/tag/dynamic-programming
+"String": https://leetcode.com/tag/string
+"Dynamic Programming": https://leetcode.com/tag/dynamic-programming
 
 ---
-
 
 [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#97-interleaving-stringhttpsleetcodecomproblemsinterleaving-stringdescription)
 
@@ -9516,7 +9150,7 @@ Related Topics:
 
 ### Problem:
 
-Given *s1*, *s2*, *s3*, find whether *s3* is formed by the interleaving of *s1* and *s2*.
+Given _s1_, _s2_, _s3_, find whether _s3_ is formed by the interleaving of _s1_ and _s2_.
 
 **Example 1:**
 
@@ -9550,37 +9184,40 @@ Dynamic array can be used.
  * @param {string} s3
  * @return {boolean}
  */
-let isInterleave = function(s1, s2, s3) {
-  const len1 = s1.length
-  const len2 = s2.length
-  const len3 = s3.length
-  if (len1 + len2 !== len3) { return false }
-  if (len1 <= 0) { return s2 === s3 }
-  if (len2 <= 0) { return s1 === s3 }
+let isInterleave = function (s1, s2, s3) {
+  const len1 = s1.length;
+  const len2 = s2.length;
+  const len3 = s3.length;
+  if (len1 + len2 !== len3) {
+    return false;
+  }
+  if (len1 <= 0) {
+    return s2 === s3;
+  }
+  if (len2 <= 0) {
+    return s1 === s3;
+  }
 
-  const dp = []
+  const dp = [];
   for (let i = 0; i <= len1; i++) {
     for (let j = 0; j <= len2; j++) {
-      dp[j] = (i <= 0 || dp[j]) && s1[i-1] === s3[i+j-1] ||
-              (j <= 0 || dp[j-1]) && s2[j-1] === s3[i+j-1]
+      dp[j] =
+        ((i <= 0 || dp[j]) && s1[i - 1] === s3[i + j - 1]) ||
+        ((j <= 0 || dp[j - 1]) && s2[j - 1] === s3[i + j - 1]);
     }
   }
-  return dp[len2]
+  return dp[len2];
 };
 ```
-
-
-
 
 ---
 
 Difficulty: Easy
 Related Topics:
-  "Tree": https://leetcode.com/tag/tree
-  "Depth-first Search": https://leetcode.com/tag/depth-first-search
+"Tree": https://leetcode.com/tag/tree
+"Depth-first Search": https://leetcode.com/tag/depth-first-search
 
 ---
-
 
 [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#100-same-treehttpsleetcodecomproblemssame-treedescription)
 
@@ -9645,26 +9282,27 @@ The code should be self-evident.
  * @param {TreeNode} q
  * @return {boolean}
  */
-let isSameTree = function(p, q) {
-  return p === null && q === null ||
-    p !== null && q !== null && p.val === q.val && isSameTree(p.left, q.left) && isSameTree(p.right, q.right)
+let isSameTree = function (p, q) {
+  return (
+    (p === null && q === null) ||
+    (p !== null &&
+      q !== null &&
+      p.val === q.val &&
+      isSameTree(p.left, q.left) &&
+      isSameTree(p.right, q.right))
+  );
 };
 ```
-
-
-
-
 
 ---
 
 Difficulty: Easy
 Related Topics:
-  "Tree": https://leetcode.com/tag/tree
-  "Depth-first Search": https://leetcode.com/tag/depth-first-search
-  "Breadth-first Search": https://leetcode.com/tag/breadth-first-search
+"Tree": https://leetcode.com/tag/tree
+"Depth-first Search": https://leetcode.com/tag/depth-first-search
+"Breadth-first Search": https://leetcode.com/tag/breadth-first-search
 
 ---
-
 
 [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#101-symmetric-treehttpsleetcodecomproblemssymmetric-treedescription)
 
@@ -9684,7 +9322,7 @@ For example, this binary tree `[1,2,2,3,4,4,3]` is symmetric:
 3  4 4  3
 ```
 
-But the following `[1,2,2,null,3,null,3]`  is not:
+But the following `[1,2,2,null,3,null,3]` is not:
 
 ```
 1
@@ -9717,8 +9355,8 @@ So just like [100. Same Tree](./100.%20Same%20Tree.md). Except one is pre-order 
  * @param {TreeNode} root
  * @return {boolean}
  */
-let isSymmetric = function(root) {
-  return root === null || isSymmetricTree(root.left, root.right)
+let isSymmetric = function (root) {
+  return root === null || isSymmetricTree(root.left, root.right);
 };
 
 /**
@@ -9726,10 +9364,16 @@ let isSymmetric = function(root) {
  * @param {TreeNode} q
  * @return {boolean}
  */
-function isSymmetricTree (p, q) {
-  return p === null && q === null ||
-    p !== null && q !== null && p.val === q.val && isSymmetricTree(p.left, q.right) && isSymmetricTree(p.right, q.left)
-};
+function isSymmetricTree(p, q) {
+  return (
+    (p === null && q === null) ||
+    (p !== null &&
+      q !== null &&
+      p.val === q.val &&
+      isSymmetricTree(p.left, q.right) &&
+      isSymmetricTree(p.right, q.left))
+  );
+}
 ```
 
 #### TWO
@@ -9748,54 +9392,55 @@ Level order traversal. Check symmetry before entering the next level.
  * @param {TreeNode} root
  * @return {boolean}
  */
-let isSymmetric = function(root) {
-  if (root === null) { return true }
+let isSymmetric = function (root) {
+  if (root === null) {
+    return true;
+  }
 
-  const queue = [NaN, root]
+  const queue = [NaN, root];
 
   while (queue.length > 1) {
-    const node = queue.shift()
+    const node = queue.shift();
     if (node !== node) {
-      for (let i = 0, j = queue.length-1; i <= j; i++, j--) {
-        if (queue[i] === null && queue[j] !== null ||
-            queue[i] !== null && queue[j] === null ||
-            queue[i] !== null && queue[j] !== null && queue[i].val !== queue[j].val
-           ) {
-          return false
+      for (let i = 0, j = queue.length - 1; i <= j; i++, j--) {
+        if (
+          (queue[i] === null && queue[j] !== null) ||
+          (queue[i] !== null && queue[j] === null) ||
+          (queue[i] !== null &&
+            queue[j] !== null &&
+            queue[i].val !== queue[j].val)
+        ) {
+          return false;
         }
       }
-      queue.push(NaN)
+      queue.push(NaN);
     } else {
       if (node !== null) {
-        queue.push(node.left)
-        queue.push(node.right)
+        queue.push(node.left);
+        queue.push(node.right);
       }
     }
   }
 
-  return true
+  return true;
 };
 ```
-
-
-
 
 ---
 
 Difficulty: Medium
 Related Topics:
-  "Tree": https://leetcode.com/tag/tree
-  "Breadth-first Search": https://leetcode.com/tag/breadth-first-search
+"Tree": https://leetcode.com/tag/tree
+"Breadth-first Search": https://leetcode.com/tag/breadth-first-search
 Similar Questions:
-  "Binary Tree Zigzag Level Order Traversal": https://leetcode.com/problems/binary-tree-zigzag-level-order-traversal
-  "Binary Tree Level Order Traversal II": https://leetcode.com/problems/binary-tree-level-order-traversal-ii
-  "Minimum Depth of Binary Tree": https://leetcode.com/problems/minimum-depth-of-binary-tree
-  "Binary Tree Vertical Order Traversal": https://leetcode.com/problems/binary-tree-vertical-order-traversal
-  "Average of Levels in Binary Tree": https://leetcode.com/problems/average-of-levels-in-binary-tree
-  "N-ary Tree Level Order Traversal": https://leetcode.com/problems/n-ary-tree-level-order-traversal
+"Binary Tree Zigzag Level Order Traversal": https://leetcode.com/problems/binary-tree-zigzag-level-order-traversal
+"Binary Tree Level Order Traversal II": https://leetcode.com/problems/binary-tree-level-order-traversal-ii
+"Minimum Depth of Binary Tree": https://leetcode.com/problems/minimum-depth-of-binary-tree
+"Binary Tree Vertical Order Traversal": https://leetcode.com/problems/binary-tree-vertical-order-traversal
+"Average of Levels in Binary Tree": https://leetcode.com/problems/average-of-levels-in-binary-tree
+"N-ary Tree Level Order Traversal": https://leetcode.com/problems/n-ary-tree-level-order-traversal
 
 ---
-
 
 [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#102-binary-tree-level-order-traversalhttpsleetcodecomproblemsbinary-tree-level-order-traversaldescription)
 
@@ -9842,42 +9487,43 @@ The code should be self-evident.
  * @param {TreeNode} root
  * @return {number[][]}
  */
-let levelOrder = function(root) {
-  if (!root) { return [] }
+let levelOrder = function (root) {
+  if (!root) {
+    return [];
+  }
 
-  const result = []
-  const queue = [NaN, root]
+  const result = [];
+  const queue = [NaN, root];
   while (queue.length > 1) {
-    const node = queue.shift()
+    const node = queue.shift();
     if (node !== node) {
-      result.push(queue.map(n => n.val))
-      queue.push(NaN)
+      result.push(queue.map((n) => n.val));
+      queue.push(NaN);
     } else {
-      if (node.left) { queue.push(node.left) }
-      if (node.right) { queue.push(node.right) }
+      if (node.left) {
+        queue.push(node.left);
+      }
+      if (node.right) {
+        queue.push(node.right);
+      }
     }
   }
 
-  return result
+  return result;
 };
 ```
-
-
-
-
 
 ---
 
 Difficulty: Medium
 Related Topics:
-  "Stack": https://leetcode.com/tag/stack
-  "Tree": https://leetcode.com/tag/tree
-  "Breadth-first Search": https://leetcode.com/tag/breadth-first-search
+"Stack": https://leetcode.com/tag/stack
+"Tree": https://leetcode.com/tag/tree
+"Breadth-first Search": https://leetcode.com/tag/breadth-first-search
 Similar Questions:
-  "Binary Tree Level Order Traversal": https://leetcode.com/problems/binary-tree-level-order-traversal
+"Binary Tree Level Order Traversal": https://leetcode.com/problems/binary-tree-level-order-traversal
 
 ---
-
 
 [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#103-binary-tree-zigzag-level-order-traversalhttpsleetcodecomproblemsbinary-tree-zigzag-level-order-traversaldescription)
 
@@ -9924,48 +9570,49 @@ Reverse the level when pushing to the reuslt.
  * @param {TreeNode} root
  * @return {number[][]}
  */
-let zigzagLevelOrder = function(root) {
-  if (!root) { return [] }
+let zigzagLevelOrder = function (root) {
+  if (!root) {
+    return [];
+  }
 
-  const result = []
-  const queue = [NaN, root]
-  let zipzag = false
+  const result = [];
+  const queue = [NaN, root];
+  let zipzag = false;
   while (queue.length > 1) {
-    const node = queue.shift()
+    const node = queue.shift();
     if (node !== node) {
-      if (zipzag = !zipzag) {
-        result.push(queue.map(n => n.val))
+      if ((zipzag = !zipzag)) {
+        result.push(queue.map((n) => n.val));
       } else {
-        result.push(queue.map(n => n.val).reverse())
+        result.push(queue.map((n) => n.val).reverse());
       }
-      queue.push(NaN)
+      queue.push(NaN);
     } else {
-      if (node.left) { queue.push(node.left) }
-      if (node.right) { queue.push(node.right) }
+      if (node.left) {
+        queue.push(node.left);
+      }
+      if (node.right) {
+        queue.push(node.right);
+      }
     }
   }
 
-  return result
+  return result;
 };
 ```
-
-
-
-
 
 ---
 
 Difficulty: Easy
 Related Topics:
-  "Tree": https://leetcode.com/tag/tree
-  "Depth-first Search": https://leetcode.com/tag/depth-first-search
+"Tree": https://leetcode.com/tag/tree
+"Depth-first Search": https://leetcode.com/tag/depth-first-search
 Similar Questions:
-  "Balanced Binary Tree": https://leetcode.com/problems/balanced-binary-tree
-  "Minimum Depth of Binary Tree": https://leetcode.com/problems/minimum-depth-of-binary-tree
-  "Maximum Depth of N-ary Tree": https://leetcode.com/problems/maximum-depth-of-n-ary-tree
+"Balanced Binary Tree": https://leetcode.com/problems/balanced-binary-tree
+"Minimum Depth of Binary Tree": https://leetcode.com/problems/minimum-depth-of-binary-tree
+"Maximum Depth of N-ary Tree": https://leetcode.com/problems/maximum-depth-of-n-ary-tree
 
 ---
-
 
 [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#104-maximum-depth-of-binary-treehttpsleetcodecomproblemsmaximum-depth-of-binary-treedescription)
 
@@ -10009,29 +9656,24 @@ The code should be self-evident.
  * @param {TreeNode} root
  * @return {number}
  */
-let maxDepth = function(root) {
+let maxDepth = function (root) {
   return root === null
     ? 0
-    : Math.max(maxDepth(root.left), maxDepth(root.right)) + 1
+    : Math.max(maxDepth(root.left), maxDepth(root.right)) + 1;
 };
 ```
-
-
-
-
 
 ---
 
 Difficulty: Medium
 Related Topics:
-  "Array": https://leetcode.com/tag/array
-  "Tree": https://leetcode.com/tag/tree
-  "Depth-first Search": https://leetcode.com/tag/depth-first-search
+"Array": https://leetcode.com/tag/array
+"Tree": https://leetcode.com/tag/tree
+"Depth-first Search": https://leetcode.com/tag/depth-first-search
 Similar Questions:
-  "Construct Binary Tree from Inorder and Postorder Traversal": https://leetcode.com/problems/construct-binary-tree-from-inorder-and-postorder-traversal
+"Construct Binary Tree from Inorder and Postorder Traversal": https://leetcode.com/problems/construct-binary-tree-from-inorder-and-postorder-traversal
 
 ---
-
 
 [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#105-construct-binary-tree-from-preorder-and-inorder-traversalhttpsleetcodecomproblemsconstruct-binary-tree-from-preorder-and-inorder-traversaldescription)
 
@@ -10084,42 +9726,52 @@ Repeat the process on subtrees.
  * @param {number[]} inorder
  * @return {TreeNode}
  */
-let buildTree = function(preorder, inorder) {
-  return _buildTree(preorder, inorder, 0, preorder.length, 0, inorder.length)
+let buildTree = function (preorder, inorder) {
+  return _buildTree(preorder, inorder, 0, preorder.length, 0, inorder.length);
 };
 
-function _buildTree (preorder, inorder, pStart, pEnd, iStart, iEnd) {
+function _buildTree(preorder, inorder, pStart, pEnd, iStart, iEnd) {
   if (pStart >= pEnd || iStart >= iEnd) {
-    return null
+    return null;
   }
-  const val = preorder[pStart]
-  const node = new TreeNode(val)
+  const val = preorder[pStart];
+  const node = new TreeNode(val);
   for (let i = iStart; i < iEnd; i++) {
     if (val === inorder[i]) {
-      node.left = _buildTree(preorder, inorder, pStart + 1, i - iStart + (pStart + 1), iStart, i)
-      node.right = _buildTree(preorder, inorder, (i + 1) - iEnd + pEnd, pEnd, i + 1, iEnd)
-      break
+      node.left = _buildTree(
+        preorder,
+        inorder,
+        pStart + 1,
+        i - iStart + (pStart + 1),
+        iStart,
+        i
+      );
+      node.right = _buildTree(
+        preorder,
+        inorder,
+        i + 1 - iEnd + pEnd,
+        pEnd,
+        i + 1,
+        iEnd
+      );
+      break;
     }
   }
-  return node
+  return node;
 }
 ```
-
-
-
 
 ---
 
 Difficulty: Medium
 Related Topics:
-  "Array": https://leetcode.com/tag/array
-  "Tree": https://leetcode.com/tag/tree
-  "Depth-first Search": https://leetcode.com/tag/depth-first-search
+"Array": https://leetcode.com/tag/array
+"Tree": https://leetcode.com/tag/tree
+"Depth-first Search": https://leetcode.com/tag/depth-first-search
 Similar Questions:
-  "Construct Binary Tree from Preorder and Inorder Traversal": https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal
+"Construct Binary Tree from Preorder and Inorder Traversal": https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal
 
 ---
-
 
 [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#106-construct-binary-tree-from-inorder-and-postorder-traversalhttpsleetcodecomproblemsconstruct-binary-tree-from-inorder-and-postorder-traversaldescription)
 
@@ -10172,42 +9824,52 @@ Repeat the process on subtrees.
  * @param {number[]} postorder
  * @return {TreeNode}
  */
-let buildTree = function(inorder, postorder) {
-  return _buildTree(postorder, inorder, 0, postorder.length, 0, inorder.length)
+let buildTree = function (inorder, postorder) {
+  return _buildTree(postorder, inorder, 0, postorder.length, 0, inorder.length);
 };
 
-function _buildTree (postorder, inorder, pStart, pEnd, iStart, iEnd) {
+function _buildTree(postorder, inorder, pStart, pEnd, iStart, iEnd) {
   if (pStart >= pEnd || iStart >= iEnd) {
-    return null
+    return null;
   }
-  const val = postorder[pEnd - 1]
-  const node = new TreeNode(val)
+  const val = postorder[pEnd - 1];
+  const node = new TreeNode(val);
   for (let i = iStart; i < iEnd; i++) {
     if (val === inorder[i]) {
-      node.left = _buildTree(postorder, inorder, pStart, i - iStart + pStart, iStart, i)
-      node.right = _buildTree(postorder, inorder, (i + 1) - iEnd + (pEnd - 1), pEnd - 1, i + 1, iEnd)
-      break
+      node.left = _buildTree(
+        postorder,
+        inorder,
+        pStart,
+        i - iStart + pStart,
+        iStart,
+        i
+      );
+      node.right = _buildTree(
+        postorder,
+        inorder,
+        i + 1 - iEnd + (pEnd - 1),
+        pEnd - 1,
+        i + 1,
+        iEnd
+      );
+      break;
     }
   }
-  return node
+  return node;
 }
 ```
-
-
-
 
 ---
 
 Difficulty: Easy
 Related Topics:
-  "Tree": https://leetcode.com/tag/tree
-  "Breadth-first Search": https://leetcode.com/tag/breadth-first-search
+"Tree": https://leetcode.com/tag/tree
+"Breadth-first Search": https://leetcode.com/tag/breadth-first-search
 Similar Questions:
-  "Binary Tree Level Order Traversal": https://leetcode.com/problems/binary-tree-level-order-traversal
-  "Average of Levels in Binary Tree": https://leetcode.com/problems/average-of-levels-in-binary-tree
+"Binary Tree Level Order Traversal": https://leetcode.com/problems/binary-tree-level-order-traversal
+"Average of Levels in Binary Tree": https://leetcode.com/problems/average-of-levels-in-binary-tree
 
 ---
-
 
 [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#107-binary-tree-level-order-traversal-iihttpsleetcodecomproblemsbinary-tree-level-order-traversal-iidescription)
 
@@ -10254,42 +9916,42 @@ See [102. Binary Tree Level Order Traversal](./102.%20Binary%20Tree%20Level%20Or
  * @param {TreeNode} root
  * @return {number[][]}
  */
-let levelOrderBottom = function(root) {
-  if (!root) { return [] }
+let levelOrderBottom = function (root) {
+  if (!root) {
+    return [];
+  }
 
-  const result = []
-  const queue = [NaN, root]
+  const result = [];
+  const queue = [NaN, root];
   while (queue.length > 1) {
-    const node = queue.shift()
+    const node = queue.shift();
     if (node !== node) {
-      result.unshift(queue.map(n => n.val))
-      queue.push(NaN)
+      result.unshift(queue.map((n) => n.val));
+      queue.push(NaN);
     } else {
-      if (node.left) { queue.push(node.left) }
-      if (node.right) { queue.push(node.right) }
+      if (node.left) {
+        queue.push(node.left);
+      }
+      if (node.right) {
+        queue.push(node.right);
+      }
     }
   }
 
-  return result
+  return result;
 };
 ```
-
-
-
-
-
 
 ---
 
 Difficulty: Easy
 Related Topics:
-  "Tree": https://leetcode.com/tag/tree
-  "Depth-first Search": https://leetcode.com/tag/depth-first-search
+"Tree": https://leetcode.com/tag/tree
+"Depth-first Search": https://leetcode.com/tag/depth-first-search
 Similar Questions:
-  "Maximum Depth of Binary Tree": https://leetcode.com/problems/maximum-depth-of-binary-tree
+"Maximum Depth of Binary Tree": https://leetcode.com/problems/maximum-depth-of-binary-tree
 
 ---
-
 
 [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#110-balanced-binary-treehttpsleetcodecomproblemsbalanced-binary-treedescription)
 
@@ -10301,7 +9963,7 @@ Given a binary tree, determine if it is height-balanced.
 
 For this problem, a height-balanced binary tree is defined as:
 
-a binary tree in which the depth of the two subtrees of *every* node never differ by more than 1.
+a binary tree in which the depth of the two subtrees of _every_ node never differ by more than 1.
 
 **Example 1:**
 
@@ -10349,37 +10011,40 @@ Get the depth of subtrees and compare. Prune the DFS tree by returning `-1`.
  * @param {TreeNode} root
  * @return {boolean}
  */
-let isBalanced = function(root) {
-  return getDepth(root) >= 0
+let isBalanced = function (root) {
+  return getDepth(root) >= 0;
 };
 
-function getDepth (root) {
-  if (!root) { return 0 }
-  const leftDepth = getDepth(root.left)
-  if (leftDepth < 0) { return -1 }
-  const rightDepth = getDepth(root.right)
-  if (rightDepth < 0) { return -1 }
-  return Math.abs(leftDepth - rightDepth) <= 1 ? Math.max(leftDepth, rightDepth) + 1 : -1
+function getDepth(root) {
+  if (!root) {
+    return 0;
+  }
+  const leftDepth = getDepth(root.left);
+  if (leftDepth < 0) {
+    return -1;
+  }
+  const rightDepth = getDepth(root.right);
+  if (rightDepth < 0) {
+    return -1;
+  }
+  return Math.abs(leftDepth - rightDepth) <= 1
+    ? Math.max(leftDepth, rightDepth) + 1
+    : -1;
 }
 ```
-
-
-
-
 
 ---
 
 Difficulty: Easy
 Related Topics:
-  "Tree": https://leetcode.com/tag/tree
-  "Depth-first Search": https://leetcode.com/tag/depth-first-search
-  "Breadth-first Search": https://leetcode.com/tag/breadth-first-search
+"Tree": https://leetcode.com/tag/tree
+"Depth-first Search": https://leetcode.com/tag/depth-first-search
+"Breadth-first Search": https://leetcode.com/tag/breadth-first-search
 Similar Questions:
-  "Binary Tree Level Order Traversal": https://leetcode.com/problems/binary-tree-level-order-traversal
-  "Maximum Depth of Binary Tree": https://leetcode.com/problems/maximum-depth-of-binary-tree
+"Binary Tree Level Order Traversal": https://leetcode.com/problems/binary-tree-level-order-traversal
+"Maximum Depth of Binary Tree": https://leetcode.com/problems/maximum-depth-of-binary-tree
 
 ---
-
 
 [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#111-minimum-depth-of-binary-treehttpsleetcodecomproblemsminimum-depth-of-binary-treedescription)
 
@@ -10423,37 +10088,34 @@ Ignore `null` children.
  * @param {TreeNode} root
  * @return {number}
  */
-let minDepth = function(root) {
-  if (!root) { return 0 }
+let minDepth = function (root) {
+  if (!root) {
+    return 0;
+  }
   if (root.left !== null && root.right !== null) {
-    return Math.min(minDepth(root.left), minDepth(root.right)) + 1
+    return Math.min(minDepth(root.left), minDepth(root.right)) + 1;
   } else if (root.left !== null) {
-    return minDepth(root.left) + 1
+    return minDepth(root.left) + 1;
   } else {
-    return minDepth(root.right) + 1
+    return minDepth(root.right) + 1;
   }
 };
 ```
-
-
-
-
 
 ---
 
 Difficulty: Easy
 Related Topics:
-  "Tree": https://leetcode.com/tag/tree
-  "Depth-first Search": https://leetcode.com/tag/depth-first-search
+"Tree": https://leetcode.com/tag/tree
+"Depth-first Search": https://leetcode.com/tag/depth-first-search
 Similar Questions:
-  "Path Sum II": https://leetcode.com/problems/path-sum-ii
-  "Binary Tree Maximum Path Sum": https://leetcode.com/problems/binary-tree-maximum-path-sum
-  "Sum Root to Leaf Numbers": https://leetcode.com/problems/sum-root-to-leaf-numbers
-  "Path Sum III": https://leetcode.com/problems/path-sum-iii
-  "Path Sum IV": https://leetcode.com/problems/path-sum-iv
+"Path Sum II": https://leetcode.com/problems/path-sum-ii
+"Binary Tree Maximum Path Sum": https://leetcode.com/problems/binary-tree-maximum-path-sum
+"Sum Root to Leaf Numbers": https://leetcode.com/problems/sum-root-to-leaf-numbers
+"Path Sum III": https://leetcode.com/problems/path-sum-iii
+"Path Sum IV": https://leetcode.com/problems/path-sum-iv
 
 ---
-
 
 [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#112-path-sumhttpsleetcodecomproblemspath-sumdescription)
 
@@ -10498,30 +10160,33 @@ Note that node value could be negative so pruning can not be performed.
  * @param {number} sum
  * @return {boolean}
  */
-let hasPathSum = function(root, sum) {
-  if (!root) { return false }
-  if (root.left === null && root.right === null) { return root.val === sum }
-  return hasPathSum(root.left, sum - root.val) || hasPathSum(root.right, sum - root.val)
+let hasPathSum = function (root, sum) {
+  if (!root) {
+    return false;
+  }
+  if (root.left === null && root.right === null) {
+    return root.val === sum;
+  }
+  return (
+    hasPathSum(root.left, sum - root.val) ||
+    hasPathSum(root.right, sum - root.val)
+  );
 };
 ```
-
-
-
 
 ---
 
 Difficulty: Medium
 Related Topics:
-  "Tree": https://leetcode.com/tag/tree
-  "Depth-first Search": https://leetcode.com/tag/depth-first-search
+"Tree": https://leetcode.com/tag/tree
+"Depth-first Search": https://leetcode.com/tag/depth-first-search
 Similar Questions:
-  "Path Sum": https://leetcode.com/problems/path-sum
-  "Binary Tree Paths": https://leetcode.com/problems/binary-tree-paths
-  "Path Sum III": https://leetcode.com/problems/path-sum-iii
-  "Path Sum IV": https://leetcode.com/problems/path-sum-iv
+"Path Sum": https://leetcode.com/problems/path-sum
+"Binary Tree Paths": https://leetcode.com/problems/binary-tree-paths
+"Path Sum III": https://leetcode.com/problems/path-sum-iii
+"Path Sum IV": https://leetcode.com/problems/path-sum-iv
 
 ---
-
 
 [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#113-path-sum-iihttpsleetcodecomproblemspath-sum-iidescription)
 
@@ -10573,40 +10238,37 @@ Simple backtracking.
  * @param {number} sum
  * @return {number[][]}
  */
-let pathSum = function(root, sum, path = [], result = []) {
-  if (!root) { return result }
+let pathSum = function (root, sum, path = [], result = []) {
+  if (!root) {
+    return result;
+  }
 
   if (root.left === null && root.right === null) {
     if (root.val === sum) {
-      result.push([...path, root.val])
+      result.push([...path, root.val]);
     }
-    return result
+    return result;
   }
 
-  path.push(root.val)
-  pathSum(root.left, sum - root.val, path, result)
-  pathSum(root.right, sum - root.val, path, result)
-  path.pop()
+  path.push(root.val);
+  pathSum(root.left, sum - root.val, path, result);
+  pathSum(root.right, sum - root.val, path, result);
+  path.pop();
 
-  return result
+  return result;
 };
 ```
-
-
-
-
 
 ---
 
 Difficulty: Medium
 Related Topics:
-  "Tree": https://leetcode.com/tag/tree
-  "Depth-first Search": https://leetcode.com/tag/depth-first-search
+"Tree": https://leetcode.com/tag/tree
+"Depth-first Search": https://leetcode.com/tag/depth-first-search
 Similar Questions:
-  "Flatten a Multilevel Doubly Linked List": https://leetcode.com/problems/flatten-a-multilevel-doubly-linked-list
+"Flatten a Multilevel Doubly Linked List": https://leetcode.com/problems/flatten-a-multilevel-doubly-linked-list
 
 ---
-
 
 [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#114-flatten-binary-tree-to-linked-listhttpsleetcodecomproblemsflatten-binary-tree-to-linked-listdescription)
 
@@ -10658,26 +10320,28 @@ Return the leaf node of a flattened subtree for concatenation.
  * @param {TreeNode} root
  * @return {void} Do not return anything, modify root in-place instead.
  */
-let flatten = function(root) {
-  _flatten(root)
+let flatten = function (root) {
+  _flatten(root);
 };
 
 /**
  * @param {TreeNode} root
  * @return {TreeNode} leaf node of a flattened subtree
  */
-function _flatten (root) {
-  if (!root) { return null }
-  const leftLeaf = _flatten(root.left)
-  const rightLeaf = _flatten(root.right)
-  if (leftLeaf !== null) {
-    leftLeaf.right = root.right
-    root.right = root.left
-  } else if (rightLeaf === null) {
-    return root
+function _flatten(root) {
+  if (!root) {
+    return null;
   }
-  
-  root.left = null
-  return rightLeaf || leftLeaf
+  const leftLeaf = _flatten(root.left);
+  const rightLeaf = _flatten(root.right);
+  if (leftLeaf !== null) {
+    leftLeaf.right = root.right;
+    root.right = root.left;
+  } else if (rightLeaf === null) {
+    return root;
+  }
+
+  root.left = null;
+  return rightLeaf || leftLeaf;
 }
 ```

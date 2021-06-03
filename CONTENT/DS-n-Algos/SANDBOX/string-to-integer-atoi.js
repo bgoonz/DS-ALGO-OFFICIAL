@@ -5,7 +5,7 @@
  * @param {string} str
  * @return {number}
  */
-var myAtoi = function(str) {
+var myAtoi = function (str) {
   str = str.trim();
 
   var pattern = /^(\-|\+)?[0-9]+/;
@@ -13,10 +13,8 @@ var myAtoi = function(str) {
 
   if (tmp) {
     var num = Number(tmp[0]);
-    if (num < -2147483648)
-      return -2147483648;
-    if (num > 2147483647)
-      return 2147483647;
+    if (num < -2147483648) return -2147483648;
+    if (num > 2147483647) return 2147483647;
     return num;
   }
 

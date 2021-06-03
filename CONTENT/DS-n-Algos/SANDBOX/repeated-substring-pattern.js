@@ -7,12 +7,12 @@
  * @param {string} str
  * @return {boolean}
  */
-var repeatedSubstringPattern = function(str) {
+var repeatedSubstringPattern = function (str) {
   let len = str.length;
 
-  loop:
-  for (let i = 2; i <= len; i++) {  // divided into i parts
-    if (len % i ) continue;
+  loop: for (let i = 2; i <= len; i++) {
+    // divided into i parts
+    if (len % i) continue;
 
     let partLen = len / i;
     let base = str.substr(0, partLen);

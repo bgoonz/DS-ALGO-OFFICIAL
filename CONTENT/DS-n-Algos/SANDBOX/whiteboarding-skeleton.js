@@ -47,7 +47,6 @@
 // without removing it. All three functions push, pop, and min should operate in
 // O(1) time.
 
-
 class Node {
   constructor(val) {
     this.value = val;
@@ -75,7 +74,7 @@ class Stack {
         this.minArr.push(newNode.value);
       }
     }
-    this.length++
+    this.length++;
   }
 
   pop() {
@@ -88,9 +87,9 @@ class Stack {
       minArr = [];
     } else {
       this.top = removedTop.next;
-      if (removedTop.value === this.min()) this.minArr.pop()
+      if (removedTop.value === this.min()) this.minArr.pop();
     }
-    this.length--
+    this.length--;
     return removedTop.value;
   }
 
@@ -112,9 +111,6 @@ class Stack {
 
 // console.log(stack);
 // console.log('min:', stack.min());
-
-
-
 
 // PROBLEM 5 - Test a retractable ballpoint pen
 // ============================================================================

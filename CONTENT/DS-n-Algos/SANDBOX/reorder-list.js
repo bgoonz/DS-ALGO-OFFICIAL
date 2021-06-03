@@ -12,9 +12,8 @@
  * @param {ListNode} head
  * @return {void} Do not return anything, modify head in-place instead.
  */
-var reorderList = function(head) {
-  if (!head)
-    return;
+var reorderList = function (head) {
+  if (!head) return;
 
   var node = head;
   var ans = [];
@@ -39,10 +38,8 @@ var reorderList = function(head) {
 
   // make a new list
   for (var i = 0, len = res.length; i < len; i++)
-    if (i !== len - 1)
-      res[i].next = res[i + 1];
-    else
-      res[i].next = null;
+    if (i !== len - 1) res[i].next = res[i + 1];
+    else res[i].next = null;
 
   head.next = res[0];
 };

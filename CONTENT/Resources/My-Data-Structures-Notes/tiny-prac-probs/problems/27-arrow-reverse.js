@@ -12,7 +12,7 @@ let result3 = reverseStr("potato"); // returns "otatop"
 
 ***********************************************************************/
 
-let reverseStr = ( str ) => str.split( "" ).reverse().join( "" );
+let reverseStr = (str) => str.split("").reverse().join("");
 
 /**************DO NOT MODIFY ANYTHING UNDER THIS LINE*****************/
 module.exports = reverseStr;

@@ -24,7 +24,7 @@ function dfs(root, depth) {
   dfs(root.right, depth + 1);
 }
 
-var maxDepth = function(root) {
+var maxDepth = function (root) {
   maxn = -1;
   dfs(root, 0);
   return maxn;

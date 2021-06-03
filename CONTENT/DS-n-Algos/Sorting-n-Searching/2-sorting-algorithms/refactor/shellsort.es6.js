@@ -5,12 +5,12 @@ const array = [9, 2, 5, 6, 4, 3, 7, 10, 1, 8];
 const gaps = [701, 301, 132, 57, 23, 10, 4, 1];
 
 function shellsort(array) {
-  for(let g = 0; g < gaps.length; g++) {
+  for (let g = 0; g < gaps.length; g++) {
     const gap = gaps[g];
-    for(let i = gap; i < array.length; i++) {
+    for (let i = gap; i < array.length; i++) {
       const temp = array[i];
       let last = i;
-      for(let j = i; j >= gap && array[j - gap] > temp; j -= gap) {
+      for (let j = i; j >= gap && array[j - gap] > temp; j -= gap) {
         array[j] = array[j - gap];
         last -= gap;
       }

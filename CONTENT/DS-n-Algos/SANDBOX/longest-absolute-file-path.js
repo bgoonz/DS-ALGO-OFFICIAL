@@ -7,12 +7,12 @@ var ans;
  * @param {string} input
  * @return {number}
  */
-var lengthLongestPath = function(input) {
+var lengthLongestPath = function (input) {
   ans = 0;
 
   if (/\n(?!\t)/.test(input)) {
     var arr = input.split(/\n(?!\t)/);
-    arr.forEach(function(item) {
+    arr.forEach(function (item) {
       dfs(item, 0, 0);
     });
   } else {
@@ -24,8 +24,7 @@ var lengthLongestPath = function(input) {
 
 function dfs(str, depth, len) {
   var pattern = "\n";
-  for (var i = 0; i <= depth; i++)
-    pattern += "\t";
+  for (var i = 0; i <= depth; i++) pattern += "\t";
 
   pattern += "(?!\t)";
 
@@ -33,8 +32,7 @@ function dfs(str, depth, len) {
   var length = arr.length;
 
   if (length === 1) {
-    if (str.indexOf('.') !== -1)
-      ans = Math.max(ans, len + 1 + str.length);
+    if (str.indexOf(".") !== -1) ans = Math.max(ans, len + 1 + str.length);
   } else {
     var dir = arr[0];
 

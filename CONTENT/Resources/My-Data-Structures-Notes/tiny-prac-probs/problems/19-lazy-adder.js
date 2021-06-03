@@ -19,13 +19,12 @@ console.log(total); // prints 33
 
 ***********************************************************************/
 
-function lazyAdder( firstNum ) {
-  return function ( secondNum ) {
-    return function ( thirdNum ) {
+function lazyAdder(firstNum) {
+  return function (secondNum) {
+    return function (thirdNum) {
       return firstNum + secondNum + thirdNum;
     };
   };
 }
-
 
 module.exports = lazyAdder;

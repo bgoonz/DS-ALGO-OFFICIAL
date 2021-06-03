@@ -1,5 +1,5 @@
-$('#go').click(function() {
-  var lines = $('#input').val().split(/\n/);
+$("#go").click(function () {
+  var lines = $("#input").val().split(/\n/);
   var output = [];
   var outputText = [];
   for (var i = 0; i < lines.length; i++) {
@@ -10,6 +10,6 @@ $('#go').click(function() {
     }
   }
   console.log(output);
-  $('#input').val('[' + outputText + ']');
-  $('.alert').removeClass('alert-info').addClass('alert-success').text('Done!')
+  $("#input").val("[" + outputText + "]");
+  $(".alert").removeClass("alert-info").addClass("alert-success").text("Done!");
 });
