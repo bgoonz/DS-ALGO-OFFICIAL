@@ -2,21 +2,21 @@
 
 Find the contiguous subarray within a one-dimensional array of numbers which has the largest sum. For example, for the sequence of values −2, 1, −3, 4, −1, 2, 1, −5, 4; the contiguous subarray with the largest sum is 4, −1, 2, 1, with sum 6. */
 
-maxContiguousSubArray = arr => {
+maxContiguousSubArray = (arr) => {
   let globalMax = 0,
     currentMax = 0;
 
-  for ( let i = 0; i < arr.length; i++ ) {
-    currentMax = Math.max( currentMax + arr[ i ], arr[ i ] );
+  for (let i = 0; i < arr.length; i++) {
+    currentMax = Math.max(currentMax + arr[i], arr[i]);
     // console.log(currentMax); // this line is only for my own debugging
-    globalMax = Math.max( globalMax, currentMax );
+    globalMax = Math.max(globalMax, currentMax);
   }
   return globalMax;
 };
 
-let myArr = [ -2, 1, -3, 4, -1, 2, 1, -5, 4 ]; // => 6
+let myArr = [-2, 1, -3, 4, -1, 2, 1, -5, 4]; // => 6
 
-console.log( maxContiguousSubArray( myArr ) );
+console.log(maxContiguousSubArray(myArr));
 
 /*Explanation
 A> currentMax = Math.max(currentMax+arr[i], arr[i])   => This line effectively implements the requirement that the sub-array should be contiguous.

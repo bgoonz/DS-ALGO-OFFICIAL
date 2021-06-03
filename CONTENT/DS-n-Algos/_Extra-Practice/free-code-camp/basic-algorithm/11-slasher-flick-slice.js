@@ -1,5 +1,4 @@
-
-function slasher(arr, howMany) { 
+function slasher(arr, howMany) {
   return arr.slice(howMany);
 }
 

@@ -4,12 +4,12 @@
 //f(3) = f(2) + f(1)
 //f(2) = 1
 //f(1) = 1
-function fibonacci( n ) {
-  if ( n >= 3 ) {
-    return fibonacci( n - 1 ) + fibonacci( n - 2 )
+function fibonacci(n) {
+  if (n >= 3) {
+    return fibonacci(n - 1) + fibonacci(n - 2);
   } else {
-    return 1
+    return 1;
   }
 }
-console.log( fibonacci( 6 ) )
+console.log(fibonacci(6));
 // f(5)+f(4)=f(4)+f(3)+f(3)+f(2)=f(3)+f(2)+f(2)+f(1)+f(2)+f(1)+1=f(2)+f(1)+1+1+1+1+1+1 = 8

@@ -33,30 +33,27 @@ That, is the next comparison will be between i = 3 and i = 4 i.e. between "I" an
 
 */
 
-const romanToInt = s => {
-
+const romanToInt = (s) => {
   const hashTable = {
-
-    "I": 1,
-    "X": 10,
-    "C": 100,
-    "M": 1000,
-    "V": 5,
-    "L": 50,
-    "D": 500
-
+    I: 1,
+    X: 10,
+    C: 100,
+    M: 1000,
+    V: 5,
+    L: 50,
+    D: 500,
   };
 
   let resultSum = 0;
 
-  for ( let i = 0; i < s.length; i++ ) {
+  for (let i = 0; i < s.length; i++) {
     // console.log(i);
 
-    const currentItem = hashTable[ s[ i ] ];
+    const currentItem = hashTable[s[i]];
 
-    const nextItem = i + 1 === s.length ? 0 : hashTable[ s[ i + 1 ] ];
+    const nextItem = i + 1 === s.length ? 0 : hashTable[s[i + 1]];
 
-    if ( nextItem > currentItem ) {
+    if (nextItem > currentItem) {
       resultSum += nextItem - currentItem;
       i++;
     } else {
@@ -65,7 +62,6 @@ const romanToInt = s => {
   }
 
   return resultSum;
-
 };
 
-console.log( romanToInt( "MCMIV" ) ); // should return 1904
+console.log(romanToInt("MCMIV")); // should return 1904

@@ -13,7 +13,7 @@ You're a newly hired engineer for a brand-new company that's building a "killer 
 
 Please note that your tool does not have to be case sensitive, meaning the word "Hello" is the same as "hello" and "HELLO".
 
-*Author:Bryan Guner*
+_Author:Bryan Guner_
 
 ## Formal Inputs & Outputs
 

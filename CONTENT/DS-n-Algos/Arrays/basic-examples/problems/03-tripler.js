@@ -8,12 +8,12 @@ tripler([1,2,3]); // => [ 3, 6, 9 ]
 tripler([4, 1, 7]); // => [ 12, 3, 21 ]
 *******************************************************************************/
 
-function tripler( array ) {
+function tripler(array) {
   let newArray = [];
 
-  array.forEach( num => {
-    newArray.push( num * 3 );
-  } );
+  array.forEach((num) => {
+    newArray.push(num * 3);
+  });
 
   return newArray;
 }

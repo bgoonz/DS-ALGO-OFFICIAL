@@ -1,7 +1,6 @@
 > The Boolean() constructor is used to create Boolean objects.
 
-Syntax
-------
+## Syntax
 
 new Boolean(\[value\])
 
@@ -11,7 +10,6 @@ new Boolean(\[value\])
 
 The initial value of the `Boolean` object.
 
-
 ### Creating `Boolean` objects with an initial value of `false`
 
     let bNoParam = new Boolean();
@@ -19,7 +17,6 @@ The initial value of the `Boolean` object.
     let bNull = new Boolean(null);
     let bEmptyString = new Boolean('');
     let bfalse = new Boolean(false);
-    
 
 ### Creating `Boolean` objects with an initial value of `true`
 
@@ -30,16 +27,13 @@ The initial value of the `Boolean` object.
     let bArrayProto = new Boolean([]);
     let bObjProto = new Boolean({});
 
-
 # Array.prototype.every()
 
 > The every() method tests whether all elements in the array pass the test implemented by the provided function. It returns a Boolean value.
 
 The **`every()`** method tests whether all elements in the array pass the test implemented by the provided function. It returns a Boolean value.
 
-
-Syntax
-------
+## Syntax
 
 arr.every(callback(element\[, index\[, array\]\])\[, thisArg\])
 
@@ -78,6 +72,5 @@ value for all elements, `every` returns `true`.
 `callback` is invoked with three arguments: the value of the element, the index of the element, and the Array object being traversed.
 
 If a `thisArg` parameter is provided to `every`, it will be used as callback's `this` value. Otherwise, the value `undefined` will be used as its `this` value. The `this` value ultimately observable by `callback` is determined according to [the usual rules for determining the `this` seen by a function](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/en-US/docs/Web/JavaScript/Reference/Operators/this).
-
 
 `every` acts like the "for all" quantifier in mathematics. In particular, for an empty array, it returns `true`.

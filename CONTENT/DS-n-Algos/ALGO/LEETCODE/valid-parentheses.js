@@ -15,23 +15,24 @@ return false.
 B> So, while, traversing the array, create an empty temporaray array to which I will push only unmatched parenthesis, which will be compared for the next iteraion.
 C > and all matched parenthesis are popped.*/
 
-const isValid = s => {
+const isValid = (s) => {
   const tempArray = [];
-  s.split( '' ).forEach( currentParenthesis => {
-    const lastUnmatchedParenthesis = tempArray[ tempArray.length - 1 ];
-    if ( lastUnmatchedParenthesis === "(" && currentParenthesis === ")" ||
-      lastUnmatchedParenthesis === "{" && currentParenthesis === "}" ||
-      lastUnmatchedParenthesis === "[" && currentParenthesis === "]" ) {
+  s.split("").forEach((currentParenthesis) => {
+    const lastUnmatchedParenthesis = tempArray[tempArray.length - 1];
+    if (
+      (lastUnmatchedParenthesis === "(" && currentParenthesis === ")") ||
+      (lastUnmatchedParenthesis === "{" && currentParenthesis === "}") ||
+      (lastUnmatchedParenthesis === "[" && currentParenthesis === "]")
+    ) {
       return tempArray.pop();
     } else {
-      tempArray.push( currentParenthesis );
+      tempArray.push(currentParenthesis);
     }
-  } );
+  });
 
   return tempArray.length === 0;
-
 };
 
 const str = "(){}[][";
 
-console.log( isValid( ( str ) ) );
+console.log(isValid(str));

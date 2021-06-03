@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "npm test",
-    "pretty": "prettier --write \"./**/*.{js,jsx,json,html,md}\""
+    "pretty": "prettier --write \"./**/*.{js,jsx,html,md}\""
   },
   "repository": {
     "type": "git",

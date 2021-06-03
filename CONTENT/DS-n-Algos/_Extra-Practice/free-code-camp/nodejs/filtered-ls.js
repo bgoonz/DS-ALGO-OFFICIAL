@@ -1,12 +1,12 @@
-var fs = require('fs');
+import fs from "fs";
 
-var ext = process.argv[3].toString();
+const ext = process.argv[3].toString();
 
-var data = fs.readdir(process.argv[2], (err, files) => {
-    if (err) throw err;
-    for (file in files) {
-        if (files[file].includes('.'+ext)) {
-            console.log(files[file]);
-        }
+const data = fs.readdir(process.argv[2], (err, files) => {
+  if (err) throw err;
+  for (file in files) {
+    if (files[file].includes(`.${ext}`)) {
+      console.log(files[file]);
     }
+  }
 });

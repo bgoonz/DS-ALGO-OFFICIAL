@@ -11,15 +11,15 @@ Could you do it without any loop/recursion in O(1) runtime?*/
 
 // My solution using recursion
 
-const addDigits = num => {
-  if ( num < 10 ) {
+const addDigits = (num) => {
+  if (num < 10) {
     return num;
   } else {
-    const str = num.toString().split( '' );
-    const repeatSum = str.reduce( ( prev, curr ) => {
-      return parseInt( prev, 10 ) + parseInt( curr, 10 );
-    } );
-    return addDigits( repeatSum );
+    const str = num.toString().split("");
+    const repeatSum = str.reduce((prev, curr) => {
+      return parseInt(prev, 10) + parseInt(curr, 10);
+    });
+    return addDigits(repeatSum);
   }
 };
 
@@ -27,12 +27,12 @@ const addDigits = num => {
 
 // Alternative - 2 - Same as above, but more compact
 
-addDigits4 = num => {
-  let sum = ( num + '' ).split( '' ).reduce( ( a, b ) => parseInt( a ) + parseInt( b ), 0 );
-  return sum >= 10 ? addDigits4( sum ) : sum;
-}
+addDigits4 = (num) => {
+  let sum = (num + "").split("").reduce((a, b) => parseInt(a) + parseInt(b), 0);
+  return sum >= 10 ? addDigits4(sum) : sum;
+};
 
-console.log( addDigits4( 38 ) );
+console.log(addDigits4(38));
 
 //Beautiful solution without using recursion
 /*
@@ -62,29 +62,27 @@ so N = M (% 9)
 as 9 % 9 = 0,so we can make (n - 1) % 9 + 1
 
  */
-addDigits2 = num => 1 + ( ( num - 1 ) % 9 );
+addDigits2 = (num) => 1 + ((num - 1) % 9);
 
 // console.log(addDigits2(38)); // => 2
 
 //Alternative-3 without Recursion
 
-addDigits3 = num => {
+addDigits3 = (num) => {
+  num += ""; // This is just converting the number to string, should be equivalent to num.toString()
 
-  num += '' // This is just converting the number to string, should be equivalent to num.toString()
-
-  while ( num.length !== 1 ) {
-
+  while (num.length !== 1) {
     let sum = 0;
 
-    for ( let i = 0; i < num.length; i++ ) {
-      sum += parseInt( num[ i ] );
+    for (let i = 0; i < num.length; i++) {
+      sum += parseInt(num[i]);
     }
 
     // Now once the first sum is calculate for the first set of digits, now reset the original num to be equal to sum. So for the next while loop, that number's digits can be summed up
 
-    num = '' + sum;
+    num = "" + sum;
   }
-  return parseInt( num );
-}
+  return parseInt(num);
+};
 
-console.log( addDigits3( 38 ) ); // => 2
+console.log(addDigits3(38)); // => 2

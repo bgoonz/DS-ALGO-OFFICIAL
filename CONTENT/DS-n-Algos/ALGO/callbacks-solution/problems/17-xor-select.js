@@ -31,10 +31,10 @@ console.log(
 // [ 'art', 'app', 'buttery' ]
 *******************************************************************************/
 
-let xorSelect = ( array, cb1, cb2 ) => {
-  let selected = array.filter( el => {
-    return ( cb1( el ) || cb2( el ) ) && !( cb1( el ) && cb2( el ) );
-  } );
+let xorSelect = (array, cb1, cb2) => {
+  let selected = array.filter((el) => {
+    return (cb1(el) || cb2(el)) && !(cb1(el) && cb2(el));
+  });
   return selected;
 };
 

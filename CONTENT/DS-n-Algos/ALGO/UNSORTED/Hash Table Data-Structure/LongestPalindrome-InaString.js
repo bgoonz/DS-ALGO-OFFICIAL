@@ -20,32 +20,30 @@
 //     }
 //     return null;
 //     }
-console.log( longestPalindrome( "hellosanasmith" ) ) //saanaas
-console.log( longestPalindrome( "abcdef" ) ) //null
-function longestPalindrome( str ) {
-  const arr = str.split( "" );
+console.log(longestPalindrome("hellosanasmith")); //saanaas
+console.log(longestPalindrome("abcdef")); //null
+function longestPalindrome(str) {
+  const arr = str.split("");
   const endArr = [];
-  for ( var i = 0; i < arr.length; i++ ) {
+  for (var i = 0; i < arr.length; i++) {
     let temp = "";
-    temp = arr[ i ];
+    temp = arr[i];
 
-    for ( let j = i + 1; j < arr.length; j++ ) {
-      temp += arr[ j ];
-      if ( temp.length > 2 && temp === temp.split( "" ).reverse().join( "" ) ) {
-        endArr.push( temp );
+    for (let j = i + 1; j < arr.length; j++) {
+      temp += arr[j];
+      if (temp.length > 2 && temp === temp.split("").reverse().join("")) {
+        endArr.push(temp);
       }
-
     }
-
   }
 
   let count = 0;
   let longestPalindrome = "";
-  for ( var i = 0; i < endArr.length; i++ ) {
-    if ( count >= endArr[ i ].length ) {
-      longestPalindrome = endArr[ i - 1 ];
+  for (var i = 0; i < endArr.length; i++) {
+    if (count >= endArr[i].length) {
+      longestPalindrome = endArr[i - 1];
     } else {
-      count = endArr[ i ].length;
+      count = endArr[i].length;
     }
   }
   return longestPalindrome;

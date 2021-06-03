@@ -33,31 +33,44 @@ C> Divide the number by its largest base value, the corresponding base symbol wi
 
 D> The process will be repeated until the number becomes zero. */
 
+const intToRoman = (num) => {
+  const romanNumeral = [
+    "M",
+    "CM",
+    "D",
+    "CD",
+    "C",
+    "XC",
+    "L",
+    "XL",
+    "X",
+    "IX",
+    "V",
+    "IV",
+    "I",
+  ];
 
-const intToRoman = num => {
-  const romanNumeral = [ "M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I" ];
+  const decimalValue = [1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1];
 
-  const decimalValue = [ 1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1 ];
+  let result = "";
 
-  let result = '';
-
-  decimalValue.forEach( ( dValue, i ) => {
-    if ( num >= dValue ) {
-      const count = parseInt( num / dValue );
+  decimalValue.forEach((dValue, i) => {
+    if (num >= dValue) {
+      const count = parseInt(num / dValue);
       num = num % dValue;
 
-      for ( let j = 0; j < count; j++ ) {
-        result = result + romanNumeral[ i ];
+      for (let j = 0; j < count; j++) {
+        result = result + romanNumeral[i];
       }
     }
-  } );
+  });
 
   return result;
 };
 
-console.log( intToRoman( 3549 ) ); // Should output - MMMDXLIX
+console.log(intToRoman(3549)); // Should output - MMMDXLIX
 
-console.log( intToRoman( 12 ) ); // Should output - XII
+console.log(intToRoman(12)); // Should output - XII
 
 /*Explanation:
 
@@ -86,22 +99,20 @@ Finally number becomes 0, algorithm stops here.
 Output obtained MMMDXLIX.*/
 
 // Alternative Solution
-const intToRomanAlt = num => {
-
+const intToRomanAlt = (num) => {
   // First creat 4 arrays for each of roman numberals equivalent for decimal's 1-digit, 2-digit, 3-digit, 4-digit numbers.
 
-  const M = [ "", "M", "MM", "MMM" ];
-  const C = [ "", "C", "CC", "CCC", "CD", "D", "DC", "DCC", "DCCC", "CM" ];
-  const X = [ "", "X", "XX", "XXX", "XL", "L", "LX", "LXX", "LXXX", "XC" ];
-  const I = [ "", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX" ];
-
+  const M = ["", "M", "MM", "MMM"];
+  const C = ["", "C", "CC", "CCC", "CD", "D", "DC", "DCC", "DCCC", "CM"];
+  const X = ["", "X", "XX", "XXX", "XL", "L", "LX", "LXX", "LXXX", "XC"];
+  const I = ["", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX"];
 
   return [
-    M[ parseInt( num / 1000 ) ],
-    C[ parseInt( ( num % 1000 ) / 100 ) ],
-    X[ parseInt( ( num % 100 ) / 10 ) ],
-    I[ num % 10 ]
-  ].join( '' );
+    M[parseInt(num / 1000)],
+    C[parseInt((num % 1000) / 100)],
+    X[parseInt((num % 100) / 10)],
+    I[num % 10],
+  ].join("");
 };
 
 // console.log(intToRomanAlt(3549));

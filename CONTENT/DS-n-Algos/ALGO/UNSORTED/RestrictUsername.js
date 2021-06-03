@@ -3,15 +3,15 @@
 //2) The only numbers in the username have to be at the end. There can be zero or more of them at the end. Username cannot start with the number.
 //3) Username letters can be lowercase and uppercase.
 //4) Usernames have to be at least two characters long. A two-character username can only use alphabet letters as characters.
-function checkUsername( name ) {
+function checkUsername(name) {
   let userCheck = /^[a-z]([0-9][0-9]+|[a-z]+\d*)$/i;
-  return userCheck.test( name )
+  return userCheck.test(name);
 }
-console.log( checkUsername( "Oceans11" ) )
-console.log( checkUsername( "RegexGuru" ) )
-console.log( checkUsername( "AA" ) )
+console.log(checkUsername("Oceans11"));
+console.log(checkUsername("RegexGuru"));
+console.log(checkUsername("AA"));
 
-// checks start of the index 
+// checks start of the index
 //[a-z] checks the first character is a letter
 //[0-9][0-9]+ checks for ends with two or more number characters
 //| checks or
