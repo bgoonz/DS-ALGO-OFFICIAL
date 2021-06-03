@@ -35,55 +35,51 @@ GDP of 5 becomes - 5^3=125
 
 // my Accepted solution
 
-isUgly = ( num ) => {
+isUgly = (num) => {
+  if (num <= 0) return false;
 
-  if ( num <= 0 ) return false;
+  let primeFactors = [2, 3, 5];
 
-  let primeFactors = [ 2, 3, 5 ];
-
-  for ( const i of primeFactors ) {
-    while ( num % i === 0 ) {
+  for (const i of primeFactors) {
+    while (num % i === 0) {
       num /= i;
     }
   }
   // After the while loops runs completely if the final number is 1 then its a superUgly. Else not, because if it was divided by any other number apart from the given set of primes, then the final number would be a decimal and will NOT be equal to 1
   return num === 1;
-}
-console.log( isUgly( 9000 ) ); // should output true
+};
+console.log(isUgly(9000)); // should output true
 
 // The below solution did not pass the leetcode giving Time Limit Exceeded reason
 
-isUglyAlt = ( num ) => {
+isUglyAlt = (num) => {
+  if (num < 0) return false;
+  if (num === 1) return true;
 
-  if ( num < 0 ) return false;
-  if ( num === 1 ) return true;
-
-  while ( num % 2 === 0 ) {
-    num /= 2
+  while (num % 2 === 0) {
+    num /= 2;
   }
-  while ( num % 3 === 0 ) {
-    num /= 3
+  while (num % 3 === 0) {
+    num /= 3;
   }
-  while ( num % 5 === 0 ) {
-    num /= 5
+  while (num % 5 === 0) {
+    num /= 5;
   }
 
   return num === 1;
-}
+};
 
-
-
-console.log( isUglyAlt( 9000 ) ); // should output true
+console.log(isUglyAlt(9000)); // should output true
 
 // SOLUTION-3 - Recursively
-isUgly_2 = ( num ) => {
+isUgly_2 = (num) => {
   // First define the terminal cases to stop the recursion
-  if ( num <= 0 ) return false;
-  if ( num === 1 || num === 2 || num === 3 || num === 5 ) return true;
-  if ( num % 2 === 0 ) return isUgly_2( num / 2 );
-  if ( num % 3 === 0 ) return isUgly_2( num / 3 );
-  if ( num % 5 === 0 ) return isUgly_2( num / 5 );
+  if (num <= 0) return false;
+  if (num === 1 || num === 2 || num === 3 || num === 5) return true;
+  if (num % 2 === 0) return isUgly_2(num / 2);
+  if (num % 3 === 0) return isUgly_2(num / 3);
+  if (num % 5 === 0) return isUgly_2(num / 5);
   else return false;
-}
+};
 
-console.log( isUgly( 9000 ) ); // should output true
+console.log(isUgly(9000)); // should output true

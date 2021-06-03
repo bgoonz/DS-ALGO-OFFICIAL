@@ -3,7 +3,7 @@ const array = [9, 2, 5, 6, 4, 3, 7, 10, 1, 8];
 
 // top-down implementation
 function mergeSortTopDown(array) {
-  if(array.length < 2) {
+  if (array.length < 2) {
     return array;
   }
 
@@ -16,8 +16,8 @@ function mergeSortTopDown(array) {
 function mergeTopDown(left, right) {
   const array = [];
 
-  while(left.length && right.length) {
-    if(left[0] < right[0]) {
+  while (left.length && right.length) {
+    if (left[0] < right[0]) {
       array.push(left.shift());
     } else {
       array.push(right.shift());
@@ -49,8 +49,10 @@ function mergeBottomUp(array, left, step) {
   const temp = [];
 
   for (let i = left; i <= end; i++) {
-    if ((array[leftMoving] <= array[rightMoving] || rightMoving > end) &&
-        leftMoving < right) {
+    if (
+      (array[leftMoving] <= array[rightMoving] || rightMoving > end) &&
+      leftMoving < right
+    ) {
       temp[i] = array[leftMoving];
       leftMoving++;
     } else {

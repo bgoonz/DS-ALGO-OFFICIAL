@@ -4,7 +4,7 @@
 /**
  * @constructor
  */
-var Queue = function() {
+var Queue = function () {
   this.a = [];
 };
 
@@ -12,27 +12,27 @@ var Queue = function() {
  * @param {number} x
  * @returns {void}
  */
-Queue.prototype.push = function(x) {
+Queue.prototype.push = function (x) {
   this.a.push(x);
 };
 
 /**
  * @returns {void}
  */
-Queue.prototype.pop = function() {
+Queue.prototype.pop = function () {
   this.a.shift();
 };
 
 /**
  * @returns {number}
  */
-Queue.prototype.peek = function() {
+Queue.prototype.peek = function () {
   return this.a[0];
 };
 
 /**
  * @returns {boolean}
  */
-Queue.prototype.empty = function() {
+Queue.prototype.empty = function () {
   return this.a.length ? false : true;
 };

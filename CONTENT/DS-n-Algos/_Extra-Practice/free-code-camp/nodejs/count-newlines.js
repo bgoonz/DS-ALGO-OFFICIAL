@@ -1,7 +1,7 @@
-var fs = require('fs');
+import fs from "fs";
 
-var file = fs.readFileSync(process.argv[0]);
+const file = fs.readFileSync(process.argv[0]);
 
-var arr = file.toString();
+const arr = file.toString();
 
-console.log(arr.split('\n').length - 1);
+console.log(arr.split("\n").length - 1);

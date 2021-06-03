@@ -11,21 +11,20 @@ console.log(stringConverter("banana")); // => {b: 1, a: 3, n: 2}
 console.log(stringConverter("raccoon")); // => {r: 1, a: 1, c: 2, o: 2, n: 1}
 ***********************************************************************/
 
-function stringConverter( string ) {
+function stringConverter(string) {
   let stringObject = {};
   // iterate through the string one letter at a time
-  for ( let i = 0; i < string.length; i++ ) {
-    let currentLetter = string[ i ];
+  for (let i = 0; i < string.length; i++) {
+    let currentLetter = string[i];
     // if the letter doesn't exist in the object already the we add it
-    if ( stringObject[ currentLetter ] === undefined ) {
-      stringObject[ currentLetter ] = 1;
+    if (stringObject[currentLetter] === undefined) {
+      stringObject[currentLetter] = 1;
     } else {
       // otherwise we increment the count of the letter in the object
-      stringObject[ currentLetter ] += 1;
+      stringObject[currentLetter] += 1;
     }
   }
   return stringObject;
 }
-
 
 module.exports = stringConverter;

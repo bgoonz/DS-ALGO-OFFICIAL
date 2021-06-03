@@ -6,9 +6,9 @@
  * @return {boolean}
  */
 
-var containsDuplicate = function(nums) {
+var containsDuplicate = function (nums) {
   var hash = {};
-  for(var i = 0, len = nums.length; i < len; i++) {
+  for (var i = 0, len = nums.length; i < len; i++) {
     if (hash[nums[i]]) return true;
     hash[nums[i]] = true;
   }

@@ -5,7 +5,6 @@
 //
 // Implement a Stack and all of its methods below!
 
-
 class Node {
   constructor(val) {
     this.value = val;

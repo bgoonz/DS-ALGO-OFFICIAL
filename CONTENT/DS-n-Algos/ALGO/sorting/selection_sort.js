@@ -4,7 +4,7 @@ function selectionSort(array) {
     let min = i;
     // Loop to array from the current value.
     for (let j = i + 1; j < array.length; j++) {
-      // If you find an item smaller than the current active minimum, 
+      // If you find an item smaller than the current active minimum,
       // make the new item the new active minimum.
       if (array[j] < array[min]) {
         min = j;

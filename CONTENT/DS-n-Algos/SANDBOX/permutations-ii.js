@@ -10,7 +10,7 @@ var hashAns;
 
 function dfs(num, nums) {
   if (num === len) {
-    var tmp = res.map(function(item) {
+    var tmp = res.map(function (item) {
       return item;
     });
 
@@ -31,12 +31,8 @@ function dfs(num, nums) {
   }
 }
 
-var permuteUnique = function(nums) {
-  len = nums.length,
-  ans = [],
-  res = [],
-  hash = [],
-  hashAns = [];
+var permuteUnique = function (nums) {
+  (len = nums.length), (ans = []), (res = []), (hash = []), (hashAns = []);
 
   dfs(0, nums);
   return ans;

@@ -1,15 +1,14 @@
-var fs = require('fs'), filteredFiles = [];
+import fs from "fs";
+const filteredFiles = [];
 
-module.exports = function (dir, ext, callback) {
-    fs.readdir(dir, (err, files) => {
-        if (err)
-            return callback(err);
-        for (file in files) {
-            if (files[file].includes('.'+ext)) {
-                filteredFiles.push(files[file]);
-            }
-        }
-        callback(null, filteredFiles);
-
-    });
+export default (dir, ext, callback) => {
+  fs.readdir(dir, (err, files) => {
+    if (err) return callback(err);
+    for (file in files) {
+      if (files[file].includes(`.${ext}`)) {
+        filteredFiles.push(files[file]);
+      }
+    }
+    callback(null, filteredFiles);
+  });
 };

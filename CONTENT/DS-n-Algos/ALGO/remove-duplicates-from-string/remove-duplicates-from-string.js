@@ -1,12 +1,12 @@
-module.exports = string => {
-  let output = '';
+module.exports = (string) => {
+  let output = "";
   const hash = {};
 
-  for ( let i = 0; i < string.length; i++ ) {
-    if ( !hash[ string[ i ] ] ) {
-      output += string[ i ];
+  for (let i = 0; i < string.length; i++) {
+    if (!hash[string[i]]) {
+      output += string[i];
     }
-    hash[ string[ i ] ] = true;
+    hash[string[i]] = true;
   }
 
   return output;

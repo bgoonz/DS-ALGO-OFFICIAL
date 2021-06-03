@@ -16,9 +16,8 @@
  * @param {number} sum
  * @return {number}
  */
-var pathSum = function(root, sum) {
-  if (!root)
-    return 0;
+var pathSum = function (root, sum) {
+  if (!root) return 0;
 
   let ans = 0;
   let s = new Set();
@@ -26,8 +25,7 @@ var pathSum = function(root, sum) {
   dfs(root, root.val);
 
   function dfs(node, tmp) {
-    if (tmp === sum)
-      ans++;
+    if (tmp === sum) ans++;
 
     if (node.left) {
       dfs(node.left, tmp + node.left.val);

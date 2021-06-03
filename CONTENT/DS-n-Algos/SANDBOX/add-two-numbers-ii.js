@@ -15,11 +15,11 @@
  * @param {ListNode} l2
  * @return {ListNode}
  */
-var addTwoNumbers = function(l1, l2) {
-  let a = []
-    , b = []
-    , newL1 = l1
-    , newL2 = l2;
+var addTwoNumbers = function (l1, l2) {
+  let a = [],
+    b = [],
+    newL1 = l1,
+    newL2 = l2;
 
   while (newL1) {
     a.push(newL1.val);
@@ -46,17 +46,15 @@ var addTwoNumbers = function(l1, l2) {
     add = ~~(sum / 10);
   }
 
-  add && (ans.push(add));
+  add && ans.push(add);
 
   ans.reverse();
 
   let ret = [];
 
-  for (let i = 0, len = ans.length; i < len; i++)
-    ret[i] = new ListNode(ans[i]);
+  for (let i = 0, len = ans.length; i < len; i++) ret[i] = new ListNode(ans[i]);
 
-  for (let i = 0, len = ans.length; i < len - 1; i++)
-    ret[i].next = ret[i + 1];
+  for (let i = 0, len = ans.length; i < len - 1; i++) ret[i].next = ret[i + 1];
 
   return ret[0];
 };

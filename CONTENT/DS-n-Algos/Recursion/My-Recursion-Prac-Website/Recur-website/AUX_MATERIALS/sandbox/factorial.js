@@ -1,8 +1,7 @@
 //  We want to write a function factorial(num) which takes a number
-//    and returns the product of all consecutive positive integers up to 
+//    and returns the product of all consecutive positive integers up to
 //    the given number. The factorial of zero is equal to 1.
 //  This problem must be solved recursively.
-
 
 // Repeating pattern
 // multiplying by decremented number
@@ -19,21 +18,18 @@
 // Recrusive Step
 // num * factorial(num -1)
 
-
 // Website to visualize the call stack for factorial:
 //    https://www.cs.usfca.edu/~galles/visualization/RecFact.html
 
+function factorial(num) {
+  if (num === 0) {
+    return 1;
+  }
 
-function factorial ( num ) {
-    if ( num === 0 ) {
-        return 1;
-    }
-
-    return num * factorial( num - 1 )
+  return num * factorial(num - 1);
 }
 
-console.log( factorial( 4 ) );
-
+console.log(factorial(4));
 
 // factorial(num);   // 1st frame,   num = ,
 // factorial(num);   // 2nd frame,   num = ,

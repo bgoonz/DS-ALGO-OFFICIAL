@@ -14,22 +14,17 @@
  * @return {boolean}
  */
 
-
-var hasPathSum = function(root, sum) {
-  if (!root)
-    return false;
+var hasPathSum = function (root, sum) {
+  if (!root) return false;
 
   if (!root.left && !root.right) {
-    if (root.val === sum)
-      return true;
+    if (root.val === sum) return true;
     return false;
   }
 
-  if (root.left)
-    var a = hasPathSum(root.left, sum - root.val);
+  if (root.left) var a = hasPathSum(root.left, sum - root.val);
 
-  if (root.right)
-    var b = hasPathSum(root.right, sum - root.val);
+  if (root.right) var b = hasPathSum(root.right, sum - root.val);
 
   return Boolean(a || b);
 };

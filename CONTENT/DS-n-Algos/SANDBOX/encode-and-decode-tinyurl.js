@@ -4,9 +4,9 @@
 let [p, index] = [new Map(), 0];
 
 var base62 = (n) => {
-  let str = '0123456789abcdefghigklmnopqrstuvwxyzABCDEFGHIGKLMNOPQRSTUVWXYZ';
+  let str = "0123456789abcdefghigklmnopqrstuvwxyzABCDEFGHIGKLMNOPQRSTUVWXYZ";
   let len = str.length;
-  let ret = '';
+  let ret = "";
 
   do {
     ret += str[n % len];
@@ -22,7 +22,7 @@ var base62 = (n) => {
  * @param {string} longUrl
  * @return {string}
  */
-var encode = function(longUrl) {
+var encode = function (longUrl) {
   let shortUrl = base62(index++);
   p.set(shortUrl, longUrl);
   return shortUrl;
@@ -34,6 +34,6 @@ var encode = function(longUrl) {
  * @param {string} shortUrl
  * @return {string}
  */
-var decode = function(shortUrl) {
+var decode = function (shortUrl) {
   return p.get(shortUrl);
 };

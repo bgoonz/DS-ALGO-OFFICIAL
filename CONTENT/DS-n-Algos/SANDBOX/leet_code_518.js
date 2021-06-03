@@ -31,11 +31,4 @@ the number of coins is less than 500
 the answer is guaranteed to fit into signed 32 - bit integer
 
 */
-let change = function ( amount, coins ) {
-
-
-
-
-
-
-};
+let change = function (amount, coins) {};

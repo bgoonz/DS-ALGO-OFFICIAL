@@ -13,18 +13,15 @@ flatten([1, [2, [3]]]); // => [1, 2, 3]
 //recursive case: a nested array
 //recursive step: push elements that are not arrays and flatten elements of arrays
 
-
-
-function flatten( arr ) {
-
+function flatten(arr) {
   let baseArr = [];
-  arr.forEach( function ( ele ) {
-        if ( Array.isArray( ele ) ) {
-          baseArr.push( ...flatten( ele ) )
+  arr.forEach(function (ele) {
+    if (Array.isArray(ele)) {
+      baseArr.push(...flatten(ele));
     } else {
-      baseArr.push( ele );
+      baseArr.push(ele);
     }
-  } );
+  });
   return baseArr;
 }
 

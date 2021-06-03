@@ -12,15 +12,15 @@
 // Answer: [1, 3, 2]
 
 function levelWidth(root) {
-  const arr = [root, 's'];
+  const arr = [root, "s"];
   const counters = [0];
 
   while (arr.length > 1) {
     const node = arr.shift();
 
-    if (node === 's') {
+    if (node === "s") {
       counters.push(0);
-      arr.push('s');
+      arr.push("s");
     } else {
       arr.push(...node.children);
       counters[counters.length - 1]++;

@@ -8,7 +8,7 @@
  * @param {string} p
  * @return {number[]}
  */
-var findAnagrams = function(s, p) {
+var findAnagrams = function (s, p) {
   let len = p.length;
   let hash = {};
   let ans = {};
@@ -23,20 +23,21 @@ var findAnagrams = function(s, p) {
     let index = s.charCodeAt(i) - 97;
     hash[index] = ~~hash[index] + 1;
 
-    if (i >= len) { // remove
+    if (i >= len) {
+      // remove
       let index = s.charCodeAt(i - len) - 97;
       hash[index] = ~~hash[index] - 1;
     }
 
-    if (i + 1 >= len) { // can compare
+    if (i + 1 >= len) {
+      // can compare
       help() && ret.push(i - len + 1);
     }
   }
 
   function help() {
     for (let i = 0; i < 26; i++) {
-      if (~~hash[i] !== ~~ans[i])
-        return false;
+      if (~~hash[i] !== ~~ans[i]) return false;
     }
 
     return true;

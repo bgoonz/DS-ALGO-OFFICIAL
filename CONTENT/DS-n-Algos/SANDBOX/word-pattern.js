@@ -6,31 +6,28 @@
  * @param {string} str
  * @return {boolean}
  */
-var wordPattern = function(pattern, str) {
-  var arr = str.split(' ');
+var wordPattern = function (pattern, str) {
+  var arr = str.split(" ");
 
-  if (pattern.length !== arr.length)
-    return false;
+  if (pattern.length !== arr.length) return false;
 
-  var a2b = {}
-    , b2a = {};
+  var a2b = {},
+    b2a = {};
 
   for (var i = 0, len = pattern.length; i < len; i++) {
-    var a = pattern[i]
-      , b = arr[i];
+    var a = pattern[i],
+      b = arr[i];
 
     if (!a2b[a]) {
       a2b[a] = b;
     } else {
-      if (a2b[a] !== b)
-        return false;
+      if (a2b[a] !== b) return false;
     }
 
     if (!b2a[b]) {
       b2a[b] = a;
     } else {
-      if (baa[b] !== a)
-        return false;
+      if (baa[b] !== a) return false;
     }
   }
 

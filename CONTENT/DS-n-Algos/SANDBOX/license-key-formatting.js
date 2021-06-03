@@ -9,8 +9,8 @@
  * @param {number} K
  * @return {string}
  */
-var licenseKeyFormatting = function(S, K) {
-  S = S.toUpperCase().replace(/-/g, '');
+var licenseKeyFormatting = function (S, K) {
+  S = S.toUpperCase().replace(/-/g, "");
 
   let ans = [];
   let index = 0;
@@ -21,8 +21,7 @@ var licenseKeyFormatting = function(S, K) {
     index = S.length % K;
   }
 
-  for (let i = index, len = S.length; i < len; i += K)
-    ans.push(S.substr(i, K));
+  for (let i = index, len = S.length; i < len; i += K) ans.push(S.substr(i, K));
 
-  return ans.join('-');
+  return ans.join("-");
 };

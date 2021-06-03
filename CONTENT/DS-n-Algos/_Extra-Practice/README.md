@@ -1,5 +1,3 @@
-
-
 # The data structures
 
 - [x] Array

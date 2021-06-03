@@ -3,7 +3,7 @@ var array = [9, 2, 5, 6, 4, 3, 7, 10, 1, 8];
 
 // basic implementation (pivot is the first element of the array)
 function quicksortBasic(array) {
-  if(array.length < 2) {
+  if (array.length < 2) {
     return array;
   }
 
@@ -11,8 +11,8 @@ function quicksortBasic(array) {
   var lesser = [];
   var greater = [];
 
-  for(var i = 1; i < array.length; i++) {
-    if(array[i] < pivot) {
+  for (var i = 1; i < array.length; i++) {
+    if (array[i] < pivot) {
       lesser.push(array[i]);
     } else {
       greater.push(array[i]);
@@ -39,10 +39,10 @@ function quicksort(array, left, right) {
   // var pivot = partitionLomuto(array, left, right); // you can play with both partition
   var pivot = partitionHoare(array, left, right); // you can play with both partition
 
-  if(left < pivot - 1) {
+  if (left < pivot - 1) {
     quicksort(array, left, pivot - 1);
   }
-  if(right > pivot) {
+  if (right > pivot) {
     quicksort(array, pivot, right);
   }
   return array;
@@ -52,8 +52,8 @@ function partitionLomuto(array, left, right) {
   var pivot = right;
   var i = left;
 
-  for(var j = left; j < right; j++) {
-    if(array[j] <= array[pivot]) {
+  for (var j = left; j < right; j++) {
+    if (array[j] <= array[pivot]) {
       swap(array, i, j);
       i = i + 1;
     }
@@ -63,16 +63,16 @@ function partitionLomuto(array, left, right) {
 }
 // Hoare partition scheme, it is more efficient than the Lomuto partition scheme because it does three times fewer swaps on average
 function partitionHoare(array, left, right) {
-  var pivot = Math.floor((left + right) / 2 );
+  var pivot = Math.floor((left + right) / 2);
 
-  while(left <= right) {
-    while(array[left] < array[pivot]) {
+  while (left <= right) {
+    while (array[left] < array[pivot]) {
       left++;
     }
-    while(array[right] > array[pivot]) {
+    while (array[right] > array[pivot]) {
       right--;
     }
-    if(left <= right) {
+    if (left <= right) {
       swap(array, left, right);
       left++;
       right--;

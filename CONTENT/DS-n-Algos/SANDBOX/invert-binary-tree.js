@@ -12,9 +12,8 @@
  * @param {TreeNode} root
  * @return {TreeNode}
  */
-var invertTree = function(root) {
-  if (!root)
-    return root;
+var invertTree = function (root) {
+  if (!root) return root;
 
   var left = root.left;
 

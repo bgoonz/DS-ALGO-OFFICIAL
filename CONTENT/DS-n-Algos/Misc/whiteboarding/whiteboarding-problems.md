@@ -9,16 +9,16 @@ NOTE: your function should return the number of friends visited, not including J
 
 ```javascript
 const adjacencyList = {
-  'derek':['selam', 'dean'],
-  'joe':['selam'],
-  'selam': ['derek', 'joe', 'dean', 'evan'],
-  'dean': ['derek', 'evan', 'selam'],
-  'sam': ['jen'],
-  'evan': ['selam', 'jesse', 'dean'],
-  'jen':['sam', 'javier'],
-  'javier':['jen'],
-  'chris':[],
-  'jesse': ['evan'],
+  derek: ["selam", "dean"],
+  joe: ["selam"],
+  selam: ["derek", "joe", "dean", "evan"],
+  dean: ["derek", "evan", "selam"],
+  sam: ["jen"],
+  evan: ["selam", "jesse", "dean"],
+  jen: ["sam", "javier"],
+  javier: ["jen"],
+  chris: [],
+  jesse: ["evan"],
 };
 ```
 
@@ -31,16 +31,16 @@ NOTE: your function should return a list of friends visited, not including Joe h
 
 ```javascript
 const adjacencyList = {
-  'derek':['selam', 'dean'],
-  'joe':['selam'],
-  'selam': ['derek', 'joe', 'dean', 'evan'],
-  'dean': ['derek', 'evan', 'selam'],
-  'sam': ['jen'],
-  'evan': ['selam', 'jesse', 'dean'],
-  'jen':['sam', 'javier'],
-  'javier':['jen'],
-  'chris':[],
-  'jesse': ['evan'],
+  derek: ["selam", "dean"],
+  joe: ["selam"],
+  selam: ["derek", "joe", "dean", "evan"],
+  dean: ["derek", "evan", "selam"],
+  sam: ["jen"],
+  evan: ["selam", "jesse", "dean"],
+  jen: ["sam", "javier"],
+  javier: ["jen"],
+  chris: [],
+  jesse: ["evan"],
 };
 ```
 
@@ -70,11 +70,11 @@ The maximum depth is the number of nodes along the longest path from the root no
 Note: the depth at the root is 0.
 
 ```js
-  //   3
-  //  / \
-  // 9  20
-  //   /  \
-  //  15   7
+//   3
+//  / \
+// 9  20
+//   /  \
+//  15   7
 ```
 
 ## Now go ahead and start the problems that are in AAO

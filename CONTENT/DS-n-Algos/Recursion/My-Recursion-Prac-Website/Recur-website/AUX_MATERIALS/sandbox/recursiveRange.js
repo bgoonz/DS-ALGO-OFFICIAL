@@ -3,7 +3,6 @@
 //    This should be an inclusive range.
 //  This problem must be solved recursively.
 
-
 // Repeating pattern
 //  incrementing from smaller numbner to larger number
 
@@ -19,23 +18,21 @@
 // Recrusive Step
 //  recursiveRange(num1+1, num2)
 
-
-function recursiveRange( num1, num2 ) {
-  if ( num1 === num2 ) { // base case
-    return [ num2 ];
-  } else if ( num1 > num2 ) {
-    return recursiveRange( num2, num1 );
+function recursiveRange(num1, num2) {
+  if (num1 === num2) {
+    // base case
+    return [num2];
+  } else if (num1 > num2) {
+    return recursiveRange(num2, num1);
   }
 
-  let range = [ num1 ];
-  range = range.concat( recursiveRange( num1 + 1, num2 ) ); // recursive step
-  console.log( range );
+  let range = [num1];
+  range = range.concat(recursiveRange(num1 + 1, num2)); // recursive step
+  console.log(range);
   return range;
 }
 
-console.log( recursiveRange( 2, 6 ) );
-
-
+console.log(recursiveRange(2, 6));
 
 // recursiveRange(num1, num2);   // 1st frame,   num1 = 2,   num2 = 6
 // recursiveRange(num1, num2);   // 2nd frame,   num1 = 3,   num2 = 6
@@ -48,17 +45,11 @@ console.log( recursiveRange( 2, 6 ) );
 // 1st frame,     return from 2nd frame = [3,4,5,6],    returns [2,3,4,5,6],     popped off the stack
 // Final return value: [2,3,4,5,6]
 
-
-
-
-
-
-
-// function rangeOfNumbers(num1, num2) {    
-//     if (num1 - num2 == 0) {        
-return [ num1 ];
+// function rangeOfNumbers(num1, num2) {
+//     if (num1 - num2 == 0) {
+return [num1];
 //     } else if (num1 <= num2) {
-var nums = rangeOfNumbers( num1, num2 - 1 );
-//         nums.push(num2);        
-//         return nums;    
+var nums = rangeOfNumbers(num1, num2 - 1);
+//         nums.push(num2);
+//         return nums;
 //     }

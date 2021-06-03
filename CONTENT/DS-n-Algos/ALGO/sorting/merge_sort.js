@@ -4,7 +4,7 @@ const array = [9, 2, 5, 6, 4, 3, 7, 10, 1, 8];
 // top-down implementation
 function mergeSortTopDown(array) {
   // If the array only has one value, return the array.
-  if(array.length < 2) {
+  if (array.length < 2) {
     return array;
   }
 

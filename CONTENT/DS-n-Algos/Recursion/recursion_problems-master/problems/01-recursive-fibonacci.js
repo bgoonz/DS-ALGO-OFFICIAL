@@ -20,11 +20,11 @@ fibonacci(10); // => ???
 //base: n = 1 || 2
 //recursive case: n>2
 //recursive step: fib(n-1)+fib(n-2)
-function fibonacci( n ) {
-  if ( n === 1 || n === 2 ) {
+function fibonacci(n) {
+  if (n === 1 || n === 2) {
     return 1;
   }
-  return fibonacci( n - 1 ) + fibonacci( n - 2 );
+  return fibonacci(n - 1) + fibonacci(n - 2);
 }
 
 /**************DO NOT MODIFY ANYTHING UNDER THIS LINE*****************/

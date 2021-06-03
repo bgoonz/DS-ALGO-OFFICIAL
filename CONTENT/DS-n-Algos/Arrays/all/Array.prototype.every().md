@@ -6,18 +6,17 @@ The **`every()`** method tests whether all elements in the array pass the test i
 
 The source for this interactive example is stored in a GitHub repository. If you'd like to contribute to the interactive examples project, please clone [https://github.com/mdn/interactive-examples](https://github.com/mdn/interactive-examples) and send us a pull request.
 
-Syntax
-------
+## Syntax
 
 arr.every(callback(element\[, index\[, array\]\])\[, thisArg\])
 
 ### Parameters
 
- `callback`
+`callback`
 
 A function to test for each element, taking three arguments:
 
- `element`
+`element`
 
 The current element being processed in the array.
 
@@ -37,8 +36,7 @@ A value to use as `this` when executing `callback` .
 
 **`true`** if the `callback` function returns a [truthy](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/en-US/docs/Glossary/truthy) value for every array element. Otherwise, **`false`**.
 
-Description
------------
+## Description
 
 The `every` method executes the provided `callback` function once for each element present in the array until it finds the one where `callback` returns a [falsy](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/en-US/docs/Glossary/falsy) value. If such an element is found, the `every` method immediately returns `false` . Otherwise, if `callback` returns a [truthy](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/en-US/docs/Glossary/truthy) value for all elements, `every` returns `true` .
 
@@ -56,8 +54,7 @@ The range of elements processed by `every` is set before the first invocation of
 
 `every` acts like the "for all" quantifier in mathematics. In particular, for an empty array, it returns `true` . (It is [vacuously true](https://en.wikipedia.org/wiki/Vacuous_truth) that all elements of the [empty set](https://en.wikipedia.org/wiki/Empty_set#Properties) satisfy any given condition.)
 
-Polyfill
---------
+## Polyfill
 
 `every` was added to the ECMA-262 standard in the 5th edition, and it may not be present in other implementations of the standard. You can work around this by inserting the following code at the beginning of your scripts, allowing use of `every` in implementations which do not natively support it.
 
@@ -67,58 +64,58 @@ This algorithm is exactly the one specified in ECMA-262, 5th edition, assuming `
       Array.prototype.every = function(callbackfn, thisArg) {
         'use strict';
         var T, k;
-    
+
         if (this == null) {
           throw new TypeError('this is null or not defined');
         }
-    
-        
-        
+
+
+
         var O = Object(this);
-    
-        
-        
-        
+
+
+
+
         var len = O.length >>> 0;
-    
-        
+
+
         if (typeof callbackfn !== 'function' && Object.prototype.toString.call(callbackfn) !== '[object Function]') {
           throw new TypeError();
         }
-    
-        
+
+
         if (arguments.length > 1) {
           T = thisArg;
         }
-    
-        
+
+
         k = 0;
-    
-        
+
+
         while (k < len) {
-    
+
           var kValue;
-    
-          
-          
-          
-          
-          
-          
+
+
+
+
+
+
+
           if (k in O) {
             var testResult;
-            
-            
+
+
             kValue = O[k];
-    
-            
-            
-            
-            
-            if(T) testResult = callbackfn.call(T, kValue, k, O); 
+
+
+
+
+
+            if(T) testResult = callbackfn.call(T, kValue, k, O);
             else testResult = callbackfn(kValue,k,O)
-    
-            
+
+
             if (!testResult) {
               return false;
             }
@@ -128,10 +125,8 @@ This algorithm is exactly the one specified in ECMA-262, 5th edition, assuming `
         return true;
       };
     }
-    
 
-Examples
---------
+## Examples
 
 ### Testing size of all array elements
 
@@ -140,87 +135,75 @@ The following example tests whether all elements in the array are bigger than 10
     function isBigEnough(element, index, array) {
       return element >= 10;
     }
-    [12, 5, 8, 130, 44].every(isBigEnough);   
-    [12, 54, 18, 130, 44].every(isBigEnough); 
-    
+    [12, 5, 8, 130, 44].every(isBigEnough);
+    [12, 54, 18, 130, 44].every(isBigEnough);
 
 ### Using arrow functions
 
 [Arrow functions](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions) provide a shorter syntax for the same test.
 
-    [12, 5, 8, 130, 44].every(x => x >= 10);   
-    [12, 54, 18, 130, 44].every(x => x >= 10); 
+    [12, 5, 8, 130, 44].every(x => x >= 10);
+    [12, 54, 18, 130, 44].every(x => x >= 10);
 
 ### Affecting Initial Array (modifying, appending, and deleting)
 
 The following examples tests the behaviour of the `every` method when the array is modified.
 
-    
-    
-    
     let arr = [1, 2, 3, 4];
     arr.every( (elem, index, arr) => {
       arr[index+1] -= 1
       console.log( `[${arr}][${index}] -> ${elem}` )
-      return elem < 2 
+      return elem < 2
     })
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+
+
+
+
+
+
+
+
+
+
+
     arr = [1, 2, 3];
     arr.every( (elem, index, arr) => {
       arr.push('new')
       console.log( `[${arr}][${index}] -> ${elem}` )
       return elem < 4
     })
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+
+
+
+
+
+
+
+
+
+
     arr = [1, 2, 3, 4];
     arr.every( (elem, index, arr) => {
       arr.pop()
       console.log( `[${arr}][${index}] -> ${elem}` )
       return elem < 4
     })
-    
-    
-    
-    
-    
-    
 
-Specifications
---------------
+## Specifications
 
 | Specification                                                                                                         |
 | --------------------------------------------------------------------------------------------------------------------- |
 | [ECMAScript (ECMA-262)                                                                                                |
 | The definition of 'Array.prototype.every' in that specification.](https://tc39.es/ecma262/#sec-array.prototype.every) |
 
-Browser compatibility
----------------------
+## Browser compatibility
 
 The compatibility table in this page is generated from structured data. If you'd like to contribute to the data, please check out [https://github.com/mdn/browser-compat-data](https://github.com/mdn/browser-compat-data) and send us a pull request.
 
 [Update compatibility data on GitHub](https://github.com/mdn/browser-compat-data)
 
 |         | Desktop               | Mobile               | Server                   |
-| ------- | --------------------- | -------------------- | ------------------------ |
+| ------- | --------------------- | -------------------- | ------------------------ | ----------------- | ---------------------- | --------------------- | -------------------------------- | ------------------------------ | ------------------------------ | ------------------------------- | ------------------------- | ----------------------------------------- | --------------------------- |
 |         | Chrome                | Edge                 | Firefox                  | Internet Explorer | Opera                  | Safari                | Android webview                  | Chrome for Android             | Firefox for Android            | Opera for Android               | Safari on iOS             | Samsung Internet                          | Node.js                     |
 | ---     | ---                   | ---                  | ---                      | ---               | ---                    | ---                   | ---                              | ---                            | ---                            | ---                             | ---                       | ---                                       | ---                         |
 | `every` | Chrome Full support 1 | Edge Full support 12 | Firefox Full support 1.5 | IE Full support 9 | Opera Full support 9.5 | Safari Full support 3 | WebView Android Full support ≤37 | Chrome Android Full support 18 | Firefox Android Full support 4 | Opera Android Full support 10.1 | Safari iOS Full support 1 | Samsung Internet Android Full support 1.0 | nodejs Full support 0.1.100 |
@@ -248,16 +231,15 @@ Connection error: Sorry, we can't seem to reach the server. We are working to fi
 
 ### Legend
 
-Full support 
+Full support
 
 Full support
 
-See also
---------
+## See also
 
-*   [`Array.prototype.forEach()`](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach)
-*   [`Array.prototype.some()`](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/some)
-*   [`Array.prototype.find()`](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/find)
-*   [`TypedArray.prototype.every()`](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/en-US/docs/Web/JavaScript/Reference/Global_Objects/TypedArray/every)
+- [`Array.prototype.forEach()`](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach)
+- [`Array.prototype.some()`](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/some)
+- [`Array.prototype.find()`](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/find)
+- [`TypedArray.prototype.every()`](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/en-US/docs/Web/JavaScript/Reference/Global_Objects/TypedArray/every)
 
 [Source](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/every)

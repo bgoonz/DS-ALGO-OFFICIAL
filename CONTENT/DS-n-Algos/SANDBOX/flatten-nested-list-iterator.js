@@ -32,18 +32,16 @@
  * @constructor
  * @param {NestedInteger[]} nestedList
  */
-var NestedIterator = function(nestedList) {
+var NestedIterator = function (nestedList) {
   this.a = nestedList;
 };
-
 
 /**
  * @this NestedIterator
  * @returns {boolean}
  */
-NestedIterator.prototype.hasNext = function() {
-  if (!this.a.length)
-    return false;
+NestedIterator.prototype.hasNext = function () {
+  if (!this.a.length) return false;
 
   while (this.a.length) {
     if (this.a[0] instanceof NestedInteger) {
@@ -51,8 +49,7 @@ NestedIterator.prototype.hasNext = function() {
       // if a[0] is List
       if (!obj.isInteger()) {
         var arr = obj.getList();
-        if (arr.length) 
-          Array.prototype.unshift.apply(this.a, arr);
+        if (arr.length) Array.prototype.unshift.apply(this.a, arr);
       } else {
         var item = obj.getInteger();
         Array.prototype.unshift.apply(this.a, [item]);
@@ -66,11 +63,10 @@ NestedIterator.prototype.hasNext = function() {
   return false;
 };
 
-
 /**
  * @this NestedIterator
  * @returns {integer}
  */
-NestedIterator.prototype.next = function() {
+NestedIterator.prototype.next = function () {
   return this.a.shift();
 };

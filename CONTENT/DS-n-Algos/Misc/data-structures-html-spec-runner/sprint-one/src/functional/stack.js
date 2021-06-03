@@ -1,4 +1,4 @@
-let Stack = function() {
+let Stack = function () {
   let someInstance = {};
 
   // Use an object with numeric keys to store values
@@ -6,17 +6,17 @@ let Stack = function() {
   let length = 0;
 
   // Implement the methods below
-  someInstance.push = function(value) {
+  someInstance.push = function (value) {
     storage[length] = value;
     length++;
   };
 
-  someInstance.pop = function() {
+  someInstance.pop = function () {
     length && length--;
     return storage[length];
   };
 
-  someInstance.size = function() {
+  someInstance.size = function () {
     return length;
   };
 

@@ -1,4 +1,4 @@
-let Queue = function() {
+let Queue = function () {
   let someInstance = Object.create(queueMethods);
   someInstance.storage = {};
   someInstance.length = 0;
@@ -6,12 +6,12 @@ let Queue = function() {
 };
 
 let queueMethods = {
-  enqueue: function(value) {
+  enqueue: function (value) {
     this.storage[this.length] = value;
     this.length++;
   },
 
-  dequeue: function() {
+  dequeue: function () {
     let first = this.storage[0];
     delete this.storage[0];
     this.length && this.length--;
@@ -24,7 +24,7 @@ let queueMethods = {
     return first;
   },
 
-  size: function() {
+  size: function () {
     return this.length;
-  }
+  },
 };

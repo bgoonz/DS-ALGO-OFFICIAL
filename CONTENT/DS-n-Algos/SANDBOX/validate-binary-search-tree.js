@@ -12,11 +12,12 @@
  * @param {TreeNode} root
  * @return {boolean}
  */
-var isValidBST = function(root) {
-  var inorderTraversal = function(root) {
+var isValidBST = function (root) {
+  var inorderTraversal = function (root) {
     if (!root) return [];
 
-    var stack = [], ans = [];
+    var stack = [],
+      ans = [];
 
     stack.push(root);
 
@@ -44,8 +45,7 @@ var isValidBST = function(root) {
 
   var ans = inorderTraversal(root);
   for (var i = 1, len = ans.length; i < len; i++) {
-    if (ans[i] > ans[i - 1])
-      continue;
+    if (ans[i] > ans[i - 1]) continue;
 
     return false;
   }

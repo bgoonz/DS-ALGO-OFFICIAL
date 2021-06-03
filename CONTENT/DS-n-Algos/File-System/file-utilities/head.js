@@ -9,7 +9,7 @@
  * If everything succeeds, it will print up to the first ten lines of the file.
  */
 
-const fs = require('fs');
+const fs = require("fs");
 
 if (process.argv.length !== 3) {
   console.log("USAGE: ./touch.js path");
@@ -25,33 +25,33 @@ fs.stat(target, (err, stats) => {
   }
 
   if (stats.isFile()) {
-    const readable = fs.createReadStream(target, 'utf-8');
+    const readable = fs.createReadStream(target, "utf-8");
     const handler = checkChunk(readable);
-    readable.on('data', handler);
-    readable.on('end', handler);
+    readable.on("data", handler);
+    readable.on("end", handler);
   }
 });
 
 const data = [];
 function checkChunk(readable) {
   let numberOfNewlines = 0;
-  return chunk => {
+  return (chunk) => {
     if (numberOfNewlines === 10) {
       return;
     }
     if (chunk === null || chunk === undefined) {
-      return console.log(data.join('').trim());
+      return console.log(data.join("").trim());
     }
     for (let i = 0; i < chunk.length; i += 1) {
-      if (chunk[i] === '\n') {
+      if (chunk[i] === "\n") {
         numberOfNewlines += 1;
       }
       if (numberOfNewlines === 10) {
-        console.log(data.join('') + chunk.substring(0, i));
+        console.log(data.join("") + chunk.substring(0, i));
         readable.destroy();
         return;
       }
     }
     data.push(chunk);
-  }
+  };
 }

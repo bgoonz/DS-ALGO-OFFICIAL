@@ -5,12 +5,12 @@
  * @param {string[]} strs
  * @return {string[][]}
  */
-var groupAnagrams = function(strs) {
+var groupAnagrams = function (strs) {
   var ans = [];
   var hash = {};
 
-  strs.forEach(function(item) {
-    var str = item.split('').sort().join('');
+  strs.forEach(function (item) {
+    var str = item.split("").sort().join("");
     if (hash[str] === undefined) {
       hash[str] = ans.length;
       ans.push([item]);

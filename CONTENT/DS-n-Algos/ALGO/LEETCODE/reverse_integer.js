@@ -22,8 +22,8 @@ And lower bound is -(2^31 - 1)
 */
 
 // SOLUTION-1 My solution
-const reverse = x => {
-  const reversedX = +Math.abs( x ).toString().split( '' ).reverse().join( '' );
+const reverse = (x) => {
+  const reversedX = +Math.abs(x).toString().split("").reverse().join("");
   return reversedX > 2147483647 ? 0 : x < 0 ? -reversedX : reversedX;
 };
 
@@ -32,20 +32,18 @@ const reverse = x => {
 // console.log(reverse(-123));  // => -321
 
 // // SOLUTION-2 - Best Performing solution. And also if the Problems asks for not to use any string related methods.
-const reverseBest = x => {
-
-  let y = Math.abs( x );
+const reverseBest = (x) => {
+  let y = Math.abs(x);
   var result = 0;
 
-  while ( y ) {
-    var result = ( result * 10 ) + y % 10;
-    y = parseInt( y / 10 );
+  while (y) {
+    var result = result * 10 + (y % 10);
+    y = parseInt(y / 10);
     // console.log(y);
   }
 
-
-  x > 0 ? result = result : result = -result;
-  if ( result > 2147483648 || result < -2147483648 ) return 0;
+  x > 0 ? (result = result) : (result = -result);
+  if (result > 2147483648 || result < -2147483648) return 0;
   return result;
 };
 
@@ -116,25 +114,24 @@ Math.round('12foo') // => NaN
 
 // SOLUTION-3 - Almost similar to SOL-1 except using toString() but anyway converting to string with '
 
-const reverseNum = x => {
-
+const reverseNum = (x) => {
   let result = 0;
 
-  if ( x < 0 ) {
+  if (x < 0) {
     // For this case, slice the string after the first "-" sign. Else I will get a NaN
-    result = -( ( '' + x ).slice( 1 ).split( '' ).reverse().join( '' ) );
+    result = -("" + x).slice(1).split("").reverse().join("");
   } else {
-    result = +( ( '' + x ).split( '' ).reverse().join( '' ) );
+    result = +("" + x).split("").reverse().join("");
   }
 
   // In split() and join() I have to pass the delimiter of an empty string as '' - Else tit will be an error.
 
-  return ( result < ( -Math.pow( 2, 31 ) ) || result > ( Math.pow( 2, 31 ) - 1 ) ) ? 0 : result
+  return result < -Math.pow(2, 31) || result > Math.pow(2, 31) - 1 ? 0 : result;
   // Note the syntax above for the ternary operator above as compared to the SOL-1 and 2. Here, I am using just a single return statement. And
-}
+};
 
-console.log( reverseNum( 123 ) ); // => 321
-console.log( reverseNum( -123 ) ); // => -321
-console.log( reverseNum( 1534236469 ) ) // => 0
+console.log(reverseNum(123)); // => 321
+console.log(reverseNum(-123)); // => -321
+console.log(reverseNum(1534236469)); // => 0
 
 /* split() is a string's prototype method that converts a string to an array. Providing an empty string as an argument means split by each character. So the resulting array would have each character as an element of the array. */

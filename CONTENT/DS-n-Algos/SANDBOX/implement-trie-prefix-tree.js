@@ -5,12 +5,12 @@
  * @constructor
  * Initialize your data structure here.
  */
-var TrieNode = function() {
+var TrieNode = function () {
   this.nodes = [];
   this.endFlag = false;
 };
 
-var Trie = function() {
+var Trie = function () {
   this.root = new TrieNode();
   this.root.endFlag = true;
 };
@@ -20,7 +20,7 @@ var Trie = function() {
  * @return {void}
  * Inserts a word into the trie.
  */
-Trie.prototype.insert = function(word) {
+Trie.prototype.insert = function (word) {
   var node = this.root;
 
   for (var i = 0, len = word.length; i < len; i++) {
@@ -39,15 +39,13 @@ Trie.prototype.insert = function(word) {
  * @return {boolean}
  * Returns if the word is in the trie.
  */
-Trie.prototype.search = function(word) {
+Trie.prototype.search = function (word) {
   var node = this.root;
 
   for (var i = 0, len = word.length; i < len; i++) {
     var item = word.charCodeAt(i) - 97;
-    if (node.nodes[item])
-      node = node.nodes[item];
-    else
-      return false;
+    if (node.nodes[item]) node = node.nodes[item];
+    else return false;
   }
 
   return node.endFlag;
@@ -59,15 +57,13 @@ Trie.prototype.search = function(word) {
  * Returns if there is any word in the trie
  * that starts with the given prefix.
  */
-Trie.prototype.startsWith = function(prefix) {
+Trie.prototype.startsWith = function (prefix) {
   var node = this.root;
 
   for (var i = 0, len = prefix.length; i < len; i++) {
     var item = prefix.charCodeAt(i) - 97;
-    if (node.nodes[item])
-      node = node.nodes[item];
-    else
-      return false;
+    if (node.nodes[item]) node = node.nodes[item];
+    else return false;
   }
 
   return true;

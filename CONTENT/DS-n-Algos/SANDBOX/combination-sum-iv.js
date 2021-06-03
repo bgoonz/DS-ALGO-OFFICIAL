@@ -6,8 +6,7 @@
  * @param {number} target
  * @return {number}
  */
-var combinationSum4 = function(nums, target) {
-
+var combinationSum4 = function (nums, target) {
   var ans = [];
   ans[0] = 1;
 
@@ -15,8 +14,7 @@ var combinationSum4 = function(nums, target) {
     ans[i] = 0;
     for (var j = 0, len = nums.length; j < len; j++) {
       var item = nums[j];
-      if (i - item < 0)
-        continue;
+      if (i - item < 0) continue;
       // (i - item) + item = i
       ans[i] += ans[i - item];
     }

@@ -2,18 +2,18 @@
 <html>
   <head>
     <style>
-      @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap');
-      body{
+      @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap");
+      body {
         overflow-x: hidden;
       }
-      *{
-        font-family: 'Noto Sans JP', sans-serif;
+      * {
+        font-family: "Noto Sans JP", sans-serif;
       }
-      #messages{
+      #messages {
         position: relative;
         transform: translate(25%, 0);
       }
-      .message{
+      .message {
         width: calc(50vw - 6px);
         height: 50px;
         border: 3px solid #000000;
@@ -22,11 +22,11 @@
         left: 0;
         margin: 0;
       }
-      #sendbox{
+      #sendbox {
         position: fixed;
         bottom: 0;
       }
-      input[type="text"]{
+      input[type="text"] {
         border: 3px solid #000000;
         border-radius: 6px;
         width: calc(98vw - 60px);
@@ -34,7 +34,7 @@
         font-size: 15px;
         outline: none;
       }
-      input[type="submit"]{
+      input[type="submit"] {
         border: 3px solid #000000;
         border-radius: 6px;
         background: #ffffff;
@@ -45,16 +45,15 @@
         font-size: 15px;
       }
     </style>
-    <meta name="viewport" content="width=device-width">
+    <meta name="viewport" content="width=device-width" />
     <title>Testy</title>
   </head>
   <body align="center">
-    <div id="messages">
-    </div>
-    <br>
-    <form id="sendbox"onsubmit="sendMessage();return false">
-      <input type="text" id="textbox" placeholder="Hello world!"/>
-      <input type="submit" value="send"/>
+    <div id="messages"></div>
+    <br />
+    <form id="sendbox" onsubmit="sendMessage();return false">
+      <input type="text" id="textbox" placeholder="Hello world!" />
+      <input type="submit" value="send" />
     </form>
   </body>
 </html>
@@ -64,23 +63,32 @@
   socket = io();
   var previousMessages = "<%= messages %>".split(",");
   console.log(previousMessages);
-  for (let step = 0; step < previousMessages.length; step++){
+  for (let step = 0; step < previousMessages.length; step++) {
     displayMsg(previousMessages[step]);
   }
 
-  function sendMessage(){
-    var content = filterXSS(document.getElementById("textbox").value, {whiteList: [], stripIgnoreTag: true, stripIgnoreTagBody: ["script"]});
-    if(!content || content == "[removed]") return;
+  function sendMessage() {
+    var content = filterXSS(document.getElementById("textbox").value, {
+      whiteList: [],
+      stripIgnoreTag: true,
+      stripIgnoreTagBody: ["script"],
+    });
+    if (!content || content == "[removed]") return;
     socket.emit("message", content);
     document.getElementById("textbox").value = "";
   }
-  socket.on("message", function(content){
+  socket.on("message", function (content) {
     displayMsg(content);
   });
 
-  function displayMsg(msg){
-    if(document.getElementById("last"))document.getElementById("last").id = "notlast";
-    document.getElementById("messages").innerHTML = document.getElementById("messages").innerHTML + "<div class=\"message\" id=\"last\">" + msg + "</div><br><br><br>";
+  function displayMsg(msg) {
+    if (document.getElementById("last"))
+      document.getElementById("last").id = "notlast";
+    document.getElementById("messages").innerHTML =
+      document.getElementById("messages").innerHTML +
+      '<div class="message" id="last">' +
+      msg +
+      "</div><br><br><br>";
     document.getElementById("last").scrollIntoView();
   }
 </script>

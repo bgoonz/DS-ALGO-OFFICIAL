@@ -44,5 +44,4 @@ function countScores(people) {
   return scoresObj;
 }
 
-
 module.exports = countScores;

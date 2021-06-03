@@ -6,7 +6,7 @@
   >param {} originalObj
   >return {} clone
 */
-export function clone ( originalObj ) {
+export function clone(originalObj) {
   const type = typeof originalObj;
   // immutable primitive types
   if (

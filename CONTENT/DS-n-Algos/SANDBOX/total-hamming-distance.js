@@ -5,15 +5,14 @@
  * @param {number[]} nums
  * @return {number}
  */
-var totalHammingDistance = function(nums) {
-  let one = []
-    , len = nums.length;
+var totalHammingDistance = function (nums) {
+  let one = [],
+    len = nums.length;
 
-  nums.forEach(function(item) {
+  nums.forEach(function (item) {
     let index = 0;
     while (item) {
-      if (item & 1)
-        one[index] = ~~one[index] + 1;
+      if (item & 1) one[index] = ~~one[index] + 1;
 
       item >>= 1;
       index++;
@@ -22,8 +21,8 @@ var totalHammingDistance = function(nums) {
 
   let ans = 0;
   for (let i = 0, oneLen = one.length; i < oneLen; i++) {
-    let oneNum = ~~one[i]
-      , zeroNum = len - oneNum;
+    let oneNum = ~~one[i],
+      zeroNum = len - oneNum;
 
     ans += oneNum * zeroNum;
   }

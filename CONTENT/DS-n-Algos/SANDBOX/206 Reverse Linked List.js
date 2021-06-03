@@ -1,8 +1,7 @@
 // Leetcode #206
 // Language: Javascript
 // Problem: https://leetcode.com/problems/reverse-linked-list/
-// Author: Bryan Guner 
-
+// Author: Bryan Guner
 
 // Reverse a singly linked list.
 
@@ -21,16 +20,16 @@
  * @param {ListNode} head
  * @return {ListNode}
  */
-var reverseList = function(head) {
-    var curr = head;
-    var prev = null;
-    
-    while(curr) {
-        var next = curr.next;
-        curr.next = prev;
-        prev = curr;
-        curr = next; 
-    }
-    
-    return prev;
+var reverseList = function (head) {
+  var curr = head;
+  var prev = null;
+
+  while (curr) {
+    var next = curr.next;
+    curr.next = prev;
+    prev = curr;
+    curr = next;
+  }
+
+  return prev;
 };

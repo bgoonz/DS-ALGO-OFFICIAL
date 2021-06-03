@@ -5,8 +5,8 @@
  * @param {number} num
  * @return {number}
  */
-var addDigits = function(num) {
-  while(num.toString().length !== 1) {
+var addDigits = function (num) {
+  while (num.toString().length !== 1) {
     var sum = 0;
     while (num) {
       sum += num % 10;

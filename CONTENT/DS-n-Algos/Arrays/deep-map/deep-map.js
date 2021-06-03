@@ -9,12 +9,12 @@
 - parameter:  {boolean} [skipZeros] Invoke callback function for non-zero values only.
 @return {Array | Matrix} res
 */
-export function deepMap( array, callback, skipZeros ) {
-  if ( array && typeof array.map === "function" ) {
-    return array.map( function ( x ) {
-      return deepMap( x, callback, skipZeros );
-    } );
+export function deepMap(array, callback, skipZeros) {
+  if (array && typeof array.map === "function") {
+    return array.map(function (x) {
+      return deepMap(x, callback, skipZeros);
+    });
   } else {
-    return callback( array );
+    return callback(array);
   }
 }

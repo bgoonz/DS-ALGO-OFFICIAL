@@ -6,13 +6,13 @@
  * @param {number} k
  * @return {number}
  */
-var kthSmallest = function(matrix, k) {
+var kthSmallest = function (matrix, k) {
   var arr = [];
   for (var i = 0, len = matrix.length; i < len; i++)
     for (var j = 0, _len = matrix[i].length; j < _len; j++)
       arr.push(matrix[i][j]);
 
-  arr.sort(function(a, b) {
+  arr.sort(function (a, b) {
     return a - b;
   });
 

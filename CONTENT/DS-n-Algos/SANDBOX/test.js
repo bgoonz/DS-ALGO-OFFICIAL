@@ -1,34 +1,34 @@
-const chai = require('chai');
-chai.use(require('chai-spies'));
+const chai = require("chai");
+chai.use(require("chai-spies"));
 const { expect, spy } = chai;
 
-const { TreeNode, BST } = require('../lib/bst');
+const { TreeNode, BST } = require("../lib/bst");
 
-describe('BST', () => {
-    describe('#constructor()', () => {
-        it ('should initialize the `root` property to null', () => {
-            let tree = new BST();
-            expect(tree).to.have.property('root');
-            expect(tree.root).to.equal(null);
-        });
+describe("BST", () => {
+  describe("#constructor()", () => {
+    it("should initialize the `root` property to null", () => {
+      let tree = new BST();
+      expect(tree).to.have.property("root");
+      expect(tree.root).to.equal(null);
     });
+  });
 
-    describe('#insert(val)', () => {
-        it ('should insert a TreeNode with the given value into the BST', () => {
-            let tree = new BST();
-            tree.insert(10);
-            tree.insert(5);
-            tree.insert(16);
-            tree.insert(1);
-            tree.insert(7);
-            tree.insert(16);
-            expect(tree.root.val).to.equal(10);
-            expect(tree.root.left.val).to.equal(5);
-            expect(tree.root.right.val).to.equal(16);
-            expect(tree.root.left.left.val).to.equal(1);
-            expect(tree.root.left.right.val).to.equal(7);
-            expect(tree.root.right.right.val).to.equal(16);
-        });
+  describe("#insert(val)", () => {
+    it("should insert a TreeNode with the given value into the BST", () => {
+      let tree = new BST();
+      tree.insert(10);
+      tree.insert(5);
+      tree.insert(16);
+      tree.insert(1);
+      tree.insert(7);
+      tree.insert(16);
+      expect(tree.root.val).to.equal(10);
+      expect(tree.root.left.val).to.equal(5);
+      expect(tree.root.right.val).to.equal(16);
+      expect(tree.root.left.left.val).to.equal(1);
+      expect(tree.root.left.right.val).to.equal(7);
+      expect(tree.root.right.right.val).to.equal(16);
+    });
 
     //     context('when the BST is empty', () => {
     //         it('should correctly insert a TreeNode with the given val as the root', () => {
@@ -120,14 +120,15 @@ describe('BST', () => {
     //             expect(tree.searchIter(14)).to.equal(false);
     //         });
     //     });
-    });
+  });
 });
 
-
-describe('BONUS: Leet Code #108', () => {
-    it('https://leetcode.com/problems/convert-sorted-array-to-binary-search-tree/')
+describe("BONUS: Leet Code #108", () => {
+  it(
+    "https://leetcode.com/problems/convert-sorted-array-to-binary-search-tree/"
+  );
 });
 
-describe('BONUS: Leet Code #110', () => {
-    it('https://leetcode.com/problems/balanced-binary-tree/')
+describe("BONUS: Leet Code #110", () => {
+  it("https://leetcode.com/problems/balanced-binary-tree/");
 });

@@ -14,14 +14,14 @@ return [0, 1].
 */
 
 // My Solution
-const twoSum = ( nums, target ) => {
+const twoSum = (nums, target) => {
   const result = [];
 
-  for ( let i = 0; i < nums.length; i++ ) {
-    for ( let j = i + 1; j < nums.length; j++ ) {
-      if ( nums[ i ] + nums[ j ] === target ) {
-        result.push( i );
-        result.push( j );
+  for (let i = 0; i < nums.length; i++) {
+    for (let j = i + 1; j < nums.length; j++) {
+      if (nums[i] + nums[j] === target) {
+        result.push(i);
+        result.push(j);
       }
     }
   }
@@ -34,16 +34,16 @@ const twoSum = ( nums, target ) => {
  Time complexity : O(n^2). For each element, we try to find its complement by looping through the rest of array which takes O(n)O(n) time. Therefore, the time complexity is O(n^2). Space complexity : O(1). */
 
 // Alternative solution
-const twoSumAlt = ( nums, target ) => {
+const twoSumAlt = (nums, target) => {
   const result = [];
-  nums.forEach( ( num, i ) => {
+  nums.forEach((num, i) => {
     const diff = target - num;
-    const k = nums.indexOf( diff );
-    if ( k > -1 && k !== i ) {
-      result.push( i );
-      result.push( k );
+    const k = nums.indexOf(diff);
+    if (k > -1 && k !== i) {
+      result.push(i);
+      result.push(k);
     }
-  } );
+  });
   return result;
 };
 
@@ -72,16 +72,19 @@ Here, under the first for loop, I am doing a < numsObject[num] = i > which means
 Then with each iteration, will check with hasOwnPropery() if the key exists. And the key will be the other element, i.e. the difference from the target.
 We reduce the look up time from O(n)O(n) to O(1)O(1) by trading space for speed. A hash table is built exactly for this purpose, it supports fast look up in near constant time. I say "near" because if a collision occurred, a look up could degenerate to O(n)O(n) time. But look up in hash table should be amortized O(1)O(1) time as long as the hash function was chosen carefully.
 */
-function twoSum_O_n_time( arr, target ) {
+function twoSum_O_n_time(arr, target) {
   let numObject = {};
-  for ( var i = 0; i < arr.length; i++ ) {
-    let thisNum = "" + arr[ i ];
-    numObject[ thisNum ] = i;
+  for (var i = 0; i < arr.length; i++) {
+    let thisNum = "" + arr[i];
+    numObject[thisNum] = i;
   }
-  for ( var i = 0; i < arr.length; i++ ) {
-    let diff = target - arr[ i ];
-    if ( numObject.hasOwnProperty( diff.toString() ) && numObject[ diff.toString() ] !== i ) {
-      return [ i, numObject[ diff.toString() ] ];
+  for (var i = 0; i < arr.length; i++) {
+    let diff = target - arr[i];
+    if (
+      numObject.hasOwnProperty(diff.toString()) &&
+      numObject[diff.toString()] !== i
+    ) {
+      return [i, numObject[diff.toString()]];
     }
   }
 }
@@ -94,19 +97,18 @@ Time complexity : O(n)). We traverse the list containing n elements exactly twic
 Space complexity : O(n). The extra space required depends on the number of items stored in the hash table, which stores exactly nn elements.
 */
 
-
 /* The best solution -
  While we iterate and inserting elements into the table, we also look back to check if current element's complement already exists in the table. If it exists, we have found a solution and return immediately.
  So, basically we are doing the checking in one-pass. */
 
-function twoSumBest( array, target ) {
+function twoSumBest(array, target) {
   const numsMap = new Map();
-  for ( let i = 0; i < array.length; i++ ) {
-    if ( numsMap.has( target - array[ i ] ) ) {
-      return [ numsMap.get( target - array[ i ], i ) ];
+  for (let i = 0; i < array.length; i++) {
+    if (numsMap.has(target - array[i])) {
+      return [numsMap.get(target - array[i], i)];
       // get() returns a specified element associated with the specified key from the Map object.
     } else {
-      numsMap.set( array[ i ], i );
+      numsMap.set(array[i], i);
       //  set() adds or updates an element with a specified key and value to a Map object.
     }
   }
@@ -119,33 +121,33 @@ Space complexity : O(n). The extra space required depends on the number of items
  In the above, I also used Map rather than use an object literal as a map given V8 has recently added significant performance improvements to Map and Set making them indispensable as lookups.
  */
 
-
-
 // Performance Test - First create a random array with 3000 elements
 
-const arr = Array.from( {
-  length: 3000
-}, () => Math.floor( Math.random() * 3000 ) );
+const arr = Array.from(
+  {
+    length: 3000,
+  },
+  () => Math.floor(Math.random() * 3000)
+);
 
+console.time("Solution-1-Brute Force");
+twoSum(arr, arr[668] + arr[1669]);
+console.timeEnd("Solution-1-Brute Force");
 
-console.time( "Solution-1-Brute Force" );
-twoSum( arr, ( arr[ 668 ] + arr[ 1669 ] ) );
-console.timeEnd( "Solution-1-Brute Force" );
+console.log("*******************************");
 
-console.log( "*******************************" );
+console.time("Solution-2-Slightly Improved");
+twoSumAlt(arr, arr[668] + arr[1669]);
+console.timeEnd("Solution-2-Slightly Improved");
 
-console.time( "Solution-2-Slightly Improved" );
-twoSumAlt( arr, ( arr[ 668 ] + arr[ 1669 ] ) );
-console.timeEnd( "Solution-2-Slightly Improved" );
+console.log("*******************************");
 
-console.log( "*******************************" );
+console.time("Solution-3-O(n) time with HashMap");
+twoSum_O_n_time(arr, arr[668] + arr[1669]);
+console.timeEnd("Solution-3-O(n) time with HashMap");
 
-console.time( "Solution-3-O(n) time with HashMap" );
-twoSum_O_n_time( arr, ( arr[ 668 ] + arr[ 1669 ] ) );
-console.timeEnd( "Solution-3-O(n) time with HashMap" );
+console.log("*******************************");
 
-console.log( "*******************************" );
-
-console.time( "Solution-4-Even more efficient solution" );
-twoSumBest( arr, ( arr[ 668 ] + arr[ 1669 ] ) );
-console.timeEnd( "Solution-4-Even more efficient solution" );
+console.time("Solution-4-Even more efficient solution");
+twoSumBest(arr, arr[668] + arr[1669]);
+console.timeEnd("Solution-4-Even more efficient solution");

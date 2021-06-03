@@ -3,6 +3,4 @@
 
 // Hint: it may be helpful to get the height of your BST
 
-function isBalanced(root) {
-
-}
+function isBalanced(root) {}

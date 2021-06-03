@@ -1,21 +1,25 @@
-const arr = [ 1, 1, 5, 2, 6, 10 ];
-let arr1 = [ 1, 7, 12, 6, 5, 10 ];
+const arr = [1, 1, 5, 2, 6, 10];
+let arr1 = [1, 7, 12, 6, 5, 10];
 //--------------------------------------------------
-const partialSum = ( arr ) => {
+const partialSum = (arr) => {
   const output = [];
-  arr.forEach( ( num, i ) => {
-    if ( i === 0 ) {
-      output[ i ] = num;
+  arr.forEach((num, i) => {
+    if (i === 0) {
+      output[i] = num;
     } else {
-      output[ i ] = num + output[ i - 1 ];
+      output[i] = num + output[i - 1];
     }
-  } );
+  });
   return output;
 };
-console.log( '------------------------------------------------partialSum------------------------------------------------' )
-console.log( ' partialSum( arr )=[ 1, 1, 5, 2, 6, 10 ]: ', partialSum( arr ) );
-console.log( ' partialSum( arr1 )=[ 1, 7, 12, 6, 5, 10 ]: ', partialSum( arr1 ) );
-console.log( '------------------------------------------------partialSum------------------------------------------------' )
+console.log(
+  "------------------------------------------------partialSum------------------------------------------------"
+);
+console.log(" partialSum( arr )=[ 1, 1, 5, 2, 6, 10 ]: ", partialSum(arr));
+console.log(" partialSum( arr1 )=[ 1, 7, 12, 6, 5, 10 ]: ", partialSum(arr1));
+console.log(
+  "------------------------------------------------partialSum------------------------------------------------"
+);
 /*
 ------------------------------------------------partialSum------------------------------------------------
  partialSum( arr )=[ 1, 1, 5, 2, 6, 10 ]:  [ 1, 2, 7, 9, 15, 25 ]
@@ -23,20 +27,24 @@ console.log( '------------------------------------------------partialSum--------
 ------------------------------------------------partialSum------------------------------------------------
 */
 //!v---------------------THIS ONE IS NOT WOKRING AS EXPECTED-----------------------------------------------------
-const partSum = ( array ) => {
+const partSum = (array) => {
   let newArr = [];
-  array.reduce( ( acum, ele ) => {
+  array.reduce((acum, ele) => {
     let sum = acum + ele;
-    newArr.push( sum );
+    newArr.push(sum);
     return acum + ele;
-  } );
+  });
   return newArr;
 };
 
-console.log( '------------------------------------------------partSum------------------------------------------------' )
-console.log( 'partSum(arr)=[ 1, 1, 5, 2, 6, 10 ]: ', partSum( arr ) );
-console.log( 'partSum(arr1)=[ 1, 7, 12, 6, 5, 10 ]: ', partSum( arr1 ) );
-console.log( '------------------------------------------------partSum------------------------------------------------' )
+console.log(
+  "------------------------------------------------partSum------------------------------------------------"
+);
+console.log("partSum(arr)=[ 1, 1, 5, 2, 6, 10 ]: ", partSum(arr));
+console.log("partSum(arr1)=[ 1, 7, 12, 6, 5, 10 ]: ", partSum(arr1));
+console.log(
+  "------------------------------------------------partSum------------------------------------------------"
+);
 /*
 ------------------------------------------------partSum------------------------------------------------    
 partSum(arr)=[ 1, 1, 5, 2, 6, 10 ]:  [ 2, 7, 9, 15, 25 ]

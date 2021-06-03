@@ -14,8 +14,8 @@ valuesInObject(animals); // => ["Wolfie", "Jet", "Bilbo"]
 valuesInObject(foods); // => ["tart", "sour", "sweet"]
 ***********************************************************************/
 
-function valuesInObject( obj ) {
-  return Object.values( obj );
+function valuesInObject(obj) {
+  return Object.values(obj);
 }
 
 // solution 2
@@ -27,6 +27,5 @@ function valuesInObject( obj ) {
 //   }
 //   return array;
 // }
-
 
 module.exports = valuesInObject;

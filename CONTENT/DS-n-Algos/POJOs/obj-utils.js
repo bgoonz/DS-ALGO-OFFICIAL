@@ -6,7 +6,7 @@
   >param {} x
   >return {} clone
 */
-export function clone( x ) {
+export function clone(x) {
   const type = typeof x;
   // immutable primitive types
   if (
@@ -19,18 +19,18 @@ export function clone( x ) {
     return x;
   }
   // use clone function of the object when available
-  if ( typeof x.clone === "function" ) {
+  if (typeof x.clone === "function") {
     return x.clone();
   }
   // array
-  if ( Array.isArray( x ) ) {
-    return x.map( function ( value ) {
-      return clone( value );
-    } );
+  if (Array.isArray(x)) {
+    return x.map(function (value) {
+      return clone(value);
+    });
   }
-  if ( x instanceof Date ) return new Date( x.valueOf() );
+  if (x instanceof Date) return new Date(x.valueOf());
   // object
-  return mapObject( x, clone );
+  return mapObject(x, clone);
 }
 /*
 ! Apply map to all properties of an object
@@ -38,11 +38,11 @@ export function clone( x ) {
   >param {function} callback
   >return {Object} Returns a copy of the object with mapped properties
 */
-export function mapObject( object, callback ) {
+export function mapObject(object, callback) {
   const clone = {};
-  for ( const key in object ) {
-    if ( hasOwnProperty( object, key ) ) {
-      clone[ key ] = callback( object[ key ] );
+  for (const key in object) {
+    if (hasOwnProperty(object, key)) {
+      clone[key] = callback(object[key]);
     }
   }
   return clone;
@@ -53,10 +53,10 @@ export function mapObject( object, callback ) {
   >param {Object} b
   >return {Object} a
 */
-export function extend( a, b ) {
-  for ( const prop in b ) {
-    if ( hasOwnProperty( b, prop ) ) {
-      a[ prop ] = b[ prop ];
+export function extend(a, b) {
+  for (const prop in b) {
+    if (hasOwnProperty(b, prop)) {
+      a[prop] = b[prop];
     }
   }
   return a;
@@ -68,36 +68,36 @@ export function extend( a, b ) {
   >param {Array | Object} b
   >returns {boolean}
 */
-export function deepStrictEqual( a, b ) {
+export function deepStrictEqual(a, b) {
   let prop, i, len;
-  if ( Array.isArray( a ) ) {
-    if ( !Array.isArray( b ) ) {
+  if (Array.isArray(a)) {
+    if (!Array.isArray(b)) {
       return false;
     }
-    if ( a.length !== b.length ) {
+    if (a.length !== b.length) {
       return false;
     }
-    for ( i = 0, len = a.length; i < len; i++ ) {
-      if ( !deepStrictEqual( a[ i ], b[ i ] ) ) {
+    for (i = 0, len = a.length; i < len; i++) {
+      if (!deepStrictEqual(a[i], b[i])) {
         return false;
       }
     }
     return true;
-  } else if ( typeof a === "function" ) {
+  } else if (typeof a === "function") {
     return a === b;
-  } else if ( a instanceof Object ) {
-    if ( Array.isArray( b ) || !( b instanceof Object ) ) {
+  } else if (a instanceof Object) {
+    if (Array.isArray(b) || !(b instanceof Object)) {
       return false;
     }
-    for ( prop in a ) {
+    for (prop in a) {
       // noinspection JSUnfilteredForInLoop
-      if ( !( prop in b ) || !deepStrictEqual( a[ prop ], b[ prop ] ) ) {
+      if (!(prop in b) || !deepStrictEqual(a[prop], b[prop])) {
         return false;
       }
     }
-    for ( prop in b ) {
+    for (prop in b) {
       // noinspection JSUnfilteredForInLoop
-      if ( !( prop in a ) || !deepStrictEqual( a[ prop ], b[ prop ] ) ) {
+      if (!(prop in a) || !deepStrictEqual(a[prop], b[prop])) {
         return false;
       }
     }
@@ -111,20 +111,20 @@ export function deepStrictEqual( a, b ) {
   >param {Object} nestedObject
   >return {Object} Returns the flattened object
 */
-export function deepFlatten( nestedObject ) {
+export function deepFlatten(nestedObject) {
   const flattenedObject = {};
-  _deepFlatten( nestedObject, flattenedObject );
+  _deepFlatten(nestedObject, flattenedObject);
   return flattenedObject;
 }
 // helper function used by deepFlatten
-function _deepFlatten( nestedObject, flattenedObject ) {
-  for ( const prop in nestedObject ) {
-    if ( hasOwnProperty( nestedObject, prop ) ) {
-      const value = nestedObject[ prop ];
-      if ( typeof value === "object" && value !== null ) {
-        _deepFlatten( value, flattenedObject );
+function _deepFlatten(nestedObject, flattenedObject) {
+  for (const prop in nestedObject) {
+    if (hasOwnProperty(nestedObject, prop)) {
+      const value = nestedObject[prop];
+      if (typeof value === "object" && value !== null) {
+        _deepFlatten(value, flattenedObject);
       } else {
-        flattenedObject[ prop ] = value;
+        flattenedObject[prop] = value;
       }
     }
   }
@@ -136,13 +136,13 @@ function _deepFlatten( nestedObject, flattenedObject ) {
 export function canDefineProperty() {
   // test needed for broken IE8 implementation
   try {
-    if ( Object.defineProperty ) {
-      Object.defineProperty( {}, "x", {
-        get: function () {}
-      } );
+    if (Object.defineProperty) {
+      Object.defineProperty({}, "x", {
+        get: function () {},
+      });
       return true;
     }
-  } catch ( e ) {}
+  } catch (e) {}
   return false;
 }
 /*
@@ -153,24 +153,24 @@ export function canDefineProperty() {
   >param {Function} valueResolver Function returning the property value. Called
                                  without arguments.
 */
-export function lazy( object, prop, valueResolver ) {
+export function lazy(object, prop, valueResolver) {
   let _uninitialized = true;
   let _value;
-  Object.defineProperty( object, prop, {
+  Object.defineProperty(object, prop, {
     get: function () {
-      if ( _uninitialized ) {
+      if (_uninitialized) {
         _value = valueResolver();
         _uninitialized = false;
       }
       return _value;
     },
-    set: function ( value ) {
+    set: function (value) {
       _value = value;
       _uninitialized = false;
     },
     configurable: true,
     enumerable: true,
-  } );
+  });
 }
 /*
 ! Get a nested property from an object
@@ -178,18 +178,18 @@ export function lazy( object, prop, valueResolver ) {
   >param {string | string[]} path
   >returns {Object}
 */
-export function get( object, path ) {
-  if ( typeof path === "string" ) {
-    if ( isPath( path ) ) {
-      return get( object, path.split( "." ) );
+export function get(object, path) {
+  if (typeof path === "string") {
+    if (isPath(path)) {
+      return get(object, path.split("."));
     } else {
-      return object[ path ];
+      return object[path];
     }
   }
   let child = object;
-  for ( let i = 0; i < path.length; i++ ) {
-    const key = path[ i ];
-    child = child ? child[ key ] : undefined;
+  for (let i = 0; i < path.length; i++) {
+    const key = path[i];
+    child = child ? child[key] : undefined;
   }
   return child;
 }
@@ -202,26 +202,26 @@ export function get( object, path ) {
   >param {} value
   >returns {Object}
 */
-export function set( object, path, value ) {
-  if ( typeof path === "string" ) {
-    if ( isPath( path ) ) {
-      return set( object, path.split( "." ), value );
+export function set(object, path, value) {
+  if (typeof path === "string") {
+    if (isPath(path)) {
+      return set(object, path.split("."), value);
     } else {
-      object[ path ] = value;
+      object[path] = value;
       return object;
     }
   }
   let child = object;
-  for ( let i = 0; i < path.length - 1; i++ ) {
-    const key = path[ i ];
-    if ( child[ key ] === undefined ) {
-      child[ key ] = {};
+  for (let i = 0; i < path.length - 1; i++) {
+    const key = path[i];
+    if (child[key] === undefined) {
+      child[key] = {};
     }
-    child = child[ key ];
+    child = child[key];
   }
-  if ( path.length > 0 ) {
-    const lastKey = path[ path.length - 1 ];
-    child[ lastKey ] = value;
+  if (path.length > 0) {
+    const lastKey = path[path.length - 1];
+    child[lastKey] = value;
   }
   return object;
 }

@@ -14,9 +14,9 @@ One possible answer is: \[0,-3,9,-10,null,5\], which represents the following he
 
       0
      / \\
-   -3   9
-   /   /
- -10  5
 
+-3 9
+/ /
+-10 5
 
 [Source](https://leetcode.com/problems/convert-sorted-array-to-binary-search-tree/)

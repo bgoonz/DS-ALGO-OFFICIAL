@@ -14,16 +14,13 @@ function dfs(s, left, right, n) {
     return;
   }
 
-  if (left + 1 <= n)
-    dfs(s + '(', left + 1, right, n);
+  if (left + 1 <= n) dfs(s + "(", left + 1, right, n);
 
-  if (right + 1 <= n && right + 1 <= left)
-    dfs(s + ')', left, right + 1, n);
-
+  if (right + 1 <= n && right + 1 <= left) dfs(s + ")", left, right + 1, n);
 }
 
-var generateParenthesis = function(n) {
+var generateParenthesis = function (n) {
   ans = [];
-  dfs('', 0, 0, n);
+  dfs("", 0, 0, n);
   return ans;
 };

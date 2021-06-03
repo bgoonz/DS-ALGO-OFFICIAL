@@ -29,11 +29,11 @@ So for first loop of the second for-loop in the below function  -> curr_max += (
 That is its adding one element on the right and deducting one element on the left.
 */
 
-function findMaxAverage( nums, k ) {
-  let curr_max = 0
+function findMaxAverage(nums, k) {
+  let curr_max = 0;
 
-  for ( let i = 0; i < k; i++ ) {
-    curr_max += nums[ i ]
+  for (let i = 0; i < k; i++) {
+    curr_max += nums[i];
   }
 
   let max_so_far = curr_max;
@@ -42,13 +42,13 @@ function findMaxAverage( nums, k ) {
   // For example if nums.length is 5 and my k is 3 then the first time 'max_so_far' is calculated it will be the
   // first 3 items, then I have to add the 4-th item i.e. num[3] and delete the first item which will be
   // nums[j - k] i.e. num[3 - 3]
-  for ( let j = k; j < nums.length; j++ ) {
-    curr_max += nums[ j ] - nums[ j - k ]
+  for (let j = k; j < nums.length; j++) {
+    curr_max += nums[j] - nums[j - k];
 
     // Each time we get a new curr_sum compare it with max_so_far and update max_so_far if it is greater than max_so_far
-    max_so_far = Math.max( curr_max, max_so_far )
+    max_so_far = Math.max(curr_max, max_so_far);
   }
-  return max_so_far / k
+  return max_so_far / k;
 }
 
 // console.log(findMaxAverage([1, 12, -5, -6, 50, 3], 4)); // => 12.75
@@ -60,23 +60,23 @@ Find the contiguous subarray within a one-dimensional array of numbers which has
 In the below solutions we start at all positions of the array and calculate running sums. So here the time-compelxity is O(n^2).
 
 */
-function findMaxSubArrayBruteForce2( arr ) {
+function findMaxSubArrayBruteForce2(arr) {
   let max_so_far = Number.NEGATIVE_INFINITY;
 
   let leftIndex = 0;
   let rightIndex = arr.length - 1;
   const len = arr.length;
 
-  for ( let i = 0; i < len; i++ ) {
-    maxSum = 0
+  for (let i = 0; i < len; i++) {
+    maxSum = 0;
 
-    for ( let j = i; j < len; j++ ) {
-      maxSum += arr[ j ]
+    for (let j = i; j < len; j++) {
+      maxSum += arr[j];
 
-      if ( max_so_far < maxSum ) {
-        leftIndex = i
-        max_so_far = maxSum
-        rightIndex = j
+      if (max_so_far < maxSum) {
+        leftIndex = i;
+        max_so_far = maxSum;
+        rightIndex = j;
       }
     }
   }
@@ -87,10 +87,10 @@ function findMaxSubArrayBruteForce2( arr ) {
     left: leftIndex,
     right: rightIndex,
     final_max_sum_subArray: max_so_far,
-  }
+  };
 }
 
-var array = [ -2, 1, -3, 4, -1, 2, 1, -5, 4 ]
+var array = [-2, 1, -3, 4, -1, 2, 1, -5, 4];
 
 // console.log(findMaxSubArrayBruteForce2(array));
 
@@ -99,22 +99,22 @@ var array = [ -2, 1, -3, 4, -1, 2, 1, -5, 4 ]
 The difference between the O(N^2) and O(N^3) functions is that in the O(N^2) function, the sum is computed implicitly every time the end index is incremented, while in the O(N^3) function, the sum is computed with a third explicit loop between start and end
 */
 
-function findMaxSubArrayBruteForce3( arr ) {
+function findMaxSubArrayBruteForce3(arr) {
   let max_so_far = Number.NEGATIVE_INFINITY;
   let leftIndex = 0;
   let rightIndex = arr.length - 1;
   const len = arr.length;
 
-  for ( let i = 0; i < len; i++ ) {
-    for ( let j = i; j < len; j++ ) {
-      maxSum = 0
-      for ( let k = i; k <= j; k++ ) {
-        maxSum += arr[ k ]
+  for (let i = 0; i < len; i++) {
+    for (let j = i; j < len; j++) {
+      maxSum = 0;
+      for (let k = i; k <= j; k++) {
+        maxSum += arr[k];
 
-        if ( max_so_far < maxSum ) {
-          leftIndex = i
-          max_so_far = maxSum
-          rightIndex = j
+        if (max_so_far < maxSum) {
+          leftIndex = i;
+          max_so_far = maxSum;
+          rightIndex = j;
         }
       }
     }
@@ -123,9 +123,9 @@ function findMaxSubArrayBruteForce3( arr ) {
     left: leftIndex,
     right: rightIndex,
     final_max_sum_subArray: max_so_far,
-  }
+  };
 }
 
-var array = [ -2, 1, -3, 4, -1, 2, 1, -5, 4 ]
+var array = [-2, 1, -3, 4, -1, 2, 1, -5, 4];
 
-console.log( findMaxSubArrayBruteForce3( array ) )
+console.log(findMaxSubArrayBruteForce3(array));

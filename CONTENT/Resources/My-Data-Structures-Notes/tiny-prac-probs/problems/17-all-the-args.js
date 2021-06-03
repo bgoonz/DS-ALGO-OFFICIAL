@@ -33,9 +33,8 @@ console.log(bowSandy("Joe", "Nico")); // prints "You bowed to Sandy and Joe and 
 
 ***********************************************************************/
 
-function allTheArgs( func, ...args ) {
-  return func.bind( null, ...args );
+function allTheArgs(func, ...args) {
+  return func.bind(null, ...args);
 }
-
 
 module.exports = allTheArgs;

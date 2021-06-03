@@ -18,13 +18,13 @@ let hasA = function(s) {
 console.log(reject(['breadth', 'GRAPH', 'depth', 'height'], hasA)); // [ 'depth', 'height' ]
 *******************************************************************************/
 
-function reject( array, cb ) {
+function reject(array, cb) {
   let items = [];
-  array.forEach( ( el, i ) => {
-    if ( cb( el ) === false ) {
-      items.push( el );
+  array.forEach((el, i) => {
+    if (cb(el) === false) {
+      items.push(el);
     }
-  } );
+  });
   return items;
 }
 

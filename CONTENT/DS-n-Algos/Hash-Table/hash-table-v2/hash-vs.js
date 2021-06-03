@@ -9,13 +9,13 @@ class HashTable {
   add(key, value) {
     // First, find the hash.
     const hash = this.calculateHash(key);
-    if(!this.values.hasOwnProperty(hash)) {
+    if (!this.values.hasOwnProperty(hash)) {
       // If the values doesn't have the hash value,
       // add it to the values object, and set it equal
       // to an empty object.
       this.values[hash] = {};
     }
-    if(!this.values[hash].hasOwnProperty(key)) {
+    if (!this.values[hash].hasOwnProperty(key)) {
       // If the hash doesn't have the key
       // increment the number of values as we add a new value.
       this.numberOfValues++;
@@ -27,7 +27,10 @@ class HashTable {
   remove(key) {
     // First, find the hash.
     const hash = this.calculateHash(key);
-    if(this.values.hasOwnProperty(hash) && this.values[hash].hasOwnProperty(key)) {
+    if (
+      this.values.hasOwnProperty(hash) &&
+      this.values[hash].hasOwnProperty(key)
+    ) {
       // If the values have the hash, and the hash's value has a key, then delete.
       delete this.values[hash][key];
       // We just deleted an item, so decrement the number of values by one.
@@ -42,7 +45,10 @@ class HashTable {
   search(key) {
     // First, find the hash.
     const hash = this.calculateHash(key);
-    if(this.values.hasOwnProperty(hash) && this.values[hash].hasOwnProperty(key)) {
+    if (
+      this.values.hasOwnProperty(hash) &&
+      this.values[hash].hasOwnProperty(key)
+    ) {
       // If the values have the hash, and the hash's value has a key, then return that value.
       return this.values[hash][key];
     } else {
@@ -55,9 +61,9 @@ class HashTable {
   }
 
   print() {
-    let string = '';
-    for(const value in this.values) {
-      for(const key in this.values[value]) {
+    let string = "";
+    for (const value in this.values) {
+      for (const key in this.values[value]) {
         string += `${this.values[value][key]} `;
       }
     }

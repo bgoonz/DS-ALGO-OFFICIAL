@@ -7,9 +7,8 @@
  * @param {number} k
  * @return {number}
  */
-var longestSubstring = function(s, k) {
-  if (k === 1)
-    return s.length;
+var longestSubstring = function (s, k) {
+  if (k === 1) return s.length;
 
   let len = s.length;
   let ans = 0;
@@ -18,20 +17,16 @@ var longestSubstring = function(s, k) {
 
   for (let i = 0; i < len; i++) {
     var item = s[i];
-    if (!f[item])
-      f[item] = [i];
-    else
-      f[item].push(i);
+    if (!f[item]) f[item] = [i];
+    else f[item].push(i);
 
     num[i] = f[item].length;
   }
 
   let minn = Infinity;
-  for (let key in f)
-    minn = Math.min(minn, f[key].length);
+  for (let key in f) minn = Math.min(minn, f[key].length);
 
-  if (k <= minn)
-    return s.length;
+  if (k <= minn) return s.length;
 
   // ö�� substring �����
   for (let i = 0; i < len; i++) {
@@ -45,7 +40,8 @@ var longestSubstring = function(s, k) {
 
         let a = num[j]; // item �ǵڼ���ͬ�� item
         let pos = f[item][a + k - 2]; // ȷ�� substring ���� k �� item��������Ҫ�����λ��
-        if (pos === undefined)  // û����ô�� item Ԫ����
+        if (pos === undefined)
+          // û����ô�� item Ԫ����
           break;
         rightPos = Math.max(rightPos, pos);
       }

@@ -16,7 +16,7 @@ function bubbleSort(array) {
         swapped = true;
       }
     }
-  } while(swapped);
+  } while (swapped);
   // Return the array with the swapped values.
   return array;
 }

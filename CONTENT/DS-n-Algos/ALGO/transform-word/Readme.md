@@ -5,7 +5,7 @@ Given a source word, target word and an English dictionary, transform the source
 ## Example
 
 ```js
-transformWord(['cat', 'bat', 'bet', 'bed', 'at', 'ad', 'ed'], 'cat', 'bed');
+transformWord(["cat", "bat", "bet", "bed", "at", "ad", "ed"], "cat", "bed");
 ```
 
 ## Source

@@ -13,7 +13,7 @@
  * @param {ListNode} head
  * @return {boolean}
  */
-var hasCycle = function(head) {
+var hasCycle = function (head) {
   flag = false;
 
   dfs(head);
@@ -22,19 +22,16 @@ var hasCycle = function(head) {
 };
 
 function dfs(node) {
-  if (flag)
-    return;
+  if (flag) return;
 
-  if (node === null)
-    return;
+  if (node === null) return;
 
   if (node.flag) {
     flag = true;
     return;
   }
 
-  if (node.next === null)
-    return;
+  if (node.next === null) return;
 
   node.flag = true;
 

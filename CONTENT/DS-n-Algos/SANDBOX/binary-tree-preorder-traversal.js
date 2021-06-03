@@ -20,7 +20,7 @@ function dfs(root, ans) {
   dfs(root.right, ans);
 }
 
-var preorderTraversal = function(root) {
+var preorderTraversal = function (root) {
   var ans = [];
   dfs(root, ans);
   return ans;

@@ -1,4 +1,4 @@
-let Stack = function() {
+let Stack = function () {
   let someInstance = Object.create(stackMethods);
   // let someInstance = Object.create(Stack.prototype);
 
@@ -10,7 +10,7 @@ let Stack = function() {
 // Stack.prototype.push = function(value) {
 //   this.storage[this.length] = value;
 //   this.length++;
-// }; 
+// };
 
 // Stack.prototype.pop = function() {
 //   this.length && this.length--;
@@ -22,18 +22,17 @@ let Stack = function() {
 // };
 
 let stackMethods = {
-  
-  push: function(value) {
+  push: function (value) {
     this.storage[this.length] = value;
     this.length++;
-  }, 
+  },
 
-  pop: function() {
+  pop: function () {
     this.length && this.length--;
     return this.storage[this.length];
   },
 
-  size: function() {
+  size: function () {
     return this.length;
   },
 };

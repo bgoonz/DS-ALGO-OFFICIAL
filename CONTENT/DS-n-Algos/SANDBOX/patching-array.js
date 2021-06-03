@@ -7,8 +7,7 @@
  * @return {number}
  */
 
-
-var minPatches = function(nums, n) {
+var minPatches = function (nums, n) {
   var sum = 0;
   var index = 0;
   var ans = 0;

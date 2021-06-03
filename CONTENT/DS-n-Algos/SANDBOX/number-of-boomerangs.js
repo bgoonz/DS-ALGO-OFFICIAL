@@ -7,11 +7,12 @@
  * @param {number[][]} points
  * @return {number}
  */
-var numberOfBoomerangs = function(points) {
+var numberOfBoomerangs = function (points) {
   let len = points.length;
   let ans = 0;
 
-  for (let i = 0; i < len; i++) { // as the middle one
+  for (let i = 0; i < len; i++) {
+    // as the middle one
     let p = new Map();
     for (let j = 0; j < len; j++) {
       if (i === j) continue;
@@ -25,7 +26,9 @@ var numberOfBoomerangs = function(points) {
   return ans * 2;
 
   function getDis(i, j) {
-    return (points[i][0] - points[j][0]) * (points[i][0] - points[j][0])
-        + (points[i][1] - points[j][1]) * (points[i][1] - points[j][1]);
+    return (
+      (points[i][0] - points[j][0]) * (points[i][0] - points[j][0]) +
+      (points[i][1] - points[j][1]) * (points[i][1] - points[j][1])
+    );
   }
 };

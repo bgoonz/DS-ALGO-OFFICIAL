@@ -5,11 +5,11 @@
  * @param {string} s
  * @return {string}
  */
-let decodeString = function(s) {
+let decodeString = function (s) {
   let nums = [];
-  let ss   = [];
-  let str  = ''; 
-  let ans  = '';
+  let ss = [];
+  let str = "";
+  let ans = "";
 
   for (let i = 0, len = s.length; i < len; i++) {
     let item = s[i];
@@ -19,32 +19,29 @@ let decodeString = function(s) {
         str += item;
       } else {
         // s => 2[2[b]]
-        if (str || s[i - 1] === '[') {
-          if (nums.length)
-            ss.push(str);
-          else
-            ans += str;
+        if (str || s[i - 1] === "[") {
+          if (nums.length) ss.push(str);
+          else ans += str;
         }
 
         str = item;
       }
-    } else if (item === '[') {
+    } else if (item === "[") {
       nums.push(+str);
-      str = '';
-    } else if (item === ']') {
+      str = "";
+    } else if (item === "]") {
       str && ss.push(str);
 
       let count = nums.pop();
-      let a     = ss.pop();
-      let tmp   = a.repeat(count);
+      let a = ss.pop();
+      let tmp = a.repeat(count);
 
-      if (ss.length) {  
+      if (ss.length) {
         let last = ss.pop();
         ss.push(last + tmp);
-      } else
-        ans += tmp;
+      } else ans += tmp;
 
-      str = '';
+      str = "";
     } else {
       str += item;
     }

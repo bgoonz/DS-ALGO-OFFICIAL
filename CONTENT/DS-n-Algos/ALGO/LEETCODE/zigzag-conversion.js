@@ -81,38 +81,36 @@ But now, the the code for the mniddle row starts, as the condition ( i !==0 && i
 
 */
 
-const convert = ( s, numRows ) => {
-    const periodSize = ( numRows * 2 ) - 2;
+const convert = (s, numRows) => {
+  const periodSize = numRows * 2 - 2;
   const len = s.length;
-  let result = '';
+  let result = "";
   let i, j, secondJ;
 
-  if ( numRows === 1 ) {
+  if (numRows === 1) {
     return s;
   }
 
-  for ( i = 0; i < numRows; i++ ) {
-    for ( j = i; j < len; j += periodSize ) {
-      result += s.charAt( j );
-
+  for (i = 0; i < numRows; i++) {
+    for (j = i; j < len; j += periodSize) {
+      result += s.charAt(j);
 
       // For middle rows
-      if ( i !== 0 && i !== ( numRows - 1 ) ) {
-        secondJ = ( j + periodSize ) - ( 2 * i );
+      if (i !== 0 && i !== numRows - 1) {
+        secondJ = j + periodSize - 2 * i;
 
-        if ( secondJ < len ) {
-          result += s.charAt( secondJ );
+        if (secondJ < len) {
+          result += s.charAt(secondJ);
         }
         // console.log("index value of j is " + j);
-        // console.log("index value of sedondJ is " + secondJ);				
+        // console.log("index value of sedondJ is " + secondJ);
       }
     }
   }
   return result;
 };
 
-
-console.log( convert( "PAYPALISHIRING", 3 ) ); // should return "PAHNAPLSIIGYIR"
+console.log(convert("PAYPALISHIRING", 3)); // should return "PAHNAPLSIIGYIR"
 
 /*
 convert('ABCDEF', 4) should return 'ABFCED'
@@ -122,7 +120,6 @@ convert('ABCDEF', 4) should return 'ABFCED'
     Row 4 ->        D
 */
 // console.log(convert('ABCDEF', 4));
-
 
 /* 
 convert('ABCDEF', 2) should returns 'ACEBDF'

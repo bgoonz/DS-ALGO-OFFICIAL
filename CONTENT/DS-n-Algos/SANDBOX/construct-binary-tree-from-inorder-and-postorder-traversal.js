@@ -13,12 +13,11 @@
  * @param {number[]} postorder
  * @return {TreeNode}
  */
-var buildTree = function(inorder, postorder) {
+var buildTree = function (inorder, postorder) {
   return dfs(inorder.length - 1, 0, inorder.length - 1);
 
   function dfs(index, startPos, endPos) {
-    if (startPos > endPos)
-      return null;
+    if (startPos > endPos) return null;
 
     var node = new TreeNode(postorder[index]);
     var pos = inorder.indexOf(postorder[index], startPos);

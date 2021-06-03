@@ -7,7 +7,7 @@
  */
 
 // 打表
-var bulbSwitch = function(n) {
+var bulbSwitch = function (n) {
   var ans = -1 + Math.sqrt(1 + n);
   return Math.ceil(ans);
 };

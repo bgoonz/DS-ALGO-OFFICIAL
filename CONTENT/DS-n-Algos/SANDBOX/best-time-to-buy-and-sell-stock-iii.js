@@ -5,24 +5,21 @@
  * @param {number[]} prices
  * @return {number}
  */
-var maxProfit = function(prices) {
-  var len = prices.length
-    , sell = []
-    , buy = []
-    , item
-    , i;
+var maxProfit = function (prices) {
+  var len = prices.length,
+    sell = [],
+    buy = [],
+    item,
+    i;
 
-  if (!len)
-    return 0;
+  if (!len) return 0;
 
   for (i = 0; i < len; i++) {
-    sell[i] = [],
-    buy[i] = [],
-    item = prices[i];
+    (sell[i] = []), (buy[i] = []), (item = prices[i]);
 
     if (!i) {
       sell[i][0] = 0;
-      sell[i][1]= 0;
+      sell[i][1] = 0;
       sell[i][2] = 0;
       buy[i][0] = -item;
       buy[i][1] = -item;

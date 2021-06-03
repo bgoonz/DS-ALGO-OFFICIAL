@@ -44,7 +44,7 @@ class Stack {
 
   toString() {
     if (this.isEmpty()) {
-      return '';
+      return "";
     }
     let objString = `${this.contents[0]}`;
     for (let i = 1; i < this.count; i++) {
@@ -55,18 +55,15 @@ class Stack {
 }
 //-------------------------------------------
 
-
-
-
-function baseConverter ( decNumber, base ) {
+function baseConverter(decNumber, base) {
   const lifoRemainder = new Stack();
-  const digits = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+  const digits = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
   let number = decNumber;
   let rem;
-  let baseString = '';
+  let baseString = "";
 
   if (!(base >= 2 && base <= 36)) {
-    return '';
+    return "";
   }
 
   while (number > 0) {
@@ -75,12 +72,13 @@ function baseConverter ( decNumber, base ) {
     number = Math.floor(number / base);
   }
 
-  while (!lifoRemainder.isEmpty()) {//stack instance method
+  while (!lifoRemainder.isEmpty()) {
+    //stack instance method
     baseString += digits[lifoRemainder.pop()];
   }
 
   return baseString;
 }
-baseConverter ( 99, 2 ) 
-console.log('baseConverter ( 99, 2 ) : ', baseConverter ( 99, 2 ) );
+baseConverter(99, 2);
+console.log("baseConverter ( 99, 2 ) : ", baseConverter(99, 2));
 //baseConverter ( 99, 2 ) :  1100011

@@ -7,8 +7,10 @@
  * @param {number[][]} points
  * @return {number}
  */
-var findMinArrowShots = function(points) {
-  points.sort(function(a, b) {return a[0] - b[0];});
+var findMinArrowShots = function (points) {
+  points.sort(function (a, b) {
+    return a[0] - b[0];
+  });
 
   let ans = 0;
   let preInterval = null;

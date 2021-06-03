@@ -27,13 +27,13 @@ console.log(result4); // true
 
 *******************************************************************************/
 
-function exactly( array, num, cb ) {
+function exactly(array, num, cb) {
   let count = 0;
-  array.forEach( el => {
-        if ( cb( el ) ) {
+  array.forEach((el) => {
+    if (cb(el)) {
       count++;
     }
-  } );
+  });
   return count === num;
 }
 

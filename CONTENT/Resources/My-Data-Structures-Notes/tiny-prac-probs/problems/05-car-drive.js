@@ -21,11 +21,10 @@ const car = {
   speed: 0,
   // here we have to use an anonymous function to ensure the context
   // is set correctly when this method is invoked
-  drive: function ( newSpeed ) {
+  drive: function (newSpeed) {
     this.speed = newSpeed;
     return this.speed;
-  }
+  },
 };
-
 
 module.exports = car;

@@ -14,11 +14,10 @@ console.log(twentyPercent([10, 20, 30])); // [ 8, 16, 24 ]
 
 
 ***********************************************************************/
-function coupon( discount ) {
-  return ( prices ) => {
-      return prices.map( ( price ) => ( price -= price * discount ) );
+function coupon(discount) {
+  return (prices) => {
+    return prices.map((price) => (price -= price * discount));
   };
 }
-
 
 module.exports = coupon;
