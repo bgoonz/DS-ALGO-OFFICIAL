@@ -4,96 +4,104 @@ function Node(data) {
   this.next = null;
 }
 
-function DoublyLinkedList() {
-  this.head = null;
-  this.tail = null;
-  this.numberOfValues = 0;
+class DoublyLinkedList {
+  constructor() {
+    this.head = null;
+    this.tail = null;
+    this.numberOfValues = 0;
+  }
+
+  add(data) {
+    const node = new Node(data);
+    if (!this.head) {
+      this.head = node;
+      this.tail = node;
+    } else {
+      node.previous = this.tail;
+      this.tail.next = node;
+      this.tail = node;
+    }
+    this.numberOfValues++;
+  }
+
+  remove(data) {
+    let current = this.head;
+    while (current) {
+      if (current.data === data) {
+        if (current === this.head && current === this.tail) {
+          this.head = null;
+          this.tail = null;
+        } else if (current === this.head) {
+          this.head = this.head.next;
+          this.head.previous = null;
+        } else if (current === this.tail) {
+          this.tail = this.tail.previous;
+          this.tail.next = null;
+        } else {
+          current.previous.next = current.next;
+          current.next.previous = current.previous;
+        }
+        this.numberOfValues--;
+      }
+      current = current.next;
+    }
+  }
+
+  insertAfter(data, toNodeData) {
+    let current = this.head;
+    while (current) {
+      if (current.data === toNodeData) {
+        const node = new Node(data);
+        if (current === this.tail) {
+          this.add(data);
+        } else {
+          current.next.previous = node;
+          node.previous = current;
+          node.next = current.next;
+          current.next = node;
+          this.numberOfValues++;
+        }
+      }
+      current = current.next;
+    }
+  }
+
+  traverse(fn) {
+    let current = this.head;
+    while (current) {
+      if (fn) {
+        fn(current);
+      }
+      current = current.next;
+    }
+  }
+
+  traverseReverse(fn) {
+    let current = this.tail;
+    while (current) {
+      if (fn) {
+        fn(current);
+      }
+      current = current.previous;
+    }
+  }
+
+  length() {
+    return this.numberOfValues;
+  }
+
+  print() {
+    let string = "";
+    let current = this.head;
+    while (current) {
+      string += `${current.data} `;
+      current = current.next;
+    }
+    console.log(string.trim());
+  }
 }
 
-DoublyLinkedList.prototype.add = function (data) {
-  var node = new Node(data);
-  if (!this.head) {
-    this.head = node;
-    this.tail = node;
-  } else {
-    node.previous = this.tail;
-    this.tail.next = node;
-    this.tail = node;
-  }
-  this.numberOfValues++;
-};
-DoublyLinkedList.prototype.remove = function (data) {
-  var current = this.head;
-  while (current) {
-    if (current.data === data) {
-      if (current === this.head && current === this.tail) {
-        this.head = null;
-        this.tail = null;
-      } else if (current === this.head) {
-        this.head = this.head.next;
-        this.head.previous = null;
-      } else if (current === this.tail) {
-        this.tail = this.tail.previous;
-        this.tail.next = null;
-      } else {
-        current.previous.next = current.next;
-        current.next.previous = current.previous;
-      }
-      this.numberOfValues--;
-    }
-    current = current.next;
-  }
-};
-DoublyLinkedList.prototype.insertAfter = function (data, toNodeData) {
-  var current = this.head;
-  while (current) {
-    if (current.data === toNodeData) {
-      var node = new Node(data);
-      if (current === this.tail) {
-        this.add(data);
-      } else {
-        current.next.previous = node;
-        node.previous = current;
-        node.next = current.next;
-        current.next = node;
-        this.numberOfValues++;
-      }
-    }
-    current = current.next;
-  }
-};
-DoublyLinkedList.prototype.traverse = function (fn) {
-  var current = this.head;
-  while (current) {
-    if (fn) {
-      fn(current);
-    }
-    current = current.next;
-  }
-};
-DoublyLinkedList.prototype.traverseReverse = function (fn) {
-  var current = this.tail;
-  while (current) {
-    if (fn) {
-      fn(current);
-    }
-    current = current.previous;
-  }
-};
-DoublyLinkedList.prototype.length = function () {
-  return this.numberOfValues;
-};
-DoublyLinkedList.prototype.print = function () {
-  var string = "";
-  var current = this.head;
-  while (current) {
-    string += current.data + " ";
-    current = current.next;
-  }
-  console.log(string.trim());
-};
-
-var doublyLinkedList = new DoublyLinkedList();
+const doublyLinkedList = new DoublyLinkedList();
 doublyLinkedList.print(); // => ''
 doublyLinkedList.add(1);
 doublyLinkedList.add(2);
@@ -118,8 +126,8 @@ doublyLinkedList.add(6);
 doublyLinkedList.print(); // => 2 6
 doublyLinkedList.insertAfter(3, 2);
 doublyLinkedList.print(); // => 2 3 6
-doublyLinkedList.traverseReverse((node) => {
-  console.log(node.data);
+doublyLinkedList.traverseReverse(({data}) => {
+  console.log(data);
 });
 doublyLinkedList.insertAfter(4, 3);
 doublyLinkedList.print(); // => 2 3 4 6
@@ -135,12 +143,12 @@ doublyLinkedList.traverse((node) => {
   node.data = node.data + 10;
 });
 doublyLinkedList.print(); // => 12 13 14 15 16 17 18
-doublyLinkedList.traverse((node) => {
-  console.log(node.data);
+doublyLinkedList.traverse(({data}) => {
+  console.log(data);
 }); // => 12 13 14 15 16 17 18
 console.log("length is 7:", doublyLinkedList.length()); // => 7
-doublyLinkedList.traverseReverse((node) => {
-  console.log(node.data);
+doublyLinkedList.traverseReverse(({data}) => {
+  console.log(data);
 }); // => 18 17 16 15 14 13 12
 doublyLinkedList.print(); // => 12 13 14 15 16 17 18
 console.log("length is 7:", doublyLinkedList.length()); // => 7

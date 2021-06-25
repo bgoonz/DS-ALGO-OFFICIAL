@@ -83,7 +83,7 @@ export function matrix(n) {
 }
 
 // Implements closed form solution.
-export var closedForm = ((phi) => {
+export const closedForm = ((phi) => {
   return (n) => {
     return Math.floor(phi ** n / Math.sqrt(5) + 0.5);
   };

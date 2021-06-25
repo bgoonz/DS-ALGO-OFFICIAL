@@ -1,32 +1,39 @@
-function MyArray() {
-  this.array = [];
-}
-
-MyArray.prototype.add = function (data) {
-  this.array.push(data);
-};
-MyArray.prototype.remove = function (data) {
-  this.array = this.array.filter((current) => current !== data);
-};
-MyArray.prototype.search = function (data) {
-  var foundIndex = this.array.indexOf(data);
-  if (~foundIndex) {
-    return foundIndex;
+class MyArray {
+  constructor() {
+    this.array = [];
   }
 
-  return null;
-};
-MyArray.prototype.getAtIndex = function (index) {
-  return this.array[index];
-};
-MyArray.prototype.length = function () {
-  return this.array.length;
-};
-MyArray.prototype.print = function () {
-  console.log(this.array.join(" "));
-};
+  add(data) {
+    this.array.push(data);
+  }
 
-var array = new MyArray();
+  remove(data) {
+    this.array = this.array.filter((current) => current !== data);
+  }
+
+  search(data) {
+    const foundIndex = this.array.indexOf(data);
+    if (~foundIndex) {
+      return foundIndex;
+    }
+
+    return null;
+  }
+
+  getAtIndex(index) {
+    return this.array[index];
+  }
+
+  length() {
+    return this.array.length;
+  }
+
+  print() {
+    console.log(this.array.join(" "));
+  }
+}
+
+const array = new MyArray();
 array.add(1);
 array.add(2);
 array.add(3);
