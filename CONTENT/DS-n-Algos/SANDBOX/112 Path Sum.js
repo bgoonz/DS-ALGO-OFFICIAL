@@ -1,7 +1,7 @@
-// Leetcode #112 
+// Leetcode #112
 // Language: Javascript
 // Problem: https://leetcode.com/problems/path-sum/
-// Author: Bryan Guner 
+// Author: Bryan Guner
 /**
  * Definition for a binary tree node.
  * function TreeNode(val) {
@@ -15,15 +15,18 @@
  * @return {boolean}
  */
 var hasPathSum = (root, sum) => {
-    if(root === null){
-        return false;
-    }
-    
-    if(root.val === sum && root.left === null && root.right === null){
-        return true;
-    }
-    
-    return hasPathSum(root.left, sum - root.val) || hasPathSum(root.right, sum - root.val);
+  if (root === null) {
+    return false;
+  }
+
+  if (root.val === sum && root.left === null && root.right === null) {
+    return true;
+  }
+
+  return (
+    hasPathSum(root.left, sum - root.val) ||
+    hasPathSum(root.right, sum - root.val)
+  );
 };
 
 /**
@@ -39,16 +42,16 @@ var hasPathSum = (root, sum) => {
  * @return {boolean}
  */
 var hasPathSum = (root, sum) => {
-    if (root === null) {
-        return false;
-    }
-    
-    const left = root.left;
-    const right = root.right;
-    
-    if (left === null && right === null) {
-        return root.val === sum;
-    }
-    
-    return hasPathSum(left, sum - root.val) || hasPathSum(right, sum - root.val);
+  if (root === null) {
+    return false;
+  }
+
+  const left = root.left;
+  const right = root.right;
+
+  if (left === null && right === null) {
+    return root.val === sum;
+  }
+
+  return hasPathSum(left, sum - root.val) || hasPathSum(right, sum - root.val);
 };

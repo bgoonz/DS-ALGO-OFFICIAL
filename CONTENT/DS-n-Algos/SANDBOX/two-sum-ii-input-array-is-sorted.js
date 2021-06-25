@@ -6,7 +6,7 @@
  * @param {number} target
  * @return {number[]}
  */
-var twoSum = function(numbers, target) {
+var twoSum = function (numbers, target) {
   var hash = {};
   for (var i = 0, len = numbers.length; i < len; i++) {
     var item = target - numbers[i];

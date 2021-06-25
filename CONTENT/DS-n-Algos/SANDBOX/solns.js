@@ -23,29 +23,29 @@ Return the following binary tree:
 const { TreeNode } = require("./tree_node.js");
 
 function buildTree(preorder, inorder) {
-    if (preorder.length == 0 && inorder.length == 0) return null;
+  if (preorder.length == 0 && inorder.length == 0) return null;
 
-    let root = new TreeNode(preorder[0]);
-    let rootIdx = inorder.indexOf(preorder[0]);
+  let root = new TreeNode(preorder[0]);
+  let rootIdx = inorder.indexOf(preorder[0]);
 
-    let leftInorder = inorder.slice(0, rootIdx);
-    let rightInorder = inorder.slice(rootIdx + 1);
+  let leftInorder = inorder.slice(0, rootIdx);
+  let rightInorder = inorder.slice(rootIdx + 1);
 
-    let leftPreorder = preorder.filter((val) => leftInorder.includes(val));
-    let rightPreorder = preorder.filter((val) => rightInorder.includes(val));
+  let leftPreorder = preorder.filter((val) => leftInorder.includes(val));
+  let rightPreorder = preorder.filter((val) => rightInorder.includes(val));
 
-    console.log(`preorder: ${preorder}`);
-    console.log(`inorder: ${inorder}`);
-    console.log(`leftInorder: ${leftInorder}`);
-    console.log(`rightInorder: ${rightInorder}`);
-    console.log(`leftPreorder: ${leftPreorder}`);
-    console.log(`rightPreorder: ${rightPreorder}`);
-    console.log(`\n--------------\n`);
+  console.log(`preorder: ${preorder}`);
+  console.log(`inorder: ${inorder}`);
+  console.log(`leftInorder: ${leftInorder}`);
+  console.log(`rightInorder: ${rightInorder}`);
+  console.log(`leftPreorder: ${leftPreorder}`);
+  console.log(`rightPreorder: ${rightPreorder}`);
+  console.log(`\n--------------\n`);
 
-    root.left = buildTree(leftPreorder, leftInorder);
-    root.right = buildTree(rightPreorder, rightInorder);
+  root.left = buildTree(leftPreorder, leftInorder);
+  root.right = buildTree(rightPreorder, rightInorder);
 
-    return root;
+  return root;
 }
 
 const preorder = [3, 9, 20, 15, 7];
@@ -64,15 +64,15 @@ function sortedArrayToBST(nums) {
 }
 */
 class TreeNode {
-    constructor(val) {
-        this.val = val;
-        this.left = null;
-        this.right = null;
-    }
+  constructor(val) {
+    this.val = val;
+    this.left = null;
+    this.right = null;
+  }
 }
 
 module.exports = {
-    TreeNode,
+  TreeNode,
 };
 //===================================== ⬆️ (tree_node.js) ⬆️ ======================================\
 
@@ -86,24 +86,24 @@ function isBalanced(root) {
 }
 */
 function inOrderArray(root) {
-    if (!root) return [];
+  if (!root) return [];
 
-    return [...inOrderArray(root.left), root.val, ...inOrderArray(root.right)];
+  return [...inOrderArray(root.left), root.val, ...inOrderArray(root.right)];
 }
 
 function postOrderArray(root) {
-    if (!root) return [];
+  if (!root) return [];
 
-    return [
-        ...postOrderArray(root.left),
-        ...postOrderArray(root.right),
-        root.val,
-    ];
+  return [
+    ...postOrderArray(root.left),
+    ...postOrderArray(root.right),
+    root.val,
+  ];
 }
 
 module.exports = {
-    inOrderArray,
-    postOrderArray,
+  inOrderArray,
+  postOrderArray,
 };
 //===================================== ⬆️ (tree_order.js) ⬆️ ======================================\
 

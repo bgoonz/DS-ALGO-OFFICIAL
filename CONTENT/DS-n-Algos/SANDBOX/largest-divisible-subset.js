@@ -5,11 +5,10 @@
  * @param {number[]} nums
  * @return {number[]}
  */
-var largestDivisibleSubset = function(nums) {
-  if (nums.length === 0)
-    return [];
+var largestDivisibleSubset = function (nums) {
+  if (nums.length === 0) return [];
 
-  nums.sort(function(a, b) {
+  nums.sort(function (a, b) {
     return a - b;
   });
 
@@ -21,13 +20,12 @@ var largestDivisibleSubset = function(nums) {
     ans[i] = 1;
     pre[i] = i;
 
-    for (var j = 0; j < i; j++) 
+    for (var j = 0; j < i; j++)
       if (nums[i] % nums[j] === 0 && ans[j] + 1 > ans[i]) {
         ans[i] = ans[j] + 1;
         pre[i] = j;
       }
   }
-
 
   var maxn = 0;
   var maxnId;
@@ -41,7 +39,7 @@ var largestDivisibleSubset = function(nums) {
 
   var ret = [];
 
-  while(true) {
+  while (true) {
     if (maxnId === pre[maxnId]) {
       ret.push(nums[maxnId]);
       break;
@@ -49,7 +47,7 @@ var largestDivisibleSubset = function(nums) {
 
     ret.push(nums[maxnId]);
     maxnId = pre[maxnId];
-  } 
+  }
 
   return ret;
 };

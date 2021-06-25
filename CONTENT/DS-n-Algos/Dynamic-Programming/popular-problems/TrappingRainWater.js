@@ -35,29 +35,29 @@ right maxes =     [3,3,3,3,3,3,3,2,2,2,1,0]
 water contained = [0,0,1,0,1,2,1,0,0,1,0,0] -> sum = 6
 */
 
-function trap( heights ) {
-  const maxes = new Array( heights.length ).fill( 0 )
+function trap(heights) {
+  const maxes = new Array(heights.length).fill(0);
 
-  let leftMax = 0
+  let leftMax = 0;
 
   heights.forEach((height, i) => {
-    maxes[ i ] = leftMax
-    leftMax = Math.max( leftMax, height )
+    maxes[i] = leftMax;
+    leftMax = Math.max(leftMax, height);
   });
 
-  let rightMax = 0
-  for ( let i = heights.length - 1; i >= 0; i -= 1 ) {
-    const height = heights[ i ]
-    const minHeight = Math.min( rightMax, maxes[ i ] )
+  let rightMax = 0;
+  for (let i = heights.length - 1; i >= 0; i -= 1) {
+    const height = heights[i];
+    const minHeight = Math.min(rightMax, maxes[i]);
 
-    if ( height < minHeight ) {
-      maxes[ i ] = minHeight - height
+    if (height < minHeight) {
+      maxes[i] = minHeight - height;
     } else {
-      maxes[ i ] = 0
+      maxes[i] = 0;
     }
-    rightMax = Math.max( rightMax, height )
+    rightMax = Math.max(rightMax, height);
   }
-  return maxes.reduce( ( a, b ) => a + b, 0 )
+  return maxes.reduce((a, b) => a + b, 0);
 }
 
-console.log( trap( [ 0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1 ] ) ) // -> 6
+console.log(trap([0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1])); // -> 6

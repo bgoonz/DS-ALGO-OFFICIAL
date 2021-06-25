@@ -22,15 +22,19 @@
 // stepper([2, 3, 1, 1, 0, 4, 7, 8])    // => false, there is no way to step to the end
 
 // Tabulation
-function stepper( nums ) {
-  const table = new Array( nums.length + 1 ).fill( false );
-  table[ 0 ] = true;
+function stepper(nums) {
+  const table = new Array(nums.length + 1).fill(false);
+  table[0] = true;
 
-  for ( let numIdx = 0; numIdx < nums.length; numIdx++ ) {
-    if ( table[ numIdx ] ) {
-      for ( let tableIdx = numIdx + 1; tableIdx <= numIdx + nums[ numIdx ]; tableIdx++ ) {
-        table[ tableIdx ] = true;
-        if ( table[ table.length - 1 ] ) return true;
+  for (let numIdx = 0; numIdx < nums.length; numIdx++) {
+    if (table[numIdx]) {
+      for (
+        let tableIdx = numIdx + 1;
+        tableIdx <= numIdx + nums[numIdx];
+        tableIdx++
+      ) {
+        table[tableIdx] = true;
+        if (table[table.length - 1]) return true;
       }
     }
   }
@@ -39,16 +43,16 @@ function stepper( nums ) {
 }
 
 // Memoization
-function stepper( nums, memo = {} ) {
-  if ( nums in memo ) return memo[ nums ]; // Can use nums.length as key to save space complexity
-  if ( nums.length === 0 ) return true;
-  for ( let nextStep = 1; nextStep <= nums[ 0 ]; nextStep++ ) {
-    if ( stepper( nums.slice( nextStep ), memo ) ) {
-      memo[ nums ] = true;
+function stepper(nums, memo = {}) {
+  if (nums in memo) return memo[nums]; // Can use nums.length as key to save space complexity
+  if (nums.length === 0) return true;
+  for (let nextStep = 1; nextStep <= nums[0]; nextStep++) {
+    if (stepper(nums.slice(nextStep), memo)) {
+      memo[nums] = true;
       return true;
     }
   }
-  memo[ nums ] = false;
+  memo[nums] = false;
   return false;
 }
 
@@ -64,31 +68,31 @@ function stepper( nums, memo = {} ) {
 // maxNonAdjacentSum([4,2,1,6])         // => 10, because 4 + 6
 
 // Tabulation
-function maxNonAdjacentSum( nums ) {
-  if ( nums.length === 0 ) return 0;
-  let table = new Array( nums.length ).fill( 0 );
-  table[ 0 ] = nums[ 0 ];
+function maxNonAdjacentSum(nums) {
+  if (nums.length === 0) return 0;
+  let table = new Array(nums.length).fill(0);
+  table[0] = nums[0];
 
-  for ( let i = 1; i < table.length; i++ ) {
-    const useNum = nums[ i ] + ( table[ i - 2 ] || 0 );
-    const skipNum = table[ i - 1 ];
-    table[ i ] = Math.max( useNum, skipNum );
+  for (let i = 1; i < table.length; i++) {
+    const useNum = nums[i] + (table[i - 2] || 0);
+    const skipNum = table[i - 1];
+    table[i] = Math.max(useNum, skipNum);
   }
 
-  return table[ table.length - 1 ];
+  return table[table.length - 1];
 }
 
 // Memoization
-function maxNonAdjacentSum( nums, memo = {} ) {
-  if ( nums in memo ) return memo[ nums ];
-  if ( nums.length === 0 ) return 0;
+function maxNonAdjacentSum(nums, memo = {}) {
+  if (nums in memo) return memo[nums];
+  if (nums.length === 0) return 0;
 
   const sums = [];
-  nums.forEach( ( num, idx ) => {
-    sums.push( num + maxNonAdjacentSum( nums.slice( idx + 2 ), memo ) );
-  } );
-  memo[ nums ] = Math.max( ...sums );
-  return memo[ nums ];
+  nums.forEach((num, idx) => {
+    sums.push(num + maxNonAdjacentSum(nums.slice(idx + 2), memo));
+  });
+  memo[nums] = Math.max(...sums);
+  return memo[nums];
 }
 
 // Write a function, minChange(coins, amount), that accepts an array of coin values
@@ -103,24 +107,24 @@ function maxNonAdjacentSum( nums, memo = {} ) {
 // minChange([1, 4, 5], 8))         // => 2, because 4 + 4 = 8
 // minChange([1, 5, 10, 25], 15)    // => 2, because 10 + 5 = 15
 // minChange([1, 5, 10, 25], 100)   // => 4, because 25 + 25 + 25 + 25 = 100
-function minChange( coins, amount ) {
-  let table = new Array( amount + 1 ).fill( Infinity );
-  table[ 0 ] = 0;
+function minChange(coins, amount) {
+  let table = new Array(amount + 1).fill(Infinity);
+  table[0] = 0;
 
-  coins.forEach( coin => {
-    for ( let val = 0; val < table.length; val++ ) {
-      for ( let timesUsed = 0; timesUsed * coin <= val; timesUsed++ ) {
+  coins.forEach((coin) => {
+    for (let val = 0; val < table.length; val++) {
+      for (let timesUsed = 0; timesUsed * coin <= val; timesUsed++) {
         let valNeeded = val - timesUsed * coin;
-        let coinsUsed = table[ valNeeded ] + timesUsed;
-        if ( coinsUsed < table[ val ] ) table[ val ] = coinsUsed;
+        let coinsUsed = table[valNeeded] + timesUsed;
+        if (coinsUsed < table[val]) table[val] = coinsUsed;
       }
     }
-  } );
-  return table[ table.length - 1 ];
+  });
+  return table[table.length - 1];
 }
 
 module.exports = {
   stepper,
   maxNonAdjacentSum,
-  minChange
+  minChange,
 };

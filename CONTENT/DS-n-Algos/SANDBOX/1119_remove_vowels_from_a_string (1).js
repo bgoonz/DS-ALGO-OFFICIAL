@@ -13,7 +13,9 @@ Input: "aeiou"
 Output: ""
 */
 
-const removeVowels = S => {
-  let vowels = 'aeiou';
-  return S.split("").filter(char => !vowels.includes(char)).join("")
+const removeVowels = (S) => {
+  let vowels = "aeiou";
+  return S.split("")
+    .filter((char) => !vowels.includes(char))
+    .join("");
 };

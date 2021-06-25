@@ -9,14 +9,14 @@ function swap(array, i, j) {
 }
 
 function selectionSort(array) {
-  for(var i = 0; i < array.length; i++) {
+  for (var i = 0; i < array.length; i++) {
     var min = i;
-    for(var j = i + 1; j < array.length; j++) {
-      if(array[j] < array[min]) {
+    for (var j = i + 1; j < array.length; j++) {
+      if (array[j] < array[min]) {
         min = j;
       }
     }
-    if(i !== min) {
+    if (i !== min) {
       swap(array, i, min);
     }
   }

@@ -1,32 +1,26 @@
 [Readme](https://github.com/bgoonz/DS-ALGO-OFFICIAL/blob/master/README.md)
 
-
-
-
 [readme part 2](https://github.com/bgoonz/DS-ALGO-OFFICIAL/blob/master/readme-p2.md)
-
-
 
 [readme part 3](https://github.com/bgoonz/DS-ALGO-OFFICIAL/blob/master/readme-p3.md)
 
-
-
 [readme part 4](https://github.com/bgoonz/DS-ALGO-OFFICIAL/blob/master/readme-p4.md)
 
-
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+_Template generated via [Leetmark](https://github.com/crimx/crx-leetmark)._
 
 ---
+
 Difficulty: Easy
 Related Topics:
-  "Tree": https://leetcode.com/tag/tree
-  "Depth-first Search": https://leetcode.com/tag/depth-first-search
+"Tree": https://leetcode.com/tag/tree
+"Depth-first Search": https://leetcode.com/tag/depth-first-search
 Similar Questions:
-  "Path Sum II": https://leetcode.com/problems/path-sum-ii
-  "Binary Tree Maximum Path Sum": https://leetcode.com/problems/binary-tree-maximum-path-sum
-  "Sum Root to Leaf Numbers": https://leetcode.com/problems/sum-root-to-leaf-numbers
-  "Path Sum III": https://leetcode.com/problems/path-sum-iii
-  "Path Sum IV": https://leetcode.com/problems/path-sum-iv
+"Path Sum II": https://leetcode.com/problems/path-sum-ii
+"Binary Tree Maximum Path Sum": https://leetcode.com/problems/binary-tree-maximum-path-sum
+"Sum Root to Leaf Numbers": https://leetcode.com/problems/sum-root-to-leaf-numbers
+"Path Sum III": https://leetcode.com/problems/path-sum-iii
+"Path Sum IV": https://leetcode.com/problems/path-sum-iv
+
 ---
 
 ## [112. Path Sum](https://leetcode.com/problems/path-sum/description/)
@@ -70,25 +64,34 @@ Note that node value could be negative so pruning can not be performed.
  * @param {number} sum
  * @return {boolean}
  */
-let hasPathSum = function(root, sum) {
-  if (!root) { return false }
-  if (root.left === null && root.right === null) { return root.val === sum }
-  return hasPathSum(root.left, sum - root.val) || hasPathSum(root.right, sum - root.val)
+let hasPathSum = function (root, sum) {
+  if (!root) {
+    return false;
+  }
+  if (root.left === null && root.right === null) {
+    return root.val === sum;
+  }
+  return (
+    hasPathSum(root.left, sum - root.val) ||
+    hasPathSum(root.right, sum - root.val)
+  );
 };
 ```
 
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+_Template generated via [Leetmark](https://github.com/crimx/crx-leetmark)._
 
 ---
+
 Difficulty: Medium
 Related Topics:
-  "Tree": https://leetcode.com/tag/tree
-  "Depth-first Search": https://leetcode.com/tag/depth-first-search
+"Tree": https://leetcode.com/tag/tree
+"Depth-first Search": https://leetcode.com/tag/depth-first-search
 Similar Questions:
-  "Path Sum": https://leetcode.com/problems/path-sum
-  "Binary Tree Paths": https://leetcode.com/problems/binary-tree-paths
-  "Path Sum III": https://leetcode.com/problems/path-sum-iii
-  "Path Sum IV": https://leetcode.com/problems/path-sum-iv
+"Path Sum": https://leetcode.com/problems/path-sum
+"Binary Tree Paths": https://leetcode.com/problems/binary-tree-paths
+"Path Sum III": https://leetcode.com/problems/path-sum-iii
+"Path Sum IV": https://leetcode.com/problems/path-sum-iv
+
 ---
 
 ## [113. Path Sum II](https://leetcode.com/problems/path-sum-ii/description/)
@@ -139,35 +142,38 @@ Simple backtracking.
  * @param {number} sum
  * @return {number[][]}
  */
-let pathSum = function(root, sum, path = [], result = []) {
-  if (!root) { return result }
+let pathSum = function (root, sum, path = [], result = []) {
+  if (!root) {
+    return result;
+  }
 
   if (root.left === null && root.right === null) {
     if (root.val === sum) {
-      result.push([...path, root.val])
+      result.push([...path, root.val]);
     }
-    return result
+    return result;
   }
 
-  path.push(root.val)
-  pathSum(root.left, sum - root.val, path, result)
-  pathSum(root.right, sum - root.val, path, result)
-  path.pop()
+  path.push(root.val);
+  pathSum(root.left, sum - root.val, path, result);
+  pathSum(root.right, sum - root.val, path, result);
+  path.pop();
 
-  return result
+  return result;
 };
 ```
 
-
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+_Template generated via [Leetmark](https://github.com/crimx/crx-leetmark)._
 
 ---
+
 Difficulty: Medium
 Related Topics:
-  "Tree": https://leetcode.com/tag/tree
-  "Depth-first Search": https://leetcode.com/tag/depth-first-search
+"Tree": https://leetcode.com/tag/tree
+"Depth-first Search": https://leetcode.com/tag/depth-first-search
 Similar Questions:
-  "Flatten a Multilevel Doubly Linked List": https://leetcode.com/problems/flatten-a-multilevel-doubly-linked-list
+"Flatten a Multilevel Doubly Linked List": https://leetcode.com/problems/flatten-a-multilevel-doubly-linked-list
+
 ---
 
 ## [114. Flatten Binary Tree to Linked List](https://leetcode.com/problems/flatten-binary-tree-to-linked-list/description/)
@@ -218,37 +224,41 @@ Return the leaf node of a flattened subtree for concatenation.
  * @param {TreeNode} root
  * @return {void} Do not return anything, modify root in-place instead.
  */
-let flatten = function(root) {
-  _flatten(root)
+let flatten = function (root) {
+  _flatten(root);
 };
 
 /**
  * @param {TreeNode} root
  * @return {TreeNode} leaf node of a flattened subtree
  */
-function _flatten (root) {
-  if (!root) { return null }
-  const leftLeaf = _flatten(root.left)
-  const rightLeaf = _flatten(root.right)
-  if (leftLeaf !== null) {
-    leftLeaf.right = root.right
-    root.right = root.left
-  } else if (rightLeaf === null) {
-    return root
+function _flatten(root) {
+  if (!root) {
+    return null;
   }
-  
-  root.left = null
-  return rightLeaf || leftLeaf
+  const leftLeaf = _flatten(root.left);
+  const rightLeaf = _flatten(root.right);
+  if (leftLeaf !== null) {
+    leftLeaf.right = root.right;
+    root.right = root.left;
+  } else if (rightLeaf === null) {
+    return root;
+  }
+
+  root.left = null;
+  return rightLeaf || leftLeaf;
 }
 ```
 
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+_Template generated via [Leetmark](https://github.com/crimx/crx-leetmark)._
 
 ---
+
 Difficulty: Hard
 Related Topics:
-  "String": https://leetcode.com/tag/string
-  "Dynamic Programming": https://leetcode.com/tag/dynamic-programming
+"String": https://leetcode.com/tag/string
+"Dynamic Programming": https://leetcode.com/tag/dynamic-programming
+
 ---
 
 ## [115. Distinct Subsequences](https://leetcode.com/problems/distinct-subsequences/description/)
@@ -319,34 +329,34 @@ Dynamic array can be used.
  * @param {string} t
  * @return {number}
  */
-let numDistinct = function(s, t) {
-  const lens = s.length
-  const lent = t.length
-  const dp = new Array(lent + 1).fill(0)
-  dp[0] = 1
+let numDistinct = function (s, t) {
+  const lens = s.length;
+  const lent = t.length;
+  const dp = new Array(lent + 1).fill(0);
+  dp[0] = 1;
   for (let i = 1; i <= lens; i++) {
     for (let j = lent; j >= 1; j--) {
-      if (s[i-1] === t[j-1]) {
-        dp[j] += dp[j-1]
+      if (s[i - 1] === t[j - 1]) {
+        dp[j] += dp[j - 1];
       }
     }
   }
-  return dp[lent]
+  return dp[lent];
 };
-
 ```
 
-
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+_Template generated via [Leetmark](https://github.com/crimx/crx-leetmark)._
 
 ---
+
 Difficulty: Medium
 Related Topics:
-  "Tree": https://leetcode.com/tag/tree
-  "Depth-first Search": https://leetcode.com/tag/depth-first-search
+"Tree": https://leetcode.com/tag/tree
+"Depth-first Search": https://leetcode.com/tag/depth-first-search
 Similar Questions:
-  "Populating Next Right Pointers in Each Node II": https://leetcode.com/problems/populating-next-right-pointers-in-each-node-ii
-  "Binary Tree Right Side View": https://leetcode.com/problems/binary-tree-right-side-view
+"Populating Next Right Pointers in Each Node II": https://leetcode.com/problems/populating-next-right-pointers-in-each-node-ii
+"Binary Tree Right Side View": https://leetcode.com/problems/binary-tree-right-side-view
+
 ---
 
 ## [116. Populating Next Right Pointers in Each Node](https://leetcode.com/problems/populating-next-right-pointers-in-each-node/description/)
@@ -422,17 +432,19 @@ For every `node`:
  * @param {TreeLinkNode} root
  * @return {void} Do not return anything, modify tree in-place instead.
  */
-let connect = function(root) {
-  if (!root) { return }
+let connect = function (root) {
+  if (!root) {
+    return;
+  }
   if (root.left !== null) {
-    root.left.next = root.right
-    connect(root.left)
+    root.left.next = root.right;
+    connect(root.left);
   }
   if (root.right !== null) {
     if (root.next !== null) {
-      root.right.next = root.next.left
+      root.right.next = root.next.left;
     }
-    connect(root.right)
+    connect(root.right);
   }
 };
 ```
@@ -454,34 +466,42 @@ Level order traversal.
  * @param {TreeLinkNode} root
  * @return {void} Do not return anything, modify tree in-place instead.
  */
-let connect = function(root) {
-  if (!root) { return }
+let connect = function (root) {
+  if (!root) {
+    return;
+  }
 
-  const queue = [NaN, root]
+  const queue = [NaN, root];
   while (queue.length > 1) {
-    const node = queue.shift()
+    const node = queue.shift();
     if (node !== node) {
       for (let i = 0; i < queue.length; i++) {
-        queue[i].next = queue[i+1] || null
+        queue[i].next = queue[i + 1] || null;
       }
-      queue.push(NaN)
+      queue.push(NaN);
     } else {
-      if (node.left !== null) { queue.push(node.left) }
-      if (node.right !== null) { queue.push(node.right) }
+      if (node.left !== null) {
+        queue.push(node.left);
+      }
+      if (node.right !== null) {
+        queue.push(node.right);
+      }
     }
   }
 };
 ```
 
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+_Template generated via [Leetmark](https://github.com/crimx/crx-leetmark)._
 
 ---
+
 Difficulty: Medium
 Related Topics:
-  "Tree": https://leetcode.com/tag/tree
-  "Depth-first Search": https://leetcode.com/tag/depth-first-search
+"Tree": https://leetcode.com/tag/tree
+"Depth-first Search": https://leetcode.com/tag/depth-first-search
 Similar Questions:
-  "Populating Next Right Pointers in Each Node": https://leetcode.com/problems/populating-next-right-pointers-in-each-node
+"Populating Next Right Pointers in Each Node": https://leetcode.com/problems/populating-next-right-pointers-in-each-node
+
 ---
 
 ## [117. Populating Next Right Pointers in Each Node II](https://leetcode.com/problems/populating-next-right-pointers-in-each-node-ii/description/)
@@ -555,27 +575,29 @@ This also means post-order traversal is required.
  * @param {TreeLinkNode} root
  * @return {void} Do not return anything, modify tree in-place instead.
  */
-let connect = function(root) {
-  if (!root) { return }
-  let next = null
+let connect = function (root) {
+  if (!root) {
+    return;
+  }
+  let next = null;
   for (let node = root.next; node !== null; node = node.next) {
     if (node.left !== null) {
-      next = node.left
-      break
+      next = node.left;
+      break;
     }
     if (node.right !== null) {
-      next = node.right
-      break
+      next = node.right;
+      break;
     }
   }
   if (root.right !== null) {
-    root.right.next = next
+    root.right.next = next;
   }
   if (root.left !== null) {
-    root.left.next = root.right || next
+    root.left.next = root.right || next;
   }
-  connect(root.right)
-  connect(root.left)
+  connect(root.right);
+  connect(root.left);
 };
 ```
 
@@ -596,40 +618,48 @@ Level order traversal. Exact same as [116. Populating Next Right Pointers in Eac
  * @param {TreeLinkNode} root
  * @return {void} Do not return anything, modify tree in-place instead.
  */
-let connect = function(root) {
-  if (!root) { return }
+let connect = function (root) {
+  if (!root) {
+    return;
+  }
 
-  const queue = [NaN, root]
+  const queue = [NaN, root];
   while (queue.length > 1) {
-    const node = queue.shift()
+    const node = queue.shift();
     if (node !== node) {
       for (let i = 0; i < queue.length; i++) {
-        queue[i].next = queue[i+1] || null
+        queue[i].next = queue[i + 1] || null;
       }
-      queue.push(NaN)
+      queue.push(NaN);
     } else {
-      if (node.left !== null) { queue.push(node.left) }
-      if (node.right !== null) { queue.push(node.right) }
+      if (node.left !== null) {
+        queue.push(node.left);
+      }
+      if (node.right !== null) {
+        queue.push(node.right);
+      }
     }
   }
 };
 ```
 
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+_Template generated via [Leetmark](https://github.com/crimx/crx-leetmark)._
 
 ---
+
 Difficulty: Easy
 Related Topics:
-  "Array": https://leetcode.com/tag/array
+"Array": https://leetcode.com/tag/array
 Similar Questions:
-  "Pascal's Triangle II": https://leetcode.com/problems/pascals-triangle-ii
+"Pascal's Triangle II": https://leetcode.com/problems/pascals-triangle-ii
+
 ---
 
 ## [118. Pascal's Triangle](https://leetcode.com/problems/pascals-triangle/description/)
 
 ### Problem:
 
-Given a non-negative integer *numRows*, generate the first *numRows* of Pascal's triangle.
+Given a non-negative integer *numRows*, generate the first _numRows_ of Pascal's triangle.
 
 ![PascalTriangleAnimated2.gif](https://upload.wikimedia.org/wikipedia/commons/0/0d/PascalTriangleAnimated2.gif)
 
@@ -659,40 +689,43 @@ Dynamic Programming 101.
  * @param {number} numRows
  * @return {number[][]}
  */
-let generate = function(numRows) {
-  if (numRows <= 0) { return [] }
-
-  const result = [[1]]
-  for (let i = 1; i < numRows; i++) {
-    const lastRow = result[i-1]
-    const row = [1]
-    for (let j = 1; j < i; j++) {
-      row[j] = lastRow[j] + lastRow[j-1]
-    }
-    row.push(1)
-    result.push(row)
+let generate = function (numRows) {
+  if (numRows <= 0) {
+    return [];
   }
-  
-  return result
+
+  const result = [[1]];
+  for (let i = 1; i < numRows; i++) {
+    const lastRow = result[i - 1];
+    const row = [1];
+    for (let j = 1; j < i; j++) {
+      row[j] = lastRow[j] + lastRow[j - 1];
+    }
+    row.push(1);
+    result.push(row);
+  }
+
+  return result;
 };
 ```
 
-
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+_Template generated via [Leetmark](https://github.com/crimx/crx-leetmark)._
 
 ---
+
 Difficulty: Easy
 Related Topics:
-  "Array": https://leetcode.com/tag/array
+"Array": https://leetcode.com/tag/array
 Similar Questions:
-  "Pascal's Triangle": https://leetcode.com/problems/pascals-triangle
+"Pascal's Triangle": https://leetcode.com/problems/pascals-triangle
+
 ---
 
 ## [119. Pascal's Triangle II](https://leetcode.com/problems/pascals-triangle-ii/description/)
 
 ### Problem:
 
-Given a non-negative index *k* where *k* ≤ 33, return the *k*th index row of the Pascal's triangle.
+Given a non-negative index *k* where _k_ ≤ 33, return the *k*th index row of the Pascal's triangle.
 
 Note that the row index starts from 0.
 
@@ -710,7 +743,7 @@ Output: [1,3,3,1]
 
 **Follow up:**
 
-Could you optimize your algorithm to use only *O*(*k*) extra space?
+Could you optimize your algorithm to use only _O_(_k_) extra space?
 
 ### Solution:
 
@@ -723,29 +756,32 @@ State `(i, j)` depends on `(i-1, j)` and `(i-1, j-1)`. So to access `(i-1, j-1)`
  * @param {number} rowIndex
  * @return {number[]}
  */
-let getRow = function(rowIndex) {
-  if (rowIndex < 0) { return [] }
+let getRow = function (rowIndex) {
+  if (rowIndex < 0) {
+    return [];
+  }
 
-  const row = [1]
+  const row = [1];
   for (let i = 1; i <= rowIndex; i++) {
     for (let j = i - 1; j > 0; j--) {
-      row[j] += row[j-1]
+      row[j] += row[j - 1];
     }
-    row.push(1)
+    row.push(1);
   }
-  
-  return row
+
+  return row;
 };
 ```
 
-
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+_Template generated via [Leetmark](https://github.com/crimx/crx-leetmark)._
 
 ---
+
 Difficulty: Medium
 Related Topics:
-  "Array": https://leetcode.com/tag/array
-  "Dynamic Programming": https://leetcode.com/tag/dynamic-programming
+"Array": https://leetcode.com/tag/array
+"Dynamic Programming": https://leetcode.com/tag/dynamic-programming
+
 ---
 
 ## [120. Triangle](https://leetcode.com/problems/triangle/description/)
@@ -770,7 +806,7 @@ The minimum path sum from top to bottom is `11` (i.e., **2** + **3** + **5** + *
 
 **Note:**
 
-Bonus point if you are able to do this using only *O*(*n*) extra space, where *n* is the total number of rows in the triangle.
+Bonus point if you are able to do this using only _O_(_n_) extra space, where _n_ is the total number of rows in the triangle.
 
 ### Solution:
 
@@ -789,41 +825,45 @@ Dynamic array can be used.
  * @param {number[][]} triangle
  * @return {number}
  */
-let minimumTotal = function(triangle) {
-  if (triangle.length <= 0) { return 0 }
-
-  const dp = [triangle[0][0]]
-  for (let i = 1; i < triangle.length; i++) {
-    dp[i] = dp[i-1] + triangle[i][i]
-    for (let j = i - 1; j >= 1; j--) {
-      dp[j] = Math.min(dp[j], dp[j-1]) + triangle[i][j]
-    }
-    dp[0] += triangle[i][0]
+let minimumTotal = function (triangle) {
+  if (triangle.length <= 0) {
+    return 0;
   }
-  return Math.min(...dp)
+
+  const dp = [triangle[0][0]];
+  for (let i = 1; i < triangle.length; i++) {
+    dp[i] = dp[i - 1] + triangle[i][i];
+    for (let j = i - 1; j >= 1; j--) {
+      dp[j] = Math.min(dp[j], dp[j - 1]) + triangle[i][j];
+    }
+    dp[0] += triangle[i][0];
+  }
+  return Math.min(...dp);
 };
 ```
 
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+_Template generated via [Leetmark](https://github.com/crimx/crx-leetmark)._
 
 ---
+
 Difficulty: Easy
 Related Topics:
-  "Array": https://leetcode.com/tag/array
-  "Dynamic Programming": https://leetcode.com/tag/dynamic-programming
+"Array": https://leetcode.com/tag/array
+"Dynamic Programming": https://leetcode.com/tag/dynamic-programming
 Similar Questions:
-  "Maximum Subarray": https://leetcode.com/problems/maximum-subarray
-  "Best Time to Buy and Sell Stock II": https://leetcode.com/problems/best-time-to-buy-and-sell-stock-ii
-  "Best Time to Buy and Sell Stock III": https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iii
-  "Best Time to Buy and Sell Stock IV": https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iv
-  "Best Time to Buy and Sell Stock with Cooldown": https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-cooldown
+"Maximum Subarray": https://leetcode.com/problems/maximum-subarray
+"Best Time to Buy and Sell Stock II": https://leetcode.com/problems/best-time-to-buy-and-sell-stock-ii
+"Best Time to Buy and Sell Stock III": https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iii
+"Best Time to Buy and Sell Stock IV": https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iv
+"Best Time to Buy and Sell Stock with Cooldown": https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-cooldown
+
 ---
 
 ## [121. Best Time to Buy and Sell Stock](https://leetcode.com/problems/best-time-to-buy-and-sell-stock/description/)
 
 ### Problem:
 
-Say you have an array for which the *i*th element is the price of a given stock on day *i*.
+Say you have an array for which the *i*th element is the price of a given stock on day _i_.
 
 If you were only permitted to complete at most one transaction (i.e., buy one and sell one share of the stock), design an algorithm to find the maximum profit.
 
@@ -859,42 +899,43 @@ Because `price[j]` is lower that the base, using `j` as new base is guaranteed t
  * @param {number[]} prices
  * @return {number}
  */
-let maxProfit = function(prices) {
-  let max = 0
-  let base = prices[0]
+let maxProfit = function (prices) {
+  let max = 0;
+  let base = prices[0];
   for (let i = 1; i < prices.length; i++) {
-    const profit = prices[i] - base
+    const profit = prices[i] - base;
     if (profit > max) {
-      max = profit
+      max = profit;
     } else if (profit < 0) {
-      base = prices[i]
+      base = prices[i];
     }
   }
-  return max
+  return max;
 };
 ```
 
-
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+_Template generated via [Leetmark](https://github.com/crimx/crx-leetmark)._
 
 ---
+
 Difficulty: Easy
 Related Topics:
-  "Array": https://leetcode.com/tag/array
-  "Greedy": https://leetcode.com/tag/greedy
+"Array": https://leetcode.com/tag/array
+"Greedy": https://leetcode.com/tag/greedy
 Similar Questions:
-  "Best Time to Buy and Sell Stock": https://leetcode.com/problems/best-time-to-buy-and-sell-stock
-  "Best Time to Buy and Sell Stock III": https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iii
-  "Best Time to Buy and Sell Stock IV": https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iv
-  "Best Time to Buy and Sell Stock with Cooldown": https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-cooldown
-  "Best Time to Buy and Sell Stock with Transaction Fee": https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-transaction-fee
+"Best Time to Buy and Sell Stock": https://leetcode.com/problems/best-time-to-buy-and-sell-stock
+"Best Time to Buy and Sell Stock III": https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iii
+"Best Time to Buy and Sell Stock IV": https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iv
+"Best Time to Buy and Sell Stock with Cooldown": https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-cooldown
+"Best Time to Buy and Sell Stock with Transaction Fee": https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-transaction-fee
+
 ---
 
 ## [122. Best Time to Buy and Sell Stock II](https://leetcode.com/problems/best-time-to-buy-and-sell-stock-ii/description/)
 
 ### Problem:
 
-Say you have an array for which the *i*th element is the price of a given stock on day *i*.
+Say you have an array for which the *i*th element is the price of a given stock on day _i_.
 
 Design an algorithm to find the maximum profit. You may complete as many transactions as you like (i.e., buy one and sell one share of the stock multiple times).
 
@@ -938,38 +979,40 @@ Sell immediately after the price drops. Or in other perspective, it is the sum o
  * @param {number[]} prices
  * @return {number}
  */
-let maxProfit = function(prices) {
-  let max = 0
+let maxProfit = function (prices) {
+  let max = 0;
   for (let i = 1; i < prices.length; i++) {
-    if (prices[i] > prices[i-1]) {
-      max += prices[i] - prices[i-1]
+    if (prices[i] > prices[i - 1]) {
+      max += prices[i] - prices[i - 1];
     }
   }
-  return max
+  return max;
 };
 ```
 
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+_Template generated via [Leetmark](https://github.com/crimx/crx-leetmark)._
 
 ---
+
 Difficulty: Hard
 Related Topics:
-  "Array": https://leetcode.com/tag/array
-  "Dynamic Programming": https://leetcode.com/tag/dynamic-programming
+"Array": https://leetcode.com/tag/array
+"Dynamic Programming": https://leetcode.com/tag/dynamic-programming
 Similar Questions:
-  "Best Time to Buy and Sell Stock": https://leetcode.com/problems/best-time-to-buy-and-sell-stock
-  "Best Time to Buy and Sell Stock II": https://leetcode.com/problems/best-time-to-buy-and-sell-stock-ii
-  "Best Time to Buy and Sell Stock IV": https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iv
-  "Maximum Sum of 3 Non-Overlapping Subarrays": https://leetcode.com/problems/maximum-sum-of-3-non-overlapping-subarrays
+"Best Time to Buy and Sell Stock": https://leetcode.com/problems/best-time-to-buy-and-sell-stock
+"Best Time to Buy and Sell Stock II": https://leetcode.com/problems/best-time-to-buy-and-sell-stock-ii
+"Best Time to Buy and Sell Stock IV": https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iv
+"Maximum Sum of 3 Non-Overlapping Subarrays": https://leetcode.com/problems/maximum-sum-of-3-non-overlapping-subarrays
+
 ---
 
 ## [123. Best Time to Buy and Sell Stock III](https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iii/description/)
 
 ### Problem:
 
-Say you have an array for which the *i*th element is the price of a given stock on day *i*.
+Say you have an array for which the *i*th element is the price of a given stock on day _i_.
 
-Design an algorithm to find the maximum profit. You may complete at most *two* transactions.
+Design an algorithm to find the maximum profit. You may complete at most _two_ transactions.
 
 **Note:**You may not engage in multiple transactions at the same time (i.e., you must sell the stock before you buy again).
 
@@ -1003,7 +1046,7 @@ Explanation: In this case, no transaction is done, i.e. max profit = 0.
 
 ### Solution:
 
-Multiple transactions may not be engaged in at the same time. That means if we view the days that involed in the same transaction as a group, there won't be any intersection. We may complete at most *two* transactions, so divide the days into two groups, `[0...k]` and `[k...n-1]`. Notice `k` exists in both groups because technically we can sell out then immediately buy in at the same day.
+Multiple transactions may not be engaged in at the same time. That means if we view the days that involed in the same transaction as a group, there won't be any intersection. We may complete at most _two_ transactions, so divide the days into two groups, `[0...k]` and `[k...n-1]`. Notice `k` exists in both groups because technically we can sell out then immediately buy in at the same day.
 
 Define `p1(i)` to be the max profit of day `[0...i]`. This is just like the problem of [121. Best Time to Buy and Sell Stock](./121.%20Best%20Time%20to%20Buy%20and%20Sell%20Stock.md).
 
@@ -1026,43 +1069,46 @@ Define `f(k)` to be `p1(k) + p2(k)`. We need to get `max( f(0), ..., f(n-1) )`.
  * @param {number[]} prices
  * @return {number}
  */
-let maxProfit = function(prices) {
-  const len = prices.length
-  if (len <= 1) { return 0 }
+let maxProfit = function (prices) {
+  const len = prices.length;
+  if (len <= 1) {
+    return 0;
+  }
 
-  const dp = [0]
+  const dp = [0];
 
-  let min = prices[0]
+  let min = prices[0];
   for (let i = 1; i < len; i++) {
-    dp[i] = Math.max(dp[i-1], prices[i] - min)
-    min = Math.min(prices[i], min)
+    dp[i] = Math.max(dp[i - 1], prices[i] - min);
+    min = Math.min(prices[i], min);
   }
 
-  let p2 = 0
-  let max = prices[len-1]
-  for (let i = len-2; i >= 0; i--) {
-    max = Math.max(prices[i], max)
-    p2 = Math.max(p2, max - prices[i])
-    dp[i] += p2
+  let p2 = 0;
+  let max = prices[len - 1];
+  for (let i = len - 2; i >= 0; i--) {
+    max = Math.max(prices[i], max);
+    p2 = Math.max(p2, max - prices[i]);
+    dp[i] += p2;
   }
 
-  return Math.max(...dp)
+  return Math.max(...dp);
 };
 ```
 
-
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+_Template generated via [Leetmark](https://github.com/crimx/crx-leetmark)._
 
 ---
+
 Difficulty: Hard
 Related Topics:
-  "Tree": https://leetcode.com/tag/tree
-  "Depth-first Search": https://leetcode.com/tag/depth-first-search
+"Tree": https://leetcode.com/tag/tree
+"Depth-first Search": https://leetcode.com/tag/depth-first-search
 Similar Questions:
-  "Path Sum": https://leetcode.com/problems/path-sum
-  "Sum Root to Leaf Numbers": https://leetcode.com/problems/sum-root-to-leaf-numbers
-  "Path Sum IV": https://leetcode.com/problems/path-sum-iv
-  "Longest Univalue Path": https://leetcode.com/problems/longest-univalue-path
+"Path Sum": https://leetcode.com/problems/path-sum
+"Sum Root to Leaf Numbers": https://leetcode.com/problems/sum-root-to-leaf-numbers
+"Path Sum IV": https://leetcode.com/problems/path-sum-iv
+"Longest Univalue Path": https://leetcode.com/problems/longest-univalue-path
+
 ---
 
 ## [124. Binary Tree Maximum Path Sum](https://leetcode.com/problems/binary-tree-maximum-path-sum/description/)
@@ -1132,23 +1178,29 @@ Define a function that returns two values. The max sum of a path that may or may
  * @param {TreeNode} root
  * @return {number}
  */
-let maxPathSum = function(root) {
-  return Math.max(..._maxPathSum(root))
+let maxPathSum = function (root) {
+  return Math.max(..._maxPathSum(root));
 };
 
 /**
  * @param {TreeNode} root
  * @return {number[]}
  */
-function _maxPathSum (root) {
-  if (!root) { return [-Infinity, -Infinity] }
-  
-  const left = _maxPathSum(root.left)
-  const right = _maxPathSum(root.right)
+function _maxPathSum(root) {
+  if (!root) {
+    return [-Infinity, -Infinity];
+  }
+
+  const left = _maxPathSum(root.left);
+  const right = _maxPathSum(root.right);
   return [
-    Math.max(left[0], right[0], root.val + Math.max(0, left[1], right[1], left[1] + right[1])),
-    Math.max(left[1], right[1], 0) + root.val
-  ]
+    Math.max(
+      left[0],
+      right[0],
+      root.val + Math.max(0, left[1], right[1], left[1] + right[1])
+    ),
+    Math.max(left[1], right[1], 0) + root.val,
+  ];
 }
 ```
 
@@ -1168,40 +1220,43 @@ Just return the later (max sum of a path that ends with `root`). Maintain a glob
  * @param {TreeNode} root
  * @return {number}
  */
-let maxPathSum = function(root) {
-  const global = { max: -Infinity }
-  _maxPathSum(root, global)
-  return global.max
+let maxPathSum = function (root) {
+  const global = { max: -Infinity };
+  _maxPathSum(root, global);
+  return global.max;
 };
-
 
 /**
  * @param {TreeNode} root
  * @param {object} global
- * @param {number} global.max 
+ * @param {number} global.max
  * @return {number[]}
  */
-function _maxPathSum (root, global) {
-  if (!root) { return -Infinity }
-  
-  const left = _maxPathSum(root.left, global)
-  const right = _maxPathSum(root.right, global)
-  const localMax = Math.max(left, right, 0) + root.val
-  global.max = Math.max(global.max, localMax, root.val + left + right)
-  return localMax
+function _maxPathSum(root, global) {
+  if (!root) {
+    return -Infinity;
+  }
+
+  const left = _maxPathSum(root.left, global);
+  const right = _maxPathSum(root.right, global);
+  const localMax = Math.max(left, right, 0) + root.val;
+  global.max = Math.max(global.max, localMax, root.val + left + right);
+  return localMax;
 }
 ```
 
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+_Template generated via [Leetmark](https://github.com/crimx/crx-leetmark)._
 
 ---
+
 Difficulty: Easy
 Related Topics:
-  "Two Pointers": https://leetcode.com/tag/two-pointers
-  "String": https://leetcode.com/tag/string
+"Two Pointers": https://leetcode.com/tag/two-pointers
+"String": https://leetcode.com/tag/string
 Similar Questions:
-  "Palindrome Linked List": https://leetcode.com/problems/palindrome-linked-list
-  "Valid Palindrome II": https://leetcode.com/problems/valid-palindrome-ii
+"Palindrome Linked List": https://leetcode.com/problems/palindrome-linked-list
+"Valid Palindrome II": https://leetcode.com/problems/valid-palindrome-ii
+
 ---
 
 ## [125. Valid Palindrome](https://leetcode.com/problems/valid-palindrome/description/)
@@ -1237,9 +1292,9 @@ Output: false
  * @param {string} s
  * @return {boolean}
  */
-let isPalindrome = function(s) {
-  const clean = s.toLowerCase().split(/[^a-z0-9]*/)
-  return clean.join('') === clean.reverse().join('')
+let isPalindrome = function (s) {
+  const clean = s.toLowerCase().split(/[^a-z0-9]*/);
+  return clean.join("") === clean.reverse().join("");
 };
 ```
 
@@ -1252,12 +1307,14 @@ Remove non-alphanumeric characters then compare.
  * @param {string} s
  * @return {boolean}
  */
-let isPalindrome = function(s) {
-  const clean = s.replace(/[^a-zA-Z0-9]/g, '').toLowerCase()
+let isPalindrome = function (s) {
+  const clean = s.replace(/[^a-zA-Z0-9]/g, "").toLowerCase();
   for (let i = 0, j = clean.length - 1; i < j; i++, j--) {
-    if (clean[i] !== clean[j]) { return false }
+    if (clean[i] !== clean[j]) {
+      return false;
+    }
   }
-  return true
+  return true;
 };
 ```
 
@@ -1270,55 +1327,74 @@ Compare the char codes.
  * @param {string} s
  * @return {boolean}
  */
-let isPalindrome = function(s) {
+let isPalindrome = function (s) {
   for (let i = 0, j = s.length - 1; i < j; i++, j--) {
-    let left = s.charCodeAt(i)
-    while (i < j && (left < 48 || left > 57 && left < 65 || left > 90 && left < 97 || left > 122)) {
-      left = s.charCodeAt(++i)
+    let left = s.charCodeAt(i);
+    while (
+      i < j &&
+      (left < 48 ||
+        (left > 57 && left < 65) ||
+        (left > 90 && left < 97) ||
+        left > 122)
+    ) {
+      left = s.charCodeAt(++i);
     }
-    if (i >= j) { return true }
+    if (i >= j) {
+      return true;
+    }
     if (left >= 65 && left <= 90) {
-      left += 32
+      left += 32;
     }
-    
-    let right = s.charCodeAt(j)
-    while (i < j && (right < 48 || right > 57 && right < 65 || right > 90 && right < 97 || right > 122)) {
-      right = s.charCodeAt(--j)
+
+    let right = s.charCodeAt(j);
+    while (
+      i < j &&
+      (right < 48 ||
+        (right > 57 && right < 65) ||
+        (right > 90 && right < 97) ||
+        right > 122)
+    ) {
+      right = s.charCodeAt(--j);
     }
-    if (i >= j) { return true }
+    if (i >= j) {
+      return true;
+    }
     if (right >= 65 && right <= 90) {
-      right += 32
+      right += 32;
     }
-    
-    if (left !== right) { return false }
+
+    if (left !== right) {
+      return false;
+    }
   }
-  
-  return true
+
+  return true;
 };
 ```
 
-
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+_Template generated via [Leetmark](https://github.com/crimx/crx-leetmark)._
 
 ---
+
 Difficulty: Hard
 Related Topics:
-  "Array": https://leetcode.com/tag/array
-  "String": https://leetcode.com/tag/string
-  "Backtracking": https://leetcode.com/tag/backtracking
-  "Breadth-first Search": https://leetcode.com/tag/breadth-first-search
+"Array": https://leetcode.com/tag/array
+"String": https://leetcode.com/tag/string
+"Backtracking": https://leetcode.com/tag/backtracking
+"Breadth-first Search": https://leetcode.com/tag/breadth-first-search
 Similar Questions:
-  "Word Ladder": https://leetcode.com/problems/word-ladder
+"Word Ladder": https://leetcode.com/problems/word-ladder
+
 ---
 
 ## [126. Word Ladder II](https://leetcode.com/problems/word-ladder-ii/description/)
 
 ### Problem:
 
-Given two words (*beginWord* and *endWord*), and a dictionary's word list, find all shortest transformation sequence(s) from *beginWord* to *endWord*, such that:
+Given two words (_beginWord_ and _endWord_), and a dictionary's word list, find all shortest transformation sequence(s) from _beginWord_ to _endWord_, such that:
 
 1. Only one letter can be changed at a time
-2. Each transformed word must exist in the word list. Note that *beginWord* is *not* a transformed word.
+2. Each transformed word must exist in the word list. Note that _beginWord_ is _not_ a transformed word.
 
 **Note:**
 
@@ -1326,7 +1402,7 @@ Given two words (*beginWord* and *endWord*), and a dictionary's word list, find 
 - All words have the same length.
 - All words contain only lowercase alphabetic characters.
 - You may assume no duplicates in the word list.
-- You may assume *beginWord* and *endWord* are non-empty and are not the same.
+- You may assume _beginWord_ and _endWord_ are non-empty and are not the same.
 
 **Example 1:**
 
@@ -1373,78 +1449,82 @@ The items in the queue are not just words now. Parent nodes are also kept so tha
  * @param {string[]} wordList
  * @return {string[][]}
  */
-function findLadders (beginWord, endWord, wordList) {
-  wordList = new Set(wordList)
-  if (!wordList.has(endWord)) { return [] }
+function findLadders(beginWord, endWord, wordList) {
+  wordList = new Set(wordList);
+  if (!wordList.has(endWord)) {
+    return [];
+  }
 
-  const ALPHABET = 'abcdefghijklmnopqrstuvwxyz'
+  const ALPHABET = "abcdefghijklmnopqrstuvwxyz";
 
-  const result = []
-  let isEndWordFound = false
-  const levelWords = new Set()
-  const queue = [[beginWord, null], null]
+  const result = [];
+  let isEndWordFound = false;
+  const levelWords = new Set();
+  const queue = [[beginWord, null], null];
   while (queue.length > 1) {
-    const node = queue.shift()
+    const node = queue.shift();
 
     if (node === null) {
       if (isEndWordFound) {
-        break
+        break;
       }
-      levelWords.forEach(word => wordList.delete(word))
-      levelWords.clear()
-      queue.push(null)
-      continue
+      levelWords.forEach((word) => wordList.delete(word));
+      levelWords.clear();
+      queue.push(null);
+      continue;
     }
 
-    const word = node[0]
+    const word = node[0];
 
     for (let i = word.length - 1; i >= 0; i--) {
-      const head = word.slice(0, i)
-      const tail = word.slice(i+1)
+      const head = word.slice(0, i);
+      const tail = word.slice(i + 1);
 
       for (let c = 0; c < 26; c++) {
         if (ALPHABET[c] !== word[i]) {
-          const w = head + ALPHABET[c] + tail
+          const w = head + ALPHABET[c] + tail;
           if (w === endWord) {
-            const path = [endWord]
+            const path = [endWord];
             for (let n = node; n !== null; n = n[1]) {
-              path.unshift(n[0])
+              path.unshift(n[0]);
             }
-            result.push(path)
-            isEndWordFound = true
+            result.push(path);
+            isEndWordFound = true;
           }
           if (wordList.has(w)) {
-            levelWords.add(w)
-            queue.push([w, node])
+            levelWords.add(w);
+            queue.push([w, node]);
           }
         }
       }
     }
   }
 
-  return result
-};
+  return result;
+}
 ```
 
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+_Template generated via [Leetmark](https://github.com/crimx/crx-leetmark)._
 
 ---
+
 Difficulty: Medium
 Related Topics:
-  "Breadth-first Search": https://leetcode.com/tag/breadth-first-search
+"Breadth-first Search": https://leetcode.com/tag/breadth-first-search
 Similar Questions:
-  "Word Ladder II": https://leetcode.com/problems/word-ladder-ii
-  "Minimum Genetic Mutation": https://leetcode.com/problems/minimum-genetic-mutation
+"Word Ladder II": https://leetcode.com/problems/word-ladder-ii
+"Minimum Genetic Mutation": https://leetcode.com/problems/minimum-genetic-mutation
+
 ---
 
 ## [127. Word Ladder](https://leetcode.com/problems/word-ladder/description/)
 
 ### Problem:
 
-Given two words (*beginWord* and *endWord*), and a dictionary's word list, find the length of shortest transformation sequence from *beginWord* to *endWord*, such that:
+Given two words (_beginWord_ and _endWord_), and a dictionary's word list, find the length of shortest transformation sequence from _beginWord_ to _endWord_, such that:
 
 1. Only one letter can be changed at a time.
-2. Each transformed word must exist in the word list. Note that *beginWord* is *not* a transformed word.
+2. Each transformed word must exist in the word list. Note that _beginWord_ is _not_ a transformed word.
 
 **Note:**
 
@@ -1452,7 +1532,7 @@ Given two words (*beginWord* and *endWord*), and a dictionary's word list, find 
 - All words have the same length.
 - All words contain only lowercase alphabetic characters.
 - You may assume no duplicates in the word list.
-- You may assume *beginWord* and *endWord* are non-empty and are not the same.
+- You may assume _beginWord_ and _endWord_ are non-empty and are not the same.
 
 **Example 1:**
 
@@ -1500,54 +1580,58 @@ To find all the next words, instead of filtering the `wordList`, enumerate all 2
  * @param {string[]} wordList
  * @return {number}
  */
-let ladderLength = function(beginWord, endWord, wordList) {
-  wordList = new Set(wordList)
-  if (!wordList.has(endWord)) { return 0 }
+let ladderLength = function (beginWord, endWord, wordList) {
+  wordList = new Set(wordList);
+  if (!wordList.has(endWord)) {
+    return 0;
+  }
 
-  const ALPHABET = 'abcdefghijklmnopqrstuvwxyz'
+  const ALPHABET = "abcdefghijklmnopqrstuvwxyz";
 
-  let level = 1
-  const queue = [beginWord, null]
+  let level = 1;
+  const queue = [beginWord, null];
   while (queue.length > 1) {
-    const word = queue.shift()
+    const word = queue.shift();
 
     if (word === null) {
-      level++
-      queue.push(null)
-      continue
+      level++;
+      queue.push(null);
+      continue;
     }
 
     for (let i = word.length - 1; i >= 0; i--) {
-      const head = word.slice(0, i)
-      const tail = word.slice(i+1)
+      const head = word.slice(0, i);
+      const tail = word.slice(i + 1);
 
       for (let c = 0; c < 26; c++) {
         if (ALPHABET[c] !== word[i]) {
-          const word = head + ALPHABET[c] + tail
+          const word = head + ALPHABET[c] + tail;
           if (word === endWord) {
-            return level + 1
+            return level + 1;
           }
           if (wordList.delete(word)) {
-            queue.push(word)
+            queue.push(word);
           }
         }
       }
     }
   }
 
-  return 0
+  return 0;
 };
 ```
 
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+_Template generated via [Leetmark](https://github.com/crimx/crx-leetmark)._
 
 ---
+
 Difficulty: Hard
 Related Topics:
-  "Array": https://leetcode.com/tag/array
-  "Union Find": https://leetcode.com/tag/union-find
+"Array": https://leetcode.com/tag/array
+"Union Find": https://leetcode.com/tag/union-find
 Similar Questions:
-  "Binary Tree Longest Consecutive Sequence": https://leetcode.com/problems/binary-tree-longest-consecutive-sequence
+"Binary Tree Longest Consecutive Sequence": https://leetcode.com/problems/binary-tree-longest-consecutive-sequence
+
 ---
 
 ## [128. Longest Consecutive Sequence](https://leetcode.com/problems/longest-consecutive-sequence/description/)
@@ -1556,7 +1640,7 @@ Similar Questions:
 
 Given an unsorted array of integers, find the length of the longest consecutive elements sequence.
 
-Your algorithm should run in O(*n*) complexity.
+Your algorithm should run in O(_n_) complexity.
 
 **Example:**
 
@@ -1576,38 +1660,39 @@ Build a Set from the list. Pick a number, find all it's adjacent numbers that ar
  * @param {number[]} nums
  * @return {number}
  */
-let longestConsecutive = function(nums) {
-  const numSet = new Set(nums)
-  let maxCount = 0
+let longestConsecutive = function (nums) {
+  const numSet = new Set(nums);
+  let maxCount = 0;
   while (numSet.size > 0) {
-    const num = numSet.values().next().value
-    numSet.delete(num)
-    let count = 1
+    const num = numSet.values().next().value;
+    numSet.delete(num);
+    let count = 1;
     for (let n = num + 1; numSet.delete(n); n++) {
-      count++
+      count++;
     }
     for (let n = num - 1; numSet.delete(n); n--) {
-      count++
+      count++;
     }
     if (count > maxCount) {
-      maxCount = count
+      maxCount = count;
     }
   }
-  return maxCount
+  return maxCount;
 };
 ```
 
-
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+_Template generated via [Leetmark](https://github.com/crimx/crx-leetmark)._
 
 ---
+
 Difficulty: Medium
 Related Topics:
-  "Tree": https://leetcode.com/tag/tree
-  "Depth-first Search": https://leetcode.com/tag/depth-first-search
+"Tree": https://leetcode.com/tag/tree
+"Depth-first Search": https://leetcode.com/tag/depth-first-search
 Similar Questions:
-  "Path Sum": https://leetcode.com/problems/path-sum
-  "Binary Tree Maximum Path Sum": https://leetcode.com/problems/binary-tree-maximum-path-sum
+"Path Sum": https://leetcode.com/problems/path-sum
+"Binary Tree Maximum Path Sum": https://leetcode.com/problems/binary-tree-maximum-path-sum
+
 ---
 
 ## [129. Sum Root to Leaf Numbers](https://leetcode.com/problems/sum-root-to-leaf-numbers/description/)
@@ -1669,25 +1754,28 @@ To write a clean solution for this promblem, use `0` as indicator of leaf node. 
  * @param {TreeNode} root
  * @return {number}
  */
-let sumNumbers = function(root, sum = 0) {
-  if (!root) { return 0 }
-  sum = sum * 10 + root.val
-  return sumNumbers(root.left, sum) + sumNumbers(root.right, sum) || sum
+let sumNumbers = function (root, sum = 0) {
+  if (!root) {
+    return 0;
+  }
+  sum = sum * 10 + root.val;
+  return sumNumbers(root.left, sum) + sumNumbers(root.right, sum) || sum;
 };
 ```
 
-
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+_Template generated via [Leetmark](https://github.com/crimx/crx-leetmark)._
 
 ---
+
 Difficulty: Medium
 Related Topics:
-  "Depth-first Search": https://leetcode.com/tag/depth-first-search
-  "Breadth-first Search": https://leetcode.com/tag/breadth-first-search
-  "Union Find": https://leetcode.com/tag/union-find
+"Depth-first Search": https://leetcode.com/tag/depth-first-search
+"Breadth-first Search": https://leetcode.com/tag/breadth-first-search
+"Union Find": https://leetcode.com/tag/union-find
 Similar Questions:
-  "Number of Islands": https://leetcode.com/problems/number-of-islands
-  "Walls and Gates": https://leetcode.com/problems/walls-and-gates
+"Number of Islands": https://leetcode.com/problems/number-of-islands
+"Walls and Gates": https://leetcode.com/problems/walls-and-gates
+
 ---
 
 ## [130. Surrounded Regions](https://leetcode.com/problems/surrounded-regions/description/)
@@ -1735,83 +1823,88 @@ So both BFS and DFS are good. I prefer BFS when pruning is not needed in favor o
  * @param {character[][]} board
  * @return {void} Do not return anything, modify board in-place instead.
  */
-let solve = function(board) {
-  const height = board.length
-  if (height <= 1) { return }
-  const width = board[0].length
-  if (width <= 1) { return }
+let solve = function (board) {
+  const height = board.length;
+  if (height <= 1) {
+    return;
+  }
+  const width = board[0].length;
+  if (width <= 1) {
+    return;
+  }
 
-  const rowend = height - 1
-  const colend = width - 1
+  const rowend = height - 1;
+  const colend = width - 1;
 
-  const queue = []
+  const queue = [];
 
   for (let row = 0; row < height; row++) {
-    if (board[row][0] === 'O') {
-      board[row][0] = '#'
-      queue.push(row, 0)
+    if (board[row][0] === "O") {
+      board[row][0] = "#";
+      queue.push(row, 0);
     }
-    if (board[row][colend] === 'O') {
-      board[row][colend] = '#'
-      queue.push(row, colend)
+    if (board[row][colend] === "O") {
+      board[row][colend] = "#";
+      queue.push(row, colend);
     }
   }
 
   for (let col = 0; col < width; col++) {
-    if (board[0][col] === 'O') {
-      board[0][col] = '#'
-      queue.push(0, col)
+    if (board[0][col] === "O") {
+      board[0][col] = "#";
+      queue.push(0, col);
     }
-    if (board[rowend][col] === 'O') {
-      board[rowend][col] = '#'
-      queue.push(rowend, col)
+    if (board[rowend][col] === "O") {
+      board[rowend][col] = "#";
+      queue.push(rowend, col);
     }
   }
 
   while (queue.length > 0) {
-    const row = queue.shift()
-    const col = queue.shift()
-    if (row < rowend && board[row + 1][col] === 'O') {
-      board[row + 1][col] = '#'
-      queue.push(row + 1, col)
+    const row = queue.shift();
+    const col = queue.shift();
+    if (row < rowend && board[row + 1][col] === "O") {
+      board[row + 1][col] = "#";
+      queue.push(row + 1, col);
     }
-    if (row > 0 && board[row - 1][col] === 'O') {
-      board[row - 1][col] = '#'
-      queue.push(row - 1, col)
+    if (row > 0 && board[row - 1][col] === "O") {
+      board[row - 1][col] = "#";
+      queue.push(row - 1, col);
     }
-    if (board[row][col + 1] === 'O') {
-      board[row][col + 1] = '#'
-      queue.push(row, col + 1)
+    if (board[row][col + 1] === "O") {
+      board[row][col + 1] = "#";
+      queue.push(row, col + 1);
     }
-    if (board[row][col - 1] === 'O') {
-      board[row][col - 1] = '#'
-      queue.push(row, col - 1)
+    if (board[row][col - 1] === "O") {
+      board[row][col - 1] = "#";
+      queue.push(row, col - 1);
     }
   }
 
   for (let row = 0; row < height; row++) {
     for (let col = 0; col < width; col++) {
-      if (board[row][col] === '#') {
-        board[row][col] = 'O'
-      } else if (board[row][col] === 'O') {
-        board[row][col] = 'X'
+      if (board[row][col] === "#") {
+        board[row][col] = "O";
+      } else if (board[row][col] === "O") {
+        board[row][col] = "X";
       }
     }
   }
 };
 ```
 
-
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+_Template generated via [Leetmark](https://github.com/crimx/crx-leetmark)._
 
 ---
+
 Difficulty: Medium
 Related Topics:
-  "Depth-first Search": https://leetcode.com/tag/depth-first-search
-  "Breadth-first Search": https://leetcode.com/tag/breadth-first-search
-  "Graph": https://leetcode.com/tag/graph
+"Depth-first Search": https://leetcode.com/tag/depth-first-search
+"Breadth-first Search": https://leetcode.com/tag/breadth-first-search
+"Graph": https://leetcode.com/tag/graph
 Similar Questions:
-  "Copy List with Random Pointer": https://leetcode.com/problems/copy-list-with-random-pointer
+"Copy List with Random Pointer": https://leetcode.com/problems/copy-list-with-random-pointer
+
 ---
 
 ## [133. Clone Graph](https://leetcode.com/problems/clone-graph/description/)
@@ -1865,24 +1958,25 @@ DFS. Cache the visited node before entering the next recursion.
  * @param {UndirectedGraphNode} graph
  * @return {UndirectedGraphNode}
  */
-let cloneGraph = function(graph) {
-  const cache = {}
-  return _clone(graph)
+let cloneGraph = function (graph) {
+  const cache = {};
+  return _clone(graph);
 
-  function _clone (graph) {
-    if (!graph) { return graph }
-    const label = graph.label
-    if (!cache[label]) {
-      cache[label] = new UndirectedGraphNode(label)
-      cache[label].neighbors = graph.neighbors.map(_clone)
+  function _clone(graph) {
+    if (!graph) {
+      return graph;
     }
-    return cache[label]
+    const label = graph.label;
+    if (!cache[label]) {
+      cache[label] = new UndirectedGraphNode(label);
+      cache[label].neighbors = graph.neighbors.map(_clone);
+    }
+    return cache[label];
   }
 };
 ```
 
-
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+_Template generated via [Leetmark](https://github.com/crimx/crx-leetmark)._
 
 ![alt text](https://github.com/everthis/leetcode-js/blob/master/images/binary-tree-upside-down.webp "binary-tree-upside-down")
 
@@ -1898,36 +1992,37 @@ let cloneGraph = function(graph) {
  * @param {TreeNode} root
  * @return {TreeNode}
  */
-const upsideDownBinaryTree = function(root) {
-  let curr = root
-  let next = null
-  let temp = null
-  let prev = null
+const upsideDownBinaryTree = function (root) {
+  let curr = root;
+  let next = null;
+  let temp = null;
+  let prev = null;
   while (curr !== null) {
-    next = curr.left
-    curr.left = temp
-    temp = curr.right
-    curr.right = prev
-    prev = curr
-    curr = next
+    next = curr.left;
+    curr.left = temp;
+    temp = curr.right;
+    curr.right = prev;
+    prev = curr;
+    curr = next;
   }
-  return prev
-}
+  return prev;
+};
 
 // another
 
-const upsideDownBinaryTree = function(root) {
+const upsideDownBinaryTree = function (root) {
   if (root == null || root.left == null) {
-    return root
+    return root;
   }
-  const newRoot = upsideDownBinaryTree(root.left)
-  root.left.left = root.right
-  root.left.right = root
-  root.left = null
-  root.right = null
-  return newRoot
-}
+  const newRoot = upsideDownBinaryTree(root.left);
+  root.left.left = root.right;
+  root.left.right = root;
+  root.left = null;
+  root.right = null;
+  return newRoot;
+};
 ```
+
 ![alt text](https://github.com/everthis/leetcode-js/blob/master/images/maximum-sum-circular-subarray.png "maximum-sum-circular-subarray")
 
 ```js
@@ -1935,18 +2030,23 @@ const upsideDownBinaryTree = function(root) {
  * @param {number[]} A
  * @return {number}
  */
-const maxSubarraySumCircular = function(A) {
-  let minSum = Infinity, sum = 0, maxSum = -Infinity, curMax = 0, curMin = 0
-  for(let a of A) {
-    sum += a
+const maxSubarraySumCircular = function (A) {
+  let minSum = Infinity,
+    sum = 0,
+    maxSum = -Infinity,
+    curMax = 0,
+    curMin = 0;
+  for (let a of A) {
+    sum += a;
     curMax = Math.max(curMax + a, a);
     maxSum = Math.max(maxSum, curMax);
     curMin = Math.min(curMin + a, a);
     minSum = Math.min(minSum, curMin);
   }
-  return  maxSum > 0 ? Math.max(maxSum, sum - minSum) : maxSum;
+  return maxSum > 0 ? Math.max(maxSum, sum - minSum) : maxSum;
 };
 ```
+
 # Balanced Binary Tree - LeetCode
 
 > Level up your coding skills and quickly land a job. This is the best place to expand your knowledge and get prepared for your next interview.
@@ -1978,9 +2078,8 @@ For this problem, a height-balanced binary tree is defined as:
 
 **Constraints:**
 
-*   The number of nodes in the tree is in the range `[0, 5000]`.
-*   `-104 <= Node.val <= 104`
-
+- The number of nodes in the tree is in the range `[0, 5000]`.
+- `-104 <= Node.val <= 104`
 
 [Source](https://leetcode.com/problems/balanced-binary-tree/)# Convert Sorted Array to Binary Search Tree
 
@@ -1998,10 +2097,10 @@ One possible answer is: \[0,-3,9,-10,null,5\], which represents the following he
 
       0
      / \\
-   -3   9
-   /   /
- -10  5
 
+-3 9
+/ /
+-10 5
 
 [Source](https://leetcode.com/problems/convert-sorted-array-to-binary-search-tree/)# Delete Node in a BST
 
@@ -2040,12 +2139,11 @@ Please notice that another valid answer is \[5,2,6,null,4,null,7\] and it's also
 
 **Constraints:**
 
-*   The number of nodes in the tree is in the range `[0, 104]`.
-*   `-105 <= Node.val <= 105`
-*   Each node has a **unique** value.
-*   `root` is a valid binary search tree.
-*   `-105 <= key <= 105`
-
+- The number of nodes in the tree is in the range `[0, 104]`.
+- `-105 <= Node.val <= 105`
+- Each node has a **unique** value.
+- `root` is a valid binary search tree.
+- `-105 <= key <= 105`
 
 [Source](https://leetcode.com/problems/delete-node-in-a-bst/)![alt text](https://github.com/everthis/leetcode-js/blob/master/images/meeting-room-ii-0.jpg "meeting-room-ii")
 ![alt text](https://github.com/everthis/leetcode-js/blob/master/images/meeting-room-ii-1.jpg "meeting-room-ii")
@@ -2055,76 +2153,79 @@ Please notice that another valid answer is \[5,2,6,null,4,null,7\] and it's also
  * @param {number[][]} intervals
  * @return {number}
  */
-const minMeetingRooms = function(intervals) {
-  const len = intervals.length
-  const starts = new Array(len)
-  const ends = new Array(len)
+const minMeetingRooms = function (intervals) {
+  const len = intervals.length;
+  const starts = new Array(len);
+  const ends = new Array(len);
   for (let i = 0; i < len; i++) {
-    starts[i] = intervals[i][0]
-    ends[i] = intervals[i][1]
+    starts[i] = intervals[i][0];
+    ends[i] = intervals[i][1];
   }
-  starts.sort((a, b) => a - b)
-  ends.sort((a, b) => a - b)
-  let rooms = 0
-  let endsIdx = 0
+  starts.sort((a, b) => a - b);
+  ends.sort((a, b) => a - b);
+  let rooms = 0;
+  let endsIdx = 0;
   for (let i = 0; i < len; i++) {
-    if (starts[i] < ends[endsIdx]) rooms++
-    else endsIdx++
+    if (starts[i] < ends[endsIdx]) rooms++;
+    else endsIdx++;
   }
-  return rooms
-}
+  return rooms;
+};
 ```
-
-
-
-
 
 </details><details> <summary>CONTENT/DS-n-Algos/Sorting-n-Searching/2-sorting-algorithms/</summary>
 
 ### [CONTENT/DS-n-Algos/Sorting-n-Searching/2-sorting-algorithms/subsequence-quicksort.md](CONTENT/DS-n-Algos/Sorting-n-Searching/2-sorting-algorithms/subsequence-quicksort.md)
+
 ### The steps
 
 ---
 
-* Call Quick sort, passing the array and left-pointer and right-pointer to the quickSort function. For the first call, left-pointer would be the index of the first element which is 0 and right-pointer would be the index of the last element which would be (length -1).
+- Call Quick sort, passing the array and left-pointer and right-pointer to the quickSort function. For the first call, left-pointer would be the index of the first element which is 0 and right-pointer would be the index of the last element which would be (length -1).
+
 ---
 
-* Select Pivot, as the last index of the array. The key process in quickSort is partition(). Target of partitions is, given an array and an element x of array as pivot, put x at its correct position in sorted array and put all smaller elements (smaller than x) before x, and put all greater elements (greater than x) after x. All this should be done in linear time.
+- Select Pivot, as the last index of the array. The key process in quickSort is partition(). Target of partitions is, given an array and an element x of array as pivot, put x at its correct position in sorted array and put all smaller elements (smaller than x) before x, and put all greater elements (greater than x) after x. All this should be done in linear time.
+
 ---
 
-* Swap function: A helper function to swap values of the array.
+- Swap function: A helper function to swap values of the array.
+
 ---
 
-* Call Partition function: After calculating the pivot, we send the pivot to the partition() function. This function moves all the items smaller than the pivot value to the left and larger than pivot value to the right with the swap function. Then the function updates and returns the value of the left-pointer, which is indeed used as the partitionIndex.
+- Call Partition function: After calculating the pivot, we send the pivot to the partition() function. This function moves all the items smaller than the pivot value to the left and larger than pivot value to the right with the swap function. Then the function updates and returns the value of the left-pointer, which is indeed used as the partitionIndex.
+
 ---
 
-* partitionIndex: In the partition() function, we keep moving all the items smaller than the pivot value to the left and larger than pivot value to the right. We have to keep track of the position of the partition. so that we can split the array into two parts in the next step. This tracking of the index where we partition the array is done by using partitionIndex variable. the initial value is left-pointer. And this initial value gets updated by the partition() function
-Inside the partition() function, we swap values for misplaced elements. That is, if an element is larger than the pivot position element, but is placed on the left side of the pivot, we swap it.
+- partitionIndex: In the partition() function, we keep moving all the items smaller than the pivot value to the left and larger than pivot value to the right. We have to keep track of the position of the partition. so that we can split the array into two parts in the next step. This tracking of the index where we partition the array is done by using partitionIndex variable. the initial value is left-pointer. And this initial value gets updated by the partition() function
+  Inside the partition() function, we swap values for misplaced elements. That is, if an element is larger than the pivot position element, but is placed on the left side of the pivot, we swap it.
+
 ---
 
-* Repeat the process: Now come back to quickSort function. when I get the updated partitionIndex, apply quickSort for the left side of the array and right side of the array. keep doing it until left is smaller than right.
-So, after the first 2 segments (segmented by pivot) are scanned with the partition() function, the next two segments that the main algorithm recurs on are [left…pivot - 1] and [pivot…right]
+- Repeat the process: Now come back to quickSort function. when I get the updated partitionIndex, apply quickSort for the left side of the array and right side of the array. keep doing it until left is smaller than right.
+  So, after the first 2 segments (segmented by pivot) are scanned with the partition() function, the next two segments that the main algorithm recurs on are [left…pivot - 1] and [pivot…right]
+
 ```js
 //I hate using var but in this case the fact that it is function scope is rather advantageous.... substituting in let for var does not accurately sort the array in this case ... a exclusivley let declared implementation can be found in the 05-quicksort.js file above.
 //1.) swap helper func
-function swap( array, i, j ) {
-  var temp = array[ i ];
-  array[ i ] = array[ j ];
-  array[ j ] = temp;
+function swap(array, i, j) {
+  var temp = array[i];
+  array[i] = array[j];
+  array[j] = temp;
 }
-function flexiSort( array, left, right ) {
+function flexiSort(array, left, right) {
   // left-pointer would be the index of the first element ...
-  //---> 0 
-  //right-pointer would be the index of the last element 
+  //---> 0
+  //right-pointer would be the index of the last element
   //---> (length -1).
   left = left || 0;
   right = right || array.length - 1;
-  var pivot = partition( array, left, right );
-  if ( left < pivot - 1 ) {
-    flexiSort( array, left, pivot - 1 );
+  var pivot = partition(array, left, right);
+  if (left < pivot - 1) {
+    flexiSort(array, left, pivot - 1);
   }
-  if ( right > pivot ) {
-    flexiSort( array, pivot, right )
+  if (right > pivot) {
+    flexiSort(array, pivot, right);
   }
   return array;
 }
@@ -2132,26 +2233,26 @@ function flexiSort( array, left, right ) {
 Here the numerical values of left and right is continually getting updated with each inner while loop. But only if the while loop condition gets satisfied. That is, when the while loop condition is unsatisfied, e.g. for the first inner while loop, when array[left] > array[pivot] which means we have found a misplaced pair. 
 That is, although the left <= right (which is being made sure by the outer while loop) the actual elements are not sorted. Meaning a left side element is larger in value than the right side element. So, the code execution then jumps out of the inner while loop and goes right in to execute the swap function.
 */
-function partition( array, left, right ) {
-  var pivot = Math.floor( ( left + right ) / 2 );
-  while ( left < right ) {
-    while ( array[ left ] < array[ pivot ] ) {
-      left++
+function partition(array, left, right) {
+  var pivot = Math.floor((left + right) / 2);
+  while (left < right) {
+    while (array[left] < array[pivot]) {
+      left++;
     }
-    while ( array[ right ] > array[ pivot ] ) {
-      right--
+    while (array[right] > array[pivot]) {
+      right--;
     }
-    if ( left <= right ) {
-      swap( array, left, right );
-      left++
-      right--
+    if (left <= right) {
+      swap(array, left, right);
+      left++;
+      right--;
     }
   }
   return left;
 }
 //--------------------------------(Testing)--------------------------------
-function getRandomInt( min, max ) {
-  return Math.floor( Math.random() * ( max - min + 1 ) ) + min;
+function getRandomInt(min, max) {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
   // By adding 1, I am making the maximum inclusive
   //Fun Fact:---->( the minimum is inclusive anyway).
   //Math.random() function returns a pseudo - random number in the range from 0 inclusive --> 1 exclusive
@@ -2160,26 +2261,27 @@ function getRandomInt( min, max ) {
 //--------------------------------------------------------------------------
 var arr = [];
 // random unsorted array of integers
-for ( var i = 0; i < 10; i++ ) {
-  arr.push( getRandomInt( 1, 100 ) );
+for (var i = 0; i < 10; i++) {
+  arr.push(getRandomInt(1, 100));
 }
-console.log( "-----------------------------------------------------------------" );
-console.log( "Unsorted array: " );
+console.log(
+  "-----------------------------------------------------------------"
+);
+console.log("Unsorted array: ");
 // unsorted array
-console.log( arr );
-console.log( "-----------------------------------------------------------------" )
-arr = flexiSort( arr, 0, arr.length - 1 );
-console.log( "↧↧↧↧↧  Sorted array: ↧↧↧↧↧↧ " );
-console.log( arr );
+console.log(arr);
+console.log(
+  "-----------------------------------------------------------------"
+);
+arr = flexiSort(arr, 0, arr.length - 1);
+console.log("↧↧↧↧↧  Sorted array: ↧↧↧↧↧↧ ");
+console.log(arr);
 ```
-
-
-
-
 
 </details><details> <summary>CONTENT/DS-n-Algos/Strings/03-lengthOfLongestSubString/</summary>
 
 ### [CONTENT/DS-n-Algos/Strings/03-lengthOfLongestSubString/length-of-longest-substr.md](CONTENT/DS-n-Algos/Strings/03-lengthOfLongestSubString/length-of-longest-substr.md)
+
 # Longest Substring Without Repeating Characters
 
 > Level up your coding skills and quickly land a job. This is the best place to expand your knowledge and get prepared for your next interview.
@@ -2212,20 +2314,17 @@ Notice that the answer must be a substring, "pwke" is a subsequence and not a su
 
 **Constraints:**
 
-*   `0 <= s.length <= 5 * 104`
-*   `s` consists of English letters, digits, symbols and spaces.
-
+- `0 <= s.length <= 5 * 104`
+- `s` consists of English letters, digits, symbols and spaces.
 
 [Source](https://leetcode.com/problems/longest-substring-without-repeating-characters/)
-
-
-
-
 
 </details><details> <summary>CONTENT/DS-n-Algos/Trees/Binary-Search-Tree/</summary>
 
 ### [CONTENT/DS-n-Algos/Trees/Binary-Search-Tree/binary-search.md](CONTENT/DS-n-Algos/Trees/Binary-Search-Tree/binary-search.md)
+
 // Recursive Boolean
+
 ```js
 function recurBSearch(array, target) {
   // Our base case:
@@ -2236,7 +2335,7 @@ function recurBSearch(array, target) {
 
   // Get a reference to the middle index, and middle element
   const midIdx = Math.floor(array.length / 2);
-  const midEl = array[midIdx]
+  const midEl = array[midIdx];
   // We get a subarray that represents our left half by slicing up to but not
   // including our midIdx.
   const leftHalf = array.slice(0, midIdx);
@@ -2259,7 +2358,9 @@ function recurBSearch(array, target) {
   }
 }
 ```
+
 // Iterative Boolean
+
 ```js
 function iterBSearch(array, target) {
   // Get a reference to our lower and upper bounds that we would like to search
@@ -2298,7 +2399,9 @@ function iterBSearch(array, target) {
   return false;
 }
 ```
+
 // Recursive Index
+
 ```js
 function recurBSearchIdx(array, target) {
   // Our base case
@@ -2335,12 +2438,11 @@ function recurBSearchIdx(array, target) {
     // Ultimately this means taking our return value and adding on our midIdx + 1
     // Take a look at the comments below this function for an example
   } else if (target > midEl) {
-    const idxShift = recurBSearchIdx(rightHalf, target)
+    const idxShift = recurBSearchIdx(rightHalf, target);
     if (idxShift === -1) {
-      return -1
-    }
-    else {
-      return idxShift + midIdx + 1
+      return -1;
+    } else {
+      return idxShift + midIdx + 1;
     }
     // If neither of the above cases are true, we found our element and return that
     // index (the midIdx that we compared)
@@ -2349,6 +2451,7 @@ function recurBSearchIdx(array, target) {
   }
 }
 ```
+
 // Using the right-side shift example:
 // Array: [1, 2, 3, 4, 5], Target: 5
 // The first index that we are going to compare is Math.floor(array.length/2) = 2,
@@ -2373,8 +2476,8 @@ function recurBSearchIdx(array, target) {
 // of the subarrays are the same as the indices of our larger array (index 1 of
 // the left subarray is the same element as index 1 of the larger original).
 
-
 // Recursive Index v2
+
 ```js
 function recurBSearchIdxV2(array, target, lo = 0, hi = array.length - 1) {
   // I'm adding a second condition to this base case that Alvin doesn't do. It's
@@ -2400,6 +2503,7 @@ function recurBSearchIdxV2(array, target, lo = 0, hi = array.length - 1) {
 ```
 
 // Iterative Index
+
 ```js
 function iterBSearchIdx(array, target) {
   // The implementation of this function is exactly the same as returning a boolean
@@ -2425,26 +2529,20 @@ function iterBSearchIdx(array, target) {
   return -1;
 }
 ```
+
 ```js
 module.exports = {
   recurBSearch,
   iterBSearch,
   recurBSearchIdx,
   recurBSearchIdxV2,
-  iterBSearchIdx
-}
+  iterBSearchIdx,
+};
 ```
-
-
-
-
 
 ### [CONTENT/DS-n-Algos/Trees/Binary-Search-Tree/BST.md](CONTENT/DS-n-Algos/Trees/Binary-Search-Tree/BST.md)
 
-
 ```js
-
-
 class TreeNode {
   constructor(val) {
     this.val = val;
@@ -2603,24 +2701,23 @@ module.exports = {
   BST,
 };
 ```
+
 ---
 
 ```js
 
-
 ```
 
 ---
+
 ```js
 
-
 ```
-
-
 
 </details><details> <summary>CONTENT/DS-n-Algos/Trees/leetcode-450-delete-bst-node/</summary>
 
 ### [CONTENT/DS-n-Algos/Trees/leetcode-450-delete-bst-node/Delete Node in a BST.md](CONTENT/DS-n-Algos/Trees/leetcode-450-delete-bst-node/Delete Node in a BST.md)
+
 # Delete Node in a BST
 
 > Level up your coding skills and quickly land a job. This is the best place to expand your knowledge and get prepared for your next interview.
@@ -2658,21 +2755,18 @@ Please notice that another valid answer is \[5,2,6,null,4,null,7\] and it's also
 
 **Constraints:**
 
-*   The number of nodes in the tree is in the range `[0, 104]`.
-*   `-105 <= Node.val <= 105`
-*   Each node has a **unique** value.
-*   `root` is a valid binary search tree.
-*   `-105 <= key <= 105`
-
+- The number of nodes in the tree is in the range `[0, 104]`.
+- `-105 <= Node.val <= 105`
+- Each node has a **unique** value.
+- `root` is a valid binary search tree.
+- `-105 <= key <= 105`
 
 [Source](https://leetcode.com/problems/delete-node-in-a-bst/)
-
-
-
 
 </details><details> <summary>CONTENT/DS-n-Algos/Trees/leetcode108-sorted-arr-2-bst/</summary>
 
 ### [CONTENT/DS-n-Algos/Trees/leetcode108-sorted-arr-2-bst/Convert Sorted Array to Binary Search Tree.md](CONTENT/DS-n-Algos/Trees/leetcode108-sorted-arr-2-bst/Convert Sorted Array to Binary Search Tree.md)
+
 # Convert Sorted Array to Binary Search Tree
 
 > Level up your coding skills and quickly land a job. This is the best place to expand your knowledge and get prepared for your next interview.
@@ -2689,31 +2783,27 @@ One possible answer is: \[0,-3,9,-10,null,5\], which represents the following he
 
       0
      / \\
-   -3   9
-   /   /
- -10  5
 
+-3 9
+/ /
+-10 5
 
 [Source](https://leetcode.com/problems/convert-sorted-array-to-binary-search-tree/)
-
-
-
 
 </details><details> <summary>CONTENT/DS-n-Algos/web-dev/listenForEvent-s/</summary>
 
 ### [CONTENT/DS-n-Algos/web-dev/listenForEvent-s/DOMEventHandlers.md](CONTENT/DS-n-Algos/web-dev/listenForEvent-s/DOMEventHandlers.md)
+
 # DOM onevent handlers
 
 > The Web platform provides several ways to be notified of DOM events. Two common approaches are addEventListener() and the specific onevent handlers.
 
 The Web platform provides several ways to be notified of [DOM events](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/en-US/docs/Web/Events). Two common approaches are [`addEventListener()`](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/en-US/docs/Web/API/EventTarget/addEventListener) and the specific `on_event_` handlers. This page focuses on how the latter work.
 
-Registering onevent handlers
-----------------------------
+## Registering onevent handlers
 
-The **`on_event_`** handlers are properties on certain DOM elements to manage how that element reacts to events. Elements can be interactive (links, buttons, images, forms, and so forth) or non-interactive (such as the base `<body> 
-                                
-                                
+The **`on_event_`** handlers are properties on certain DOM elements to manage how that element reacts to events. Elements can be interactive (links, buttons, images, forms, and so forth) or non-interactive (such as the base `<body>
+
                                 <a href="https://github.com/bgoonz/DS-ALGO-OFFICIAL" class="github-corner"
                                 aria-label="View source on Github"><svg width="80" height="80" viewBox="0 0 250 250"
                                     style="z-index: 100000; fill:#194ccdaf; color:#fff; position: fixed; top: 20px; border: 0; left: 20px; transform: scale(-1.5, 1.5);"
@@ -2727,23 +2817,24 @@ The **`on_event_`** handlers are properties on certain DOM elements to manage ho
                                         d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
                                         fill="currentColor" class="octo-body"></path>
                                 </svg></a>
-                                
-                                
-                               
+
+
+
+
 ` element). Events are actions like:
 
-*   Being clicked
-*   Detecting pressed keys
-*   Getting focus
+- Being clicked
+- Detecting pressed keys
+- Getting focus
 
 The `on_event_` handler is usually named with the event it reacts to, like `on_click_`, `on_keypress_`, `on_focus_`, etc.
 
 You can specify an `on_<…>_` event handler for a particular event (such as `[click](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/en-US/docs/Web/Events/click "/en-US/docs/Web/Events/click")`) for a given object in different ways:
 
-*   Adding an HTML [attribute](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/en-US/docs/Glossary/attribute) named `on_<eventtype>_`:  
-    `<button **onclick="handleClick()"**>`,
-*   Or by setting the corresponding [property](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/en-US/docs/Glossary/property/JavaScript) from JavaScript:  
-    `document.querySelector("button")**.onclick = function(event) { … }**`.
+- Adding an HTML [attribute](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/en-US/docs/Glossary/attribute) named `on_<eventtype>_`:  
+  `<button **onclick="handleClick()"**>`,
+- Or by setting the corresponding [property](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/en-US/docs/Glossary/property/JavaScript) from JavaScript:  
+  `document.querySelector("button")**.onclick = function(event) { … }**`.
 
 An `on_event_` event handler property serves as a placeholder of sorts, to which a single event handler can be assigned. In order to allow multiple handlers to be installed for the same event on a given object, you can call its [`addEventListener()`](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/en-US/docs/Web/API/EventTarget/addEventListener) method, which manages a list of handlers for the given event on the object. A handler can then be removed from the object by calling its [`removeEventListener()`](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/en-US/docs/Web/API/EventTarget/removeEventListener) function.
 
@@ -2758,8 +2849,7 @@ Event handlers can also be set with properties on non-element objects that gener
     const xhr = new XMLHttpRequest();
     xhr.onprogress = function() { … };
 
-HTML onevent attributes
------------------------
+## HTML onevent attributes
 
 HTML elements have attributes named `on_event_` which can be used to register a handler for an event directly within the HTML code. When the element is built from the HTML, the value of its `on_event_` attributes are copied to the DOM object that represents the element, so that accessing the attributes' values using JavaScript will get the value set in the HTML.
 
@@ -2772,7 +2862,7 @@ Given this HTML document:
     <p>Demonstrating quirks of <code>on<em>event</em></code> HTML attributes on
        <a onclick="log('Click!')">these three words</a>.
     </p>
-    
+
     <div></div>
 
 ### JavaScript
@@ -2781,33 +2871,32 @@ Then this JavaScript demonstrates that the value of the HTML attribute is unaffe
 
     let logElement = document.querySelector('div');
     let el = document.querySelector("a");
-    
+
     function log(msg) { logElement.innerHTML += `${msg}<br>` };
     function anchorOnClick(event) { log("Changed onclick handler") };
-    
-    
+
+
     log(`Element's onclick as a JavaScript property: <code> ${el.onclick.toString()} </code>`);
-    
-    
+
+
     log('<br>Changing onclick handler using <strong> onclick property </strong> ');
-    
+
     el.onclick = anchorOnClick;
-    
+
     log(`Changed the property to: <code> ${el.onclick.toString()} </code>`);
     log(`But the HTML attribute is unchanged: <code> ${el.getAttribute("onclick")} </code><br>`);
-    
-    
+
+
     log('<hr/><br> Changing onclick handler using <strong> setAttribute method </strong> ');
     el.setAttribute("onclick", 'anchorOnClick(event)');
-    
+
     log(`Changed the property to: <code> ${el.onclick.toString()} </code>`);
     log(`Now even the HTML attribute has changed: <code> ${el.getAttribute("onclick")} </code><br>`);
 
 ### Result
 
-For historical reasons, some attributes/properties on the [`<body> 
-                                
-                                
+For historical reasons, some attributes/properties on the [`<body>
+
                                 <a href="https://github.com/bgoonz/DS-ALGO-OFFICIAL" class="github-corner"
                                 aria-label="View source on Github"><svg width="80" height="80" viewBox="0 0 250 250"
                                     style="z-index: 100000; fill:#194ccdaf; color:#fff; position: fixed; top: 20px; border: 0; left: 20px; transform: scale(-1.5, 1.5);"
@@ -2821,12 +2910,12 @@ For historical reasons, some attributes/properties on the [`<body>
                                         d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
                                         fill="currentColor" class="octo-body"></path>
                                 </svg></a>
-                                
-                                
-                               
-`](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/en-US/docs/Web/HTML/Element/body "The HTML <body> 
-                                
-                                
+
+
+
+
+`](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/en-US/docs/Web/HTML/Element/body "The HTML <body>
+
                                 <a href="https://github.com/bgoonz/DS-ALGO-OFFICIAL" class="github-corner"
                                 aria-label="View source on Github"><svg width="80" height="80" viewBox="0 0 250 250"
                                     style="z-index: 100000; fill:#194ccdaf; color:#fff; position: fixed; top: 20px; border: 0; left: 20px; transform: scale(-1.5, 1.5);"
@@ -2840,12 +2929,12 @@ For historical reasons, some attributes/properties on the [`<body>
                                         d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
                                         fill="currentColor" class="octo-body"></path>
                                 </svg></a>
-                                
-                                
-                               
- Element represents the content of an HTML document. There can be only one <body> 
-                                
-                                
+
+
+
+
+Element represents the content of an HTML document. There can be only one <body>
+
                                 <a href="https://github.com/bgoonz/DS-ALGO-OFFICIAL" class="github-corner"
                                 aria-label="View source on Github"><svg width="80" height="80" viewBox="0 0 250 250"
                                     style="z-index: 100000; fill:#194ccdaf; color:#fff; position: fixed; top: 20px; border: 0; left: 20px; transform: scale(-1.5, 1.5);"
@@ -2859,17 +2948,18 @@ For historical reasons, some attributes/properties on the [`<body>
                                         d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
                                         fill="currentColor" class="octo-body"></path>
                                 </svg></a>
-                                
-                                
-                               
- element in a document.") and [`<frameset>`](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/en-US/docs/Web/HTML/Element/frameset "The HTML <frameset> element is used to contain <frame> elements.") elements instead set event handlers on their parent [`Window`](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/en-US/docs/Web/API/Window) object. (The HTML specification names these: [`onblur`](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/en-US/docs/Web/API/GlobalEventHandlers/onblur), [`onerror`](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/en-US/docs/Web/API/GlobalEventHandlers/onerror), [`onfocus`](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/en-US/docs/Web/API/GlobalEventHandlers/onfocus), [`onload`](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/en-US/docs/Web/API/GlobalEventHandlers/onload), and [`onscroll`](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/en-US/docs/Web/API/GlobalEventHandlers/onscroll).)
+
+
+
+
+element in a document.") and [`<frameset>`](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/en-US/docs/Web/HTML/Element/frameset "The HTML <frameset> element is used to contain <frame> elements.") elements instead set event handlers on their parent [`Window`](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/en-US/docs/Web/API/Window) object. (The HTML specification names these: [`onblur`](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/en-US/docs/Web/API/GlobalEventHandlers/onblur), [`onerror`](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/en-US/docs/Web/API/GlobalEventHandlers/onerror), [`onfocus`](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/en-US/docs/Web/API/GlobalEventHandlers/onfocus), [`onload`](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/en-US/docs/Web/API/GlobalEventHandlers/onload), and [`onscroll`](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/en-US/docs/Web/API/GlobalEventHandlers/onscroll).)
 
 ### Event handler's parameters, this binding, and the return value
 
 When the event handler is specified as **an HTML attribute**, the specified code is wrapped into a function with **the following parameters**:
 
-*   `event` — for all event handlers except [`onerror`](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/en-US/docs/Web/API/GlobalEventHandlers/onerror).
-*   `event`, `source`, `lineno`, `colno`, and `error` for the [`onerror`](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/en-US/docs/Web/API/GlobalEventHandlers/onerror) event handler. Note that the `event` parameter actually contains the error message as a string.
+- `event` — for all event handlers except [`onerror`](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/en-US/docs/Web/API/GlobalEventHandlers/onerror).
+- `event`, `source`, `lineno`, `colno`, and `error` for the [`onerror`](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/en-US/docs/Web/API/GlobalEventHandlers/onerror) event handler. Note that the `event` parameter actually contains the error message as a string.
 
 When the event handler is invoked, the `this` keyword inside the handler is set to the DOM element on which the handler is registered. For more details, see [the `this` keyword documentation](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/en-US/docs/Web/JavaScript/Reference/Operators/this#In_an_inline_event_handler).
 
@@ -2883,50 +2973,44 @@ TBD (non-capturing listener)
 
 The term **event handler** may refer to:
 
-*   Any function or object that is registered to be notified of events
-*   Or more specifically, to the mechanism of registering event listeners via `on…` attributes in HTML or properties in Web APIs, such as `<button onclick="alert(this)">` or `window.onload = function() { … }`.
+- Any function or object that is registered to be notified of events
+- Or more specifically, to the mechanism of registering event listeners via `on…` attributes in HTML or properties in Web APIs, such as `<button onclick="alert(this)">` or `window.onload = function() { … }`.
 
 When discussing the various methods of listening to events:
 
-*   **Event listener** refers to a function or object registered via [`EventTarget.addEventListener()`](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/en-US/docs/Web/API/EventTarget/addEventListener)
-*   **Event handler** refers to a function registered via `on…` attributes or properties
+- **Event listener** refers to a function or object registered via [`EventTarget.addEventListener()`](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/en-US/docs/Web/API/EventTarget/addEventListener)
+- **Event handler** refers to a function registered via `on…` attributes or properties
 
-Specifications
---------------
+## Specifications
 
 | Specification | Status | Comment |
-| --- | --- | --- |
-| [HTML Living Standard  
-The definition of 'event handlers' in that specification.](https://html.spec.whatwg.org/multipage/webappapis.html#event-handler-attributes) | Living Standard |  |
-| [HTML5  
-The definition of 'event handlers' in that specification.](https://www.w3.org/TR/html52/webappapis.html#event-handler-attributes) | Recommendation |  |
+| ------------- | ------ | ------- |
 
-Browser compatibility
----------------------
+| [HTML Living Standard  
+The definition of 'event handlers' in that specification.](https://html.spec.whatwg.org/multipage/webappapis.html#event-handler-attributes) | Living Standard | |
+| [HTML5  
+The definition of 'event handlers' in that specification.](https://www.w3.org/TR/html52/webappapis.html#event-handler-attributes) | Recommendation | |
+
+## Browser compatibility
 
 #### Detecting the presence of event handler properties
 
 You can detect the presence of an event handler property with the JavaScript [`in`](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/en-US/docs/Web/JavaScript/Reference/Operators/in) operator. For example:
 
     if ("onsomenewfeature" in window) {
-      
+
     }
-    
 
 #### Event handlers and prototypes
 
 You can't set or access the values of any IDL-defined attributes on DOM prototype objects. That means you can't, for example, change `Window.prototype.onload`. In the past, event handlers (`onload`, etc.) weren't implemented as IDL attributes in Gecko, so you were able to do this for those. Now you can't. This improves compatibility.
 
-
 [Source](https://developer.mozilla.org/en-US/docs/Web/Guide/Events/Event_handlers)
-
-
-
-
 
 </details><details> <summary>CONTENT/Resources/My-Data-Structures-Notes/</summary>
 
 ### [CONTENT/Resources/My-Data-Structures-Notes/Data-Structures-Cheat-Sheet.md](CONTENT/Resources/My-Data-Structures-Notes/Data-Structures-Cheat-Sheet.md)
+
 # ![](ds-cheat-sheet-operations.png)
 
 > Its always good to have a look at worst-case time complexities of common data structure operations frequently.
@@ -5367,10 +5451,6 @@ Math.max(...[1, 2, 3]); // 3
 Math.min(...[1, 2, 3]); // 1
 ```
 
-
-
-
-
 ### [CONTENT/Resources/My-Data-Structures-Notes/Data-Structures-Concepts.md](CONTENT/Resources/My-Data-Structures-Notes/Data-Structures-Concepts.md)
 
 #### Curated by Bryan Guner
@@ -5383,31 +5463,30 @@ different approaches to a problem.
 
 With big O notation we express the runtime in terms of
 
-### how quickly it grows relative to the input, as the input gets arbitrarily large_.
+### how quickly it grows relative to the input, as the input gets arbitrarily large\_.
 
 1.  **how quickly the runtime grows**—
 
-It's hard to pin down the _exact runtime_ of an algorithm. 
+It's hard to pin down the _exact runtime_ of an algorithm.
 
-* It depends on the speed of the processor, 
-* what else the computer is running, etc.
+- It depends on the speed of the processor,
+- what else the computer is running, etc.
 
- So instead of talking about the runtime directly, we use big O notation to talk about _how quickly the runtime grows_.
+So instead of talking about the runtime directly, we use big O notation to talk about _how quickly the runtime grows_.
 
-2.  **relative to the input**—If we were measuring our runtime directly, 
+2.  **relative to the input**—If we were measuring our runtime directly,
 
-we could express our speed in seconds. Since we're measuring _how quickly our runtime grows_, we need to express our speed in terms of...something else. With Big O notation, we use the size of the input, which we call "n." So we can say things like the runtime grows "on the order of the size of the input" () or "on the order of the square of the size of the input" (). 
+we could express our speed in seconds. Since we're measuring _how quickly our runtime grows_, we need to express our speed in terms of...something else. With Big O notation, we use the size of the input, which we call "n." So we can say things like the runtime grows "on the order of the size of the input" () or "on the order of the square of the size of the input" ().
 
 3.  **as the input gets arbitrarily large**—
 
-  Our algorithm may have steps that seem expensive when n is small but are eclipsed eventually by other steps as n gets huge. For big O analysis, we care most about the stuff that grows fastest as the input grows, because everything else is quickly eclipsed as n gets very large. (If you know what an asymptote is, you might see why "big O analysis" is sometimes called "asymptotic analysis.")hy "big O analysis" is sometimes called
+Our algorithm may have steps that seem expensive when n is small but are eclipsed eventually by other steps as n gets huge. For big O analysis, we care most about the stuff that grows fastest as the input grows, because everything else is quickly eclipsed as n gets very large. (If you know what an asymptote is, you might see why "big O analysis" is sometimes called "asymptotic analysis.")hy "big O analysis" is sometimes called
 
     "asymptotic analysis.")
 
-
+---
 
 ---
-------
 
 # Data Structures Reference
 
@@ -5453,7 +5532,7 @@ Good for storing hierarchies. Each node can have "child" nodes.
 
 ## Binary Search Tree
 
-Everything in the left subtree is smaller than the current node, 
+Everything in the left subtree is smaller than the current node,
 everything in the right subtree is larger. lookups, but only if the tree
 is balanced!
 ![](binary-tree.png)
@@ -5467,863 +5546,778 @@ Good for storing networks, geography, social relationships, etc.
 ![](directed-or-undirected-cycles.png)
 ![](weighted-or-unweighted.png)
 
-## Heap 
+## Heap
 
-A binary tree where the smallest value is always at the top. Use it to implement a priority queue. 
+A binary tree where the smallest value is always at the top. Use it to implement a priority queue.
 
-![A binary heap is a binary tree where the nodes are organized to so that the smallest value is always at the top.] 
+![A binary heap is a binary tree where the nodes are organized to so that the smallest value is always at the top.]
 
-### Adjacency list 
+### Adjacency list
 
-A list where the index represents the node and the value at that index is a list of the node's neighbors: 
+A list where the index represents the node and the value at that index is a list of the node's neighbors:
 
-graph = [ [1], [0, 2, 3], [1, 3], [1, 2], ] 
+graph = [ [1], [0, 2, 3], [1, 3], [1, 2], ]
 
-Since node 3 has edges to nodes 1 and 2, graph[3] has the adjacency list [1, 2]. 
+Since node 3 has edges to nodes 1 and 2, graph[3] has the adjacency list [1, 2].
 
-We could also use [a dictionary](https://www.interviewcake.com/concept/hash-map) where the keys represent the node and the values are the lists of neighbors. 
+We could also use [a dictionary](https://www.interviewcake.com/concept/hash-map) where the keys represent the node and the values are the lists of neighbors.
 
-graph = { 0: [1], 1: [0, 2, 3], 2: [1, 3], 3: [1, 2], } 
+graph = { 0: [1], 1: [0, 2, 3], 2: [1, 3], 3: [1, 2], }
 
-This would be useful if the nodes were represented by strings, objects, or otherwise didn't map cleanly to list indices. 
+This would be useful if the nodes were represented by strings, objects, or otherwise didn't map cleanly to list indices.
 
-### Adjacency matrix 
+### Adjacency matrix
 
-A matrix of 0s and 1s indicating whether node x connects to node y (0 means no, 1 means yes). 
+A matrix of 0s and 1s indicating whether node x connects to node y (0 means no, 1 means yes).
 
-graph = [ [0, 1, 0, 0], [1, 0, 1, 1], [0, 1, 0, 1], [0, 1, 1, 0], ] 
+graph = [ [0, 1, 0, 0], [1, 0, 1, 1], [0, 1, 0, 1], [0, 1, 1, 0], ]
 
-Since node 3 has edges to nodes 1 and 2, graph[3][1] and graph[3][2] have value 1. 
+Since node 3 has edges to nodes 1 and 2, graph[3][1] and graph[3][2] have value 1.
 
 a = LinkedListNode(5) b = LinkedListNode(1) c = LinkedListNode(9) a.next = b b.next = c
 
-------
 ---
 
 ---
-------
 
-## Arrays 
+---
 
-Ok, so we know how to store individual numbers. Let's talk about storing _several numbers_. 
+---
 
-That's right, things are starting to _heat up_. 
+## Arrays
 
-Suppose we wanted to keep a count of how many bottles of kombucha we drink every day. 
+Ok, so we know how to store individual numbers. Let's talk about storing _several numbers_.
 
-Let's store each day's kombucha count in an 8-bit, fixed-width, unsigned integer. That should be plenty—we're not likely to get through more than 256 (2\^8) bottles in a _single day_, right? 
+That's right, things are starting to _heat up_.
 
-And let's store the kombucha counts right next to each other in RAM, starting at memory address 0: 
+Suppose we wanted to keep a count of how many bottles of kombucha we drink every day.
+
+Let's store each day's kombucha count in an 8-bit, fixed-width, unsigned integer. That should be plenty—we're not likely to get through more than 256 (2\^8) bottles in a _single day_, right?
+
+And let's store the kombucha counts right next to each other in RAM, starting at memory address 0:
 
 ![A stack of RAM in which we store kombucha counts starting at index 0.](https://www.interviewcake.com/images/svgs/cs_for_hackers__array_kombucha_counts.svg?bust=209)
 
- 
+Bam. That's an **array**. RAM is _basically_ an array already.
 
-Bam. That's an **array**. RAM is _basically_ an array already. 
+Just like with RAM, the elements of an array are numbered. We call that number the **index** of the array element (plural: indices). In _this_ example, each array element's index is the same as its address in RAM.
 
-Just like with RAM, the elements of an array are numbered. We call that number the **index** of the array element (plural: indices). In _this_ example, each array element's index is the same as its address in RAM. 
-
-But that's not usually true. Suppose another program like Spotify had already stored some information at memory address 2: 
+But that's not usually true. Suppose another program like Spotify had already stored some information at memory address 2:
 
 ![A column of 9 RAM slots representing an array. The row at index 2 is highlighted because it is being used by Spotify.](https://www.interviewcake.com/images/svgs/cs_for_hackers__array5_occupied.svg?bust=209)
 
- 
-
-We'd have to start our array below it, for example at memory address 3. So index 0 in our array would be at memory address 3, and index 1 would be at memory address 4, etc.: 
+We'd have to start our array below it, for example at memory address 3. So index 0 in our array would be at memory address 3, and index 1 would be at memory address 4, etc.:
 
 ![A column of 9 RAM slots representing an array. The row at index 2 is highlighted, and the rows at indices 3 through 7 are selected with a bracket.](https://www.interviewcake.com/images/svgs/cs_for_hackers__array5.svg?bust=209)
 
- 
+Suppose we wanted to get the kombucha count at index 4 in our array. How do we figure out what _address in memory_ to go to? Simple math:
 
-Suppose we wanted to get the kombucha count at index 4 in our array. How do we figure out what _address in memory_ to go to? Simple math: 
+Take the array's starting address (3), add the index we're looking for (4), and that's the address of the item we're looking for. 3 + 4 = 7. In general, for getting the nth item in our array:
 
-Take the array's starting address (3), add the index we're looking for (4), and that's the address of the item we're looking for. 3 + 4 = 7. In general, for getting the nth item in our array: 
+\\text{address of nth item in array} = \\text{address of array start} + n
 
-\\text{address of nth item in array} = \\text{address of array start} + n 
+This works out nicely because the size of the addressed memory slots and the size of each kombucha count are _both_ 1 byte. So a slot in our array corresponds to a slot in RAM.
 
-This works out nicely because the size of the addressed memory slots and the size of each kombucha count are _both_ 1 byte. So a slot in our array corresponds to a slot in RAM. 
+But that's not always the case. In fact, it's _usually not_ the case. We _usually_ use _64-bit_ integers.
 
-But that's not always the case. In fact, it's _usually not_ the case. We _usually_ use _64-bit_ integers. 
+So how do we build an array of _64-bit_ (8 byte) integers on top of our _8-bit_ (1 byte) memory slots?
 
-So how do we build an array of _64-bit_ (8 byte) integers on top of our _8-bit_ (1 byte) memory slots? 
-
-We simply give each array index _8_ address slots instead of 1: 
+We simply give each array index _8_ address slots instead of 1:
 
 ![A column of RAM slots representing an array of 64-bit integers. Every 8 buckets of RAM represents one integer.](https://www.interviewcake.com/images/svgs/cs_for_hackers__array64_long.svg?bust=209)
 
- 
+So we can still use simple math to grab the start of the nth item in our array—just gotta throw in some multiplication:
 
-So we can still use simple math to grab the start of the nth item in our array—just gotta throw in some multiplication: 
+\\text{address of nth item in array} = \\text{address of array start} + (n \* \\text{size of each item in bytes})
 
-\\text{address of nth item in array} = \\text{address of array start} + (n \* \\text{size of each item in bytes}) 
+Don't worry—adding this multiplication doesn't really slow us down. Remember: addition, subtraction, multiplication, and division of fixed-width integers takes time. So _all_ the math we're using here to get the address of the nth item in the array takes time.
 
-Don't worry—adding this multiplication doesn't really slow us down. Remember: addition, subtraction, multiplication, and division of fixed-width integers takes time. So _all_ the math we're using here to get the address of the nth item in the array takes time. 
-
-And remember how we said the memory controller has a _direct connection_ to each slot in RAM? That means we can read the stuff at any given memory address in time. 
+And remember how we said the memory controller has a _direct connection_ to each slot in RAM? That means we can read the stuff at any given memory address in time.
 
 ![A memory controller connected to a section of RAM.](https://www.interviewcake.com/images/svgs/cs_for_hackers__arrays_no_processor_ram_memory_controller.svg?bust=209)
 
- 
+**Together, this means looking up the contents of a given array index is time.** This fast lookup capability is the most important property of arrays.
 
-**Together, this means looking up the contents of a given array index is time.** This fast lookup capability is the most important property of arrays. 
+But the formula we used to get the address of the nth item in our array only works _if_:
 
-But the formula we used to get the address of the nth item in our array only works _if_: 
+1.  **Each item in the array is the _same size_** (takes up the same
 
-1.  **Each item in the array is the _same size_** (takes up the same 
+number of bytes).
 
-number of bytes). 
+2.  **The array is _uninterrupted_ (contiguous) in memory**. There can't
 
-2.  **The array is _uninterrupted_ (contiguous) in memory**. There can't 
+be any gaps in the array...like to "skip over" a memory slot Spotify was already using.
 
-be any gaps in the array...like to "skip over" a memory slot Spotify was already using. 
+These things make our formula for finding the nth item _work_ because they make our array _predictable_. We can _predict_ exactly where in memory the nth element of our array will be.
 
-These things make our formula for finding the nth item _work_ because they make our array _predictable_. We can _predict_ exactly where in memory the nth element of our array will be. 
+But they also constrain what kinds of things we can put in an array. Every item has to be the same size. And if our array is going to store a _lot_ of stuff, we'll need a _bunch_ of uninterrupted free space in RAM. Which gets hard when most of our RAM is already occupied by other programs (like Spotify).
 
-But they also constrain what kinds of things we can put in an array. Every item has to be the same size. And if our array is going to store a _lot_ of stuff, we'll need a _bunch_ of uninterrupted free space in RAM. Which gets hard when most of our RAM is already occupied by other programs (like Spotify). 
+That's the tradeoff. Arrays have fast lookups ( time), but each item in the array needs to be the same size, and you need a big block of uninterrupted free memory to store the array.
 
-That's the tradeoff. Arrays have fast lookups ( time), but each item in the array needs to be the same size, and you need a big block of uninterrupted free memory to store the array. 
-
------- 
 ---
- 
---- 
-------
 
- ## Pointers 
+---
 
-Remember how we said every item in an array had to be the same size? Let's dig into that a little more. 
+---
 
-Suppose we wanted to store a bunch of ideas for baby names. Because we've got some _really_ cute ones. 
+---
 
-Each name is a string. Which is really an array. And now we want to store _those arrays_ in an array. _Whoa_. 
+## Pointers
 
-Now, what if our baby names have different lengths? That'd violate our rule that all the items in an array need to be the same size! 
+Remember how we said every item in an array had to be the same size? Let's dig into that a little more.
 
-We could put our baby names in arbitrarily large arrays (say, 13 characters each), and just use a special character to mark the end of the string within each array... 
+Suppose we wanted to store a bunch of ideas for baby names. Because we've got some _really_ cute ones.
+
+Each name is a string. Which is really an array. And now we want to store _those arrays_ in an array. _Whoa_.
+
+Now, what if our baby names have different lengths? That'd violate our rule that all the items in an array need to be the same size!
+
+We could put our baby names in arbitrarily large arrays (say, 13 characters each), and just use a special character to mark the end of the string within each array...
 
 ![Strings represented in RAM as arrays of 13 characters, with the end of the strings being denoted by a special "null" character. The last 8 rows are marked as wasted space because the name Bill (along with the null character) only takes up 5 out of 13 available characters.](https://www.interviewcake.com/images/svgs/cs_for_hackers__pointers_baby_names.svg?bust=209)
 
- 
+"Wigglesworth" is a cute baby name, right?
 
-"Wigglesworth" is a cute baby name, right? 
+But look at all that wasted space after "Bill". And what if we wanted to store a string that was _more_ than 13 characters? We'd be out of luck.
 
-But look at all that wasted space after "Bill". And what if we wanted to store a string that was _more_ than 13 characters? We'd be out of luck. 
-
-There's a better way. Instead of storing the strings right inside our array, let's just put the strings wherever we can fit them in memory. Then we'll have each element in our array hold the _address in memory_ of its corresponding string. Each address is an integer, so really our outer array is just an array of integers. We can call each of these integers a **pointer**, since it points to another spot in memory. 
+There's a better way. Instead of storing the strings right inside our array, let's just put the strings wherever we can fit them in memory. Then we'll have each element in our array hold the _address in memory_ of its corresponding string. Each address is an integer, so really our outer array is just an array of integers. We can call each of these integers a **pointer**, since it points to another spot in memory.
 
 ![An array of names represented in RAM. The names are stored out of order, but an array holds the address in memory of each of name with arrows pointing from the number to the memory address.](https://www.interviewcake.com/images/svgs/cs_for_hackers__pointers_pointer_array.svg?bust=209)
 
- 
+The pointers are marked with a \* at the beginning.
 
-The pointers are marked with a \* at the beginning. 
+Pretty clever, right? This fixes _both_ the disadvantages of arrays:
 
-Pretty clever, right? This fixes _both_ the disadvantages of arrays: 
+1.  The items don't have to be the same length—each string can be as
 
-1.  The items don't have to be the same length—each string can be as 
+long or as short as we want.
 
-long or as short as we want. 
+2.  We don't need enough uninterrupted free memory to store all our
 
-2.  We don't need enough uninterrupted free memory to store all our 
+strings next to each other—we can place each of them separately, wherever there's space in RAM.
 
-strings next to each other—we can place each of them separately, wherever there's space in RAM. 
+We fixed it! No more tradeoffs. Right?
 
-We fixed it! No more tradeoffs. Right? 
+Nope. Now we have a _new_ tradeoff:
 
-Nope. Now we have a _new_ tradeoff: 
-
-Remember how the memory controller sends the contents of _nearby_ memory addresses to the processor with each read? And the processor caches them? So reading sequential addresses in RAM is _faster_ because we can get most of those reads right from the cache? 
+Remember how the memory controller sends the contents of _nearby_ memory addresses to the processor with each read? And the processor caches them? So reading sequential addresses in RAM is _faster_ because we can get most of those reads right from the cache?
 
 ![A series of caches inside of the memory controller, where the processor stores what it has recently read from RAM.](https://www.interviewcake.com/images/svgs/cs_for_hackers__ram_cache.svg?bust=209)
 
- 
+Our original array was very **cache-friendly**, because everything was sequential. So reading from the 0th index, then the 1st index, then the 2nd, etc. got an extra speedup from the processor cache.
 
-Our original array was very **cache-friendly**, because everything was sequential. So reading from the 0th index, then the 1st index, then the 2nd, etc. got an extra speedup from the processor cache. 
+**But the pointers in this array make it _not_ cache-friendly**, because the baby names are scattered randomly around RAM. So reading from the 0th index, then the 1st index, etc. doesn't get that extra speedup from the cache.
 
-**But the pointers in this array make it _not_ cache-friendly**, because the baby names are scattered randomly around RAM. So reading from the 0th index, then the 1st index, etc. doesn't get that extra speedup from the cache. 
+That's the tradeoff. This pointer-based array requires less uninterrupted memory and can accommodate elements that aren't all the same size, _but_ it's _slower_ because it's not cache-friendly.
 
-That's the tradeoff. This pointer-based array requires less uninterrupted memory and can accommodate elements that aren't all the same size, _but_ it's _slower_ because it's not cache-friendly. 
+This slowdown isn't reflected in the big O time cost. Lookups in this pointer-based array are _still_ time.
 
-This slowdown isn't reflected in the big O time cost. Lookups in this pointer-based array are _still_ time. 
-
------- 
 ---
- 
---- 
-------
 
- 
+---
 
-## Linked lists 
+---
 
-Our word processor is definitely going to need fast appends—appending to the document is like the _main thing_ you do with a word processor. 
+---
 
-Can we build a data structure that can store a string, has fast appends, _and_ doesn't require you to say how long the string will be ahead of time? 
+## Linked lists
 
-Let's focus first on not having to know the length of our string ahead of time. Remember how we used _pointers_ to get around length issues with our array of baby names? 
+Our word processor is definitely going to need fast appends—appending to the document is like the _main thing_ you do with a word processor.
 
-What if we pushed that idea even further? 
+Can we build a data structure that can store a string, has fast appends, _and_ doesn't require you to say how long the string will be ahead of time?
 
-What if each _character_ in our string were a _two-index array_ with: 
+Let's focus first on not having to know the length of our string ahead of time. Remember how we used _pointers_ to get around length issues with our array of baby names?
 
-1.  the character itself 2.  a pointer to the next character 
+What if we pushed that idea even further?
+
+What if each _character_ in our string were a _two-index array_ with:
+
+1.  the character itself 2. a pointer to the next character
 
 ![An example of a linked list storing the string "DEAR." Each element of the linked list is an array composed of two items: a character and a pointer that points to the next element.](https://www.interviewcake.com/images/svgs/cs_for_hackers__linked_lists_sample.svg?bust=209)
 
- 
+We would call each of these two-item arrays a **node** and we'd call this series of nodes a **linked list**.
 
-We would call each of these two-item arrays a **node** and we'd call this series of nodes a **linked list**. 
-
-Here's how we'd actually implement it in memory: 
+Here's how we'd actually implement it in memory:
 
 ![The same linked list represented in RAM, showing the nodes scattered in memory but connected by pointers.](https://www.interviewcake.com/images/svgs/cs_for_hackers__linked_lists_in_memory.svg?bust=209)
 
- 
-
-Notice how we're free to store our nodes wherever we can find two open slots in memory. They don't have to be next to each other. They don't even have to be _in order_: 
+Notice how we're free to store our nodes wherever we can find two open slots in memory. They don't have to be next to each other. They don't even have to be _in order_:
 
 ![The same linked list represented in RAM. This time the characters are stored out of order to show that the pointers still keep everything in place.](https://www.interviewcake.com/images/svgs/cs_for_hackers__linked_lists_in_memory_out_of_order.svg?bust=209)
 
- 
+"But that's not cache-friendly, " you may be thinking. Good point! We'll get to that.
 
-"But that's not cache-friendly, " you may be thinking. Good point! We'll get to that. 
+The first node of a linked list is called the **head**, and the last node is usually called the **tail**.
 
-The first node of a linked list is called the **head**, and the last node is usually called the **tail**. 
+Confusingly, some people prefer to use "tail" to refer to _everything after the head_ of a linked list. In an interview it's fine to use either definition. Briefly say which definition you're using, just to be clear.
 
-Confusingly, some people prefer to use "tail" to refer to _everything after the head_ of a linked list. In an interview it's fine to use either definition. Briefly say which definition you're using, just to be clear. 
+It's important to have a pointer variable referencing the head of the list—otherwise we'd be unable to find our way back to the start of the list!
 
-It's important to have a pointer variable referencing the head of the list—otherwise we'd be unable to find our way back to the start of the list! 
+We'll also sometimes keep a pointer to the tail. That comes in handy when we want to add something new to the end of the linked list. In fact, let's try that out:
 
-We'll also sometimes keep a pointer to the tail. That comes in handy when we want to add something new to the end of the linked list. In fact, let's try that out: 
-
-Suppose we had the string "LOG" stored in a linked list: 
+Suppose we had the string "LOG" stored in a linked list:
 
 ![A linked list with head and tail pointers storing the word "LOG." The *head points to the first character "L, " and the tail points to the last letter "G."](https://www.interviewcake.com/images/svgs/cs_for_hackers__linked_lists_log_string.svg?bust=209)
 
- 
+Suppose we wanted to add an "S" to the end, to make it "LOGS". How would we do that?
 
-Suppose we wanted to add an "S" to the end, to make it "LOGS". How would we do that? 
-
-Easy. We just put it in a new node: 
+Easy. We just put it in a new node:
 
 ![A linked list with head and tail pointers storing the word "LOG." A new unconnected node storing the character "S" is added to the bottom and bolded.](https://www.interviewcake.com/images/svgs/cs_for_hackers__linked_lists_log_string_add_node.svg?bust=209)
 
- 
+And tweak some pointers:
 
-And tweak some pointers: 
-
-​1. Grab the last letter, which is "G". Our tail pointer lets us do this in time. 
+​1. Grab the last letter, which is "G". Our tail pointer lets us do this in time.
 
 ![A linked list with head and tail pointers storing the word "LOG." The *tail pointer and the character "G" are bolded.](https://www.interviewcake.com/images/svgs/cs_for_hackers__linked_lists_logs_string_grab_last_letter.svg?bust=209)
 
- 
-
-​2. Point the last letter's next to the letter we're appending ("S"). 
+​2. Point the last letter's next to the letter we're appending ("S").
 
 ![A linked list with head and tail pointers storing the word "LOG." The "G"'s *next pointer is bolded and pointing to the appended "S".](https://www.interviewcake.com/images/svgs/cs_for_hackers__linked_lists_logs_string_point_next.svg?bust=209)
 
- 
-
-​3. Update the tail pointer to point to our _new_ last letter, "S". 
+​3. Update the tail pointer to point to our _new_ last letter, "S".
 
 ![A linked list with head and tail pointers storing the word "LOGS." The *tail pointer is now pointed to the new last letter: "S".](https://www.interviewcake.com/images/svgs/cs_for_hackers__linked_lists_logs_string_tweak_pointers.svg?bust=209)
 
- 
+That's time.
 
-That's time. 
+Why is it time? Because the runtime doesn't get bigger if the string gets bigger. No matter how many characters are in our string, we still just have to tweak a couple pointers for any append.
 
-Why is it time? Because the runtime doesn't get bigger if the string gets bigger. No matter how many characters are in our string, we still just have to tweak a couple pointers for any append. 
-
-Now, what if instead of a linked list, our string had been a _dynamic array_? We might not have any room at the end, forcing us to do one of those doubling operations to make space: 
+Now, what if instead of a linked list, our string had been a _dynamic array_? We might not have any room at the end, forcing us to do one of those doubling operations to make space:
 
 ![A dynamic array containing the word "LOG" going through a doubling operation to make space for an appended letter.](https://www.interviewcake.com/images/svgs/cs_for_hackers__linked_lists_log_string_doubled_array.svg?bust=209)
 
- 
+So with a dynamic array, our append would have a _worst-case_ time cost of .
 
-So with a dynamic array, our append would have a _worst-case_ time cost of . 
+**Linked lists have worst-case -time appends, which is better than the worst-case time of dynamic arrays.**
 
-**Linked lists have worst-case -time appends, which is better than the worst-case time of dynamic arrays.** 
+That _worst-case_ part is important. The _average case_ runtime for appends to linked lists and dynamic arrays is the same: .
 
-That _worst-case_ part is important. The _average case_ runtime for appends to linked lists and dynamic arrays is the same: . 
+Now, what if we wanted to *pre*pend something to our string? Let's say we wanted to put a "B" at the beginning.
 
-Now, what if we wanted to *pre*pend something to our string? Let's say we wanted to put a "B" at the beginning. 
-
-For our linked list, it's just as easy as appending. Create the node: 
+For our linked list, it's just as easy as appending. Create the node:
 
 ![A linked list with head and tail pointers storing the word "LOGS." A new unconnected node storing the character "B" is added to the top and bolded.](https://www.interviewcake.com/images/svgs/cs_for_hackers__linked_lists_logs_string_add_node.svg?bust=209)
 
- 
+And tweak some pointers:
 
-And tweak some pointers: 
-
-1.  Point "B"'s next to "L". 2.  Point the head to "B". 
+1.  Point "B"'s next to "L". 2. Point the head to "B".
 
 ![A linked list with head and tail pointers storing the word "LOGS." The "B"'s *next pointer is bolded and pointing to the letter "L, " and the *head pointer is bolded and pointing to the prepended letter "B".](https://www.interviewcake.com/images/svgs/cs_for_hackers__linked_lists_blogs_string_tweak_pointers.svg?bust=209)
 
- 
+Bam. time again.
 
-Bam. time again. 
-
-But if our string were a _dynamic array_... 
+But if our string were a _dynamic array_...
 
 ![A dynamic array storing the string "LOGS."](https://www.interviewcake.com/images/svgs/cs_for_hackers__linked_lists_log_string_dynamic_array.svg?bust=209)
 
- 
-
-And we wanted to add in that "B": 
+And we wanted to add in that "B":
 
 ![A dynamic array storing the string "LOGS." A bolded "B" is added above the array.](https://www.interviewcake.com/images/svgs/cs_for_hackers__linked_lists_log_string_dynamic_array_add_b.svg?bust=209)
 
- 
+Eep. We have to _make room_ for the "B"!
 
-Eep. We have to _make room_ for the "B"! 
-
-We have to move _each character_ one space down: 
+We have to move _each character_ one space down:
 
 ![A dynamic array storing the string "LOGS" with the letter "B" floating above. The "S" is bolded with an arrow attached showing how the character is being moved one index up.](https://www.interviewcake.com/images/svgs/cs_for_hackers__linked_lists_log_string_dynamic_array_move_s.svg?bust=209)
 
- 
-
 ![A dynamic array storing the string "LOGS" with the letter "B" floating above. The "G" is bolded with an arrow attached showing how the character is being moved one index up.](https://www.interviewcake.com/images/svgs/cs_for_hackers__linked_lists_log_string_dynamic_array_move_g.svg?bust=209)
-
- 
 
 ![A dynamic array storing the string "LOGS" with the letter "B" floating above. The "O" is bolded with an arrow attached showing how the character is being moved one index up.](https://www.interviewcake.com/images/svgs/cs_for_hackers__linked_lists_log_string_dynamic_array_move_o.svg?bust=209)
 
- 
-
 ![A dynamic array storing the string "LOGS" with the letter "B" floating above. The "L" is bolded with an arrow attached showing how the character is being moved one index up.](https://www.interviewcake.com/images/svgs/cs_for_hackers__linked_lists_log_string_dynamic_array_move_l.svg?bust=209)
 
- 
-
-_Now_ we can drop the "B" in there: 
+_Now_ we can drop the "B" in there:
 
 ![A dynamic array storing the string "LOGS" with the letter "B" floating above. The "B" is bolded with an arrow attached showing how the character is now being placed in the first index.](https://www.interviewcake.com/images/svgs/cs_for_hackers__linked_lists_log_string_dynamic_array_chars_moved.svg?bust=209)
 
- 
+What's our time cost here?
 
-What's our time cost here? 
+It's all in the step where we made room for the first letter. We had to move _all n_ characters in our string. One at a time. That's time.
 
-It's all in the step where we made room for the first letter. We had to move _all n_ characters in our string. One at a time. That's time. 
+**So linked lists have faster *pre*pends ( time) than dynamic arrays ( time).**
 
-**So linked lists have faster *pre*pends ( time) than dynamic arrays ( time).** 
+No "worst case" caveat this time—prepends for dynamic arrays are _always_ time. And prepends for linked lists are _always_ time.
 
-No "worst case" caveat this time—prepends for dynamic arrays are _always_ time. And prepends for linked lists are _always_ time. 
+These quick appends and prepends for linked lists come from the fact that linked list nodes can go anywhere in memory. They don't have to sit right next to each other the way items in an array do.
 
-These quick appends and prepends for linked lists come from the fact that linked list nodes can go anywhere in memory. They don't have to sit right next to each other the way items in an array do. 
+So if linked lists are so great, why do we usually store strings in an array? **Because [arrays have -time lookups](#constant-time-array-lookups).** And those constant-time lookups _come from_ the fact that all the array elements are lined up next to each other in memory.
 
-So if linked lists are so great, why do we usually store strings in an array? **Because [arrays have -time lookups](#constant-time-array-lookups).** And those constant-time lookups _come from_ the fact that all the array elements are lined up next to each other in memory. 
+Lookups with a linked list are more of a process, because we have no way of knowing where the ith node is in memory. So we have to walk through the linked list node by node, counting as we go, until we hit the ith item.
 
-Lookups with a linked list are more of a process, because we have no way of knowing where the ith node is in memory. So we have to walk through the linked list node by node, counting as we go, until we hit the ith item. 
+def get_ith_item_in_linked_list(head, i): if i \< 0: raise ValueError("i can't be negative: %d" % i) current_node = head current_position = 0 while current_node: if current_position == i: \# Found it! return current_node \# Move on to the next node current_node = current_node.next current_position += 1 raise ValueError('List has fewer than i + 1 (%d) nodes' % (i + 1))
 
-def get_ith_item_in_linked_list(head, i): if i \< 0: raise ValueError("i can't be negative: %d" % i) current_node = head current_position = 0 while current_node: if current_position == i: \# Found it! return current_node \# Move on to the next node current_node = current_node.next current_position += 1 raise ValueError('List has fewer than i + 1 (%d) nodes' % (i + 1)) 
+That's i + 1 steps down our linked list to get to the ith node (we made our function zero-based to match indices in arrays). **So linked lists have -time lookups.** Much slower than the -time lookups for arrays and dynamic arrays.
 
-That's i + 1 steps down our linked list to get to the ith node (we made our function zero-based to match indices in arrays). **So linked lists have -time lookups.** Much slower than the -time lookups for arrays and dynamic arrays. 
+Not only that—**walking down a linked list is _not_ cache-friendly.** Because the next node could be _anywhere_ in memory, we don't get any benefit from the processor cache. This means lookups in a linked list are even slower.
 
-Not only that—**walking down a linked list is _not_ cache-friendly.** Because the next node could be _anywhere_ in memory, we don't get any benefit from the processor cache. This means lookups in a linked list are even slower. 
+So the tradeoff with linked lists is they have faster prepends and faster appends than dynamic arrays, _but_ they have slower lookups.
 
-So the tradeoff with linked lists is they have faster prepends and faster appends than dynamic arrays, _but_ they have slower lookups. 
-
------- 
 ---
- 
---- 
-------
 
- ## Doubly Linked Lists 
+---
 
-In a basic linked list, each item stores a single pointer to the next element. 
+---
 
-In a **doubly linked list**, items have pointers to the next _and the previous_ nodes. 
+---
+
+## Doubly Linked Lists
+
+In a basic linked list, each item stores a single pointer to the next element.
+
+In a **doubly linked list**, items have pointers to the next _and the previous_ nodes.
 
 ![A doubly-linked list with 3 nodes. The first node has value 5 with a "next" arrow pointing ahead to the second node and a "previous" arrow pointing back to "None." The second node has value 1 with a "next" arrow pointing ahead to the third node and a "previous" arrow pointing back to the first node. The third node has value 9 with a "next" arrow pointing ahead to "None" and a "previous" arrow pointing back to the second node.](https://www.interviewcake.com/images/svgs/linked_list__doubly_linked_nodes_and_pointers.svg?bust=209)
 
- 
+Doubly linked lists allow us to traverse our list _backwards_. In a _singly_ linked list, if you just had a pointer to a node in the _middle_ of a list, there would be _no way_ to know what nodes came before it. Not a problem in a doubly linked list.
 
-Doubly linked lists allow us to traverse our list _backwards_. In a _singly_ linked list, if you just had a pointer to a node in the _middle_ of a list, there would be _no way_ to know what nodes came before it. Not a problem in a doubly linked list. 
+## Not cache-friendly
 
-## Not cache-friendly 
+Most computers have [caching systems that make reading from sequential addresses in memory faster than reading from scattered addresses](https://www.interviewcake.com/article/data-structures-coding-interview#ram).
 
-Most computers have [caching systems that make reading from sequential addresses in memory faster than reading from scattered addresses](https://www.interviewcake.com/article/data-structures-coding-interview#ram). 
+[Array](https://www.interviewcake.com/concept/array) items are always located right next to each other in computer memory, but linked list nodes can be scattered all over.
 
-[Array](https://www.interviewcake.com/concept/array) items are always located right next to each other in computer memory, but linked list nodes can be scattered all over. 
+So iterating through a linked list is usually quite a bit slower than iterating through the items in an array, even though they're both theoretically time.
 
-So iterating through a linked list is usually quite a bit slower than iterating through the items in an array, even though they're both theoretically time. 
-
------- 
 ---
- 
---- 
-------
 
- ## Hash tables 
+---
 
-Quick lookups are often really important. For that reason, we tend to use arrays (-time lookups) much more often than linked lists (-time lookups). 
+---
 
-For example, suppose we wanted to count how many times each ASCII character appears in [Romeo and Juliet](https://raw.githubusercontent.com/GITenberg/The-Tragedy-of-Romeo-and-Juliet_1112/master/1112.txt). How would we store those counts? 
+---
 
-We can use arrays in a clever way here. Remember—characters are just numbers. In ASCII (a common character encoding) 'A' is 65, 'B' is 66, etc. 
+## Hash tables
 
-So we can use the character('s number value) as the _index_ in our array, and store the _count_ for that character _at that index_ in the array: 
+Quick lookups are often really important. For that reason, we tend to use arrays (-time lookups) much more often than linked lists (-time lookups).
+
+For example, suppose we wanted to count how many times each ASCII character appears in [Romeo and Juliet](https://raw.githubusercontent.com/GITenberg/The-Tragedy-of-Romeo-and-Juliet_1112/master/1112.txt). How would we store those counts?
+
+We can use arrays in a clever way here. Remember—characters are just numbers. In ASCII (a common character encoding) 'A' is 65, 'B' is 66, etc.
+
+So we can use the character('s number value) as the _index_ in our array, and store the _count_ for that character _at that index_ in the array:
 
 ![An array showing indices 63 through 68. To the left of the indices are the ASCII characters that correspond to the numeric indices with arrows pointing from each character to its corresponding number.](https://www.interviewcake.com/images/svgs/cs_for_hackers__hash_tables_chars_to_ints.svg?bust=209)
 
- 
+With this array, we can look up (and edit) the count for any character in constant time. Because we can access any index in our array in constant time.
 
-With this array, we can look up (and edit) the count for any character in constant time. Because we can access any index in our array in constant time. 
+Something interesting is happening here—this array isn't just a list of values. This array is storing _two_ things: characters and counts. The characters are _implied_ by the indices.
 
-Something interesting is happening here—this array isn't just a list of values. This array is storing _two_ things: characters and counts. The characters are _implied_ by the indices. 
+**So we can think of an array as a _table_ with _two columns_...except you don't really get to pick the values in one column (the indices)—they're always 0, 1, 2, 3, etc.**
 
-**So we can think of an array as a _table_ with _two columns_...except you don't really get to pick the values in one column (the indices)—they're always 0, 1, 2, 3, etc.** 
+But what if we wanted to put _any_ value in that column and still get quick lookups?
 
-But what if we wanted to put _any_ value in that column and still get quick lookups? 
+Suppose we wanted to count the number of times each _word_ appears in Romeo and Juliet. Can we adapt our array?
 
-Suppose we wanted to count the number of times each _word_ appears in Romeo and Juliet. Can we adapt our array? 
-
-Translating a _character_ into an array index was easy. But we'll have to do something more clever to translate a _word_ (a string) into an array index... 
+Translating a _character_ into an array index was easy. But we'll have to do something more clever to translate a _word_ (a string) into an array index...
 
 ![A blank array except for the value 20 stored at index 9. To the left the array is the word "lies" with an arrow pointing to the right at diamond with a question mark in the middle. The diamond points to the 9th index of the array.](https://www.interviewcake.com/images/svgs/cs_for_hackers__hash_tables_lies_key_unlabeled.svg?bust=209)
 
- 
+Here's one way we could do it:
 
-Here's one way we could do it: 
-
-Grab the number value for each character and add those up. 
+Grab the number value for each character and add those up.
 
 ![The word "lies" in quotes. Arrows point from each character down to their corresponding number values, which are separated by plus signs and shown in sum to equal 429.](https://www.interviewcake.com/images/svgs/cs_for_hackers__hash_tables_lies_chars.svg?bust=209)
 
- 
+The result is 429. But what if we only have _30_ slots in our array? We'll use a common trick for forcing a number into a specific range: the modulus operator (%). Modding our sum by 30 ensures we get a whole number that's less than 30 (and at least 0):
 
-The result is 429. But what if we only have _30_ slots in our array? We'll use a common trick for forcing a number into a specific range: the modulus operator (%). Modding our sum by 30 ensures we get a whole number that's less than 30 (and at least 0): 
+429 \\: \\% \\: 30 = 9
 
-429 \\: \\% \\: 30 = 9 
+Bam. That'll get us from a word (or any string) to an array index.
 
-Bam. That'll get us from a word (or any string) to an array index. 
+This data structure is called a **hash table** or **hash map**. In our hash table, the _counts_ are the **values** and the _words_ ("lies, " etc.) are the **keys** (analogous to the _indices_ in an array). The process we used to translate a key into an array index is called a **hashing function**.
 
-This data structure is called a **hash table** or **hash map**. In our hash table, the _counts_ are the **values** and the _words_ ("lies, " etc.) are the **keys** (analogous to the _indices_ in an array). The process we used to translate a key into an array index is called a **hashing function**. 
+![A blank array except for a 20, labeled as the value, stored at index
 
-![A blank array except for a 20, labeled as the value, stored at index 
+9. To the left the array is the word "lies," labeled as the key, with an
 
-9. To the left the array is the word "lies," labeled as the key, with an 
+arrow pointing to the right at diamond with a question mark in the middle, labeled as the hashing function. The diamond points to the 9th index of the array.](https://www.interviewcake.com/images/svgs/cs_for_hackers__hash_tables_lies_key_labeled.svg?bust=209)
 
-arrow pointing to the right at diamond with a question mark in the middle, labeled as the hashing function. The diamond points to the 9th index of the array.](https://www.interviewcake.com/images/svgs/cs_for_hackers__hash_tables_lies_key_labeled.svg?bust=209) 
+The hashing functions used in modern systems get pretty complicated—the one we used here is a simplified example.
 
-The hashing functions used in modern systems get pretty complicated—the one we used here is a simplified example. 
+Note that our quick lookups are only in one direction—we can quickly get the value for a given key, but the only way to get the key for a given value is to walk through all the values and keys.
 
-Note that our quick lookups are only in one direction—we can quickly get the value for a given key, but the only way to get the key for a given value is to walk through all the values and keys. 
+Same thing with arrays—we can quickly look up the value at a given index, but the only way to figure out the index for a given value is to walk through the whole array.
 
-Same thing with arrays—we can quickly look up the value at a given index, but the only way to figure out the index for a given value is to walk through the whole array. 
-
-One problem—what if two keys hash to the same index in our array? Look at "lies" and "foes": 
+One problem—what if two keys hash to the same index in our array? Look at "lies" and "foes":
 
 ![The word "lies" in quotes and the word "foes" in quotes. Arrows point from the characters of each word to their corresponding number values. The sum of the characters of both words is shown to equal 429.](https://www.interviewcake.com/images/svgs/cs_for_hackers__hash_tables_lies_and_foes_addition.svg?bust=209)
 
- 
+They both sum up to 429! So of course they'll have the same answer when we mod by 30:
 
-They both sum up to 429! So of course they'll have the same answer when we mod by 30: 
+429 \\: \\% \\: 30 = 9
 
-429 \\: \\% \\: 30 = 9 
+So our hashing function gives us the same answer for "lies" and "foes." This is called a **hash collision**. There are a few different strategies for dealing with them.
 
-So our hashing function gives us the same answer for "lies" and "foes." This is called a **hash collision**. There are a few different strategies for dealing with them. 
-
-Here's a common one: instead of storing the actual values in our array, let's have each array slot hold a _pointer_ to a _linked list_ holding the counts for all the words that hash to that index: 
+Here's a common one: instead of storing the actual values in our array, let's have each array slot hold a _pointer_ to a _linked list_ holding the counts for all the words that hash to that index:
 
 ![An array storing pointers. Three of the pointers have arrows pointing to linked lists to the right of the array.](https://www.interviewcake.com/images/svgs/cs_for_hackers__hash_tables_hash_collision.svg?bust=209)
 
- 
-
-One problem—how do we know which count is for "lies" and which is for "foes"? To fix this, we'll store the _word_ as well as the count in each linked list node: 
+One problem—how do we know which count is for "lies" and which is for "foes"? To fix this, we'll store the _word_ as well as the count in each linked list node:
 
 ![An array storing pointers. The pointer at index 9 has an arrow pointing to a linked list to the right of the array. Each linked list node now stores the word as well as its count and a pointer.](https://www.interviewcake.com/images/svgs/cs_for_hackers__hash_tables_hash_collision_key_val.svg?bust=209)
 
- 
+"But wait!" you may be thinking, "Now lookups in our hash table take time in the worst case, since we have to walk down a linked list." That's true! You could even say that in the worst case _every_ key creates a hash collision, so our whole hash table _degrades to a linked list_.
 
-"But wait!" you may be thinking, "Now lookups in our hash table take time in the worst case, since we have to walk down a linked list." That's true! You could even say that in the worst case _every_ key creates a hash collision, so our whole hash table _degrades to a linked list_. 
-
-In industry though, we usually wave our hands and say **collisions are rare enough that on _average_ lookups in a hash table are time**. And there are fancy algorithms that keep the number of collisions low and keep the lengths of our linked lists nice and short. 
+In industry though, we usually wave our hands and say **collisions are rare enough that on _average_ lookups in a hash table are time**. And there are fancy algorithms that keep the number of collisions low and keep the lengths of our linked lists nice and short.
 
 But that's sort of the tradeoff with hash tables. You get fast lookups by key...except _some_ lookups could be slow. And of course, you only get those fast lookups in one direction—looking up the _key_ for a given _value_ still takes time
 
+# Breadth-First Search (BFS) and Breadth-First Traversal
 
+**Breadth-first search** (BFS) is a method for exploring a tree or graph. In a BFS, you first explore all the nodes one step away, then all the nodes two steps away, etc.
 
-# Breadth-First Search (BFS) and Breadth-First Traversal 
+Breadth-first search is like throwing a stone in the center of a pond. The nodes you explore "ripple out" from the starting point.
 
-**Breadth-first search** (BFS) is a method for exploring a tree or graph. In a BFS, you first explore all the nodes one step away, then all the nodes two steps away, etc. 
-
-Breadth-first search is like throwing a stone in the center of a pond. The nodes you explore "ripple out" from the starting point. 
-
-Here's a how a BFS would traverse this tree, starting with the root: 
+Here's a how a BFS would traverse this tree, starting with the root:
 
 ![A 4-row binary tree represented by circles connected with lines. Our breadth-first search has us start at the root node at the top of the tree.](https://www.interviewcake.com/images/svgs/breadth_first_search_root.svg?bust=209)
 
- 
-
-We'd visit all the immediate children (all the nodes that're one step away from our starting node): 
+We'd visit all the immediate children (all the nodes that're one step away from our starting node):
 
 ![The same 4-row binary tree with all nodes at depth 1 (second row) bolded after being visited.](https://www.interviewcake.com/images/svgs/breadth_first_search_first_level.svg?bust=209)
 
- 
-
-Then we'd move on to all _those_ nodes' children (all the nodes that're _two steps_ away from our starting node): 
+Then we'd move on to all _those_ nodes' children (all the nodes that're _two steps_ away from our starting node):
 
 ![The same 4-row binary tree with all nodes at depth 2 (third row) bolded after being visited.](https://www.interviewcake.com/images/svgs/breadth_first_search_second_level.svg?bust=209)
 
- 
-
-And so on: 
+And so on:
 
 ![The same 4-row binary tree with all nodes at depth 3 (fourth and final row) bolded after being visited.](https://www.interviewcake.com/images/svgs/breadth_first_search_third_level.svg?bust=209)
 
- 
+Until we reach the end.
 
-Until we reach the end. 
+Breadth-first search is often compared with **depth-first search**.
 
-Breadth-first search is often compared with **depth-first search**. 
+Advantages:
 
-Advantages: 
+- A BFS will find the **shortest path** between the starting point and
 
-*   A BFS will find the **shortest path** between the starting point and 
+any other reachable node. A depth-first search will not necessarily find the shortest path.
 
-any other reachable node. A depth-first search will not necessarily find the shortest path. 
+Disadvantages
 
-Disadvantages 
-
-*   A BFS on a binary tree _generally_ requires more memory than a DFS. 
+- A BFS on a binary tree _generally_ requires more memory than a DFS.
 
 ![A binary search tree with nodes containing integers. The root node contains the integer 50. Each child node to the left of the root contains integers less than 50, and each child node to the right of the root contains integers greater than 50.](https://www.interviewcake.com/images/svgs/binary_search_tree__preview.svg?bust=209)
 
- 
+# Binary Search Tree
 
-# Binary Search Tree 
+A **binary tree** is a **tree** where <==(_**every node has two or fewer children**_)==>.
+The children are usually called **_left_** and _**right**_.
 
-A **binary tree** is a **tree** where <==(_**every node has two or fewer children**_)==>. 
-The children are usually called **_left_** and _**right**_. 
+class BinaryTreeNode(object):
 
-class BinaryTreeNode(object): 
-
-This lets us build a structure like this: 
+This lets us build a structure like this:
 
 ![A tree represented by circles connected with lines. The root node is on top, and connects to 2 children below it. Each of those children connect to 2 children below them, which all connect to their own 2 children, which all connect to their own 2 children.](https://www.interviewcake.com/images/svgs/binary_tree__depth_5.svg?bust=209)
 
- 
+That particular example is special because every level of the tree is completely full. There are no "gaps." We call this kind of tree "**perfect**."
 
-That particular example is special because every level of the tree is completely full. There are no "gaps." We call this kind of tree "**perfect**." 
+Binary trees have a few interesting properties when they're perfect:
 
-Binary trees have a few interesting properties when they're perfect: 
-
-**Property 1: the number of total nodes on each "level" doubles as we move down the tree.** 
+**Property 1: the number of total nodes on each "level" doubles as we move down the tree.**
 
 ![A binary tree with 5 rows of nodes. The root node is on top, and every node has 2 children in the row below. Each row is labelled with the number of nodes in the row, which doubles from the top down: 1, 2, 4, 8, 16.](https://www.interviewcake.com/images/svgs/binary_tree__depth_5_with_number_of_nodes_labelled.svg?bust=209)
 
- 
-
-**Property 2: the number of nodes on the last level is equal to the sum of the number of nodes on all other levels (plus 1).** In other words, about _half_ of our nodes are on the last level. 
+**Property 2: the number of nodes on the last level is equal to the sum of the number of nodes on all other levels (plus 1).** In other words, about _half_ of our nodes are on the last level.
 
 <==(_**Let's call the number of nodes n, **_)==>
 
-<==(**_**and the height of the tree h. **_**)==>
+<==(**\_**and the height of the tree h. **\_**)==>
 
 **h can also be thought of as the "number of levels."**
 
-If we had h, how could we calculate n? 
+If we had h, how could we calculate n?
 
-Let's just add up the number of nodes on each level! 
+Let's just add up the number of nodes on each level!
 
-If we zero-index the levels, the number of nodes on the xth level is exactly 2\^x. 
+If we zero-index the levels, the number of nodes on the xth level is exactly 2\^x.
 
-1.  Level 0: 2\^0 nodes, 
-2.  2.  Level 1: 2\^1 nodes, 
-3.  3.  Level 2: 2\^2 nodes, 
-4.  4.  Level 3: 2\^3 nodes, 
-5.  5.  _etc_ 
+1.  Level 0: 2\^0 nodes,
+2.  2.  Level 1: 2\^1 nodes,
+3.  3.  Level 2: 2\^2 nodes,
+4.  4.  Level 3: 2\^3 nodes,
+5.  5.  _etc_
 
-So our total number of nodes is: 
+So our total number of nodes is:
 
 **n = 2\^0 + 2\^1 + 2\^2 + 2\^3 + ... + 2\^{h-1}**
 
-Why only up to 2\^{h-1}? 
+Why only up to 2\^{h-1}?
 
 Notice that we **started counting our levels at 0.**
 
-* So if we have h levels in total, 
-* the last level is actually the "h-1"-th level. 
-* That means the number of nodes on the last level is 2\^{h-1}. 
+- So if we have h levels in total,
+- the last level is actually the "h-1"-th level.
+- That means the number of nodes on the last level is 2\^{h-1}.
 
 But we can simplify.
 
-**Property 2 tells us that the number of nodes on the last level is (1 more than) half of the total number of nodes**, 
+**Property 2 tells us that the number of nodes on the last level is (1 more than) half of the total number of nodes**,
 
 **so we can just take the number of nodes on the last level, multiply it by 2, and subtract 1 to get the number of nodes overall**.
 
-* We know the number of nodes on the last level is 2\^{h-1}, 
+- We know the number of nodes on the last level is 2\^{h-1},
 
-  
+- So:
 
-* So: 
+**n = 2\^{h-1} \* 2 - 1
+n = 2\^{h-1} \* 2\^1 - 1
+n = 2\^{h-1+1}- 1
+n = 2\^{h} - 1**
 
-**n = 2\^{h-1} \* 2 - 1 
-n = 2\^{h-1} \* 2\^1 - 1 
-n = 2\^{h-1+1}- 1 
-n = 2\^{h} - 1** 
+So that's how we can go from h to n. What about the other direction?
 
-So that's how we can go from h to n. What about the other direction? 
+We need to bring the h down from the exponent.
 
-We need to bring the h down from the exponent. 
+That's what logs are for!
 
-That's what logs are for! 
-
-First, some quick review. 
+First, some quick review.
 
 <==(log\_{10} (100) )==>
 
-simply means, 
+simply means,
 
- **"What power must you raise 10 to in order to get 100?"**.
- 
-  Which is 2, 
-  
-  because . 
+**"What power must you raise 10 to in order to get 100?"**.
+
+Which is 2,
+
+because .
 
 <==(10\^2 = 100 )==>
 
-# Graph Data Structure: Directed, Acyclic, etc 
+# Graph Data Structure: Directed, Acyclic, etc
 
-Graph ===== ![](graph-md.png) 
+Graph ===== ![](graph-md.png)
 
-## Binary numbers 
+## Binary numbers
 
-Let's put those bits to use. Let's store some stuff. Starting with numbers. 
+Let's put those bits to use. Let's store some stuff. Starting with numbers.
 
-The number system we usually use (the one you probably learned in elementary school) is called **base 10**, because each digit has _ten_ possible values (1, 2, 3, 4, 5, 6, 7, 8, 9, and 0). 
+The number system we usually use (the one you probably learned in elementary school) is called **base 10**, because each digit has _ten_ possible values (1, 2, 3, 4, 5, 6, 7, 8, 9, and 0).
 
-But computers don't have digits with ten possible values. They have _bits_ with _two_ possible values. So they use **base 2** numbers. 
+But computers don't have digits with ten possible values. They have _bits_ with _two_ possible values. So they use **base 2** numbers.
 
-Base 10 is also called **decimal**. Base 2 is also called **binary**. 
+Base 10 is also called **decimal**. Base 2 is also called **binary**.
 
-To understand binary, let's take a closer look at how decimal numbers work. Take the number "101" in decimal: 
+To understand binary, let's take a closer look at how decimal numbers work. Take the number "101" in decimal:
 
 ![In base 10, the digits 101 represent 1 hundred, 0 tens, and 1 one.](https://www.interviewcake.com/images/svgs/cs_for_hackers__binary_numbers_base_10_101.svg?bust=209)
 
- 
-
-Notice we have two "1"s here, but they don't _mean_ the same thing. The leftmost "1" _means_ 100, and the rightmost "1" _means_ 1. That's because the leftmost "1" is in the hundreds place, while the rightmost "1" is in the ones place. And the "0" between them is in the tens place. 
+Notice we have two "1"s here, but they don't _mean_ the same thing. The leftmost "1" _means_ 100, and the rightmost "1" _means_ 1. That's because the leftmost "1" is in the hundreds place, while the rightmost "1" is in the ones place. And the "0" between them is in the tens place.
 
 ![In base 10, the digits 101 represent 1 hundred, 0 tens, and 1 one.](https://www.interviewcake.com/images/svgs/cs_for_hackers__binary_numbers_base_10_digits.svg?bust=209)
 
- 
-
-**So this "101" in base 10 is telling us we have "1 hundred, 0 tens, and 1 one."** 
+**So this "101" in base 10 is telling us we have "1 hundred, 0 tens, and 1 one."**
 
 ![In base 10, the digits 101 represent 1 hundred, 0 tens, and 1 one, which add to give the value one hundred and one.](https://www.interviewcake.com/images/svgs/cs_for_hackers__binary_numbers_base_10.svg?bust=209)
 
- 
+Notice how the _places_ in base 10 (ones place, tens place, hundreds place, etc.) are _sequential powers of 10_:
 
-Notice how the _places_ in base 10 (ones place, tens place, hundreds place, etc.) are _sequential powers of 10_: 
+- 10\^0=1 _ 10\^1=10 _ 10\^2=100 _ 10\^3=1000 _ etc.
 
-*   10\^0=1 *   10\^1=10 *   10\^2=100 *   10\^3=1000 *   etc. 
+**The places in _binary_ (base 2) are sequential powers of _2_:**
 
-**The places in _binary_ (base 2) are sequential powers of _2_:** 
+- 2\^0=1 _ 2\^1=2 _ 2\^2=4 _ 2\^3=8 _ etc.
 
-*   2\^0=1 *   2\^1=2 *   2\^2=4 *   2\^3=8 *   etc. 
-
-So let's take that same "101" but this time let's read it as a _binary_ number: 
+So let's take that same "101" but this time let's read it as a _binary_ number:
 
 ![In base 2, the digits 101 represent 1 four, 0 twos, and 1 one.](https://www.interviewcake.com/images/svgs/cs_for_hackers__binary_numbers_base_2_digits.svg?bust=209)
 
- 
-
-Reading this from right to left: we have a 1 in the ones place, a 0 in the twos place, and a 1 in the fours place. So our total is 4 + 0 + 1 which is 5. 
+Reading this from right to left: we have a 1 in the ones place, a 0 in the twos place, and a 1 in the fours place. So our total is 4 + 0 + 1 which is 5.
 
 ![In base 2, the digits 101 represent 1 four, 0 twos, and 1 one, which add to give the value five.](https://www.interviewcake.com/images/svgs/cs_for_hackers__binary_numbers_base_2.svg?bust=209)
 
- 
-
-Here's how we'd count up to 12 in binary: 
-
+Here's how we'd count up to 12 in binary:
 
 ### [CONTENT/Resources/My-Data-Structures-Notes/My-ds-notes.md](CONTENT/Resources/My-Data-Structures-Notes/My-ds-notes.md)
 
 ## Binary Trees
 
 1. Explain and implement a Binary Tree.
-  + A tree is a collection of nodes and edges between them.
-  + It cannot have any cycles, which are edges that form a loop between nodes.
-  + We also only consider rooted trees in computer science, which is a tree that has one root node that is able to access all other nodes.
-  + For a tree to be a binary tree, each node can have a maximum of two children.
-  + It's important to be able to identify and explain tree terminology as well. If given a tree, be able to point out each component.
-    - root: The single node of a tree that can access every other node through edges.
-    - parent node: A node that is connected to lower nodes in the tree. If a tree only has one node, it is not a parent node because there are no children.
-    - child node: A node that is connected to a higher node in the tree. Every node except for the root is a child node of some parent.
-    - sibling nodes: Nodes that have the same parent.
-    - leaf node: A node that has no children (at the ends of the branches of the tree)
-    - internal node: A non-leaf node (aka a parent)
-    - path: A series of nodes that can be traveled through edges.
-    - subtree: A smaller portion of the original tree. Any node that is not the root node is itself the root of a subtree.
-  + Know the basics of each term
-    - A non-empty tree has to have a root.
-    - A tree doesn't have any parent nodes if there are no children.
-    - What's the min/max number of parent and leaf nodes for a tree with 5 nodes?
-      - Two extreme implementations:
 
-      ![min-max-nodes-ll.png]
+- A tree is a collection of nodes and edges between them.
+- It cannot have any cycles, which are edges that form a loop between nodes.
+- We also only consider rooted trees in computer science, which is a tree that has one root node that is able to access all other nodes.
+- For a tree to be a binary tree, each node can have a maximum of two children.
+- It's important to be able to identify and explain tree terminology as well. If given a tree, be able to point out each component.
+  - root: The single node of a tree that can access every other node through edges.
+  - parent node: A node that is connected to lower nodes in the tree. If a tree only has one node, it is not a parent node because there are no children.
+  - child node: A node that is connected to a higher node in the tree. Every node except for the root is a child node of some parent.
+  - sibling nodes: Nodes that have the same parent.
+  - leaf node: A node that has no children (at the ends of the branches of the tree)
+  - internal node: A non-leaf node (aka a parent)
+  - path: A series of nodes that can be traveled through edges.
+  - subtree: A smaller portion of the original tree. Any node that is not the root node is itself the root of a subtree.
+- Know the basics of each term
 
-      - Implementing in a chain results in max number of parents and min number of leaves: 4 parents, 1 leaf
+  - A non-empty tree has to have a root.
+  - A tree doesn't have any parent nodes if there are no children.
+  - What's the min/max number of parent and leaf nodes for a tree with 5 nodes?
 
-      ![min-max-nodes-balanced.png]
+    - Two extreme implementations:
 
-      - Implementing as a balanced tree results in min number of parents and max number of leaves: 2 parents, 3 leaves
-  + All that we need in order to implement a binary tree is a TreeNode class that can store a value and references to a left and right child. We can create a tree by assigning the left and right properties to point to other TreeNode instances:
+    ![min-max-nodes-ll.png]
 
-  
+    - Implementing in a chain results in max number of parents and min number of leaves: 4 parents, 1 leaf
 
-``` javascript
-  class TreeNode {
-      constructor(val) {
-          this.val = val;
-          this.left = null;
-          this.right = null;
-      }
+    ![min-max-nodes-balanced.png]
+
+    - Implementing as a balanced tree results in min number of parents and max number of leaves: 2 parents, 3 leaves
+
+- All that we need in order to implement a binary tree is a TreeNode class that can store a value and references to a left and right child. We can create a tree by assigning the left and right properties to point to other TreeNode instances:
+
+```javascript
+class TreeNode {
+  constructor(val) {
+    this.val = val;
+    this.left = null;
+    this.right = null;
   }
+}
 ```
 
 2. Identify the three types of tree traversals: pre-order, in-order, and post-order.
-  + Pre-order: Values are accessed as soon as the node is reached.
-  + In-order: Values are accessed after we have fully explored the left but before we explore the right branch.
-  + Post-order: Values are accessed after all of our children have been accessed.
-  + *Breadth First: The previous three are types of Depth First Traversals. Breadth first accesses values of nodes by level, left to right, top to bottom.
-  + Given a tree, be able to determine the order of each traversal type:
 
-    ![Number tree]
+- Pre-order: Values are accessed as soon as the node is reached.
+- In-order: Values are accessed after we have fully explored the left but before we explore the right branch.
+- Post-order: Values are accessed after all of our children have been accessed.
+- \*Breadth First: The previous three are types of Depth First Traversals. Breadth first accesses values of nodes by level, left to right, top to bottom.
+- Given a tree, be able to determine the order of each traversal type:
 
-    - Breadth First: 20, 9, 24, 7, 11, 23, 27, 3, 10, 17, 36, 30
-    - Pre-order: 20, 9, 7, 3, 11, 10, 17, 24, 23, 27, 36, 30
-    - In-order: 3, 7, 9, 10, 11, 17, 20, 23, 24, 27, 30, 36
-    - Post-order: 3, 7, 10, 17, 11, 9, 23, 30, 36, 27, 24, 20
+  ![Number tree]
 
-3. Explain and implement a Binary Search Tree. 
-  + A binary search tree is a binary tree with the added stipulation that all values to the left of a node are less than its value and all values to the right are greater than its value.
-      - Example of a Binary Search Tree ![Binary Search Tree]
-  + Example of a BST with an insert method. You won't be asked to implement a removal:
+  - Breadth First: 20, 9, 24, 7, 11, 23, 27, 3, 10, 17, 36, 30
+  - Pre-order: 20, 9, 7, 3, 11, 10, 17, 24, 23, 27, 36, 30
+  - In-order: 3, 7, 9, 10, 11, 17, 20, 23, 24, 27, 30, 36
+  - Post-order: 3, 7, 10, 17, 11, 9, 23, 30, 36, 27, 24, 20
 
-  
+3. Explain and implement a Binary Search Tree.
 
-``` javascript
-  class BST {
-      constructor() {
-          this.root = null;
-      }
+- A binary search tree is a binary tree with the added stipulation that all values to the left of a node are less than its value and all values to the right are greater than its value.
+  - Example of a Binary Search Tree ![Binary Search Tree]
+- Example of a BST with an insert method. You won't be asked to implement a removal:
 
-      insert(val, currentNode = this.root) {
-          if (!this.root) {
-              this.root = new TreeNode(val);
-              return;
-          }
-
-          if (val < currentNode.val) {
-              if (!currentNode.left) {
-                  currentNode.left = new TreeNode(val);
-              } else {
-                  this.insert(val, currentNode.left);
-              }
-          } else {
-              if (!currentNode.right) {
-                  currentNode.right = new TreeNode(val);
-              } else {
-                  this.insert(val, currentNode.right);
-              }
-          }
-      }
+```javascript
+class BST {
+  constructor() {
+    this.root = null;
   }
+
+  insert(val, currentNode = this.root) {
+    if (!this.root) {
+      this.root = new TreeNode(val);
+      return;
+    }
+
+    if (val < currentNode.val) {
+      if (!currentNode.left) {
+        currentNode.left = new TreeNode(val);
+      } else {
+        this.insert(val, currentNode.left);
+      }
+    } else {
+      if (!currentNode.right) {
+        currentNode.right = new TreeNode(val);
+      } else {
+        this.insert(val, currentNode.right);
+      }
+    }
+  }
+}
 ```
 
 ## Graphs
 
 1. Know the differences between graphs and trees
-* A graph can:
-  + Consist of any collection of nodes and edges (no limits on connections)
-  + Have cycles
-  + Have disconnected portions (a forest, with multiple trees, for example)
-  + Be missing a root node (don't have to have one node that connects to everything)
-* In a tree, we had an idea of children and parents, in a graph we have neighbors (no hierarchy)
+
+- A graph can:
+  - Consist of any collection of nodes and edges (no limits on connections)
+  - Have cycles
+  - Have disconnected portions (a forest, with multiple trees, for example)
+  - Be missing a root node (don't have to have one node that connects to everything)
+- In a tree, we had an idea of children and parents, in a graph we have neighbors (no hierarchy)
+
 2. What are three ways that we can implement a graph? What are each implementations' advantages or disadvantages?
-* Adjacency Matrix - 2D Array
-  + Visually clear what's going on
-  + One axis (outside array) has an entry (inner array) for each node in the graph. If one node is connected to another node in the graph, our entry in the inner array is set to true. Otherwise the entry is false.
 
-  
+- Adjacency Matrix - 2D Array
+  - Visually clear what's going on
+  - One axis (outside array) has an entry (inner array) for each node in the graph. If one node is connected to another node in the graph, our entry in the inner array is set to true. Otherwise the entry is false.
 
-``` javascript
-  let matrix = [
-      /*          A       B       C       D       E       F   */
-      /*A*/
-      [true, true, true, false, true, false],
-      /*B*/
-      [false, true, false, false, false, false],
-      /*C*/
-      [false, true, true, true, false, false],
-      /*D*/
-      [false, false, false, true, false, false],
-      /*E*/
-      [true, false, false, false, true, false],
-      /*F*/
-      [false, false, false, false, true, true]
-  ];
+```javascript
+let matrix = [
+  /*          A       B       C       D       E       F   */
+  /*A*/
+  [true, true, true, false, true, false],
+  /*B*/
+  [false, true, false, false, false, false],
+  /*C*/
+  [false, true, true, true, false, false],
+  /*D*/
+  [false, false, false, true, false, false],
+  /*E*/
+  [true, false, false, false, true, false],
+  /*F*/
+  [false, false, false, false, true, true],
+];
 ```
 
-* Adjacency List - POJO
-  + Object where every value in the graph has a key
-  + Value for the key is an array with each other node that it is connected to (neighbors)
-  + Easy to iterate through
-  + Doesn't take up as much space as an Adjacency Matrix or Node
-  + Can refer to the entire graph by referencing the object
+- Adjacency List - POJO
+  - Object where every value in the graph has a key
+  - Value for the key is an array with each other node that it is connected to (neighbors)
+  - Easy to iterate through
+  - Doesn't take up as much space as an Adjacency Matrix or Node
+  - Can refer to the entire graph by referencing the object
 
-  
-
-``` javascript
-    let list = {
-        a: ['b', 'c', 'e'],
-        b: [],
-        c: ['b', 'd'],
-        d: [],
-        e: ['a'],
-        f: ['e']
-    };
+```javascript
+let list = {
+  a: ["b", "c", "e"],
+  b: [],
+  c: ["b", "d"],
+  d: [],
+  e: ["a"],
+  f: ["e"],
+};
 ```
 
-* Object-Oriented (ex: using Nodes)
-  + Similar to our linked list or tree implementations
-  + Track the value and the neighbors array as instance variables on the node
-  + We don't have a reference to the overall graph with this implementation
+- Object-Oriented (ex: using Nodes)
+  - Similar to our linked list or tree implementations
+  - Track the value and the neighbors array as instance variables on the node
+  - We don't have a reference to the overall graph with this implementation
 
-  
-
-``` javascript
-  class GraphNode {
-      constructor(val) {
-          this.val = val;
-          this.neighbors = [];
-      }
+```javascript
+class GraphNode {
+  constructor(val) {
+    this.val = val;
+    this.neighbors = [];
   }
+}
 ```
 
 3. Given a graph in one of the above implementations, be able to traverse the graph in a breadth-first or depth-first manner.
-* We can use recursion or iteration to traverse each node.
-* We generally want to keep track of each node that we've visited already so that we don't get trapped in cycles. Easiest way to do this is to keep a Set variable that we update as we traverse to each node.
-* The projects from W08D02 and their solutions are a great resource here.
-  + Be comfortable with taking either an iterative or a recursive approach to traversing a graph, as well as being able to work with either an adjacency list (like in the friendsOf problem) or a node class (like in the breadthFirstSearch or maxValue problems).
-  + Practice taking the implementation that you did in the project and converting it to a different implementation. You probably used recursion for friendsOf, so try using iteration with a stack array, etc.
+
+- We can use recursion or iteration to traverse each node.
+- We generally want to keep track of each node that we've visited already so that we don't get trapped in cycles. Easiest way to do this is to keep a Set variable that we update as we traverse to each node.
+- The projects from W08D02 and their solutions are a great resource here.
+  - Be comfortable with taking either an iterative or a recursive approach to traversing a graph, as well as being able to work with either an adjacency list (like in the friendsOf problem) or a node class (like in the breadthFirstSearch or maxValue problems).
+  - Practice taking the implementation that you did in the project and converting it to a different implementation. You probably used recursion for friendsOf, so try using iteration with a stack array, etc.
+
 4. Be able to make conclusions from these traversals
-  + Is it possible to get from node A to node B?
-    - Here we're really implementing a search, like the breadthFirstSearch problem.
-  + What is the maximum/minimum value we can encounter if we start at node X?
-    - Instead of returning a boolean, we want to compare values of nodes and return the appropriate value
-      - If we do this recursively we can compare this node and to each of its neighbors values and return the maximum up the call stack.
-      - If we do this iteratively, we can keep a currentMax variable as we traverse and update it if we find a new max value.
-  + etc.
+
+- Is it possible to get from node A to node B?
+  - Here we're really implementing a search, like the breadthFirstSearch problem.
+- What is the maximum/minimum value we can encounter if we start at node X?
+  - Instead of returning a boolean, we want to compare values of nodes and return the appropriate value
+    - If we do this recursively we can compare this node and to each of its neighbors values and return the maximum up the call stack.
+    - If we do this iteratively, we can keep a currentMax variable as we traverse and update it if we find a new max value.
+- etc.
 
 ## **Whiteboarding Tips and Tricks**
 
-* Companies whiteboard because steps for solving wb problems are almost nearly identical to solving real-world practical situations.
-  + They are looking to test a few things:
+- Companies whiteboard because steps for solving wb problems are almost nearly identical to solving real-world practical situations.
+  - They are looking to test a few things:
     - Can you think algorithmically? Think efficiently?
     - Are you a good communicator?
     - Can you code neatly and correctly?
@@ -6342,17 +6336,17 @@ Here's how we'd count up to 12 in binary:
 
 **`Strategies`**
 
-* Hash Maps.
-* Divide and Conquer DP Programming.
-* Using Math Properties.
-* **`Amortized Analysis`** : Method for analyzing a given algorithm's complexity, or how much a resource, especially time or or memory, it takes to execute.
-* Keeping a Stack or Queue on the side to track values.
-* Keep two pointers for the same iteration.
-* Perform an operation twice.
-* Sort the input.
-* Approach the problem from the other end.
-* Use binary numbers instead of decimal numbers.
-* Use binary search instead of incrementation.
+- Hash Maps.
+- Divide and Conquer DP Programming.
+- Using Math Properties.
+- **`Amortized Analysis`** : Method for analyzing a given algorithm's complexity, or how much a resource, especially time or or memory, it takes to execute.
+- Keeping a Stack or Queue on the side to track values.
+- Keep two pointers for the same iteration.
+- Perform an operation twice.
+- Sort the input.
+- Approach the problem from the other end.
+- Use binary numbers instead of decimal numbers.
+- Use binary search instead of incrementation.
 
 **If you have seen the problem before, just tell them you have**.
 
@@ -6364,20 +6358,20 @@ Here's how we'd count up to 12 in binary:
 
 ![graphs](https://s3-us-west-1.amazonaws.com/appacademy-open-assets/data_structures_algorithms/trees/images/graphs.png)
 
-* **`Graph`** : A collection of nodes and any edges between those nodes. (Linked Lists and Trees are both considered subclasses of graphs)
-* **`Tree`** : Graph that does not contain any cycles.
-  + In CS we only refer to trees that are "`rooted`", or a tree where there exists a node that is accessible from every other node.
-* **`Binary Tree`** : Tree where nodes have at most 2 children.
+- **`Graph`** : A collection of nodes and any edges between those nodes. (Linked Lists and Trees are both considered subclasses of graphs)
+- **`Tree`** : Graph that does not contain any cycles.
+  - In CS we only refer to trees that are "`rooted`", or a tree where there exists a node that is accessible from every other node.
+- **`Binary Tree`** : Tree where nodes have at most 2 children.
 
 ![tree](https://assets.aaonline.io/data_structures_algorithms/trees/images/graph_a.png)
 
-``` js
+```js
 class TreeNode {
-    constructor(val) {
-        this.val = val;
-        this.left = null;
-        this.right = null;
-    }
+  constructor(val) {
+    this.val = val;
+    this.left = null;
+    this.right = null;
+  }
 }
 
 a.left = b;
@@ -6387,29 +6381,29 @@ b.right = e;
 c.right = f;
 ```
 
-* Common way to implement a binary tree is by using a node class with OOP.
+- Common way to implement a binary tree is by using a node class with OOP.
 
 **Basic Tree Terminology**
 
-* **`Tree`** : Graph with no cycles.
-  + Cycle is a path through edges that begins and ends at the same node.
-  + In CS, trees must have roots!
-* **`Binary Tree`** : Tree where nodes have at most 2 nodes.
-* **`Root`** : The ultimate parent, the single node s tree that can access every other node through edges; root does not have a parent.
-* **`Internal Node`** : Node that has children.
-* **`Leaf`** : Node that does not have any children.
-* **`Path`** : A series of nodes that can be traveled through edges.
+- **`Tree`** : Graph with no cycles.
+  - Cycle is a path through edges that begins and ends at the same node.
+  - In CS, trees must have roots!
+- **`Binary Tree`** : Tree where nodes have at most 2 nodes.
+- **`Root`** : The ultimate parent, the single node s tree that can access every other node through edges; root does not have a parent.
+- **`Internal Node`** : Node that has children.
+- **`Leaf`** : Node that does not have any children.
+- **`Path`** : A series of nodes that can be traveled through edges.
 
 **Traversing Trees**
 
-* Trees can be traveresed in multiple ways: Depth-First or Breadth-First.
-* Three common ways to go depth-first:
-  + In-Order
-  + Pre-Order
-  + Post-Order
-* **`Breadth First`** : Traversing level by level, visiting every node at each stage.
+- Trees can be traveresed in multiple ways: Depth-First or Breadth-First.
+- Three common ways to go depth-first:
+  - In-Order
+  - Pre-Order
+  - Post-Order
+- **`Breadth First`** : Traversing level by level, visiting every node at each stage.
 
-``` js
+```js
         A
             /
             \
@@ -6419,9 +6413,9 @@ c.right = f;
         A, B, C, D, E, F
 ```
 
-* **`Depth-First`** :
+- **`Depth-First`** :
 
-``` js
+```js
         A
             /
             \
@@ -6433,54 +6427,54 @@ c.right = f;
 
 ![pic](https://upload.wikimedia.org/wikipedia/commons/d/dc/Sorted_binary_tree_ALL.svg)
 
-* **`Pre-Order Traversal`** :
+- **`Pre-Order Traversal`** :
 
-  + F, B, A, D, C, E, G, I, H
-  + Access data of the current Node
-  + Recursively visit the left sub tree
-  + Recursively visit the right sub tree
+  - F, B, A, D, C, E, G, I, H
+  - Access data of the current Node
+  - Recursively visit the left sub tree
+  - Recursively visit the right sub tree
 
-* **`In-Order Traversal`** :
+- **`In-Order Traversal`** :
 
-  + A, B, C, D, E, F, G, H, I
-  + Recursively visit the left sub tree
-  + Access the data of the current node
-  + Recursively visit the right sub tree
+  - A, B, C, D, E, F, G, H, I
+  - Recursively visit the left sub tree
+  - Access the data of the current node
+  - Recursively visit the right sub tree
 
-* **`Post-Order Traversal`** :
+- **`Post-Order Traversal`** :
 
-  + A, C, E, D, B, H, I, G, F
-  + Recursively visit the left sub tree
-  + Recursively visit the right sub tree
-  + Access the data of the current node
+  - A, C, E, D, B, H, I, G, F
+  - Recursively visit the left sub tree
+  - Recursively visit the right sub tree
+  - Access the data of the current node
 
 **`Binary Search Trees`**
 
-* A Binary Tree is a **Binary Search Tree** if:
-  + The left subtree contains values less than the root.
-  + AND the right subtree contains values greater than or equal to the root
-  + AND the left subtree is a Binary Search Tree
-  + AND the right subtree is a Binary Search Tree
+- A Binary Tree is a **Binary Search Tree** if:
+  - The left subtree contains values less than the root.
+  - AND the right subtree contains values greater than or equal to the root
+  - AND the left subtree is a Binary Search Tree
+  - AND the right subtree is a Binary Search Tree
 
 ![bst](https://assets.aaonline.io/data_structures_algorithms/binary_search_trees/images/bsts.png)
 
-* BSTs are sorted Data Structures
-* If this printing function is called on a BST, the values will be print out in ascending order.
+- BSTs are sorted Data Structures
+- If this printing function is called on a BST, the values will be print out in ascending order.
 
-``` js
+```js
 function inOrderPrint(root) {
-    if (!root) return;
+  if (!root) return;
 
-    inOrderPrint(root.left);
-    console.log(root.val);
-    inOrderPrint(root.right);
+  inOrderPrint(root.left);
+  console.log(root.val);
+  inOrderPrint(root.right);
 }
 // BST 1: 42
 // BST 2: 4, 5, 6
 // BST 3: 1, 5, 7, 10, 16, 16
 ```
 
-* The best BSTs are **height balanced**.
+- The best BSTs are **height balanced**.
 
 ---
 
@@ -6488,21 +6482,21 @@ function inOrderPrint(root) {
 
 ## **Graphs**
 
-* **Graph** : Any collection of nodes and edges, it is much more relaxed compared to other trees.
-  + May lack a root node.
-  + May have cycles.
-  + May have any number of edges leaving a node.
+- **Graph** : Any collection of nodes and edges, it is much more relaxed compared to other trees.
+  - May lack a root node.
+  - May have cycles.
+  - May have any number of edges leaving a node.
 
 ![graph](https://s3-us-west-1.amazonaws.com/appacademy-open-assets/data_structures_algorithms/graphs/images/graphs.png)
 
 **GraphNode Class**
 
-``` js
+```js
 class GraphNode {
-    constructor(val) {
-        this.val = val;
-        this.neighbors = [];
-    }
+  constructor(val) {
+    this.val = val;
+    this.neighbors = [];
+  }
 }
 
 let a = new GraphNode("a");
@@ -6517,38 +6511,38 @@ e.neighbors = [a];
 f.neighbors = [e];
 ```
 
-* **Adjacency Matrix** : Mathematician's preferred way of representing a graph.
+- **Adjacency Matrix** : Mathematician's preferred way of representing a graph.
 
 ![adja](https://s3-us-west-1.amazonaws.com/appacademy-open-assets/data_structures_algorithms/graphs/images/adj_matrix_graph.png)
 
-``` js
+```js
 let matrix = [
-    /*          A       B       C       D       E       F   */
-    /*A*/
-    [true, true, true, false, true, false],
-    /*B*/
-    [false, true, false, false, false, false],
-    /*C*/
-    [false, true, true, true, false, false],
-    /*D*/
-    [false, false, false, true, false, false],
-    /*E*/
-    [true, false, false, false, true, false],
-    /*F*/
-    [false, false, false, false, true, true],
+  /*          A       B       C       D       E       F   */
+  /*A*/
+  [true, true, true, false, true, false],
+  /*B*/
+  [false, true, false, false, false, false],
+  /*C*/
+  [false, true, true, true, false, false],
+  /*D*/
+  [false, false, false, true, false, false],
+  /*E*/
+  [true, false, false, false, true, false],
+  /*F*/
+  [false, false, false, false, true, true],
 ];
 ```
 
-* **Adjacency List** : Using an object to represent node labels.
+- **Adjacency List** : Using an object to represent node labels.
 
-``` js
+```js
 let graph = {
-    a: ["b", "c", "e"],
-    b: [],
-    c: ["b", "d"],
-    d: [],
-    e: ["a"],
-    f: ["e"],
+  a: ["b", "c", "e"],
+  b: [],
+  c: ["b", "d"],
+  d: [],
+  e: ["a"],
+  f: ["e"],
 };
 ```
 
@@ -6559,12 +6553,12 @@ let graph = {
 **Traversal with Graph Node**
 **Depthfirst Recursion**
 
-``` js
+```js
 class GraphNode {
-    constructor(val) {
-        this.val = val;
-        this.neighbors = [];
-    }
+  constructor(val) {
+    this.val = val;
+    this.neighbors = [];
+  }
 }
 
 let a = new GraphNode("a");
@@ -6579,76 +6573,76 @@ e.neighbors = [a];
 f.neighbors = [e];
 ```
 
-``` js
+```js
 function depthFirstRecur(node, visited = new Set()) {
-    // if this node has already been visited, then return early
-    if (visited.has(node.val)) return;
+  // if this node has already been visited, then return early
+  if (visited.has(node.val)) return;
+
+  // otherwise it hasn't yet been visited,
+  // so print it's val and mark it as visited.
+  console.log(node.val);
+  visited.add(node.val);
+
+  // then explore each of its neighbors
+  node.neighbors.forEach((neighbor) => {
+    depthFirstRecur(neighbor, visited);
+  });
+}
+```
+
+```js
+function depthFirstIter(node) {
+  let visited = new Set();
+  let stack = [node];
+
+  while (stack.length) {
+    let node = stack.pop();
+
+    // if this node has already been visited, then skip this node
+    if (visited.has(node.val)) continue;
 
     // otherwise it hasn't yet been visited,
     // so print it's val and mark it as visited.
     console.log(node.val);
     visited.add(node.val);
 
-    // then explore each of its neighbors
-    node.neighbors.forEach((neighbor) => {
-        depthFirstRecur(neighbor, visited);
-    });
-}
-```
-
-``` js
-function depthFirstIter(node) {
-    let visited = new Set();
-    let stack = [node];
-
-    while (stack.length) {
-        let node = stack.pop();
-
-        // if this node has already been visited, then skip this node
-        if (visited.has(node.val)) continue;
-
-        // otherwise it hasn't yet been visited,
-        // so print it's val and mark it as visited.
-        console.log(node.val);
-        visited.add(node.val);
-
-        // then add its neighbors to the stack to be explored
-        stack.push(...node.neighbors);
-    }
+    // then add its neighbors to the stack to be explored
+    stack.push(...node.neighbors);
+  }
 }
 ```
 
 **Traversal with Adjacency List**
 
-``` js
+```js
 let graph = {
-    a: ["b", "c", "e"],
-    b: [],
-    c: ["b", "d"],
-    d: [],
-    e: ["a"],
-    f: ["e"],
+  a: ["b", "c", "e"],
+  b: [],
+  c: ["b", "d"],
+  d: [],
+  e: ["a"],
+  f: ["e"],
 };
 ```
 
-``` js
+```js
 function depthFirst(graph) {
-    let visited = new Set();
+  let visited = new Set();
 
-    for (let node in graph) {
-        _depthFirstRecur(node, graph, visited);
-    }
+  for (let node in graph) {
+    _depthFirstRecur(node, graph, visited);
+  }
 }
 
 function _depthFirstRecur(node, graph, visited) {
-    if (visited.has(node)) return;
+  if (visited.has(node)) return;
 
-    console.log(node);
-    visited.add(node);
+  console.log(node);
+  visited.add(node);
 
-    graph[node].forEach((neighbor) => {
-        _depthFirstRecur(neighbor, graph, visited);
-    });
+  graph[node].forEach((neighbor) => {
+    _depthFirstRecur(neighbor, graph, visited);
+  });
 }
 
 depthFirst(graph);
@@ -6660,21 +6654,19 @@ depthFirst(graph);
 
 ## **OSI Network Model**
 
-* **`OSI`** : The Open Systems Interconnection reference model is a well known Network Model created in the UK that has both conceptual layers **and** suggested protocols for each.
+- **`OSI`** : The Open Systems Interconnection reference model is a well known Network Model created in the UK that has both conceptual layers **and** suggested protocols for each.
 
-  + There are seven layers to the OSI Model.
-
-    
+  - There are seven layers to the OSI Model.
 
 ![osilayer](https://assets.aaonline.io/Module-Web/network/image-network-models-osi.svg)
 
-  + **`Application`** : Includes information used by client-side software, data from this later interacts directly with applications. (i.e. HTTP)
-  + **`Presentation`** : The syntax later that converts data from machine-readable to human-readable. Includes data compression, encryption, and character encoding. (i.e. JPEG & GIF)
-  + **`Session`** : Includes protocols responsible for authentication and data continuity. Includes authorization or re-establishing a dropp connection. (i.e. RPC (Remote Procedure Call))
-  + **`Transport`** : Utilization of transport protocols (i.e. TCP and UDP)
-  + **`Network`** : Basically the internet layer (i.e. IP)
-  + **`Data Link`** : Deal with connections from one machine's network interface to another. (i.e. ethernet)
-  + **`Physical`** : Translating raw electrical signals to bits & bytes of data. (i.e. Wi-Fi & DSL)
+- **`Application`** : Includes information used by client-side software, data from this later interacts directly with applications. (i.e. HTTP)
+- **`Presentation`** : The syntax later that converts data from machine-readable to human-readable. Includes data compression, encryption, and character encoding. (i.e. JPEG & GIF)
+- **`Session`** : Includes protocols responsible for authentication and data continuity. Includes authorization or re-establishing a dropp connection. (i.e. RPC (Remote Procedure Call))
+- **`Transport`** : Utilization of transport protocols (i.e. TCP and UDP)
+- **`Network`** : Basically the internet layer (i.e. IP)
+- **`Data Link`** : Deal with connections from one machine's network interface to another. (i.e. ethernet)
+- **`Physical`** : Translating raw electrical signals to bits & bytes of data. (i.e. Wi-Fi & DSL)
 
 * It is important to remember that OSI Model is highly conceptual, it's practical uses are limited.
 * TCP/IP is much more practical compared to OSI, but it is purely practical.
@@ -6683,67 +6675,63 @@ depthFirst(graph);
 
 ## **TCP/IP Model**
 
-* **`Reference Model`** : A High-level overview of a complex topic provided by an organization that manages it.
+- **`Reference Model`** : A High-level overview of a complex topic provided by an organization that manages it.
 
 **Layers of the TCP/IP Model**
 
 ![tcpiplayer](https://assets.aaonline.io/Module-Web/network/image-network-models-tcp-ip.svg)
 
-* **`Application`** : Includes protocols related to user-facing data. Anything that is transmitted from the Transport layer is considered Application Layer Data (i.e. HTTP & FTP)
-* **`Transport`** : TCP & UDP.
-* **`Internet`** : Connects separate networks together (IP)
-* **`Link`** : Lower-level communication standards.
-* **`Physical?`** : There is a supposed fifth layer that cinludes all the electrical concepts that span across wires, but it is not officially stated.
-
-  
+- **`Application`** : Includes protocols related to user-facing data. Anything that is transmitted from the Transport layer is considered Application Layer Data (i.e. HTTP & FTP)
+- **`Transport`** : TCP & UDP.
+- **`Internet`** : Connects separate networks together (IP)
+- **`Link`** : Lower-level communication standards.
+- **`Physical?`** : There is a supposed fifth layer that cinludes all the electrical concepts that span across wires, but it is not officially stated.
 
 ![encap](https://assets.aaonline.io/Module-Web/network/image-network-models-encapsulation.svg)
 
-* We can think of the layers of our reference model as being **encapsulated**.
+- We can think of the layers of our reference model as being **encapsulated**.
 
 ---
 
 ## **Binary and Hexidecimal**
 
-* **`Binary`** : Number expressed in the base-2 numeral system or binary numeral system.
-  + **`Base`** : Number System, computers use a Base 2 NS.
-* **`CPU`** : Central Processing Unit, an electronic circuitry within a computer that executes instructions that make up a computer program.
+- **`Binary`** : Number expressed in the base-2 numeral system or binary numeral system.
+  - **`Base`** : Number System, computers use a Base 2 NS.
+- **`CPU`** : Central Processing Unit, an electronic circuitry within a computer that executes instructions that make up a computer program.
 
-* It is easy to understand binary numbers if you remember the bases.
-* 1, 2, 4, 8, 16, 32, 64, 128...etc.
+- It is easy to understand binary numbers if you remember the bases.
+- 1, 2, 4, 8, 16, 32, 64, 128...etc.
 
-* **`Bit`** : A single digit represented by either 1 (ON) or 2 (OFF).
-
-  
+- **`Bit`** : A single digit represented by either 1 (ON) or 2 (OFF).
 
 ![pic](https://i.gyazo.com/413dd89d209c0b2a4d10d8c1f6fe40b6.png)
 
-* **`Byte`** : Sequence of 8 Bits.
+- **`Byte`** : Sequence of 8 Bits.
 
-* **`Hexadecimal`** : Base 16, useful numeric system due to it making it easier for us to read binary.
-  + Helps to make up for base 10 only going from 0 - 9, adds in A, B, C, D, E, F.
-  + You will sometimes see hexadecimals pre-pended with a `0x`.
-  + `FF = 255 = 11111111 = 1 byte`
+- **`Hexadecimal`** : Base 16, useful numeric system due to it making it easier for us to read binary.
+  - Helps to make up for base 10 only going from 0 - 9, adds in A, B, C, D, E, F.
+  - You will sometimes see hexadecimals pre-pended with a `0x`.
+  - `FF = 255 = 11111111 = 1 byte`
 
-``` 
+```
 hexadecimal: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9,  A,  B,  C,  D,  E,  F
 decimal:     0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15
 ```
 
-``` 
+```
 Regular Numbers: 4 8 15 16 23 42
 Binary: 00000100 00001000 00001111 00010000 00010111 00101010
 Hexadecimal: 04 08 0F 10 17 2A
 ```
 
-* If you provide a numerical base in JS in the .toString() method you can convert things to binary and decimal. (parseInt can also be used)
+- If you provide a numerical base in JS in the .toString() method you can convert things to binary and decimal. (parseInt can also be used)
 
-``` js
+```js
 Number(42).toString(16); // 2a
 Number(42).toString(2); // 101010
 ```
 
-``` js
+```js
 parseInt("101010", 2); // 42
 parseInt("2A", 16); // 42
 ```
@@ -6752,113 +6740,111 @@ parseInt("2A", 16); // 42
 
 ## **Internet Protocol**
 
-* **`TCP`** : Transmission Control Protocol.
-  + TCP is fault tolerant and end-to-end.
-  + If data transmission fails it can be cached and re-sent.
-  + No single central system that can take down the entire network.
-* **`IP`** : Internet Protocol.
-* **`Internet`** : A series of interconnected networks sharing data.
-* **`Packet`** : Format that IP data is packaged in.
-  + Contains metadata in headers, and body content.
-* **`Pack-Switching`** : When a message is split up into separate 'packets', delivered to a destination, and reassembled as appropriate.
+- **`TCP`** : Transmission Control Protocol.
+  - TCP is fault tolerant and end-to-end.
+  - If data transmission fails it can be cached and re-sent.
+  - No single central system that can take down the entire network.
+- **`IP`** : Internet Protocol.
+- **`Internet`** : A series of interconnected networks sharing data.
+- **`Packet`** : Format that IP data is packaged in.
+  - Contains metadata in headers, and body content.
+- **`Pack-Switching`** : When a message is split up into separate 'packets', delivered to a destination, and reassembled as appropriate.
 
   > A Byte is 8 Bits
-  > 
 
 ![ip4](https://assets.aaonline.io/Module-Web/network/image-ip-ipv4-headers.svg)
 
-* IPV4
-* IPv4 is still the most commonly used protocol version online.
+- IPV4
+- IPv4 is still the most commonly used protocol version online.
 
 ![ipv6](https://assets.aaonline.io/Module-Web/network/image-ip-ipv6-headers.svg)
 
-* IPV6
-* Was created because we are running out of IP Addresses.
-* **`Version`** : Binary representation of the version #.
-* **`Traffic Class`** : Used to Identify different types of packets.
-* **`Flow Label`** : An experimental option used for adding packet sequencing into IP.
-* **`Payload Length`** : Let's the receivers know how large the data in the packet will be.
-* **`Next Header`** : Usually identifies the protocol type of the packet's data.
-* **`Hop Limit`** : Means of preventing packets from being passed around routers forever.
-* **`Source Address`** : Where the pack originated.
-* **`Destination Address`** : Where the packet is heading.
+- IPV6
+- Was created because we are running out of IP Addresses.
+- **`Version`** : Binary representation of the version #.
+- **`Traffic Class`** : Used to Identify different types of packets.
+- **`Flow Label`** : An experimental option used for adding packet sequencing into IP.
+- **`Payload Length`** : Let's the receivers know how large the data in the packet will be.
+- **`Next Header`** : Usually identifies the protocol type of the packet's data.
+- **`Hop Limit`** : Means of preventing packets from being passed around routers forever.
+- **`Source Address`** : Where the pack originated.
+- **`Destination Address`** : Where the packet is heading.
 
   > All of the headers have a fixed length of 40 bytes.
 
 **Special Addresses**
 
-* **Local Host** : Loopback Address, or the identifier for your current machine.
-  + `127.0.0.1`
-* **ALl-Interfaces Address** : Used to catch any incoming requests regardless of the intended destination.
-  + `0.0.0.0`
+- **Local Host** : Loopback Address, or the identifier for your current machine.
+  - `127.0.0.1`
+- **ALl-Interfaces Address** : Used to catch any incoming requests regardless of the intended destination.
+  - `0.0.0.0`
 
 ---
 
 ## **Transport Protocols**
 
-* Transport Protocols act as our delivery person.
-* IP is concerned with machine-to-machine communication.
-* HTTP is designed for application-to-application communication.
-* **`Port`** : Virtual interfaces that allow a single device to host lot's of different applications & services.
-* **`TCP`** : Transmission Control Protocol, the most common transport protocol.
+- Transport Protocols act as our delivery person.
+- IP is concerned with machine-to-machine communication.
+- HTTP is designed for application-to-application communication.
+- **`Port`** : Virtual interfaces that allow a single device to host lot's of different applications & services.
+- **`TCP`** : Transmission Control Protocol, the most common transport protocol.
 
-  + Connection-oriented protocol.
-  + Reliable protocol because the segments cannot be lost.
-  + Heavy protocol to use (hence, sometimes there is buffering)
+  - Connection-oriented protocol.
+  - Reliable protocol because the segments cannot be lost.
+  - Heavy protocol to use (hence, sometimes there is buffering)
 
-* **`UDP`** : User Datagram Protocol.
-  + Unreliable protocol.
-  + Connection-less and provides no verification if data has been received.
-  + Up to the sender/recipient to manage expectati
+- **`UDP`** : User Datagram Protocol.
+  - Unreliable protocol.
+  - Connection-less and provides no verification if data has been received.
+  - Up to the sender/recipient to manage expectati
 
 ---
 
 ## **DNS**
 
-* **`DNS`** : Domain Name System is a distributed appraoch to providing easily-understood names for internetworked devices. (Similar to a phonebook)
-  + Invented as a way to distribute the work to numerous organizations, lightening the load and allowing much more rapid growth.
+- **`DNS`** : Domain Name System is a distributed appraoch to providing easily-understood names for internetworked devices. (Similar to a phonebook)
 
-* **`Domain`** : A website's domain refers to the 'friendly' name for the website's host, or the server providing the site's content.
+  - Invented as a way to distribute the work to numerous organizations, lightening the load and allowing much more rapid growth.
 
-  
+- **`Domain`** : A website's domain refers to the 'friendly' name for the website's host, or the server providing the site's content.
 
 ![url](https://assets.aaonline.io/Module-Web/network/image-ip-dns-domain.svg)
 
-  + Top Level Domain the last part of the domain (.com, .net, .org)
-  + Second Level Domain (Name of the website)
-  + Subdomain (www)
+- Top Level Domain the last part of the domain (.com, .net, .org)
+- Second Level Domain (Name of the website)
+- Subdomain (www)
 
 * **`Resolution`** : Process of working out which name server is needed.
-  + During resolving, we work from right to left.
+  - During resolving, we work from right to left.
 
 **DNS Records**
 
-* **`Zone File`** : Text file containing, host names, IP Addresses, and resource types.
-* Common DNS Record Types:
-  + **`SOA`** : Start of Authority, let's use know what name server is the primary authority (**`THE MINIMUM REQUIREMENT IN A ZONE FILE`**)
-  + **`NS`** : Keeps us connected to our zone by pointing to name servers.
-  + **`A/AAAA`** : A = Domain Name to IPv4 & AAAA = Domain Name to IPv6
-  + **`CNAME`** : Links Domain name to Domain Name.
-  + **`MX`** : Mail Exchanger, used by e-mail clients.
-  + **`TTL`** : Time to live, measure of how long a record should be cached by a DNS name server.
+- **`Zone File`** : Text file containing, host names, IP Addresses, and resource types.
+- Common DNS Record Types:
+  - **`SOA`** : Start of Authority, let's use know what name server is the primary authority (**`THE MINIMUM REQUIREMENT IN A ZONE FILE`**)
+  - **`NS`** : Keeps us connected to our zone by pointing to name servers.
+  - **`A/AAAA`** : A = Domain Name to IPv4 & AAAA = Domain Name to IPv6
+  - **`CNAME`** : Links Domain name to Domain Name.
+  - **`MX`** : Mail Exchanger, used by e-mail clients.
+  - **`TTL`** : Time to live, measure of how long a record should be cached by a DNS name server.
 
 ---
 
 ## **Network Hardware**
 
-* **HUB** : Simplest networking device aka a Signal Splitter.
+- **HUB** : Simplest networking device aka a Signal Splitter.
 
-  + Cheap and found in older networks.
-  + Hubs do not do any filtering, every single data packet is sent to every single device all the time.
-  + No one uses them anymore.
+  - Cheap and found in older networks.
+  - Hubs do not do any filtering, every single data packet is sent to every single device all the time.
+  - No one uses them anymore.
 
-* **Switches: Traffic Control** : Intelligent Hubs, track devices connected to them, help manage network load, and can manage separate internal networks with ease.
-  + The Max Address Table is the largest difference from hubs.
-  + **`Flood`** : If a destination address is unknown, the switch will flood received data out to all connect devices.
-  + **`Forward`** : If the destination is known, it will send data directly to that device.
-  + **`Filter`** : When data is dropped entirely from a transfer.
-* **`Routers`** : Connect separate networks with each other.
-  + Participate in a process called NAT (Network Address Translation)
+- **Switches: Traffic Control** : Intelligent Hubs, track devices connected to them, help manage network load, and can manage separate internal networks with ease.
+  - The Max Address Table is the largest difference from hubs.
+  - **`Flood`** : If a destination address is unknown, the switch will flood received data out to all connect devices.
+  - **`Forward`** : If the destination is known, it will send data directly to that device.
+  - **`Filter`** : When data is dropped entirely from a transfer.
+- **`Routers`** : Connect separate networks with each other.
+  - Participate in a process called NAT (Network Address Translation)
 
 ---
 
@@ -6879,69 +6865,69 @@ f(n) = could be something entirely different !
 
 O(n):
 
-``` typescript
+```typescript
 function addUpToSimple(n: number) {
-    let total = 0;
-    for (let i = 0; i < n; i++) {
-        total += i;
-    }
-    return total;
+  let total = 0;
+  for (let i = 0; i < n; i++) {
+    total += i;
+  }
+  return total;
 }
 ```
 
 O(1):
 
-``` typescript
+```typescript
 function addUpComplex(n: number) {
-    return (n * (n + 1)) / 2;
+  return (n * (n + 1)) / 2;
 }
 ```
 
 O(n): maybe thinking O(2n) but we see big picture! BigONotation doesn't care about precision only about general trends _linear? quadric? constant?_
 
-``` typescript
+```typescript
 function printUpAndDown(n: number) {
-    console.log("Going up");
-    for (let i = 0; i < n; i++) {
-        console.log(i);
-    }
-    console.log("Going down");
-    for (let j = n - 1; j > 0; j--) {
-        console.log(j);
-    }
+  console.log("Going up");
+  for (let i = 0; i < n; i++) {
+    console.log(i);
+  }
+  console.log("Going down");
+  for (let j = n - 1; j > 0; j--) {
+    console.log(j);
+  }
 }
 ```
 
 O(n^2)
 
-``` typescript
+```typescript
 function printAllPairs(n: number) {
-    for (let i = 0; i < n; i++) {
-        console.log(i);
-        for (let j = 0; j < n; j++) {
-            console.log(j);
-        }
+  for (let i = 0; i < n; i++) {
+    console.log(i);
+    for (let j = 0; j < n; j++) {
+      console.log(j);
     }
+  }
 }
 ```
 
 O(n) : cuz as soon as n grows complexity grows too
 
-``` typescript
+```typescript
 function logAtLeastFive(n: number) {
-    for (let i = 0; i <= Math.max(5, n); i++) {
-        console.log(i);
-    }
+  for (let i = 0; i <= Math.max(5, n); i++) {
+    console.log(i);
+  }
 }
 ```
 
 O(1)
 
-``` typescript
+```typescript
 function logAtMostFive(n: number) {
-    for (let i = 0; i <= Math.min(5, n); i++) {
-        console.log(i);
-    }
+  for (let i = 0; i <= Math.min(5, n); i++) {
+    console.log(i);
+  }
 }
 ```
 
@@ -6949,29 +6935,29 @@ function logAtMostFive(n: number) {
 
 Rules of Thumb
 
-*   most primitive _booleans numbers undefined null_ are constant space.
-*   strings and reference types like objects an arrays require O(n) space _n is string length or number of keys_
+- most primitive _booleans numbers undefined null_ are constant space.
+- strings and reference types like objects an arrays require O(n) space _n is string length or number of keys_
 
 O(1)
 
-``` typescript
+```typescript
 function sum(arr: number[]) {
-    let total = 0;
-    for (let i = 0; i < arr.length; i++) {
-        total += arr[i];
-    }
+  let total = 0;
+  for (let i = 0; i < arr.length; i++) {
+    total += arr[i];
+  }
 }
 ```
 
 O(n)
 
-``` typescript
+```typescript
 function double(arr: number[]) {
-    const newArr = [];
-    for (let i = 0; i < arr.length; i++) {
-        array.push(arr[i] * 2);
-    }
-    return newArr;
+  const newArr = [];
+  for (let i = 0; i < arr.length; i++) {
+    array.push(arr[i] * 2);
+  }
+  return newArr;
 }
 ```
 
@@ -6979,7 +6965,7 @@ function double(arr: number[]) {
 
 object:
 
-``` typescript
+```typescript
 const person = { name: "John", age: 22, hobbies: ["reading", "sleeping"] };
 
 Object.keys(person); // ["name", "age", "hobbies"] O(n)
@@ -6997,20 +6983,20 @@ _push() and pop()_ are always faster from _unshift() and shift()_ cuz inserting 
 
 O(n^3)
 
-``` typescript
+```typescript
 function same(arrOne: number[], arrTwo: number[]): boolean {
-    if (arrOne.length !== arrTwo.length) {
-        return false;
+  if (arrOne.length !== arrTwo.length) {
+    return false;
+  }
+  for (let element of arrOne) {
+    // for O(n)
+    if (!arrTwo.includes(element ** 2)) {
+      // includes cuz iterate over all indexes O(n)
+      return false;
     }
-    for (let element of arrOne) {
-        // for O(n)
-        if (!arrTwo.includes(element ** 2)) {
-            // includes cuz iterate over all indexes O(n)
-            return false;
-        }
-        arrTwo.splice(arrTwo.indexOf(element ** 2), 1); // indexOf cuz iterate over all indexes O(n)
-    }
-    return true;
+    arrTwo.splice(arrTwo.indexOf(element ** 2), 1); // indexOf cuz iterate over all indexes O(n)
+  }
+  return true;
 }
 ```
 
@@ -7018,91 +7004,91 @@ frequencyCounter:
 
 O(n)
 
-``` typescript
+```typescript
 function same(arr1: number[], arr2: number[]) {
-    if (arr1.length !== arr2.length) {
-        return false;
-    }
+  if (arr1.length !== arr2.length) {
+    return false;
+  }
 
-    const frequencyCounter1 = {};
-    const frequencyCounter2 = {};
+  const frequencyCounter1 = {};
+  const frequencyCounter2 = {};
 
-    for (let val of arr1) {
-        frequencyCounter1[val] = (frequencyCounter1[val] || 0) + 1;
-    }
-    for (let val of arr2) {
-        frequencyCounter2[val] = (frequencyCounter2[val] || 0) + 1;
-    }
+  for (let val of arr1) {
+    frequencyCounter1[val] = (frequencyCounter1[val] || 0) + 1;
+  }
+  for (let val of arr2) {
+    frequencyCounter2[val] = (frequencyCounter2[val] || 0) + 1;
+  }
 
-    for (let key in frequencyCounter1) {
-        const sqrtKey = parseInt(key, 10) ** 2;
-        if (
-            !(sqrtKey in frequencyCounter2) || // interesting ** in ** check if object contains key
-            frequencyCounter2[sqrtKey] !== frequencyCounter1[key]
-        ) {
-            return false;
-        }
+  for (let key in frequencyCounter1) {
+    const sqrtKey = parseInt(key, 10) ** 2;
+    if (
+      !(sqrtKey in frequencyCounter2) || // interesting ** in ** check if object contains key
+      frequencyCounter2[sqrtKey] !== frequencyCounter1[key]
+    ) {
+      return false;
     }
+  }
 
-    return true;
+  return true;
 }
 ```
 
 O(n)
 
-``` typescript
+```typescript
 // approach one
 function validAnagram(str1: string, str2: string): boolean {
-    if (str1.length !== str2.length) {
-        return false;
-    }
+  if (str1.length !== str2.length) {
+    return false;
+  }
 
-    const frequencyCount1 = {};
-    const frequencyCount2 = {};
+  const frequencyCount1 = {};
+  const frequencyCount2 = {};
 
-    for (let value of str1) {
-        frequencyCount1[value] = (frequencyCount1[value] || 0) + 1;
-    }
-    for (let value of str2) {
-        frequencyCount2[value] = (frequencyCount2[value] || 0) + 1;
-    }
+  for (let value of str1) {
+    frequencyCount1[value] = (frequencyCount1[value] || 0) + 1;
+  }
+  for (let value of str2) {
+    frequencyCount2[value] = (frequencyCount2[value] || 0) + 1;
+  }
 
-    for (let key in frequencyCount1) {
-        if (frequencyCount1[key] !== frequencyCount2[key]) {
-            return false;
-        }
+  for (let key in frequencyCount1) {
+    if (frequencyCount1[key] !== frequencyCount2[key]) {
+      return false;
     }
+  }
 
-    return true;
+  return true;
 }
 
 // approach two
 function validAnagram(str1: string, str2: string): boolean {
-    if (str1.length !== str2.length) {
-        return false;
+  if (str1.length !== str2.length) {
+    return false;
+  }
+
+  const frequencyCount = {};
+
+  for (let i = 0; i < str1.length; i++) {
+    const currentElement = str1[i];
+
+    frequencyCount[currentElement]
+      ? (frequencyCount[currentElement] += 1)
+      : (frequencyCount[currentElement] = 1);
+  }
+
+  for (let i = 0; i < str2.length; i++) {
+    const currentElement = str2[i];
+
+    if (!frequencyCount[currentElement]) {
+      return false;
+    } else {
+      frequencyCount[currentElement] -= 1;
     }
+  }
 
-    const frequencyCount = {};
-
-    for (let i = 0; i < str1.length; i++) {
-        const currentElement = str1[i];
-
-        frequencyCount[currentElement]
-            ? (frequencyCount[currentElement] += 1)
-            : (frequencyCount[currentElement] = 1);
-    }
-
-    for (let i = 0; i < str2.length; i++) {
-        const currentElement = str2[i];
-
-        if (!frequencyCount[currentElement]) {
-            return false;
-        } else {
-            frequencyCount[currentElement] -= 1;
-        }
-    }
-
-    return true;
+  return true;
 }
 ```
 
@@ -7110,15 +7096,15 @@ function validAnagram(str1: string, str2: string): boolean {
 
 O(n^2)
 
-``` typescript
+```typescript
 function sumZero(arr: number[]) {
-    for (let i = 0; i < arr.length; i++) {
-        for (let j = i + 1; j < arr.length; j++) {
-            if (arr[i] + arr[j] === 0) {
-                return [arr[i], arr[j]];
-            }
-        }
+  for (let i = 0; i < arr.length; i++) {
+    for (let j = i + 1; j < arr.length; j++) {
+      if (arr[i] + arr[j] === 0) {
+        return [arr[i], arr[j]];
+      }
     }
+  }
 }
 ```
 
@@ -7126,60 +7112,60 @@ multiple pointers:
 
 O(n)
 
-``` typescript
+```typescript
 function sumZero(arr: number[]) {
-    let left = 0;
-    let right = arr.length - 1;
+  let left = 0;
+  let right = arr.length - 1;
 
-    while (left < right) {
-        const sum = arr[left] + arr[right];
-        if (sum === 0) {
-            return [arr[left], arr[right]];
-        } else if (sum > 0) {
-            right--;
-        } else {
-            left++;
-        }
+  while (left < right) {
+    const sum = arr[left] + arr[right];
+    if (sum === 0) {
+      return [arr[left], arr[right]];
+    } else if (sum > 0) {
+      right--;
+    } else {
+      left++;
     }
+  }
 }
 ```
 
 O(n)
 
-``` typescript
+```typescript
 // my approach
 
 function countUniqueValues(arr: number[]): number {
-    let pointer = 0;
-    let count = 0;
-    while (pointer < arr.length) {
-        if (arr[pointer] === arr[pointer + 1]) {
-            pointer++;
-        } else {
-            count++;
-            pointer++;
-        }
+  let pointer = 0;
+  let count = 0;
+  while (pointer < arr.length) {
+    if (arr[pointer] === arr[pointer + 1]) {
+      pointer++;
+    } else {
+      count++;
+      pointer++;
     }
+  }
 
-    return count;
+  return count;
 }
 
 // steele approach
 
 function countUniqueValues(arr: number[]): number {
-    if (arr.length === 0) {
-        return 0;
-    }
+  if (arr.length === 0) {
+    return 0;
+  }
 
-    let i = 0;
+  let i = 0;
 
-    for (let j = 1; j < arr.length; j++) {
-        if (arr[i] !== arr[j]) {
-            i++;
-            arr[i] = arr[j];
-        }
+  for (let j = 1; j < arr.length; j++) {
+    if (arr[i] !== arr[j]) {
+      i++;
+      arr[i] = arr[j];
     }
-    return i + 1;
+  }
+  return i + 1;
 }
 ```
 
@@ -7187,25 +7173,25 @@ function countUniqueValues(arr: number[]): number {
 
 O(n^2)
 
-``` typescript
+```typescript
 function maxSubArraySum(arr: number[], n: number): number | null {
-    if (arr.length < n) {
-        return null;
+  if (arr.length < n) {
+    return null;
+  }
+
+  let max = -Infinity;
+
+  for (let i = 0; i < arr.length - n + 1; i++) {
+    let tmp = 0;
+    for (let j = 0; j < n; j++) {
+      tmp += arr[i + j];
     }
 
-    let max = -Infinity;
-
-    for (let i = 0; i < arr.length - n + 1; i++) {
-        let tmp = 0;
-        for (let j = 0; j < n; j++) {
-            tmp += arr[i + j];
-        }
-
-        if (tmp > max) {
-            max = tmp;
-        }
+    if (tmp > max) {
+      max = tmp;
     }
-    return max;
+  }
+  return max;
 }
 ```
 
@@ -7213,24 +7199,24 @@ O(n)
 
 sliding window:
 
-``` typescript
+```typescript
 function maxSubArraySum(arr: number[], n: number): number | null {
-    if (arr.length < n) {
-        return null;
-    }
+  if (arr.length < n) {
+    return null;
+  }
 
-    let maxSum = 0;
-    let tmpSum = 0;
+  let maxSum = 0;
+  let tmpSum = 0;
 
-    for (let i = 0; i < n; i++) {
-        maxSum += arr[i];
-    }
+  for (let i = 0; i < n; i++) {
+    maxSum += arr[i];
+  }
 
-    for (let i = n; i < arr.length; i++) {
-        tmpSum = tmpSum - arr[i - n] + arr[i];
-        maxSum = Math.max(tmpSum, maxSum);
-    }
-    return maxSum;
+  for (let i = n; i < arr.length; i++) {
+    tmpSum = tmpSum - arr[i - n] + arr[i];
+    maxSum = Math.max(tmpSum, maxSum);
+  }
+  return maxSum;
 }
 ```
 
@@ -7240,14 +7226,14 @@ linearSearch
 
 O(n)
 
-``` typescript
+```typescript
 function linearSearch(arr, val): number {
-    for (let i = 0; i < arr.length; i++) {
-        if (arr[i] === val) {
-            return i;
-        }
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] === val) {
+      return i;
     }
-    return -1;
+  }
+  return -1;
 }
 ```
 
@@ -7257,22 +7243,22 @@ binarySearch
 
 O (Log n)
 
-``` typescript
+```typescript
 function binarySearch(sortedArr: number[], value: number): number {
-    let min = 0;
-    let max = sortedArr.length - 1;
+  let min = 0;
+  let max = sortedArr.length - 1;
 
-    while (min <= max) {
-        let middle = Math.floor((min + max) / 2);
-        if (sortedArr[middle] < value) {
-            min = middle + 1;
-        } else if (sortedArr[middle] > value) {
-            max = middle - 1;
-        } else {
-            return middle;
-        }
+  while (min <= max) {
+    let middle = Math.floor((min + max) / 2);
+    if (sortedArr[middle] < value) {
+      min = middle + 1;
+    } else if (sortedArr[middle] > value) {
+      max = middle - 1;
+    } else {
+      return middle;
     }
-    return -1;
+  }
+  return -1;
 }
 ```
 
@@ -7282,29 +7268,29 @@ a process that calls itself
 
 quick note around callStack
 
-``` typescript
+```typescript
 function wakeUp() {
-    // callStack [wakeUp]
-    takeShower();
-    eatBreakfast();
-    console.log("Ready to go ... ");
+  // callStack [wakeUp]
+  takeShower();
+  eatBreakfast();
+  console.log("Ready to go ... ");
 } // callStack []
 
 function takeShower() {
-    // callStack [takeShower, wakeUp]
-    console.log("taking shower");
+  // callStack [takeShower, wakeUp]
+  console.log("taking shower");
 } // callStack[wakeUp]
 
 function eatBreakfast() {
-    // callStack [eatBreakfast, wakeUp]
-    const meal = cookBreakFast();
-    console.log(`eating ${meal}`);
+  // callStack [eatBreakfast, wakeUp]
+  const meal = cookBreakFast();
+  console.log(`eating ${meal}`);
 } // callStack [wakeUp]
 
 function cookBreakFast() {
-    // callStack [cookBreakFast, eatBreakfast, wakeUp]
-    const meals = ["Cheese", "Protein Shake", "Coffee"];
-    return meals[Math.floor(Math.random() * meals.length)]; // callStack [eatBreakFast, wakeUp]
+  // callStack [cookBreakFast, eatBreakfast, wakeUp]
+  const meals = ["Cheese", "Protein Shake", "Coffee"];
+  return meals[Math.floor(Math.random() * meals.length)]; // callStack [eatBreakFast, wakeUp]
 }
 
 wakeUp();
@@ -7312,59 +7298,59 @@ wakeUp();
 
 two essential part of recursive functions
 
-*   base case : end of the line
-*   different input : recursive should call by different piece of data
+- base case : end of the line
+- different input : recursive should call by different piece of data
 
-``` typescript
+```typescript
 function sumRange(num: number) {
-    if (num === 1) return 1;
-    return num + sumRange(num - 1);
+  if (num === 1) return 1;
+  return num + sumRange(num - 1);
 }
 
 function factorial(num: number) {
-    if (num === 1) return 1;
-    return num * factorial(num - 1);
+  if (num === 1) return 1;
+  return num * factorial(num - 1);
 }
 ```
 
 helper method recursion vs pure recursion
 
-``` typescript
+```typescript
 // helper method recursion approach
 function collectOdd(arr: number[]) {
-    const result = [];
+  const result = [];
 
-    function helper(helperArr: number[]) {
-        if (!helperArr.length) {
-            return;
-        }
-
-        if (helperArr[0] % 2 !== 0) {
-            result.push(helperArr[0]);
-        }
-
-        helper(helperArr.slice(1));
+  function helper(helperArr: number[]) {
+    if (!helperArr.length) {
+      return;
     }
 
-    helper(arr);
+    if (helperArr[0] % 2 !== 0) {
+      result.push(helperArr[0]);
+    }
 
-    return result;
+    helper(helperArr.slice(1));
+  }
+
+  helper(arr);
+
+  return result;
 }
 
 // pure recursion approach
 function collectOdd(arr: number[]): number[] {
-    let result = [];
+  let result = [];
 
-    if (!arr.length) {
-        return result;
-    }
-
-    if (arr[0] % 2 !== 0) {
-        result.push(arr[0]);
-    }
-
-    result = collectOdd(result.concat(arr.slice(1)));
+  if (!arr.length) {
     return result;
+  }
+
+  if (arr[0] % 2 !== 0) {
+    result.push(arr[0]);
+  }
+
+  result = collectOdd(result.concat(arr.slice(1)));
+  return result;
 }
 ```
 
@@ -7376,14 +7362,14 @@ _indexOf() includes() find() findIndex()_ all this methods doing linear search b
 
 O(n)
 
-``` typescript
+```typescript
 function linearSearch(arr: number[], value: number): number {
-    for (let i = 0; i < arr.length; i++) {
-        if (arr[i] === value) {
-            return i;
-        }
-        return -1;
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] === value) {
+      return i;
     }
+    return -1;
+  }
 }
 ```
 
@@ -7391,23 +7377,23 @@ function linearSearch(arr: number[], value: number): number {
 
 O(Log n)
 
-``` typescript
+```typescript
 function binarySearch(sortedArr: number[], value: number): number {
-    let left = 0;
-    let right = sortedArr.length - 1;
+  let left = 0;
+  let right = sortedArr.length - 1;
 
-    while (left <= right) {
-        const middle = Math.round((right + left) / 2);
+  while (left <= right) {
+    const middle = Math.round((right + left) / 2);
 
-        if (sortedArr[middle] > value) {
-            right = middle - 1;
-        } else if (sortedArr[middle] < value) {
-            left = middle + 1;
-        } else {
-            return middle;
-        }
+    if (sortedArr[middle] > value) {
+      right = middle - 1;
+    } else if (sortedArr[middle] < value) {
+      left = middle + 1;
+    } else {
+      return middle;
     }
-    return -1;
+  }
+  return -1;
 }
 ```
 
@@ -7415,22 +7401,22 @@ function binarySearch(sortedArr: number[], value: number): number {
 
 O(n^2)
 
-``` typescript
+```typescript
 function naiveStringSearch(long: string, pattern: string): number {
-    let count = 0;
+  let count = 0;
 
-    for (let i = 0; i < long.length; i++) {
-        for (let j = 0; j < pattern.length; j++) {
-            if (pattern[j] !== long[i + j]) {
-                break;
-            }
-            if (j === pattern.length - 1) {
-                count++;
-            }
-        }
+  for (let i = 0; i < long.length; i++) {
+    for (let j = 0; j < pattern.length; j++) {
+      if (pattern[j] !== long[i + j]) {
+        break;
+      }
+      if (j === pattern.length - 1) {
+        count++;
+      }
     }
+  }
 
-    return count;
+  return count;
 }
 ```
 
@@ -7440,7 +7426,7 @@ function naiveStringSearch(long: string, pattern: string): number {
 
 array.sort(cb?) will turn all values to _string_ then sort it based on it's _unicode_
 
-``` typescript
+```typescript
 ["a", "c", "b", "f", "d"].sort(); // (5) ["a", "b", "c", "d", "f"]
 [1, 10, 6, 8, 2, 3, 5].sort(); //(7) [1, 10, 2, 3, 5, 6, 8]
 
@@ -7468,35 +7454,35 @@ also receive callback function by two arguments:
 general: O(n^2)
 nearlySortedData: O(n)
 
-``` typescript
+```typescript
 function bubbleSort(arr: number[]): number[] {
-    for (let i = 0; i < arr.length; i++) {
-        let noSwap = true;
-        for (let j = 0; j < arr.length - i; j++) {
-            if (arr[j] > arr[j + 1]) {
-                [arr[j], arr[j + 1]] = [arr[j + 1], arr[j]];
-                noSwap = false;
-            }
-        }
-        if (noSwap) break;
+  for (let i = 0; i < arr.length; i++) {
+    let noSwap = true;
+    for (let j = 0; j < arr.length - i; j++) {
+      if (arr[j] > arr[j + 1]) {
+        [arr[j], arr[j + 1]] = [arr[j + 1], arr[j]];
+        noSwap = false;
+      }
     }
-    return arr;
+    if (noSwap) break;
+  }
+  return arr;
 }
 
 // or
 
 function bubbleSort(arr: number[]): number[] {
-    for (let i = arr.length; i > 0; i--) {
-        let noSwap = true;
-        for (let j = 0; j < i - 1; j++) {
-            if (arr[j] > arr[j + 1]) {
-                [arr[j], arr[j + 1]] = [arr[j + 1], arr[j]];
-                noSwap = false;
-            }
-        }
-        if (noSwap) break;
+  for (let i = arr.length; i > 0; i--) {
+    let noSwap = true;
+    for (let j = 0; j < i - 1; j++) {
+      if (arr[j] > arr[j + 1]) {
+        [arr[j], arr[j + 1]] = [arr[j + 1], arr[j]];
+        noSwap = false;
+      }
     }
-    return arr;
+    if (noSwap) break;
+  }
+  return arr;
 }
 ```
 
@@ -7506,20 +7492,20 @@ function bubbleSort(arr: number[]): number[] {
 
 O(n^2)
 
-``` typescript
+```typescript
 function selectionSort(arr: number[]) {
-    for (let i = 0; i < arr.length; i++) {
-        let min = i;
-        for (let j = i + 1; j < arr.length; j++) {
-            if (arr[j] < arr[min]) {
-                min = j;
-            }
-        }
-        if (min !== i) {
-            [arr[i], arr[min]] = [arr[min], arr[i]];
-        }
+  for (let i = 0; i < arr.length; i++) {
+    let min = i;
+    for (let j = i + 1; j < arr.length; j++) {
+      if (arr[j] < arr[min]) {
+        min = j;
+      }
     }
-    return arr;
+    if (min !== i) {
+      [arr[i], arr[min]] = [arr[min], arr[i]];
+    }
+  }
+  return arr;
 }
 ```
 
@@ -7530,17 +7516,17 @@ function selectionSort(arr: number[]) {
 general: O(n^2)
 nearlySortedData: O(n)
 
-``` typescript
+```typescript
 function insertionSort(arr) {
-    var currentVal;
-    for (let i = 1; i < arr.length; i++) {
-        currentVal = arr[i];
-        for (var j = i - 1; j >= 0 && arr[j] > currentVal; j--) {
-            arr[j + 1] = arr[j];
-        }
-        arr[j + 1] = currentVal;
+  var currentVal;
+  for (let i = 1; i < arr.length; i++) {
+    currentVal = arr[i];
+    for (var j = i - 1; j >= 0 && arr[j] > currentVal; j--) {
+      arr[j + 1] = arr[j];
     }
-    return arr;
+    arr[j + 1] = currentVal;
+  }
+  return arr;
 }
 ```
 
@@ -7560,44 +7546,44 @@ function insertionSort(arr) {
 
 O(n Log n)
 
-``` typescript
+```typescript
 // merge two sorted array
 function merge(arr1: number[], arr2: number[]): number[] {
-    let result = [];
-    let i = 0;
-    let j = 0;
+  let result = [];
+  let i = 0;
+  let j = 0;
 
-    while (i < arr1.length && j < arr2.length) {
-        if (arr1[i] < arr2[j]) {
-            result.push(arr1[i]);
-            i++;
-        } else {
-            result.push(arr2[j]);
-            j++;
-        }
+  while (i < arr1.length && j < arr2.length) {
+    if (arr1[i] < arr2[j]) {
+      result.push(arr1[i]);
+      i++;
+    } else {
+      result.push(arr2[j]);
+      j++;
     }
+  }
 
-    while (i < arr1.length) {
-        result.push(arr1[i]);
-        i++;
-    }
-    while (j < arr2.length) {
-        result.push(arr2[j]);
-        j++;
-    }
+  while (i < arr1.length) {
+    result.push(arr1[i]);
+    i++;
+  }
+  while (j < arr2.length) {
+    result.push(arr2[j]);
+    j++;
+  }
 
-    return result;
+  return result;
 }
 
 function mergeSort(arr: number[]): number[] {
-    if (arr.length <= 1) return arr;
+  if (arr.length <= 1) return arr;
 
-    const middle = Math.floor(arr.length / 2);
+  const middle = Math.floor(arr.length / 2);
 
-    const left = mergeSort(arr.slice(0, middle));
-    const right = mergeSort(arr.slice(middle));
+  const left = mergeSort(arr.slice(0, middle));
+  const right = mergeSort(arr.slice(middle));
 
-    return merge(left, right);
+  return merge(left, right);
 }
 ```
 
@@ -7610,32 +7596,32 @@ in following implementation we always assume _first item_ as pivot
 general: O(n Log n)
 sorted: O(n^2)
 
-``` typescript
+```typescript
 // place pivot in the right index and return pivot index
 function pivot(arr: number[], start = 0, end = arr.length - 1) {
-    const pivot = arr[start];
-    let pivotIndex = start;
+  const pivot = arr[start];
+  let pivotIndex = start;
 
-    for (let i = start + 1; i < end; i++) {
-        if (arr[i] < pivot) {
-            pivotIndex++;
-            [arr[pivotIndex], arr[i]] = [arr[i], arr[pivotIndex]];
-        }
+  for (let i = start + 1; i < end; i++) {
+    if (arr[i] < pivot) {
+      pivotIndex++;
+      [arr[pivotIndex], arr[i]] = [arr[i], arr[pivotIndex]];
     }
-    [arr[start], arr[pivotIndex]] = [arr[pivotIndex], arr[start]];
+  }
+  [arr[start], arr[pivotIndex]] = [arr[pivotIndex], arr[start]];
 }
 
 function quickSort(arr: number[], start = 0, end = arr.length - 1) {
-    if (left < right) {
-        const pivot = pivot(arr, start, end);
+  if (left < right) {
+    const pivot = pivot(arr, start, end);
 
-        // left
-        quickSort(arr, start, pivotIndex - 1);
-        // right
-        quickSort(arr, pivotIndex + 1, end);
-    }
+    // left
+    quickSort(arr, start, pivotIndex - 1);
+    // right
+    quickSort(arr, pivotIndex + 1, end);
+  }
 
-    return arr;
+  return arr;
 }
 ```
 
@@ -7647,36 +7633,36 @@ O(nk)
 n: the number of items we sorting
 k: average length of those numbers
 
-``` typescript
+```typescript
 // get the actual number at the given index
 function getDigit(num: number, i: number): number {
-    return Math.floor(Math.abs(num) / Math.pow(10, i)) % 10;
+  return Math.floor(Math.abs(num) / Math.pow(10, i)) % 10;
 }
 // get number length
 function digitCount(num: number): number {
-    if (num === 0) return 1;
-    return Math.floor(Math.log10(Math.abs(num))) + 1;
+  if (num === 0) return 1;
+  return Math.floor(Math.log10(Math.abs(num))) + 1;
 }
 
 // return number by most length
 function mostDigits(arr: number[]): number {
-    let maxDigits = 0;
-    for (let i = 0; i < arr.length; i++) {
-        maxDigits = Math.max(maxDigits, digitCount(arr[i]));
-    }
-    return maxDigits;
+  let maxDigits = 0;
+  for (let i = 0; i < arr.length; i++) {
+    maxDigits = Math.max(maxDigits, digitCount(arr[i]));
+  }
+  return maxDigits;
 }
 function radixSort(arr: number[]): number[] {
-    let maxDigitCount = mostDigits(arr);
-    for (let k = 0; k < maxDigitCount; k++) {
-        let digitBuckets = Array.from({ length: 10 }, () => []);
-        for (let j = 0; j < arr.length; j++) {
-            digitBuckets[getDigit(arr[j], k)].push(arr[j]);
-        }
-
-        arr = [].concat(...digitBuckets);
+  let maxDigitCount = mostDigits(arr);
+  for (let k = 0; k < maxDigitCount; k++) {
+    let digitBuckets = Array.from({ length: 10 }, () => []);
+    for (let j = 0; j < arr.length; j++) {
+      digitBuckets[getDigit(arr[j], k)].push(arr[j]);
     }
-    return arr;
+
+    arr = [].concat(...digitBuckets);
+  }
+  return arr;
 }
 ```
 
@@ -7704,352 +7690,352 @@ function radixSort(arr: number[]): number[] {
 
 ## Singly Linked list
 
-``` typescript
+```typescript
 class _Node {
-    constructor(public value: any) {}
-    public next: _Node | null = null;
+  constructor(public value: any) {}
+  public next: _Node | null = null;
 }
 
 class SinglyLinkedList {
-    private _length: number = 0;
-    private head: _Node | null = null;
-    private tail: _Node | null = null;
+  private _length: number = 0;
+  private head: _Node | null = null;
+  private tail: _Node | null = null;
 
-    get length() {
-        return this._length;
+  get length() {
+    return this._length;
+  }
+
+  get print(): null | _Node[] {
+    if (!this._length) return null;
+
+    const arr = [];
+    let currentNode = this.head;
+    while (currentNode) {
+      arr.push(currentNode.value);
+      currentNode = currentNode.next;
     }
+    return arr;
+  }
 
-    get print(): null | _Node[] {
-        if (!this._length) return null;
+  public push(value: any): SinglyLinkedList {
+    const node = new _Node(value);
 
-        const arr = [];
-        let currentNode = this.head;
-        while (currentNode) {
-            arr.push(currentNode.value);
-            currentNode = currentNode.next;
-        }
-        return arr;
+    if (!this.head || !this.tail) {
+      this.head = node;
+      this.tail = this.head;
+    } else {
+      this.tail.next = node;
+      this.tail = node;
     }
+    this._length += 1;
 
-    public push(value: any): SinglyLinkedList {
-        const node = new _Node(value);
+    return this;
+  }
 
-        if (!this.head || !this.tail) {
-            this.head = node;
-            this.tail = this.head;
-        } else {
-            this.tail.next = node;
-            this.tail = node;
-        }
+  public pop(): _Node | null {
+    if (!this.head) return null;
+
+    let currentNode = this.head;
+
+    if (!currentNode.next) {
+      this.head = null;
+      this.tail = null;
+      this._length -= 1;
+      return currentNode;
+    }
+    while (currentNode.next && currentNode.next.next) {
+      currentNode = currentNode.next;
+    }
+    this.tail = currentNode;
+    this.tail.next = null;
+    this._length -= 1;
+    return currentNode.next as _Node;
+  }
+
+  public unShift(value: any): SinglyLinkedList {
+    const currentHead = this.head;
+
+    this.head = new _Node(value);
+
+    if (currentHead) {
+      this.head.next = currentHead;
+    } else {
+      this.tail = this.head;
+    }
+    this._length += 1;
+    return this;
+  }
+
+  public shift(): _Node | null {
+    if (!this.head) return null;
+
+    const currentHead = this.head;
+    this.head = currentHead.next;
+    this._length -= 1;
+
+    if (currentHead === this.tail) this.tail = null;
+
+    return currentHead;
+  }
+
+  public get(index: number): _Node | null {
+    if (index < 0 || index >= this._length) return null;
+
+    let currentNode = this.head;
+    for (let j = 0; j < index; j++) {
+      if (currentNode && currentNode.next) {
+        currentNode = currentNode.next;
+      }
+    }
+    return currentNode;
+  }
+
+  public set(index: number, value: any): _Node | null {
+    const node = this.get(index);
+    if (node) {
+      node.value = value;
+    }
+    return node;
+  }
+
+  public insert(index: number, value: any): SinglyLinkedList | null {
+    if (index < 0 || index >= this._length) {
+      return null;
+    } else if (index === 0) {
+      return this.unShift(value);
+    } else if (index === this._length) {
+      return this.push(value);
+    } else {
+      const prevNode = this.get(index - 1);
+
+      if (prevNode) {
+        const newNode = new _Node(value);
+        newNode.next = prevNode.next;
+        prevNode.next = newNode;
         this._length += 1;
 
         return this;
+      }
+      return prevNode;
     }
+  }
 
-    public pop(): _Node | null {
-        if (!this.head) return null;
-
-        let currentNode = this.head;
-
-        if (!currentNode.next) {
-            this.head = null;
-            this.tail = null;
-            this._length -= 1;
-            return currentNode;
-        }
-        while (currentNode.next && currentNode.next.next) {
-            currentNode = currentNode.next;
-        }
-        this.tail = currentNode;
-        this.tail.next = null;
+  public remove(index: number): _Node | null {
+    if (index === 0) {
+      return this.shift();
+    } else if (index === this._length - 1) {
+      return this.pop();
+    } else {
+      const prevNode = this.get(index - 1);
+      const currentNode = this.get(index);
+      if (prevNode && currentNode) {
+        prevNode.next = currentNode.next;
         this._length -= 1;
-        return currentNode.next as _Node;
+      }
+      return currentNode;
     }
+  }
 
-    public unShift(value: any): SinglyLinkedList {
-        const currentHead = this.head;
+  public reverse(): SinglyLinkedList | false {
+    if (this._length <= 1) return false;
 
-        this.head = new _Node(value);
+    let node = this.head;
+    this.head = this.tail;
+    this.tail = node;
 
-        if (currentHead) {
-            this.head.next = currentHead;
-        } else {
-            this.tail = this.head;
-        }
-        this._length += 1;
-        return this;
+    let next: _Node | null;
+    let prev: _Node | null = null;
+    for (let i = 0; i < this._length; i++) {
+      if (node) {
+        next = node.next;
+        node.next = prev;
+        prev = node;
+        node = next;
+      }
     }
-
-    public shift(): _Node | null {
-        if (!this.head) return null;
-
-        const currentHead = this.head;
-        this.head = currentHead.next;
-        this._length -= 1;
-
-        if (currentHead === this.tail) this.tail = null;
-
-        return currentHead;
-    }
-
-    public get(index: number): _Node | null {
-        if (index < 0 || index >= this._length) return null;
-
-        let currentNode = this.head;
-        for (let j = 0; j < index; j++) {
-            if (currentNode && currentNode.next) {
-                currentNode = currentNode.next;
-            }
-        }
-        return currentNode;
-    }
-
-    public set(index: number, value: any): _Node | null {
-        const node = this.get(index);
-        if (node) {
-            node.value = value;
-        }
-        return node;
-    }
-
-    public insert(index: number, value: any): SinglyLinkedList | null {
-        if (index < 0 || index >= this._length) {
-            return null;
-        } else if (index === 0) {
-            return this.unShift(value);
-        } else if (index === this._length) {
-            return this.push(value);
-        } else {
-            const prevNode = this.get(index - 1);
-
-            if (prevNode) {
-                const newNode = new _Node(value);
-                newNode.next = prevNode.next;
-                prevNode.next = newNode;
-                this._length += 1;
-
-                return this;
-            }
-            return prevNode;
-        }
-    }
-
-    public remove(index: number): _Node | null {
-        if (index === 0) {
-            return this.shift();
-        } else if (index === this._length - 1) {
-            return this.pop();
-        } else {
-            const prevNode = this.get(index - 1);
-            const currentNode = this.get(index);
-            if (prevNode && currentNode) {
-                prevNode.next = currentNode.next;
-                this._length -= 1;
-            }
-            return currentNode;
-        }
-    }
-
-    public reverse(): SinglyLinkedList | false {
-        if (this._length <= 1) return false;
-
-        let node = this.head;
-        this.head = this.tail;
-        this.tail = node;
-
-        let next: _Node | null;
-        let prev: _Node | null = null;
-        for (let i = 0; i < this._length; i++) {
-            if (node) {
-                next = node.next;
-                node.next = prev;
-                prev = node;
-                node = next;
-            }
-        }
-        return this;
-    }
+    return this;
+  }
 }
 ```
 
 ## Doubly Linked List
 
-``` typescript
+```typescript
 class _Node {
-    public next: _Node | null = null;
-    public prev: _Node | null = null;
+  public next: _Node | null = null;
+  public prev: _Node | null = null;
 
-    constructor(public value: any) {}
+  constructor(public value: any) {}
 }
 
 class DoublyLinkedList {
-    private head: _Node | null = null;
-    private tail: _Node | null = null;
+  private head: _Node | null = null;
+  private tail: _Node | null = null;
 
-    private _length = 0;
+  private _length = 0;
 
-    get length() {
-        return this._length;
+  get length() {
+    return this._length;
+  }
+
+  get print(): null | _Node[] {
+    if (!this._length) return null;
+
+    const arr = [];
+    let currentNode = this.head;
+    while (currentNode) {
+      arr.push(currentNode.value);
+      currentNode = currentNode.next;
+    }
+    return arr;
+  }
+
+  public push(value: any): DoublyLinkedList {
+    const node = new _Node(value);
+
+    if (!this.tail) {
+      this.head = node;
+    } else {
+      this.tail.next = node;
+      node.prev = this.tail;
+    }
+    this._length += 1;
+    this.tail = node;
+
+    return this;
+  }
+
+  public pop(): _Node | null {
+    if (!this.tail) {
+      return null;
     }
 
-    get print(): null | _Node[] {
-        if (!this._length) return null;
-
-        const arr = [];
-        let currentNode = this.head;
-        while (currentNode) {
-            arr.push(currentNode.value);
-            currentNode = currentNode.next;
-        }
-        return arr;
+    const currentTail = this.tail;
+    if (currentTail.prev) {
+      this.tail = currentTail.prev;
+      this.tail.next = null;
+      currentTail.prev = null;
+    } else {
+      this.head = null;
+      this.tail = null;
     }
 
-    public push(value: any): DoublyLinkedList {
-        const node = new _Node(value);
+    this._length -= 1;
+    return currentTail;
+  }
 
-        if (!this.tail) {
-            this.head = node;
-        } else {
-            this.tail.next = node;
-            node.prev = this.tail;
-        }
-        this._length += 1;
-        this.tail = node;
-
-        return this;
+  public shift(): null | _Node {
+    if (!this.head) {
+      return null;
     }
 
-    public pop(): _Node | null {
-        if (!this.tail) {
-            return null;
-        }
-
-        const currentTail = this.tail;
-        if (currentTail.prev) {
-            this.tail = currentTail.prev;
-            this.tail.next = null;
-            currentTail.prev = null;
-        } else {
-            this.head = null;
-            this.tail = null;
-        }
-
-        this._length -= 1;
-        return currentTail;
+    const currentHead = this.head;
+    if (currentHead.next) {
+      this.head = currentHead.next;
+      this.head.prev = null;
+      currentHead.next = null;
+    } else {
+      return this.pop();
     }
 
-    public shift(): null | _Node {
-        if (!this.head) {
-            return null;
-        }
+    this._length -= 1;
+    return currentHead;
+  }
 
-        const currentHead = this.head;
-        if (currentHead.next) {
-            this.head = currentHead.next;
-            this.head.prev = null;
-            currentHead.next = null;
-        } else {
-            return this.pop();
-        }
-
-        this._length -= 1;
-        return currentHead;
+  public unshift(value: any): DoublyLinkedList {
+    if (!this.head) {
+      return this.push(value);
     }
 
-    public unshift(value: any): DoublyLinkedList {
-        if (!this.head) {
-            return this.push(value);
+    const node = new _Node(value);
+    const currentHead = this.head;
+
+    this.head = node;
+    this.head.next = currentHead;
+    currentHead.prev = this.head;
+
+    this._length += 1;
+    return this;
+  }
+
+  public get(index: number): null | _Node {
+    if (index < 0 || index >= this._length) return null;
+
+    let currentNode: _Node | null = null;
+
+    if (index < Math.floor(this._length / 2)) {
+      // iterate from head to tail
+
+      currentNode = this.head;
+      for (let i = 0; i < index; i++) {
+        if (currentNode && currentNode.next) {
+          currentNode = currentNode.next;
         }
+      }
+    } else {
+      // iterate from tail to head
 
-        const node = new _Node(value);
-        const currentHead = this.head;
-
-        this.head = node;
-        this.head.next = currentHead;
-        currentHead.prev = this.head;
-
-        this._length += 1;
-        return this;
-    }
-
-    public get(index: number): null | _Node {
-        if (index < 0 || index >= this._length) return null;
-
-        let currentNode: _Node | null = null;
-
-        if (index < Math.floor(this._length / 2)) {
-            // iterate from head to tail
-
-            currentNode = this.head;
-            for (let i = 0; i < index; i++) {
-                if (currentNode && currentNode.next) {
-                    currentNode = currentNode.next;
-                }
-            }
-        } else {
-            // iterate from tail to head
-
-            currentNode = this.tail;
-            for (let i = this._length - 1; i > index; i--) {
-                if (currentNode && currentNode.prev) {
-                    currentNode = currentNode.prev;
-                }
-                return currentNode;
-            }
+      currentNode = this.tail;
+      for (let i = this._length - 1; i > index; i--) {
+        if (currentNode && currentNode.prev) {
+          currentNode = currentNode.prev;
         }
-
         return currentNode;
+      }
     }
 
-    public set(index: number, value: any): _Node | null {
-        const node = this.get(index);
-        if (node) {
-            node.value = value;
-        }
-        return node;
+    return currentNode;
+  }
+
+  public set(index: number, value: any): _Node | null {
+    const node = this.get(index);
+    if (node) {
+      node.value = value;
     }
+    return node;
+  }
 
-    public insert(index: number, value: any): DoublyLinkedList | null {
-        if (index < 0 || index > this._length) {
-            return null;
-        } else if (index === 0) {
-            return this.unshift(value);
-        } else if (index === this._length) {
-            return this.push(value);
-        } else {
-            const prevNode = this.get(index - 1);
-            const nextNode = this.get(index);
+  public insert(index: number, value: any): DoublyLinkedList | null {
+    if (index < 0 || index > this._length) {
+      return null;
+    } else if (index === 0) {
+      return this.unshift(value);
+    } else if (index === this._length) {
+      return this.push(value);
+    } else {
+      const prevNode = this.get(index - 1);
+      const nextNode = this.get(index);
 
-            if (prevNode && nextNode) {
-                const newNode = new _Node(value);
+      if (prevNode && nextNode) {
+        const newNode = new _Node(value);
 
-                prevNode.next = newNode;
-                (newNode.prev = prevNode), (newNode.next = nextNode);
-                nextNode.prev = newNode;
-            }
-        }
-        this._length += 1;
-        return this;
+        prevNode.next = newNode;
+        (newNode.prev = prevNode), (newNode.next = nextNode);
+        nextNode.prev = newNode;
+      }
     }
+    this._length += 1;
+    return this;
+  }
 
-    public remove(index: number): DoublyLinkedList | null {
-        if (index < 0 || index > this._length) {
-            return null;
-        } else if (index === 0) {
-            this.shift();
-        } else if (index === this._length - 1) {
-            this.pop();
-        } else {
-            const node = this.get(index);
+  public remove(index: number): DoublyLinkedList | null {
+    if (index < 0 || index > this._length) {
+      return null;
+    } else if (index === 0) {
+      this.shift();
+    } else if (index === this._length - 1) {
+      this.pop();
+    } else {
+      const node = this.get(index);
 
-            if (node && node.prev && node.next) {
-                (node.prev.next = node.next), (node.next.prev = node.prev);
-                (node.next = null), (node.prev = null);
-            }
-            this._length -= 1;
-        }
-        return this;
+      if (node && node.prev && node.next) {
+        (node.prev.next = node.next), (node.next.prev = node.prev);
+        (node.next = null), (node.prev = null);
+      }
+      this._length -= 1;
     }
+    return this;
+  }
 }
 ```
 
@@ -8058,7 +8044,7 @@ class DoublyLinkedList {
 LIFO
 last in first out
 
-``` typescript
+```typescript
 // implement stack using array
 const stack = [1, 2, 3];
 stack.push(4); // [1,2,3,4]
@@ -8068,46 +8054,46 @@ stack.unshift(0); // [0,1,2,3]
 stack.shift(); // [1,2,3]
 ```
 
-``` typescript
+```typescript
 // implementing stack using singly linked list
 class _Node {
-    public next: _Node | null = null;
+  public next: _Node | null = null;
 
-    constructor(public value: any) {}
+  constructor(public value: any) {}
 }
 
 class Stack {
-    private first: _Node | null = null;
-    private last: _Node | null = null;
+  private first: _Node | null = null;
+  private last: _Node | null = null;
 
-    private _length = 0;
-    get length(): number {
-        return this._length;
+  private _length = 0;
+  get length(): number {
+    return this._length;
+  }
+
+  push(value: any): Stack {
+    const node = new _Node(value);
+    const currentFirst = this.first;
+
+    (this.first = node), (this.first.next = currentFirst);
+
+    if (!currentFirst) {
+      this.last = node;
     }
 
-    push(value: any): Stack {
-        const node = new _Node(value);
-        const currentFirst = this.first;
+    this._length += 1;
+    return this;
+  }
 
-        (this.first = node), (this.first.next = currentFirst);
-
-        if (!currentFirst) {
-            this.last = node;
-        }
-
-        this._length += 1;
-        return this;
+  pop(): _Node | null {
+    const currentFirst = this.first;
+    if (currentFirst) {
+      if (this.first === this.last) this.last = currentFirst.next;
+      this.first = currentFirst.next;
+      this._length -= 1;
     }
-
-    pop(): _Node | null {
-        const currentFirst = this.first;
-        if (currentFirst) {
-            if (this.first === this.last) this.last = currentFirst.next;
-            this.first = currentFirst.next;
-            this._length -= 1;
-        }
-        return currentFirst;
-    }
+    return currentFirst;
+  }
 }
 ```
 
@@ -8116,7 +8102,7 @@ class Stack {
 FIFO
 first in first out
 
-``` typescript
+```typescript
 // implementing queue using array
 const q = [];
 q.push(1);
@@ -8128,46 +8114,46 @@ q.shift(2);
 q.pop(); // out first items first
 ```
 
-``` typescript
+```typescript
 // implementing queue using singly linked list
 class _Node {
-    public next: _Node | null = null;
+  public next: _Node | null = null;
 
-    constructor(public value: any) {}
+  constructor(public value: any) {}
 }
 
 class Queue {
-    private first: _Node | null = null;
-    private last: _Node | null = null;
+  private first: _Node | null = null;
+  private last: _Node | null = null;
 
-    private _length = 0;
-    get length(): number {
-        return this._length;
+  private _length = 0;
+  get length(): number {
+    return this._length;
+  }
+
+  enqueue(value: any): Queue {
+    const node = new _Node(value);
+    if (!this.last) {
+      (this.first = node), (this.last = node);
+    } else {
+      this.last.next = node;
+      this.last = node;
     }
 
-    enqueue(value: any): Queue {
-        const node = new _Node(value);
-        if (!this.last) {
-            (this.first = node), (this.last = node);
-        } else {
-            this.last.next = node;
-            this.last = node;
-        }
+    this._length += 1;
+    return this;
+  }
 
-        this._length += 1;
-        return this;
+  dequeue(): _Node | null {
+    const currentFirst = this.first;
+    if (currentFirst) {
+      if (this.first === this.last) this.last = null;
+      this.first = currentFirst.next;
+      this._length -= 1;
     }
 
-    dequeue(): _Node | null {
-        const currentFirst = this.first;
-        if (currentFirst) {
-            if (this.first === this.last) this.last = null;
-            this.first = currentFirst.next;
-            this._length -= 1;
-        }
-
-        return currentFirst;
-    }
+    return currentFirst;
+  }
 }
 ```
 
@@ -8175,81 +8161,81 @@ class Queue {
 
 ### terminology
 
-*   root : top node of tree
-*   child : a node directly connected to another node when moving away from root
-*   parent : the converse notion of a child
-*   sibling : a group of nodes with the same parent
-*   leaf : a child with no children
-*   edge : connection from two node
+- root : top node of tree
+- child : a node directly connected to another node when moving away from root
+- parent : the converse notion of a child
+- sibling : a group of nodes with the same parent
+- leaf : a child with no children
+- edge : connection from two node
 
 ### binary search tree
 
-*   every parent node has at most **two** children
-*   every node to the **left** of parent node is always **less** than the **parent**
-*   every node to the **right** of parent node is always **greater** than the **parent**
+- every parent node has at most **two** children
+- every node to the **left** of parent node is always **less** than the **parent**
+- every node to the **right** of parent node is always **greater** than the **parent**
 
-``` typescript
+```typescript
 class _Node {
-    constructor(public value: number) {}
+  constructor(public value: number) {}
 
-    public left: _Node | null = null;
-    public right: _Node | null = null;
+  public left: _Node | null = null;
+  public right: _Node | null = null;
 }
 class BinarySearchTree {
-    public root: _Node | null = null;
+  public root: _Node | null = null;
 
-    public insert(value: number): BinarySearchTree | null {
-        const node = new _Node(value);
-        if (!this.root) {
-            this.root = node;
+  public insert(value: number): BinarySearchTree | null {
+    const node = new _Node(value);
+    if (!this.root) {
+      this.root = node;
+    } else {
+      let currentNode: _Node = this.root;
+      do {
+        if (value === currentNode.value) return null;
+
+        if (value < currentNode.value) {
+          if (currentNode.left) {
+            currentNode = currentNode.left;
+          } else {
+            currentNode.left = node;
+            break;
+          }
         } else {
-            let currentNode: _Node = this.root;
-            do {
-                if (value === currentNode.value) return null;
-
-                if (value < currentNode.value) {
-                    if (currentNode.left) {
-                        currentNode = currentNode.left;
-                    } else {
-                        currentNode.left = node;
-                        break;
-                    }
-                } else {
-                    if (currentNode.right) {
-                        currentNode = currentNode.right;
-                    } else {
-                        currentNode.right = node;
-                        break;
-                    }
-                }
-            } while (currentNode);
+          if (currentNode.right) {
+            currentNode = currentNode.right;
+          } else {
+            currentNode.right = node;
+            break;
+          }
         }
-        return this;
+      } while (currentNode);
     }
+    return this;
+  }
 
-    public have(value: number): boolean {
-        let currentNode = this.root;
-        while (currentNode) {
-            if (value === currentNode.value) {
-                return true;
-            } else {
-                if (value < currentNode.value) {
-                    if (currentNode.left) {
-                        currentNode = currentNode.left;
-                        continue;
-                    }
-                    break;
-                } else {
-                    if (currentNode.right) {
-                        currentNode = currentNode.right;
-                        continue;
-                    }
-                    break;
-                }
-            }
+  public have(value: number): boolean {
+    let currentNode = this.root;
+    while (currentNode) {
+      if (value === currentNode.value) {
+        return true;
+      } else {
+        if (value < currentNode.value) {
+          if (currentNode.left) {
+            currentNode = currentNode.left;
+            continue;
+          }
+          break;
+        } else {
+          if (currentNode.right) {
+            currentNode = currentNode.right;
+            continue;
+          }
+          break;
         }
-        return false;
+      }
     }
+    return false;
+  }
 }
 ```
 
@@ -8257,84 +8243,84 @@ class BinarySearchTree {
 
 there is two main strategies to traversal a tree : **Breadth-first-search** and **Depth-first-search**
 
-``` typescript
+```typescript
 class _Node {
-    constructor(public value: number) {}
+  constructor(public value: number) {}
 
-    public left: _Node | null = null;
-    public right: _Node | null = null;
+  public left: _Node | null = null;
+  public right: _Node | null = null;
 }
 class BinarySearchTree {
-    public root: _Node | null = null;
+  public root: _Node | null = null;
 
-    public insert(value: number): BinarySearchTree | null {
-        const node = new _Node(value);
-        if (!this.root) {
-            this.root = node;
+  public insert(value: number): BinarySearchTree | null {
+    const node = new _Node(value);
+    if (!this.root) {
+      this.root = node;
+    } else {
+      let currentNode: _Node = this.root;
+      do {
+        if (value === currentNode.value) return null;
+
+        if (value < currentNode.value) {
+          if (currentNode.left) {
+            currentNode = currentNode.left;
+          } else {
+            currentNode.left = node;
+            break;
+          }
         } else {
-            let currentNode: _Node = this.root;
-            do {
-                if (value === currentNode.value) return null;
-
-                if (value < currentNode.value) {
-                    if (currentNode.left) {
-                        currentNode = currentNode.left;
-                    } else {
-                        currentNode.left = node;
-                        break;
-                    }
-                } else {
-                    if (currentNode.right) {
-                        currentNode = currentNode.right;
-                    } else {
-                        currentNode.right = node;
-                        break;
-                    }
-                }
-            } while (currentNode);
+          if (currentNode.right) {
+            currentNode = currentNode.right;
+          } else {
+            currentNode.right = node;
+            break;
+          }
         }
-        return this;
+      } while (currentNode);
     }
+    return this;
+  }
 
-    public have(value: number): boolean {
-        let currentNode = this.root;
-        while (currentNode) {
-            if (value === currentNode.value) {
-                return true;
-            } else {
-                if (value < currentNode.value) {
-                    if (currentNode.left) {
-                        currentNode = currentNode.left;
-                    }
-                    break;
-                } else {
-                    if (currentNode.right) {
-                        currentNode = currentNode.right;
-                        continue;
-                    }
-                    break;
-                }
-            }
+  public have(value: number): boolean {
+    let currentNode = this.root;
+    while (currentNode) {
+      if (value === currentNode.value) {
+        return true;
+      } else {
+        if (value < currentNode.value) {
+          if (currentNode.left) {
+            currentNode = currentNode.left;
+          }
+          break;
+        } else {
+          if (currentNode.right) {
+            currentNode = currentNode.right;
+            continue;
+          }
+          break;
         }
-        return false;
+      }
     }
-    /* 
+    return false;
+  }
+  /* 
     breadth first search (bfs) : traverse tree horizontally
 */
-    public bfs(): _Node[] {
-        const visited: _Node[] = [];
-        if (this.root) {
-            const q: _Node[] = [this.root];
-            while (q.length) {
-                if (q[0].left) q.push(q[0].left);
-                if (q[0].right) q.push(q[0].right);
+  public bfs(): _Node[] {
+    const visited: _Node[] = [];
+    if (this.root) {
+      const q: _Node[] = [this.root];
+      while (q.length) {
+        if (q[0].left) q.push(q[0].left);
+        if (q[0].right) q.push(q[0].right);
 
-                visited.push(q[0]), q.shift();
-            }
-        }
-        return visited;
+        visited.push(q[0]), q.shift();
+      }
     }
-    /*
+    return visited;
+  }
+  /*
     depth first search (dfs) : traverse tree vertically
     following contains three dfs searching methods:
 
@@ -8343,62 +8329,62 @@ class BinarySearchTree {
     3. inOrder : going to the left and add left => add node => going to the right and add right
 
      */
-    public dfsPreOrder(): _Node[] {
-        const visited: _Node[] = [];
-        if (this.root) {
-            (function traverse(node: _Node): void {
-                visited.push(node);
+  public dfsPreOrder(): _Node[] {
+    const visited: _Node[] = [];
+    if (this.root) {
+      (function traverse(node: _Node): void {
+        visited.push(node);
 
-                if (node.left) {
-                    traverse(node.left);
-                }
-                if (node.right) {
-                    traverse(node.right);
-                }
-            })(this.root);
+        if (node.left) {
+          traverse(node.left);
         }
-
-        return visited;
+        if (node.right) {
+          traverse(node.right);
+        }
+      })(this.root);
     }
 
-    public dfsPostOrder(): _Node[] {
-        const visited: _Node[] = [];
+    return visited;
+  }
 
-        if (this.root) {
-            (function traverse(node: _Node): void {
-                if (node.left) {
-                    traverse(node.left);
-                }
-                if (node.right) {
-                    traverse(node.right);
-                }
+  public dfsPostOrder(): _Node[] {
+    const visited: _Node[] = [];
 
-                visited.push(node);
-            })(this.root);
+    if (this.root) {
+      (function traverse(node: _Node): void {
+        if (node.left) {
+          traverse(node.left);
         }
-        return visited;
-    }
-
-    dfsInOrder(): _Node[] {
-        const visited: _Node[] = [];
-
-        if (this.root) {
-            (function traverse(node: _Node) {
-                if (node.left) {
-                    traverse(node.left);
-                }
-
-                visited.push(node);
-                f;
-
-                if (node.right) {
-                    traverse(node.right);
-                }
-            })(this.root);
+        if (node.right) {
+          traverse(node.right);
         }
 
-        return visited;
+        visited.push(node);
+      })(this.root);
     }
+    return visited;
+  }
+
+  dfsInOrder(): _Node[] {
+    const visited: _Node[] = [];
+
+    if (this.root) {
+      (function traverse(node: _Node) {
+        if (node.left) {
+          traverse(node.left);
+        }
+
+        visited.push(node);
+        f;
+
+        if (node.right) {
+          traverse(node.right);
+        }
+      })(this.root);
+    }
+
+    return visited;
+  }
 }
 ```
 
@@ -8426,117 +8412,111 @@ inOrder is useful when we want data in order that it's stored in tree.
 
 ### terminology
 
-*   a binary heap is as compact as possible (all the children of each node are as full as they can be and left children and filled out first)
-*   each parent has at most two children
+- a binary heap is as compact as possible (all the children of each node are as full as they can be and left children and filled out first)
+- each parent has at most two children
 
 **Max Binary Heap**:
 
-*   **parent** nodes are always greater than **child** nodes but there is no guarantees between sibling
+- **parent** nodes are always greater than **child** nodes but there is no guarantees between sibling
 
 **Min Binary Heap**:
 
-*   **child** nodes are always greater than **parent** nodes but there is no guarantees between sibling
+- **child** nodes are always greater than **parent** nodes but there is no guarantees between sibling
 
 ### binary heap parent and child relations
 
 ![](./assets/binaryHeapsParentAndChildRelation.jpg)
 
-``` typescript
+```typescript
 class MaxBinaryHeap {
-    private _values: number[] = [];
-    get values(): number[] {
-        return this._values;
+  private _values: number[] = [];
+  get values(): number[] {
+    return this._values;
+  }
+
+  private sinkingUp(value: number): void {
+    let valueIndex = this._values.length - 1;
+    while (valueIndex > 0) {
+      const parentIndex = Math.floor((valueIndex - 1) / 2);
+      const parent = this._values[parentIndex];
+
+      if (value <= parent) break;
+
+      this._values[parentIndex] = value;
+      this._values[valueIndex] = parent;
+
+      valueIndex = parentIndex;
     }
+  }
+  private sinkingDown(): void {
+    let targetIndex = 0;
+    while (true) {
+      let leftChildIndex = targetIndex * 2 + 1,
+        rightChildIndex = targetIndex * 2 + 2;
 
-    private sinkingUp(value: number): void {
-        let valueIndex = this._values.length - 1;
-        while (valueIndex > 0) {
-            const parentIndex = Math.floor((valueIndex - 1) / 2);
-            const parent = this._values[parentIndex];
+      let target = this._values[targetIndex],
+        leftChild = this._values[leftChildIndex],
+        rightChild = this._values[rightChildIndex];
 
-            if (value <= parent) break;
+      if (target < leftChild && target < rightChild) {
+        if (rightChild > leftChild) {
+          [this._values[targetIndex], this._values[rightChildIndex]] = [
+            this._values[rightChildIndex],
+            this._values[targetIndex],
+          ];
 
-            this._values[parentIndex] = value;
-            this._values[valueIndex] = parent;
+          targetIndex = rightChildIndex;
+        } else {
+          [this._values[targetIndex], this._values[leftChildIndex]] = [
+            this._values[leftChildIndex],
+            this._values[targetIndex],
+          ];
 
-            valueIndex = parentIndex;
+          targetIndex = leftChildIndex;
         }
+
+        continue;
+      } else if (rightChild >= target) {
+        [this._values[targetIndex], this._values[rightChildIndex]] = [
+          this._values[rightChildIndex],
+          this._values[targetIndex],
+        ];
+
+        targetIndex = leftChildIndex;
+
+        continue;
+      } else if (leftChild >= target) {
+        [this._values[targetIndex], this._values[leftChildIndex]] = [
+          this._values[leftChildIndex],
+          this._values[targetIndex],
+        ];
+
+        targetIndex = leftChildIndex;
+
+        continue;
+      }
+
+      break;
     }
-    private sinkingDown(): void {
-        let targetIndex = 0;
-        while (true) {
-            let leftChildIndex = targetIndex * 2 + 1,
-                rightChildIndex = targetIndex * 2 + 2;
+  }
 
-            let target = this._values[targetIndex],
-                leftChild = this._values[leftChildIndex],
-                rightChild = this._values[rightChildIndex];
+  public insert(value: number): number[] {
+    this._values.push(value);
+    this.sinkingUp(value);
+    return this._values;
+  }
 
-            if (target < leftChild && target < rightChild) {
-                if (rightChild > leftChild) {
-                    [
-                        this._values[targetIndex],
-                        this._values[rightChildIndex]
-                    ] = [
-                        this._values[rightChildIndex],
-                        this._values[targetIndex]
-                    ];
-
-                    targetIndex = rightChildIndex;
-                } else {
-                    [
-                        this._values[targetIndex],
-                        this._values[leftChildIndex]
-                    ] = [
-                        this._values[leftChildIndex],
-                        this._values[targetIndex]
-                    ];
-
-                    targetIndex = leftChildIndex;
-                }
-
-                continue;
-            } else if (rightChild >= target) {
-                [this._values[targetIndex], this._values[rightChildIndex]] = [
-                    this._values[rightChildIndex],
-                    this._values[targetIndex]
-                ];
-
-                targetIndex = leftChildIndex;
-
-                continue;
-            } else if (leftChild >= target) {
-                [this._values[targetIndex], this._values[leftChildIndex]] = [
-                    this._values[leftChildIndex],
-                    this._values[targetIndex]
-                ];
-
-                targetIndex = leftChildIndex;
-
-                continue;
-            }
-
-            break;
-        }
+  public extractMax(): number | null {
+    if (!this._values.length) {
+      return null;
     }
+    const root = this._values[0];
+    this._values[0] = this._values[this._values.length - 1];
+    this._values.pop();
+    this.sinkingDown();
 
-    public insert(value: number): number[] {
-        this._values.push(value);
-        this.sinkingUp(value);
-        return this._values;
-    }
-
-    public extractMax(): number | null {
-        if (!this._values.length) {
-            return null;
-        }
-        const root = this._values[0];
-        this._values[0] = this._values[this._values.length - 1];
-        this._values.pop();
-        this.sinkingDown();
-
-        return root;
-    }
+    return root;
+  }
 }
 ```
 
@@ -8547,117 +8527,111 @@ Elements with higher priorities are served before elements with lower priorities
 
 **In the following example, we implemented a priority queue using minBinaryHeap but you should know binaryHeaps and priority queue is two different concepts and we just use an abstract of it**
 
-``` typescript
+```typescript
 interface INode {
-    value: any;
-    priority: number;
+  value: any;
+  priority: number;
 }
 
 class _Node implements INode {
-    constructor(public value: any, public priority: number = 0) {}
+  constructor(public value: any, public priority: number = 0) {}
 }
 
 class PriorityQueue {
-    private _values: INode[] = [];
-    get values(): INode[] {
-        return this._values;
+  private _values: INode[] = [];
+  get values(): INode[] {
+    return this._values;
+  }
+
+  private sinkingUp(node: INode): void {
+    let valueIndex = this._values.length - 1;
+    while (valueIndex > 0) {
+      const parentIndex = Math.floor((valueIndex - 1) / 2);
+      const parent = this._values[parentIndex];
+
+      if (node.priority >= parent.priority) break;
+
+      this._values[parentIndex] = node;
+      this._values[valueIndex] = parent;
+
+      valueIndex = parentIndex;
     }
+  }
+  private sinkingDown(): void {
+    let targetIndex = 0;
+    while (true) {
+      let leftChildIndex = targetIndex * 2 + 1,
+        rightChildIndex = targetIndex * 2 + 2;
 
-    private sinkingUp(node: INode): void {
-        let valueIndex = this._values.length - 1;
-        while (valueIndex > 0) {
-            const parentIndex = Math.floor((valueIndex - 1) / 2);
-            const parent = this._values[parentIndex];
+      let target = this._values[targetIndex],
+        leftChild = this._values[leftChildIndex],
+        rightChild = this._values[rightChildIndex];
 
-            if (node.priority >= parent.priority) break;
+      if (
+        leftChild &&
+        rightChild &&
+        target.priority > leftChild.priority &&
+        target.priority > rightChild.priority
+      ) {
+        if (rightChild.priority < leftChild.priority) {
+          [this._values[targetIndex], this._values[rightChildIndex]] = [
+            this._values[rightChildIndex],
+            this._values[targetIndex],
+          ];
 
-            this._values[parentIndex] = node;
-            this._values[valueIndex] = parent;
+          targetIndex = rightChildIndex;
+        } else {
+          [this._values[targetIndex], this._values[leftChildIndex]] = [
+            this._values[leftChildIndex],
+            this._values[targetIndex],
+          ];
 
-            valueIndex = parentIndex;
+          targetIndex = leftChildIndex;
         }
+
+        continue;
+      } else if (rightChild && rightChild.priority <= target.priority) {
+        [this._values[targetIndex], this._values[rightChildIndex]] = [
+          this._values[rightChildIndex],
+          this._values[targetIndex],
+        ];
+
+        targetIndex = leftChildIndex;
+
+        continue;
+      } else if (leftChild && leftChild.priority <= target.priority) {
+        [this._values[targetIndex], this._values[leftChildIndex]] = [
+          this._values[leftChildIndex],
+          this._values[targetIndex],
+        ];
+
+        targetIndex = leftChildIndex;
+
+        continue;
+      }
+
+      break;
     }
-    private sinkingDown(): void {
-        let targetIndex = 0;
-        while (true) {
-            let leftChildIndex = targetIndex * 2 + 1,
-                rightChildIndex = targetIndex * 2 + 2;
+  }
 
-            let target = this._values[targetIndex],
-                leftChild = this._values[leftChildIndex],
-                rightChild = this._values[rightChildIndex];
+  public enqueue({ value, priority }: INode): _Node[] {
+    const node = new _Node(value, priority);
+    this._values.push(node);
+    this.sinkingUp(node);
+    return this._values;
+  }
 
-            if (
-                leftChild &&
-                rightChild &&
-                target.priority > leftChild.priority &&
-                target.priority > rightChild.priority
-            ) {
-                if (rightChild.priority < leftChild.priority) {
-                    [
-                        this._values[targetIndex],
-                        this._values[rightChildIndex]
-                    ] = [
-                        this._values[rightChildIndex],
-                        this._values[targetIndex]
-                    ];
-
-                    targetIndex = rightChildIndex;
-                } else {
-                    [
-                        this._values[targetIndex],
-                        this._values[leftChildIndex]
-                    ] = [
-                        this._values[leftChildIndex],
-                        this._values[targetIndex]
-                    ];
-
-                    targetIndex = leftChildIndex;
-                }
-
-                continue;
-            } else if (rightChild && rightChild.priority <= target.priority) {
-                [this._values[targetIndex], this._values[rightChildIndex]] = [
-                    this._values[rightChildIndex],
-                    this._values[targetIndex]
-                ];
-
-                targetIndex = leftChildIndex;
-
-                continue;
-            } else if (leftChild && leftChild.priority <= target.priority) {
-                [this._values[targetIndex], this._values[leftChildIndex]] = [
-                    this._values[leftChildIndex],
-                    this._values[targetIndex]
-                ];
-
-                targetIndex = leftChildIndex;
-
-                continue;
-            }
-
-            break;
-        }
+  public dequeue(): _Node | null {
+    if (!this._values.length) {
+      return null;
     }
+    const root = this._values[0];
+    this._values[0] = this._values[this._values.length - 1];
+    this._values.pop();
+    this.sinkingDown();
 
-    public enqueue({ value, priority }: INode): _Node[] {
-        const node = new _Node(value, priority);
-        this._values.push(node);
-        this.sinkingUp(node);
-        return this._values;
-    }
-
-    public dequeue(): _Node | null {
-        if (!this._values.length) {
-            return null;
-        }
-        const root = this._values[0];
-        this._values[0] = this._values[this._values.length - 1];
-        this._values.pop();
-        this.sinkingDown();
-
-        return root;
-    }
+    return root;
+  }
 }
 ```
 
@@ -8669,78 +8643,78 @@ Hash tables are collection of key-value pairs
 
 There is possibility for handle collisions is hash tables :
 
-*   Separate chaining ( e.g. using nested arrays of key values _implemented in following hash tables_ )
-*   linear probing ( if index filled place {key, value} in next position )
+- Separate chaining ( e.g. using nested arrays of key values _implemented in following hash tables_ )
+- linear probing ( if index filled place {key, value} in next position )
 
-``` typescript
+```typescript
 type El = [string, any];
 class HashTable {
-    private keyMap: El[][];
-    constructor(size: number = 53) {
-        this.keyMap = new Array(size);
+  private keyMap: El[][];
+  constructor(size: number = 53) {
+    this.keyMap = new Array(size);
+  }
+
+  public _hash(key: string): number {
+    let total = 0;
+    const WEIRD_PRIME = 31;
+
+    for (let i = 0; i < key.length; i++) {
+      const characterCode = key.charCodeAt(i) - 96;
+      total = (total + characterCode * WEIRD_PRIME) % this.keyMap.length;
+    }
+    return total;
+  }
+
+  set(key: string, value: any): El[][] {
+    const index = this._hash(key);
+    if (!this.keyMap[index]) {
+      this.keyMap[index] = [];
     }
 
-    public _hash(key: string): number {
-        let total = 0;
-        const WEIRD_PRIME = 31;
+    this.keyMap[index].push([key, value]);
 
-        for (let i = 0; i < key.length; i++) {
-            const characterCode = key.charCodeAt(i) - 96;
-            total = (total + characterCode * WEIRD_PRIME) % this.keyMap.length;
+    return this.keyMap;
+  }
+
+  get(key: string): El | undefined {
+    const index = this._hash(key);
+
+    const elements = this.keyMap[index];
+
+    if (elements) {
+      for (let value of elements) {
+        if (value[0] === key) return value[1];
+      }
+    }
+
+    return undefined;
+  }
+
+  get keys(): string[] {
+    const keys: string[] = [];
+    for (let value of this.keyMap) {
+      if (value) {
+        for (let _value of value) {
+          keys.push(_value[0]);
         }
-        return total;
+      }
     }
+    return keys;
+  }
 
-    set(key: string, value: any): El[][] {
-        const index = this._hash(key);
-        if (!this.keyMap[index]) {
-            this.keyMap[index] = [];
+  get values(): any[] {
+    const values = new Set<any>();
+
+    for (let value of this.keyMap) {
+      if (value) {
+        for (let _value of value) {
+          values.add(value[1]);
         }
-
-        this.keyMap[index].push([key, value]);
-
-        return this.keyMap;
+      }
     }
 
-    get(key: string): El | undefined {
-        const index = this._hash(key);
-
-        const elements = this.keyMap[index];
-
-        if (elements) {
-            for (let value of elements) {
-                if (value[0] === key) return value[1];
-            }
-        }
-
-        return undefined;
-    }
-
-    get keys(): string[] {
-        const keys: string[] = [];
-        for (let value of this.keyMap) {
-            if (value) {
-                for (let _value of value) {
-                    keys.push(_value[0]);
-                }
-            }
-        }
-        return keys;
-    }
-
-    get values(): any[] {
-        const values = new Set<any>();
-
-        for (let value of this.keyMap) {
-            if (value) {
-                for (let _value of value) {
-                    values.add(value[1]);
-                }
-            }
-        }
-
-        return [...values];
-    }
+    return [...values];
+  }
 }
 ```
 
@@ -8750,19 +8724,19 @@ A graph data structure consists of a finite (and possibly mutable) set of vertic
 
 ### terminology
 
-*   vertex :node
+- vertex :node
 
-*   edge : connection between nodes
+- edge : connection between nodes
 
-*   directed/ undirected graph:
+- directed/ undirected graph:
 
-    in directed graph there is a direction assigned to vertices an in undirected no direction assigned.
-    ![](./assets/three-node-networks.jpg)
+  in directed graph there is a direction assigned to vertices an in undirected no direction assigned.
+  ![](./assets/three-node-networks.jpg)
 
-*   weighted/ unweighted graph:
+- weighted/ unweighted graph:
 
-    in weighted graph there is a weight associated by edges but in unweighted graph no weight assigned to edges
-    ![](./assets/3.-Weithened-Graph.png)
+  in weighted graph there is a weight associated by edges but in unweighted graph no weight assigned to edges
+  ![](./assets/3.-Weithened-Graph.png)
 
 ### adjacency matrix
 
@@ -8783,70 +8757,70 @@ A graph data structure consists of a finite (and possibly mutable) set of vertic
 |     Query     |     O(V+E)     |       O(1)       |
 |    Storage    |     O(V+E)     |      O(V^2)      |
 
-*   |V| : number of Vertices
-*   |E| : number of Edges
+- |V| : number of Vertices
+- |E| : number of Edges
 
 <hr/>
 
-*   **Adjacency List** take **less space** in sparse graph( when we have a few edges ).
-*   **Adjacency List** are **faster to iterate** over edges.
-*   **Adjacency Matrix** are **faster to** finding a specific edge.
+- **Adjacency List** take **less space** in sparse graph( when we have a few edges ).
+- **Adjacency List** are **faster to iterate** over edges.
+- **Adjacency Matrix** are **faster to** finding a specific edge.
 
 ### graph(adjacency list)
 
-``` typescript
+```typescript
 interface AdjacencyList {
-    [vertex: string]: string[];
+  [vertex: string]: string[];
 }
 
 class Graph {
-    private _adjacencyList: AdjacencyList = {};
-    public get adjacencyList(): AdjacencyList {
-        return this._adjacencyList;
-    }
-    public set adjacencyList(value: AdjacencyList) {
-        this._adjacencyList = value;
-    }
+  private _adjacencyList: AdjacencyList = {};
+  public get adjacencyList(): AdjacencyList {
+    return this._adjacencyList;
+  }
+  public set adjacencyList(value: AdjacencyList) {
+    this._adjacencyList = value;
+  }
 
-    public addVertex(vertex: string): AdjacencyList {
-        this._adjacencyList[vertex] = [];
-        return this._adjacencyList;
+  public addVertex(vertex: string): AdjacencyList {
+    this._adjacencyList[vertex] = [];
+    return this._adjacencyList;
+  }
+
+  public addEdge(vertex1: string, vertex2: string): boolean {
+    if (this._adjacencyList[vertex1] && this._adjacencyList[vertex2]) {
+      this._adjacencyList[vertex1].push(vertex2),
+        this._adjacencyList[vertex2].push(vertex1);
+
+      return true;
     }
+    return false;
+  }
 
-    public addEdge(vertex1: string, vertex2: string): boolean {
-        if (this._adjacencyList[vertex1] && this._adjacencyList[vertex2]) {
-            this._adjacencyList[vertex1].push(vertex2),
-                this._adjacencyList[vertex2].push(vertex1);
-
-            return true;
-        }
-        return false;
+  public removeEdge(vertex1: string, vertex2: string): boolean {
+    if (this._adjacencyList[vertex1] && this._adjacencyList[vertex2]) {
+      (this._adjacencyList[vertex1] = this._adjacencyList[vertex1].filter(
+        (value: string) => value !== vertex2
+      )),
+        (this._adjacencyList[vertex2] = this._adjacencyList[vertex2].filter(
+          (value: string) => value !== vertex1
+        ));
+      return true;
     }
+    return false;
+  }
 
-    public removeEdge(vertex1: string, vertex2: string): boolean {
-        if (this._adjacencyList[vertex1] && this._adjacencyList[vertex2]) {
-            (this._adjacencyList[vertex1] = this._adjacencyList[vertex1].filter(
-                (value: string) => value !== vertex2
-            )),
-                (this._adjacencyList[vertex2] = this._adjacencyList[
-                    vertex2
-                ].filter((value: string) => value !== vertex1));
-            return true;
-        }
-        return false;
+  public removeVertex(vertex: string): string | undefined {
+    if (this._adjacencyList[vertex]) {
+      for (let key in this._adjacencyList) {
+        this.removeEdge(key, vertex);
+      }
+      delete this._adjacencyList[vertex];
+
+      return vertex;
     }
-
-    public removeVertex(vertex: string): string | undefined {
-        if (this._adjacencyList[vertex]) {
-            for (let key in this._adjacencyList) {
-                this.removeEdge(key, vertex);
-            }
-            delete this._adjacencyList[vertex];
-
-            return vertex;
-        }
-        return undefined;
-    }
+    return undefined;
+  }
 }
 ```
 
@@ -8854,128 +8828,128 @@ class Graph {
 
 ### depth first traversal and breadth first traversal in graph
 
-``` typescript
+```typescript
 interface AdjacencyList {
-    [vertex: string]: string[];
+  [vertex: string]: string[];
 }
 
 class Graph {
-    private _adjacencyList: AdjacencyList = {};
-    public get adjacencyList(): AdjacencyList {
-        return this._adjacencyList;
-    }
-    public set adjacencyList(value: AdjacencyList) {
-        this._adjacencyList = value;
-    }
+  private _adjacencyList: AdjacencyList = {};
+  public get adjacencyList(): AdjacencyList {
+    return this._adjacencyList;
+  }
+  public set adjacencyList(value: AdjacencyList) {
+    this._adjacencyList = value;
+  }
 
-    public addVertex(vertex: string): AdjacencyList {
-        this._adjacencyList[vertex] = [];
-        return this._adjacencyList;
+  public addVertex(vertex: string): AdjacencyList {
+    this._adjacencyList[vertex] = [];
+    return this._adjacencyList;
+  }
+
+  public addEdge(vertex1: string, vertex2: string): boolean {
+    if (this._adjacencyList[vertex1] && this._adjacencyList[vertex2]) {
+      this._adjacencyList[vertex1].push(vertex2),
+        this._adjacencyList[vertex2].push(vertex1);
+
+      return true;
     }
+    return false;
+  }
 
-    public addEdge(vertex1: string, vertex2: string): boolean {
-        if (this._adjacencyList[vertex1] && this._adjacencyList[vertex2]) {
-            this._adjacencyList[vertex1].push(vertex2),
-                this._adjacencyList[vertex2].push(vertex1);
-
-            return true;
-        }
-        return false;
+  public removeEdge(vertex1: string, vertex2: string): boolean {
+    if (this._adjacencyList[vertex1] && this._adjacencyList[vertex2]) {
+      (this._adjacencyList[vertex1] = this._adjacencyList[vertex1].filter(
+        (value: string) => value !== vertex2
+      )),
+        (this._adjacencyList[vertex2] = this._adjacencyList[vertex2].filter(
+          (value: string) => value !== vertex1
+        ));
+      return true;
     }
+    return false;
+  }
 
-    public removeEdge(vertex1: string, vertex2: string): boolean {
-        if (this._adjacencyList[vertex1] && this._adjacencyList[vertex2]) {
-            (this._adjacencyList[vertex1] = this._adjacencyList[vertex1].filter(
-                (value: string) => value !== vertex2
-            )),
-                (this._adjacencyList[vertex2] = this._adjacencyList[
-                    vertex2
-                ].filter((value: string) => value !== vertex1));
-            return true;
-        }
-        return false;
+  public removeVertex(vertex: string): string | undefined {
+    if (this._adjacencyList[vertex]) {
+      for (let key in this._adjacencyList) {
+        this.removeEdge(key, vertex);
+      }
+      delete this._adjacencyList[vertex];
+
+      return vertex;
     }
+    return undefined;
+  }
 
-    public removeVertex(vertex: string): string | undefined {
-        if (this._adjacencyList[vertex]) {
-            for (let key in this._adjacencyList) {
-                this.removeEdge(key, vertex);
+  public dfcRecursive(startingVertex: string): string[] {
+    const results: string[] = [];
+    const adjacencyList = this._adjacencyList;
+
+    let currentVertex = this._adjacencyList[startingVertex];
+    if (currentVertex) {
+      const visitedVertex: { [vertex: string]: boolean } = {};
+
+      (function traverse(vertex: string | undefined): void {
+        if (!vertex) return;
+
+        if (!visitedVertex[vertex]) {
+          visitedVertex[vertex] = true;
+          results.push(vertex);
+
+          for (let neighbor of currentVertex) {
+            if (!visitedVertex[neighbor]) {
+              currentVertex = adjacencyList[neighbor];
+              traverse(neighbor);
             }
-            delete this._adjacencyList[vertex];
-
-            return vertex;
+          }
         }
-        return undefined;
+      })(startingVertex);
     }
 
-    public dfcRecursive(startingVertex: string): string[] {
-        const results: string[] = [];
-        const adjacencyList = this._adjacencyList;
+    return results;
+  }
+  // or
+  public dfsIterative(startingVertex: string): string[] {
+    const results: string[] = [];
 
-        let currentVertex = this._adjacencyList[startingVertex];
-        if (currentVertex) {
-            const visitedVertex: { [vertex: string]: boolean } = {};
+    if (this._adjacencyList[startingVertex]) {
+      let stack: string[] = [startingVertex];
+      const visitedVertex: { [vertex: string]: boolean } = {};
 
-            (function traverse(vertex: string | undefined): void {
-                if (!vertex) return;
-
-                if (!visitedVertex[vertex]) {
-                    visitedVertex[vertex] = true;
-                    results.push(vertex);
-
-                    for (let neighbor of currentVertex) {
-                        if (!visitedVertex[neighbor]) {
-                            currentVertex = adjacencyList[neighbor];
-                            traverse(neighbor);
-                        }
-                    }
-                }
-            })(startingVertex);
+      while (stack.length) {
+        debugger;
+        const currentVertex = stack.pop();
+        if (currentVertex && !visitedVertex[currentVertex]) {
+          visitedVertex[currentVertex] = true;
+          results.push(currentVertex);
+          stack = [...stack, ...this._adjacencyList[currentVertex]];
         }
-
-        return results;
-    }
-    // or
-    public dfsIterative(startingVertex: string): string[] {
-        const results: string[] = [];
-
-        if (this._adjacencyList[startingVertex]) {
-            let stack: string[] = [startingVertex];
-            const visitedVertex: { [vertex: string]: boolean } = {};
-
-            while (stack.length) {
-                debugger;
-                const currentVertex = stack.pop();
-                if (currentVertex && !visitedVertex[currentVertex]) {
-                    visitedVertex[currentVertex] = true;
-                    results.push(currentVertex);
-                    stack = [...stack, ...this._adjacencyList[currentVertex]];
-                }
-            }
-        }
-
-        return results;
+      }
     }
 
-    public breadthFirstSearch(startingVertex: string): string[] {
-        const results: string[] = [];
+    return results;
+  }
 
-        if (this._adjacencyList[startingVertex]) {
-            let queue = [startingVertex];
-            const visitedVertex: { [vertex: string]: boolean } = {};
+  public breadthFirstSearch(startingVertex: string): string[] {
+    const results: string[] = [];
 
-            while (queue.length) {
-                const currentVertex = queue.shift();
-                if (currentVertex && !visitedVertex[currentVertex]) {
-                    visitedVertex[currentVertex] = true;
-                    results.push(currentVertex);
-                    queue = [...queue, ...this._adjacencyList[currentVertex]];
-                }
-            }
+    if (this._adjacencyList[startingVertex]) {
+      let queue = [startingVertex];
+      const visitedVertex: { [vertex: string]: boolean } = {};
+
+      while (queue.length) {
+        const currentVertex = queue.shift();
+        if (currentVertex && !visitedVertex[currentVertex]) {
+          visitedVertex[currentVertex] = true;
+          results.push(currentVertex);
+          queue = [...queue, ...this._adjacencyList[currentVertex]];
         }
-
-        return results;
+      }
     }
+
+    return results;
+  }
 }
 ```
 
@@ -8985,127 +8959,124 @@ Finding shortest path between two vertices in a **weighted graph**.
 
 ![](./assets/Dijkstra_Animation.gif)
 
-``` typescript
+```typescript
 interface Value {
-    value: any;
-    priority: number;
+  value: any;
+  priority: number;
 }
 
 interface Neighbor {
-    vertex: string;
-    weight: number;
+  vertex: string;
+  weight: number;
 }
 
 interface AdjacencyList {
-    [vertex: string]: Neighbor[];
+  [vertex: string]: Neighbor[];
 }
 
 // naive priority queue
 class PriorityQueue {
-    private _values: Value[] = [];
-    public get values(): Value[] {
-        return this._values;
-    }
+  private _values: Value[] = [];
+  public get values(): Value[] {
+    return this._values;
+  }
 
-    public enqueue(value: any, priority: number): Value[] {
-        this._values.push({ value, priority });
-        this.sort();
-        return this._values;
-    }
+  public enqueue(value: any, priority: number): Value[] {
+    this._values.push({ value, priority });
+    this.sort();
+    return this._values;
+  }
 
-    public dequeue(): Value {
-        const value = this._values.shift();
-        return value as Value;
-    }
+  public dequeue(): Value {
+    const value = this._values.shift();
+    return value as Value;
+  }
 
-    private sort() {
-        this._values.sort((a: Value, b: Value) => a.priority - b.priority);
-    }
+  private sort() {
+    this._values.sort((a: Value, b: Value) => a.priority - b.priority);
+  }
 }
 
 class WeightedGraph {
-    private _adjacencyList: AdjacencyList = {};
-    public get adjacencyList(): AdjacencyList {
-        return this._adjacencyList;
-    }
-    public set adjacencyList(value: AdjacencyList) {
-        this._adjacencyList = value;
-    }
+  private _adjacencyList: AdjacencyList = {};
+  public get adjacencyList(): AdjacencyList {
+    return this._adjacencyList;
+  }
+  public set adjacencyList(value: AdjacencyList) {
+    this._adjacencyList = value;
+  }
 
-    public addVertex(vertex: string): AdjacencyList {
-        this._adjacencyList[vertex] = [];
-        return this._adjacencyList;
-    }
+  public addVertex(vertex: string): AdjacencyList {
+    this._adjacencyList[vertex] = [];
+    return this._adjacencyList;
+  }
 
-    public addEdge(vertex1: string, vertex2: string, weight: number): boolean {
-        if (this._adjacencyList[vertex1]) {
-            this._adjacencyList[vertex1].push({ vertex: vertex2, weight });
-            this._adjacencyList[vertex2].push({ vertex: vertex1, weight });
-            return true;
-        }
-        return false;
+  public addEdge(vertex1: string, vertex2: string, weight: number): boolean {
+    if (this._adjacencyList[vertex1]) {
+      this._adjacencyList[vertex1].push({ vertex: vertex2, weight });
+      this._adjacencyList[vertex2].push({ vertex: vertex1, weight });
+      return true;
     }
+    return false;
+  }
 
-    /* 
+  /* 
     dijkstra shortest path first
     */
 
-    dijkstraSPF(startingVertex: string, targetVertex: string): string[] {
-        let path: string[] = [];
+  dijkstraSPF(startingVertex: string, targetVertex: string): string[] {
+    let path: string[] = [];
 
-        if (
-            this._adjacencyList[startingVertex] &&
-            this._adjacencyList[targetVertex]
-        ) {
-            const pq = new PriorityQueue();
-            const previousVertex: { [vertex: string]: string | null } = {};
-            const distances: { [vertex: string]: number } = {};
+    if (
+      this._adjacencyList[startingVertex] &&
+      this._adjacencyList[targetVertex]
+    ) {
+      const pq = new PriorityQueue();
+      const previousVertex: { [vertex: string]: string | null } = {};
+      const distances: { [vertex: string]: number } = {};
 
-            // build initial states
-            for (let key in this._adjacencyList) {
-                if (key === startingVertex) {
-                    (distances[key] = 0), pq.enqueue(key, 0);
-                } else {
-                    distances[key] = Infinity;
-                    pq.enqueue(key, Infinity);
-                }
-                previousVertex[key] = null;
-            }
-
-            while (pq.values.length) {
-                let smallest = pq.dequeue().value;
-                if (smallest) {
-                    if (smallest === targetVertex) {
-                        // done build path
-                        while (
-                            previousVertex[smallest] ||
-                            smallest === startingVertex
-                        ) {
-                            path.push(smallest);
-                            smallest = previousVertex[smallest];
-                        }
-                        break;
-                    }
-
-                    for (let neighbor of this._adjacencyList[smallest]) {
-                        const candidate = distances[smallest] + neighbor.weight;
-
-                        let nextNeighbor = neighbor.vertex;
-
-                        if (candidate < distances[nextNeighbor]) {
-                            distances[nextNeighbor] = candidate;
-
-                            previousVertex[nextNeighbor] = smallest;
-
-                            pq.enqueue(nextNeighbor, candidate);
-                        }
-                    }
-                }
-            }
+      // build initial states
+      for (let key in this._adjacencyList) {
+        if (key === startingVertex) {
+          (distances[key] = 0), pq.enqueue(key, 0);
+        } else {
+          distances[key] = Infinity;
+          pq.enqueue(key, Infinity);
         }
+        previousVertex[key] = null;
+      }
 
-        return path.reverse();
+      while (pq.values.length) {
+        let smallest = pq.dequeue().value;
+        if (smallest) {
+          if (smallest === targetVertex) {
+            // done build path
+            while (previousVertex[smallest] || smallest === startingVertex) {
+              path.push(smallest);
+              smallest = previousVertex[smallest];
+            }
+            break;
+          }
+
+          for (let neighbor of this._adjacencyList[smallest]) {
+            const candidate = distances[smallest] + neighbor.weight;
+
+            let nextNeighbor = neighbor.vertex;
+
+            if (candidate < distances[nextNeighbor]) {
+              distances[nextNeighbor] = candidate;
+
+              previousVertex[nextNeighbor] = smallest;
+
+              pq.enqueue(nextNeighbor, candidate);
+            }
+          }
+        }
+      }
     }
+
+    return path.reverse();
+  }
 }
 ```
 
@@ -9122,10 +9093,10 @@ Let's implement it without dynamic programming:without dynamic programming:
 
 **O(2^n)**
 
-``` typescript
+```typescript
 function fib(n: number): number {
-    if (n <= 2) return 1;
-    return fib(n - 1) + fib(n - 2);
+  if (n <= 2) return 1;
+  return fib(n - 1) + fib(n - 2);
 }
 ```
 
@@ -9139,42 +9110,42 @@ Storing the results of expensive function class and returning the cached result 
 
 O(n)
 
-``` typescript
+```typescript
 function fib(n: number, memo: number[] = []): number {
-    if (memo[n]) return memo[n];
+  if (memo[n]) return memo[n];
 
-    if (n <= 2) return 1;
+  if (n <= 2) return 1;
 
-    const res = fib(n - 1, memo) + fib(n - 2, memo);
-    memo[n] = res;
+  const res = fib(n - 1, memo) + fib(n - 2, memo);
+  memo[n] = res;
 
-    return res;
+  return res;
 }
 fib(10000); // Maximum callStack exceeded
 ```
 
 ### tabulation
 
-``` typescript
+```typescript
 function fib(n: number): number {
-    if (n <= 2) return 1;
+  if (n <= 2) return 1;
 
-    const fibNumbers = [0, 1, 1];
+  const fibNumbers = [0, 1, 1];
 
-    for (let index = 3; index <= n; index++) {
-        fibNumbers[index] = fibNumbers[index - 1] + fibNumbers[index - 2];
-    }
+  for (let index = 3; index <= n; index++) {
+    fibNumbers[index] = fibNumbers[index - 1] + fibNumbers[index - 2];
+  }
 
-    console.log(fibNumbers);
+  console.log(fibNumbers);
 
-    return fibNumbers[n];
+  return fibNumbers[n];
 }
 fib(10000); // Infinity
 ```
 
 ## Interesting Stuff
 
-``` typescript
+```typescript
 // turn it to boolean
 console.log(!!1); // true
 console.log(!!0); // false
@@ -9185,7 +9156,7 @@ console.log(!!0); // false
 
 ## String
 
-``` typescript
+```typescript
 const str = "hello";
 str.search('lo') || .indexOf('lo') // 3
 str.includes('lo') // true
@@ -9193,19 +9164,19 @@ str.includes('lo') // true
 
 ### string pattern matching
 
-``` typescript
+```typescript
 // regex.test(str: number) Returns a Boolean value that indicates whether or not a pattern exists in a searched string.
 function charCount(str: string) {
-    const result: { [key: string]: number } = {};
+  const result: { [key: string]: number } = {};
 
-    for (let char of str) {
-        char = char.toLowerCase();
-        if (/[a-z0-9]/.test(char)) {
-            result[char] = ++result[char] || 1;
-        }
+  for (let char of str) {
+    char = char.toLowerCase();
+    if (/[a-z0-9]/.test(char)) {
+      result[char] = ++result[char] || 1;
     }
+  }
 
-    return result;
+  return result;
 }
 
 // *** string.chatCodeAt(i: number) Returns the unicode of value on specified location
@@ -9216,37 +9187,37 @@ upper alpha (A-Z) code > 64 && code < 91;
 lower alpha (a-z) code > 96 && code <123;
 */
 function charCount(str: string) {
-    const result: { [key: string]: number } = {};
+  const result: { [key: string]: number } = {};
 
-    for (let char of str) {
-        if (isAlphaNumeric(char)) {
-            char = char.toLowerCase();
-            result[char] = ++result[char] || 1;
-        }
+  for (let char of str) {
+    if (isAlphaNumeric(char)) {
+      char = char.toLowerCase();
+      result[char] = ++result[char] || 1;
     }
+  }
 
-    return result;
+  return result;
 }
 
 function isAlphaNumeric(char: string) {
-    const code = char.charCodeAt(0);
-    if (
-        !(code > 47 && code < 58) &&
-        !(code > 64 && code < 91) &&
-        !(code > 96 && code < 123)
-    ) {
-        return false;
-    }
-    return true;
+  const code = char.charCodeAt(0);
+  if (
+    !(code > 47 && code < 58) &&
+    !(code > 64 && code < 91) &&
+    !(code > 96 && code < 123)
+  ) {
+    return false;
+  }
+  return true;
 }
 ```
 
-## Array 
+## Array
 
-``` typescript
+```typescript
 const array = ["hello", "world"];
-arr.find(el => el === "world"); // world
-arr.findIndex(el => el === "world"); // 1
+arr.find((el) => el === "world"); // world
+arr.findIndex((el) => el === "world"); // 1
 
 [1, 2].includes(1); // true
 
@@ -9263,14 +9234,14 @@ console.log(p); // "F"
 
 ### Object
 
-``` typescript
+```typescript
 delete this._adjacencyList[vertex]; // delete key and value from object
 delete this._adjacencyList.vertex;
 ```
 
 ### Map
 
-``` typescript
+```typescript
 const map = new Map();
 // store any type of **unique key** of use duplicate key it will override last value
 map.set({ 1: "Object" }, "Object");
@@ -9304,7 +9275,7 @@ const arr = [...map]; // :[ [key, value] ]
 
 ## Math
 
-``` typescript
+```typescript
 Math.pow(2, 2); // 4
 Math.abs(-5); // 5
 Math.log10(100); // 10
@@ -9312,10 +9283,10 @@ Math.max(...[1, 2, 3]); // 3
 Math.min(...[1, 2, 3]); // 1
 ```
 
-
 </details><details> <summary>CONTENT/Resources/My-Data-Structures-Notes/z-NOTES/data-structures/</summary>
 
 ### [CONTENT/Resources/My-Data-Structures-Notes/z-NOTES/data-structures/deque.md](CONTENT/Resources/My-Data-Structures-Notes/z-NOTES/data-structures/deque.md)
+
 # Deque
 
 ### Projected Time
@@ -9404,10 +9375,6 @@ Find another person in the cohort and discuss:
 ### Additional Reading
 
 A-Steal Job Scheduling was briefly mentioned in the lesson as a use of deques. You can [read more here](http://supertech.csail.mit.edu/papers/steal.pdf).
-
-
-
-
 
 ### [CONTENT/Resources/My-Data-Structures-Notes/z-NOTES/data-structures/hash-tables.md](CONTENT/Resources/My-Data-Structures-Notes/z-NOTES/data-structures/hash-tables.md)
 
@@ -9514,7 +9481,6 @@ Compare implementations of bucket collisions with a peer. Brainstorm different d
 - [Objects and Hash Tables in JavaScript](https://codeburst.io/objects-and-hash-tables-in-javascript-a472ad1940d9)
 - [Algorithms in JavaScript: Hash Tables](https://medium.com/javascript-in-plain-english/algorithm-in-javascript-hash-table-7b0464d2b81b)
 
-
 ### [CONTENT/Resources/My-Data-Structures-Notes/z-NOTES/data-structures/intro-to-data-structures.md](CONTENT/Resources/My-Data-Structures-Notes/z-NOTES/data-structures/intro-to-data-structures.md)
 
 # Data Structures
@@ -9601,7 +9567,6 @@ Using a timer, pair up for 5 minutes and quiz each other while reviewing the dif
 - [Watch Data Structures and Algorithms in action at visualgo.net](https://visualgo.net/en)
 - [Article w/Videos: Data Structures and Algorithms in JavaScript by Beau Carnes](https://medium.freecodecamp.org/10-common-data-structures-explained-with-videos-exercises-aaff6c06fb2b)
 - [Practice Data Structures](https://www.hackerearth.com/practice/data-structures/arrays/1-d/tutorial/)
-
 
 ### [CONTENT/Resources/My-Data-Structures-Notes/z-NOTES/data-structures/linked-lists.md](CONTENT/Resources/My-Data-Structures-Notes/z-NOTES/data-structures/linked-lists.md)
 
@@ -9813,7 +9778,6 @@ Form small groups in the cohort and discuss:
 - [ES6 Implementation](https://gist.github.com/klugjo/a9e9ef98fe879bc2b19b5a2e5947204c)
 - [Instantiation Patterns in JavaScript](https://medium.com/dailyjs/instantiation-patterns-in-javascript-8fdcf69e8f9b)
 
-
 ### [CONTENT/Resources/My-Data-Structures-Notes/z-NOTES/data-structures/queues.md](CONTENT/Resources/My-Data-Structures-Notes/z-NOTES/data-structures/queues.md)
 
 # Queues
@@ -9909,7 +9873,6 @@ Search online with your partner for a way to implement a queue other than the on
 ### Check for Understanding
 
 Share what you've learned and your implementation with another person.
-
 
 ### [CONTENT/Resources/My-Data-Structures-Notes/z-NOTES/data-structures/stack.md](CONTENT/Resources/My-Data-Structures-Notes/z-NOTES/data-structures/stack.md)
 
@@ -10009,7 +9972,6 @@ Next, ask each other the following questions:
 - [GeeksforGeeks: Implementation of Stack in JavaScript](https://www.geeksforgeeks.org/implementation-stack-javascript/)
 - [InitJS: Implement a Stack in JavaScript](https://initjs.org/data-structure-stack-in-javascript-714f45dbf889)
 
-
 ### [CONTENT/Resources/My-Data-Structures-Notes/z-NOTES/data-structures/trees.md](CONTENT/Resources/My-Data-Structures-Notes/z-NOTES/data-structures/trees.md)
 
 # Trees
@@ -10099,10 +10061,10 @@ Ask a mentor, volunteer, or apprentice for a code review of your Tree implementa
 
 Create a cheat sheet about the types of trees, binary tree traversal, binary heaps, tries, graphs, and graph search.
 
-
 </details><details> <summary>CONTENT/Resources/visualizations/Linked-List-Visualization/</summary>
 
 ### [CONTENT/Resources/visualizations/Linked-List-Visualization/README.md](CONTENT/Resources/visualizations/Linked-List-Visualization/README.md)
+
 # Linked List Visualization
 
 Linked List Data Structure animated with javascript. This is not

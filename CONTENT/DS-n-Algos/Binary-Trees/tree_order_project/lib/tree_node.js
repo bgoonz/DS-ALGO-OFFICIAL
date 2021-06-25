@@ -1,5 +1,5 @@
 class TreeNode {
-  constructor( val ) {
+  constructor(val) {
     this.val = val;
     this.left = null;
     this.right = null;
@@ -7,5 +7,5 @@ class TreeNode {
 }
 
 module.exports = {
-  TreeNode
+  TreeNode,
 };

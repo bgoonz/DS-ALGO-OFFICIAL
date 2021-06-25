@@ -24,14 +24,14 @@ var findDegree = function (arr) {
   let numHash = {};
   for (let i = 0; i < arr.length; i++) {
     if (!numHash[arr[i]]) {
-      numHash[arr[i]] = 1
+      numHash[arr[i]] = 1;
     } else {
-      numHash[arr[i]] += 1
+      numHash[arr[i]] += 1;
     }
   }
   const counts = Object.values(numHash).sort((a, b) => b - a);
-  return counts[0]
-}
+  return counts[0];
+};
 
 var findShortestSubArray = function (nums) {
   let degree = findDegree(nums);
@@ -41,21 +41,21 @@ var findShortestSubArray = function (nums) {
   let minLength = nums.length;
   while (k < nums.length) {
     for (let j = 0; j <= nums.length; j++) {
-      let sub = nums.slice(k, j)
+      let sub = nums.slice(k, j);
       console.log(sub);
 
       if (sub.length >= degree) {
-        let subDeg = findDegree(sub)
+        let subDeg = findDegree(sub);
         console.log(subDeg);
 
         if (subDeg === degree && sub.length <= minLength) {
-          minLength = sub.length
+          minLength = sub.length;
           console.log(minLength);
-          console.log("match")
+          console.log("match");
         }
       }
     }
-    k++
+    k++;
   }
 
   return minLength;
@@ -63,7 +63,7 @@ var findShortestSubArray = function (nums) {
 // console.log(findShortestSubArray([1, 2, 2, 3, 1, 4, 2]));
 
 // the accepted solution:
-// this does it without the helper function 
+// this does it without the helper function
 // in the same for loop where you're finding the degree, you keep track of an
 //    element's first and last index.
 // take care not to replace the first index if it already exists, but you always
@@ -73,7 +73,7 @@ var findShortestSubArray = function (nums) {
 //    then you want to find the min length subarray which contains those numbers
 //    when you subtract last index from first index, you need to add 1 to account for 0 index
 
-const findShortestSub = function(nums) {
+const findShortestSub = function (nums) {
   const counts = {};
   const firstIdxs = {};
   const lastIdxs = {};
@@ -81,26 +81,25 @@ const findShortestSub = function(nums) {
   for (let i = 0; i < nums.length; i++) {
     const k = nums[i];
     if (!counts[k]) {
-      counts[k] = 1
+      counts[k] = 1;
     } else {
-      counts[k] += 1
+      counts[k] += 1;
     }
-    max = Math.max(max, counts[k])
-    
+    max = Math.max(max, counts[k]);
+
     if (firstIdxs[k] === undefined) {
-      firstIdxs[k] = i
-    } 
-    lastIdxs[k] = i
+      firstIdxs[k] = i;
+    }
+    lastIdxs[k] = i;
   }
-  let res = nums.length 
- 
+  let res = nums.length;
+
   for (let k in counts) {
     if (counts[k] === max) {
-      res = Math.min(res, lastIdxs[k] - firstIdxs[k] + 1)
+      res = Math.min(res, lastIdxs[k] - firstIdxs[k] + 1);
     }
   }
   return res;
-}
+};
 
 console.log(findShortestSub([1, 2, 2, 3, 1]));
-

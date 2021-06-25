@@ -16,11 +16,11 @@
 // lucasNumber(3)   // => 4
 // lucasNumber(5)   // => 11
 // lucasNumber(9)   // => 76
-function lucasNumber( n ) {
-  if ( n === 0 ) return 2;
-  if ( n === 1 ) return 1;
+function lucasNumber(n) {
+  if (n === 0) return 2;
+  if (n === 1) return 1;
 
-  return lucasNumber( n - 1 ) + lucasNumber( n - 2 );
+  return lucasNumber(n - 1) + lucasNumber(n - 2);
 }
 
 // Write a function, sumArray(array), that takes in an array of numbers.
@@ -34,10 +34,10 @@ function lucasNumber( n ) {
 // sumArray([5])            // => 5
 // sumArray([5, 2])         // => 7
 // sumArray([4, 10, -1, 2]) // => 15
-function sumArray( array ) {
-  if ( array.length === 0 ) return 0;
+function sumArray(array) {
+  if (array.length === 0) return 0;
 
-  return sumArray( array.slice( 1 ) ) + array[ 0 ];
+  return sumArray(array.slice(1)) + array[0];
 }
 
 // Write a function, reverseString(str), that takes in a string.
@@ -51,10 +51,10 @@ function sumArray( array ) {
 // reverseString("c")           // => "c"
 // reverseString("internet")    // => "tenretni"
 // reverseString("friends")     // => "sdneirf"
-function reverseString( str ) {
-  if ( str.length <= 1 ) return str;
+function reverseString(str) {
+  if (str.length <= 1) return str;
 
-  return reverseString( str.slice( 1 ) ) + str[ 0 ];
+  return reverseString(str.slice(1)) + str[0];
 }
 
 // Write a function, pow(base, exponent), that takes in two numbers.
@@ -73,11 +73,11 @@ function reverseString( str ) {
 // pow(2, 5)    // => 32
 // pow(3, 4)    // => 81
 // pow(2, -5)   // => 0.03125
-function pow( base, exponent ) {
-  if ( exponent === 0 ) return 1;
-  if ( exponent < 0 ) return 1 / pow( base, -1 * exponent - 1 ) / base;
+function pow(base, exponent) {
+  if (exponent === 0) return 1;
+  if (exponent < 0) return 1 / pow(base, -1 * exponent - 1) / base;
 
-  return base * pow( base, exponent - 1 );
+  return base * pow(base, exponent - 1);
 }
 
 // A 1-dimensional array is also known as a flattened array.
@@ -108,12 +108,12 @@ function pow( base, exponent ) {
 //     1-dimensional array: ['some data']
 //     2-dimensional array: [['some data']]
 //     3-dimensional array: [[['some data']]]
-function flatten( data ) {
-  if ( !( data instanceof Array ) ) return [ data ];
+function flatten(data) {
+  if (!(data instanceof Array)) return [data];
 
   const flattened = [];
-  for ( let i = 0; i < data.length; i++ ) {
-    flattened.push( ...flatten( data[ i ] ) );
+  for (let i = 0; i < data.length; i++) {
+    flattened.push(...flatten(data[i]));
   }
   return flattened;
 }
@@ -157,15 +157,18 @@ function flatten( data ) {
 // fileFinder(desktop, 'app_academy_logo.svg');     // => true
 // fileFinder(desktop, 'everlong.flac');            // => true
 // fileFinder(desktop, 'sequoia.jpeg');             // => false
-function fileFinder( directories, targetFile ) {
-  const keys = Object.keys( directories );
-  if ( keys.includes( targetFile ) ) return true;
+function fileFinder(directories, targetFile) {
+  const keys = Object.keys(directories);
+  if (keys.includes(targetFile)) return true;
 
   let found = false;
-  keys.some( key => {
-    found = directories[ key ] instanceof Object ? fileFinder( directories[ key ], targetFile ) : false;
-    if ( found ) return true;
-  } );
+  keys.some((key) => {
+    found =
+      directories[key] instanceof Object
+        ? fileFinder(directories[key], targetFile)
+        : false;
+    if (found) return true;
+  });
   return found;
 
   // aA Solution
@@ -186,13 +189,13 @@ function fileFinder( directories, targetFile ) {
 // pathFinder(desktop, 'trixie_lou.jpeg'));     // => '/images/pets/trixie_lou.jpeg'
 // pathFinder(desktop, 'everlong.flac'));       // => '/music/genres/rock/everlong.flac'
 // pathFinder(desktop, 'honeybadger.png'));     // => null
-function pathFinder( directories, targetFile ) {
-  for ( let key in directories ) {
-    if ( key === targetFile ) {
+function pathFinder(directories, targetFile) {
+  for (let key in directories) {
+    if (key === targetFile) {
       return `/${key}`;
     } else {
-      const path = pathFinder( directories[ key ], targetFile );
-      if ( path ) return key + path;
+      const path = pathFinder(directories[key], targetFile);
+      if (path) return key + path;
     }
   }
   return null;
@@ -205,5 +208,5 @@ module.exports = {
   pow,
   flatten,
   fileFinder,
-  pathFinder
+  pathFinder,
 };

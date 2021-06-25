@@ -21,7 +21,7 @@ class Node {
   }
 
   remove(data) {
-    this.children = this.children.filter(node => {
+    this.children = this.children.filter((node) => {
       return node.data !== data;
     });
   }

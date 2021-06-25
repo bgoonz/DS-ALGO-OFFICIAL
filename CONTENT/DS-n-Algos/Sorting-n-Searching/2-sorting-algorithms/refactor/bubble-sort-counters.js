@@ -16,18 +16,18 @@ function bubbleSortBasic(array) {
   var countInner = 0;
   var countSwap = 0;
 
-  for(var i = 0; i < array.length; i++) {
+  for (var i = 0; i < array.length; i++) {
     countOuter++;
-    for(var j = 1; j < array.length; j++) {
+    for (var j = 1; j < array.length; j++) {
       countInner++;
-      if(array[j - 1] > array[j]) {
+      if (array[j - 1] > array[j]) {
         countSwap++;
         swap(array, j - 1, j);
       }
     }
   }
 
-  console.log('outer:', countOuter, 'inner:', countInner, 'swap:', countSwap);
+  console.log("outer:", countOuter, "inner:", countInner, "swap:", countSwap);
   return array;
 }
 
@@ -45,17 +45,17 @@ function bubbleSort(array) {
   do {
     countOuter++;
     swapped = false;
-    for(var i = 0; i < array.length; i++) {
+    for (var i = 0; i < array.length; i++) {
       countInner++;
-      if(array[i] && array[i + 1] && array[i] > array[i + 1]) {
+      if (array[i] && array[i + 1] && array[i] > array[i + 1]) {
         countSwap++;
         swap(array, i, i + 1);
         swapped = true;
       }
     }
-  } while(swapped);
+  } while (swapped);
 
-  console.log('outer:', countOuter, 'inner:', countInner, 'swap:', countSwap);
+  console.log("outer:", countOuter, "inner:", countInner, "swap:", countSwap);
   return array;
 }
 

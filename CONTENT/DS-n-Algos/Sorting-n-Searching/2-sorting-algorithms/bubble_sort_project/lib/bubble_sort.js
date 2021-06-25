@@ -19,5 +19,5 @@ function bubbleSort(array) {
 
 module.exports = {
   bubbleSort,
-  swap
+  swap,
 };

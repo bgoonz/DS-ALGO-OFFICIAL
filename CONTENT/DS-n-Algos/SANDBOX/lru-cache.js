@@ -4,7 +4,7 @@
 /**
  * @constructor
  */
-var LRUCache = function(capacity) {
+var LRUCache = function (capacity) {
   this.capacity = capacity;
   this.obj = {};
   this.arr = [];
@@ -14,15 +14,14 @@ var LRUCache = function(capacity) {
  * @param {number} key
  * @returns {number}
  */
-LRUCache.prototype.get = function(key) {
+LRUCache.prototype.get = function (key) {
   var val = this.obj[key];
   if (val > 0) {
     var index = this.arr.indexOf(key);
     this.arr.splice(index, 1);
     this.arr.unshift(key);
     return val;
-  } else 
-  return -1;
+  } else return -1;
 };
 
 /**
@@ -30,8 +29,7 @@ LRUCache.prototype.get = function(key) {
  * @param {number} value
  * @returns {void}
  */
-LRUCache.prototype.set = function(key, value) {
-
+LRUCache.prototype.set = function (key, value) {
   if (this.obj[key]) {
     this.obj[key] = value;
     var index = this.arr.indexOf(key);

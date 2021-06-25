@@ -76,77 +76,77 @@
 // Let's code!
 // -----------
 function balancedParens(str) {
-	const stack = new Stack();
+  const stack = new Stack();
 
-	for (let i = 0; i < str.length; i++) {
-		const char = str.charAt(i);
-		if (char === '(' || char === '[' || char === '{') {
-			stack.push(char);
-		} else if (char === ')') {
-			if (stack.length && stack.top.value === '(') {
-				stack.pop();
-			} else {
-				return false;
-			}
-		} else if (char === ']') {
-			if (stack.length && stack.top.value === '[') {
-				stack.pop();
-			} else {
-				return false;
-			}
-		} else if (char === '}') {
-			if (stack.length && stack.top.value === '{') {
-				stack.pop();
-			} else {
-				return false;
-			}
-		}
-	}
+  for (let i = 0; i < str.length; i++) {
+    const char = str.charAt(i);
+    if (char === "(" || char === "[" || char === "{") {
+      stack.push(char);
+    } else if (char === ")") {
+      if (stack.length && stack.top.value === "(") {
+        stack.pop();
+      } else {
+        return false;
+      }
+    } else if (char === "]") {
+      if (stack.length && stack.top.value === "[") {
+        stack.pop();
+      } else {
+        return false;
+      }
+    } else if (char === "}") {
+      if (stack.length && stack.top.value === "{") {
+        stack.pop();
+      } else {
+        return false;
+      }
+    }
+  }
 
-	return !stack.length;
+  return !stack.length;
 }
 
 class Node {
-	constructor(val) {
-		this.value = val;
-		this.next = null;
-	}
+  constructor(val) {
+    this.value = val;
+    this.next = null;
+  }
 }
 
 class Stack {
-	constructor() {
-		this.top = null;
-		this.bottom = null;
-		this.length = 0;
-	}
+  constructor() {
+    this.top = null;
+    this.bottom = null;
+    this.length = 0;
+  }
 
-	push(val) {
-		const newNode = new Node(val);
-		if (this.length) {
-			newNode.next = this.top;
-		} else {
-			this.bottom = newNode;
-		}
-		this.top = newNode;
-		this.length++;
-		return this.length;
-	}
+  push(val) {
+    const newNode = new Node(val);
+    if (this.length) {
+      newNode.next = this.top;
+    } else {
+      this.bottom = newNode;
+    }
+    this.top = newNode;
+    this.length++;
+    return this.length;
+  }
 
-	pop() {
-		if (!this.length) return null;
-		const popped = this.top.value;
-		this.top = this.top.next;
-		this.length--;
-		if (!this.length) {
-			this.top = null;
-			this.bottom = null;
-		}
-		return popped;
-	}
+  pop() {
+    if (!this.length) return null;
+    const popped = this.top.value;
+    this.top = this.top.next;
+    this.length--;
+    if (!this.length) {
+      this.top = null;
+      this.bottom = null;
+    }
+    return popped;
+  }
 
-	size() {
-		return this.length;
-	}
+  size() {
+    return this.length;
+  }
 }
 
 exports.balancedParens = balancedParens;

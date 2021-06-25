@@ -45,24 +45,27 @@ The cells are adjacent in only four directions: up, down, left and right.
 
 */
 
-
-
 /**
  * @param {number[][]} matrix
  * @return {number[][]}
  */
-const updateMatrix = matrix => {
+const updateMatrix = (matrix) => {
   // BFS
   let q = [];
   let hash = [];
   let [m, n] = [matrix.length, matrix[0].length];
-  const dir = [[1, 0], [-1, 0], [0, 1], [0, -1]];
+  const dir = [
+    [1, 0],
+    [-1, 0],
+    [0, 1],
+    [0, -1],
+  ];
 
   for (let i = 0; i < m; i++) {
     hash[i] = [];
     for (let j = 0; j < n; j++) {
       if (matrix[i][j] === 0) {
-        q.push({x: i, y: j, step: 0});
+        q.push({ x: i, y: j, step: 0 });
         hash[i][j] = 0;
       }
     }
@@ -70,7 +73,7 @@ const updateMatrix = matrix => {
 
   while (q.length) {
     let item = q.shift();
-    let {x, y, step} = item;
+    let { x, y, step } = item;
 
     for (let i = 0; i < 4; i++) {
       let _x = x + dir[i][0];
@@ -78,7 +81,7 @@ const updateMatrix = matrix => {
       if (_x < 0 || _x >= m || _y < 0 || _y >= n) continue;
       if (hash[_x][_y] !== undefined) continue;
       hash[_x][_y] = step + 1;
-      q.push({x: _x, y: _y, step: step + 1});
+      q.push({ x: _x, y: _y, step: step + 1 });
     }
   }
 

@@ -10,9 +10,8 @@ doesKeyExist(obj1, 'course'); // => true
 doesKeyExist(obj1, 'name'); // => false
 ***********************************************************************/
 
-function doesKeyExist( obj, key ) {
-  return obj[ key ] !== undefined;
+function doesKeyExist(obj, key) {
+  return obj[key] !== undefined;
 }
-
 
 module.exports = doesKeyExist;

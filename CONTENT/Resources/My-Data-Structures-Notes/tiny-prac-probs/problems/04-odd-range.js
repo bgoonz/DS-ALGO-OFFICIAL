@@ -8,11 +8,11 @@ oddRange(13); // => [ 1, 3, 5, 7, 9, 11, 13 ]
 oddRange(6); // => [ 1, 3, 5 ]
 *******************************************************************************/
 
-function oddRange( end ) {
+function oddRange(end) {
   let arr = [];
 
-  for ( let i = 1; i <= end; i += 2 ) {
-    arr.push( i );
+  for (let i = 1; i <= end; i += 2) {
+    arr.push(i);
   }
 
   return arr;

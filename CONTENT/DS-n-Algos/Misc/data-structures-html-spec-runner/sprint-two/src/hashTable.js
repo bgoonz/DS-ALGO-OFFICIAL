@@ -1,11 +1,11 @@
-var HashTable = function() {
-//Params no need to adjust
+var HashTable = function () {
+  //Params no need to adjust
   this._limit = 8;
   this._tupleCount = 0;
   this._storage = LimitedArray(this._limit);
 };
 
-HashTable.prototype.insert = function(k, v) {
+HashTable.prototype.insert = function (k, v) {
   var index = getIndexBelowMaxForKey(k, this._limit);
   var bucket = this._storage.get(index);
   if (Array.isArray(bucket)) {
@@ -18,10 +18,10 @@ HashTable.prototype.insert = function(k, v) {
   this.resize();
 };
 
-HashTable.prototype.retrieve = function(k) {
+HashTable.prototype.retrieve = function (k) {
   var index = getIndexBelowMaxForKey(k, this._limit);
   var bucket = this._storage.get(index);
-  return bucket.reduce(function(result, tuple) {
+  return bucket.reduce(function (result, tuple) {
     if (tuple[0] === k) {
       return tuple[1];
     }
@@ -29,11 +29,11 @@ HashTable.prototype.retrieve = function(k) {
   }, undefined);
 };
 
-HashTable.prototype.remove = function(k) {
+HashTable.prototype.remove = function (k) {
   var index = getIndexBelowMaxForKey(k, this._limit);
   var bucket = this._storage.get(index);
   var cnt = this._tupleCount;
-  bucket.forEach(function(tuple, idx) {
+  bucket.forEach(function (tuple, idx) {
     if (tuple[0] === k) {
       bucket.splice(idx, 1);
       cnt--;
@@ -43,14 +43,14 @@ HashTable.prototype.remove = function(k) {
   this.resize();
 };
 
-HashTable.prototype.resize = function() {
+HashTable.prototype.resize = function () {
   var tempStorage;
   //make it bigger
   if (this._tupleCount / this._limit >= 0.75) {
     var newLimit = this._limit * 2;
-    tempStorage = LimitedArray(newLimit); 
-    this._storage.each(function(bucket) {
-      _.each(bucket, function(tuple) {
+    tempStorage = LimitedArray(newLimit);
+    this._storage.each(function (bucket) {
+      _.each(bucket, function (tuple) {
         var idx = getIndexBelowMaxForKey(tuple[0], newLimit);
         tempStorage.set(idx, [tuple]);
       });
@@ -59,13 +59,13 @@ HashTable.prototype.resize = function() {
     this.minLimit *= 2;
     this._storage = tempStorage;
   }
-  // make it smaller 
+  // make it smaller
   if (this._tupleCount / this._limit <= 0.25) {
     if (this._limit > 8) {
       var newLimit = this._limit / 2;
       tempStorage = LimitedArray(newLimit);
-      this._storage.each(function(bucket) {
-        _.each(bucket, function(tuple) {
+      this._storage.each(function (bucket) {
+        _.each(bucket, function (tuple) {
           var idx = getIndexBelowMaxForKey(tuple[0], newLimit);
           tempStorage.set(idx, [tuple]);
         });

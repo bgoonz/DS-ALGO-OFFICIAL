@@ -8,7 +8,7 @@ function insertionSort(array) {
   var countInner = 0;
   var countSwap = 0;
 
-  for(var i = 0; i < array.length; i++) {
+  for (var i = 0; i < array.length; i++) {
     countOuter++;
     var temp = array[i];
     var j = i - 1;
@@ -21,7 +21,7 @@ function insertionSort(array) {
     array[j + 1] = temp;
   }
 
-  console.log('outer:', countOuter, 'inner:', countInner, 'swap:', countSwap);
+  console.log("outer:", countOuter, "inner:", countInner, "swap:", countSwap);
   return array;
 }
 

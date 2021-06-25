@@ -1,31 +1,31 @@
 /*
-* Radix sorts an integer array without comparing the integers.
-* It groups the integers by their digits which share the same
-* significant position.
-* For more information see: https://en.wikipedia.org/wiki/Radix_sort
-*/
-function radixSort (items, RADIX) {
+ * Radix sorts an integer array without comparing the integers.
+ * It groups the integers by their digits which share the same
+ * significant position.
+ * For more information see: https://en.wikipedia.org/wiki/Radix_sort
+ */
+function radixSort(items, RADIX) {
   // default radix is then because we usually count to base 10
   if (RADIX === undefined || RADIX < 1) {
-    RADIX = 10
+    RADIX = 10;
   }
 
   let maxLength = false;
   let placement = 1;
 
   while (!maxLength) {
-    maxLength = true
+    maxLength = true;
     const buckets = [];
 
     for (let i = 0; i < RADIX; i++) {
-      buckets.push([])
+      buckets.push([]);
     }
 
     for (let j = 0; j < items.length; j++) {
       const tmp = items[j] / placement;
-      buckets[Math.floor(tmp % RADIX)].push(items[j])
+      buckets[Math.floor(tmp % RADIX)].push(items[j]);
       if (maxLength && tmp > 0) {
-        maxLength = false
+        maxLength = false;
       }
     }
 
@@ -33,20 +33,20 @@ function radixSort (items, RADIX) {
     for (let b = 0; b < RADIX; b++) {
       const buck = buckets[b];
       for (let k = 0; k < buck.length; k++) {
-        items[a] = buck[k]
-        a++
+        items[a] = buck[k];
+        a++;
       }
     }
-    placement *= RADIX
+    placement *= RADIX;
   }
-  return items
+  return items;
 }
 
 // Implementation of radixSort
 
 const ar = [5, 6, 7, 8, 1, 2, 12, 14];
 // Array before Sort
-console.log(ar)
-radixSort(ar)
+console.log(ar);
+radixSort(ar);
 // Array after sort
-console.log(ar)
+console.log(ar);

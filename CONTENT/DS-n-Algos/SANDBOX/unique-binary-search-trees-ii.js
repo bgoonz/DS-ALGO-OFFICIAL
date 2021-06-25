@@ -12,15 +12,13 @@
  * @param {number} n
  * @return {TreeNode[]}
  */
-var generateTrees = function(n) {
-  if (!n)
-    return [];
+var generateTrees = function (n) {
+  if (!n) return [];
 
   return dfs(1, n);
 
   function dfs(start, end) {
-    if (start > end)
-      return [null];
+    if (start > end) return [null];
 
     var ret = [];
 
@@ -29,8 +27,8 @@ var generateTrees = function(n) {
       var left = dfs(start, i - 1);
       var right = dfs(i + 1, end);
 
-      left.forEach(function(a) {
-        right.forEach(function(b) {
+      left.forEach(function (a) {
+        right.forEach(function (b) {
           var node = new TreeNode(i);
           node.left = a;
           node.right = b;

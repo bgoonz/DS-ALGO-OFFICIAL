@@ -6,12 +6,11 @@
  * @param {number} denominator
  * @return {string}
  */
-var fractionToDecimal = function(numerator, denominator) {
-
-  var isNegative = '';
+var fractionToDecimal = function (numerator, denominator) {
+  var isNegative = "";
 
   if (numerator * denominator < 0) {
-    isNegative = '-';
+    isNegative = "-";
   }
 
   numerator = Math.abs(numerator);
@@ -45,17 +44,16 @@ var fractionToDecimal = function(numerator, denominator) {
     var pos = hash.indexOf(rem);
 
     arr.push(num);
-    
+
     hash.push(rem);
 
     if (pos === -1) {
-      
     } else {
-      arr.splice(pos, 0, '(');
-      arr.push(')');
+      arr.splice(pos, 0, "(");
+      arr.push(")");
       break;
     }
   }
 
-  return isNegative + ans + '.' + arr.join('');
+  return isNegative + ans + "." + arr.join("");
 };

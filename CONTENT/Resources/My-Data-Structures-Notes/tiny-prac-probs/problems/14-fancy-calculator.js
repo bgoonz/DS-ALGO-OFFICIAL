@@ -18,19 +18,18 @@ fancyCalculator.total // => returns 1
 
 const fancyCalculator = {
   total: 0,
-  setTotal: function ( num ) {
+  setTotal: function (num) {
     this.total = num;
     return this.total;
   },
-  modulo: function ( num ) {
+  modulo: function (num) {
     this.total %= num;
     return this.total;
   },
   squared: function () {
     this.total *= this.total;
     return this.total;
-  }
+  },
 };
-
 
 module.exports = fancyCalculator;

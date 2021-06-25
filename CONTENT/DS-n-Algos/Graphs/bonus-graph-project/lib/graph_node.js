@@ -1,10 +1,10 @@
 class GraphNode {
-  constructor( val ) {
+  constructor(val) {
     this.val = val;
     this.neighbors = [];
   }
 }
 
 module.exports = {
-  GraphNode
+  GraphNode,
 };

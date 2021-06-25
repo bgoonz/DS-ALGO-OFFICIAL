@@ -12,10 +12,10 @@ class Graph {
 
   removeVertex(vertex) {
     const index = this.vertices.indexOf(vertex);
-    if(~index) {
+    if (~index) {
       this.vertices.splice(index, 1);
     }
-    while(this.edges[vertex].length) {
+    while (this.edges[vertex].length) {
       const adjacentVertex = this.edges[vertex].pop();
       this.removeEdge(adjacentVertex, vertex);
     }
@@ -28,13 +28,17 @@ class Graph {
   }
 
   removeEdge(vertex1, vertex2) {
-    const index1 = this.edges[vertex1] ? this.edges[vertex1].indexOf(vertex2) : -1;
-    const index2 = this.edges[vertex2] ? this.edges[vertex2].indexOf(vertex1) : -1;
-    if(~index1) {
+    const index1 = this.edges[vertex1]
+      ? this.edges[vertex1].indexOf(vertex2)
+      : -1;
+    const index2 = this.edges[vertex2]
+      ? this.edges[vertex2].indexOf(vertex1)
+      : -1;
+    if (~index1) {
       this.edges[vertex1].splice(index1, 1);
       this.numberOfEdges--;
     }
-    if(~index2) {
+    if (~index2) {
       this.edges[vertex2].splice(index2, 1);
     }
   }
@@ -48,8 +52,8 @@ class Graph {
   }
 
   traverseDFS(vertex, fn) {
-    if(!~this.vertices.indexOf(vertex)) {
-      return console.log('Vertex not found');
+    if (!~this.vertices.indexOf(vertex)) {
+      return console.log("Vertex not found");
     }
     const visited = [];
     this._traverseDFS(vertex, visited, fn);
@@ -57,30 +61,30 @@ class Graph {
 
   _traverseDFS(vertex, visited, fn) {
     visited[vertex] = true;
-    if(this.edges[vertex] !== undefined) {
+    if (this.edges[vertex] !== undefined) {
       fn(vertex);
     }
-    for(let i = 0; i < this.edges[vertex].length; i++) {
-      if(!visited[this.edges[vertex][i]]) {
+    for (let i = 0; i < this.edges[vertex].length; i++) {
+      if (!visited[this.edges[vertex][i]]) {
         this._traverseDFS(this.edges[vertex][i], visited, fn);
       }
     }
   }
 
   traverseBFS(vertex, fn) {
-    if(!~this.vertices.indexOf(vertex)) {
-      return console.log('Vertex not found');
+    if (!~this.vertices.indexOf(vertex)) {
+      return console.log("Vertex not found");
     }
     const queue = [];
     queue.push(vertex);
     const visited = [];
     visited[vertex] = true;
 
-    while(queue.length) {
+    while (queue.length) {
       vertex = queue.shift();
       fn(vertex);
-      for(let i = 0; i < this.edges[vertex].length; i++) {
-        if(!visited[this.edges[vertex][i]]) {
+      for (let i = 0; i < this.edges[vertex].length; i++) {
+        if (!visited[this.edges[vertex][i]]) {
           visited[this.edges[vertex][i]] = true;
           queue.push(this.edges[vertex][i]);
         }
@@ -89,8 +93,8 @@ class Graph {
   }
 
   pathFromTo(vertexSource, vertexDestination) {
-    if(!~this.vertices.indexOf(vertexSource)) {
-      return console.log('Vertex not found');
+    if (!~this.vertices.indexOf(vertexSource)) {
+      return console.log("Vertex not found");
     }
     const queue = [];
     queue.push(vertexSource);
@@ -98,10 +102,10 @@ class Graph {
     visited[vertexSource] = true;
     const paths = [];
 
-    while(queue.length) {
+    while (queue.length) {
       const vertex = queue.shift();
-      for(let i = 0; i < this.edges[vertex].length; i++) {
-        if(!visited[this.edges[vertex][i]]) {
+      for (let i = 0; i < this.edges[vertex].length; i++) {
+        if (!visited[this.edges[vertex][i]]) {
           visited[this.edges[vertex][i]] = true;
           queue.push(this.edges[vertex][i]);
           // save paths between vertices
@@ -109,22 +113,26 @@ class Graph {
         }
       }
     }
-    if(!visited[vertexDestination]) {
+    if (!visited[vertexDestination]) {
       return undefined;
     }
 
     const path = [];
-    for(var j = vertexDestination; j != vertexSource; j = paths[j]) {
+    for (var j = vertexDestination; j != vertexSource; j = paths[j]) {
       path.push(j);
     }
     path.push(j);
-    return path.reverse().join('-');
+    return path.reverse().join("-");
   }
 
   print() {
-    console.log(this.vertices.map(function(vertex) {
-      return (`${vertex} -> ${this.edges[vertex].join(', ')}`).trim();
-    }, this).join(' | '));
+    console.log(
+      this.vertices
+        .map(function (vertex) {
+          return `${vertex} -> ${this.edges[vertex].join(", ")}`.trim();
+        }, this)
+        .join(" | ")
+    );
   }
 }
 
@@ -144,25 +152,33 @@ graph.addEdge(3, 4);
 graph.addEdge(4, 5);
 graph.addEdge(4, 6);
 graph.print(); // 1 -> 2, 5 | 2 -> 1, 3, 5 | 3 -> 2, 4 | 4 -> 3, 5, 6 | 5 -> 1, 2, 4 | 6 -> 4
-console.log('graph size (number of vertices):', graph.size()); // => 6
-console.log('graph relations (number of edges):', graph.relations()); // => 7
-graph.traverseDFS(1, vertex => { console.log(vertex); }); // => 1 2 3 4 5 6
-console.log('---');
-graph.traverseBFS(1, vertex => { console.log(vertex); }); // => 1 2 5 3 4 6
-graph.traverseDFS(0, vertex => { console.log(vertex); }); // => 'Vertex not found'
-graph.traverseBFS(0, vertex => { console.log(vertex); }); // => 'Vertex not found'
-console.log('path from 6 to 1:', graph.pathFromTo(6, 1)); // => 6-4-5-1
-console.log('path from 3 to 5:', graph.pathFromTo(3, 5)); // => 3-2-5
+console.log("graph size (number of vertices):", graph.size()); // => 6
+console.log("graph relations (number of edges):", graph.relations()); // => 7
+graph.traverseDFS(1, (vertex) => {
+  console.log(vertex);
+}); // => 1 2 3 4 5 6
+console.log("---");
+graph.traverseBFS(1, (vertex) => {
+  console.log(vertex);
+}); // => 1 2 5 3 4 6
+graph.traverseDFS(0, (vertex) => {
+  console.log(vertex);
+}); // => 'Vertex not found'
+graph.traverseBFS(0, (vertex) => {
+  console.log(vertex);
+}); // => 'Vertex not found'
+console.log("path from 6 to 1:", graph.pathFromTo(6, 1)); // => 6-4-5-1
+console.log("path from 3 to 5:", graph.pathFromTo(3, 5)); // => 3-2-5
 graph.removeEdge(1, 2);
 graph.removeEdge(4, 5);
 graph.removeEdge(10, 11);
-console.log('graph relations (number of edges):', graph.relations()); // => 5
-console.log('path from 6 to 1:', graph.pathFromTo(6, 1)); // => 6-4-3-2-5-1
+console.log("graph relations (number of edges):", graph.relations()); // => 5
+console.log("path from 6 to 1:", graph.pathFromTo(6, 1)); // => 6-4-3-2-5-1
 graph.addEdge(1, 2);
 graph.addEdge(4, 5);
-console.log('graph relations (number of edges):', graph.relations()); // => 7
-console.log('path from 6 to 1:', graph.pathFromTo(6, 1)); // => 6-4-5-1
+console.log("graph relations (number of edges):", graph.relations()); // => 7
+console.log("path from 6 to 1:", graph.pathFromTo(6, 1)); // => 6-4-5-1
 graph.removeVertex(5);
-console.log('graph size (number of vertices):', graph.size()); // => 5
-console.log('graph relations (number of edges):', graph.relations()); // => 4
-console.log('path from 6 to 1:', graph.pathFromTo(6, 1)); // => 6-4-3-2-1
+console.log("graph size (number of vertices):", graph.size()); // => 5
+console.log("graph relations (number of edges):", graph.relations()); // => 4
+console.log("path from 6 to 1:", graph.pathFromTo(6, 1)); // => 6-4-3-2-1

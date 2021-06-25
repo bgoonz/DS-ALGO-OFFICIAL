@@ -101,12 +101,12 @@ function factorial(n) {
   return n * factorial(n - 1);
 }
 
-factorial(6);       // => 720, requires 6 calls
-factorial(6);       // => 720, requires 6 calls
-factorial(5);       // => 120, requires 5 calls
-factorial(7);       // => 5040, requires 7 calls
+factorial(6); // => 720, requires 6 calls
+factorial(6); // => 720, requires 6 calls
+factorial(5); // => 120, requires 5 calls
+factorial(7); // => 5040, requires 7 calls
 
-let memo = {}
+let memo = {};
 
 function factorial(n) {
   // if this function has calculated factorial(n) previously,
@@ -118,22 +118,22 @@ function factorial(n) {
   // so calculate it now, but store the result in case it is
   // needed again in the future
   memo[n] = n * factorial(n - 1);
-  return memo[n]
+  return memo[n];
 }
 
-factorial(6);       // => 720, requires 6 calls
-factorial(6);       // => 720, requires 1 call
-factorial(5);       // => 120, requires 1 call
-factorial(7);       // => 5040, requires 2 calls
+factorial(6); // => 720, requires 6 calls
+factorial(6); // => 720, requires 1 call
+factorial(5); // => 120, requires 1 call
+factorial(7); // => 5040, requires 2 calls
 
-memo;   // => { '2': 2, '3': 6, '4': 24, '5': 120, '6': 720, '7': 5040 }
+memo; // => { '2': 2, '3': 6, '4': 24, '5': 120, '6': 720, '7': 5040 }
 
 function fib(n) {
   if (n === 1 || n === 2) return 1;
   return fib(n - 1) + fib(n - 2);
 }
 
-fib(6);     // => 8
+fib(6); // => 8
 
 function fastFib(n, memo = {}) {
   if (n in memo) return memo[n];
@@ -143,8 +143,8 @@ function fastFib(n, memo = {}) {
   return memo[n];
 }
 
-fastFib(6);     // => 8
-fastFib(50);    // => 12586269025
+fastFib(6); // => 8
+fastFib(50); // => 12586269025
 
 function tabulatedFib(n) {
   // create a blank array with n reserved spots
@@ -163,7 +163,7 @@ function tabulatedFib(n) {
   return table[n];
 }
 
-console.log(tabulatedFib(7));      // => 13
+console.log(tabulatedFib(7)); // => 13
 
 function fib(n) {
   let mostRecentCalcs = [0, 1];
@@ -171,8 +171,8 @@ function fib(n) {
   if (n === 0) return mostRecentCalcs[0];
 
   for (let i = 2; i <= n; i++) {
-    const [ secondLast, last ] = mostRecentCalcs;
-    mostRecentCalcs = [ last, secondLast + last ];
+    const [secondLast, last] = mostRecentCalcs;
+    mostRecentCalcs = [last, secondLast + last];
   }
 
   return mostRecentCalcs[1];
@@ -225,7 +225,7 @@ function merge(leftArray, rightArray) {
     sorted.push(value);
   }
 
-  return sorted
+  return sorted;
 }
 
 function mergeSort(array) {
@@ -247,7 +247,7 @@ function mergeSort(array) {
 function bubbleSort(items) {
   let length = items.length;
   for (let i = 0; i < length; i++) {
-    for (let j = 0; j < (length - i - 1); j++) {
+    for (let j = 0; j < length - i - 1; j++) {
       if (items[j] > items[j + 1]) {
         let tmp = items[j];
         items[j] = items[j + 1];
@@ -262,14 +262,14 @@ let arr2 = [0, 2, 3, 7, 10];
 merge(arr1, arr2); // => [0, 1, 2, 3, 5, 7, 10, 10, 15]
 
 let arr = [7, 3, 8, 9, 2];
-partition(arr, 5);  // => [[3, 2], [7,8,9]]
+partition(arr, 5); // => [[3, 2], [7,8,9]]
 
 // nothing fancy
 function partition(array, pivot) {
   let left = [];
   let right = [];
 
-  array.forEach(el => {
+  array.forEach((el) => {
     if (el < pivot) {
       left.push(el);
     } else {
@@ -277,29 +277,29 @@ function partition(array, pivot) {
     }
   });
 
-  return [ left, right ];
+  return [left, right];
 }
 
 // if you fancy
 function partition(array, pivot) {
-  let left = array.filter(el => el < pivot);
-  let right = array.filter(el => el >= pivot);
-  return [ left, right ];
+  let left = array.filter((el) => el < pivot);
+  let right = array.filter((el) => el >= pivot);
+  return [left, right];
 }
 
-binarySearch([5, 10, 12, 15, 20, 30, 70], 12);  // => true
-binarySearch([5, 10, 12, 15, 20, 30, 70], 24);  // => false
+binarySearch([5, 10, 12, 15, 20, 30, 70], 12); // => true
+binarySearch([5, 10, 12, 15, 20, 30, 70], 24); // => false
 
 function minumumValueIndex(arr) {
-    let minIndex = 0;
+  let minIndex = 0;
 
-    for (let j = 0; j < arr.length; j++) {
-        if (arr[minIndex] > arr[j]) {
-            minIndex = j;
-        }
+  for (let j = 0; j < arr.length; j++) {
+    if (arr[minIndex] > arr[j]) {
+      minIndex = j;
     }
+  }
 
-    return minIndex;
+  return minIndex;
 }
 
 function swap(arr, index1, index2) {
@@ -325,24 +325,24 @@ function selectionSort(arr) {
 
 // commented
 function selectionSort(arr) {
-    // the `i` loop will track the index that points to the first element of the unsorted region:
-    //    this means that the sorted region is everything left of index i
-    //    and the unsorted region is everything to the right of index i
-    for (let i = 0; i < arr.length; i++) {
-        let minIndex = i;
+  // the `i` loop will track the index that points to the first element of the unsorted region:
+  //    this means that the sorted region is everything left of index i
+  //    and the unsorted region is everything to the right of index i
+  for (let i = 0; i < arr.length; i++) {
+    let minIndex = i;
 
-        // the `j` loop will iterate through the unsorted region and find the index of the smallest element
-        for (let j = i + 1; j < arr.length; j++) {
-            if (arr[minIndex] > arr[j]) {
-                minIndex = j;
-            }
-        }
-
-        // after we find the minIndex in the unsorted region,
-        // swap that minIndex with the first index of the unsorted region
-        swap(arr, i, minIndex);
+    // the `j` loop will iterate through the unsorted region and find the index of the smallest element
+    for (let j = i + 1; j < arr.length; j++) {
+      if (arr[minIndex] > arr[j]) {
+        minIndex = j;
+      }
     }
-    return arr;
+
+    // after we find the minIndex in the unsorted region,
+    // swap that minIndex with the first index of the unsorted region
+    swap(arr, i, minIndex);
+  }
+  return arr;
 }
 function insertionSort(arr) {
   for (let i = 1; i < arr.length; i++) {
@@ -356,27 +356,27 @@ function insertionSort(arr) {
 }
 
 function insertionSort(arr) {
-    // the `i` loop will iterate through every element of the array
-    // we begin at i = 1, because we can consider the first element of the array as a
-    // trivially sorted region of only one element
-    // insertion sort allows us to insert new elements anywhere within the sorted region
-    for (let i = 1; i < arr.length; i++) {
-        // grab the first element of the unsorted region
-        let currElement = arr[i];
+  // the `i` loop will iterate through every element of the array
+  // we begin at i = 1, because we can consider the first element of the array as a
+  // trivially sorted region of only one element
+  // insertion sort allows us to insert new elements anywhere within the sorted region
+  for (let i = 1; i < arr.length; i++) {
+    // grab the first element of the unsorted region
+    let currElement = arr[i];
 
-        // the `j` loop will iterate left through the sorted region,
-        // looking for a legal spot to insert currElement
-        for (let j = i - 1; j >= 0 && currElement < arr[j]; j--) {
-            // keep moving left while currElement is less than the j-th element
+    // the `j` loop will iterate left through the sorted region,
+    // looking for a legal spot to insert currElement
+    for (let j = i - 1; j >= 0 && currElement < arr[j]; j--) {
+      // keep moving left while currElement is less than the j-th element
 
-            arr[j + 1] = arr[j];
-            // the line above will move the j-th element to the right,
-            // leaving a gap to potentially insert currElement
-        }
-        // insert currElement into that gap
-        arr[j + 1] = currElement;
+      arr[j + 1] = arr[j];
+      // the line above will move the j-th element to the right,
+      // leaving a gap to potentially insert currElement
     }
-    return arr;
+    // insert currElement into that gap
+    arr[j + 1] = currElement;
+  }
+  return arr;
 }
 function merge(array1, array2) {
   let merged = [];
@@ -461,297 +461,294 @@ function merge(array1, array2) {
   return merged;
 }
 
-merge([10, 13, 15, 25], []);  // => [10, 13, 15, 25]
+merge([10, 13, 15, 25], []); // => [10, 13, 15, 25]
 
 function mergeSort(array) {
-    if (array.length <= 1) {
-        return array;
-    }
- //------------------------------------------------------.
+  if (array.length <= 1) {
+    return array;
+  }
+  //------------------------------------------------------.
 }
 
 function mergeSort(array) {
-    if (array.length <= 1) {
-        return array;
-    }
+  if (array.length <= 1) {
+    return array;
+  }
 
-    let midIdx = Math.floor(array.length / 2);
-    let leftHalf = array.slice(0, midIdx);
-    let rightHalf = array.slice(midIdx);
+  let midIdx = Math.floor(array.length / 2);
+  let leftHalf = array.slice(0, midIdx);
+  let rightHalf = array.slice(midIdx);
 
-    let sortedLeft = mergeSort(leftHalf);
-    let sortedRight = mergeSort(rightHalf);
- //------------------------------------------------------
+  let sortedLeft = mergeSort(leftHalf);
+  let sortedRight = mergeSort(rightHalf);
+  //------------------------------------------------------
 }
 
 function mergeSort(array) {
-    if (array.length <= 1) {
-        return array;
-    }
+  if (array.length <= 1) {
+    return array;
+  }
 
-    let midIdx = Math.floor(array.length / 2);
-    let leftHalf = array.slice(0, midIdx);
-    let rightHalf = array.slice(midIdx);
+  let midIdx = Math.floor(array.length / 2);
+  let leftHalf = array.slice(0, midIdx);
+  let rightHalf = array.slice(midIdx);
 
-    let sortedLeft = mergeSort(leftHalf);
-    let sortedRight = mergeSort(rightHalf);
+  let sortedLeft = mergeSort(leftHalf);
+  let sortedRight = mergeSort(rightHalf);
 
-    return merge(sortedLeft, sortedRight);
+  return merge(sortedLeft, sortedRight);
 }
 
 function quickSort(array) {
-    if (array.length <= 1) {
-        return array;
-    }
- 
+  if (array.length <= 1) {
+    return array;
+  }
 }
 
 //------------------------------------------------------
-    let pivot = array.shift();
-    let left = array.filter(el => el < pivot);
-    let right = array.filter(el => el >= pivot);
- //------------------------------------------------------
+let pivot = array.shift();
+let left = array.filter((el) => el < pivot);
+let right = array.filter((el) => el >= pivot);
+//------------------------------------------------------
 
+// let pivot = array.shift();
+let left = array.filter((el) => el < pivot);
+let right = array.filter((el) => el >= pivot);
 
-
-    // let pivot = array.shift();
-    let left = array.filter(el => el < pivot);
-    let right = array.filter(el => el >= pivot);
-
-    let leftSorted = quickSort(left);
-    let rightSorted = quickSort(right);
- //------------------------------------------------------
+let leftSorted = quickSort(left);
+let rightSorted = quickSort(right);
+//------------------------------------------------------
 
 function quickSort(array) {
-    if (array.length <= 1) {
-        return array;
-    }
+  if (array.length <= 1) {
+    return array;
+  }
 
-    let pivot = array.shift();
-    let left = array.filter(el => el < pivot);
-    let right = array.filter(el => el >= pivot);
+  let pivot = array.shift();
+  let left = array.filter((el) => el < pivot);
+  let right = array.filter((el) => el >= pivot);
 
-    let leftSorted = quickSort(left);
-    let rightSorted = quickSort(right);
+  let leftSorted = quickSort(left);
+  let rightSorted = quickSort(right);
 
-    return leftSorted.concat([pivot]).concat(rightSorted);
+  return leftSorted.concat([pivot]).concat(rightSorted);
 }
 
-let one = ['a', 'b']
-let two = ['d', 'e', 'f']
-let newArr = [ ...one, 'c', ...two  ];
+let one = ["a", "b"];
+let two = ["d", "e", "f"];
+let newArr = [...one, "c", ...two];
 newArr; // =>  [ 'a', 'b', 'c', 'd', 'e', 'f' ]
 
 function quickSort(array) {
-    if (array.length <= 1) {
-        return array;
-    }
+  if (array.length <= 1) {
+    return array;
+  }
 
-    let pivot = array.shift();
-    let left = array.filter(el => el < pivot);
-    let right = array.filter(el => el >= pivot);
+  let pivot = array.shift();
+  let left = array.filter((el) => el < pivot);
+  let right = array.filter((el) => el >= pivot);
 
-    let leftSorted = quickSort(left);
-    let rightSorted = quickSort(right);
+  let leftSorted = quickSort(left);
+  let rightSorted = quickSort(right);
 
-    return [ ...leftSorted, pivot, ...rightSorted ];
+  return [...leftSorted, pivot, ...rightSorted];
 }
 
 function quickSort(array) {
-    if (array.length <= 1) {
-        return array;
-    }
+  if (array.length <= 1) {
+    return array;
+  }
 
-    let pivot = array.shift();
-    let left = array.filter(el => el < pivot);
-    let right = array.filter(el => el >= pivot);
+  let pivot = array.shift();
+  let left = array.filter((el) => el < pivot);
+  let right = array.filter((el) => el >= pivot);
 
-    let leftSorted = quickSort(left);
-    let rightSorted = quickSort(right);
+  let leftSorted = quickSort(left);
+  let rightSorted = quickSort(right);
 
-    return [ ...leftSorted, pivot, ...rightSorted ];
+  return [...leftSorted, pivot, ...rightSorted];
 }
 function binarySearch(array, target) {
-    if (array.length === 0) {
-        return false;
-    }
- //------------------------------------------------------
-}
-
-function binarySearch(array, target) {
-    if (array.length === 0) {
-        return false;
-    }
-
-    let midIdx = Math.floor(array.length / 2);
-    let leftHalf = array.slice(0, midIdx);
-    let rightHalf = array.slice(midIdx + 1);
- //------------------------------------------------------
+  if (array.length === 0) {
+    return false;
+  }
+  //------------------------------------------------------
 }
 
 function binarySearch(array, target) {
-    if (array.length === 0) {
-        return false;
-    }
+  if (array.length === 0) {
+    return false;
+  }
 
-    let midIdx = Math.floor(array.length / 2);
-    let leftHalf = array.slice(0, midIdx);
-    let rightHalf = array.slice(midIdx + 1);
-
-    if (target < array[midIdx]) {
-        return binarySearch(leftHalf, target);
-    } else if (target > array[midIdx]) {
-        return binarySearch(rightHalf, target);
-    }
- //------------------------------------------------------
+  let midIdx = Math.floor(array.length / 2);
+  let leftHalf = array.slice(0, midIdx);
+  let rightHalf = array.slice(midIdx + 1);
+  //------------------------------------------------------
 }
 
 function binarySearch(array, target) {
-    if (array.length === 0) {
-        return false;
-    }
+  if (array.length === 0) {
+    return false;
+  }
 
-    let midIdx = Math.floor(array.length / 2);
-    let leftHalf = array.slice(0, midIdx);
-    let rightHalf = array.slice(midIdx + 1);
+  let midIdx = Math.floor(array.length / 2);
+  let leftHalf = array.slice(0, midIdx);
+  let rightHalf = array.slice(midIdx + 1);
 
-    if (target < array[midIdx]) {
-        return binarySearch(leftHalf, target);
-    } else if (target > array[midIdx]) {
-        return binarySearch(rightHalf, target);
-    } else {
-        return true;
-    }
+  if (target < array[midIdx]) {
+    return binarySearch(leftHalf, target);
+  } else if (target > array[midIdx]) {
+    return binarySearch(rightHalf, target);
+  }
+  //------------------------------------------------------
 }
 
 function binarySearch(array, target) {
-    if (array.length === 0) {
-        return false;
-    }
+  if (array.length === 0) {
+    return false;
+  }
 
-    let midIdx = Math.floor(array.length / 2);
-    let leftHalf = array.slice(0, midIdx);
-    let rightHalf = array.slice(midIdx + 1);
+  let midIdx = Math.floor(array.length / 2);
+  let leftHalf = array.slice(0, midIdx);
+  let rightHalf = array.slice(midIdx + 1);
 
-    if (target < array[midIdx]) {
-        return binarySearch(leftHalf, target);
-    } else if (target > array[midIdx]) {
-        return binarySearch(rightHalf, target);
-    } else {
-        return true;
-    }
+  if (target < array[midIdx]) {
+    return binarySearch(leftHalf, target);
+  } else if (target > array[midIdx]) {
+    return binarySearch(rightHalf, target);
+  } else {
+    return true;
+  }
+}
+
+function binarySearch(array, target) {
+  if (array.length === 0) {
+    return false;
+  }
+
+  let midIdx = Math.floor(array.length / 2);
+  let leftHalf = array.slice(0, midIdx);
+  let rightHalf = array.slice(midIdx + 1);
+
+  if (target < array[midIdx]) {
+    return binarySearch(leftHalf, target);
+  } else if (target > array[midIdx]) {
+    return binarySearch(rightHalf, target);
+  } else {
+    return true;
+  }
 }
 
 // assuming our `MaxHeap` from the previous section
 
 function heapSort(array) {
-    // Step 1: build the heap
-    let heap = new MaxHeap();
-    array.forEach(num => heap.insert(num));
+  // Step 1: build the heap
+  let heap = new MaxHeap();
+  array.forEach((num) => heap.insert(num));
 
-    // Step 2: constructed the sorted array
-    let sorted = [];
-    while (heap.array.length > 1) {
-        sorted.push(heap.deleteMax());
-    }
+  // Step 2: constructed the sorted array
+  let sorted = [];
+  while (heap.array.length > 1) {
+    sorted.push(heap.deleteMax());
+  }
 
-    return sorted;
+  return sorted;
 }
 
 // swap the elements at indices i and j of array
 function swap(array, i, j) {
-    [ array[i], array[j] ] = [ array[j], array[i] ];
+  [array[i], array[j]] = [array[j], array[i]];
 }
 
 // sift-down the node at index i until max heap property is restored
 // n represents the size of the heap
 function heapify(array, n, i) {
-    let leftIdx = 2 * i + 1;
-    let rightIdx = 2 * i + 2;
+  let leftIdx = 2 * i + 1;
+  let rightIdx = 2 * i + 2;
 
-    let leftVal = array[leftIdx];
-    let rightVal = array[rightIdx];
+  let leftVal = array[leftIdx];
+  let rightVal = array[rightIdx];
 
-    if (leftIdx >= n) leftVal = -Infinity;
-    if (rightIdx >= n) rightVal = -Infinity;
+  if (leftIdx >= n) leftVal = -Infinity;
+  if (rightIdx >= n) rightVal = -Infinity;
 
-    if (array[i] > leftVal && array[i] > rightVal) return;
+  if (array[i] > leftVal && array[i] > rightVal) return;
 
-    let swapIdx;
-    if (leftVal < rightVal) {
-        swapIdx = rightIdx;
-    } else {
-        swapIdx = leftIdx;
-    }
-    swap(array, i, swapIdx);
-    heapify(array, n, swapIdx);
+  let swapIdx;
+  if (leftVal < rightVal) {
+    swapIdx = rightIdx;
+  } else {
+    swapIdx = leftIdx;
+  }
+  swap(array, i, swapIdx);
+  heapify(array, n, swapIdx);
 }
 
 function heapSort(array) {
-    // heapify the tree from the bottom up
-    for (let i = array.length - 1; i >= 0; i--) {
-        heapify(array, array.length, i);
-    }
-    // the entire array is now a heap
- //------------------------------------------------------
+  // heapify the tree from the bottom up
+  for (let i = array.length - 1; i >= 0; i--) {
+    heapify(array, array.length, i);
+  }
+  // the entire array is now a heap
+  //------------------------------------------------------
 }
 
 function heapSort(array) {
-    // heapify the tree from the bottom up
-    for (let i = array.length - 1; i >= 0; i--) {
-        heapify(array, array.length, i);
-    }
-    // the entire array is now a heap
+  // heapify the tree from the bottom up
+  for (let i = array.length - 1; i >= 0; i--) {
+    heapify(array, array.length, i);
+  }
+  // the entire array is now a heap
 
-    // until the heap is empty, continue to "delete max"
-    for (let endOfHeap = array.length - 1; endOfHeap >= 0; endOfHeap--) {
-        // swap the root of the heap with the last element of the heap,
-        // this effecively shrinks the heap by one and grows the sorted array by one
-        swap(array, endOfHeap, 0);
+  // until the heap is empty, continue to "delete max"
+  for (let endOfHeap = array.length - 1; endOfHeap >= 0; endOfHeap--) {
+    // swap the root of the heap with the last element of the heap,
+    // this effecively shrinks the heap by one and grows the sorted array by one
+    swap(array, endOfHeap, 0);
 
-        // sift down the new root, but not past the end of the heap
-        heapify(array, endOfHeap, 0);
-    }
-    return array;
+    // sift down the new root, but not past the end of the heap
+    heapify(array, endOfHeap, 0);
+  }
+  return array;
 }
 
 function heapSort(array) {
-    for (let i = array.length - 1; i >= 0; i--) {
-        heapify(array, array.length, i);
-    }
+  for (let i = array.length - 1; i >= 0; i--) {
+    heapify(array, array.length, i);
+  }
 
-    for (let endOfHeap = array.length - 1; endOfHeap >= 0; endOfHeap--) {
-        swap(array, endOfHeap, 0);
-        heapify(array, endOfHeap, 0);
-    }
+  for (let endOfHeap = array.length - 1; endOfHeap >= 0; endOfHeap--) {
+    swap(array, endOfHeap, 0);
+    heapify(array, endOfHeap, 0);
+  }
 
-    return array;
+  return array;
 }
 
 function heapify(array, n, i) {
-    let leftIdx = 2 * i + 1;
-    let rightIdx = 2 * i + 2;
+  let leftIdx = 2 * i + 1;
+  let rightIdx = 2 * i + 2;
 
-    let leftVal = array[leftIdx];
-    let rightVal = array[rightIdx];
+  let leftVal = array[leftIdx];
+  let rightVal = array[rightIdx];
 
-    if (leftIdx >= n) leftVal = -Infinity;
-    if (rightIdx >= n) rightVal = -Infinity;
+  if (leftIdx >= n) leftVal = -Infinity;
+  if (rightIdx >= n) rightVal = -Infinity;
 
-    if (array[i] > leftVal && array[i] > rightVal) return;
+  if (array[i] > leftVal && array[i] > rightVal) return;
 
-    let swapIdx;
-    if (leftVal < rightVal) {
-        swapIdx = rightIdx;
-    } else {
-        swapIdx = leftIdx;
-    }
-    swap(array, i, swapIdx);
-    heapify(array, n, swapIdx);
+  let swapIdx;
+  if (leftVal < rightVal) {
+    swapIdx = rightIdx;
+  } else {
+    swapIdx = leftIdx;
+  }
+  swap(array, i, swapIdx);
+  heapify(array, n, swapIdx);
 }
 
 function swap(array, i, j) {
-    [ array[i], array[j] ] = [ array[j], array[i] ];
+  [array[i], array[j]] = [array[j], array[i]];
 }
 class TreeNode {
   constructor(val) {
@@ -761,12 +758,12 @@ class TreeNode {
   }
 }
 
-let a = new TreeNode('a');
-let b = new TreeNode('b');
-let c = new TreeNode('c');
-let d = new TreeNode('d');
-let e = new TreeNode('e');
-let f = new TreeNode('f');
+let a = new TreeNode("a");
+let b = new TreeNode("b");
+let c = new TreeNode("c");
+let d = new TreeNode("d");
+let e = new TreeNode("e");
+let f = new TreeNode("f");
 
 a.left = b;
 a.right = c;
@@ -799,10 +796,10 @@ tree2.insert(16);
 tree2.insert(16);
 
 class GraphNode {
-    constructor(val) {
-        this.val = val;
-        this.neighbors = [];
-    }
+  constructor(val) {
+    this.val = val;
+    this.neighbors = [];
+  }
 }
 
 // let a = new GraphNode('a');
@@ -817,24 +814,24 @@ e.neighbors = [a];
 f.neighbors = [e];
 
 let matrix = [
-/*          A       B       C       D       E       F   */
-/*A*/    [true,  true,   true,   false,  true,   false],
-/*B*/    [false, true,   false,  false,  false,  false],
-/*C*/    [false, true,   true,   true,   false,  false],
-/*D*/    [false, false,  false,  true,   false,  false],
-/*E*/    [true,  false,  false,  false,  true,   false],
-/*F*/    [false, false,  false,  false,  true,   true]
+  /*          A       B       C       D       E       F   */
+  /*A*/ [true, true, true, false, true, false],
+  /*B*/ [false, true, false, false, false, false],
+  /*C*/ [false, true, true, true, false, false],
+  /*D*/ [false, false, false, true, false, false],
+  /*E*/ [true, false, false, false, true, false],
+  /*F*/ [false, false, false, false, true, true],
 ];
 
 let graph1 = {
-    'a': ['b', 'c', 'e'],
-    'b': [],
-    'c': ['b', 'd'],
-    'd': [],
-    'e': ['a'],
-    'f': ['e']
+  a: ["b", "c", "e"],
+  b: [],
+  c: ["b", "d"],
+  d: [],
+  e: ["a"],
+  f: ["e"],
 };
-// 
+//
 // class GraphNode {
 //     constructor(val) {
 //         this.val = val;
@@ -855,116 +852,115 @@ f.neighbors = [e];
 
 // broken
 function depthFirstRecur(node) {
-    console.log(node.val);
+  console.log(node.val);
 
-    node.neighbors.forEach(neighbor => {
-        depthFirstRecur(neighbor);
-    });
+  node.neighbors.forEach((neighbor) => {
+    depthFirstRecur(neighbor);
+  });
 }
 
 depthFirstRecur(f);
 
 // using GraphNode representation
 
-function depthFirstRecur(node, visited=new Set()) {
-    // if this node has already been visited, then return early
-    if (visited.has(node.val)) return;
+function depthFirstRecur(node, visited = new Set()) {
+  // if this node has already been visited, then return early
+  if (visited.has(node.val)) return;
+
+  // otherwise it hasn't yet been visited,
+  // so print it's val and mark it as visited.
+  console.log(node.val);
+  visited.add(node.val);
+
+  // then explore each of its neighbors
+  node.neighbors.forEach((neighbor) => {
+    depthFirstRecur(neighbor, visited);
+  });
+}
+
+depthFirstRecur(f);
+
+function depthFirstIter(node) {
+  let visited = new Set();
+  let stack = [node];
+
+  while (stack.length) {
+    let node = stack.pop();
+
+    // if this node has already been visited, then skip this node
+    if (visited.has(node.val)) continue;
 
     // otherwise it hasn't yet been visited,
     // so print it's val and mark it as visited.
     console.log(node.val);
     visited.add(node.val);
 
-    // then explore each of its neighbors
-    node.neighbors.forEach(neighbor => {
-        depthFirstRecur(neighbor, visited);
-    });
-}
-
-depthFirstRecur(f);
-
-function depthFirstIter(node) {
-    let visited = new Set();
-    let stack = [ node ];
-
-    while (stack.length) {
-        let node = stack.pop();
-
-        // if this node has already been visited, then skip this node
-        if (visited.has(node.val)) continue;
-
-        // otherwise it hasn't yet been visited,
-        // so print it's val and mark it as visited.
-        console.log(node.val);
-        visited.add(node.val);
-
-        // then add its neighbors to the stack to be explored
-        stack.push(...node.neighbors);
-    }
+    // then add its neighbors to the stack to be explored
+    stack.push(...node.neighbors);
+  }
 }
 
 depthFirstIter(f);
 
 let graph2 = {
-    'a': ['b', 'c', 'e'],
-    'b': [],
-    'c': ['b', 'd'],
-    'd': [],
-    'e': ['a'],
-    'f': ['e']
+  a: ["b", "c", "e"],
+  b: [],
+  c: ["b", "d"],
+  d: [],
+  e: ["a"],
+  f: ["e"],
 };
 
 // using Adjacency List representation
 
-function depthFirstRecur(node, graph, visited=new Set()) {
-    if (visited.has(node)) return;
+function depthFirstRecur(node, graph, visited = new Set()) {
+  if (visited.has(node)) return;
 
-    console.log(node);
-    visited.add(node);
+  console.log(node);
+  visited.add(node);
 
-    graph[node].forEach(neighbor => {
-        depthFirstRecur(neighbor, graph, visited);
-    });
+  graph[node].forEach((neighbor) => {
+    depthFirstRecur(neighbor, graph, visited);
+  });
 }
 
-depthFirstRecur('f', graph);
+depthFirstRecur("f", graph);
 
 function depthFirst(graph) {
-    let visited = new Set();
+  let visited = new Set();
 
-    for (let node in graph) {
-        _depthFirstRecur(node, graph, visited);
-    }
+  for (let node in graph) {
+    _depthFirstRecur(node, graph, visited);
+  }
 }
 
 function _depthFirstRecur(node, graph, visited) {
-    if (visited.has(node)) return;
+  if (visited.has(node)) return;
 
-    console.log(node);
-    visited.add(node);
+  console.log(node);
+  visited.add(node);
 
-    graph[node].forEach(neighbor => {
-        _depthFirstRecur(neighbor, graph, visited);
-    });
+  graph[node].forEach((neighbor) => {
+    _depthFirstRecur(neighbor, graph, visited);
+  });
 }
 
 depthFirst(graph);
 
 let graph = {
-    'h': ['i', 'j'],
-    'i': [],
-    'j': ['k'],
-    'k': [],
-    'l': ['m'],
-    'm': []
-}
+  h: ["i", "j"],
+  i: [],
+  j: ["k"],
+  k: [],
+  l: ["m"],
+  m: [],
+};
 
 depthFirst(graph);
 // prints h, i, j, k, l, m
 
-Number(42).toString(16) // 2a
-Number(42).toString(2) // 101010
+Number(42).toString(16); // 2a
+Number(42).toString(2); // 101010
 
-parseInt('101010', 2) // 42
-parseInt('2A', 16) // 42
-
+parseInt("101010", 2); // 42
+parseInt("2A", 16); // 42

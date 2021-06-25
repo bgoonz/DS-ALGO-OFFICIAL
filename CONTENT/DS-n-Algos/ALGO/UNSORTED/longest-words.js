@@ -1,14 +1,14 @@
-export default string => {
-    let length = 0;
+export default (string) => {
+  let length = 0;
   // Store the list of longest words in an object to automatically filter
   // for duplicates.
   let hash = {};
 
   // Simplistic splitting on spaces, could improve to trim punctuation as well.
-  string.split( ' ' ).forEach( word => {
+  string.split(" ").forEach((word) => {
     // If the word's length is longer than the previous longest, we want to
     // update the length and reset the hash back to be empty.
-    if ( word.length > length ) {
+    if (word.length > length) {
       length = word.length;
       hash = {};
     }
@@ -18,11 +18,11 @@ export default string => {
     // arbitrary value since it doesn't matter - if though we needed to return
     // the instance of the word we could store how we found the word as the
     // value and grab it out when we return.
-    if ( word.length === length ) {
-      return hash[ word.toLowerCase() ] = true;
+    if (word.length === length) {
+      return (hash[word.toLowerCase()] = true);
     }
-  } );
+  });
 
   // Return an array with all the words.
-  return Object.keys( hash );
+  return Object.keys(hash);
 };

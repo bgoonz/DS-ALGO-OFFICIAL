@@ -8,24 +8,23 @@
  * @param {number[]} Capital
  * @return {number}
  */
-var findMaximizedCapital = function(k, W, Profits, Capital) {
-  let len = Profits.length
-    , res = [];
+var findMaximizedCapital = function (k, W, Profits, Capital) {
+  let len = Profits.length,
+    res = [];
 
   for (let i = 0; i < len; i++) {
     res.push({
       c: Capital[i],
-      p: Profits[i]
+      p: Profits[i],
     });
   }
 
-  res.sort((a, b) => (b.p - a.p));
+  res.sort((a, b) => b.p - a.p);
 
-  let stack = []
-    , index = 0;
+  let stack = [],
+    index = 0;
 
   while (k && index !== len) {
-
     if (res[index].c <= W) {
       W += res[index].p;
       k--;

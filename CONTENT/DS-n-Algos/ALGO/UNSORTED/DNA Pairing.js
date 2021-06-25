@@ -1,14 +1,14 @@
-//The DNA strand is missing the pairing element. Take each character, get its pair, and return the results as a 2d array.Base pairs are a pair of AT and CG. 
-function pairing( str ) {
+//The DNA strand is missing the pairing element. Take each character, get its pair, and return the results as a 2d array.Base pairs are a pair of AT and CG.
+function pairing(str) {
   const paired = {
-    "A": "T",
-    "T": "A",
-    "G": "C",
-    "C": "G"
+    A: "T",
+    T: "A",
+    G: "C",
+    C: "G",
   };
-  return str.split( "" ).map( x => [ x, paired[ x ] ] )
+  return str.split("").map((x) => [x, paired[x]]);
 }
-console.log( pairing( "ATCGA" ) ) //[["A","T"],["T","A"],["C","G"],["G","C"],["A","T"]]
+console.log(pairing("ATCGA")); //[["A","T"],["T","A"],["C","G"],["G","C"],["A","T"]]
 
 //OR Using Switch statement
 // function pairElement(str) {

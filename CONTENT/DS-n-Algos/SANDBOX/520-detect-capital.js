@@ -4,7 +4,7 @@
  */
 const ac = "A".charCodeAt(0);
 const zc = "Z".charCodeAt(0);
-const detectCapitalUse = function(word) {
+const detectCapitalUse = function (word) {
   if (allCap(word) || noCap(word) || capHead(word)) {
     return true;
   }

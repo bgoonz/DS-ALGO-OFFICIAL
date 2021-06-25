@@ -20,12 +20,10 @@ function mergeSort(array) {
 
 module.exports = {
   merge,
-  mergeSort
+  mergeSort,
 };
 
 console.log(mergeSort([3, 1, 2, 8]));
-
-
 
 /*
 

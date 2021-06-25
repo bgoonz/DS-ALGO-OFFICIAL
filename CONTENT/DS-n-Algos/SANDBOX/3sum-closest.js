@@ -8,23 +8,20 @@
  */
 
 function binarySearch(a, target) {
-  var start = 0
-    , end = a.length - 1;
+  var start = 0,
+    end = a.length - 1;
 
-  while(start <= end) {
+  while (start <= end) {
     var mid = ~~((start + end) >> 1);
-    if (a[mid] >= target)
-      end = mid - 1;
-    else 
-      start = mid + 1;
+    if (a[mid] >= target) end = mid - 1;
+    else start = mid + 1;
   }
 
   return start;
 }
 
-
-var threeSumClosest = function(nums, target) {
-  nums.sort(function(a, b) {
+var threeSumClosest = function (nums, target) {
+  nums.sort(function (a, b) {
     return a - b;
   });
 
@@ -35,16 +32,13 @@ var threeSumClosest = function(nums, target) {
     for (var j = i + 1; j < len; j++) {
       var a = target - nums[i] - nums[j];
       var pos = binarySearch(nums, a);
-      
+
       for (var k = Math.max(0, pos - 1); k <= Math.min(pos + 0, len - 1); k++) {
-        if (k === i || k === j) 
-          continue;
+        if (k === i || k === j) continue;
 
         var sum = nums[i] + nums[j] + nums[k];
-        if (Math.abs(sum - target) < Math.abs(ans - target))
-          ans = sum;
+        if (Math.abs(sum - target) < Math.abs(ans - target)) ans = sum;
       }
-
     }
 
   return ans;

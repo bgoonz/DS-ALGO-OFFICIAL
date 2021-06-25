@@ -1,5 +1,5 @@
-function reversestring(string){
-    return string.split('').reverse().join('');
+function reversestring(string) {
+  return string.split("").reverse().join("");
 }
 console.log(reversestring("HELLO"));
 
@@ -14,4 +14,3 @@ console.log(reversestring("HELLO"));
 // return reverse;
 // }
 // console.log(reversestring("HELLO"))
-

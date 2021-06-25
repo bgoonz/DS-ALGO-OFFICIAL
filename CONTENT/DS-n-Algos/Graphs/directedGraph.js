@@ -4,8 +4,8 @@
  * @license MIT
  */
 
-const Queue = require( '@datastructures-js/queue' );
-const Vertex = require( '../../Not-My-Solutions/data-structs-js/vertex' );
+const Queue = require("@datastructures-js/queue");
+const Vertex = require("../../Not-My-Solutions/data-structs-js/vertex");
 
 /**
  * @class DirectedGraph
@@ -25,12 +25,12 @@ class DirectedGraph {
    * parameter:  {object} value
    * @returns {Vertex}
    */
-  addVertex( key, value ) {
-      thisvertices.set( key, new Vertex( key, value ) );
-      if ( !thisedges.has( key ) ) {
-        thisedges.set( key, new Map() );
+  addVertex(key, value) {
+    thisvertices.set(key, new Vertex(key, value));
+    if (!thisedges.has(key)) {
+      thisedges.set(key, new Map());
     }
-    return thisvertices.get( key );
+    return thisvertices.get(key);
   }
 
   /**
@@ -39,20 +39,20 @@ class DirectedGraph {
    * parameter:  {number|string} key
    * @return {boolean}
    */
-  hasVertex( key ) {
-      return thisvertices.has( key );
+  hasVertex(key) {
+    return thisvertices.has(key);
   }
   /**
    * @public
    * remove a vertex and all its in and out edges
    * parameter:  {number|string} key
    */
-  removeVertex( key ) {
-      if ( !this.hasVertex( key ) ) return false;
+  removeVertex(key) {
+    if (!this.hasVertex(key)) return false;
 
-    this.removeEdges( key );
-    thisedges.delete( key );
-    thisvertices.delete( key );
+    this.removeEdges(key);
+    thisedges.delete(key);
+    thisvertices.delete(key);
     return true;
   }
 
@@ -73,16 +73,16 @@ class DirectedGraph {
    * parameter:  {number} weight
    * @throws {Error} if a vertex key does not exist
    */
-  addEdge( srcKey, destKey, weight ) {
-      if ( !thisvertices.has( srcKey ) ) {
-        throw new Error( `addEdge: vertex "${srcKey}" not found` );
+  addEdge(srcKey, destKey, weight) {
+    if (!thisvertices.has(srcKey)) {
+      throw new Error(`addEdge: vertex "${srcKey}" not found`);
     }
 
-    if ( !thisvertices.has( destKey ) ) {
-      throw new Error( `addEdge: vertex "${destKey}" not found` );
+    if (!thisvertices.has(destKey)) {
+      throw new Error(`addEdge: vertex "${destKey}" not found`);
     }
 
-    thisedges.get( srcKey ).set( destKey, +weight || 1 );
+    thisedges.get(srcKey).set(destKey, +weight || 1);
     thisedgesCount += 1;
   }
 
@@ -93,10 +93,12 @@ class DirectedGraph {
    * parameter:  {number|string} destKey
    * @returns {boolean}
    */
-  hasEdge( srcKey, destKey ) {
-      return this.hasVertex( srcKey ) &&
-        this.hasVertex( destKey ) &&
-        thisedges.get( srcKey ).has( destKey );
+  hasEdge(srcKey, destKey) {
+    return (
+      this.hasVertex(srcKey) &&
+      this.hasVertex(destKey) &&
+      thisedges.get(srcKey).has(destKey)
+    );
   }
 
   /**
@@ -106,10 +108,10 @@ class DirectedGraph {
    * parameter:  {number|string} destKey
    * @returns {number}
    */
-  getWeight( srcKey, destKey ) {
-      if ( this.hasVertex( srcKey ) && srcKey === destKey ) return 0;
-      if ( !this.hasEdge( srcKey, destKey ) ) return null;
-      return thisedges.get( srcKey ).get( destKey );
+  getWeight(srcKey, destKey) {
+    if (this.hasVertex(srcKey) && srcKey === destKey) return 0;
+    if (!this.hasEdge(srcKey, destKey)) return null;
+    return thisedges.get(srcKey).get(destKey);
   }
 
   /**
@@ -118,10 +120,10 @@ class DirectedGraph {
    * parameter:  {number|string} srcKey
    * parameter:  {number|string} destKey
    */
-  removeEdge( srcKey, destKey ) {
-      if ( !this.hasEdge( srcKey, destKey ) ) return false;
+  removeEdge(srcKey, destKey) {
+    if (!this.hasEdge(srcKey, destKey)) return false;
 
-    thisedges.get( srcKey ).delete( destKey );
+    thisedges.get(srcKey).delete(destKey);
     thisedgesCount -= 1;
     return true;
   }
@@ -132,20 +134,20 @@ class DirectedGraph {
    * parameter:  {number|string} key
    * @return {number} number of removed edges
    */
-  removeEdges( key ) {
-      if ( !this.hasVertex( key ) ) return 0;
+  removeEdges(key) {
+    if (!this.hasVertex(key)) return 0;
 
     let removed = 0;
-    thisedges.forEach( ( destEdges, srcKey ) => {
-          if ( destEdges.has( key ) ) {
-            this.removeEdge( srcKey, key );
+    thisedges.forEach((destEdges, srcKey) => {
+      if (destEdges.has(key)) {
+        this.removeEdge(srcKey, key);
         removed += 1;
       }
-    } );
+    });
 
-    removed += thisedges.get( key ).size;
-    thisedgesCount -= thisedges.get( key ).size;
-    thisedges.set( key, new Map() );
+    removed += thisedges.get(key).size;
+    thisedgesCount -= thisedges.get(key).size;
+    thisedges.set(key, new Map());
     return removed;
   }
 
@@ -164,15 +166,15 @@ class DirectedGraph {
    * parameter:  {number|string} srcKey
    * parameter:  {function} cb
    */
-  traverseDfs( srcKey, cb, visited = new Set() ) {
-      if ( !this.hasVertex( srcKey ) || visited.has( srcKey ) ) return;
+  traverseDfs(srcKey, cb, visited = new Set()) {
+    if (!this.hasVertex(srcKey) || visited.has(srcKey)) return;
 
-    cb( thisvertices.get( srcKey ) );
-    visited.add( srcKey );
+    cb(thisvertices.get(srcKey));
+    visited.add(srcKey);
 
-    thisedges.get( srcKey ).forEach( ( weight, destKey ) => {
-      this.traverseDfs( destKey, cb, visited );
-    } );
+    thisedges.get(srcKey).forEach((weight, destKey) => {
+      this.traverseDfs(destKey, cb, visited);
+    });
   }
 
   /**
@@ -181,20 +183,20 @@ class DirectedGraph {
    * parameter:  {number|string} srcKey
    * parameter:  {function} cb
    */
-  traverseBfs( srcKey, cb ) {
-      if ( !this.hasVertex( srcKey ) ) return;
+  traverseBfs(srcKey, cb) {
+    if (!this.hasVertex(srcKey)) return;
 
-    const queue = new Queue( [ srcKey ] );
-    const visited = new Set( [ srcKey ] );
+    const queue = new Queue([srcKey]);
+    const visited = new Set([srcKey]);
 
-    while ( !queue.isEmpty() ) {
-      const vertex = thisvertices.get( queue.dequeue() );
-      cb( vertex );
-      thisedges.get( vertex.getKey() ).forEach( ( weight, destKey ) => {
-        if ( visited.has( destKey ) ) return;
-        queue.enqueue( destKey );
-        visited.add( destKey );
-      } );
+    while (!queue.isEmpty()) {
+      const vertex = thisvertices.get(queue.dequeue());
+      cb(vertex);
+      thisedges.get(vertex.getKey()).forEach((weight, destKey) => {
+        if (visited.has(destKey)) return;
+        queue.enqueue(destKey);
+        visited.add(destKey);
+      });
     }
   }
 

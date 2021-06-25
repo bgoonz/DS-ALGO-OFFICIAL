@@ -16,12 +16,10 @@
 // Google: 90% of our engineers use the software you wrote (Homebrew), but you can’t invert a binary tree on a whiteboard so fuck off.
 // Hide Tags Tree
 
-
-
-// Leetcode #226 
+// Leetcode #226
 // Language: Javascript
 // Problem: https://leetcode.com/problems/invert-binary-tree/
-// Author: Bryan Guner 
+// Author: Bryan Guner
 /**
  * Definition for a binary tree node.
  * function TreeNode(val) {
@@ -33,17 +31,17 @@
  * @param {TreeNode} root
  * @return {TreeNode}
  */
-var invertTree = function(root) {
-    if(root === null) {
-        return root;
-    }
-    
-    var tmp = root.left;
-    root.left = root.right;
-    root.right = tmp;
-    
-    invertTree(root.left);
-    invertTree(root.right);
-    
+var invertTree = function (root) {
+  if (root === null) {
     return root;
+  }
+
+  var tmp = root.left;
+  root.left = root.right;
+  root.right = tmp;
+
+  invertTree(root.left);
+  invertTree(root.right);
+
+  return root;
 };

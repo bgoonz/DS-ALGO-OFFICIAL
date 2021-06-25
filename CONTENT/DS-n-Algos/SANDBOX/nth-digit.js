@@ -5,7 +5,7 @@
  * @param {number} n
  * @return {number}
  */
-var findNthDigit = function(n) {
+var findNthDigit = function (n) {
   return dfs(1, n);
 
   function dfs(digits, left) {
@@ -14,8 +14,7 @@ var findNthDigit = function(n) {
     let len = last - start + 1;
     let num = len * digits;
 
-    if (num < left)
-      return dfs(digits + 1, left - num);
+    if (num < left) return dfs(digits + 1, left - num);
     else {
       let remainder = left % digits ? left % digits : digits;
       let rightNumber = Math.ceil(left / digits) - 1 + start;

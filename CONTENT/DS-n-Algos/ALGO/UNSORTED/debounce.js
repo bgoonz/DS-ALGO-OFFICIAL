@@ -1,4 +1,4 @@
-export default ( fn, delay, execAsap ) => {
+export default (fn, delay, execAsap) => {
   let timeout; // Keep a reference to the timeout outside the function
 
   return function () {
@@ -9,15 +9,15 @@ export default ( fn, delay, execAsap ) => {
 
     // If we already have a function ready to execute, clear it
     // Else if we are allowed to execute immediately, call the function
-    if ( timeout ) {
-      clearTimeout( timeout );
-    } else if ( execAsap ) {
-      fn.apply( that, args );
+    if (timeout) {
+      clearTimeout(timeout);
+    } else if (execAsap) {
+      fn.apply(that, args);
     }
 
-    timeout = setTimeout( () => {
-          execAsap || fn.apply( that, args );
+    timeout = setTimeout(() => {
+      execAsap || fn.apply(that, args);
       timeout = null;
-    }, delay || 100 );
+    }, delay || 100);
   };
 };

@@ -17,14 +17,14 @@ console.log(selectiveMap([-10, 4, 7, 6, -2, -9], isPositive, square));
 // [-10, 16, 49, 36, -2, -9]
 *******************************************************************************/
 
-function selectiveMap( array, selector, mapper ) {
+function selectiveMap(array, selector, mapper) {
   let newItems = [];
-  for ( let i = 0; i < array.length; i++ ) {
-    let el = array[ i ];
-    if ( selector( el ) ) {
-      newItems.push( mapper( el ) );
+  for (let i = 0; i < array.length; i++) {
+    let el = array[i];
+    if (selector(el)) {
+      newItems.push(mapper(el));
     } else {
-      newItems.push( el );
+      newItems.push(el);
     }
   }
   return newItems;

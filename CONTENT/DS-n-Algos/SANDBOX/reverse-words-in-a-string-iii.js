@@ -5,7 +5,7 @@
  * @param {string} s
  * @return {string}
  */
-var reverseWords = function(s) {
-  let arr = s.split(' ').map(item => item.split('').reverse().join(''))
-  return arr.join(' ')
+var reverseWords = function (s) {
+  let arr = s.split(" ").map((item) => item.split("").reverse().join(""));
+  return arr.join(" ");
 };

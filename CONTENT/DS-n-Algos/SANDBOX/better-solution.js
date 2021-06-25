@@ -5,9 +5,9 @@
  * @param {string} s
  * @return {number}
  */
-var calculate = function(s) {
+var calculate = function (s) {
   var ans = 0;
-  var num = 0;  // single number
+  var num = 0; // single number
   var sign = 1;
   var numStack = [];
   var symStack = [];
@@ -15,21 +15,19 @@ var calculate = function(s) {
   for (var i = 0, len = s.length; i < len; i++) {
     var item = s[i];
 
-    if ('0123456789'.indexOf(item) !== -1) {
-      num = num * 10 + (+item);
+    if ("0123456789".indexOf(item) !== -1) {
+      num = num * 10 + +item;
     } else {
       ans += sign * num;
       num = 0;
-      if (item === '+')
-        sign = 1;
-      else if (item === '-')
-        sign = -1;
-      else if (item === '(') {
+      if (item === "+") sign = 1;
+      else if (item === "-") sign = -1;
+      else if (item === "(") {
         numStack.push(ans);
         symStack.push(sign);
         ans = 0;
         sign = 1;
-      } else if (item === ')') {
+      } else if (item === ")") {
         ans = symStack.pop() * ans + numStack.pop();
       }
     }

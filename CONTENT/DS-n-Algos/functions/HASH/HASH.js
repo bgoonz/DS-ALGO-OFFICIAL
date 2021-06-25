@@ -2,57 +2,53 @@
  * utilities for hashing config objects.
  * basically iteratively updates hash with a JSON-like format
  */
-'use strict'
-exports.__esModule = true
+"use strict";
+exports.__esModule = true;
 
-const doHash = require('crypto').createHash
-
-
+const doHash = require("crypto").createHash;
 
 function hashEntity(value, hash) {
-  if (!hash) hash = doHash('sha256')
+  if (!hash) hash = doHash("sha256");
 
   if (value instanceof Array) {
-    hshArr(value, hash)
+    hshArr(value, hash);
   } else if (value instanceof Object) {
-    hshObj(value, hash)
+    hshObj(value, hash);
   } else {
-    hash.update( stringify( value ) || 'undefined' );
+    hash.update(stringify(value) || "undefined");
   }
 
-  return hash
+  return hash;
 }
-
 
 function hshArr(array, hash) {
-  if (!hash) hash = doHash('sha256')
+  if (!hash) hash = doHash("sha256");
 
-  hash.update('[')
+  hash.update("[");
   for (let i = 0; i < array.length; i++) {
-    hashEntity(array[i], hash)
-    hash.update(',')
+    hashEntity(array[i], hash);
+    hash.update(",");
   }
-  hash.update(']')
+  hash.update("]");
 
-  return hash
+  return hash;
 }
-hashEntity.array = hshArr
+hashEntity.array = hshArr;
 
 function hshObj(object, hash) {
-  if (!hash) hash = doHash('sha256')
+  if (!hash) hash = doHash("sha256");
 
-  hash.update('{')
-  Object.keys(object).sort().forEach(key => {
-    hash.update(JSON.stringify((key)))
-    hash.update(':')
-    hashEntity(object[key], hash)
-    hash.update(',')
-  })
-  hash.update('}')
+  hash.update("{");
+  Object.keys(object)
+    .sort()
+    .forEach((key) => {
+      hash.update(JSON.stringify(key));
+      hash.update(":");
+      hashEntity(object[key], hash);
+      hash.update(",");
+    });
+  hash.update("}");
 
-  return hash
+  return hash;
 }
-hashEntity.object = hshObj
-
-
-
+hashEntity.object = hshObj;

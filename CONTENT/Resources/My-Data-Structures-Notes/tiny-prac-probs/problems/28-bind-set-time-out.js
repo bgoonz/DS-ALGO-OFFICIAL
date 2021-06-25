@@ -31,9 +31,8 @@ boundfuncTimer(cat, growOlder, 7000); // in 7 seconds prints: 6
 
 ***********************************************************************/
 
-function boundfuncTimer( obj, func, time ) {
-  setTimeout( func.bind( obj ), time );
+function boundfuncTimer(obj, func, time) {
+  setTimeout(func.bind(obj), time);
 }
-
 
 module.exports = boundfuncTimer;

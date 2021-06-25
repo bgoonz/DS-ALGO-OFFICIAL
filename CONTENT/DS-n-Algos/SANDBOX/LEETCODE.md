@@ -130,17 +130,19 @@ on [14 patterns to ace any coding interview question].
 [grokking the coding interview]: https://www.educative.io/courses/grokking-the-coding-interview
 [issue]: https://github.com/SeanPrashad/leetcode-patterns/issues/new
 [blind 75 list]: https://www.teamblind.com/article/New-Year-Gift---Curated-List-of-Top-100-LeetCode-Questions-to-Save-Your-Time-OaM1orEU?utm_source=share&utm_medium=ios_app
-[14 patterns to ace any coding interview question]: https://hackernoon.com/14-patterns-to-ace-any-coding-interview-question-c5bb3357f6ed                                                                ---
+
+[14 patterns to ace any coding interview question]: https://hackernoon.com/14-patterns-to-ace-any-coding-interview-question-c5bb3357f6ed ---
 Difficulty: Medium
 Related Topics:
-  "Linked List": https://leetcode.com/tag/linked-list
-  "Math": https://leetcode.com/tag/math
+"Linked List": https://leetcode.com/tag/linked-list
+"Math": https://leetcode.com/tag/math
 Similar Questions:
-  "Multiply Strings": https://leetcode.com/problems/multiply-strings
-  "Add Binary": https://leetcode.com/problems/add-binary
-  "Sum of Two Integers": https://leetcode.com/problems/sum-of-two-integers
-  "Add Strings": https://leetcode.com/problems/add-strings
-  "Add Two Numbers II": https://leetcode.com/problems/add-two-numbers-ii
+"Multiply Strings": https://leetcode.com/problems/multiply-strings
+"Add Binary": https://leetcode.com/problems/add-binary
+"Sum of Two Integers": https://leetcode.com/problems/sum-of-two-integers
+"Add Strings": https://leetcode.com/problems/add-strings
+"Add Two Numbers II": https://leetcode.com/problems/add-two-numbers-ii
+
 ---
 
 ## [2. Add Two Numbers](https://leetcode.com/problems/add-two-numbers/description/)
@@ -180,7 +182,7 @@ let addTwoNumbers = function(l1, l2) {
   const prehead = new ListNode()
   let p = prehead
   let carry = 0
-  
+
   for (let p1 = l1, p2 = l2: p1 || p2 || carry > 0; p = p.next) {
     let sum = carry
     if (p1) {
@@ -194,19 +196,21 @@ let addTwoNumbers = function(l1, l2) {
     carry = sum / 10 | 0
     p.next = new ListNode(sum % 10)
   }
-  
+
   return prehead.next
 };
 ```
 
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+_Template generated via [Leetmark](https://github.com/crimx/crx-leetmark)._
 
 ---
+
 Difficulty: Hard
 Related Topics:
-  "Array": https://leetcode.com/tag/array
-  "Binary Search": https://leetcode.com/tag/binary-search
-  "Divide and Conquer": https://leetcode.com/tag/divide-and-conquer
+"Array": https://leetcode.com/tag/array
+"Binary Search": https://leetcode.com/tag/binary-search
+"Divide and Conquer": https://leetcode.com/tag/divide-and-conquer
+
 ---
 
 ## [4. Median of Two Sorted Arrays](https://leetcode.com/problems/median-of-two-sorted-arrays/description/)
@@ -264,60 +268,61 @@ Same goes `nums1[i-1] <= nums2[j] <= nums1[i]`.
  * @return {number}
  */
 let findMedianSortedArrays = function (nums1, nums2) {
-  const mid = (nums1.length + nums2.length - 1) / 2 | 0
+  const mid = ((nums1.length + nums2.length - 1) / 2) | 0;
 
   if ((nums1.length + nums2.length) % 2 === 0) {
-    return (_find(nums1, nums2, mid) + _find(nums1, nums2, mid + 1)) / 2
+    return (_find(nums1, nums2, mid) + _find(nums1, nums2, mid + 1)) / 2;
   }
 
-  return _find(nums1, nums2, mid)
-}
+  return _find(nums1, nums2, mid);
+};
 
-
-function _find (nums1, nums2, k) {
+function _find(nums1, nums2, k) {
   if (nums1.length > nums2.length) {
     // So that the `i` below is always smalller than k,
     // which makes `j` always non-negative
-    [nums1, nums2] = [nums2, nums1]
+    [nums1, nums2] = [nums2, nums1];
   }
-  let s1 = 0
-  let s2 = 0
-  let e1 = nums1.length
-  let e2 = nums2.length
+  let s1 = 0;
+  let s2 = 0;
+  let e1 = nums1.length;
+  let e2 = nums2.length;
 
   while (s1 < e1 || s2 < e2) {
-    const i = s1 + ((e1 - s1) / 2 | 0)
-    const j = k - i
-    const ni = i >= e1 ? Infinity : nums1[i]
-    const nj = j >= e2 ? Infinity : nums2[j]
-    const ni_1 = i <= 0 ? -Infinity : nums1[i-1]
-    const nj_1 = j <= 0 ? -Infinity : nums2[j-1]
+    const i = s1 + (((e1 - s1) / 2) | 0);
+    const j = k - i;
+    const ni = i >= e1 ? Infinity : nums1[i];
+    const nj = j >= e2 ? Infinity : nums2[j];
+    const ni_1 = i <= 0 ? -Infinity : nums1[i - 1];
+    const nj_1 = j <= 0 ? -Infinity : nums2[j - 1];
 
     if (nj_1 <= ni && ni <= nj) {
-      return ni
+      return ni;
     }
 
     if (ni_1 <= nj && nj <= ni) {
-      return nj
+      return nj;
     }
 
     if (ni <= nj) {
-      s1 = i + 1
-      e2 = j
+      s1 = i + 1;
+      e2 = j;
     } else {
-      s2 = j + 1
-      e1 = i
+      s2 = j + 1;
+      e1 = i;
     }
   }
-};
+}
 ```
 
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+_Template generated via [Leetmark](https://github.com/crimx/crx-leetmark)._
 
 ---
+
 Difficulty: Medium
 Related Topics:
-  "String": https://leetcode.com/tag/string
+"String": https://leetcode.com/tag/string
+
 ---
 
 ## [6. ZigZag Conversion](https://leetcode.com/problems/zigzag-conversion/description/)
@@ -405,47 +410,53 @@ next_i = i + numRows + (numRows - 2), if col is even && (row == 1 || row == numR
  * @param {number} numRows
  * @return {string}
  */
-let convert = function(s, numRows) {
-  if (numRows <= 1) { return s }
+let convert = function (s, numRows) {
+  if (numRows <= 1) {
+    return s;
+  }
 
-  const pairs = Math.floor(s.length / (numRows + numRows - 2))
-  const width = pairs * 2 + Math.ceil((s.length - pairs * (numRows + numRows - 2)) / numRows)
+  const pairs = Math.floor(s.length / (numRows + numRows - 2));
+  const width =
+    pairs * 2 +
+    Math.ceil((s.length - pairs * (numRows + numRows - 2)) / numRows);
 
-  let result = ''
+  let result = "";
 
   for (let row = 1; row <= numRows; row++) {
-    let i = row - 1
-    result += s[i] || ''
+    let i = row - 1;
+    result += s[i] || "";
     for (let col = 0; col < width; col++) {
       if (row === 1 || row === numRows) {
         if (col % 2 === 0) {
-          i += numRows + (numRows - 2)
+          i += numRows + (numRows - 2);
         } else {
-          continue
+          continue;
         }
       } else {
         if (col % 2 === 0) {
-          i += (numRows - row) + (numRows - row)
+          i += numRows - row + (numRows - row);
         } else {
-          i += row - 2 + row
+          i += row - 2 + row;
         }
       }
-      result += s[i] || ''
+      result += s[i] || "";
     }
   }
 
-  return result
+  return result;
 };
 ```
 
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+_Template generated via [Leetmark](https://github.com/crimx/crx-leetmark)._
 
 ---
+
 Difficulty: Easy
 Related Topics:
-  "Math": https://leetcode.com/tag/math
+"Math": https://leetcode.com/tag/math
 Similar Questions:
-  "String to Integer (atoi)": https://leetcode.com/problems/string-to-integer-atoi
+"String to Integer (atoi)": https://leetcode.com/problems/string-to-integer-atoi
+
 ---
 
 ## [7. Reverse Integer](https://leetcode.com/problems/reverse-integer/description/)
@@ -489,10 +500,12 @@ This is a JavaScript specific solution. It is esay to write but slow to run beca
  * @param {number} x
  * @return {number}
  */
-let reverse = function(x) {
-  let n = Math.abs(x).toString().split('').reverse().join('')
-  if (n > 2147483647) { return 0 }
-  return (x < 0? -1: 1) * n
+let reverse = function (x) {
+  let n = Math.abs(x).toString().split("").reverse().join("");
+  if (n > 2147483647) {
+    return 0;
+  }
+  return (x < 0 ? -1 : 1) * n;
 };
 ```
 
@@ -505,27 +518,28 @@ Pure mathamatical solution.
  * @param {number} x
  * @return {number}
  */
-let reverse = function(x) {
-  let result = 0
+let reverse = function (x) {
+  let result = 0;
   while (x) {
-    result = result * 10 + x % 10
-    x = x / 10 | 0
+    result = result * 10 + (x % 10);
+    x = (x / 10) | 0;
   }
-  return Math.abs(result) > 2147483647 ? 0 : result
+  return Math.abs(result) > 2147483647 ? 0 : result;
 };
 ```
 
-
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+_Template generated via [Leetmark](https://github.com/crimx/crx-leetmark)._
 
 ---
+
 Difficulty: Medium
 Related Topics:
-  "Math": https://leetcode.com/tag/math
-  "String": https://leetcode.com/tag/string
+"Math": https://leetcode.com/tag/math
+"String": https://leetcode.com/tag/string
 Similar Questions:
-  "Reverse Integer": https://leetcode.com/problems/reverse-integer
-  "Valid Number": https://leetcode.com/problems/valid-number
+"Reverse Integer": https://leetcode.com/problems/reverse-integer
+"Valid Number": https://leetcode.com/problems/valid-number
+
 ---
 
 ## [8. String to Integer (atoi)](https://leetcode.com/problems/string-to-integer-atoi/description/)
@@ -544,8 +558,8 @@ If no valid conversion could be performed, a zero value is returned.
 
 **Note:**
 
-  Only the space character `' '` is considered as whitespace character.
-  Assume we are dealing with an environment which could only store integers within the 32-bit signed integer range: [−231,  231 − 1]. If the numerical value is out of the range of representable values, INT_MAX (231 − 1) or INT_MIN (−231) is returned.
+Only the space character `' '` is considered as whitespace character.
+Assume we are dealing with an environment which could only store integers within the 32-bit signed integer range: [−231,  231 − 1]. If the numerical value is out of the range of representable values, INT_MAX (231 − 1) or INT_MIN (−231) is returned.
 
 **Example 1:**
 
@@ -576,7 +590,7 @@ Explanation: Conversion stops at digit '3' as the next character is not a numeri
 ```
 Input: "words and 987"
 Output: 0
-Explanation: The first non-whitespace character is 'w', which is not a numerical 
+Explanation: The first non-whitespace character is 'w', which is not a numerical
              digit or a +/- sign. Therefore no valid conversion could be performed.
 ```
 
@@ -599,7 +613,7 @@ Explanation: The number "-91283472332" is out of the range of a 32-bit signed in
  * @return {number}
  */
 let myAtoi = function (str) {
-  return Math.min(2147483647, Math.max(-2147483648, parseInt(str))) || 0
+  return Math.min(2147483647, Math.max(-2147483648, parseInt(str))) || 0;
 };
 ```
 
@@ -613,7 +627,10 @@ Looks like `Number()` is faster than `parseInt()`.
  * @return {number}
  */
 let myAtoi = function (str) {
-  return Math.min(2147483647, Math.max(-2147483648, (/^ *[-+]?\d+/.exec(str) || [0])[0]))
+  return Math.min(
+    2147483647,
+    Math.max(-2147483648, (/^ *[-+]?\d+/.exec(str) || [0])[0])
+  );
 };
 ```
 
@@ -627,45 +644,51 @@ General solution.
  * @return {number}
  */
 let myAtoi = function (str) {
-  let sign = 1
-  let i = 0
+  let sign = 1;
+  let i = 0;
 
   while (i < str.length) {
-    const cc = str.charCodeAt(i++)
-    if (cc === 45) { // -
-      sign = -1
-      break
-    } else if (cc === 43) { // +
-      break
-    } else if (cc >= 48 && cc <= 57) { // 0-9
-      i--
-      break
-    } else if (cc !== 32) { // space
-      return 0
+    const cc = str.charCodeAt(i++);
+    if (cc === 45) {
+      // -
+      sign = -1;
+      break;
+    } else if (cc === 43) {
+      // +
+      break;
+    } else if (cc >= 48 && cc <= 57) {
+      // 0-9
+      i--;
+      break;
+    } else if (cc !== 32) {
+      // space
+      return 0;
     }
   }
 
-  let result = 0
+  let result = 0;
   while (i < str.length) {
-    const digit = str.charCodeAt(i++) - 48
+    const digit = str.charCodeAt(i++) - 48;
     if (digit < 0 || digit > 9) {
-      break
+      break;
     }
-    result = result * 10 + digit
+    result = result * 10 + digit;
   }
 
-  return Math.min(2147483647, Math.max(-2147483648, result * sign))
+  return Math.min(2147483647, Math.max(-2147483648, result * sign));
 };
 ```
 
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+_Template generated via [Leetmark](https://github.com/crimx/crx-leetmark)._
 
 ---
+
 Difficulty: Easy
 Related Topics:
-  "Math": https://leetcode.com/tag/math
+"Math": https://leetcode.com/tag/math
 Similar Questions:
-  "Palindrome Linked List": https://leetcode.com/problems/palindrome-linked-list
+"Palindrome Linked List": https://leetcode.com/problems/palindrome-linked-list
+
 ---
 
 ## [9. Palindrome Number](https://leetcode.com/problems/palindrome-number/description/)
@@ -712,8 +735,8 @@ Easy to write but slow since it generates an array.
  * @param {number} x
  * @return {boolean}
  */
-let isPalindrome = function(x) {
-  return x == String(x).split('').reverse().join('')
+let isPalindrome = function (x) {
+  return x == String(x).split("").reverse().join("");
 };
 ```
 
@@ -726,14 +749,14 @@ A bit faster.
  * @param {number} x
  * @return {boolean}
  */
-let isPalindrome = function(x) {
-  const s = String(x)
-  for (let i = 0, j = s.length -1; i < j; i++, j--) {
+let isPalindrome = function (x) {
+  const s = String(x);
+  for (let i = 0, j = s.length - 1; i < j; i++, j--) {
     if (s[i] !== s[j]) {
-      return false
+      return false;
     }
   }
-  return true
+  return true;
 };
 ```
 
@@ -746,36 +769,39 @@ General solution. Combining [7. Reverse Integer](./007.%20Reverse%20Integer.md).
  * @param {number} x
  * @return {boolean}
  */
-let isPalindrome = function(x) {
-  if (x < 0) { return false }
-  return x === reverse(x)
+let isPalindrome = function (x) {
+  if (x < 0) {
+    return false;
+  }
+  return x === reverse(x);
 };
 
 /**
  * @param {number} x
  * @return {number}
  */
-function reverse (x) {
-  let result = 0
+function reverse(x) {
+  let result = 0;
   while (x) {
-    result = result * 10 + x % 10
-    x = x / 10 | 0
+    result = result * 10 + (x % 10);
+    x = (x / 10) | 0;
   }
-  return result
-};
+  return result;
+}
 ```
 
-
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+_Template generated via [Leetmark](https://github.com/crimx/crx-leetmark)._
 
 ---
+
 Difficulty: Hard
 Related Topics:
-  "String": https://leetcode.com/tag/string
-  "Dynamic Programming": https://leetcode.com/tag/dynamic-programming
-  "Backtracking": https://leetcode.com/tag/backtracking
+"String": https://leetcode.com/tag/string
+"Dynamic Programming": https://leetcode.com/tag/dynamic-programming
+"Backtracking": https://leetcode.com/tag/backtracking
 Similar Questions:
-  "Wildcard Matching": https://leetcode.com/problems/wildcard-matching
+"Wildcard Matching": https://leetcode.com/problems/wildcard-matching
+
 ---
 
 ## [10. Regular Expression Matching](https://leetcode.com/problems/regular-expression-matching/description/)
@@ -793,8 +819,8 @@ The matching should cover the **entire** input string (not partial).
 
 **Note:**
 
-  `s` could be empty and contains only lowercase letters `a-z`.
-  `p` could be empty and contains only lowercase letters `a-z`, and characters like `.` or `*`.
+`s` could be empty and contains only lowercase letters `a-z`.
+`p` could be empty and contains only lowercase letters `a-z`, and characters like `.` or `*`.
 
 **Example 1:**
 
@@ -857,9 +883,11 @@ Cheating with real RegExp matching.
  * @param {string} p
  * @return {boolean}
  */
-let isMatch = function(s, p) {
-  if (p[0] === '*') { return false }
-  return new RegExp(`^${p}$`).test(s)
+let isMatch = function (s, p) {
+  if (p[0] === "*") {
+    return false;
+  }
+  return new RegExp(`^${p}$`).test(s);
 };
 ```
 
@@ -871,10 +899,10 @@ Let f(i, j) be the matching result of s[0...i) and p[0...j).
 f(0, j) =
     j == 0 || // empty
     p[j-1] == '*' && f(i, j-2) // matches 0 time, which matches empty string
-    
+
 f(i, 0) = false // pattern must cover the entire input string
 
-f(i, j) = 
+f(i, j) =
     if p[j-1] == '.'
         f(i-1, j-1)
     else if p[j-1] == '*'
@@ -890,48 +918,50 @@ f(i, j) =
  * @param {string} p
  * @return {boolean}
  */
-let isMatch = function(s, p) {
-  if (p[0] === '*') {
-    return false
+let isMatch = function (s, p) {
+  if (p[0] === "*") {
+    return false;
   }
 
-  const dp = [[true]]
+  const dp = [[true]];
 
   for (let j = 2; j <= p.length; j++) {
-    dp[0][j] = p[j-1] === '*' && dp[0][j-2]
+    dp[0][j] = p[j - 1] === "*" && dp[0][j - 2];
   }
-    
+
   for (let i = 1; i <= s.length; i++) {
-    dp[i] = []
+    dp[i] = [];
     for (let j = 1; j <= p.length; j++) {
-      switch (p[j-1]) {
-        case '.':
-          dp[i][j] = dp[i-1][j-1]
-          break
-        case '*':
-          dp[i][j] = dp[i][j-2] ||
-            dp[i-1][j] && (p[j-2] === '.' || s[i-1] === p[j-2])
-          break
+      switch (p[j - 1]) {
+        case ".":
+          dp[i][j] = dp[i - 1][j - 1];
+          break;
+        case "*":
+          dp[i][j] =
+            dp[i][j - 2] ||
+            (dp[i - 1][j] && (p[j - 2] === "." || s[i - 1] === p[j - 2]));
+          break;
         default:
-          dp[i][j] = dp[i-1][j-1] && s[i-1] === p[j-1]
+          dp[i][j] = dp[i - 1][j - 1] && s[i - 1] === p[j - 1];
       }
     }
   }
 
-  return !!dp[s.length][p.length]
-}
+  return !!dp[s.length][p.length];
+};
 ```
 
-
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+_Template generated via [Leetmark](https://github.com/crimx/crx-leetmark)._
 
 ---
+
 Difficulty: Medium
 Related Topics:
-  "Array": https://leetcode.com/tag/array
-  "Two Pointers": https://leetcode.com/tag/two-pointers
+"Array": https://leetcode.com/tag/array
+"Two Pointers": https://leetcode.com/tag/two-pointers
 Similar Questions:
-  "Trapping Rain Water": https://leetcode.com/problems/trapping-rain-water
+"Trapping Rain Water": https://leetcode.com/problems/trapping-rain-water
+
 ---
 
 ## [11. Container With Most Water](https://leetcode.com/problems/container-with-most-water/description/)
@@ -964,29 +994,31 @@ What if `height[l] == height[r]`? It is safe to get rid of both. We do not need 
  * @return {number}
  */
 let maxArea = function (height) {
-  let max = 0
+  let max = 0;
   for (let l = 0, r = height.length - 1; l < r; l++, r--) {
-    max = Math.max(max, (r - l) * Math.min(height[l], height[r]))
+    max = Math.max(max, (r - l) * Math.min(height[l], height[r]));
     if (height[l] < height[r]) {
-      r++
+      r++;
     } else {
-      l--
+      l--;
     }
   }
-  return max
+  return max;
 };
 ```
 
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+_Template generated via [Leetmark](https://github.com/crimx/crx-leetmark)._
 
 ---
+
 Difficulty: Medium
 Related Topics:
-  "Math": https://leetcode.com/tag/math
-  "String": https://leetcode.com/tag/string
+"Math": https://leetcode.com/tag/math
+"String": https://leetcode.com/tag/string
 Similar Questions:
-  "Roman to Integer": https://leetcode.com/problems/roman-to-integer
-  "Integer to English Words": https://leetcode.com/problems/integer-to-english-words
+"Roman to Integer": https://leetcode.com/problems/roman-to-integer
+"Integer to English Words": https://leetcode.com/problems/integer-to-english-words
+
 ---
 
 ## [12. Integer to Roman](https://leetcode.com/problems/integer-to-roman/description/)
@@ -1010,8 +1042,8 @@ For example, two is written as `II` in Roman numeral, just two one's added tog
 
 Roman numerals are usually written largest to smallest from left to right. However, the numeral for four is not `IIII`. Instead, the number four is written as `IV`. Because the one is before the five we subtract it making four. The same principle applies to the number nine, which is written as `IX`. There are six instances where subtraction is used:
 
-- `I` can be placed before `V` (5) and `X` (10) to make 4 and 9. 
-- `X` can be placed before `L` (50) and `C` (100) to make 40 and 90. 
+- `I` can be placed before `V` (5) and `X` (10) to make 4 and 9.
+- `X` can be placed before `L` (50) and `C` (100) to make 40 and 90.
 - `C` can be placed before `D` (500) and `M` (1000) to make 400 and 900.
 
 Given an integer, convert it to a roman numeral. Input is guaranteed to be within the range from 1 to 3999.
@@ -1062,33 +1094,48 @@ Treat 4, 40, 400 and 9, 90, 900 specially.
  * @param {number} num
  * @return {string}
  */
-let intToRoman = function(num) {
-  const e = [1000, 900,  500, 400,  100, 90,   50,  40,   10,  9,    5,   4,    1  ]
-  const s = ["M",  "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I"]
+let intToRoman = function (num) {
+  const e = [1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1];
+  const s = [
+    "M",
+    "CM",
+    "D",
+    "CD",
+    "C",
+    "XC",
+    "L",
+    "XL",
+    "X",
+    "IX",
+    "V",
+    "IV",
+    "I",
+  ];
 
-  let result = ''
+  let result = "";
   for (let i = 0; num; i++) {
-    const d = e[i]
-    const v = s[i]
+    const d = e[i];
+    const v = s[i];
     while (num >= d) {
-      num -= d
-      result += v
+      num -= d;
+      result += v;
     }
   }
-  return result
+  return result;
 };
 ```
 
-
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+_Template generated via [Leetmark](https://github.com/crimx/crx-leetmark)._
 
 ---
+
 Difficulty: Easy
 Related Topics:
-  "Math": https://leetcode.com/tag/math
-  "String": https://leetcode.com/tag/string
+"Math": https://leetcode.com/tag/math
+"String": https://leetcode.com/tag/string
 Similar Questions:
-  "Integer to Roman": https://leetcode.com/problems/integer-to-roman
+"Integer to Roman": https://leetcode.com/problems/integer-to-roman
+
 ---
 
 ## [13. Roman to Integer](https://leetcode.com/problems/roman-to-integer/description/)
@@ -1173,25 +1220,26 @@ let romanToInt = function (s) {
     C: 100,
     D: 500,
     M: 1000,
-  }
+  };
 
-  let result = 0
+  let result = 0;
   for (let i = 0, lastDigit = Infinity; i < s.length; i++) {
-    let digit = rdigit[s[i]]
-    result += digit <= lastDigit ? digit : digit - lastDigit * 2
-    lastDigit = digit
+    let digit = rdigit[s[i]];
+    result += digit <= lastDigit ? digit : digit - lastDigit * 2;
+    lastDigit = digit;
   }
-  return result
+  return result;
 };
 ```
 
-
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+_Template generated via [Leetmark](https://github.com/crimx/crx-leetmark)._
 
 ---
+
 Difficulty: Easy
 Related Topics:
-  "String": https://leetcode.com/tag/string
+"String": https://leetcode.com/tag/string
+
 ---
 
 ## [14. Longest Common Prefix](https://leetcode.com/problems/longest-common-prefix/description/)
@@ -1234,16 +1282,16 @@ JavaScript specific solution. Get the min len then narrow down the prefix.
  */
 let longestCommonPrefix = function (strs) {
   if (strs.length > 0) {
-    let minLen = Math.min(...strs.map(s => s.length))
-    const anyStr = strs[0]
+    let minLen = Math.min(...strs.map((s) => s.length));
+    const anyStr = strs[0];
     while (minLen) {
-      const prefix = anyStr.slice(0, minLen--)
-      if (strs.every(s => s.startsWith(prefix))) {
-        return prefix
+      const prefix = anyStr.slice(0, minLen--);
+      if (strs.every((s) => s.startsWith(prefix))) {
+        return prefix;
       }
     }
   }
-  return ''
+  return "";
 };
 ```
 
@@ -1254,14 +1302,16 @@ let longestCommonPrefix = function (strs) {
  * @param {string[]} strs
  * @return {string}
  */
-let longestCommonPrefix = function(strs) {
-  if (strs.length <= 0) { return '' }
-  
-  let i = 0
-  while (strs.every(s => s[i] && s[i] === strs[0][i])) {
-    i++
+let longestCommonPrefix = function (strs) {
+  if (strs.length <= 0) {
+    return "";
   }
-  return strs[0].slice(0, i)
+
+  let i = 0;
+  while (strs.every((s) => s[i] && s[i] === strs[0][i])) {
+    i++;
+  }
+  return strs[0].slice(0, i);
 };
 ```
 
@@ -1275,42 +1325,46 @@ General solution. Build up the prefix.
  * @return {string}
  */
 let longestCommonPrefix = function (strs) {
-  let prefix = ''
+  let prefix = "";
   if (strs.length > 0) {
     for (let i = 0; ; i++) {
-      const c = strs[0][i]
-      if (!c) { return prefix }
+      const c = strs[0][i];
+      if (!c) {
+        return prefix;
+      }
       for (let j = 0; j < strs.length; j++) {
         if (strs[j][i] !== c) {
-          return prefix
+          return prefix;
         }
       }
-      prefix += c
+      prefix += c;
     }
   }
-  return prefix
+  return prefix;
 };
 ```
 
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+_Template generated via [Leetmark](https://github.com/crimx/crx-leetmark)._
 
 ---
+
 Difficulty: Medium
 Related Topics:
-  "Array": https://leetcode.com/tag/array
-  "Two Pointers": https://leetcode.com/tag/two-pointers
+"Array": https://leetcode.com/tag/array
+"Two Pointers": https://leetcode.com/tag/two-pointers
 Similar Questions:
-  "Two Sum": https://leetcode.com/problems/two-sum
-  "3Sum Closest": https://leetcode.com/problems/3sum-closest
-  "4Sum": https://leetcode.com/problems/4sum
-  "3Sum Smaller": https://leetcode.com/problems/3sum-smaller
+"Two Sum": https://leetcode.com/problems/two-sum
+"3Sum Closest": https://leetcode.com/problems/3sum-closest
+"4Sum": https://leetcode.com/problems/4sum
+"3Sum Smaller": https://leetcode.com/problems/3sum-smaller
+
 ---
 
 ## [15. 3Sum](https://leetcode.com/problems/3sum/description/)
 
 ### Problem:
 
-Given an array `nums` of *n* integers, are there elements *a*, *b*, *c* in `nums` such that *a* + *b* + *c* = 0? Find all unique triplets in the array which gives the sum of zero.
+Given an array `nums` of _n_ integers, are there elements _a_, _b_, _c_ in `nums` such that _a_ + _b_ + _c_ = 0? Find all unique triplets in the array which gives the sum of zero.
 
 **Note:**
 
@@ -1349,60 +1403,62 @@ Skip any duplicate number as we iterate to avoid duplicate triplets.
  * @return {number[][]}
  */
 let threeSum = function (nums) {
-  const len = nums.length
-  const sorted = nums.sort((a, b) => a - b)
-  const result = []
+  const len = nums.length;
+  const sorted = nums.sort((a, b) => a - b);
+  const result = [];
 
-  if (sorted[0] > 0 || sorted[len-1] < 0) {
-    return result
+  if (sorted[0] > 0 || sorted[len - 1] < 0) {
+    return result;
   }
 
   for (let i = 0; i < len - 2; i++) {
     if (sorted[i] > 0) {
-      break
+      break;
     }
 
-    if (i > 0 && sorted[i] === sorted[i-1]) {
-      continue
+    if (i > 0 && sorted[i] === sorted[i - 1]) {
+      continue;
     }
 
-    const twoSum = 0 - sorted[i]
+    const twoSum = 0 - sorted[i];
 
-    for (let l = i + 1, r = len - 1; l < r;) {
-      const diff = twoSum - sorted[l] - sorted[r]
+    for (let l = i + 1, r = len - 1; l < r; ) {
+      const diff = twoSum - sorted[l] - sorted[r];
       if (diff > 0) {
-        l++
+        l++;
       } else if (diff < 0) {
-        r--
+        r--;
       } else {
-        result.push([sorted[i], sorted[l], sorted[r]])
+        result.push([sorted[i], sorted[l], sorted[r]]);
         while (++l < r && sorted[l] === sorted[l - 1]);
         while (--r > l && sorted[r] === sorted[r + 1]);
       }
     }
   }
 
-  return result
+  return result;
 };
 ```
 
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+_Template generated via [Leetmark](https://github.com/crimx/crx-leetmark)._
 
 ---
+
 Difficulty: Medium
 Related Topics:
-  "Array": https://leetcode.com/tag/array
-  "Two Pointers": https://leetcode.com/tag/two-pointers
+"Array": https://leetcode.com/tag/array
+"Two Pointers": https://leetcode.com/tag/two-pointers
 Similar Questions:
-  "3Sum": https://leetcode.com/problems/3sum
-  "3Sum Smaller": https://leetcode.com/problems/3sum-smaller
+"3Sum": https://leetcode.com/problems/3sum
+"3Sum Smaller": https://leetcode.com/problems/3sum-smaller
+
 ---
 
 ## [16. 3Sum Closest](https://leetcode.com/problems/3sum-closest/description/)
 
 ### Problem:
 
-Given an array `nums` of *n* integers and an integer `target`, find three integers in `nums` such that the sum is closest to `target`. Return the sum of the three integers. You may assume that each input would have exactly one solution.
+Given an array `nums` of _n_ integers and an integer `target`, find three integers in `nums` such that the sum is closest to `target`. Return the sum of the three integers. You may assume that each input would have exactly one solution.
 
 **Example:**
 
@@ -1422,52 +1478,54 @@ Simplified version of [15. 3Sum](./015.%203Sum.md).
  * @param {number} target
  * @return {number}
  */
-let threeSumClosest = function(nums, target) {
-  const len = nums.length
-  const sorted = nums.sort((a, b) => a - b)
+let threeSumClosest = function (nums, target) {
+  const len = nums.length;
+  const sorted = nums.sort((a, b) => a - b);
 
-  let minDiff = Infinity
+  let minDiff = Infinity;
 
   for (let i = 0; i < len - 2; i++) {
-    if (i > 0 && sorted[i] === sorted[i-1]) {
-      continue
+    if (i > 0 && sorted[i] === sorted[i - 1]) {
+      continue;
     }
 
-    const twoSum = target - sorted[i]
+    const twoSum = target - sorted[i];
 
-    for (let l = i + 1, r = len - 1; l < r;) {
-      const diff = twoSum - sorted[l] - sorted[r]
+    for (let l = i + 1, r = len - 1; l < r; ) {
+      const diff = twoSum - sorted[l] - sorted[r];
       if (diff === 0) {
-        return target
+        return target;
       } else {
         if (diff > 0) {
-          l++
+          l++;
         } else {
-          r--
+          r--;
         }
 
         if (Math.abs(diff) < Math.abs(minDiff)) {
-          minDiff = diff
+          minDiff = diff;
         }
       }
     }
   }
 
-  return target - minDiff
+  return target - minDiff;
 };
 ```
 
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+_Template generated via [Leetmark](https://github.com/crimx/crx-leetmark)._
 
 ---
+
 Difficulty: Medium
 Related Topics:
-  "String": https://leetcode.com/tag/string
-  "Backtracking": https://leetcode.com/tag/backtracking
+"String": https://leetcode.com/tag/string
+"Backtracking": https://leetcode.com/tag/backtracking
 Similar Questions:
-  "Generate Parentheses": https://leetcode.com/problems/generate-parentheses
-  "Combination Sum": https://leetcode.com/problems/combination-sum
-  "Binary Watch": https://leetcode.com/problems/binary-watch
+"Generate Parentheses": https://leetcode.com/problems/generate-parentheses
+"Combination Sum": https://leetcode.com/problems/combination-sum
+"Binary Watch": https://leetcode.com/problems/binary-watch
+
 ---
 
 ## [17. Letter Combinations of a Phone Number](https://leetcode.com/problems/letter-combinations-of-a-phone-number/description/)
@@ -1506,32 +1564,34 @@ Also, appending string is faster than prepending.
  * @param {string} digits
  * @return {string[]}
  */
-let letterCombinations = function(digits) {
-  if (digits.length <= 0) { return [] }
+let letterCombinations = function (digits) {
+  if (digits.length <= 0) {
+    return [];
+  }
 
   const letters = [
     ,
     ,
-    ['a', 'b', 'c'],
-    ['d', 'e', 'f'],
-    ['g', 'h', 'i'],
-    ['j', 'k', 'l'],
-    ['m', 'n', 'o'],
-    ['p', 'q', 'r', 's'],
-    ['t', 'u', 'v'],
-    ['w', 'x', 'y', 'z'],
-  ]
+    ["a", "b", "c"],
+    ["d", "e", "f"],
+    ["g", "h", "i"],
+    ["j", "k", "l"],
+    ["m", "n", "o"],
+    ["p", "q", "r", "s"],
+    ["t", "u", "v"],
+    ["w", "x", "y", "z"],
+  ];
 
-  let result = ['']
+  let result = [""];
 
   for (let i = 0; i < digits.length; i++) {
-    const arr = letters[digits[i]]
-    let newResult = []
-    arr.forEach(c => newResult.push(...result.map(r => r + c)))
-    result = newResult
+    const arr = letters[digits[i]];
+    let newResult = [];
+    arr.forEach((c) => newResult.push(...result.map((r) => r + c)));
+    result = newResult;
   }
 
-  return result
+  return result;
 };
 ```
 
@@ -1544,47 +1604,59 @@ General recursive DFS solution.
  * @param {string} digits
  * @return {string[]}
  */
-let letterCombinations = function(digits) {
-  const letters = [,, 'abc', 'def', 'ghi', 'jkl', 'mno', 'pqrs', 'tuv', 'wxyz']
-  const result = []
+let letterCombinations = function (digits) {
+  const letters = [
+    ,
+    ,
+    "abc",
+    "def",
+    "ghi",
+    "jkl",
+    "mno",
+    "pqrs",
+    "tuv",
+    "wxyz",
+  ];
+  const result = [];
   if (digits.length > 0) {
-    dfs(digits, 0, '', letters, result)
+    dfs(digits, 0, "", letters, result);
   }
-  return result
+  return result;
 };
 
-function dfs (digits, idigit, path, letters, result) {
+function dfs(digits, idigit, path, letters, result) {
   if (idigit >= digits.length) {
-    result.push(path)
-    return
+    result.push(path);
+    return;
   }
-  const str = letters[digits[idigit]]
+  const str = letters[digits[idigit]];
   for (let i = 0; i < str.length; i++) {
-    dfs(digits, idigit + 1, path + str[i], letters, result)
+    dfs(digits, idigit + 1, path + str[i], letters, result);
   }
-};
+}
 ```
 
-
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+_Template generated via [Leetmark](https://github.com/crimx/crx-leetmark)._
 
 ---
+
 Difficulty: Medium
 Related Topics:
-  "Array": https://leetcode.com/tag/array
-  "Hash Table": https://leetcode.com/tag/hash-table
-  "Two Pointers": https://leetcode.com/tag/two-pointers
+"Array": https://leetcode.com/tag/array
+"Hash Table": https://leetcode.com/tag/hash-table
+"Two Pointers": https://leetcode.com/tag/two-pointers
 Similar Questions:
-  "Two Sum": https://leetcode.com/problems/two-sum
-  "3Sum": https://leetcode.com/problems/3sum
-  "4Sum II": https://leetcode.com/problems/4sum-ii
+"Two Sum": https://leetcode.com/problems/two-sum
+"3Sum": https://leetcode.com/problems/3sum
+"4Sum II": https://leetcode.com/problems/4sum-ii
+
 ---
 
 ## [18. 4Sum](https://leetcode.com/problems/4sum/description/)
 
 ### Problem:
 
-Given an array `nums` of *n* integers and an integer `target`, are there elements *a*, *b*, *c*, and *d* in `nums` such that *a* + *b* + *c* + *d* = `target`? Find all unique quadruplets in the array which gives the sum of `target`.
+Given an array `nums` of _n_ integers and an integer `target`, are there elements _a_, _b_, _c_, and _d_ in `nums` such that _a_ + _b_ + _c_ + _d_ = `target`? Find all unique quadruplets in the array which gives the sum of `target`.
 
 **Note:**
 
@@ -1613,33 +1685,33 @@ Like [15. 3Sum](./015.%203Sum.md) and [16. 3Sum Closest](./016.%203Sum%20Closest
  * @param {number} target
  * @return {number[][]}
  */
-let fourSum = function(nums, target) {
-  const len = nums.length
-  const sorted = nums.sort((a, b) => a - b)
-  const result = []
+let fourSum = function (nums, target) {
+  const len = nums.length;
+  const sorted = nums.sort((a, b) => a - b);
+  const result = [];
 
   for (let k = 0; k < len - 3; k++) {
-    if (k > 0 && sorted[k] === sorted[k-1]) {
-      continue
+    if (k > 0 && sorted[k] === sorted[k - 1]) {
+      continue;
     }
 
-    const threeSum = target - sorted[k]
+    const threeSum = target - sorted[k];
 
-    for (let i = k+1; i < len - 2; i++) {
-      if (i > k+1 && sorted[i] === sorted[i-1]) {
-        continue
+    for (let i = k + 1; i < len - 2; i++) {
+      if (i > k + 1 && sorted[i] === sorted[i - 1]) {
+        continue;
       }
 
-      const twoSum = threeSum - sorted[i]
+      const twoSum = threeSum - sorted[i];
 
-      for (let l = i + 1, r = len - 1; l < r;) {
-        const diff = twoSum - sorted[l] - sorted[r]
+      for (let l = i + 1, r = len - 1; l < r; ) {
+        const diff = twoSum - sorted[l] - sorted[r];
         if (diff > 0) {
-          l++
+          l++;
         } else if (diff < 0) {
-          r--
+          r--;
         } else {
-          result.push([sorted[k], sorted[i], sorted[l], sorted[r]])
+          result.push([sorted[k], sorted[i], sorted[l], sorted[r]]);
           while (++l < r && sorted[l] === sorted[l - 1]);
           while (--r > l && sorted[r] === sorted[r + 1]);
         }
@@ -1647,25 +1719,26 @@ let fourSum = function(nums, target) {
     }
   }
 
-  return result
+  return result;
 };
 ```
 
-
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+_Template generated via [Leetmark](https://github.com/crimx/crx-leetmark)._
 
 ---
+
 Difficulty: Medium
 Related Topics:
-  "Linked List": https://leetcode.com/tag/linked-list
-  "Two Pointers": https://leetcode.com/tag/two-pointers
+"Linked List": https://leetcode.com/tag/linked-list
+"Two Pointers": https://leetcode.com/tag/two-pointers
+
 ---
 
 ## [19. Remove Nth Node From End of List](https://leetcode.com/problems/remove-nth-node-from-end-of-list/description/)
 
 ### Problem:
 
-Given a linked list, remove the *n*-th node from the end of list and return its head.
+Given a linked list, remove the _n_-th node from the end of list and return its head.
 
 **Example:**
 
@@ -1677,7 +1750,7 @@ After removing the second node from the end, the linked list becomes 1->2->3->5.
 
 **Note:**
 
-Given *n* will always be valid.
+Given _n_ will always be valid.
 
 **Follow up:**
 
@@ -1706,38 +1779,41 @@ Boundaries that should be awared of:
  * @param {number} n
  * @return {ListNode}
  */
-let removeNthFromEnd = function(head, n) {
-  let p1 = head
+let removeNthFromEnd = function (head, n) {
+  let p1 = head;
   while (p1 && n--) {
-    p1 = p1.next
+    p1 = p1.next;
   }
 
-  if (!p1) { return n ? head : head.next }
+  if (!p1) {
+    return n ? head : head.next;
+  }
 
-  let p2 = head
+  let p2 = head;
   while (p1.next) {
-    p1 = p1.next
-    p2 = p2.next
+    p1 = p1.next;
+    p2 = p2.next;
   }
 
-  p2.next = p2.next.next
+  p2.next = p2.next.next;
 
-  return head
+  return head;
 };
 ```
 
-
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+_Template generated via [Leetmark](https://github.com/crimx/crx-leetmark)._
 
 ---
+
 Difficulty: Easy
 Related Topics:
-  "String": https://leetcode.com/tag/string
-  "Stack": https://leetcode.com/tag/stack
+"String": https://leetcode.com/tag/string
+"Stack": https://leetcode.com/tag/stack
 Similar Questions:
-  "Generate Parentheses": https://leetcode.com/problems/generate-parentheses
-  "Longest Valid Parentheses": https://leetcode.com/problems/longest-valid-parentheses
-  "Remove Invalid Parentheses": https://leetcode.com/problems/remove-invalid-parentheses
+"Generate Parentheses": https://leetcode.com/problems/generate-parentheses
+"Longest Valid Parentheses": https://leetcode.com/problems/longest-valid-parentheses
+"Remove Invalid Parentheses": https://leetcode.com/problems/remove-invalid-parentheses
+
 ---
 
 ## [20. Valid Parentheses](https://leetcode.com/problems/valid-parentheses/description/)
@@ -1803,39 +1879,40 @@ And since there is only bracket characters, the last open bracket happens to be 
  * @param {string} s
  * @return {boolean}
  */
-let isValid = function(s) {
-  const stack = []
+let isValid = function (s) {
+  const stack = [];
   const pairs = {
-    '}': '{',
-    ']': '[',
-    ')': '(',
-  }
+    "}": "{",
+    "]": "[",
+    ")": "(",
+  };
   for (const c of s) {
-    const open = pairs[c]
+    const open = pairs[c];
     if (open) {
       if (stack.pop() !== open) {
-        return false
+        return false;
       }
     } else {
-      stack.push(c)
+      stack.push(c);
     }
   }
-  return stack.length <= 0
+  return stack.length <= 0;
 };
 ```
 
-
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+_Template generated via [Leetmark](https://github.com/crimx/crx-leetmark)._
 
 ---
+
 Difficulty: Easy
 Related Topics:
-  "Linked List": https://leetcode.com/tag/linked-list
+"Linked List": https://leetcode.com/tag/linked-list
 Similar Questions:
-  "Merge k Sorted Lists": https://leetcode.com/problems/merge-k-sorted-lists
-  "Merge Sorted Array": https://leetcode.com/problems/merge-sorted-array
-  "Sort List": https://leetcode.com/problems/sort-list
-  "Shortest Word Distance II": https://leetcode.com/problems/shortest-word-distance-ii
+"Merge k Sorted Lists": https://leetcode.com/problems/merge-k-sorted-lists
+"Merge Sorted Array": https://leetcode.com/problems/merge-sorted-array
+"Sort List": https://leetcode.com/problems/sort-list
+"Shortest Word Distance II": https://leetcode.com/problems/shortest-word-distance-ii
+
 ---
 
 ## [21. Merge Two Sorted Lists](https://leetcode.com/problems/merge-two-sorted-lists/description/)
@@ -1868,42 +1945,42 @@ Keep tracking the head of two lists and keep moving the pointer of smaller one t
  * @param {ListNode} l2
  * @return {ListNode}
  */
-let mergeTwoLists = function(l1, l2) {
-  let prehead = { next: null }
-  let p = prehead
-  let p1 = l1
-  let p2 = l2
+let mergeTwoLists = function (l1, l2) {
+  let prehead = { next: null };
+  let p = prehead;
+  let p1 = l1;
+  let p2 = l2;
   while (p1 && p2) {
-    let pSel
-    if  (p1.val < p2.val) {
-      pSel = p1
-      p1 = p1.next
+    let pSel;
+    if (p1.val < p2.val) {
+      pSel = p1;
+      p1 = p1.next;
     } else {
-      pSel = p2
-      p2 = p2.next
+      pSel = p2;
+      p2 = p2.next;
     }
-    p.next = pSel
-    p = pSel
+    p.next = pSel;
+    p = pSel;
   }
 
-  p.next = p1 || p2
+  p.next = p1 || p2;
 
-  return prehead.next
+  return prehead.next;
 };
-
 ```
 
-
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+_Template generated via [Leetmark](https://github.com/crimx/crx-leetmark)._
 
 ---
+
 Difficulty: Medium
 Related Topics:
-  "String": https://leetcode.com/tag/string
-  "Backtracking": https://leetcode.com/tag/backtracking
+"String": https://leetcode.com/tag/string
+"Backtracking": https://leetcode.com/tag/backtracking
 Similar Questions:
-  "Letter Combinations of a Phone Number": https://leetcode.com/problems/letter-combinations-of-a-phone-number
-  "Valid Parentheses": https://leetcode.com/problems/valid-parentheses
+"Letter Combinations of a Phone Number": https://leetcode.com/problems/letter-combinations-of-a-phone-number
+"Valid Parentheses": https://leetcode.com/problems/valid-parentheses
+
 ---
 
 ## [22. Generate Parentheses](https://leetcode.com/problems/generate-parentheses/description/)
@@ -1935,28 +2012,28 @@ Recursive DFS backtracking.
  * @param {number} n
  * @return {string[]}
  */
-let generateParenthesis = function(n) {
-  const result = []
+let generateParenthesis = function (n) {
+  const result = [];
   if (n > 0) {
-    dfs(n, 0, 0, '', result)
+    dfs(n, 0, 0, "", result);
   }
-  return result
+  return result;
 };
 
-function dfs (n, nopen, nclose, path, result) {
+function dfs(n, nopen, nclose, path, result) {
   if (path.length === n * 2) {
-    result.push(path)
-    return
+    result.push(path);
+    return;
   }
 
   if (nopen < n) {
-    dfs(n, nopen + 1, nclose, path + '(', result)
+    dfs(n, nopen + 1, nclose, path + "(", result);
   }
 
   if (nclose < nopen) {
-    dfs(n, nopen, nclose + 1, path + ')', result)
+    dfs(n, nopen, nclose + 1, path + ")", result);
   }
-};
+}
 ```
 
 #### TWO
@@ -1968,61 +2045,67 @@ BFS.
  * @param {number} n
  * @return {string[]}
  */
-let generateParenthesis = function(n) {
-  if (n <= 0) { return [] }
+let generateParenthesis = function (n) {
+  if (n <= 0) {
+    return [];
+  }
 
-  const queue = [{
-    path: '(',
-    open: 1,
-    close: 0,
-  }]
+  const queue = [
+    {
+      path: "(",
+      open: 1,
+      close: 0,
+    },
+  ];
 
   while (true) {
-    const { path, open, close } = queue.shift()
+    const { path, open, close } = queue.shift();
     if (open + close === n * 2) {
-      queue.unshift({ path, open, close })
-      break
+      queue.unshift({ path, open, close });
+      break;
     }
 
     if (open < n) {
       queue.push({
-        path: path + '(',
+        path: path + "(",
         open: open + 1,
         close,
-      })
+      });
     }
 
     if (close < open) {
       queue.push({
-        path: path + ')',
+        path: path + ")",
         open,
         close: close + 1,
-      })
+      });
     }
   }
 
-  return queue.map(x => x.path)
+  return queue.map((x) => x.path);
 };
 ```
 
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+_Template generated via [Leetmark](https://github.com/crimx/crx-leetmark)._
 
 ---
+
 Difficulty: Hard
 Related Topics:
-  "Linked List": https://leetcode.com/tag/linked-list
-  "Divide and Conquer": https://leetcode.com/tag/divide-and-conquer
-  "Heap": https://leetcode.com/tag/heap
+"Linked List": https://leetcode.com/tag/linked-list
+"Divide and Conquer": https://leetcode.com/tag/divide-and-conquer
+"Heap": https://leetcode.com/tag/heap
 Similar Questions:
-  "Merge Two Sorted Lists": https://leetcode.com/problems/merge-two-sorted-lists
-  "Ugly Number II": https://leetcode.com/problems/ugly-number-ii
+"Merge Two Sorted Lists": https://leetcode.com/problems/merge-two-sorted-lists
+"Ugly Number II": https://leetcode.com/problems/ugly-number-ii
+
 ---
 
 ## [23. Merge k Sorted Lists](https://leetcode.com/problems/merge-k-sorted-lists/description/)
 
 ### Problem:
 
-Merge *k* sorted linked lists and return it as one sorted list. Analyze and describe its complexity.
+Merge _k_ sorted linked lists and return it as one sorted list. Analyze and describe its complexity.
 
 **Example:**
 
@@ -2046,13 +2129,13 @@ This is slow as it reaches O(N^2).
 
 #### TWO
 
-Priority Queue. O(N * log(K)).
+Priority Queue. O(N \* log(K)).
 
-Since JavaScript does not provide a standard built-in Priority Queue data structure, it is challenging to implement an efficient one barehanded. 
+Since JavaScript does not provide a standard built-in Priority Queue data structure, it is challenging to implement an efficient one barehanded.
 
 #### THREE
 
-Divide and conquer. Also O(N * log(K)).
+Divide and conquer. Also O(N \* log(K)).
 
 Divide N lists into ceil(N/2) pairs and merge your way up.
 
@@ -2068,11 +2151,11 @@ Divide N lists into ceil(N/2) pairs and merge your way up.
  * @param {ListNode[]} lists
  * @return {ListNode}
  */
-let mergeKLists = function(lists) {
+let mergeKLists = function (lists) {
   while (lists.length > 1) {
-    lists.unshift(mergeTwoLists(lists.pop(), lists.pop()))
+    lists.unshift(mergeTwoLists(lists.pop(), lists.pop()));
   }
-  return lists[0] || []
+  return lists[0] || [];
 };
 
 /**
@@ -2087,39 +2170,40 @@ let mergeKLists = function(lists) {
  * @param {ListNode} l2
  * @return {ListNode}
  */
-function mergeTwoLists (l1, l2) {
-  let prehead = { next: null }
-  let p = prehead
-  let p1 = l1
-  let p2 = l2
+function mergeTwoLists(l1, l2) {
+  let prehead = { next: null };
+  let p = prehead;
+  let p1 = l1;
+  let p2 = l2;
   while (p1 && p2) {
-    let pSel
-    if  (p1.val < p2.val) {
-      pSel = p1
-      p1 = p1.next
+    let pSel;
+    if (p1.val < p2.val) {
+      pSel = p1;
+      p1 = p1.next;
     } else {
-      pSel = p2
-      p2 = p2.next
+      pSel = p2;
+      p2 = p2.next;
     }
-    p.next = pSel
-    p = pSel
+    p.next = pSel;
+    p = pSel;
   }
 
-  p.next = p1 || p2
+  p.next = p1 || p2;
 
-  return prehead.next
-};
+  return prehead.next;
+}
 ```
 
-
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+_Template generated via [Leetmark](https://github.com/crimx/crx-leetmark)._
 
 ---
+
 Difficulty: Medium
 Related Topics:
-  "Linked List": https://leetcode.com/tag/linked-list
+"Linked List": https://leetcode.com/tag/linked-list
 Similar Questions:
-  "Reverse Nodes in k-Group": https://leetcode.com/problems/reverse-nodes-in-k-group
+"Reverse Nodes in k-Group": https://leetcode.com/problems/reverse-nodes-in-k-group
+
 ---
 
 ## [24. Swap Nodes in Pairs](https://leetcode.com/problems/swap-nodes-in-pairs/description/)
@@ -2156,48 +2240,49 @@ Given 1->2->3->4, you should return the list as 2->1->4->3.
  * @param {ListNode} head
  * @return {ListNode}
  */
-let swapPairs = function(head) {
-  const prehead = { next: head }
+let swapPairs = function (head) {
+  const prehead = { next: head };
 
-  for (let p = prehead; p.next !== null && p.next.next !== null;) {
-    const p1 = p.next
-    const p2 = p1.next
-    p1.next = p2.next
-    p2.next = p1
-    p.next = p2
-    p = p1
+  for (let p = prehead; p.next !== null && p.next.next !== null; ) {
+    const p1 = p.next;
+    const p2 = p1.next;
+    p1.next = p2.next;
+    p2.next = p1;
+    p.next = p2;
+    p = p1;
   }
 
-  return prehead.next
+  return prehead.next;
 };
 ```
 
-
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+_Template generated via [Leetmark](https://github.com/crimx/crx-leetmark)._
 
 ---
+
 Difficulty: Hard
 Related Topics:
-  "Linked List": https://leetcode.com/tag/linked-list
+"Linked List": https://leetcode.com/tag/linked-list
 Similar Questions:
-  "Swap Nodes in Pairs": https://leetcode.com/problems/swap-nodes-in-pairs
+"Swap Nodes in Pairs": https://leetcode.com/problems/swap-nodes-in-pairs
+
 ---
 
 ## [25. Reverse Nodes in k-Group](https://leetcode.com/problems/reverse-nodes-in-k-group/description/)
 
 ### Problem:
 
-Given a linked list, reverse the nodes of a linked list *k* at a time and return its modified list.
+Given a linked list, reverse the nodes of a linked list _k_ at a time and return its modified list.
 
-*k* is a positive integer and is less than or equal to the length of the linked list. If the number of nodes is not a multiple of *k* then left-out nodes in the end should remain as it is.
+_k_ is a positive integer and is less than or equal to the length of the linked list. If the number of nodes is not a multiple of _k_ then left-out nodes in the end should remain as it is.
 
 **Example:**
 
 Given this linked list: `1->2->3->4->5`
 
-For *k* = 2, you should return: `2->1->4->3->5`
+For _k_ = 2, you should return: `2->1->4->3->5`
 
-For *k* = 3, you should return: `3->2->1->4->5`
+For _k_ = 3, you should return: `3->2->1->4->5`
 
 **Note:**
 
@@ -2224,60 +2309,61 @@ For *k* = 3, you should return: `3->2->1->4->5`
  * @param {number} k
  * @return {ListNode}
  */
-let reverseKGroup = function(head, k) {
-  const prehead = { next: head }
-  let p = prehead
+let reverseKGroup = function (head, k) {
+  const prehead = { next: head };
+  let p = prehead;
   while (true) {
-    let n = k
-    let pEndNext = p.next
+    let n = k;
+    let pEndNext = p.next;
     while (pEndNext && n) {
-      pEndNext = pEndNext.next
-      n--
+      pEndNext = pEndNext.next;
+      n--;
     }
 
     if (n !== 0) {
-      break
+      break;
     }
 
-    const nextp = p.next // The first node will be the last after reverse
-    p.next = reverseLinkList(p.next, pEndNext)
-    p = nextp
+    const nextp = p.next; // The first node will be the last after reverse
+    p.next = reverseLinkList(p.next, pEndNext);
+    p = nextp;
   }
 
-  return prehead.next
+  return prehead.next;
 };
 
-function reverseLinkList (head, nullNode = null) {
-  let prev = nullNode
-  let curr = head
+function reverseLinkList(head, nullNode = null) {
+  let prev = nullNode;
+  let curr = head;
   while (curr !== nullNode) {
-    const next = curr.next
-    curr.next = prev
-    prev = curr
-    curr = next
+    const next = curr.next;
+    curr.next = prev;
+    prev = curr;
+    curr = next;
   }
-  return prev
-};
+  return prev;
+}
 ```
 
-
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+_Template generated via [Leetmark](https://github.com/crimx/crx-leetmark)._
 
 ---
+
 Difficulty: Easy
 Related Topics:
-  "Array": https://leetcode.com/tag/array
-  "Two Pointers": https://leetcode.com/tag/two-pointers
+"Array": https://leetcode.com/tag/array
+"Two Pointers": https://leetcode.com/tag/two-pointers
 Similar Questions:
-  "Remove Element": https://leetcode.com/problems/remove-element
-  "Remove Duplicates from Sorted Array II": https://leetcode.com/problems/remove-duplicates-from-sorted-array-ii
+"Remove Element": https://leetcode.com/problems/remove-element
+"Remove Duplicates from Sorted Array II": https://leetcode.com/problems/remove-duplicates-from-sorted-array-ii
+
 ---
 
 ## [26. Remove Duplicates from Sorted Array](https://leetcode.com/problems/remove-duplicates-from-sorted-array/description/)
 
 ### Problem:
 
-Given a sorted array *nums*, remove the duplicates [**in-place**](https://en.wikipedia.org/wiki/In-place_algorithm) such that each element appear only *once* and return the new length.
+Given a sorted array _nums_, remove the duplicates [**in-place**](https://en.wikipedia.org/wiki/In-place_algorithm) such that each element appear only _once_ and return the new length.
 
 Do not allocate extra space for another array, you must do this by **modifying the input array in-place** with O(1) extra memory.
 
@@ -2322,43 +2408,44 @@ for (int i = 0; i < len; i++) {
 
 ### Solution:
 
-The result array can only be shorter. That is why we can build the array in-place with the new length. 
+The result array can only be shorter. That is why we can build the array in-place with the new length.
 
 ```javascript
 /**
  * @param {number[]} nums
  * @return {number}
  */
-let removeDuplicates = function(nums) {
-  let len = 0
+let removeDuplicates = function (nums) {
+  let len = 0;
   for (let i = 0; i < nums.length; i++) {
-    if (nums[i] !== nums[i-1]) {
-      nums[len++] = nums[i]
+    if (nums[i] !== nums[i - 1]) {
+      nums[len++] = nums[i];
     }
   }
-  return len
+  return len;
 };
 ```
 
-
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+_Template generated via [Leetmark](https://github.com/crimx/crx-leetmark)._
 
 ---
+
 Difficulty: Easy
 Related Topics:
-  "Array": https://leetcode.com/tag/array
-  "Two Pointers": https://leetcode.com/tag/two-pointers
+"Array": https://leetcode.com/tag/array
+"Two Pointers": https://leetcode.com/tag/two-pointers
 Similar Questions:
-  "Remove Duplicates from Sorted Array": https://leetcode.com/problems/remove-duplicates-from-sorted-array
-  "Remove Linked List Elements": https://leetcode.com/problems/remove-linked-list-elements
-  "Move Zeroes": https://leetcode.com/problems/move-zeroes
+"Remove Duplicates from Sorted Array": https://leetcode.com/problems/remove-duplicates-from-sorted-array
+"Remove Linked List Elements": https://leetcode.com/problems/remove-linked-list-elements
+"Move Zeroes": https://leetcode.com/problems/move-zeroes
+
 ---
 
 ## [27. Remove Element](https://leetcode.com/problems/remove-element/description/)
 
 ### Problem:
 
-Given an array *nums* and a value *val*, remove all instances of that value [**in-place**](https://en.wikipedia.org/wiki/In-place_algorithm) and return the new length.
+Given an array _nums_ and a value _val_, remove all instances of that value [**in-place**](https://en.wikipedia.org/wiki/In-place_algorithm) and return the new length.
 
 Do not allocate extra space for another array, you must do this by **modifying the input array in-place** with O(1) extra memory.
 
@@ -2415,25 +2502,26 @@ The order does not matter. So just take the last number to fill the vacancy.
  * @param {number} val
  * @return {number}
  */
-let removeElement = function(nums, val) {
-  let len = nums.length
+let removeElement = function (nums, val) {
+  let len = nums.length;
   for (let i = 0; i < len; i++) {
     if (nums[i] === val) {
-      nums[i--] = nums[--len]
+      nums[i--] = nums[--len];
     }
   }
-  return len
+  return len;
 };
 ```
 
-
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+_Template generated via [Leetmark](https://github.com/crimx/crx-leetmark)._
 
 ---
+
 Difficulty: Medium
 Related Topics:
-  "Math": https://leetcode.com/tag/math
-  "Binary Search": https://leetcode.com/tag/binary-search
+"Math": https://leetcode.com/tag/math
+"Binary Search": https://leetcode.com/tag/binary-search
+
 ---
 
 ## [29. Divide Two Integers](https://leetcode.com/problems/divide-two-integers/description/)
@@ -2478,49 +2566,54 @@ Replace multiplication and division with binary shifting.
  * @param {number} divisor
  * @return {number}
  */
-let divide = function(dividend, divisor) {
-  if (divisor === 0 ||
-      divisor === -1 && dividend < -2147483647 ||
-      dividend > 2147483647 ||
-      dividend < -2147483648
+let divide = function (dividend, divisor) {
+  if (
+    divisor === 0 ||
+    (divisor === -1 && dividend < -2147483647) ||
+    dividend > 2147483647 ||
+    dividend < -2147483648
   ) {
-    return 2147483647
+    return 2147483647;
   }
 
-  const isNegative = dividend < 0 && divisor >= 0 || dividend >= 0 && divisor < 0
-  const pDividend = Math.abs(dividend)
-  const pDivisor = Math.abs(divisor)
+  const isNegative =
+    (dividend < 0 && divisor >= 0) || (dividend >= 0 && divisor < 0);
+  const pDividend = Math.abs(dividend);
+  const pDivisor = Math.abs(divisor);
 
-  if (dividend === 0 || pDividend < pDivisor) { return 0 }
+  if (dividend === 0 || pDividend < pDivisor) {
+    return 0;
+  }
 
-  let doubling = pDivisor
-  let count = 1
+  let doubling = pDivisor;
+  let count = 1;
   while (doubling < pDividend && !(doubling & (1 << 30))) {
-    doubling <<= 1
-    count <<= 1
+    doubling <<= 1;
+    count <<= 1;
   }
   if (doubling > pDividend) {
-    doubling >>>= 1
-    count >>>= 1
+    doubling >>>= 1;
+    count >>>= 1;
   }
 
-  const result = count + divide(pDividend - doubling, pDivisor)
-  return isNegative ? -result : result
+  const result = count + divide(pDividend - doubling, pDivisor);
+  return isNegative ? -result : result;
 };
 ```
 
-
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+_Template generated via [Leetmark](https://github.com/crimx/crx-leetmark)._
 
 ---
+
 Difficulty: Medium
 Related Topics:
-  "Array": https://leetcode.com/tag/array
+"Array": https://leetcode.com/tag/array
 Similar Questions:
-  "Permutations": https://leetcode.com/problems/permutations
-  "Permutations II": https://leetcode.com/problems/permutations-ii
-  "Permutation Sequence": https://leetcode.com/problems/permutation-sequence
-  "Palindrome Permutation II": https://leetcode.com/problems/palindrome-permutation-ii
+"Permutations": https://leetcode.com/problems/permutations
+"Permutations II": https://leetcode.com/problems/permutations-ii
+"Permutation Sequence": https://leetcode.com/problems/permutation-sequence
+"Palindrome Permutation II": https://leetcode.com/problems/palindrome-permutation-ii
+
 ---
 
 ## [31. Next Permutation](https://leetcode.com/problems/next-permutation/description/)
@@ -2537,7 +2630,7 @@ Here are some examples. Inputs are in the left-hand column and its corresponding
 
 `1,2,3` → `1,3,2`  
 `3,2,1` → `1,2,3`  
-`1,1,5` → `1,5,1`  
+`1,1,5` → `1,5,1`
 
 ### Solution:
 
@@ -2554,49 +2647,52 @@ Swap the two.
  * @param {number[]} nums
  * @return {void} Do not return anything, modify nums in-place instead.
  */
-let nextPermutation = function(nums) {
-  const len = nums.length
-  if (len <= 1) { return }
+let nextPermutation = function (nums) {
+  const len = nums.length;
+  if (len <= 1) {
+    return;
+  }
 
   for (let i = len - 1; i > 0; i--) {
-    if (nums[i] > nums[i-1]) {
-      let t
-      for (let s = i, e = len-1; s < e; s++, e--) {
-        t = nums[s]
-        nums[s] = nums[e]
-        nums[e]  = t
+    if (nums[i] > nums[i - 1]) {
+      let t;
+      for (let s = i, e = len - 1; s < e; s++, e--) {
+        t = nums[s];
+        nums[s] = nums[e];
+        nums[e] = t;
       }
 
-      let j = len - 1
-      while (nums[j] <= nums[i-1]) {
-        j--
+      let j = len - 1;
+      while (nums[j] <= nums[i - 1]) {
+        j--;
       }
 
-      t = nums[j]
-      nums[j] = nums[i-1]
-      nums[i-1] = t
-      
-      break
+      t = nums[j];
+      nums[j] = nums[i - 1];
+      nums[i - 1] = t;
+
+      break;
     }
   }
 
   if (i === 0) {
-    nums.reverse()
+    nums.reverse();
   }
 };
 ```
 
-
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+_Template generated via [Leetmark](https://github.com/crimx/crx-leetmark)._
 
 ---
+
 Difficulty: Medium
 Related Topics:
-  "Array": https://leetcode.com/tag/array
-  "Binary Search": https://leetcode.com/tag/binary-search
+"Array": https://leetcode.com/tag/array
+"Binary Search": https://leetcode.com/tag/binary-search
 Similar Questions:
-  "Search in Rotated Sorted Array II": https://leetcode.com/problems/search-in-rotated-sorted-array-ii
-  "Find Minimum in Rotated Sorted Array": https://leetcode.com/problems/find-minimum-in-rotated-sorted-array
+"Search in Rotated Sorted Array II": https://leetcode.com/problems/search-in-rotated-sorted-array-ii
+"Find Minimum in Rotated Sorted Array": https://leetcode.com/problems/find-minimum-in-rotated-sorted-array
+
 ---
 
 ## [33. Search in Rotated Sorted Array](https://leetcode.com/problems/search-in-rotated-sorted-array/description/)
@@ -2648,50 +2744,52 @@ Whenever we choose a pivot, it must be in one of the two sorted parts of the rot
  * @param {number} target
  * @return {number}
  */
-let search = function(nums, target) {
-  let s = 0
-  let e = nums.length - 1
+let search = function (nums, target) {
+  let s = 0;
+  let e = nums.length - 1;
 
   while (s <= e) {
-    const p = (e + s) / 2 | 0
-    const pivot = nums[p]
+    const p = ((e + s) / 2) | 0;
+    const pivot = nums[p];
 
     if (pivot === target) {
-      return p
+      return p;
     }
 
     if (pivot < nums[e]) {
       // right half is sorted
-      if (target > pivot  && target <= nums[e]) {
+      if (target > pivot && target <= nums[e]) {
         // target is inside the right half
-        s = p + 1
+        s = p + 1;
       } else {
-        e = p - 1
+        e = p - 1;
       }
     } else {
       // left half is sorted
       if (target < pivot && target >= nums[s]) {
         // target is inside the left half
-        e = p - 1
+        e = p - 1;
       } else {
-        s = p + 1
+        s = p + 1;
       }
     }
   }
 
-  return -1
+  return -1;
 };
 ```
 
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+_Template generated via [Leetmark](https://github.com/crimx/crx-leetmark)._
 
 ---
+
 Difficulty: Medium
 Related Topics:
-  "Array": https://leetcode.com/tag/array
-  "Binary Search": https://leetcode.com/tag/binary-search
+"Array": https://leetcode.com/tag/array
+"Binary Search": https://leetcode.com/tag/binary-search
 Similar Questions:
-  "First Bad Version": https://leetcode.com/problems/first-bad-version
+"First Bad Version": https://leetcode.com/problems/first-bad-version
+
 ---
 
 ## [34. Find First and Last Position of Element in Sorted Array](https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array/description/)
@@ -2700,7 +2798,7 @@ Similar Questions:
 
 Given an array of integers `nums` sorted in ascending order, find the starting and ending position of a given `target` value.
 
-Your algorithm's runtime complexity must be in the order of *O*(log *n*).
+Your algorithm's runtime complexity must be in the order of _O_(log _n_).
 
 If the target is not found in the array, return `[-1, -1]`.
 
@@ -2732,68 +2830,69 @@ If we want to get the first, we dump the right half. Vice versa.
  * @param {number} target
  * @return {number[]}
  */
-let searchRange = function(nums, target) {
-  let s = 0
-  let e = nums.length - 1
+let searchRange = function (nums, target) {
+  let s = 0;
+  let e = nums.length - 1;
 
-  const first = searchFirst(nums, target, 0, nums.length - 1)
+  const first = searchFirst(nums, target, 0, nums.length - 1);
 
   if (first === -1) {
-    return [-1, -1]
+    return [-1, -1];
   }
 
-  return [first, searchLast(nums, target, first, nums.length - 1)]
+  return [first, searchLast(nums, target, first, nums.length - 1)];
 };
 
-function searchFirst (nums, target, s, e) {
-  let result = -1
+function searchFirst(nums, target, s, e) {
+  let result = -1;
 
   while (s <= e) {
-    const p = (s + e) / 2 | 0
-    const diff = nums[p] - target
+    const p = ((s + e) / 2) | 0;
+    const diff = nums[p] - target;
     if (diff === 0) {
-      result = p
-      e = p - 1
+      result = p;
+      e = p - 1;
     } else if (diff > 0) {
-      e = p - 1
+      e = p - 1;
     } else {
-      s = s + 1
+      s = s + 1;
     }
   }
 
-  return result
-};
+  return result;
+}
 
-function searchLast (nums, target, s, e) {
-  let result = -1
+function searchLast(nums, target, s, e) {
+  let result = -1;
 
   while (s <= e) {
-    const p = (s + e) / 2 | 0
-    const diff = nums[p] - target
+    const p = ((s + e) / 2) | 0;
+    const diff = nums[p] - target;
     if (diff === 0) {
-      result = p
-      s = p + 1
+      result = p;
+      s = p + 1;
     } else if (diff > 0) {
-      e = p - 1
+      e = p - 1;
     } else {
-      s = s + 1
+      s = s + 1;
     }
   }
 
-  return result
-};
+  return result;
+}
 ```
 
-
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+_Template generated via [Leetmark](https://github.com/crimx/crx-leetmark)._
 
 ---
+
 Difficulty: Easy
 Related Topics:
-  "Array": https://leetcode.com/tag/array
-  "Binary Search": https://leetcode.com/tag/binary-search
+"Array": https://leetcode.com/tag/array
+"Binary Search": https://leetcode.com/tag/binary-search
 Similar Questions:
-  "First Bad Version": https://leetcode.com/problems/first-bad-version
+"First Bad Version": https://leetcode.com/problems/first-bad-version
+
 ---
 
 ## [35. Search Insert Position](https://leetcode.com/problems/search-insert-position/description/)
@@ -2842,35 +2941,36 @@ Same as simple binary search except it returns the start index when does not fin
  * @param {number} target
  * @return {number}
  */
-let searchInsert = function(nums, target) {
-  let s = 0
-  let e = nums.length - 1
+let searchInsert = function (nums, target) {
+  let s = 0;
+  let e = nums.length - 1;
 
   while (s <= e) {
-    const p = (s + e) / 2 | 0
-    const diff = nums[p] - target
+    const p = ((s + e) / 2) | 0;
+    const diff = nums[p] - target;
     if (diff === 0) {
-      return p
+      return p;
     } else if (diff < 0) {
-      s = p + 1
+      s = p + 1;
     } else {
-      e = p - 1
+      e = p - 1;
     }
   }
 
-  return s
+  return s;
 };
 ```
 
-
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+_Template generated via [Leetmark](https://github.com/crimx/crx-leetmark)._
 
 ---
+
 Difficulty: Medium
 Related Topics:
-  "Hash Table": https://leetcode.com/tag/hash-table
+"Hash Table": https://leetcode.com/tag/hash-table
 Similar Questions:
-  "Sudoku Solver": https://leetcode.com/problems/sudoku-solver
+"Sudoku Solver": https://leetcode.com/problems/sudoku-solver
+
 ---
 
 ## [36. Valid Sudoku](https://leetcode.com/problems/valid-sudoku/description/)
@@ -2923,7 +3023,7 @@ Input:
   [".",".",".",".","8",".",".","7","9"]
 ]
 Output: false
-Explanation: Same as Example 1, except with the 5 in the top left corner being 
+Explanation: Same as Example 1, except with the 5 in the top left corner being
     modified to 8. Since there are two 8's in the top left 3x3 sub-box, it is invalid.
 ```
 
@@ -2943,49 +3043,55 @@ Scan the board once.
  * @param {character[][]} board
  * @return {boolean}
  */
-let isValidSudoku = function(board) {
-  if (!board || board.length !== 9) { return false }
+let isValidSudoku = function (board) {
+  if (!board || board.length !== 9) {
+    return false;
+  }
 
-  const newArray = () => []
-  const col = board.map(newArray)
-  const row = board.map(newArray)
-  const sub = board.map(newArray)
+  const newArray = () => [];
+  const col = board.map(newArray);
+  const row = board.map(newArray);
+  const sub = board.map(newArray);
 
   for (let r = 0; r < 9; r++) {
-    if (board[r].length !== 9) { return false }
+    if (board[r].length !== 9) {
+      return false;
+    }
 
     for (let c = 0; c < 9; c++) {
-      const num = board[r][c]
-      const subOffset = 3 * (r / 3 | 0) + (c / 3 | 0)
-      if (num !== '.') {
-        if (!(num >= 1 && num <= 9) ||
-            row[r][num] ||
-            col[c][num] ||
-            sub[subOffset][num]
+      const num = board[r][c];
+      const subOffset = 3 * ((r / 3) | 0) + ((c / 3) | 0);
+      if (num !== ".") {
+        if (
+          !(num >= 1 && num <= 9) ||
+          row[r][num] ||
+          col[c][num] ||
+          sub[subOffset][num]
         ) {
-          return false
+          return false;
         }
-        row[r][num] = true
-        col[c][num] = true
-        sub[subOffset][num] = true
+        row[r][num] = true;
+        col[c][num] = true;
+        sub[subOffset][num] = true;
       }
     }
   }
 
-  return true
+  return true;
 };
 ```
 
-
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+_Template generated via [Leetmark](https://github.com/crimx/crx-leetmark)._
 
 ---
+
 Difficulty: Hard
 Related Topics:
-  "Hash Table": https://leetcode.com/tag/hash-table
-  "Backtracking": https://leetcode.com/tag/backtracking
+"Hash Table": https://leetcode.com/tag/hash-table
+"Backtracking": https://leetcode.com/tag/backtracking
 Similar Questions:
-  "Valid Sudoku": https://leetcode.com/problems/valid-sudoku
+"Valid Sudoku": https://leetcode.com/problems/valid-sudoku
+
 ---
 
 ## [37. Sudoku Solver](https://leetcode.com/problems/sudoku-solver/description/)
@@ -3031,70 +3137,73 @@ If all possible solutions fail, we just dump the current position and go back to
  * @param {character[][]} board
  * @return {void} Do not return anything, modify board in-place instead.
  */
-let solveSudoku = function(board) {
-  const newArray = () => []
-  const col = board.map(newArray)
-  const row = board.map(newArray)
-  const sub = board.map(newArray)
+let solveSudoku = function (board) {
+  const newArray = () => [];
+  const col = board.map(newArray);
+  const row = board.map(newArray);
+  const sub = board.map(newArray);
 
   for (let r = 0; r < 9; r++) {
     for (let c = 0; c < 9; c++) {
-      const num = +board[r][c]
+      const num = +board[r][c];
       if (num) {
-        const subOffset = 3 * (r / 3 | 0) + (c / 3 | 0)
-        row[r][num] = true
-        col[c][num] = true
-        sub[subOffset][num] = true
+        const subOffset = 3 * ((r / 3) | 0) + ((c / 3) | 0);
+        row[r][num] = true;
+        col[c][num] = true;
+        sub[subOffset][num] = true;
       }
     }
   }
 
-  dfs(board, col, row, sub, 0)
+  dfs(board, col, row, sub, 0);
 };
 
-function dfs (board, col, row, sub, pos) {
-  if  (pos >= 81) { return true }
-
-  const r = pos / 9 | 0
-  const c = pos % 9
-
-  if (board[r][c] !== '.') {
-    return dfs(board, col, row, sub, pos + 1)
+function dfs(board, col, row, sub, pos) {
+  if (pos >= 81) {
+    return true;
   }
 
-  const subOffset = 3 * (r / 3 | 0) + (c / 3 | 0)
+  const r = (pos / 9) | 0;
+  const c = pos % 9;
+
+  if (board[r][c] !== ".") {
+    return dfs(board, col, row, sub, pos + 1);
+  }
+
+  const subOffset = 3 * ((r / 3) | 0) + ((c / 3) | 0);
 
   for (let num = 1; num <= 9; num++) {
     if (!(row[r][num] || col[c][num] || sub[subOffset][num])) {
-      row[r][num] = true
-      col[c][num] = true
-      sub[subOffset][num] = true
+      row[r][num] = true;
+      col[c][num] = true;
+      sub[subOffset][num] = true;
 
       if (dfs(board, col, row, sub, pos + 1)) {
-        board[r][c] = num + ''
-        return true
+        board[r][c] = num + "";
+        return true;
       } else {
-        row[r][num] = false
-        col[c][num] = false
-        sub[subOffset][num] = false
+        row[r][num] = false;
+        col[c][num] = false;
+        sub[subOffset][num] = false;
       }
     }
   }
 
-  return false
-};
+  return false;
+}
 ```
 
-
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+_Template generated via [Leetmark](https://github.com/crimx/crx-leetmark)._
 
 ---
+
 Difficulty: Easy
 Related Topics:
-  "String": https://leetcode.com/tag/string
+"String": https://leetcode.com/tag/string
 Similar Questions:
-  "Encode and Decode Strings": https://leetcode.com/problems/encode-and-decode-strings
-  "String Compression": https://leetcode.com/problems/string-compression
+"Encode and Decode Strings": https://leetcode.com/problems/encode-and-decode-strings
+"String Compression": https://leetcode.com/problems/string-compression
+
 ---
 
 ## [38. Count and Say](https://leetcode.com/problems/count-and-say/description/)
@@ -3146,14 +3255,17 @@ JavaScript specific.
  * @param {number} n
  * @return {string}
  */
-let countAndSay = function(n) {
-  let num = '1'
+let countAndSay = function (n) {
+  let num = "1";
 
   while (--n > 0) {
-    num = num.match(/(\d)\1*/g).map(x => x.length + x[0]).join('')
+    num = num
+      .match(/(\d)\1*/g)
+      .map((x) => x.length + x[0])
+      .join("");
   }
 
-  return num
+  return num;
 };
 ```
 
@@ -3166,39 +3278,40 @@ General solution.
  * @param {number} n
  * @return {string}
  */
-let countAndSay = function(n) {
-  let num = '1'
+let countAndSay = function (n) {
+  let num = "1";
 
   while (--n > 0) {
-    let newNum = ''
+    let newNum = "";
     for (let i = 0, accu = 1; i < num.length; i++, accu++) {
-      if (num[i] !== num[i+1]) {
-        newNum += accu + num[i]
-        accu = 0
+      if (num[i] !== num[i + 1]) {
+        newNum += accu + num[i];
+        accu = 0;
       }
     }
-    num = newNum
+    num = newNum;
   }
 
-  return num
+  return num;
 };
 ```
 
-
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+_Template generated via [Leetmark](https://github.com/crimx/crx-leetmark)._
 
 ---
+
 Difficulty: Medium
 Related Topics:
-  "Array": https://leetcode.com/tag/array
-  "Backtracking": https://leetcode.com/tag/backtracking
+"Array": https://leetcode.com/tag/array
+"Backtracking": https://leetcode.com/tag/backtracking
 Similar Questions:
-  "Letter Combinations of a Phone Number": https://leetcode.com/problems/letter-combinations-of-a-phone-number
-  "Combination Sum II": https://leetcode.com/problems/combination-sum-ii
-  "Combinations": https://leetcode.com/problems/combinations
-  "Combination Sum III": https://leetcode.com/problems/combination-sum-iii
-  "Factor Combinations": https://leetcode.com/problems/factor-combinations
-  "Combination Sum IV": https://leetcode.com/problems/combination-sum-iv
+"Letter Combinations of a Phone Number": https://leetcode.com/problems/letter-combinations-of-a-phone-number
+"Combination Sum II": https://leetcode.com/problems/combination-sum-ii
+"Combinations": https://leetcode.com/problems/combinations
+"Combination Sum III": https://leetcode.com/problems/combination-sum-iii
+"Factor Combinations": https://leetcode.com/problems/factor-combinations
+"Combination Sum IV": https://leetcode.com/problems/combination-sum-iv
+
 ---
 
 ## [39. Combination Sum](https://leetcode.com/problems/combination-sum/description/)
@@ -3249,42 +3362,42 @@ To prevent duplications, only loop the right side of the candidates.
  * @param {number} target
  * @return {number[][]}
  */
-let combinationSum = function(candidates, target) {
-  return dfs(candidates, target, [], [], 0)
+let combinationSum = function (candidates, target) {
+  return dfs(candidates, target, [], [], 0);
 };
 
-function dfs (candidates, target, result, path, start) {
+function dfs(candidates, target, result, path, start) {
   for (let i = start; i < candidates.length; i++) {
-    const cand = candidates[i]
+    const cand = candidates[i];
 
     if (cand > target) {
-      continue
+      continue;
     }
 
-    path.push(cand)
+    path.push(cand);
     if (cand === target) {
-      result.push(path.slice())
+      result.push(path.slice());
     } else {
-      dfs(candidates, target - cand, result, path, i)
+      dfs(candidates, target - cand, result, path, i);
     }
-    path.pop(cand)
+    path.pop(cand);
   }
 
-  return result
-};
+  return result;
+}
 ```
 
-
-
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+_Template generated via [Leetmark](https://github.com/crimx/crx-leetmark)._
 
 ---
+
 Difficulty: Medium
 Related Topics:
-  "Array": https://leetcode.com/tag/array
-  "Backtracking": https://leetcode.com/tag/backtracking
+"Array": https://leetcode.com/tag/array
+"Backtracking": https://leetcode.com/tag/backtracking
 Similar Questions:
-  "Combination Sum": https://leetcode.com/problems/combination-sum
+"Combination Sum": https://leetcode.com/problems/combination-sum
+
 ---
 
 ## [40. Combination Sum II](https://leetcode.com/problems/combination-sum-ii/description/)
@@ -3342,47 +3455,54 @@ Notice the number at `start` is immune by the rule because we assume that the cu
  * @param {number} target
  * @return {number[][]}
  */
-let combinationSum2 = function(candidates, target) {
-  return dfs(candidates.sort((a, b) => a - b), target, [], [], 0)
+let combinationSum2 = function (candidates, target) {
+  return dfs(
+    candidates.sort((a, b) => a - b),
+    target,
+    [],
+    [],
+    0
+  );
 };
 
-function dfs (candidates, target, result, path, start) {
+function dfs(candidates, target, result, path, start) {
   for (let i = start; i < candidates.length; i++) {
-    const cand = candidates[i]
+    const cand = candidates[i];
 
     if (cand > target) {
-      return result
+      return result;
     }
 
-    if (i > start && cand === candidates[i-1]) {
-      continue
+    if (i > start && cand === candidates[i - 1]) {
+      continue;
     }
 
-    path.push(cand)
+    path.push(cand);
     if (cand === target) {
-      result.push(path.slice())
+      result.push(path.slice());
     } else {
-      dfs(candidates, target - cand, result, path, i + 1)
+      dfs(candidates, target - cand, result, path, i + 1);
     }
-    path.pop()
+    path.pop();
   }
 
-  return result
-};
+  return result;
+}
 ```
 
-
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+_Template generated via [Leetmark](https://github.com/crimx/crx-leetmark)._
 
 ---
+
 Difficulty: Hard
 Related Topics:
-  "Array": https://leetcode.com/tag/array
+"Array": https://leetcode.com/tag/array
 Similar Questions:
-  "Missing Number": https://leetcode.com/problems/missing-number
-  "Find the Duplicate Number": https://leetcode.com/problems/find-the-duplicate-number
-  "Find All Numbers Disappeared in an Array": https://leetcode.com/problems/find-all-numbers-disappeared-in-an-array
-  "Couples Holding Hands": https://leetcode.com/problems/couples-holding-hands
+"Missing Number": https://leetcode.com/problems/missing-number
+"Find the Duplicate Number": https://leetcode.com/problems/find-the-duplicate-number
+"Find All Numbers Disappeared in an Array": https://leetcode.com/problems/find-all-numbers-disappeared-in-an-array
+"Couples Holding Hands": https://leetcode.com/problems/couples-holding-hands
+
 ---
 
 ## [41. First Missing Positive](https://leetcode.com/problems/first-missing-positive/description/)
@@ -3414,13 +3534,13 @@ Output: 1
 
 **Note:**
 
-Your algorithm should run in *O*(*n*) time and uses constant extra space.
+Your algorithm should run in _O_(_n_) time and uses constant extra space.
 
 ### Solution:
 
 The last requirement is why this problem is marked "hard". Though the solution feels like cheating: it modifies the array to mark numbers.
 
-So the algorithm still requires *O*(*n*) space but *O*(*1*) **extra** space.
+So the algorithm still requires _O_(_n_) space but _O_(_1_) **extra** space.
 
 The core idea of the solution is, if the length of the array is n, then the smallest missing positive integer must be within [1, n+1].
 
@@ -3437,47 +3557,49 @@ So here we reuse the array and keep trying to put integer `k` into the slot inde
  * @param {number[]} nums
  * @return {number}
  */
-let firstMissingPositive = function(nums) {
-  const n = nums.length
+let firstMissingPositive = function (nums) {
+  const n = nums.length;
 
   for (let i = 1; i < n; i++) {
     while (nums[i] <= n && nums[i] !== nums[nums[i] - 1]) {
-      const t = nums[i]
-      nums[i] = nums[t - 1]
-      nums[t - 1] = t
+      const t = nums[i];
+      nums[i] = nums[t - 1];
+      nums[t - 1] = t;
     }
   }
 
   for (let i = 0; i < n; i++) {
     if (nums[i] !== i + 1) {
-      return i + 1
+      return i + 1;
     }
   }
 
-  return n + 1
+  return n + 1;
 };
 ```
 
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+_Template generated via [Leetmark](https://github.com/crimx/crx-leetmark)._
 
 ---
+
 Difficulty: Hard
 Related Topics:
-  "Array": https://leetcode.com/tag/array
-  "Two Pointers": https://leetcode.com/tag/two-pointers
-  "Stack": https://leetcode.com/tag/stack
+"Array": https://leetcode.com/tag/array
+"Two Pointers": https://leetcode.com/tag/two-pointers
+"Stack": https://leetcode.com/tag/stack
 Similar Questions:
-  "Container With Most Water": https://leetcode.com/problems/container-with-most-water
-  "Product of Array Except Self": https://leetcode.com/problems/product-of-array-except-self
-  "Trapping Rain Water II": https://leetcode.com/problems/trapping-rain-water-ii
-  "Pour Water": https://leetcode.com/problems/pour-water
+"Container With Most Water": https://leetcode.com/problems/container-with-most-water
+"Product of Array Except Self": https://leetcode.com/problems/product-of-array-except-self
+"Trapping Rain Water II": https://leetcode.com/problems/trapping-rain-water-ii
+"Pour Water": https://leetcode.com/problems/pour-water
+
 ---
 
 ## [42. Trapping Rain Water](https://leetcode.com/problems/trapping-rain-water/description/)
 
 ### Problem:
 
-Given *n* non-negative integers representing an elevation map where the width of each bar is 1, compute how much water it is able to trap after raining.
+Given _n_ non-negative integers representing an elevation map where the width of each bar is 1, compute how much water it is able to trap after raining.
 
 ![rainwatertrap.png](http://www.leetcode.com/static/images/problemset/rainwatertrap.png)
 The above elevation map is represented by array [0,1,0,2,1,0,1,3,2,1,2,1]. In this case, 6 units of rain water (blue section) are being trapped. **Thanks Marcos** for contributing this image!
@@ -3498,49 +3620,51 @@ Well explained by Leetcode official: <https://leetcode.com/articles/trapping-rai
  * @param {number[]} height
  * @return {number}
  */
-let trap = function(height) {
-  let i = 0
-  let j = height.length - 1
-  let lMax = 0
-  let rMax = 0
-  let result = 0
+let trap = function (height) {
+  let i = 0;
+  let j = height.length - 1;
+  let lMax = 0;
+  let rMax = 0;
+  let result = 0;
 
   while (i < j) {
-    const left = height[i]
-    const right = height[j]
+    const left = height[i];
+    const right = height[j];
     if (left < right) {
       if (left < lMax) {
-        result += lMax - left
+        result += lMax - left;
       } else {
-        lMax = left
+        lMax = left;
       }
-      i++
+      i++;
     } else {
       if (right < rMax) {
-        result += rMax - right
+        result += rMax - right;
       } else {
-        rMax = right
+        rMax = right;
       }
-      j--
+      j--;
     }
   }
 
-  return result
+  return result;
 };
 ```
 
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+_Template generated via [Leetmark](https://github.com/crimx/crx-leetmark)._
 
 ---
+
 Difficulty: Medium
 Related Topics:
-  "Math": https://leetcode.com/tag/math
-  "String": https://leetcode.com/tag/string
+"Math": https://leetcode.com/tag/math
+"String": https://leetcode.com/tag/string
 Similar Questions:
-  "Add Two Numbers": https://leetcode.com/problems/add-two-numbers
-  "Plus One": https://leetcode.com/problems/plus-one
-  "Add Binary": https://leetcode.com/problems/add-binary
-  "Add Strings": https://leetcode.com/problems/add-strings
+"Add Two Numbers": https://leetcode.com/problems/add-two-numbers
+"Plus One": https://leetcode.com/problems/plus-one
+"Add Binary": https://leetcode.com/problems/add-binary
+"Add Strings": https://leetcode.com/problems/add-strings
+
 ---
 
 ## [43. Multiply Strings](https://leetcode.com/problems/multiply-strings/description/)
@@ -3580,31 +3704,32 @@ Same as we do multiplication on a paper.
  * @param {string} num2
  * @return {string}
  */
-let multiply = function(num1, num2) {
-  const result = []
+let multiply = function (num1, num2) {
+  const result = [];
 
   for (i = num1.length - 1; i >= 0; i--) {
     for (j = num2.length - 1; j >= 0; j--) {
-      const sum = num1[i] * num2[j] + (result[i+j+1] || 0)
-      result[i+j] = (sum / 10 | 0) + (result[i+j] || 0)
-      result[i+j+1] = sum % 10
+      const sum = num1[i] * num2[j] + (result[i + j + 1] || 0);
+      result[i + j] = ((sum / 10) | 0) + (result[i + j] || 0);
+      result[i + j + 1] = sum % 10;
     }
   }
 
-  return result.join('').replace(/^0+(?=[0-9])/, '')
+  return result.join("").replace(/^0+(?=[0-9])/, "");
 };
 ```
 
-
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+_Template generated via [Leetmark](https://github.com/crimx/crx-leetmark)._
 
 ---
+
 Difficulty: Hard
 Related Topics:
-  "Array": https://leetcode.com/tag/array
-  "Greedy": https://leetcode.com/tag/greedy
+"Array": https://leetcode.com/tag/array
+"Greedy": https://leetcode.com/tag/greedy
 Similar Questions:
-  "Jump Game": https://leetcode.com/problems/jump-game
+"Jump Game": https://leetcode.com/problems/jump-game
+
 ---
 
 ## [45. Jump Game II](https://leetcode.com/problems/jump-game-ii/description/)
@@ -3639,36 +3764,37 @@ Greedy. Always pick the one that would allow to jump to the rightest.
  * @param {number[]} nums
  * @return {number}
  */
-let jump = function(nums) {
-  const len = nums.length
-  let jump = 0
+let jump = function (nums) {
+  const len = nums.length;
+  let jump = 0;
   for (let l = 0, r = 1; r < len; jump++) {
-    let rNext = r
+    let rNext = r;
     for (let i = l; i < r; i++) {
-      const rNextAtmp = i + nums[i] + 1
+      const rNextAtmp = i + nums[i] + 1;
       if (rNextAtmp > rNext) {
-        rNext = rNextAtmp
+        rNext = rNextAtmp;
       }
     }
-    l = r
-    r = rNext
+    l = r;
+    r = rNext;
   }
-  return jump
+  return jump;
 };
 ```
 
-
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+_Template generated via [Leetmark](https://github.com/crimx/crx-leetmark)._
 
 ---
+
 Difficulty: Medium
 Related Topics:
-  "Backtracking": https://leetcode.com/tag/backtracking
+"Backtracking": https://leetcode.com/tag/backtracking
 Similar Questions:
-  "Next Permutation": https://leetcode.com/problems/next-permutation
-  "Permutations II": https://leetcode.com/problems/permutations-ii
-  "Permutation Sequence": https://leetcode.com/problems/permutation-sequence
-  "Combinations": https://leetcode.com/problems/combinations
+"Next Permutation": https://leetcode.com/problems/next-permutation
+"Permutations II": https://leetcode.com/problems/permutations-ii
+"Permutation Sequence": https://leetcode.com/problems/permutation-sequence
+"Combinations": https://leetcode.com/problems/combinations
+
 ---
 
 ## [46. Permutations](https://leetcode.com/problems/permutations/description/)
@@ -3701,43 +3827,44 @@ One position at a time, pick a number from the unused set and put it in that pos
  * @param {number[]} nums
  * @return {number[][]}
  */
-let permute = function(nums) {
-  const result = []
-  _permute(nums, 0, result)
-  return result
+let permute = function (nums) {
+  const result = [];
+  _permute(nums, 0, result);
+  return result;
 };
 
-function _permute (nums, start, result) {
+function _permute(nums, start, result) {
   if (start === nums.length) {
-    return result.push(nums.slice())
+    return result.push(nums.slice());
   }
 
-  const begin = nums[start]
+  const begin = nums[start];
   for (let i = start; i < nums.length; i++) {
-    const next = nums[i]
+    const next = nums[i];
 
-    nums[start] = next
-    nums[i] = begin
+    nums[start] = next;
+    nums[i] = begin;
 
-    _permute(nums, start + 1, result)
+    _permute(nums, start + 1, result);
 
-    nums[start] = begin
-    nums[i] = next
+    nums[start] = begin;
+    nums[i] = next;
   }
-};
+}
 ```
 
-
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+_Template generated via [Leetmark](https://github.com/crimx/crx-leetmark)._
 
 ---
+
 Difficulty: Medium
 Related Topics:
-  "Backtracking": https://leetcode.com/tag/backtracking
+"Backtracking": https://leetcode.com/tag/backtracking
 Similar Questions:
-  "Next Permutation": https://leetcode.com/problems/next-permutation
-  "Permutations": https://leetcode.com/problems/permutations
-  "Palindrome Permutation II": https://leetcode.com/problems/palindrome-permutation-ii
+"Next Permutation": https://leetcode.com/problems/next-permutation
+"Permutations": https://leetcode.com/problems/permutations
+"Palindrome Permutation II": https://leetcode.com/problems/palindrome-permutation-ii
+
 ---
 
 ## [47. Permutations II](https://leetcode.com/problems/permutations-ii/description/)
@@ -3767,53 +3894,54 @@ Same as [46. Permutations](./046.%20Permutations.md). To avoid duplication, when
  * @param {number[]} nums
  * @return {number[][]}
  */
-let permuteUnique = function(nums) {
-  const result = []
-  _permuteUnique(nums, 0, result)
-  return result
+let permuteUnique = function (nums) {
+  const result = [];
+  _permuteUnique(nums, 0, result);
+  return result;
 };
 
-function _permuteUnique (nums, start, result) {
+function _permuteUnique(nums, start, result) {
   if (start === nums.length) {
-    result.push(nums.slice())
+    result.push(nums.slice());
   }
 
-  const used = new Set()
-  const begin = nums[start]
+  const used = new Set();
+  const begin = nums[start];
   for (let i = start; i < nums.length; i++) {
-    const next = nums[i]
+    const next = nums[i];
 
     if (used.has(next)) {
-      continue
+      continue;
     }
 
-    used.add(next)
+    used.add(next);
 
-    nums[start] = next
-    nums[i] = begin
+    nums[start] = next;
+    nums[i] = begin;
 
-    _permuteUnique(nums, start + 1, result)
+    _permuteUnique(nums, start + 1, result);
 
-    nums[start] = begin
-    nums[i] = next
+    nums[start] = begin;
+    nums[i] = next;
   }
-};
+}
 ```
 
-
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+_Template generated via [Leetmark](https://github.com/crimx/crx-leetmark)._
 
 ---
+
 Difficulty: Medium
 Related Topics:
-  "Array": https://leetcode.com/tag/array
+"Array": https://leetcode.com/tag/array
+
 ---
 
 ## [48. Rotate Image](https://leetcode.com/problems/rotate-image/description/)
 
 ### Problem:
 
-You are given an *n* x *n* 2D matrix representing an image.
+You are given an _n_ x _n_ 2D matrix representing an image.
 
 Rotate the image by 90 degrees (clockwise).
 
@@ -3824,7 +3952,7 @@ You have to rotate the image [**in-place**](https://en.wikipedia.org/wiki/In-pla
 **Example 1:**
 
 ```
-Given input matrix = 
+Given input matrix =
 [
   [1,2,3],
   [4,5,6],
@@ -3848,7 +3976,7 @@ Given input matrix =
   [ 2, 4, 8,10],
   [13, 3, 6, 7],
   [15,14,12,16]
-], 
+],
 
 rotate the input matrix in-place such that it becomes:
 [
@@ -3868,38 +3996,39 @@ Outside-in. Rotate one square at a time.
  * @param {number[][]} matrix
  * @return {void} Do not return anything, modify matrix in-place instead.
  */
-let rotate = function(matrix) {
+let rotate = function (matrix) {
   if (!matrix || matrix.length <= 0) {
-    return
+    return;
   }
-  const width = matrix.length
-  const halfWidthFloor = Math.floor(width / 2)
-  const halfWidthCeil = Math.ceil(width / 2)
+  const width = matrix.length;
+  const halfWidthFloor = Math.floor(width / 2);
+  const halfWidthCeil = Math.ceil(width / 2);
   for (let i = 0; i < halfWidthFloor; i++) {
-    const iend = width - 1 - i
+    const iend = width - 1 - i;
     for (let j = 0; j < halfWidthCeil; j++) {
-      const jend = width - 1 - j
-      const tmp = matrix[i][j]
+      const jend = width - 1 - j;
+      const tmp = matrix[i][j];
       matrix[i][j] = matrix[jend][i];
-      matrix[jend][i] = matrix[iend][jend]
-      matrix[iend][jend] = matrix[j][iend]
-      matrix[j][iend] = tmp
+      matrix[jend][i] = matrix[iend][jend];
+      matrix[iend][jend] = matrix[j][iend];
+      matrix[j][iend] = tmp;
     }
   }
 };
 ```
 
-
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+_Template generated via [Leetmark](https://github.com/crimx/crx-leetmark)._
 
 ---
+
 Difficulty: Medium
 Related Topics:
-  "Hash Table": https://leetcode.com/tag/hash-table
-  "String": https://leetcode.com/tag/string
+"Hash Table": https://leetcode.com/tag/hash-table
+"String": https://leetcode.com/tag/string
 Similar Questions:
-  "Valid Anagram": https://leetcode.com/problems/valid-anagram
-  "Group Shifted Strings": https://leetcode.com/problems/group-shifted-strings
+"Valid Anagram": https://leetcode.com/problems/valid-anagram
+"Group Shifted Strings": https://leetcode.com/problems/group-shifted-strings
+
 ---
 
 ## [49. Group Anagrams](https://leetcode.com/problems/group-anagrams/description/)
@@ -3938,14 +4067,14 @@ Sort each word to get the key.
  * @param {string[]} strs
  * @return {string[][]}
  */
-let groupAnagrams = function(strs) {
+let groupAnagrams = function (strs) {
   let result = {};
   for (let i = 0; i < strs.length; i++) {
-    const hash = strs[i].split('').sort().join('');
-    result[hash] = result[hash] || []
-    result[hash].push(strs[i])
+    const hash = strs[i].split("").sort().join("");
+    result[hash] = result[hash] || [];
+    result[hash].push(strs[i]);
   }
-  return Object.values(result)
+  return Object.values(result);
 };
 ```
 
@@ -3954,45 +4083,49 @@ let groupAnagrams = function(strs) {
 Use the product of prime numbers to generate unique keys.
 
 ```javascript
-const prime = [2,3,5,7,11,13,17,19,23,29,31,37,41,43,47,53,59,61,67,71,73,79,83,89,97,101]
+const prime = [
+  2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71,
+  73, 79, 83, 89, 97, 101,
+];
 
 /**
  * @param {string[]} strs
  * @return {string[][]}
  */
-let groupAnagrams = function(strs) {
+let groupAnagrams = function (strs) {
   const result = {};
   for (let i = 0; i < strs.length; i++) {
-    const word = strs[i]
-    let hash = 1
+    const word = strs[i];
+    let hash = 1;
     for (let k = 0; k < word.length; k++) {
-      hash *= prime[word.charCodeAt(k) - 97]
+      hash *= prime[word.charCodeAt(k) - 97];
     }
-    result[hash] = result[hash] || []
-    result[hash].push(word)
+    result[hash] = result[hash] || [];
+    result[hash].push(word);
   }
-  return Object.values(result)
+  return Object.values(result);
 };
 ```
 
-
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+_Template generated via [Leetmark](https://github.com/crimx/crx-leetmark)._
 
 ---
+
 Difficulty: Medium
 Related Topics:
-  "Math": https://leetcode.com/tag/math
-  "Binary Search": https://leetcode.com/tag/binary-search
+"Math": https://leetcode.com/tag/math
+"Binary Search": https://leetcode.com/tag/binary-search
 Similar Questions:
-  "Sqrt(x)": https://leetcode.com/problems/sqrtx
-  "Super Pow": https://leetcode.com/problems/super-pow
+"Sqrt(x)": https://leetcode.com/problems/sqrtx
+"Super Pow": https://leetcode.com/problems/super-pow
+
 ---
 
 ## [50. Pow(x, n)](https://leetcode.com/problems/powx-n/description/)
 
 ### Problem:
 
-Implement [pow(*x*, *n*)](http://www.cplusplus.com/reference/valarray/pow/), which calculates *x* raised to the power *n* (xn).
+Implement [pow(_x_, _n_)](http://www.cplusplus.com/reference/valarray/pow/), which calculates *x* raised to the power _n_ (xn).
 
 **Example 1:**
 
@@ -4018,8 +4151,8 @@ Explanation: 2-2 = 1/22 = 1/4 = 0.25
 
 **Note:**
 
-- -100.0 < *x* < 100.0
-- *n* is a 32-bit signed integer, within the range [−231, 231 − 1]
+- -100.0 < _x_ < 100.0
+- _n_ is a 32-bit signed integer, within the range [−231, 231 − 1]
 
 ### Solution:
 
@@ -4041,41 +4174,48 @@ Note here we can not use any bitwise operator, `n = -2^31` might overflow.
  * @param {number} n
  * @return {number}
  */
-let myPow = function(x, n) {
-  if (n === 0) { return 1 }
-  if (n === 1) { return x }
-  if (n === -1) { return 1 / x }
-  if (n % 2 === 0) {
-    const res = myPow(x, n / 2)
-    return res * res
+let myPow = function (x, n) {
+  if (n === 0) {
+    return 1;
   }
-  const res = myPow(x, (n - 1) / 2)
-  return x * res * res
+  if (n === 1) {
+    return x;
+  }
+  if (n === -1) {
+    return 1 / x;
+  }
+  if (n % 2 === 0) {
+    const res = myPow(x, n / 2);
+    return res * res;
+  }
+  const res = myPow(x, (n - 1) / 2);
+  return x * res * res;
 };
 ```
 
-
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+_Template generated via [Leetmark](https://github.com/crimx/crx-leetmark)._
 
 ---
+
 Difficulty: Hard
 Related Topics:
-  "Backtracking": https://leetcode.com/tag/backtracking
+"Backtracking": https://leetcode.com/tag/backtracking
 Similar Questions:
-  "N-Queens II": https://leetcode.com/problems/n-queens-ii
+"N-Queens II": https://leetcode.com/problems/n-queens-ii
+
 ---
 
 ## [51. N-Queens](https://leetcode.com/problems/n-queens/description/)
 
 ### Problem:
 
-The *n*-queens puzzle is the problem of placing *n* queens on an *n*×*n* chessboard such that no two queens attack each other.
+The _n_-queens puzzle is the problem of placing _n_ queens on an *n*×*n* chessboard such that no two queens attack each other.
 
 ![8-queens.png](https://leetcode.com/static/images/problemset/8-queens.png)
 
-Given an integer *n*, return all distinct solutions to the *n*-queens puzzle.
+Given an integer _n_, return all distinct solutions to the _n_-queens puzzle.
 
-Each solution contains a distinct board configuration of the *n*-queens' placement, where `'Q'` and `'.'` both indicate a queen and an empty space respectively.
+Each solution contains a distinct board configuration of the _n_-queens' placement, where `'Q'` and `'.'` both indicate a queen and an empty space respectively.
 
 **Example:**
 
@@ -4108,50 +4248,50 @@ Now use the permutation algorithm from [46. Permutations](./046.%20Permutations.
  * @param {number} n
  * @return {string[][]}
  */
-let solveNQueens = function(n) {
-  const result = []
-  const queens = [...new Array(n)].map((_, i) => i)
-  _solveNQueens(queens, 0, result)
-  return result
+let solveNQueens = function (n) {
+  const result = [];
+  const queens = [...new Array(n)].map((_, i) => i);
+  _solveNQueens(queens, 0, result);
+  return result;
 };
 
-function _solveNQueens (queens, iStart, result) {
+function _solveNQueens(queens, iStart, result) {
   if (iStart === queens.length) {
     for (let i = 0; i < queens.length; i += 1) {
       for (let j = i + 1; j < queens.length; j += 1) {
         if (Math.abs(i - j) === Math.abs(queens[i] - queens[j])) {
-          return
+          return;
         }
       }
     }
-    return result.push(_genBoard(queens))
+    return result.push(_genBoard(queens));
   }
 
-  const start = queens[iStart]
+  const start = queens[iStart];
   for (let i = iStart; i < queens.length; i++) {
-    const next = queens[i]
+    const next = queens[i];
 
-    queens[iStart] = next
-    queens[i] = start
+    queens[iStart] = next;
+    queens[i] = start;
 
-    _solveNQueens(queens, iStart + 1, result)
+    _solveNQueens(queens, iStart + 1, result);
 
-    queens[iStart] = start
-    queens[i] = next
+    queens[iStart] = start;
+    queens[i] = next;
   }
-};
+}
 
-function _genBoard (queens) {
-  const board = []
+function _genBoard(queens) {
+  const board = [];
   for (let i = 0; i < queens.length; i++) {
-    let row = ''
+    let row = "";
     for (let j = 0; j < queens.length; j++) {
-      row += queens[i] === j ? 'Q' : '.'
+      row += queens[i] === j ? "Q" : ".";
     }
-    board.push(row)
+    board.push(row);
   }
-  return board
-};
+  return board;
+}
 ```
 
 This is slow because we test diagonal in the end. We can do a tree pruning by moving it right before diving into the next recursion.
@@ -4163,71 +4303,73 @@ This is slow because we test diagonal in the end. We can do a tree pruning by mo
  * @param {number} n
  * @return {string[][]}
  */
-let solveNQueens = function(n) {
-  const result = []
-  const queens = [...new Array(n)].map((_, i) => i)
-  _solveNQueens(queens, 0, result)
-  return result
+let solveNQueens = function (n) {
+  const result = [];
+  const queens = [...new Array(n)].map((_, i) => i);
+  _solveNQueens(queens, 0, result);
+  return result;
 };
 
-function _solveNQueens (queens, iStart, result) {
+function _solveNQueens(queens, iStart, result) {
   if (iStart === queens.length) {
-    return result.push(_genBoard(queens))
+    return result.push(_genBoard(queens));
   }
 
-  const start = queens[iStart]
+  const start = queens[iStart];
   for (let i = iStart; i < queens.length; i++) {
-    const next = queens[i]
+    const next = queens[i];
 
-    queens[iStart] = next
-    queens[i] = start
+    queens[iStart] = next;
+    queens[i] = start;
 
     if (_testDiagonal(queens, iStart)) {
-      _solveNQueens(queens, iStart + 1, result)
+      _solveNQueens(queens, iStart + 1, result);
     }
 
-    queens[iStart] = start
-    queens[i] = next
+    queens[iStart] = start;
+    queens[i] = next;
   }
-};
+}
 
 function _testDiagonal(queens, iStart) {
   for (let i = 0; i < iStart; i++) {
     if (Math.abs(queens[iStart] - queens[i]) === iStart - i) {
-      return false
+      return false;
     }
   }
-  return true
-};
+  return true;
+}
 
-function _genBoard (queens) {
-  const board = []
+function _genBoard(queens) {
+  const board = [];
   for (let i = 0; i < queens.length; i++) {
-    let row = ''
+    let row = "";
     for (let j = 0; j < queens.length; j++) {
-      row += queens[i] === j ? 'Q' : '.'
+      row += queens[i] === j ? "Q" : ".";
     }
-    board.push(row)
+    board.push(row);
   }
-  return board
-};
+  return board;
+}
 ```
 
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+_Template generated via [Leetmark](https://github.com/crimx/crx-leetmark)._
 
 ---
+
 Difficulty: Hard
 Related Topics:
-  "Backtracking": https://leetcode.com/tag/backtracking
+"Backtracking": https://leetcode.com/tag/backtracking
 Similar Questions:
-  "N-Queens": https://leetcode.com/problems/n-queens
+"N-Queens": https://leetcode.com/problems/n-queens
+
 ---
 
 ## [52. N-Queens II](https://leetcode.com/problems/n-queens-ii/description/)
 
 ### Problem:
 
-The *n*-queens puzzle is the problem of placing *n* queens on an *n*×*n* chessboard such that no two queens attack each other.
+The _n_-queens puzzle is the problem of placing _n_ queens on an *n*×*n* chessboard such that no two queens attack each other.
 
 ![8-queens.png](https://leetcode.com/static/images/problemset/8-queens.png)
 
@@ -4261,58 +4403,62 @@ Just modify [51. N-Queens](051.%20N-Queens.md).
  * @param {number} n
  * @return {string[][]}
  */
-let totalNQueens = function(n) {
-  return _totalNQueens([...new Array(n)].map((_, i) => i), 0)
+let totalNQueens = function (n) {
+  return _totalNQueens(
+    [...new Array(n)].map((_, i) => i),
+    0
+  );
 };
 
-function _totalNQueens (queens, iStart, result) {
+function _totalNQueens(queens, iStart, result) {
   if (iStart === queens.length) {
-    return 1
+    return 1;
   }
 
-  let count = 0
+  let count = 0;
 
-  const start = queens[iStart]
+  const start = queens[iStart];
   for (let i = iStart; i < queens.length; i++) {
-    const next = queens[i]
+    const next = queens[i];
 
-    queens[iStart] = next
-    queens[i] = start
+    queens[iStart] = next;
+    queens[i] = start;
 
     if (_testDiagonal(queens, iStart)) {
-      count += _totalNQueens(queens, iStart + 1, result)
+      count += _totalNQueens(queens, iStart + 1, result);
     }
 
-    queens[iStart] = start
-    queens[i] = next
+    queens[iStart] = start;
+    queens[i] = next;
   }
 
-  return count
-};
+  return count;
+}
 
 function _testDiagonal(queens, iStart) {
   for (let i = 0; i < iStart; i++) {
     if (Math.abs(queens[iStart] - queens[i]) === iStart - i) {
-      return false
+      return false;
     }
   }
-  return true
-};
+  return true;
+}
 ```
 
-
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+_Template generated via [Leetmark](https://github.com/crimx/crx-leetmark)._
 
 ---
+
 Difficulty: Easy
 Related Topics:
-  "Array": https://leetcode.com/tag/array
-  "Divide and Conquer": https://leetcode.com/tag/divide-and-conquer
-  "Dynamic Programming": https://leetcode.com/tag/dynamic-programming
+"Array": https://leetcode.com/tag/array
+"Divide and Conquer": https://leetcode.com/tag/divide-and-conquer
+"Dynamic Programming": https://leetcode.com/tag/dynamic-programming
 Similar Questions:
-  "Best Time to Buy and Sell Stock": https://leetcode.com/problems/best-time-to-buy-and-sell-stock
-  "Maximum Product Subarray": https://leetcode.com/problems/maximum-product-subarray
-  "Degree of an Array": https://leetcode.com/problems/degree-of-an-array
+"Best Time to Buy and Sell Stock": https://leetcode.com/problems/best-time-to-buy-and-sell-stock
+"Maximum Product Subarray": https://leetcode.com/problems/maximum-product-subarray
+"Degree of an Array": https://leetcode.com/problems/degree-of-an-array
+
 ---
 
 ## [53. Maximum Subarray](https://leetcode.com/problems/maximum-subarray/description/)
@@ -4331,7 +4477,7 @@ Explanation: [4,-1,2,1] has the largest sum = 6.
 
 **Follow up:**
 
-If you have figured out the O(*n*) solution, try coding another solution using the divide and conquer approach, which is more subtle.
+If you have figured out the O(_n_) solution, try coding another solution using the divide and conquer approach, which is more subtle.
 
 ### Solution:
 
@@ -4353,14 +4499,16 @@ Then return the largest one.
  * @param {number[]} nums
  * @return {number}
  */
-let maxSubArray = function(nums) {
-  const len = nums.length
-  if (len <= 0) { return 0 }
-  const dp = [nums[0]]
-  for (let i = 1; i < len; i++) {
-    dp[i] = Math.max(dp[i-1], 0) + nums[i]
+let maxSubArray = function (nums) {
+  const len = nums.length;
+  if (len <= 0) {
+    return 0;
   }
-  return Math.max(...dp)
+  const dp = [nums[0]];
+  for (let i = 1; i < len; i++) {
+    dp[i] = Math.max(dp[i - 1], 0) + nums[i];
+  }
+  return Math.max(...dp);
 };
 ```
 
@@ -4371,32 +4519,33 @@ We can also compress the dp array:
  * @param {number[]} nums
  * @return {number}
  */
-let maxSubArray = function(nums) {
-  let dp = nums[0]
-  let max = dp || 0
+let maxSubArray = function (nums) {
+  let dp = nums[0];
+  let max = dp || 0;
   for (let i = 1; i < nums.length; i++) {
-    max = Math.max(max, dp = Math.max(dp, 0) + nums[i])
+    max = Math.max(max, (dp = Math.max(dp, 0) + nums[i]));
   }
-  return max
+  return max;
 };
 ```
 
-
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+_Template generated via [Leetmark](https://github.com/crimx/crx-leetmark)._
 
 ---
+
 Difficulty: Medium
 Related Topics:
-  "Array": https://leetcode.com/tag/array
+"Array": https://leetcode.com/tag/array
 Similar Questions:
-  "Spiral Matrix II": https://leetcode.com/problems/spiral-matrix-ii
+"Spiral Matrix II": https://leetcode.com/problems/spiral-matrix-ii
+
 ---
 
 ## [54. Spiral Matrix](https://leetcode.com/problems/spiral-matrix/description/)
 
 ### Problem:
 
-Given a matrix of *m* x *n* elements (*m* rows, *n* columns), return all elements of the matrix in spiral order.
+Given a matrix of _m_ x _n_ elements (_m_ rows, _n_ columns), return all elements of the matrix in spiral order.
 
 **Example 1:**
 
@@ -4431,48 +4580,53 @@ Loop outside-in. Break each cycle into four stages. Note that the last two stage
  * @param {number[][]} matrix
  * @return {number[]}
  */
-let spiralOrder = function(matrix) {
-  const result = []
-  const height = matrix.length
-  if (height <= 1) { return matrix[0] || result }
-  const width = matrix[0].length
-  if (width <= 0) { return result }
+let spiralOrder = function (matrix) {
+  const result = [];
+  const height = matrix.length;
+  if (height <= 1) {
+    return matrix[0] || result;
+  }
+  const width = matrix[0].length;
+  if (width <= 0) {
+    return result;
+  }
 
-  const end = (Math.min(width, height) + 1) / 2 | 0
+  const end = ((Math.min(width, height) + 1) / 2) | 0;
   for (let start = 0; start < end; start++) {
-    const rowEnd = height - start - 1
-    const colEnd = width - start - 1
+    const rowEnd = height - start - 1;
+    const colEnd = width - start - 1;
     for (let col = start; col <= colEnd; col++) {
-      result.push(matrix[start][col])
+      result.push(matrix[start][col]);
     }
     for (let row = start + 1; row <= rowEnd; row++) {
-      result.push(matrix[row][colEnd])
+      result.push(matrix[row][colEnd]);
     }
     if (rowEnd > start) {
-      for (let col = colEnd - 1; col >= start ; col--) {
-        result.push(matrix[rowEnd][col])
+      for (let col = colEnd - 1; col >= start; col--) {
+        result.push(matrix[rowEnd][col]);
       }
     }
     if (colEnd > start) {
-      for (let row = rowEnd - 1; row > start ; row--) {
-        result.push(matrix[row][start])
+      for (let row = rowEnd - 1; row > start; row--) {
+        result.push(matrix[row][start]);
       }
     }
   }
-  return result
+  return result;
 };
 ```
 
-
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+_Template generated via [Leetmark](https://github.com/crimx/crx-leetmark)._
 
 ---
+
 Difficulty: Medium
 Related Topics:
-  "Array": https://leetcode.com/tag/array
-  "Greedy": https://leetcode.com/tag/greedy
+"Array": https://leetcode.com/tag/array
+"Greedy": https://leetcode.com/tag/greedy
 Similar Questions:
-  "Jump Game II": https://leetcode.com/problems/jump-game-ii
+"Jump Game II": https://leetcode.com/problems/jump-game-ii
+
 ---
 
 ## [55. Jump Game](https://leetcode.com/problems/jump-game/description/)
@@ -4513,20 +4667,22 @@ See [45. Jump Game II](./045.%20Jump%20Game%20II.md). If the range does not expa
  * @param {number[]} nums
  * @return {boolean}
  */
-let canJump = function(nums) {
-  for (let l = 0, r = 1; r < nums.length;) {
-    let rNext = r
+let canJump = function (nums) {
+  for (let l = 0, r = 1; r < nums.length; ) {
+    let rNext = r;
     for (let i = l; i < r; i++) {
-      const rNextAtmp = i + nums[i] + 1
+      const rNextAtmp = i + nums[i] + 1;
       if (rNextAtmp > rNext) {
-        rNext = rNextAtmp
+        rNext = rNextAtmp;
       }
     }
-    if (rNext <= r) { return false }
-    l = r
-    r = rNext
+    if (rNext <= r) {
+      return false;
+    }
+    l = r;
+    r = rNext;
   }
-  return true
+  return true;
 };
 ```
 
@@ -4541,33 +4697,35 @@ If `nums[0]` can cover the last destination point, it is good.
  * @param {number[]} nums
  * @return {boolean}
  */
-let canJump = function(nums) {
-  let des = nums.length - 1
+let canJump = function (nums) {
+  let des = nums.length - 1;
   for (let i = des - 1; i > 0; i--) {
     if (nums[i] + i >= des) {
-      des = i
+      des = i;
     }
   }
-  return nums[0] >= des
+  return nums[0] >= des;
 };
 ```
 
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+_Template generated via [Leetmark](https://github.com/crimx/crx-leetmark)._
 
 ---
+
 Difficulty: Medium
 Related Topics:
-  "Array": https://leetcode.com/tag/array
-  "Sort": https://leetcode.com/tag/sort
+"Array": https://leetcode.com/tag/array
+"Sort": https://leetcode.com/tag/sort
 Similar Questions:
-  "Insert Interval": https://leetcode.com/problems/insert-interval
-  "Meeting Rooms": https://leetcode.com/problems/meeting-rooms
-  "Meeting Rooms II": https://leetcode.com/problems/meeting-rooms-ii
-  "Teemo Attacking": https://leetcode.com/problems/teemo-attacking
-  "Add Bold Tag in String": https://leetcode.com/problems/add-bold-tag-in-string
-  "Range Module": https://leetcode.com/problems/range-module
-  "Employee Free Time": https://leetcode.com/problems/employee-free-time
-  "Partition Labels": https://leetcode.com/problems/partition-labels
+"Insert Interval": https://leetcode.com/problems/insert-interval
+"Meeting Rooms": https://leetcode.com/problems/meeting-rooms
+"Meeting Rooms II": https://leetcode.com/problems/meeting-rooms-ii
+"Teemo Attacking": https://leetcode.com/problems/teemo-attacking
+"Add Bold Tag in String": https://leetcode.com/problems/add-bold-tag-in-string
+"Range Module": https://leetcode.com/problems/range-module
+"Employee Free Time": https://leetcode.com/problems/employee-free-time
+"Partition Labels": https://leetcode.com/problems/partition-labels
+
 ---
 
 ## [56. Merge Intervals](https://leetcode.com/problems/merge-intervals/description/)
@@ -4608,42 +4766,45 @@ Sort then merge.
  * @param {Interval[]} intervals
  * @return {Interval[]}
  */
-let merge = function(intervals) {
-  if (intervals.length <= 1) { return intervals }
-  intervals.sort((a, b) => (a.start - b.start) || (a.end - b.end))
-  let last = new Interval(intervals[0].start, intervals[0].end)
-  const result = [last]
+let merge = function (intervals) {
+  if (intervals.length <= 1) {
+    return intervals;
+  }
+  intervals.sort((a, b) => a.start - b.start || a.end - b.end);
+  let last = new Interval(intervals[0].start, intervals[0].end);
+  const result = [last];
   for (let i = 1; i < intervals.length; i++) {
-    const { start, end } = intervals[i]
+    const { start, end } = intervals[i];
     if (start > last.end) {
-      last = new Interval(start, end)
-      result.push(last)
+      last = new Interval(start, end);
+      result.push(last);
     } else if (end > last.end) {
-      last.end = end
+      last.end = end;
     }
   }
-  return result
+  return result;
 };
 ```
 
-
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+_Template generated via [Leetmark](https://github.com/crimx/crx-leetmark)._
 
 ---
+
 Difficulty: Hard
 Related Topics:
-  "Array": https://leetcode.com/tag/array
-  "Sort": https://leetcode.com/tag/sort
+"Array": https://leetcode.com/tag/array
+"Sort": https://leetcode.com/tag/sort
 Similar Questions:
-  "Merge Intervals": https://leetcode.com/problems/merge-intervals
-  "Range Module": https://leetcode.com/problems/range-module
+"Merge Intervals": https://leetcode.com/problems/merge-intervals
+"Range Module": https://leetcode.com/problems/range-module
+
 ---
 
 ## [57. Insert Interval](https://leetcode.com/problems/insert-interval/description/)
 
 ### Problem:
 
-Given a set of *non-overlapping* intervals, insert a new interval into the intervals (merge if necessary).
+Given a set of _non-overlapping_ intervals, insert a new interval into the intervals (merge if necessary).
 
 You may assume that the intervals were initially sorted according to their start times.
 
@@ -4679,39 +4840,40 @@ The logic of the solution is pretty straight forward. Just need to carefully thi
  * @param {Interval} newInterval
  * @return {Interval[]}
  */
-let insert = function(intervals, newInterval) {
-  const result = []
-  const p = new Interval(newInterval.start, newInterval.end)
+let insert = function (intervals, newInterval) {
+  const result = [];
+  const p = new Interval(newInterval.start, newInterval.end);
   for (let i = 0; i < intervals.length; i++) {
-    const { start, end } = intervals[i]
+    const { start, end } = intervals[i];
     if (start > p.end) {
-      break
+      break;
     }
 
     if (end < p.start) {
-      result.push(intervals[i])
-      continue
+      result.push(intervals[i]);
+      continue;
     }
 
     if (start < p.start) {
-      p.start = start
+      p.start = start;
     }
 
     if (end > p.end) {
-      p.end = end
+      p.end = end;
     }
   }
-  return [...result, p, ...intervals.slice(i)]
+  return [...result, p, ...intervals.slice(i)];
 };
 ```
 
-
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+_Template generated via [Leetmark](https://github.com/crimx/crx-leetmark)._
 
 ---
+
 Difficulty: Easy
 Related Topics:
-  "String": https://leetcode.com/tag/string
+"String": https://leetcode.com/tag/string
+
 ---
 
 ## [58. Length of Last Word](https://leetcode.com/problems/length-of-last-word/description/)
@@ -4742,8 +4904,8 @@ JavaScript specific solutions:
  * @param {string} s
  * @return {number}
  */
-let lengthOfLastWord = function(s) {
-  return (/\w+$/.exec(s) || [''])[0].length
+let lengthOfLastWord = function (s) {
+  return (/\w+$/.exec(s) || [""])[0].length;
 };
 ```
 
@@ -4756,8 +4918,8 @@ Super fast. `split` will guarantee that there is at least one item in the result
  * @param {string} s
  * @return {number}
  */
-let lengthOfLastWord = function(s) {
-  return s.trim().split(' ').pop().length
+let lengthOfLastWord = function (s) {
+  return s.trim().split(" ").pop().length;
 };
 ```
 
@@ -4770,36 +4932,38 @@ General solution.
  * @param {string} s
  * @return {number}
  */
-let lengthOfLastWord = function(s) {
-  let end = s.length - 1
-  while (end >= 0 && s[end] === ' ') {
-    end--
+let lengthOfLastWord = function (s) {
+  let end = s.length - 1;
+  while (end >= 0 && s[end] === " ") {
+    end--;
   }
 
-  let start = end
-  while (start >= 0 && s[start] !== ' ') {
-    start--
+  let start = end;
+  while (start >= 0 && s[start] !== " ") {
+    start--;
   }
 
-  return end - start
+  return end - start;
 };
 ```
 
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+_Template generated via [Leetmark](https://github.com/crimx/crx-leetmark)._
 
 ---
+
 Difficulty: Medium
 Related Topics:
-  "Array": https://leetcode.com/tag/array
+"Array": https://leetcode.com/tag/array
 Similar Questions:
-  "Spiral Matrix": https://leetcode.com/problems/spiral-matrix
+"Spiral Matrix": https://leetcode.com/problems/spiral-matrix
+
 ---
 
 ## [59. Spiral Matrix II](https://leetcode.com/problems/spiral-matrix-ii/description/)
 
 ### Problem:
 
-Given a positive integer *n*, generate a square matrix filled with elements from 1 to *n*2 in spiral order.
+Given a positive integer _n_, generate a square matrix filled with elements from 1 to *n*2 in spiral order.
 
 **Example:**
 
@@ -4822,49 +4986,50 @@ Straight-forward.
  * @param {number} n
  * @return {number[][]}
  */
-let generateMatrix = function(n) {
-  const matrix = [...new Array(n)].map(() => [])
-  const halfN = (n + 1) / 2 | 0
-  let count = 1
+let generateMatrix = function (n) {
+  const matrix = [...new Array(n)].map(() => []);
+  const halfN = ((n + 1) / 2) | 0;
+  let count = 1;
   for (let start = 0; start < halfN; start++) {
-    const end = n - start - 1
+    const end = n - start - 1;
     for (let col = start; col <= end; col++) {
-      matrix[start][col] = count++
+      matrix[start][col] = count++;
     }
     for (let row = start + 1; row <= end; row++) {
-      matrix[row][end] = count++
+      matrix[row][end] = count++;
     }
     for (let col = end - 1; col >= start; col--) {
-      matrix[end][col] = count++
+      matrix[end][col] = count++;
     }
     for (let row = end - 1; row > start; row--) {
-      matrix[row][start] = count++
+      matrix[row][start] = count++;
     }
   }
-  return matrix
+  return matrix;
 };
 ```
 
-
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+_Template generated via [Leetmark](https://github.com/crimx/crx-leetmark)._
 
 ---
+
 Difficulty: Medium
 Related Topics:
-  "Math": https://leetcode.com/tag/math
-  "Backtracking": https://leetcode.com/tag/backtracking
+"Math": https://leetcode.com/tag/math
+"Backtracking": https://leetcode.com/tag/backtracking
 Similar Questions:
-  "Next Permutation": https://leetcode.com/problems/next-permutation
-  "Permutations": https://leetcode.com/problems/permutations
+"Next Permutation": https://leetcode.com/problems/next-permutation
+"Permutations": https://leetcode.com/problems/permutations
+
 ---
 
 ## [60. Permutation Sequence](https://leetcode.com/problems/permutation-sequence/description/)
 
 ### Problem:
 
-The set `[1,2,3,...,*n*]` contains a total of *n*! unique permutations.
+The set `[1,2,3,...,*n*]` contains a total of _n_! unique permutations.
 
-By listing and labeling all of the permutations in order, we get the following sequence for *n* = 3:
+By listing and labeling all of the permutations in order, we get the following sequence for _n_ = 3:
 
 1. `"123"`
 2. `"132"`
@@ -4873,12 +5038,12 @@ By listing and labeling all of the permutations in order, we get the following s
 5. `"312"`
 6. `"321"`
 
-Given *n* and *k*, return the *k*th permutation sequence.
+Given _n_ and _k_, return the *k*th permutation sequence.
 
 **Note:**
 
-- Given *n* will be between 1 and 9 inclusive.
-- Given *k* will be between 1 and *n*! inclusive.
+- Given _n_ will be between 1 and 9 inclusive.
+- Given *k* will be between 1 and _n_! inclusive.
 
 **Example 1:**
 
@@ -4908,45 +5073,47 @@ We also need `k--` to convert `k` into index so that `k <= (n-1)!` maps `0` (and
  * @param {number} k
  * @return {string}
  */
-let getPermutation = function(n, k) {
-  const digits = []
-  let factorial = 1
+let getPermutation = function (n, k) {
+  const digits = [];
+  let factorial = 1;
   for (let i = 1; i <= n; i++) {
-    digits.push(i)
-    factorial *= i
+    digits.push(i);
+    factorial *= i;
   }
 
-  k--
+  k--;
 
-  let result = ''
+  let result = "";
   while (n > 0) {
-    factorial /= n
-    result += digits.splice(k / factorial | 0, 1)[0]
-    k %= factorial
-    n--
+    factorial /= n;
+    result += digits.splice((k / factorial) | 0, 1)[0];
+    k %= factorial;
+    n--;
   }
-  
-  return result
+
+  return result;
 };
 ```
 
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+_Template generated via [Leetmark](https://github.com/crimx/crx-leetmark)._
 
 ---
+
 Difficulty: Medium
 Related Topics:
-  "Linked List": https://leetcode.com/tag/linked-list
-  "Two Pointers": https://leetcode.com/tag/two-pointers
+"Linked List": https://leetcode.com/tag/linked-list
+"Two Pointers": https://leetcode.com/tag/two-pointers
 Similar Questions:
-  "Rotate Array": https://leetcode.com/problems/rotate-array
-  "Split Linked List in Parts": https://leetcode.com/problems/split-linked-list-in-parts
+"Rotate Array": https://leetcode.com/problems/rotate-array
+"Split Linked List in Parts": https://leetcode.com/problems/split-linked-list-in-parts
+
 ---
 
 ## [61. Rotate List](https://leetcode.com/problems/rotate-list/description/)
 
 ### Problem:
 
-Given a linked list, rotate the list to the right by *k* places, where *k* is non-negative.
+Given a linked list, rotate the list to the right by _k_ places, where _k_ is non-negative.
 
 **Example 1:**
 
@@ -4993,59 +5160,63 @@ Locate the right pointer again with `k % len`.
  * @param {number} k
  * @return {ListNode}
  */
-let rotateRight = function(head, k) {
-  if (head === null || k <= 0) { return head }
+let rotateRight = function (head, k) {
+  if (head === null || k <= 0) {
+    return head;
+  }
 
-  let right = head
-  let len = 0
-  let kk = k
+  let right = head;
+  let len = 0;
+  let kk = k;
   while (right !== null && kk > 0) {
-    right = right.next
-    kk--
-    len++
+    right = right.next;
+    kk--;
+    len++;
   }
 
   if (kk > 0) {
-    right = head
-    kk = k % len
+    right = head;
+    kk = k % len;
     while (kk--) {
-      right = right.next
+      right = right.next;
     }
   }
 
   if (right !== null) {
-    let left = head
+    let left = head;
     while (right.next !== null) {
-      left = left.next
-      right = right.next
+      left = left.next;
+      right = right.next;
     }
-    right.next = head
-    head = left.next
-    left.next = null
+    right.next = head;
+    head = left.next;
+    left.next = null;
   }
 
-  return head
+  return head;
 };
 ```
 
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+_Template generated via [Leetmark](https://github.com/crimx/crx-leetmark)._
 
 ---
+
 Difficulty: Medium
 Related Topics:
-  "Array": https://leetcode.com/tag/array
-  "Dynamic Programming": https://leetcode.com/tag/dynamic-programming
+"Array": https://leetcode.com/tag/array
+"Dynamic Programming": https://leetcode.com/tag/dynamic-programming
 Similar Questions:
-  "Unique Paths II": https://leetcode.com/problems/unique-paths-ii
-  "Minimum Path Sum": https://leetcode.com/problems/minimum-path-sum
-  "Dungeon Game": https://leetcode.com/problems/dungeon-game
+"Unique Paths II": https://leetcode.com/problems/unique-paths-ii
+"Minimum Path Sum": https://leetcode.com/problems/minimum-path-sum
+"Dungeon Game": https://leetcode.com/problems/dungeon-game
+
 ---
 
 ## [62. Unique Paths](https://leetcode.com/problems/unique-paths/description/)
 
 ### Problem:
 
-A robot is located at the top-left corner of a *m* x *n* grid (marked 'Start' in the diagram below).
+A robot is located at the top-left corner of a _m_ x _n_ grid (marked 'Start' in the diagram below).
 
 The robot can only move either down or right at any point in time. The robot is trying to reach the bottom-right corner of the grid (marked 'Finish' in the diagram below).
 
@@ -5055,7 +5226,7 @@ How many possible unique paths are there?
 
 Above is a 7 x 3 grid. How many possible unique paths are there?
 
-**Note:** *m* and *n* will be at most 100.
+**Note:** _m_ and _n_ will be at most 100.
 
 **Example 1:**
 
@@ -5096,35 +5267,37 @@ Only two previous states are dependant. Use dynamic array to reduce memory alloc
  * @param {number} n
  * @return {number}
  */
-let uniquePaths = function(m, n) {
-  const dp = new Array(m).fill(1)
+let uniquePaths = function (m, n) {
+  const dp = new Array(m).fill(1);
   while (--n > 0) {
     for (let i = 1; i < m; i++) {
-      dp[i] += dp[i-1]
+      dp[i] += dp[i - 1];
     }
   }
-  return dp[m-1] || 1
+  return dp[m - 1] || 1;
 };
 ```
 
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+_Template generated via [Leetmark](https://github.com/crimx/crx-leetmark)._
 
 ---
+
 Difficulty: Medium
 Related Topics:
-  "Array": https://leetcode.com/tag/array
-  "Dynamic Programming": https://leetcode.com/tag/dynamic-programming
+"Array": https://leetcode.com/tag/array
+"Dynamic Programming": https://leetcode.com/tag/dynamic-programming
 Similar Questions:
-  "Unique Paths": https://leetcode.com/problems/unique-paths
-  "Dungeon Game": https://leetcode.com/problems/dungeon-game
-  "Cherry Pickup": https://leetcode.com/problems/cherry-pickup
+"Unique Paths": https://leetcode.com/problems/unique-paths
+"Dungeon Game": https://leetcode.com/problems/dungeon-game
+"Cherry Pickup": https://leetcode.com/problems/cherry-pickup
+
 ---
 
 ## [64. Minimum Path Sum](https://leetcode.com/problems/minimum-path-sum/description/)
 
 ### Problem:
 
-Given a *m* x *n* grid filled with non-negative numbers, find a path from top left to bottom right which *minimizes* the sum of all numbers along its path.
+Given a _m_ x _n_ grid filled with non-negative numbers, find a path from top left to bottom right which _minimizes_ the sum of all numbers along its path.
 
 **Note:** You can only move either down or right at any point in time.
 
@@ -5159,35 +5332,40 @@ Only two previous states are dependant. Use dynamic array to reduce memory alloc
  * @param {number[][]} grid
  * @return {number}
  */
-let minPathSum = function(grid) {
-  const height = grid.length
-  if (height <= 0) { return 0 }
-  const width = grid[0].length
-  if (width <= 0) { return 0 }
+let minPathSum = function (grid) {
+  const height = grid.length;
+  if (height <= 0) {
+    return 0;
+  }
+  const width = grid[0].length;
+  if (width <= 0) {
+    return 0;
+  }
 
-  const dp = new Array(width).fill(Infinity)
-  dp[0] = 0
+  const dp = new Array(width).fill(Infinity);
+  dp[0] = 0;
   for (let i = 0; i < height; i++) {
-    dp[0] += grid[i][0]
+    dp[0] += grid[i][0];
     for (let j = 1; j < width; j++) {
-      dp[j] = Math.min(dp[j], dp[j-1]) + grid[i][j]
+      dp[j] = Math.min(dp[j], dp[j - 1]) + grid[i][j];
     }
   }
 
-  return dp[width-1] || 0
+  return dp[width - 1] || 0;
 };
 ```
 
-
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+_Template generated via [Leetmark](https://github.com/crimx/crx-leetmark)._
 
 ---
+
 Difficulty: Hard
 Related Topics:
-  "Math": https://leetcode.com/tag/math
-  "String": https://leetcode.com/tag/string
+"Math": https://leetcode.com/tag/math
+"String": https://leetcode.com/tag/string
 Similar Questions:
-  "String to Integer (atoi)": https://leetcode.com/problems/string-to-integer-atoi
+"String to Integer (atoi)": https://leetcode.com/problems/string-to-integer-atoi
+
 ---
 
 ## [65. Valid Number](https://leetcode.com/problems/valid-number/description/)
@@ -5201,7 +5379,7 @@ Some examples:
 `" 0.1 "` => `true`  
 `"abc"` => `false`  
 `"1 a"` => `false`  
-`"2e10"` => `true`  
+`"2e10"` => `true`
 
 **Note:** It is intended for the problem statement to be ambiguous. You should gather all requirements up front before implementing one.
 
@@ -5222,8 +5400,8 @@ JavaScript specific solutions:
  * @param {string} s
  * @return {boolean}
  */
-let isNumber = function(s) {
-  return !!s.trim() && Math.abs(s) >= 0
+let isNumber = function (s) {
+  return !!s.trim() && Math.abs(s) >= 0;
 };
 ```
 
@@ -5237,8 +5415,8 @@ let isNumber = function(s) {
  * @param {string} s
  * @return {boolean}
  */
-let isNumber = function(s) {
-  return !!s.trim() && !isNaN(s)
+let isNumber = function (s) {
+  return !!s.trim() && !isNaN(s);
 };
 ```
 
@@ -5285,45 +5463,49 @@ Now implement the parser. It is much easier now because we have a clear mental m
  * @param {string} s
  * @return {boolean}
  */
-let isNumber = function(s) {
-  let start = 0
-  while (s[start] === ' ') {
-    start++
+let isNumber = function (s) {
+  let start = 0;
+  while (s[start] === " ") {
+    start++;
   }
-  if (s[start] === '+' || s[start] === '-') {
-    start++
+  if (s[start] === "+" || s[start] === "-") {
+    start++;
   }
-  let nextIndex = parseDecimalLiteral(s, start)
-  while (s[nextIndex] === ' ') {
-    nextIndex++
+  let nextIndex = parseDecimalLiteral(s, start);
+  while (s[nextIndex] === " ") {
+    nextIndex++;
   }
-  return nextIndex === s.length
-}
+  return nextIndex === s.length;
+};
 
 /**
  * @param {string} s
  * @param {number} start - start index
  * @return {number} next index, -1 means error
  */
-function parseDecimalLiteral (s, start) {
-  let nextIndex = -1
-  if (s[start] === '.') {
-    nextIndex = parseDecimalDigits(s, start + 1)
-    if (nextIndex === -1) { return -1 }
+function parseDecimalLiteral(s, start) {
+  let nextIndex = -1;
+  if (s[start] === ".") {
+    nextIndex = parseDecimalDigits(s, start + 1);
+    if (nextIndex === -1) {
+      return -1;
+    }
   } else {
-    nextIndex = parseDecimalDigits(s, start)
-    if (nextIndex === -1) { return -1 }
+    nextIndex = parseDecimalDigits(s, start);
+    if (nextIndex === -1) {
+      return -1;
+    }
 
-    if (s[nextIndex] === '.') {
-      const optNextIndex = parseDecimalDigits(s, ++nextIndex)
+    if (s[nextIndex] === ".") {
+      const optNextIndex = parseDecimalDigits(s, ++nextIndex);
       if (optNextIndex !== -1) {
-        nextIndex = optNextIndex
+        nextIndex = optNextIndex;
       }
     }
   }
 
-  const optNextIndex = parseExponentPart(s, nextIndex)
-  return optNextIndex === -1 ? nextIndex : optNextIndex
+  const optNextIndex = parseExponentPart(s, nextIndex);
+  return optNextIndex === -1 ? nextIndex : optNextIndex;
 }
 
 /**
@@ -5331,16 +5513,18 @@ function parseDecimalLiteral (s, start) {
  * @param {number} start - start index
  * @return {number} next index, -1 means error
  */
-function parseDecimalDigits (s, start) {
-  if (start === s.length) { return -1 }
+function parseDecimalDigits(s, start) {
+  if (start === s.length) {
+    return -1;
+  }
 
   for (let i = start; i < s.length; i++) {
-    const digit = s.charCodeAt(i) - 48
+    const digit = s.charCodeAt(i) - 48;
     if (!(digit >= 0 && digit <= 9)) {
-      return i === start ? -1 : i
+      return i === start ? -1 : i;
     }
   }
-  return s.length
+  return s.length;
 }
 
 /**
@@ -5348,22 +5532,24 @@ function parseDecimalDigits (s, start) {
  * @param {number} start - start index
  * @return {number} next index, -1 means error
  */
-function parseDecimalIntegerLiteral (s, start) {
-  if (start === s.length) { return -1 }
-
-  let nextIndex = start
-  if (s[start] === '0') {
-    nextIndex++
+function parseDecimalIntegerLiteral(s, start) {
+  if (start === s.length) {
+    return -1;
   }
 
-  const digit = s.charCodeAt(nextIndex) - 48
+  let nextIndex = start;
+  if (s[start] === "0") {
+    nextIndex++;
+  }
+
+  const digit = s.charCodeAt(nextIndex) - 48;
   if (!(digit > 0 && digit <= 9)) {
-    return nextIndex === start ? -1 : nextIndex
+    return nextIndex === start ? -1 : nextIndex;
   }
-  nextIndex++
+  nextIndex++;
 
-  const optNextIndex = parseDecimalDigits (s, nextIndex)
-  return optNextIndex === -1 ? nextIndex : optNextIndex
+  const optNextIndex = parseDecimalDigits(s, nextIndex);
+  return optNextIndex === -1 ? nextIndex : optNextIndex;
 }
 
 /**
@@ -5371,31 +5557,33 @@ function parseDecimalIntegerLiteral (s, start) {
  * @param {number} start - start index
  * @return {number} next index, -1 means error
  */
-function parseExponentPart (s, start) {
-  if (s[start] !== 'e' && s[start] !== 'E') {
-    return -1
+function parseExponentPart(s, start) {
+  if (s[start] !== "e" && s[start] !== "E") {
+    return -1;
   }
 
-  let nextIndex = start + 1
-  if (s[nextIndex] === '+' || s[nextIndex] === '-') {
-    nextIndex++
+  let nextIndex = start + 1;
+  if (s[nextIndex] === "+" || s[nextIndex] === "-") {
+    nextIndex++;
   }
 
-  return parseDecimalDigits(s, nextIndex)
+  return parseDecimalDigits(s, nextIndex);
 }
 ```
 
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+_Template generated via [Leetmark](https://github.com/crimx/crx-leetmark)._
 
 ---
+
 Difficulty: Easy
 Related Topics:
-  "Array": https://leetcode.com/tag/array
-  "Math": https://leetcode.com/tag/math
+"Array": https://leetcode.com/tag/array
+"Math": https://leetcode.com/tag/math
 Similar Questions:
-  "Multiply Strings": https://leetcode.com/problems/multiply-strings
-  "Add Binary": https://leetcode.com/problems/add-binary
-  "Plus One Linked List": https://leetcode.com/problems/plus-one-linked-list
+"Multiply Strings": https://leetcode.com/problems/multiply-strings
+"Add Binary": https://leetcode.com/problems/add-binary
+"Plus One Linked List": https://leetcode.com/problems/plus-one-linked-list
+
 ---
 
 ## [66. Plus One](https://leetcode.com/problems/plus-one/description/)
@@ -5435,15 +5623,15 @@ JavaScript specific solution. Note that `unshift` is much slower that expanding.
  * @param {number[]} digits
  * @return {number[]}
  */
-let plusOne = function(digits) {
+let plusOne = function (digits) {
   for (let i = digits.length - 1; i >= 0; i--) {
     if (digits[i] < 9) {
-      digits[i]++
-      return digits
+      digits[i]++;
+      return digits;
     }
-    digits[i] = 0
+    digits[i] = 0;
   }
-  return [1, ...digits]
+  return [1, ...digits];
 };
 ```
 
@@ -5456,40 +5644,41 @@ General solution.
  * @param {number[]} digits
  * @return {number[]}
  */
-let plusOne = function(digits) {
+let plusOne = function (digits) {
   for (let i = digits.length - 1; i >= 0; i--) {
     if (digits[i] < 9) {
-      digits[i]++
-      return digits
+      digits[i]++;
+      return digits;
     }
-    digits[i] = 0
+    digits[i] = 0;
   }
 
   for (let i = digits.length; i > 0; i--) {
-    digits[i] = digits[i-1]
+    digits[i] = digits[i - 1];
   }
-  digits[0] = 1
-  
-  return digits
+  digits[0] = 1;
+
+  return digits;
 };
 ```
 
-
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+_Template generated via [Leetmark](https://github.com/crimx/crx-leetmark)._
 
 ---
+
 Difficulty: Hard
 Related Topics:
-  "String": https://leetcode.com/tag/string
+"String": https://leetcode.com/tag/string
+
 ---
 
 ## [68. Text Justification](https://leetcode.com/problems/text-justification/description/)
 
 ### Problem:
 
-Given an array of words and a width *maxWidth*, format the text such that each line has exactly *maxWidth* characters and is fully (left and right) justified.
+Given an array of words and a width *maxWidth*, format the text such that each line has exactly _maxWidth_ characters and is fully (left and right) justified.
 
-You should pack your words in a greedy approach; that is, pack as many words as you can in each line. Pad extra spaces `' '` when necessary so that each line has exactly *maxWidth* characters.
+You should pack your words in a greedy approach; that is, pack as many words as you can in each line. Pad extra spaces `' '` when necessary so that each line has exactly _maxWidth_ characters.
 
 Extra spaces between words should be distributed as evenly as possible. If the number of spaces on a line do not divide evenly between words, the empty slots on the left will be assigned more spaces than the slots on the right.
 
@@ -5498,7 +5687,7 @@ For the last line of text, it should be left justified and no **extra** space is
 **Note:**
 
 - A word is defined as a character sequence consisting of non-space characters only.
-- Each word's length is guaranteed to be greater than 0 and not exceed *maxWidth*.
+- Each word's length is guaranteed to be greater than 0 and not exceed _maxWidth_.
 - The input array `words` contains at least one word.
 
 **Example 1:**
@@ -5564,57 +5753,58 @@ Output:
  * @param {number} maxWidth
  * @return {string[]}
  */
-let fullJustify = function(words, maxWidth) {
-  let start = 0
-  let end = 1
-  let lineLen = words[start].length
-  const result = []
+let fullJustify = function (words, maxWidth) {
+  let start = 0;
+  let end = 1;
+  let lineLen = words[start].length;
+  const result = [];
 
   while (end < words.length) {
-    const newLen = words[end].length + 1 + lineLen
+    const newLen = words[end].length + 1 + lineLen;
     if (newLen <= maxWidth) {
-      lineLen = newLen
+      lineLen = newLen;
     } else {
-      let line = ''
-      let nWords = end - start
+      let line = "";
+      let nWords = end - start;
       if (nWords === 1) {
-        line = words[start].padEnd(maxWidth)
+        line = words[start].padEnd(maxWidth);
       } else {
-        let nSpaces = maxWidth - (lineLen - (nWords - 1))
+        let nSpaces = maxWidth - (lineLen - (nWords - 1));
         for (let i = start; i < end; i++) {
-          const gap = Math.ceil(nSpaces / (end - i - 1))
-          line += words[i] + ' '.repeat(gap)
-          nSpaces -= gap
+          const gap = Math.ceil(nSpaces / (end - i - 1));
+          line += words[i] + " ".repeat(gap);
+          nSpaces -= gap;
         }
       }
-      result.push(line)
-      start = end
-      lineLen = words[start].length
+      result.push(line);
+      start = end;
+      lineLen = words[start].length;
     }
-    end++
+    end++;
   }
 
-  let lastline = words[start]
+  let lastline = words[start];
   for (let i = start + 1; i < end; i++) {
-    lastline += ' ' + words[i]
+    lastline += " " + words[i];
   }
-  result.push(lastline.padEnd(maxWidth))
+  result.push(lastline.padEnd(maxWidth));
 
-  return result
+  return result;
 };
 ```
 
-
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+_Template generated via [Leetmark](https://github.com/crimx/crx-leetmark)._
 
 ---
+
 Difficulty: Easy
 Related Topics:
-  "Math": https://leetcode.com/tag/math
-  "Binary Search": https://leetcode.com/tag/binary-search
+"Math": https://leetcode.com/tag/math
+"Binary Search": https://leetcode.com/tag/binary-search
 Similar Questions:
-  "Pow(x, n)": https://leetcode.com/problems/powx-n
-  "Valid Perfect Square": https://leetcode.com/problems/valid-perfect-square
+"Pow(x, n)": https://leetcode.com/problems/powx-n
+"Valid Perfect Square": https://leetcode.com/problems/valid-perfect-square
+
 ---
 
 ## [69. Sqrt(x)](https://leetcode.com/problems/sqrtx/description/)
@@ -5623,7 +5813,7 @@ Similar Questions:
 
 Implement `int sqrt(int x)`.
 
-Compute and return the square root of *x*, where *x* is guaranteed to be a non-negative integer.
+Compute and return the square root of _x_, where *x* is guaranteed to be a non-negative integer.
 
 Since the return type is an integer, the decimal digits are truncated and only the integer part of the result is returned.
 
@@ -5639,7 +5829,7 @@ Output: 2
 ```
 Input: 8
 Output: 2
-Explanation: The square root of 8 is 2.82842..., and since 
+Explanation: The square root of 8 is 2.82842..., and since
              the decimal part is truncated, 2 is returned.
 ```
 
@@ -5652,32 +5842,33 @@ Binary Search. The square root of x is within [0...(x+1)/2].
  * @param {number} x
  * @return {number}
  */
-let mySqrt = function(x) {
-  let max = Math.round(x / 2)
-  let min = 0
+let mySqrt = function (x) {
+  let max = Math.round(x / 2);
+  let min = 0;
   while (min <= max) {
-    const mid = Math.floor((min + max) / 2)
-    const diff = mid * mid - x
+    const mid = Math.floor((min + max) / 2);
+    const diff = mid * mid - x;
     if (diff > 0) {
-      max = mid - 1
+      max = mid - 1;
     } else if (diff < 0) {
-      min = mid + 1
+      min = mid + 1;
     } else {
-      return mid
+      return mid;
     }
   }
-  return max
+  return max;
 };
 ```
 
-
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+_Template generated via [Leetmark](https://github.com/crimx/crx-leetmark)._
 
 ---
+
 Difficulty: Medium
 Related Topics:
-  "String": https://leetcode.com/tag/string
-  "Stack": https://leetcode.com/tag/stack
+"String": https://leetcode.com/tag/string
+"Stack": https://leetcode.com/tag/stack
+
 ---
 
 ## [71. Simplify Path](https://leetcode.com/problems/simplify-path/description/)
@@ -5710,17 +5901,20 @@ RegExp matching.
  * @param {string} path
  * @return {string}
  */
-let simplifyPath = function(path) {
-  return '/' + (path.match(/[^\/]+/g) || [])
-    .reduce((stack, p) => {
-      if (p === '..') {
-        stack.pop()
-      } else if (p !== '.') {
-        stack.push(p)
-      }
-      return stack
-    }, [])
-    .join('/')
+let simplifyPath = function (path) {
+  return (
+    "/" +
+    (path.match(/[^\/]+/g) || [])
+      .reduce((stack, p) => {
+        if (p === "..") {
+          stack.pop();
+        } else if (p !== ".") {
+          stack.push(p);
+        }
+        return stack;
+      }, [])
+      .join("/")
+  );
 };
 ```
 
@@ -5733,49 +5927,51 @@ Direct search.
  * @param {string} path
  * @return {string}
  */
-let simplifyPath = function(path) {
-  const len = path.length
-  const stack = []
-  let e = 0
+let simplifyPath = function (path) {
+  const len = path.length;
+  const stack = [];
+  let e = 0;
   while (e < len) {
-    while (e < len && path[e] === '/') {
-      e++
+    while (e < len && path[e] === "/") {
+      e++;
     }
-    const s = e
-    while (e < len && path[e] !== '/') {
-      e++
+    const s = e;
+    while (e < len && path[e] !== "/") {
+      e++;
     }
     if (s < e) {
-      const p = path.slice(s, e)
-      if (p === '..') {
-        stack.pop()
-      } else if (p !== '.') {
-        stack.push(p)
+      const p = path.slice(s, e);
+      if (p === "..") {
+        stack.pop();
+      } else if (p !== ".") {
+        stack.push(p);
       }
     }
   }
-  return '/' + stack.join('/')
+  return "/" + stack.join("/");
 };
 ```
 
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+_Template generated via [Leetmark](https://github.com/crimx/crx-leetmark)._
 
 ---
+
 Difficulty: Hard
 Related Topics:
-  "String": https://leetcode.com/tag/string
-  "Dynamic Programming": https://leetcode.com/tag/dynamic-programming
+"String": https://leetcode.com/tag/string
+"Dynamic Programming": https://leetcode.com/tag/dynamic-programming
 Similar Questions:
-  "One Edit Distance": https://leetcode.com/problems/one-edit-distance
-  "Delete Operation for Two Strings": https://leetcode.com/problems/delete-operation-for-two-strings
-  "Minimum ASCII Delete Sum for Two Strings": https://leetcode.com/problems/minimum-ascii-delete-sum-for-two-strings
+"One Edit Distance": https://leetcode.com/problems/one-edit-distance
+"Delete Operation for Two Strings": https://leetcode.com/problems/delete-operation-for-two-strings
+"Minimum ASCII Delete Sum for Two Strings": https://leetcode.com/problems/minimum-ascii-delete-sum-for-two-strings
+
 ---
 
 ## [72. Edit Distance](https://leetcode.com/problems/edit-distance/description/)
 
 ### Problem:
 
-Given two words *word1* and *word2*, find the minimum number of operations required to convert *word1* to *word2*.
+Given two words _word1_ and _word2_, find the minimum number of operations required to convert _word1_ to _word2_.
 
 You have the following 3 operations permitted on a word:
 
@@ -5788,7 +5984,7 @@ You have the following 3 operations permitted on a word:
 ```
 Input: word1 = "horse", word2 = "ros"
 Output: 3
-Explanation: 
+Explanation:
 horse -> rorse (replace 'h' with 'r')
 rorse -> rose (remove 'r')
 rose -> ros (remove 'e')
@@ -5799,7 +5995,7 @@ rose -> ros (remove 'e')
 ```
 Input: word1 = "intention", word2 = "execution"
 Output: 5
-Explanation: 
+Explanation:
 intention -> inention (remove 't')
 inention -> enention (replace 'i' with 'e')
 enention -> exention (replace 'n' with 'x')
@@ -5830,65 +6026,66 @@ f(i, j) = min(
  * @param {string} word2
  * @return {number}
  */
-let minDistance = function(word1, word2) {
-  const len1 = word1.length
-  const len2 = word2.length
+let minDistance = function (word1, word2) {
+  const len1 = word1.length;
+  const len2 = word2.length;
 
-  if(len1 <= 0 || len2 <= 0) {
-    return len1 + len2
+  if (len1 <= 0 || len2 <= 0) {
+    return len1 + len2;
   }
 
-  const dp = []
+  const dp = [];
 
   for (let i = 0; i <= len1; i++) {
-    dp[i] = [i]
+    dp[i] = [i];
   }
 
   for (let j = 0; j <= len2; j++) {
-    dp[0][j] = j
+    dp[0][j] = j;
   }
 
   for (let i = 1; i <= len1; i++) {
     for (let j = 1; j <= len2; j++) {
       dp[i][j] = Math.min(
-        dp[i][j-1] + 1,
-        dp[i-1][j] + 1,
-        dp[i-1][j-1] + (word1[i-1] === word2[j-1] ? 0 : 1)
-      )
+        dp[i][j - 1] + 1,
+        dp[i - 1][j] + 1,
+        dp[i - 1][j - 1] + (word1[i - 1] === word2[j - 1] ? 0 : 1)
+      );
     }
   }
 
-  return dp[len1][len2]
+  return dp[len1][len2];
 };
 ```
 
-
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+_Template generated via [Leetmark](https://github.com/crimx/crx-leetmark)._
 
 ---
+
 Difficulty: Medium
 Related Topics:
-  "Array": https://leetcode.com/tag/array
+"Array": https://leetcode.com/tag/array
 Similar Questions:
-  "Game of Life": https://leetcode.com/problems/game-of-life
+"Game of Life": https://leetcode.com/problems/game-of-life
+
 ---
 
 ## [73. Set Matrix Zeroes](https://leetcode.com/problems/set-matrix-zeroes/description/)
 
 ### Problem:
 
-Given a *m* x *n* matrix, if an element is 0, set its entire row and column to 0. Do it [**in-place**](https://en.wikipedia.org/wiki/In-place_algorithm).
+Given a _m_ x _n_ matrix, if an element is 0, set its entire row and column to 0. Do it [**in-place**](https://en.wikipedia.org/wiki/In-place_algorithm).
 
 **Example 1:**
 
 ```
-Input: 
+Input:
 [
   [1,1,1],
   [1,0,1],
   [1,1,1]
 ]
-Output: 
+Output:
 [
   [1,0,1],
   [0,0,0],
@@ -5899,13 +6096,13 @@ Output:
 **Example 2:**
 
 ```
-Input: 
+Input:
 [
   [0,1,2,0],
   [3,4,5,2],
   [1,3,1,5]
 ]
-Output: 
+Output:
 [
   [0,0,0,0],
   [0,4,5,0],
@@ -5915,14 +6112,14 @@ Output:
 
 **Follow up:**
 
-- A straight forward solution using O(*m**n*) space is probably a bad idea.
-- A simple improvement uses O(*m* + *n*) space, but still not the best solution.
+- A straight forward solution using O(_m\*\*n_) space is probably a bad idea.
+- A simple improvement uses O(_m_ + _n_) space, but still not the best solution.
 - Could you devise a constant space solution?
 
 ### Solution:
 
-- O(*m**n*) space solution: Copy a new matrix.
-- O(*m* + *n*) space solution: Use extra arrays to store rows and columns that need to be set 0.
+- O(_m\*\*n_) space solution: Copy a new matrix.
+- O(_m_ + _n_) space solution: Use extra arrays to store rows and columns that need to be set 0.
 - Constant space solutions:
 
 #### ONE
@@ -5942,45 +6139,49 @@ Finally set the first row and column to 0 if needed.
  * @param {number[][]} matrix
  * @return {void} Do not return anything, modify matrix in-place instead.
  */
-let setZeroes = function(matrix) {
-  const height = matrix.length
-  if (height <= 0) { return }
-  const width = matrix[0].length
-  if (width <= 0) { return }
+let setZeroes = function (matrix) {
+  const height = matrix.length;
+  if (height <= 0) {
+    return;
+  }
+  const width = matrix[0].length;
+  if (width <= 0) {
+    return;
+  }
 
-  const shouldClearFirstRow = matrix[0].some(x => x === 0)
-  const shouldClearFirstCol = matrix.some(row => row[0] === 0)
+  const shouldClearFirstRow = matrix[0].some((x) => x === 0);
+  const shouldClearFirstCol = matrix.some((row) => row[0] === 0);
 
   for (let i = 1; i < height; i++) {
     for (let j = 1; j < width; j++) {
       if (matrix[i][j] === 0) {
-        matrix[i][0] = 0
-        matrix[0][j] = 0
+        matrix[i][0] = 0;
+        matrix[0][j] = 0;
       }
     }
   }
 
   for (let i = 1; i < height; i++) {
     if (matrix[i][0] === 0) {
-      matrix[i].fill(0)
+      matrix[i].fill(0);
     }
   }
 
   for (let j = 1; j < width; j++) {
     if (matrix[0][j] === 0) {
       for (let i = 1; i < height; i++) {
-        matrix[i][j] = 0
+        matrix[i][j] = 0;
       }
     }
   }
 
   if (shouldClearFirstRow) {
-    matrix[0].fill(0)
+    matrix[0].fill(0);
   }
 
   if (shouldClearFirstCol) {
     for (let i = 0; i < height; i++) {
-      matrix[i][0] = 0
+      matrix[i][0] = 0;
     }
   }
 };
@@ -6031,23 +6232,24 @@ let setZeroes = function(matrix) {
 };
 ```
 
-
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+_Template generated via [Leetmark](https://github.com/crimx/crx-leetmark)._
 
 ---
+
 Difficulty: Medium
 Related Topics:
-  "Array": https://leetcode.com/tag/array
-  "Binary Search": https://leetcode.com/tag/binary-search
+"Array": https://leetcode.com/tag/array
+"Binary Search": https://leetcode.com/tag/binary-search
 Similar Questions:
-  "Search a 2D Matrix II": https://leetcode.com/problems/search-a-2d-matrix-ii
+"Search a 2D Matrix II": https://leetcode.com/problems/search-a-2d-matrix-ii
+
 ---
 
 ## [74. Search a 2D Matrix](https://leetcode.com/problems/search-a-2d-matrix/description/)
 
 ### Problem:
 
-Write an efficient algorithm that searches for a value in an *m* x *n* matrix. This matrix has the following properties:
+Write an efficient algorithm that searches for a value in an _m_ x _n_ matrix. This matrix has the following properties:
 
 - Integers in each row are sorted from left to right.
 - The first integer of each row is greater than the last integer of the previous row.
@@ -6082,7 +6284,7 @@ Output: false
 
 #### ONE
 
-Search from top-left to bottom-right. O(*n*).
+Search from top-left to bottom-right. O(_n_).
 
 ```javascript
 /**
@@ -6090,26 +6292,30 @@ Search from top-left to bottom-right. O(*n*).
  * @param {number} target
  * @return {boolean}
  */
-let searchMatrix = function(matrix, target) {
-  const height = matrix.length
-  if (height <= 0) { return false }
-  const width = matrix[0].length
-  if (width <= 0) { return false }
+let searchMatrix = function (matrix, target) {
+  const height = matrix.length;
+  if (height <= 0) {
+    return false;
+  }
+  const width = matrix[0].length;
+  if (width <= 0) {
+    return false;
+  }
 
-  let i = 0
-  let j = width - 1
+  let i = 0;
+  let j = width - 1;
   while (i < height && j >= 0) {
-    const diff = matrix[i][j] - target
+    const diff = matrix[i][j] - target;
     if (diff > 0) {
-      j--
+      j--;
     } else if (diff < 0) {
-      i++
+      i++;
     } else {
-      return true
+      return true;
     }
   }
 
-  return false
+  return false;
 };
 ```
 
@@ -6127,50 +6333,55 @@ Take the algorithm from [35. Search Insert Position](./035.%20Search%20Insert%20
  * @param {number} target
  * @return {boolean}
  */
-let searchMatrix = function(matrix, target) {
-  const height = matrix.length
-  if (height <= 0) { return false }
-  const width = matrix[0].length
-  if (width <= 0) { return false }
+let searchMatrix = function (matrix, target) {
+  const height = matrix.length;
+  if (height <= 0) {
+    return false;
+  }
+  const width = matrix[0].length;
+  if (width <= 0) {
+    return false;
+  }
 
-  let s = 0
-  let e = width * height - 1
+  let s = 0;
+  let e = width * height - 1;
   while (s <= e) {
-    const mid = Math.floor((s + e) / 2)
-    const diff = matrix[Math.floor(mid / width)][mid % width] - target
+    const mid = Math.floor((s + e) / 2);
+    const diff = matrix[Math.floor(mid / width)][mid % width] - target;
     if (diff < 0) {
-      s = mid + 1
+      s = mid + 1;
     } else if (diff > 0) {
-      e = mid - 1
+      e = mid - 1;
     } else {
-      return true
+      return true;
     }
   }
 
-  return false
+  return false;
 };
 ```
 
-
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+_Template generated via [Leetmark](https://github.com/crimx/crx-leetmark)._
 
 ---
+
 Difficulty: Medium
 Related Topics:
-  "Array": https://leetcode.com/tag/array
-  "Two Pointers": https://leetcode.com/tag/two-pointers
-  "Sort": https://leetcode.com/tag/sort
+"Array": https://leetcode.com/tag/array
+"Two Pointers": https://leetcode.com/tag/two-pointers
+"Sort": https://leetcode.com/tag/sort
 Similar Questions:
-  "Sort List": https://leetcode.com/problems/sort-list
-  "Wiggle Sort": https://leetcode.com/problems/wiggle-sort
-  "Wiggle Sort II": https://leetcode.com/problems/wiggle-sort-ii
+"Sort List": https://leetcode.com/problems/sort-list
+"Wiggle Sort": https://leetcode.com/problems/wiggle-sort
+"Wiggle Sort II": https://leetcode.com/problems/wiggle-sort-ii
+
 ---
 
 ## [75. Sort Colors](https://leetcode.com/problems/sort-colors/description/)
 
 ### Problem:
 
-Given an array with *n* objects colored red, white or blue, sort them **in-place**so that objects of the same color are adjacent, with the colors in the order red, white and blue.
+Given an array with _n_ objects colored red, white or blue, sort them **in-place**so that objects of the same color are adjacent, with the colors in the order red, white and blue.
 
 Here, we will use the integers 0, 1, and 2 to represent the color red, white, and blue respectively.
 
@@ -6202,46 +6413,47 @@ Count the number of sorted `0`s and `2`s so that we know where to swap.
  * @param {number[]} nums
  * @return {void} Do not return anything, modify nums in-place instead.
  */
-let sortColors = function(nums) {
-  const len = nums.length
-  let zeroEnd = 0
-  let twoStart = len - 1
-  let i = 0
+let sortColors = function (nums) {
+  const len = nums.length;
+  let zeroEnd = 0;
+  let twoStart = len - 1;
+  let i = 0;
   while (i <= twoStart) {
     if (nums[i] === 0 && i !== zeroEnd) {
-      const t = nums[i]
-      nums[i] = nums[zeroEnd]
-      nums[zeroEnd] = t
-      zeroEnd++
+      const t = nums[i];
+      nums[i] = nums[zeroEnd];
+      nums[zeroEnd] = t;
+      zeroEnd++;
     } else if (nums[i] === 2 && i !== twoStart) {
-      const t = nums[i]
-      nums[i] = nums[twoStart]
-      nums[twoStart] = t
-      twoStart--
+      const t = nums[i];
+      nums[i] = nums[twoStart];
+      nums[twoStart] = t;
+      twoStart--;
     } else {
-      i++
+      i++;
     }
   }
 };
 ```
 
-
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+_Template generated via [Leetmark](https://github.com/crimx/crx-leetmark)._
 
 ---
+
 Difficulty: Medium
 Related Topics:
-  "Backtracking": https://leetcode.com/tag/backtracking
+"Backtracking": https://leetcode.com/tag/backtracking
 Similar Questions:
-  "Combination Sum": https://leetcode.com/problems/combination-sum
-  "Permutations": https://leetcode.com/problems/permutations
+"Combination Sum": https://leetcode.com/problems/combination-sum
+"Permutations": https://leetcode.com/problems/permutations
+
 ---
 
 ## [77. Combinations](https://leetcode.com/problems/combinations/description/)
 
 ### Problem:
 
-Given two integers *n* and *k*, return all possible combinations of *k* numbers out of 1 ... *n*.
+Given two integers _n_ and _k_, return all possible combinations of _k_ numbers out of 1 ... _n_.
 
 **Example:**
 
@@ -6268,45 +6480,46 @@ Basic DFS + Backtracking.
  * @param {number} k
  * @return {number[][]}
  */
-let combine = function(n, k) {
-  const result = []
-  _combine(1, [], n, k, result)
-  return result
+let combine = function (n, k) {
+  const result = [];
+  _combine(1, [], n, k, result);
+  return result;
 };
 
-function _combine (cur, path, n, k, result) {
+function _combine(cur, path, n, k, result) {
   if (path.length === k) {
-    return result.push(path.slice())
+    return result.push(path.slice());
   }
 
   while (cur <= n) {
-    path.push(cur)
-    _combine(++cur, path, n, k, result)
-    path.pop()
+    path.push(cur);
+    _combine(++cur, path, n, k, result);
+    path.pop();
   }
 }
 ```
 
-
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+_Template generated via [Leetmark](https://github.com/crimx/crx-leetmark)._
 
 ---
+
 Difficulty: Medium
 Related Topics:
-  "Array": https://leetcode.com/tag/array
-  "Backtracking": https://leetcode.com/tag/backtracking
-  "Bit Manipulation": https://leetcode.com/tag/bit-manipulation
+"Array": https://leetcode.com/tag/array
+"Backtracking": https://leetcode.com/tag/backtracking
+"Bit Manipulation": https://leetcode.com/tag/bit-manipulation
 Similar Questions:
-  "Subsets II": https://leetcode.com/problems/subsets-ii
-  "Generalized Abbreviation": https://leetcode.com/problems/generalized-abbreviation
-  "Letter Case Permutation": https://leetcode.com/problems/letter-case-permutation
+"Subsets II": https://leetcode.com/problems/subsets-ii
+"Generalized Abbreviation": https://leetcode.com/problems/generalized-abbreviation
+"Letter Case Permutation": https://leetcode.com/problems/letter-case-permutation
+
 ---
 
 ## [78. Subsets](https://leetcode.com/problems/subsets/description/)
 
 ### Problem:
 
-Given a set of **distinct** integers, *nums*, return all possible subsets (the power set).
+Given a set of **distinct** integers, _nums_, return all possible subsets (the power set).
 
 **Note:** The solution set must not contain duplicate subsets.
 
@@ -6338,8 +6551,11 @@ BFS.
  * @param {number[]} nums
  * @return {number[][]}
  */
-let subsets = function(nums) {
-  return nums.reduce((result, num) => result.concat(result.map(r => [...r, num])), [[]])
+let subsets = function (nums) {
+  return nums.reduce(
+    (result, num) => result.concat(result.map((r) => [...r, num])),
+    [[]]
+  );
 };
 ```
 
@@ -6350,14 +6566,14 @@ Or more imperative. Loop backward to avoid crossing the boundary.
  * @param {number[]} nums
  * @return {number[][]}
  */
-let subsets = function(nums) {
-  const result = [[]]
+let subsets = function (nums) {
+  const result = [[]];
   for (let i = nums.length - 1; i >= 0; i--) {
     for (let j = result.length - 1; j >= 0; j--) {
-      result.push([nums[i], ...result[j]])
+      result.push([nums[i], ...result[j]]);
     }
   }
-  return result
+  return result;
 };
 ```
 
@@ -6370,31 +6586,33 @@ DFS + Backtracking.
  * @param {number[]} nums
  * @return {number[][]}
  */
-let subsets = function(nums) {
-  const result = []
-  _subsets(nums, 0, [], result)
-  return result
+let subsets = function (nums) {
+  const result = [];
+  _subsets(nums, 0, [], result);
+  return result;
 };
 
 function _subsets(nums, start, path, result) {
-  result.push(path.slice())
+  result.push(path.slice());
   while (start < nums.length) {
-    path.push(nums[start])
-    _subsets(nums, ++start, path, result)
-    path.pop()
+    path.push(nums[start]);
+    _subsets(nums, ++start, path, result);
+    path.pop();
   }
 }
 ```
 
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+_Template generated via [Leetmark](https://github.com/crimx/crx-leetmark)._
 
 ---
+
 Difficulty: Medium
 Related Topics:
-  "Array": https://leetcode.com/tag/array
-  "Backtracking": https://leetcode.com/tag/backtracking
+"Array": https://leetcode.com/tag/array
+"Backtracking": https://leetcode.com/tag/backtracking
 Similar Questions:
-  "Word Search II": https://leetcode.com/problems/word-search-ii
+"Word Search II": https://leetcode.com/problems/word-search-ii
+
 ---
 
 ## [79. Word Search](https://leetcode.com/problems/word-search/description/)
@@ -6430,66 +6648,93 @@ DFS + Backtracking. Replace the cell with `NaN` before proceeding to the next le
  * @param {string} word
  * @return {boolean}
  */
-let exist = function(board, word) {
-  const height = board.length
-  if (height <= 0) { return false }
-  const width = board[0].length
-  if (width <= 0) { return false }
+let exist = function (board, word) {
+  const height = board.length;
+  if (height <= 0) {
+    return false;
+  }
+  const width = board[0].length;
+  if (width <= 0) {
+    return false;
+  }
 
   for (let row = 0; row < height; row++) {
     for (let col = 0; col < width; col++) {
-      if (board[row][col] === word[0] &&
-          _exist(board, word, 0, [[-1, 0], [1, 0], [0, -1], [0, 1]], row, col)
+      if (
+        board[row][col] === word[0] &&
+        _exist(
+          board,
+          word,
+          0,
+          [
+            [-1, 0],
+            [1, 0],
+            [0, -1],
+            [0, 1],
+          ],
+          row,
+          col
+        )
       ) {
-        return true
+        return true;
       }
     }
   }
 
-  return false
+  return false;
 };
 
-function _exist (board, word, iWord, directions, row, col) {
+function _exist(board, word, iWord, directions, row, col) {
   if (iWord === word.length) {
-    return true
+    return true;
   }
 
   if (!board[row] || word[iWord] !== board[row][col]) {
-    return false
+    return false;
   }
 
-  const cell = board[row][col]
-  board[row][col] = NaN
+  const cell = board[row][col];
+  board[row][col] = NaN;
 
   for (let i = directions.length - 1; i >= 0; i--) {
-    if (_exist(board, word, iWord+1, directions, row+directions[i][0], col+directions[i][1])) {
-      return true
+    if (
+      _exist(
+        board,
+        word,
+        iWord + 1,
+        directions,
+        row + directions[i][0],
+        col + directions[i][1]
+      )
+    ) {
+      return true;
     }
   }
 
-  board[row][col] = cell
+  board[row][col] = cell;
 
-  return false
+  return false;
 }
 ```
 
-
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+_Template generated via [Leetmark](https://github.com/crimx/crx-leetmark)._
 
 ---
+
 Difficulty: Medium
 Related Topics:
-  "Array": https://leetcode.com/tag/array
-  "Two Pointers": https://leetcode.com/tag/two-pointers
+"Array": https://leetcode.com/tag/array
+"Two Pointers": https://leetcode.com/tag/two-pointers
 Similar Questions:
-  "Remove Duplicates from Sorted Array": https://leetcode.com/problems/remove-duplicates-from-sorted-array
+"Remove Duplicates from Sorted Array": https://leetcode.com/problems/remove-duplicates-from-sorted-array
+
 ---
 
 ## [80. Remove Duplicates from Sorted Array II](https://leetcode.com/problems/remove-duplicates-from-sorted-array-ii/description/)
 
 ### Problem:
 
-Given a sorted array *nums*, remove the duplicates [**in-place**](https://en.wikipedia.org/wiki/In-place_algorithm) such that duplicates appeared at most *twice* and return the new length.
+Given a sorted array _nums_, remove the duplicates [**in-place**](https://en.wikipedia.org/wiki/In-place_algorithm) such that duplicates appeared at most *twice* and return the new length.
 
 Do not allocate extra space for another array, you must do this by **modifying the input array in-place** with O(1) extra memory.
 
@@ -6541,27 +6786,28 @@ Similar to [26. Remove Duplicates from Sorted Array](./026.%20Remove%20Duplicate
  * @param {number[]} nums
  * @return {number}
  */
-let removeDuplicates = function(nums) {
-  let len = 0
+let removeDuplicates = function (nums) {
+  let len = 0;
   for (let i = 0; i < nums.length; i++) {
-    if (nums[i] !== nums[len-2]) {
-      nums[len++] = nums[i]
+    if (nums[i] !== nums[len - 2]) {
+      nums[len++] = nums[i];
     }
   }
-  return len
+  return len;
 };
 ```
 
-
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+_Template generated via [Leetmark](https://github.com/crimx/crx-leetmark)._
 
 ---
+
 Difficulty: Medium
 Related Topics:
-  "Array": https://leetcode.com/tag/array
-  "Binary Search": https://leetcode.com/tag/binary-search
+"Array": https://leetcode.com/tag/array
+"Binary Search": https://leetcode.com/tag/binary-search
 Similar Questions:
-  "Search in Rotated Sorted Array": https://leetcode.com/problems/search-in-rotated-sorted-array
+"Search in Rotated Sorted Array": https://leetcode.com/problems/search-in-rotated-sorted-array
+
 ---
 
 ## [81. Search in Rotated Sorted Array II](https://leetcode.com/problems/search-in-rotated-sorted-array-ii/description/)
@@ -6603,55 +6849,56 @@ See [33. Search in Rotated Sorted Array](./033.%20Search%20in%20Rotated%20Sorted
  * @param {number} target
  * @return {boolean}
  */
-let search = function(nums, target) {
-  let s = 0
-  let e = nums.length - 1
+let search = function (nums, target) {
+  let s = 0;
+  let e = nums.length - 1;
 
   while (s <= e) {
-    const p = (e + s) / 2 | 0
-    const pivot = nums[p]
+    const p = ((e + s) / 2) | 0;
+    const pivot = nums[p];
 
     if (target === pivot) {
-      return true
+      return true;
     }
 
     if (pivot < nums[e]) {
       if (target > nums[p] && target <= nums[e]) {
-        s = p + 1
+        s = p + 1;
       } else {
-        e = p - 1
+        e = p - 1;
       }
     } else if (pivot > nums[e]) {
       if (target < nums[p] && target >= nums[s]) {
-        e = p - 1
+        e = p - 1;
       } else {
-        s = p + 1
+        s = p + 1;
       }
     } else {
-      e--
+      e--;
     }
   }
 
-  return false
+  return false;
 };
 ```
 
-
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+_Template generated via [Leetmark](https://github.com/crimx/crx-leetmark)._
 
 ---
+
 Difficulty: Medium
 Related Topics:
-  "Linked List": https://leetcode.com/tag/linked-list
+"Linked List": https://leetcode.com/tag/linked-list
 Similar Questions:
-  "Remove Duplicates from Sorted List": https://leetcode.com/problems/remove-duplicates-from-sorted-list
+"Remove Duplicates from Sorted List": https://leetcode.com/problems/remove-duplicates-from-sorted-list
+
 ---
 
 ## [82. Remove Duplicates from Sorted List II](https://leetcode.com/problems/remove-duplicates-from-sorted-list-ii/description/)
 
 ### Problem:
 
-Given a sorted linked list, delete all nodes that have duplicate numbers, leaving only *distinct* numbers from the original list.
+Given a sorted linked list, delete all nodes that have duplicate numbers, leaving only _distinct_ numbers from the original list.
 
 **Example 1:**
 
@@ -6685,44 +6932,47 @@ The list is sorted so we only need `dupVal` to keep the latest duplicate value.
  * @param {ListNode} head
  * @return {ListNode}
  */
-let deleteDuplicates = function(head) {
-  if (!head) { return null }
-  const prehead = { next: head }
+let deleteDuplicates = function (head) {
+  if (!head) {
+    return null;
+  }
+  const prehead = { next: head };
 
-  let p = prehead
-  let dupVal = NaN
+  let p = prehead;
+  let dupVal = NaN;
 
   for (let p1 = head; p1; p1 = p1.next) {
     if (p1.val === dupVal) {
-      p.next = p1.next
+      p.next = p1.next;
     } else if (p1.next && p1.val === p1.next.val) {
-      p.next = p1.next
-      dupVal = p1.val
+      p.next = p1.next;
+      dupVal = p1.val;
     } else {
-      p = p1
+      p = p1;
     }
   }
 
-  return prehead.next
+  return prehead.next;
 };
 ```
 
-
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+_Template generated via [Leetmark](https://github.com/crimx/crx-leetmark)._
 
 ---
+
 Difficulty: Easy
 Related Topics:
-  "Linked List": https://leetcode.com/tag/linked-list
+"Linked List": https://leetcode.com/tag/linked-list
 Similar Questions:
-  "Remove Duplicates from Sorted List II": https://leetcode.com/problems/remove-duplicates-from-sorted-list-ii
+"Remove Duplicates from Sorted List II": https://leetcode.com/problems/remove-duplicates-from-sorted-list-ii
+
 ---
 
 ## [83. Remove Duplicates from Sorted List](https://leetcode.com/problems/remove-duplicates-from-sorted-list/description/)
 
 ### Problem:
 
-Given a sorted linked list, delete all duplicates such that each element appear only *once*.
+Given a sorted linked list, delete all duplicates such that each element appear only _once_.
 
 **Example 1:**
 
@@ -6756,25 +7006,27 @@ Just like [82. Remove Duplicates from Sorted List II](./082.%20Remove%20Duplicat
  * @param {ListNode} head
  * @return {ListNode}
  */
-let deleteDuplicates = function(head) {
-  if (!head) { return null }
-  const prehead = { next: head }
+let deleteDuplicates = function (head) {
+  if (!head) {
+    return null;
+  }
+  const prehead = { next: head };
 
-  let p = prehead
-  let dupVal = NaN
+  let p = prehead;
+  let dupVal = NaN;
 
   for (let p1 = head; p1; p1 = p1.next) {
     if (p1.val === dupVal) {
-      p.next = p1.next
+      p.next = p1.next;
     } else {
       if (p1.next && p1.val === p1.next.val) {
-        dupVal = p1.val
+        dupVal = p1.val;
       }
-      p = p1
+      p = p1;
     }
   }
 
-  return prehead.next
+  return prehead.next;
 };
 ```
 
@@ -6794,38 +7046,42 @@ Just compare the next node. This is way more faster.
  * @param {ListNode} head
  * @return {ListNode}
  */
-let deleteDuplicates = function(head) {
-  if (!head) { return null }
+let deleteDuplicates = function (head) {
+  if (!head) {
+    return null;
+  }
 
-  let p = head
+  let p = head;
   while (p) {
     if (p.next && p.val === p.next.val) {
-      p.next = p.next.next
+      p.next = p.next.next;
     } else {
-      p = p.next
+      p = p.next;
     }
   }
 
-  return head
+  return head;
 };
 ```
 
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+_Template generated via [Leetmark](https://github.com/crimx/crx-leetmark)._
 
 ---
+
 Difficulty: Hard
 Related Topics:
-  "Array": https://leetcode.com/tag/array
-  "Stack": https://leetcode.com/tag/stack
+"Array": https://leetcode.com/tag/array
+"Stack": https://leetcode.com/tag/stack
 Similar Questions:
-  "Maximal Rectangle": https://leetcode.com/problems/maximal-rectangle
+"Maximal Rectangle": https://leetcode.com/problems/maximal-rectangle
+
 ---
 
 ## [84. Largest Rectangle in Histogram](https://leetcode.com/problems/largest-rectangle-in-histogram/description/)
 
 ### Problem:
 
-Given *n* non-negative integers representing the histogram's bar height where the width of each bar is 1, find the area of largest rectangle in the histogram.
+Given _n_ non-negative integers representing the histogram's bar height where the width of each bar is 1, find the area of largest rectangle in the histogram.
 
 ![histogram.png](https://leetcode.com/static/images/problemset/histogram.png)
 
@@ -6862,41 +7118,42 @@ Notice that if we just loop the bars from left to right, `b1` and `b2` of each b
 
 Observe how `i1` and `i2` changes depending on the height.
 
-To reduce O(*n^2*) to O(*n*), we use a stack to store incremental `b`s. Because `b1` and `b2` are both lower than `b`, whenever we reach a bar that is lower than the top of the stack, we know it's a `b2`. So stack top is a `b`. Second top is a `b1`. Keep popping the `b` to calculate areas until `b2` is no longer lower than stack top.
+To reduce O(_n^2_) to O(_n_), we use a stack to store incremental `b`s. Because `b1` and `b2` are both lower than `b`, whenever we reach a bar that is lower than the top of the stack, we know it's a `b2`. So stack top is a `b`. Second top is a `b1`. Keep popping the `b` to calculate areas until `b2` is no longer lower than stack top.
 
 ```javascript
 /**
  * @param {number[]} heights
  * @return {number}
  */
-let largestRectangleArea = function(heights) {
-  const stack = [-1]
-  let max = 0
+let largestRectangleArea = function (heights) {
+  const stack = [-1];
+  let max = 0;
   for (let i2 = 0; i2 <= heights.length; i2++) {
-    while ((heights[i2] || 0) < heights[stack[stack.length-1]]) {
-      const i = stack.pop()
-      const i1 = stack[stack.length-1]
-      max = Math.max(max, heights[i] * (i2 - i1 - 1))
+    while ((heights[i2] || 0) < heights[stack[stack.length - 1]]) {
+      const i = stack.pop();
+      const i1 = stack[stack.length - 1];
+      max = Math.max(max, heights[i] * (i2 - i1 - 1));
     }
-    stack.push(i2)
+    stack.push(i2);
   }
-  return max
+  return max;
 };
-
 ```
 
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+_Template generated via [Leetmark](https://github.com/crimx/crx-leetmark)._
 
 ---
+
 Difficulty: Hard
 Related Topics:
-  "Array": https://leetcode.com/tag/array
-  "Hash Table": https://leetcode.com/tag/hash-table
-  "Dynamic Programming": https://leetcode.com/tag/dynamic-programming
-  "Stack": https://leetcode.com/tag/stack
+"Array": https://leetcode.com/tag/array
+"Hash Table": https://leetcode.com/tag/hash-table
+"Dynamic Programming": https://leetcode.com/tag/dynamic-programming
+"Stack": https://leetcode.com/tag/stack
 Similar Questions:
-  "Largest Rectangle in Histogram": https://leetcode.com/problems/largest-rectangle-in-histogram
-  "Maximal Square": https://leetcode.com/problems/maximal-square
+"Largest Rectangle in Histogram": https://leetcode.com/problems/largest-rectangle-in-histogram
+"Maximal Square": https://leetcode.com/problems/maximal-square
+
 ---
 
 ## [85. Maximal Rectangle](https://leetcode.com/problems/maximal-rectangle/description/)
@@ -6929,41 +7186,45 @@ View every row as a base line then we just have to solve `height(matrix)` times 
  * @param {character[][]} matrix
  * @return {number}
  */
-let maximalRectangle = function(matrix) {
-  const height = matrix.length
-  if (height <= 0) { return 0 }
-  const width = matrix[0].length
-  if (width <= 0) { return 0 }
-
-  const heights = []
-  let max = 0
-  for (let row = 0; row < height; row++) {
-    for (let col = 0; col < width; col++) {
-      heights[col] = ((heights[col] || 0) + 1) * matrix[row][col]
-    }
-    max = Math.max(max, largestRectangleArea(heights))
+let maximalRectangle = function (matrix) {
+  const height = matrix.length;
+  if (height <= 0) {
+    return 0;
+  }
+  const width = matrix[0].length;
+  if (width <= 0) {
+    return 0;
   }
 
-  return max
+  const heights = [];
+  let max = 0;
+  for (let row = 0; row < height; row++) {
+    for (let col = 0; col < width; col++) {
+      heights[col] = ((heights[col] || 0) + 1) * matrix[row][col];
+    }
+    max = Math.max(max, largestRectangleArea(heights));
+  }
+
+  return max;
 };
 
 /**
  * @param {number[]} heights
  * @return {number}
  */
-function largestRectangleArea (heights) {
-  const stack = [-1]
-  let max = 0
+function largestRectangleArea(heights) {
+  const stack = [-1];
+  let max = 0;
   for (let i2 = 0; i2 <= heights.length; i2++) {
-    while ((heights[i2] || 0) < heights[stack[stack.length-1]]) {
-      const i = stack.pop()
-      const i1 = stack[stack.length-1]
-      max = Math.max(max, heights[i] * (i2 - i1 - 1))
+    while ((heights[i2] || 0) < heights[stack[stack.length - 1]]) {
+      const i = stack.pop();
+      const i1 = stack[stack.length - 1];
+      max = Math.max(max, heights[i] * (i2 - i1 - 1));
     }
-    stack.push(i2)
+    stack.push(i2);
   }
-  return max
-};
+  return max;
+}
 ```
 
 #### TWO
@@ -6989,11 +7250,11 @@ With `conLeft` and `conRight` we can know if the rectangle on `(row, col)` shrin
 ```javascript
 if matrix[row][col] == 1
   height(row, col) = height(row-1, col) + 1
-  
+
   // see how long this horizontal line can get
   conLeft(row, col) = conLeft(row, col-1)
   conRight(row, col) = conRight(row, col+1)
-  
+
   // width can only be shorter
   left(row, col) = max( left(row-1, col), conLeft(row, col) )
   right(row, col) = min( right(row-1, col), conRight(row, col) )
@@ -7015,64 +7276,70 @@ We only need to keep the last state. Use dynamic arrays to reduce space complexi
  * @param {character[][]} matrix
  * @return {number}
  */
-let maximalRectangle = function(matrix) {
-  const height = matrix.length
-  if (height <= 0) { return 0 }
-  const width = matrix[0].length
-  if (width <= 0) { return 0 }
+let maximalRectangle = function (matrix) {
+  const height = matrix.length;
+  if (height <= 0) {
+    return 0;
+  }
+  const width = matrix[0].length;
+  if (width <= 0) {
+    return 0;
+  }
 
-  const heights = new Array(width).fill(0)
-  const lefts = new Array(width).fill(0)
-  const rights = new Array(width).fill(width)
+  const heights = new Array(width).fill(0);
+  const lefts = new Array(width).fill(0);
+  const rights = new Array(width).fill(width);
 
-  let max = 0
+  let max = 0;
 
   for (let row = 0; row < height; row++) {
-    let conLeft = 0
-    let conRight = width - 1
+    let conLeft = 0;
+    let conRight = width - 1;
     for (let col = 0; col < width; col++) {
-      if (matrix[row][col] === '1') {
-        heights[col] = heights[col] + 1
-        lefts[col] = Math.max(lefts[col], conLeft)
+      if (matrix[row][col] === "1") {
+        heights[col] = heights[col] + 1;
+        lefts[col] = Math.max(lefts[col], conLeft);
       } else {
-        heights[col] = 0
-        lefts[col] = 0
-        conLeft = col + 1
+        heights[col] = 0;
+        lefts[col] = 0;
+        conLeft = col + 1;
       }
     }
 
     for (let col = width - 1; col >= 0; col--) {
-      if (matrix[row][col] === '1') {
-        rights[col] = Math.min(rights[col], conRight)
+      if (matrix[row][col] === "1") {
+        rights[col] = Math.min(rights[col], conRight);
       } else {
-        rights[col] = width
-        conRight = col - 1
+        rights[col] = width;
+        conRight = col - 1;
       }
     }
 
     for (let col = 0; col < width; col++) {
-      max = Math.max(max, (rights[col] - lefts[col] + 1) * heights[col])
+      max = Math.max(max, (rights[col] - lefts[col] + 1) * heights[col]);
     }
   }
 
-  return max
+  return max;
 };
 ```
 
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+_Template generated via [Leetmark](https://github.com/crimx/crx-leetmark)._
 
 ---
+
 Difficulty: Medium
 Related Topics:
-  "Linked List": https://leetcode.com/tag/linked-list
-  "Two Pointers": https://leetcode.com/tag/two-pointers
+"Linked List": https://leetcode.com/tag/linked-list
+"Two Pointers": https://leetcode.com/tag/two-pointers
+
 ---
 
 ## [86. Partition List](https://leetcode.com/problems/partition-list/description/)
 
 ### Problem:
 
-Given a linked list and a value *x*, partition it such that all nodes less than *x* come before nodes greater than or equal to *x*.
+Given a linked list and a value _x_, partition it such that all nodes less than _x_ come before nodes greater than or equal to _x_.
 
 You should preserve the original relative order of the nodes in each of the two partitions.
 
@@ -7100,55 +7367,56 @@ Take the second part out as a new list and connect it back.
  * @param {number} x
  * @return {ListNode}
  */
-let partition = function(head, x) {
-  const prehead1 = { next: head }
-  let p1 = prehead1
-  let ptail1 = prehead1
+let partition = function (head, x) {
+  const prehead1 = { next: head };
+  let p1 = prehead1;
+  let ptail1 = prehead1;
 
-  const prehead2 = { next: null }
-  let p2 = prehead2
+  const prehead2 = { next: null };
+  let p2 = prehead2;
 
   while (p1) {
-    const next = p1.next
+    const next = p1.next;
     if (next && next.val >= x) {
-      p1.next = next.next
-      p2.next = next
-      p2 = next
+      p1.next = next.next;
+      p2.next = next;
+      p2 = next;
     } else {
-      ptail1 = p1
-      p1 = p1.next
+      ptail1 = p1;
+      p1 = p1.next;
     }
   }
 
-  p2.next = null
-  ptail1.next = prehead2.next
+  p2.next = null;
+  ptail1.next = prehead2.next;
 
-  return prehead1.next
+  return prehead1.next;
 };
 ```
 
-
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+_Template generated via [Leetmark](https://github.com/crimx/crx-leetmark)._
 
 ---
+
 Difficulty: Easy
 Related Topics:
-  "Array": https://leetcode.com/tag/array
-  "Two Pointers": https://leetcode.com/tag/two-pointers
+"Array": https://leetcode.com/tag/array
+"Two Pointers": https://leetcode.com/tag/two-pointers
 Similar Questions:
-  "Merge Two Sorted Lists": https://leetcode.com/problems/merge-two-sorted-lists
+"Merge Two Sorted Lists": https://leetcode.com/problems/merge-two-sorted-lists
+
 ---
 
 ## [88. Merge Sorted Array](https://leetcode.com/problems/merge-sorted-array/description/)
 
 ### Problem:
 
-Given two sorted integer arrays *nums1* and *nums2*, merge *nums2* into *nums1* as one sorted array.
+Given two sorted integer arrays _nums1_ and _nums2_, merge _nums2_ into _nums1_ as one sorted array.
 
 **Note:**
 
-- The number of elements initialized in *nums1* and *nums2* are *m* and *n* respectively.
-- You may assume that *nums1* has enough space (size that is greater or equal to *m* + *n*) to hold additional elements from *nums2*.
+- The number of elements initialized in _nums1_ and _nums2_ are _m_ and _n_ respectively.
+- You may assume that _nums1_ has enough space (size that is greater or equal to _m_ + _n_) to hold additional elements from _nums2_.
 
 **Example:**
 
@@ -7172,23 +7440,24 @@ Loop backward and keep picking the larger one. `nums1` is guaranteed longer than
  * @param {number} n
  * @return {void} Do not return anything, modify nums1 in-place instead.
  */
-let merge = function(nums1, m, nums2, n) {
-  let len = (m--) + (n--)
+let merge = function (nums1, m, nums2, n) {
+  let len = m-- + n--;
   while (n >= 0) {
-    nums1[--len] = nums1[m] >= nums2[n] ? nums1[m--] : nums2[n--]
+    nums1[--len] = nums1[m] >= nums2[n] ? nums1[m--] : nums2[n--];
   }
 };
 ```
 
-
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+_Template generated via [Leetmark](https://github.com/crimx/crx-leetmark)._
 
 ---
+
 Difficulty: Medium
 Related Topics:
-  "Backtracking": https://leetcode.com/tag/backtracking
+"Backtracking": https://leetcode.com/tag/backtracking
 Similar Questions:
-  "1-bit and 2-bit Characters": https://leetcode.com/problems/1-bit-and-2-bit-characters
+"1-bit and 2-bit Characters": https://leetcode.com/problems/1-bit-and-2-bit-characters
+
 ---
 
 ## [89. Gray Code](https://leetcode.com/problems/gray-code/description/)
@@ -7197,7 +7466,7 @@ Similar Questions:
 
 The gray code is a binary numeral system where two successive values differ in only one bit.
 
-Given a non-negative integer *n* representing the total number of bits in the code, print the sequence of gray code. A gray code sequence must begin with 0.
+Given a non-negative integer _n_ representing the total number of bits in the code, print the sequence of gray code. A gray code sequence must begin with 0.
 
 **Example 1:**
 
@@ -7231,7 +7500,6 @@ Explanation: We define the gray code sequence to begin with 0.
 
 ### Solution:
 
-
 ```
 0: [  0                                   ]
 1: [  0,   1                              ]
@@ -7248,27 +7516,29 @@ Use bitwise shift to speed up the calculation. It is unlikely to overflow since 
  * @param {number} n
  * @return {number[]}
  */
-let grayCode = function(n) {
-  const result = [0]
+let grayCode = function (n) {
+  const result = [0];
   for (let level = 0; level < n; level++) {
-    const prefix = 1 << level
+    const prefix = 1 << level;
     for (let i = result.length - 1; i >= 0; i--) {
-      result.push(result[i] + prefix)
+      result.push(result[i] + prefix);
     }
   }
-  return result
+  return result;
 };
 ```
 
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+_Template generated via [Leetmark](https://github.com/crimx/crx-leetmark)._
 
 ---
+
 Difficulty: Medium
 Related Topics:
-  "Array": https://leetcode.com/tag/array
-  "Backtracking": https://leetcode.com/tag/backtracking
+"Array": https://leetcode.com/tag/array
+"Backtracking": https://leetcode.com/tag/backtracking
 Similar Questions:
-  "Subsets": https://leetcode.com/problems/subsets
+"Subsets": https://leetcode.com/problems/subsets
+
 ---
 
 ## [90. Subsets II](https://leetcode.com/problems/subsets-ii/description/)
@@ -7306,34 +7576,36 @@ See [78. Subsets](./078.%20Subsets.md). Except:
  * @param {number[]} nums
  * @return {number[][]}
  */
-let subsetsWithDup = function(nums) {
-  const result = []
-  _subsetsWithDup(nums.sort(), 0, [], result)
-  return result
+let subsetsWithDup = function (nums) {
+  const result = [];
+  _subsetsWithDup(nums.sort(), 0, [], result);
+  return result;
 };
 
 function _subsetsWithDup(nums, start, path, result) {
-  result.push(path.slice())
+  result.push(path.slice());
   for (let i = start; i < nums.length; i++) {
-    if(i > start && nums[i] === nums[i-1]) {
-      continue
+    if (i > start && nums[i] === nums[i - 1]) {
+      continue;
     }
-    path.push(nums[i])
-    _subsetsWithDup(nums, i + 1, path, result)
-    path.pop()
+    path.push(nums[i]);
+    _subsetsWithDup(nums, i + 1, path, result);
+    path.pop();
   }
 }
 ```
 
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+_Template generated via [Leetmark](https://github.com/crimx/crx-leetmark)._
 
 ---
+
 Difficulty: Medium
 Related Topics:
-  "String": https://leetcode.com/tag/string
-  "Dynamic Programming": https://leetcode.com/tag/dynamic-programming
+"String": https://leetcode.com/tag/string
+"Dynamic Programming": https://leetcode.com/tag/dynamic-programming
 Similar Questions:
-  "Decode Ways II": https://leetcode.com/problems/decode-ways-ii
+"Decode Ways II": https://leetcode.com/problems/decode-ways-ii
+
 ---
 
 ## [91. Decode Ways](https://leetcode.com/problems/decode-ways/description/)
@@ -7388,44 +7660,46 @@ Only need to store the last two states. Init `f(-1) = 1` for easy calculation.
  * @param {string} s
  * @return {number}
  */
-let numDecodings = function(s) {
-  let dp = s[0] > 0 ? 1 : 0
-  let dp_1 = dp
-  let dp_2 = 1
-  
+let numDecodings = function (s) {
+  let dp = s[0] > 0 ? 1 : 0;
+  let dp_1 = dp;
+  let dp_2 = 1;
+
   for (let i = 1; i < s.length; i++) {
-    dp = 0
-    if (s[i] !== '0') {
-      dp += dp_1
+    dp = 0;
+    if (s[i] !== "0") {
+      dp += dp_1;
     }
-    if (s[i-1] !== '0' && s[i-1] + s[i] <= 26) {
-      dp += dp_2
+    if (s[i - 1] !== "0" && s[i - 1] + s[i] <= 26) {
+      dp += dp_2;
     }
-    dp_2 = dp_1
-    dp_1 = dp
+    dp_2 = dp_1;
+    dp_1 = dp;
   }
-  
-  return dp
+
+  return dp;
 };
 ```
 
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+_Template generated via [Leetmark](https://github.com/crimx/crx-leetmark)._
 
 ---
+
 Difficulty: Medium
 Related Topics:
-  "Linked List": https://leetcode.com/tag/linked-list
+"Linked List": https://leetcode.com/tag/linked-list
 Similar Questions:
-  "Reverse Linked List": https://leetcode.com/problems/reverse-linked-list
+"Reverse Linked List": https://leetcode.com/problems/reverse-linked-list
+
 ---
 
 ## [92. Reverse Linked List II](https://leetcode.com/problems/reverse-linked-list-ii/description/)
 
 ### Problem:
 
-Reverse a linked list from position *m* to *n*. Do it in one-pass.
+Reverse a linked list from position _m_ to _n_. Do it in one-pass.
 
-**Note:**1 ≤ *m* ≤ *n* ≤ length of list.
+**Note:**1 ≤ _m_ ≤ _n_ ≤ length of list.
 
 **Example:**
 
@@ -7452,45 +7726,48 @@ Break the list into 3 parts.
  * @param {number} n
  * @return {ListNode}
  */
-let reverseBetween = function(head, m, n) {
-  if (m === n) { return head }
+let reverseBetween = function (head, m, n) {
+  if (m === n) {
+    return head;
+  }
 
-  const prehead = { next: head }
-  n = n - m
+  const prehead = { next: head };
+  n = n - m;
 
-  let l1tail = prehead
+  let l1tail = prehead;
   while (--m > 0) {
-    l1tail = l1tail.next
+    l1tail = l1tail.next;
   }
 
-  let l2prehead = l1tail
-  let l2head = l2prehead.next
-  let l2tail = l2head
+  let l2prehead = l1tail;
+  let l2head = l2prehead.next;
+  let l2tail = l2head;
   while (n-- > 0) {
-    const next = l2head.next
-    l2head.next = l2prehead
-    l2prehead = l2head
-    l2head = next
+    const next = l2head.next;
+    l2head.next = l2prehead;
+    l2prehead = l2head;
+    l2head = next;
   }
 
-  l2tail.next = l2head.next // l3head
-  l2head.next = l2prehead
-  l1tail.next = l2head
+  l2tail.next = l2head.next; // l3head
+  l2head.next = l2prehead;
+  l1tail.next = l2head;
 
-  return prehead.next
+  return prehead.next;
 };
 ```
 
-
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+_Template generated via [Leetmark](https://github.com/crimx/crx-leetmark)._
 
 ---
+
 Difficulty: Medium
 Related Topics:
-  "String": https://leetcode.com/tag/string
-  "Backtracking": https://leetcode.com/tag/backtracking
+"String": https://leetcode.com/tag/string
+"Backtracking": https://leetcode.com/tag/backtracking
 Similar Questions:
-  "IP to CIDR": https://leetcode.com/problems/ip-to-cidr
+"IP to CIDR": https://leetcode.com/problems/ip-to-cidr
+
 ---
 
 ## [93. Restore IP Addresses](https://leetcode.com/problems/restore-ip-addresses/description/)
@@ -7515,56 +7792,57 @@ Backtracking. Note that leading `'0'` is not allowed except just `'0'`.
  * @param {string} s
  * @return {string[]}
  */
-let restoreIpAddresses = function(s, i = 0, path = [], result = []) {
+let restoreIpAddresses = function (s, i = 0, path = [], result = []) {
   if (i === s.length) {
     if (path.length === 4) {
-      result.push(path.join('.'))
+      result.push(path.join("."));
     }
-    return result
+    return result;
   }
 
-  const digit = s.charCodeAt(i) - 48
+  const digit = s.charCodeAt(i) - 48;
 
   if (i === 0) {
-    path[0] = digit
-    restoreIpAddresses(s, i + 1, path, result)
-    path[0] = 0
-    return result
+    path[0] = digit;
+    restoreIpAddresses(s, i + 1, path, result);
+    path[0] = 0;
+    return result;
   }
 
-  const sum = path[path.length - 1] * 10 + digit
+  const sum = path[path.length - 1] * 10 + digit;
 
   if (digit < sum && sum <= 255) {
-    path[path.length - 1] = sum
-    restoreIpAddresses(s, i + 1, path, result)
-    path[path.length - 1] = (sum - digit) / 10
+    path[path.length - 1] = sum;
+    restoreIpAddresses(s, i + 1, path, result);
+    path[path.length - 1] = (sum - digit) / 10;
   }
 
   if (path.length < 4) {
-    path.push(digit)
-    restoreIpAddresses(s, i + 1, path, result)
-    path.pop()
+    path.push(digit);
+    restoreIpAddresses(s, i + 1, path, result);
+    path.pop();
   }
 
-  return result
+  return result;
 };
 ```
 
-
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+_Template generated via [Leetmark](https://github.com/crimx/crx-leetmark)._
 
 ---
+
 Difficulty: Hard
 Related Topics:
-  "String": https://leetcode.com/tag/string
-  "Dynamic Programming": https://leetcode.com/tag/dynamic-programming
+"String": https://leetcode.com/tag/string
+"Dynamic Programming": https://leetcode.com/tag/dynamic-programming
+
 ---
 
 ## [97. Interleaving String](https://leetcode.com/problems/interleaving-string/description/)
 
 ### Problem:
 
-Given *s1*, *s2*, *s3*, find whether *s3* is formed by the interleaving of *s1* and *s2*.
+Given _s1_, _s2_, _s3_, find whether _s3_ is formed by the interleaving of _s1_ and _s2_.
 
 **Example 1:**
 
@@ -7598,32 +7876,41 @@ Dynamic array can be used.
  * @param {string} s3
  * @return {boolean}
  */
-let isInterleave = function(s1, s2, s3) {
-  const len1 = s1.length
-  const len2 = s2.length
-  const len3 = s3.length
-  if (len1 + len2 !== len3) { return false }
-  if (len1 <= 0) { return s2 === s3 }
-  if (len2 <= 0) { return s1 === s3 }
+let isInterleave = function (s1, s2, s3) {
+  const len1 = s1.length;
+  const len2 = s2.length;
+  const len3 = s3.length;
+  if (len1 + len2 !== len3) {
+    return false;
+  }
+  if (len1 <= 0) {
+    return s2 === s3;
+  }
+  if (len2 <= 0) {
+    return s1 === s3;
+  }
 
-  const dp = []
+  const dp = [];
   for (let i = 0; i <= len1; i++) {
     for (let j = 0; j <= len2; j++) {
-      dp[j] = (i <= 0 || dp[j]) && s1[i-1] === s3[i+j-1] ||
-              (j <= 0 || dp[j-1]) && s2[j-1] === s3[i+j-1]
+      dp[j] =
+        ((i <= 0 || dp[j]) && s1[i - 1] === s3[i + j - 1]) ||
+        ((j <= 0 || dp[j - 1]) && s2[j - 1] === s3[i + j - 1]);
     }
   }
-  return dp[len2]
+  return dp[len2];
 };
 ```
 
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+_Template generated via [Leetmark](https://github.com/crimx/crx-leetmark)._
 
 ---
+
 Difficulty: Easy
 Related Topics:
-  "Tree": https://leetcode.com/tag/tree
-  "Depth-first Search": https://leetcode.com/tag/depth-first-search
+"Tree": https://leetcode.com/tag/tree
+"Depth-first Search": https://leetcode.com/tag/depth-first-search
+
 ---
 
 ## [100. Same Tree](https://leetcode.com/problems/same-tree/description/)
@@ -7687,21 +7974,28 @@ The code should be self-evident.
  * @param {TreeNode} q
  * @return {boolean}
  */
-let isSameTree = function(p, q) {
-  return p === null && q === null ||
-    p !== null && q !== null && p.val === q.val && isSameTree(p.left, q.left) && isSameTree(p.right, q.right)
+let isSameTree = function (p, q) {
+  return (
+    (p === null && q === null) ||
+    (p !== null &&
+      q !== null &&
+      p.val === q.val &&
+      isSameTree(p.left, q.left) &&
+      isSameTree(p.right, q.right))
+  );
 };
 ```
 
-
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+_Template generated via [Leetmark](https://github.com/crimx/crx-leetmark)._
 
 ---
+
 Difficulty: Easy
 Related Topics:
-  "Tree": https://leetcode.com/tag/tree
-  "Depth-first Search": https://leetcode.com/tag/depth-first-search
-  "Breadth-first Search": https://leetcode.com/tag/breadth-first-search
+"Tree": https://leetcode.com/tag/tree
+"Depth-first Search": https://leetcode.com/tag/depth-first-search
+"Breadth-first Search": https://leetcode.com/tag/breadth-first-search
+
 ---
 
 ## [101. Symmetric Tree](https://leetcode.com/problems/symmetric-tree/description/)
@@ -7720,7 +8014,7 @@ For example, this binary tree `[1,2,2,3,4,4,3]` is symmetric:
 3  4 4  3
 ```
 
-But the following `[1,2,2,null,3,null,3]`  is not:
+But the following `[1,2,2,null,3,null,3]` is not:
 
 ```
 1
@@ -7753,8 +8047,8 @@ So just like [100. Same Tree](./100.%20Same%20Tree.md). Except one is pre-order 
  * @param {TreeNode} root
  * @return {boolean}
  */
-let isSymmetric = function(root) {
-  return root === null || isSymmetricTree(root.left, root.right)
+let isSymmetric = function (root) {
+  return root === null || isSymmetricTree(root.left, root.right);
 };
 
 /**
@@ -7762,10 +8056,16 @@ let isSymmetric = function(root) {
  * @param {TreeNode} q
  * @return {boolean}
  */
-function isSymmetricTree (p, q) {
-  return p === null && q === null ||
-    p !== null && q !== null && p.val === q.val && isSymmetricTree(p.left, q.right) && isSymmetricTree(p.right, q.left)
-};
+function isSymmetricTree(p, q) {
+  return (
+    (p === null && q === null) ||
+    (p !== null &&
+      q !== null &&
+      p.val === q.val &&
+      isSymmetricTree(p.left, q.right) &&
+      isSymmetricTree(p.right, q.left))
+  );
+}
 ```
 
 #### TWO
@@ -7784,49 +8084,56 @@ Level order traversal. Check symmetry before entering the next level.
  * @param {TreeNode} root
  * @return {boolean}
  */
-let isSymmetric = function(root) {
-  if (root === null) { return true }
+let isSymmetric = function (root) {
+  if (root === null) {
+    return true;
+  }
 
-  const queue = [NaN, root]
+  const queue = [NaN, root];
 
   while (queue.length > 1) {
-    const node = queue.shift()
+    const node = queue.shift();
     if (node !== node) {
-      for (let i = 0, j = queue.length-1; i <= j; i++, j--) {
-        if (queue[i] === null && queue[j] !== null ||
-            queue[i] !== null && queue[j] === null ||
-            queue[i] !== null && queue[j] !== null && queue[i].val !== queue[j].val
-           ) {
-          return false
+      for (let i = 0, j = queue.length - 1; i <= j; i++, j--) {
+        if (
+          (queue[i] === null && queue[j] !== null) ||
+          (queue[i] !== null && queue[j] === null) ||
+          (queue[i] !== null &&
+            queue[j] !== null &&
+            queue[i].val !== queue[j].val)
+        ) {
+          return false;
         }
       }
-      queue.push(NaN)
+      queue.push(NaN);
     } else {
       if (node !== null) {
-        queue.push(node.left)
-        queue.push(node.right)
+        queue.push(node.left);
+        queue.push(node.right);
       }
     }
   }
 
-  return true
+  return true;
 };
 ```
 
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+_Template generated via [Leetmark](https://github.com/crimx/crx-leetmark)._
 
 ---
+
 Difficulty: Medium
 Related Topics:
-  "Tree": https://leetcode.com/tag/tree
-  "Breadth-first Search": https://leetcode.com/tag/breadth-first-search
+"Tree": https://leetcode.com/tag/tree
+"Breadth-first Search": https://leetcode.com/tag/breadth-first-search
 Similar Questions:
-  "Binary Tree Zigzag Level Order Traversal": https://leetcode.com/problems/binary-tree-zigzag-level-order-traversal
-  "Binary Tree Level Order Traversal II": https://leetcode.com/problems/binary-tree-level-order-traversal-ii
-  "Minimum Depth of Binary Tree": https://leetcode.com/problems/minimum-depth-of-binary-tree
-  "Binary Tree Vertical Order Traversal": https://leetcode.com/problems/binary-tree-vertical-order-traversal
-  "Average of Levels in Binary Tree": https://leetcode.com/problems/average-of-levels-in-binary-tree
-  "N-ary Tree Level Order Traversal": https://leetcode.com/problems/n-ary-tree-level-order-traversal
+"Binary Tree Zigzag Level Order Traversal": https://leetcode.com/problems/binary-tree-zigzag-level-order-traversal
+"Binary Tree Level Order Traversal II": https://leetcode.com/problems/binary-tree-level-order-traversal-ii
+"Minimum Depth of Binary Tree": https://leetcode.com/problems/minimum-depth-of-binary-tree
+"Binary Tree Vertical Order Traversal": https://leetcode.com/problems/binary-tree-vertical-order-traversal
+"Average of Levels in Binary Tree": https://leetcode.com/problems/average-of-levels-in-binary-tree
+"N-ary Tree Level Order Traversal": https://leetcode.com/problems/n-ary-tree-level-order-traversal
+
 ---
 
 ## [102. Binary Tree Level Order Traversal](https://leetcode.com/problems/binary-tree-level-order-traversal/description/)
@@ -7872,37 +8179,44 @@ The code should be self-evident.
  * @param {TreeNode} root
  * @return {number[][]}
  */
-let levelOrder = function(root) {
-  if (!root) { return [] }
+let levelOrder = function (root) {
+  if (!root) {
+    return [];
+  }
 
-  const result = []
-  const queue = [NaN, root]
+  const result = [];
+  const queue = [NaN, root];
   while (queue.length > 1) {
-    const node = queue.shift()
+    const node = queue.shift();
     if (node !== node) {
-      result.push(queue.map(n => n.val))
-      queue.push(NaN)
+      result.push(queue.map((n) => n.val));
+      queue.push(NaN);
     } else {
-      if (node.left) { queue.push(node.left) }
-      if (node.right) { queue.push(node.right) }
+      if (node.left) {
+        queue.push(node.left);
+      }
+      if (node.right) {
+        queue.push(node.right);
+      }
     }
   }
 
-  return result
+  return result;
 };
 ```
 
-
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+_Template generated via [Leetmark](https://github.com/crimx/crx-leetmark)._
 
 ---
+
 Difficulty: Medium
 Related Topics:
-  "Stack": https://leetcode.com/tag/stack
-  "Tree": https://leetcode.com/tag/tree
-  "Breadth-first Search": https://leetcode.com/tag/breadth-first-search
+"Stack": https://leetcode.com/tag/stack
+"Tree": https://leetcode.com/tag/tree
+"Breadth-first Search": https://leetcode.com/tag/breadth-first-search
 Similar Questions:
-  "Binary Tree Level Order Traversal": https://leetcode.com/problems/binary-tree-level-order-traversal
+"Binary Tree Level Order Traversal": https://leetcode.com/problems/binary-tree-level-order-traversal
+
 ---
 
 ## [103. Binary Tree Zigzag Level Order Traversal](https://leetcode.com/problems/binary-tree-zigzag-level-order-traversal/description/)
@@ -7948,43 +8262,50 @@ Reverse the level when pushing to the reuslt.
  * @param {TreeNode} root
  * @return {number[][]}
  */
-let zigzagLevelOrder = function(root) {
-  if (!root) { return [] }
+let zigzagLevelOrder = function (root) {
+  if (!root) {
+    return [];
+  }
 
-  const result = []
-  const queue = [NaN, root]
-  let zipzag = false
+  const result = [];
+  const queue = [NaN, root];
+  let zipzag = false;
   while (queue.length > 1) {
-    const node = queue.shift()
+    const node = queue.shift();
     if (node !== node) {
-      if (zipzag = !zipzag) {
-        result.push(queue.map(n => n.val))
+      if ((zipzag = !zipzag)) {
+        result.push(queue.map((n) => n.val));
       } else {
-        result.push(queue.map(n => n.val).reverse())
+        result.push(queue.map((n) => n.val).reverse());
       }
-      queue.push(NaN)
+      queue.push(NaN);
     } else {
-      if (node.left) { queue.push(node.left) }
-      if (node.right) { queue.push(node.right) }
+      if (node.left) {
+        queue.push(node.left);
+      }
+      if (node.right) {
+        queue.push(node.right);
+      }
     }
   }
 
-  return result
+  return result;
 };
 ```
 
-
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+_Template generated via [Leetmark](https://github.com/crimx/crx-leetmark)._
 
 ---
+
 Difficulty: Easy
 Related Topics:
-  "Tree": https://leetcode.com/tag/tree
-  "Depth-first Search": https://leetcode.com/tag/depth-first-search
+"Tree": https://leetcode.com/tag/tree
+"Depth-first Search": https://leetcode.com/tag/depth-first-search
 Similar Questions:
-  "Balanced Binary Tree": https://leetcode.com/problems/balanced-binary-tree
-  "Minimum Depth of Binary Tree": https://leetcode.com/problems/minimum-depth-of-binary-tree
-  "Maximum Depth of N-ary Tree": https://leetcode.com/problems/maximum-depth-of-n-ary-tree
+"Balanced Binary Tree": https://leetcode.com/problems/balanced-binary-tree
+"Minimum Depth of Binary Tree": https://leetcode.com/problems/minimum-depth-of-binary-tree
+"Maximum Depth of N-ary Tree": https://leetcode.com/problems/maximum-depth-of-n-ary-tree
+
 ---
 
 ## [104. Maximum Depth of Binary Tree](https://leetcode.com/problems/maximum-depth-of-binary-tree/description/)
@@ -8027,24 +8348,25 @@ The code should be self-evident.
  * @param {TreeNode} root
  * @return {number}
  */
-let maxDepth = function(root) {
+let maxDepth = function (root) {
   return root === null
     ? 0
-    : Math.max(maxDepth(root.left), maxDepth(root.right)) + 1
+    : Math.max(maxDepth(root.left), maxDepth(root.right)) + 1;
 };
 ```
 
-
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+_Template generated via [Leetmark](https://github.com/crimx/crx-leetmark)._
 
 ---
+
 Difficulty: Medium
 Related Topics:
-  "Array": https://leetcode.com/tag/array
-  "Tree": https://leetcode.com/tag/tree
-  "Depth-first Search": https://leetcode.com/tag/depth-first-search
+"Array": https://leetcode.com/tag/array
+"Tree": https://leetcode.com/tag/tree
+"Depth-first Search": https://leetcode.com/tag/depth-first-search
 Similar Questions:
-  "Construct Binary Tree from Inorder and Postorder Traversal": https://leetcode.com/problems/construct-binary-tree-from-inorder-and-postorder-traversal
+"Construct Binary Tree from Inorder and Postorder Traversal": https://leetcode.com/problems/construct-binary-tree-from-inorder-and-postorder-traversal
+
 ---
 
 ## [105. Construct Binary Tree from Preorder and Inorder Traversal](https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/description/)
@@ -8096,37 +8418,53 @@ Repeat the process on subtrees.
  * @param {number[]} inorder
  * @return {TreeNode}
  */
-let buildTree = function(preorder, inorder) {
-  return _buildTree(preorder, inorder, 0, preorder.length, 0, inorder.length)
+let buildTree = function (preorder, inorder) {
+  return _buildTree(preorder, inorder, 0, preorder.length, 0, inorder.length);
 };
 
-function _buildTree (preorder, inorder, pStart, pEnd, iStart, iEnd) {
+function _buildTree(preorder, inorder, pStart, pEnd, iStart, iEnd) {
   if (pStart >= pEnd || iStart >= iEnd) {
-    return null
+    return null;
   }
-  const val = preorder[pStart]
-  const node = new TreeNode(val)
+  const val = preorder[pStart];
+  const node = new TreeNode(val);
   for (let i = iStart; i < iEnd; i++) {
     if (val === inorder[i]) {
-      node.left = _buildTree(preorder, inorder, pStart + 1, i - iStart + (pStart + 1), iStart, i)
-      node.right = _buildTree(preorder, inorder, (i + 1) - iEnd + pEnd, pEnd, i + 1, iEnd)
-      break
+      node.left = _buildTree(
+        preorder,
+        inorder,
+        pStart + 1,
+        i - iStart + (pStart + 1),
+        iStart,
+        i
+      );
+      node.right = _buildTree(
+        preorder,
+        inorder,
+        i + 1 - iEnd + pEnd,
+        pEnd,
+        i + 1,
+        iEnd
+      );
+      break;
     }
   }
-  return node
+  return node;
 }
 ```
 
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+_Template generated via [Leetmark](https://github.com/crimx/crx-leetmark)._
 
 ---
+
 Difficulty: Medium
 Related Topics:
-  "Array": https://leetcode.com/tag/array
-  "Tree": https://leetcode.com/tag/tree
-  "Depth-first Search": https://leetcode.com/tag/depth-first-search
+"Array": https://leetcode.com/tag/array
+"Tree": https://leetcode.com/tag/tree
+"Depth-first Search": https://leetcode.com/tag/depth-first-search
 Similar Questions:
-  "Construct Binary Tree from Preorder and Inorder Traversal": https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal
+"Construct Binary Tree from Preorder and Inorder Traversal": https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal
+
 ---
 
 ## [106. Construct Binary Tree from Inorder and Postorder Traversal](https://leetcode.com/problems/construct-binary-tree-from-inorder-and-postorder-traversal/description/)
@@ -8178,37 +8516,53 @@ Repeat the process on subtrees.
  * @param {number[]} postorder
  * @return {TreeNode}
  */
-let buildTree = function(inorder, postorder) {
-  return _buildTree(postorder, inorder, 0, postorder.length, 0, inorder.length)
+let buildTree = function (inorder, postorder) {
+  return _buildTree(postorder, inorder, 0, postorder.length, 0, inorder.length);
 };
 
-function _buildTree (postorder, inorder, pStart, pEnd, iStart, iEnd) {
+function _buildTree(postorder, inorder, pStart, pEnd, iStart, iEnd) {
   if (pStart >= pEnd || iStart >= iEnd) {
-    return null
+    return null;
   }
-  const val = postorder[pEnd - 1]
-  const node = new TreeNode(val)
+  const val = postorder[pEnd - 1];
+  const node = new TreeNode(val);
   for (let i = iStart; i < iEnd; i++) {
     if (val === inorder[i]) {
-      node.left = _buildTree(postorder, inorder, pStart, i - iStart + pStart, iStart, i)
-      node.right = _buildTree(postorder, inorder, (i + 1) - iEnd + (pEnd - 1), pEnd - 1, i + 1, iEnd)
-      break
+      node.left = _buildTree(
+        postorder,
+        inorder,
+        pStart,
+        i - iStart + pStart,
+        iStart,
+        i
+      );
+      node.right = _buildTree(
+        postorder,
+        inorder,
+        i + 1 - iEnd + (pEnd - 1),
+        pEnd - 1,
+        i + 1,
+        iEnd
+      );
+      break;
     }
   }
-  return node
+  return node;
 }
 ```
 
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+_Template generated via [Leetmark](https://github.com/crimx/crx-leetmark)._
 
 ---
+
 Difficulty: Easy
 Related Topics:
-  "Tree": https://leetcode.com/tag/tree
-  "Breadth-first Search": https://leetcode.com/tag/breadth-first-search
+"Tree": https://leetcode.com/tag/tree
+"Breadth-first Search": https://leetcode.com/tag/breadth-first-search
 Similar Questions:
-  "Binary Tree Level Order Traversal": https://leetcode.com/problems/binary-tree-level-order-traversal
-  "Average of Levels in Binary Tree": https://leetcode.com/problems/average-of-levels-in-binary-tree
+"Binary Tree Level Order Traversal": https://leetcode.com/problems/binary-tree-level-order-traversal
+"Average of Levels in Binary Tree": https://leetcode.com/problems/average-of-levels-in-binary-tree
+
 ---
 
 ## [107. Binary Tree Level Order Traversal II](https://leetcode.com/problems/binary-tree-level-order-traversal-ii/description/)
@@ -8254,37 +8608,43 @@ See [102. Binary Tree Level Order Traversal](./102.%20Binary%20Tree%20Level%20Or
  * @param {TreeNode} root
  * @return {number[][]}
  */
-let levelOrderBottom = function(root) {
-  if (!root) { return [] }
+let levelOrderBottom = function (root) {
+  if (!root) {
+    return [];
+  }
 
-  const result = []
-  const queue = [NaN, root]
+  const result = [];
+  const queue = [NaN, root];
   while (queue.length > 1) {
-    const node = queue.shift()
+    const node = queue.shift();
     if (node !== node) {
-      result.unshift(queue.map(n => n.val))
-      queue.push(NaN)
+      result.unshift(queue.map((n) => n.val));
+      queue.push(NaN);
     } else {
-      if (node.left) { queue.push(node.left) }
-      if (node.right) { queue.push(node.right) }
+      if (node.left) {
+        queue.push(node.left);
+      }
+      if (node.right) {
+        queue.push(node.right);
+      }
     }
   }
 
-  return result
+  return result;
 };
 ```
 
-
-
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+_Template generated via [Leetmark](https://github.com/crimx/crx-leetmark)._
 
 ---
+
 Difficulty: Easy
 Related Topics:
-  "Tree": https://leetcode.com/tag/tree
-  "Depth-first Search": https://leetcode.com/tag/depth-first-search
+"Tree": https://leetcode.com/tag/tree
+"Depth-first Search": https://leetcode.com/tag/depth-first-search
 Similar Questions:
-  "Maximum Depth of Binary Tree": https://leetcode.com/problems/maximum-depth-of-binary-tree
+"Maximum Depth of Binary Tree": https://leetcode.com/problems/maximum-depth-of-binary-tree
+
 ---
 
 ## [110. Balanced Binary Tree](https://leetcode.com/problems/balanced-binary-tree/description/)
@@ -8295,7 +8655,7 @@ Given a binary tree, determine if it is height-balanced.
 
 For this problem, a height-balanced binary tree is defined as:
 
-a binary tree in which the depth of the two subtrees of *every* node never differ by more than 1.
+a binary tree in which the depth of the two subtrees of _every_ node never differ by more than 1.
 
 **Example 1:**
 
@@ -8343,32 +8703,41 @@ Get the depth of subtrees and compare. Prune the DFS tree by returning `-1`.
  * @param {TreeNode} root
  * @return {boolean}
  */
-let isBalanced = function(root) {
-  return getDepth(root) >= 0
+let isBalanced = function (root) {
+  return getDepth(root) >= 0;
 };
 
-function getDepth (root) {
-  if (!root) { return 0 }
-  const leftDepth = getDepth(root.left)
-  if (leftDepth < 0) { return -1 }
-  const rightDepth = getDepth(root.right)
-  if (rightDepth < 0) { return -1 }
-  return Math.abs(leftDepth - rightDepth) <= 1 ? Math.max(leftDepth, rightDepth) + 1 : -1
+function getDepth(root) {
+  if (!root) {
+    return 0;
+  }
+  const leftDepth = getDepth(root.left);
+  if (leftDepth < 0) {
+    return -1;
+  }
+  const rightDepth = getDepth(root.right);
+  if (rightDepth < 0) {
+    return -1;
+  }
+  return Math.abs(leftDepth - rightDepth) <= 1
+    ? Math.max(leftDepth, rightDepth) + 1
+    : -1;
 }
 ```
 
-
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+_Template generated via [Leetmark](https://github.com/crimx/crx-leetmark)._
 
 ---
+
 Difficulty: Easy
 Related Topics:
-  "Tree": https://leetcode.com/tag/tree
-  "Depth-first Search": https://leetcode.com/tag/depth-first-search
-  "Breadth-first Search": https://leetcode.com/tag/breadth-first-search
+"Tree": https://leetcode.com/tag/tree
+"Depth-first Search": https://leetcode.com/tag/depth-first-search
+"Breadth-first Search": https://leetcode.com/tag/breadth-first-search
 Similar Questions:
-  "Binary Tree Level Order Traversal": https://leetcode.com/problems/binary-tree-level-order-traversal
-  "Maximum Depth of Binary Tree": https://leetcode.com/problems/maximum-depth-of-binary-tree
+"Binary Tree Level Order Traversal": https://leetcode.com/problems/binary-tree-level-order-traversal
+"Maximum Depth of Binary Tree": https://leetcode.com/problems/maximum-depth-of-binary-tree
+
 ---
 
 ## [111. Minimum Depth of Binary Tree](https://leetcode.com/problems/minimum-depth-of-binary-tree/description/)
@@ -8411,32 +8780,35 @@ Ignore `null` children.
  * @param {TreeNode} root
  * @return {number}
  */
-let minDepth = function(root) {
-  if (!root) { return 0 }
+let minDepth = function (root) {
+  if (!root) {
+    return 0;
+  }
   if (root.left !== null && root.right !== null) {
-    return Math.min(minDepth(root.left), minDepth(root.right)) + 1
+    return Math.min(minDepth(root.left), minDepth(root.right)) + 1;
   } else if (root.left !== null) {
-    return minDepth(root.left) + 1
+    return minDepth(root.left) + 1;
   } else {
-    return minDepth(root.right) + 1
+    return minDepth(root.right) + 1;
   }
 };
 ```
 
-
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+_Template generated via [Leetmark](https://github.com/crimx/crx-leetmark)._
 
 ---
+
 Difficulty: Easy
 Related Topics:
-  "Tree": https://leetcode.com/tag/tree
-  "Depth-first Search": https://leetcode.com/tag/depth-first-search
+"Tree": https://leetcode.com/tag/tree
+"Depth-first Search": https://leetcode.com/tag/depth-first-search
 Similar Questions:
-  "Path Sum II": https://leetcode.com/problems/path-sum-ii
-  "Binary Tree Maximum Path Sum": https://leetcode.com/problems/binary-tree-maximum-path-sum
-  "Sum Root to Leaf Numbers": https://leetcode.com/problems/sum-root-to-leaf-numbers
-  "Path Sum III": https://leetcode.com/problems/path-sum-iii
-  "Path Sum IV": https://leetcode.com/problems/path-sum-iv
+"Path Sum II": https://leetcode.com/problems/path-sum-ii
+"Binary Tree Maximum Path Sum": https://leetcode.com/problems/binary-tree-maximum-path-sum
+"Sum Root to Leaf Numbers": https://leetcode.com/problems/sum-root-to-leaf-numbers
+"Path Sum III": https://leetcode.com/problems/path-sum-iii
+"Path Sum IV": https://leetcode.com/problems/path-sum-iv
+
 ---
 
 ## [112. Path Sum](https://leetcode.com/problems/path-sum/description/)
@@ -8480,25 +8852,34 @@ Note that node value could be negative so pruning can not be performed.
  * @param {number} sum
  * @return {boolean}
  */
-let hasPathSum = function(root, sum) {
-  if (!root) { return false }
-  if (root.left === null && root.right === null) { return root.val === sum }
-  return hasPathSum(root.left, sum - root.val) || hasPathSum(root.right, sum - root.val)
+let hasPathSum = function (root, sum) {
+  if (!root) {
+    return false;
+  }
+  if (root.left === null && root.right === null) {
+    return root.val === sum;
+  }
+  return (
+    hasPathSum(root.left, sum - root.val) ||
+    hasPathSum(root.right, sum - root.val)
+  );
 };
 ```
 
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+_Template generated via [Leetmark](https://github.com/crimx/crx-leetmark)._
 
 ---
+
 Difficulty: Medium
 Related Topics:
-  "Tree": https://leetcode.com/tag/tree
-  "Depth-first Search": https://leetcode.com/tag/depth-first-search
+"Tree": https://leetcode.com/tag/tree
+"Depth-first Search": https://leetcode.com/tag/depth-first-search
 Similar Questions:
-  "Path Sum": https://leetcode.com/problems/path-sum
-  "Binary Tree Paths": https://leetcode.com/problems/binary-tree-paths
-  "Path Sum III": https://leetcode.com/problems/path-sum-iii
-  "Path Sum IV": https://leetcode.com/problems/path-sum-iv
+"Path Sum": https://leetcode.com/problems/path-sum
+"Binary Tree Paths": https://leetcode.com/problems/binary-tree-paths
+"Path Sum III": https://leetcode.com/problems/path-sum-iii
+"Path Sum IV": https://leetcode.com/problems/path-sum-iv
+
 ---
 
 ## [113. Path Sum II](https://leetcode.com/problems/path-sum-ii/description/)
@@ -8549,35 +8930,38 @@ Simple backtracking.
  * @param {number} sum
  * @return {number[][]}
  */
-let pathSum = function(root, sum, path = [], result = []) {
-  if (!root) { return result }
+let pathSum = function (root, sum, path = [], result = []) {
+  if (!root) {
+    return result;
+  }
 
   if (root.left === null && root.right === null) {
     if (root.val === sum) {
-      result.push([...path, root.val])
+      result.push([...path, root.val]);
     }
-    return result
+    return result;
   }
 
-  path.push(root.val)
-  pathSum(root.left, sum - root.val, path, result)
-  pathSum(root.right, sum - root.val, path, result)
-  path.pop()
+  path.push(root.val);
+  pathSum(root.left, sum - root.val, path, result);
+  pathSum(root.right, sum - root.val, path, result);
+  path.pop();
 
-  return result
+  return result;
 };
 ```
 
-
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+_Template generated via [Leetmark](https://github.com/crimx/crx-leetmark)._
 
 ---
+
 Difficulty: Medium
 Related Topics:
-  "Tree": https://leetcode.com/tag/tree
-  "Depth-first Search": https://leetcode.com/tag/depth-first-search
+"Tree": https://leetcode.com/tag/tree
+"Depth-first Search": https://leetcode.com/tag/depth-first-search
 Similar Questions:
-  "Flatten a Multilevel Doubly Linked List": https://leetcode.com/problems/flatten-a-multilevel-doubly-linked-list
+"Flatten a Multilevel Doubly Linked List": https://leetcode.com/problems/flatten-a-multilevel-doubly-linked-list
+
 ---
 
 ## [114. Flatten Binary Tree to Linked List](https://leetcode.com/problems/flatten-binary-tree-to-linked-list/description/)
@@ -8628,37 +9012,41 @@ Return the leaf node of a flattened subtree for concatenation.
  * @param {TreeNode} root
  * @return {void} Do not return anything, modify root in-place instead.
  */
-let flatten = function(root) {
-  _flatten(root)
+let flatten = function (root) {
+  _flatten(root);
 };
 
 /**
  * @param {TreeNode} root
  * @return {TreeNode} leaf node of a flattened subtree
  */
-function _flatten (root) {
-  if (!root) { return null }
-  const leftLeaf = _flatten(root.left)
-  const rightLeaf = _flatten(root.right)
-  if (leftLeaf !== null) {
-    leftLeaf.right = root.right
-    root.right = root.left
-  } else if (rightLeaf === null) {
-    return root
+function _flatten(root) {
+  if (!root) {
+    return null;
   }
-  
-  root.left = null
-  return rightLeaf || leftLeaf
+  const leftLeaf = _flatten(root.left);
+  const rightLeaf = _flatten(root.right);
+  if (leftLeaf !== null) {
+    leftLeaf.right = root.right;
+    root.right = root.left;
+  } else if (rightLeaf === null) {
+    return root;
+  }
+
+  root.left = null;
+  return rightLeaf || leftLeaf;
 }
 ```
 
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+_Template generated via [Leetmark](https://github.com/crimx/crx-leetmark)._
 
 ---
+
 Difficulty: Hard
 Related Topics:
-  "String": https://leetcode.com/tag/string
-  "Dynamic Programming": https://leetcode.com/tag/dynamic-programming
+"String": https://leetcode.com/tag/string
+"Dynamic Programming": https://leetcode.com/tag/dynamic-programming
+
 ---
 
 ## [115. Distinct Subsequences](https://leetcode.com/problems/distinct-subsequences/description/)
@@ -8729,34 +9117,34 @@ Dynamic array can be used.
  * @param {string} t
  * @return {number}
  */
-let numDistinct = function(s, t) {
-  const lens = s.length
-  const lent = t.length
-  const dp = new Array(lent + 1).fill(0)
-  dp[0] = 1
+let numDistinct = function (s, t) {
+  const lens = s.length;
+  const lent = t.length;
+  const dp = new Array(lent + 1).fill(0);
+  dp[0] = 1;
   for (let i = 1; i <= lens; i++) {
     for (let j = lent; j >= 1; j--) {
-      if (s[i-1] === t[j-1]) {
-        dp[j] += dp[j-1]
+      if (s[i - 1] === t[j - 1]) {
+        dp[j] += dp[j - 1];
       }
     }
   }
-  return dp[lent]
+  return dp[lent];
 };
-
 ```
 
-
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+_Template generated via [Leetmark](https://github.com/crimx/crx-leetmark)._
 
 ---
+
 Difficulty: Medium
 Related Topics:
-  "Tree": https://leetcode.com/tag/tree
-  "Depth-first Search": https://leetcode.com/tag/depth-first-search
+"Tree": https://leetcode.com/tag/tree
+"Depth-first Search": https://leetcode.com/tag/depth-first-search
 Similar Questions:
-  "Populating Next Right Pointers in Each Node II": https://leetcode.com/problems/populating-next-right-pointers-in-each-node-ii
-  "Binary Tree Right Side View": https://leetcode.com/problems/binary-tree-right-side-view
+"Populating Next Right Pointers in Each Node II": https://leetcode.com/problems/populating-next-right-pointers-in-each-node-ii
+"Binary Tree Right Side View": https://leetcode.com/problems/binary-tree-right-side-view
+
 ---
 
 ## [116. Populating Next Right Pointers in Each Node](https://leetcode.com/problems/populating-next-right-pointers-in-each-node/description/)
@@ -8832,17 +9220,19 @@ For every `node`:
  * @param {TreeLinkNode} root
  * @return {void} Do not return anything, modify tree in-place instead.
  */
-let connect = function(root) {
-  if (!root) { return }
+let connect = function (root) {
+  if (!root) {
+    return;
+  }
   if (root.left !== null) {
-    root.left.next = root.right
-    connect(root.left)
+    root.left.next = root.right;
+    connect(root.left);
   }
   if (root.right !== null) {
     if (root.next !== null) {
-      root.right.next = root.next.left
+      root.right.next = root.next.left;
     }
-    connect(root.right)
+    connect(root.right);
   }
 };
 ```
@@ -8864,34 +9254,42 @@ Level order traversal.
  * @param {TreeLinkNode} root
  * @return {void} Do not return anything, modify tree in-place instead.
  */
-let connect = function(root) {
-  if (!root) { return }
+let connect = function (root) {
+  if (!root) {
+    return;
+  }
 
-  const queue = [NaN, root]
+  const queue = [NaN, root];
   while (queue.length > 1) {
-    const node = queue.shift()
+    const node = queue.shift();
     if (node !== node) {
       for (let i = 0; i < queue.length; i++) {
-        queue[i].next = queue[i+1] || null
+        queue[i].next = queue[i + 1] || null;
       }
-      queue.push(NaN)
+      queue.push(NaN);
     } else {
-      if (node.left !== null) { queue.push(node.left) }
-      if (node.right !== null) { queue.push(node.right) }
+      if (node.left !== null) {
+        queue.push(node.left);
+      }
+      if (node.right !== null) {
+        queue.push(node.right);
+      }
     }
   }
 };
 ```
 
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+_Template generated via [Leetmark](https://github.com/crimx/crx-leetmark)._
 
 ---
+
 Difficulty: Medium
 Related Topics:
-  "Tree": https://leetcode.com/tag/tree
-  "Depth-first Search": https://leetcode.com/tag/depth-first-search
+"Tree": https://leetcode.com/tag/tree
+"Depth-first Search": https://leetcode.com/tag/depth-first-search
 Similar Questions:
-  "Populating Next Right Pointers in Each Node": https://leetcode.com/problems/populating-next-right-pointers-in-each-node
+"Populating Next Right Pointers in Each Node": https://leetcode.com/problems/populating-next-right-pointers-in-each-node
+
 ---
 
 ## [117. Populating Next Right Pointers in Each Node II](https://leetcode.com/problems/populating-next-right-pointers-in-each-node-ii/description/)
@@ -8965,27 +9363,29 @@ This also means post-order traversal is required.
  * @param {TreeLinkNode} root
  * @return {void} Do not return anything, modify tree in-place instead.
  */
-let connect = function(root) {
-  if (!root) { return }
-  let next = null
+let connect = function (root) {
+  if (!root) {
+    return;
+  }
+  let next = null;
   for (let node = root.next; node !== null; node = node.next) {
     if (node.left !== null) {
-      next = node.left
-      break
+      next = node.left;
+      break;
     }
     if (node.right !== null) {
-      next = node.right
-      break
+      next = node.right;
+      break;
     }
   }
   if (root.right !== null) {
-    root.right.next = next
+    root.right.next = next;
   }
   if (root.left !== null) {
-    root.left.next = root.right || next
+    root.left.next = root.right || next;
   }
-  connect(root.right)
-  connect(root.left)
+  connect(root.right);
+  connect(root.left);
 };
 ```
 
@@ -9006,40 +9406,48 @@ Level order traversal. Exact same as [116. Populating Next Right Pointers in Eac
  * @param {TreeLinkNode} root
  * @return {void} Do not return anything, modify tree in-place instead.
  */
-let connect = function(root) {
-  if (!root) { return }
+let connect = function (root) {
+  if (!root) {
+    return;
+  }
 
-  const queue = [NaN, root]
+  const queue = [NaN, root];
   while (queue.length > 1) {
-    const node = queue.shift()
+    const node = queue.shift();
     if (node !== node) {
       for (let i = 0; i < queue.length; i++) {
-        queue[i].next = queue[i+1] || null
+        queue[i].next = queue[i + 1] || null;
       }
-      queue.push(NaN)
+      queue.push(NaN);
     } else {
-      if (node.left !== null) { queue.push(node.left) }
-      if (node.right !== null) { queue.push(node.right) }
+      if (node.left !== null) {
+        queue.push(node.left);
+      }
+      if (node.right !== null) {
+        queue.push(node.right);
+      }
     }
   }
 };
 ```
 
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+_Template generated via [Leetmark](https://github.com/crimx/crx-leetmark)._
 
 ---
+
 Difficulty: Easy
 Related Topics:
-  "Array": https://leetcode.com/tag/array
+"Array": https://leetcode.com/tag/array
 Similar Questions:
-  "Pascal's Triangle II": https://leetcode.com/problems/pascals-triangle-ii
+"Pascal's Triangle II": https://leetcode.com/problems/pascals-triangle-ii
+
 ---
 
 ## [118. Pascal's Triangle](https://leetcode.com/problems/pascals-triangle/description/)
 
 ### Problem:
 
-Given a non-negative integer *numRows*, generate the first *numRows* of Pascal's triangle.
+Given a non-negative integer *numRows*, generate the first _numRows_ of Pascal's triangle.
 
 ![PascalTriangleAnimated2.gif](https://upload.wikimedia.org/wikipedia/commons/0/0d/PascalTriangleAnimated2.gif)
 
@@ -9069,40 +9477,43 @@ Dynamic Programming 101.
  * @param {number} numRows
  * @return {number[][]}
  */
-let generate = function(numRows) {
-  if (numRows <= 0) { return [] }
-
-  const result = [[1]]
-  for (let i = 1; i < numRows; i++) {
-    const lastRow = result[i-1]
-    const row = [1]
-    for (let j = 1; j < i; j++) {
-      row[j] = lastRow[j] + lastRow[j-1]
-    }
-    row.push(1)
-    result.push(row)
+let generate = function (numRows) {
+  if (numRows <= 0) {
+    return [];
   }
-  
-  return result
+
+  const result = [[1]];
+  for (let i = 1; i < numRows; i++) {
+    const lastRow = result[i - 1];
+    const row = [1];
+    for (let j = 1; j < i; j++) {
+      row[j] = lastRow[j] + lastRow[j - 1];
+    }
+    row.push(1);
+    result.push(row);
+  }
+
+  return result;
 };
 ```
 
-
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+_Template generated via [Leetmark](https://github.com/crimx/crx-leetmark)._
 
 ---
+
 Difficulty: Easy
 Related Topics:
-  "Array": https://leetcode.com/tag/array
+"Array": https://leetcode.com/tag/array
 Similar Questions:
-  "Pascal's Triangle": https://leetcode.com/problems/pascals-triangle
+"Pascal's Triangle": https://leetcode.com/problems/pascals-triangle
+
 ---
 
 ## [119. Pascal's Triangle II](https://leetcode.com/problems/pascals-triangle-ii/description/)
 
 ### Problem:
 
-Given a non-negative index *k* where *k* ≤ 33, return the *k*th index row of the Pascal's triangle.
+Given a non-negative index *k* where _k_ ≤ 33, return the *k*th index row of the Pascal's triangle.
 
 Note that the row index starts from 0.
 
@@ -9120,7 +9531,7 @@ Output: [1,3,3,1]
 
 **Follow up:**
 
-Could you optimize your algorithm to use only *O*(*k*) extra space?
+Could you optimize your algorithm to use only _O_(_k_) extra space?
 
 ### Solution:
 
@@ -9133,29 +9544,32 @@ State `(i, j)` depends on `(i-1, j)` and `(i-1, j-1)`. So to access `(i-1, j-1)`
  * @param {number} rowIndex
  * @return {number[]}
  */
-let getRow = function(rowIndex) {
-  if (rowIndex < 0) { return [] }
+let getRow = function (rowIndex) {
+  if (rowIndex < 0) {
+    return [];
+  }
 
-  const row = [1]
+  const row = [1];
   for (let i = 1; i <= rowIndex; i++) {
     for (let j = i - 1; j > 0; j--) {
-      row[j] += row[j-1]
+      row[j] += row[j - 1];
     }
-    row.push(1)
+    row.push(1);
   }
-  
-  return row
+
+  return row;
 };
 ```
 
-
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+_Template generated via [Leetmark](https://github.com/crimx/crx-leetmark)._
 
 ---
+
 Difficulty: Medium
 Related Topics:
-  "Array": https://leetcode.com/tag/array
-  "Dynamic Programming": https://leetcode.com/tag/dynamic-programming
+"Array": https://leetcode.com/tag/array
+"Dynamic Programming": https://leetcode.com/tag/dynamic-programming
+
 ---
 
 ## [120. Triangle](https://leetcode.com/problems/triangle/description/)
@@ -9180,7 +9594,7 @@ The minimum path sum from top to bottom is `11` (i.e., **2** + **3** + **5** + *
 
 **Note:**
 
-Bonus point if you are able to do this using only *O*(*n*) extra space, where *n* is the total number of rows in the triangle.
+Bonus point if you are able to do this using only _O_(_n_) extra space, where _n_ is the total number of rows in the triangle.
 
 ### Solution:
 
@@ -9199,41 +9613,45 @@ Dynamic array can be used.
  * @param {number[][]} triangle
  * @return {number}
  */
-let minimumTotal = function(triangle) {
-  if (triangle.length <= 0) { return 0 }
-
-  const dp = [triangle[0][0]]
-  for (let i = 1; i < triangle.length; i++) {
-    dp[i] = dp[i-1] + triangle[i][i]
-    for (let j = i - 1; j >= 1; j--) {
-      dp[j] = Math.min(dp[j], dp[j-1]) + triangle[i][j]
-    }
-    dp[0] += triangle[i][0]
+let minimumTotal = function (triangle) {
+  if (triangle.length <= 0) {
+    return 0;
   }
-  return Math.min(...dp)
+
+  const dp = [triangle[0][0]];
+  for (let i = 1; i < triangle.length; i++) {
+    dp[i] = dp[i - 1] + triangle[i][i];
+    for (let j = i - 1; j >= 1; j--) {
+      dp[j] = Math.min(dp[j], dp[j - 1]) + triangle[i][j];
+    }
+    dp[0] += triangle[i][0];
+  }
+  return Math.min(...dp);
 };
 ```
 
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+_Template generated via [Leetmark](https://github.com/crimx/crx-leetmark)._
 
 ---
+
 Difficulty: Easy
 Related Topics:
-  "Array": https://leetcode.com/tag/array
-  "Dynamic Programming": https://leetcode.com/tag/dynamic-programming
+"Array": https://leetcode.com/tag/array
+"Dynamic Programming": https://leetcode.com/tag/dynamic-programming
 Similar Questions:
-  "Maximum Subarray": https://leetcode.com/problems/maximum-subarray
-  "Best Time to Buy and Sell Stock II": https://leetcode.com/problems/best-time-to-buy-and-sell-stock-ii
-  "Best Time to Buy and Sell Stock III": https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iii
-  "Best Time to Buy and Sell Stock IV": https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iv
-  "Best Time to Buy and Sell Stock with Cooldown": https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-cooldown
+"Maximum Subarray": https://leetcode.com/problems/maximum-subarray
+"Best Time to Buy and Sell Stock II": https://leetcode.com/problems/best-time-to-buy-and-sell-stock-ii
+"Best Time to Buy and Sell Stock III": https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iii
+"Best Time to Buy and Sell Stock IV": https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iv
+"Best Time to Buy and Sell Stock with Cooldown": https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-cooldown
+
 ---
 
 ## [121. Best Time to Buy and Sell Stock](https://leetcode.com/problems/best-time-to-buy-and-sell-stock/description/)
 
 ### Problem:
 
-Say you have an array for which the *i*th element is the price of a given stock on day *i*.
+Say you have an array for which the *i*th element is the price of a given stock on day _i_.
 
 If you were only permitted to complete at most one transaction (i.e., buy one and sell one share of the stock), design an algorithm to find the maximum profit.
 
@@ -9269,42 +9687,43 @@ Because `price[j]` is lower that the base, using `j` as new base is guaranteed t
  * @param {number[]} prices
  * @return {number}
  */
-let maxProfit = function(prices) {
-  let max = 0
-  let base = prices[0]
+let maxProfit = function (prices) {
+  let max = 0;
+  let base = prices[0];
   for (let i = 1; i < prices.length; i++) {
-    const profit = prices[i] - base
+    const profit = prices[i] - base;
     if (profit > max) {
-      max = profit
+      max = profit;
     } else if (profit < 0) {
-      base = prices[i]
+      base = prices[i];
     }
   }
-  return max
+  return max;
 };
 ```
 
-
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+_Template generated via [Leetmark](https://github.com/crimx/crx-leetmark)._
 
 ---
+
 Difficulty: Easy
 Related Topics:
-  "Array": https://leetcode.com/tag/array
-  "Greedy": https://leetcode.com/tag/greedy
+"Array": https://leetcode.com/tag/array
+"Greedy": https://leetcode.com/tag/greedy
 Similar Questions:
-  "Best Time to Buy and Sell Stock": https://leetcode.com/problems/best-time-to-buy-and-sell-stock
-  "Best Time to Buy and Sell Stock III": https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iii
-  "Best Time to Buy and Sell Stock IV": https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iv
-  "Best Time to Buy and Sell Stock with Cooldown": https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-cooldown
-  "Best Time to Buy and Sell Stock with Transaction Fee": https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-transaction-fee
+"Best Time to Buy and Sell Stock": https://leetcode.com/problems/best-time-to-buy-and-sell-stock
+"Best Time to Buy and Sell Stock III": https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iii
+"Best Time to Buy and Sell Stock IV": https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iv
+"Best Time to Buy and Sell Stock with Cooldown": https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-cooldown
+"Best Time to Buy and Sell Stock with Transaction Fee": https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-transaction-fee
+
 ---
 
 ## [122. Best Time to Buy and Sell Stock II](https://leetcode.com/problems/best-time-to-buy-and-sell-stock-ii/description/)
 
 ### Problem:
 
-Say you have an array for which the *i*th element is the price of a given stock on day *i*.
+Say you have an array for which the *i*th element is the price of a given stock on day _i_.
 
 Design an algorithm to find the maximum profit. You may complete as many transactions as you like (i.e., buy one and sell one share of the stock multiple times).
 
@@ -9348,38 +9767,40 @@ Sell immediately after the price drops. Or in other perspective, it is the sum o
  * @param {number[]} prices
  * @return {number}
  */
-let maxProfit = function(prices) {
-  let max = 0
+let maxProfit = function (prices) {
+  let max = 0;
   for (let i = 1; i < prices.length; i++) {
-    if (prices[i] > prices[i-1]) {
-      max += prices[i] - prices[i-1]
+    if (prices[i] > prices[i - 1]) {
+      max += prices[i] - prices[i - 1];
     }
   }
-  return max
+  return max;
 };
 ```
 
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+_Template generated via [Leetmark](https://github.com/crimx/crx-leetmark)._
 
 ---
+
 Difficulty: Hard
 Related Topics:
-  "Array": https://leetcode.com/tag/array
-  "Dynamic Programming": https://leetcode.com/tag/dynamic-programming
+"Array": https://leetcode.com/tag/array
+"Dynamic Programming": https://leetcode.com/tag/dynamic-programming
 Similar Questions:
-  "Best Time to Buy and Sell Stock": https://leetcode.com/problems/best-time-to-buy-and-sell-stock
-  "Best Time to Buy and Sell Stock II": https://leetcode.com/problems/best-time-to-buy-and-sell-stock-ii
-  "Best Time to Buy and Sell Stock IV": https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iv
-  "Maximum Sum of 3 Non-Overlapping Subarrays": https://leetcode.com/problems/maximum-sum-of-3-non-overlapping-subarrays
+"Best Time to Buy and Sell Stock": https://leetcode.com/problems/best-time-to-buy-and-sell-stock
+"Best Time to Buy and Sell Stock II": https://leetcode.com/problems/best-time-to-buy-and-sell-stock-ii
+"Best Time to Buy and Sell Stock IV": https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iv
+"Maximum Sum of 3 Non-Overlapping Subarrays": https://leetcode.com/problems/maximum-sum-of-3-non-overlapping-subarrays
+
 ---
 
 ## [123. Best Time to Buy and Sell Stock III](https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iii/description/)
 
 ### Problem:
 
-Say you have an array for which the *i*th element is the price of a given stock on day *i*.
+Say you have an array for which the *i*th element is the price of a given stock on day _i_.
 
-Design an algorithm to find the maximum profit. You may complete at most *two* transactions.
+Design an algorithm to find the maximum profit. You may complete at most _two_ transactions.
 
 **Note:**You may not engage in multiple transactions at the same time (i.e., you must sell the stock before you buy again).
 
@@ -9413,7 +9834,7 @@ Explanation: In this case, no transaction is done, i.e. max profit = 0.
 
 ### Solution:
 
-Multiple transactions may not be engaged in at the same time. That means if we view the days that involed in the same transaction as a group, there won't be any intersection. We may complete at most *two* transactions, so divide the days into two groups, `[0...k]` and `[k...n-1]`. Notice `k` exists in both groups because technically we can sell out then immediately buy in at the same day.
+Multiple transactions may not be engaged in at the same time. That means if we view the days that involed in the same transaction as a group, there won't be any intersection. We may complete at most _two_ transactions, so divide the days into two groups, `[0...k]` and `[k...n-1]`. Notice `k` exists in both groups because technically we can sell out then immediately buy in at the same day.
 
 Define `p1(i)` to be the max profit of day `[0...i]`. This is just like the problem of [121. Best Time to Buy and Sell Stock](./121.%20Best%20Time%20to%20Buy%20and%20Sell%20Stock.md).
 
@@ -9436,43 +9857,46 @@ Define `f(k)` to be `p1(k) + p2(k)`. We need to get `max( f(0), ..., f(n-1) )`.
  * @param {number[]} prices
  * @return {number}
  */
-let maxProfit = function(prices) {
-  const len = prices.length
-  if (len <= 1) { return 0 }
+let maxProfit = function (prices) {
+  const len = prices.length;
+  if (len <= 1) {
+    return 0;
+  }
 
-  const dp = [0]
+  const dp = [0];
 
-  let min = prices[0]
+  let min = prices[0];
   for (let i = 1; i < len; i++) {
-    dp[i] = Math.max(dp[i-1], prices[i] - min)
-    min = Math.min(prices[i], min)
+    dp[i] = Math.max(dp[i - 1], prices[i] - min);
+    min = Math.min(prices[i], min);
   }
 
-  let p2 = 0
-  let max = prices[len-1]
-  for (let i = len-2; i >= 0; i--) {
-    max = Math.max(prices[i], max)
-    p2 = Math.max(p2, max - prices[i])
-    dp[i] += p2
+  let p2 = 0;
+  let max = prices[len - 1];
+  for (let i = len - 2; i >= 0; i--) {
+    max = Math.max(prices[i], max);
+    p2 = Math.max(p2, max - prices[i]);
+    dp[i] += p2;
   }
 
-  return Math.max(...dp)
+  return Math.max(...dp);
 };
 ```
 
-
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+_Template generated via [Leetmark](https://github.com/crimx/crx-leetmark)._
 
 ---
+
 Difficulty: Hard
 Related Topics:
-  "Tree": https://leetcode.com/tag/tree
-  "Depth-first Search": https://leetcode.com/tag/depth-first-search
+"Tree": https://leetcode.com/tag/tree
+"Depth-first Search": https://leetcode.com/tag/depth-first-search
 Similar Questions:
-  "Path Sum": https://leetcode.com/problems/path-sum
-  "Sum Root to Leaf Numbers": https://leetcode.com/problems/sum-root-to-leaf-numbers
-  "Path Sum IV": https://leetcode.com/problems/path-sum-iv
-  "Longest Univalue Path": https://leetcode.com/problems/longest-univalue-path
+"Path Sum": https://leetcode.com/problems/path-sum
+"Sum Root to Leaf Numbers": https://leetcode.com/problems/sum-root-to-leaf-numbers
+"Path Sum IV": https://leetcode.com/problems/path-sum-iv
+"Longest Univalue Path": https://leetcode.com/problems/longest-univalue-path
+
 ---
 
 ## [124. Binary Tree Maximum Path Sum](https://leetcode.com/problems/binary-tree-maximum-path-sum/description/)
@@ -9542,23 +9966,29 @@ Define a function that returns two values. The max sum of a path that may or may
  * @param {TreeNode} root
  * @return {number}
  */
-let maxPathSum = function(root) {
-  return Math.max(..._maxPathSum(root))
+let maxPathSum = function (root) {
+  return Math.max(..._maxPathSum(root));
 };
 
 /**
  * @param {TreeNode} root
  * @return {number[]}
  */
-function _maxPathSum (root) {
-  if (!root) { return [-Infinity, -Infinity] }
-  
-  const left = _maxPathSum(root.left)
-  const right = _maxPathSum(root.right)
+function _maxPathSum(root) {
+  if (!root) {
+    return [-Infinity, -Infinity];
+  }
+
+  const left = _maxPathSum(root.left);
+  const right = _maxPathSum(root.right);
   return [
-    Math.max(left[0], right[0], root.val + Math.max(0, left[1], right[1], left[1] + right[1])),
-    Math.max(left[1], right[1], 0) + root.val
-  ]
+    Math.max(
+      left[0],
+      right[0],
+      root.val + Math.max(0, left[1], right[1], left[1] + right[1])
+    ),
+    Math.max(left[1], right[1], 0) + root.val,
+  ];
 }
 ```
 
@@ -9578,40 +10008,43 @@ Just return the later (max sum of a path that ends with `root`). Maintain a glob
  * @param {TreeNode} root
  * @return {number}
  */
-let maxPathSum = function(root) {
-  const global = { max: -Infinity }
-  _maxPathSum(root, global)
-  return global.max
+let maxPathSum = function (root) {
+  const global = { max: -Infinity };
+  _maxPathSum(root, global);
+  return global.max;
 };
-
 
 /**
  * @param {TreeNode} root
  * @param {object} global
- * @param {number} global.max 
+ * @param {number} global.max
  * @return {number[]}
  */
-function _maxPathSum (root, global) {
-  if (!root) { return -Infinity }
-  
-  const left = _maxPathSum(root.left, global)
-  const right = _maxPathSum(root.right, global)
-  const localMax = Math.max(left, right, 0) + root.val
-  global.max = Math.max(global.max, localMax, root.val + left + right)
-  return localMax
+function _maxPathSum(root, global) {
+  if (!root) {
+    return -Infinity;
+  }
+
+  const left = _maxPathSum(root.left, global);
+  const right = _maxPathSum(root.right, global);
+  const localMax = Math.max(left, right, 0) + root.val;
+  global.max = Math.max(global.max, localMax, root.val + left + right);
+  return localMax;
 }
 ```
 
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+_Template generated via [Leetmark](https://github.com/crimx/crx-leetmark)._
 
 ---
+
 Difficulty: Easy
 Related Topics:
-  "Two Pointers": https://leetcode.com/tag/two-pointers
-  "String": https://leetcode.com/tag/string
+"Two Pointers": https://leetcode.com/tag/two-pointers
+"String": https://leetcode.com/tag/string
 Similar Questions:
-  "Palindrome Linked List": https://leetcode.com/problems/palindrome-linked-list
-  "Valid Palindrome II": https://leetcode.com/problems/valid-palindrome-ii
+"Palindrome Linked List": https://leetcode.com/problems/palindrome-linked-list
+"Valid Palindrome II": https://leetcode.com/problems/valid-palindrome-ii
+
 ---
 
 ## [125. Valid Palindrome](https://leetcode.com/problems/valid-palindrome/description/)
@@ -9647,9 +10080,9 @@ Output: false
  * @param {string} s
  * @return {boolean}
  */
-let isPalindrome = function(s) {
-  const clean = s.toLowerCase().split(/[^a-z0-9]*/)
-  return clean.join('') === clean.reverse().join('')
+let isPalindrome = function (s) {
+  const clean = s.toLowerCase().split(/[^a-z0-9]*/);
+  return clean.join("") === clean.reverse().join("");
 };
 ```
 
@@ -9662,12 +10095,14 @@ Remove non-alphanumeric characters then compare.
  * @param {string} s
  * @return {boolean}
  */
-let isPalindrome = function(s) {
-  const clean = s.replace(/[^a-zA-Z0-9]/g, '').toLowerCase()
+let isPalindrome = function (s) {
+  const clean = s.replace(/[^a-zA-Z0-9]/g, "").toLowerCase();
   for (let i = 0, j = clean.length - 1; i < j; i++, j--) {
-    if (clean[i] !== clean[j]) { return false }
+    if (clean[i] !== clean[j]) {
+      return false;
+    }
   }
-  return true
+  return true;
 };
 ```
 
@@ -9680,55 +10115,74 @@ Compare the char codes.
  * @param {string} s
  * @return {boolean}
  */
-let isPalindrome = function(s) {
+let isPalindrome = function (s) {
   for (let i = 0, j = s.length - 1; i < j; i++, j--) {
-    let left = s.charCodeAt(i)
-    while (i < j && (left < 48 || left > 57 && left < 65 || left > 90 && left < 97 || left > 122)) {
-      left = s.charCodeAt(++i)
+    let left = s.charCodeAt(i);
+    while (
+      i < j &&
+      (left < 48 ||
+        (left > 57 && left < 65) ||
+        (left > 90 && left < 97) ||
+        left > 122)
+    ) {
+      left = s.charCodeAt(++i);
     }
-    if (i >= j) { return true }
+    if (i >= j) {
+      return true;
+    }
     if (left >= 65 && left <= 90) {
-      left += 32
+      left += 32;
     }
-    
-    let right = s.charCodeAt(j)
-    while (i < j && (right < 48 || right > 57 && right < 65 || right > 90 && right < 97 || right > 122)) {
-      right = s.charCodeAt(--j)
+
+    let right = s.charCodeAt(j);
+    while (
+      i < j &&
+      (right < 48 ||
+        (right > 57 && right < 65) ||
+        (right > 90 && right < 97) ||
+        right > 122)
+    ) {
+      right = s.charCodeAt(--j);
     }
-    if (i >= j) { return true }
+    if (i >= j) {
+      return true;
+    }
     if (right >= 65 && right <= 90) {
-      right += 32
+      right += 32;
     }
-    
-    if (left !== right) { return false }
+
+    if (left !== right) {
+      return false;
+    }
   }
-  
-  return true
+
+  return true;
 };
 ```
 
-
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+_Template generated via [Leetmark](https://github.com/crimx/crx-leetmark)._
 
 ---
+
 Difficulty: Hard
 Related Topics:
-  "Array": https://leetcode.com/tag/array
-  "String": https://leetcode.com/tag/string
-  "Backtracking": https://leetcode.com/tag/backtracking
-  "Breadth-first Search": https://leetcode.com/tag/breadth-first-search
+"Array": https://leetcode.com/tag/array
+"String": https://leetcode.com/tag/string
+"Backtracking": https://leetcode.com/tag/backtracking
+"Breadth-first Search": https://leetcode.com/tag/breadth-first-search
 Similar Questions:
-  "Word Ladder": https://leetcode.com/problems/word-ladder
+"Word Ladder": https://leetcode.com/problems/word-ladder
+
 ---
 
 ## [126. Word Ladder II](https://leetcode.com/problems/word-ladder-ii/description/)
 
 ### Problem:
 
-Given two words (*beginWord* and *endWord*), and a dictionary's word list, find all shortest transformation sequence(s) from *beginWord* to *endWord*, such that:
+Given two words (_beginWord_ and _endWord_), and a dictionary's word list, find all shortest transformation sequence(s) from _beginWord_ to _endWord_, such that:
 
 1. Only one letter can be changed at a time
-2. Each transformed word must exist in the word list. Note that *beginWord* is *not* a transformed word.
+2. Each transformed word must exist in the word list. Note that _beginWord_ is _not_ a transformed word.
 
 **Note:**
 
@@ -9736,7 +10190,7 @@ Given two words (*beginWord* and *endWord*), and a dictionary's word list, find 
 - All words have the same length.
 - All words contain only lowercase alphabetic characters.
 - You may assume no duplicates in the word list.
-- You may assume *beginWord* and *endWord* are non-empty and are not the same.
+- You may assume _beginWord_ and _endWord_ are non-empty and are not the same.
 
 **Example 1:**
 
@@ -9783,78 +10237,82 @@ The items in the queue are not just words now. Parent nodes are also kept so tha
  * @param {string[]} wordList
  * @return {string[][]}
  */
-function findLadders (beginWord, endWord, wordList) {
-  wordList = new Set(wordList)
-  if (!wordList.has(endWord)) { return [] }
+function findLadders(beginWord, endWord, wordList) {
+  wordList = new Set(wordList);
+  if (!wordList.has(endWord)) {
+    return [];
+  }
 
-  const ALPHABET = 'abcdefghijklmnopqrstuvwxyz'
+  const ALPHABET = "abcdefghijklmnopqrstuvwxyz";
 
-  const result = []
-  let isEndWordFound = false
-  const levelWords = new Set()
-  const queue = [[beginWord, null], null]
+  const result = [];
+  let isEndWordFound = false;
+  const levelWords = new Set();
+  const queue = [[beginWord, null], null];
   while (queue.length > 1) {
-    const node = queue.shift()
+    const node = queue.shift();
 
     if (node === null) {
       if (isEndWordFound) {
-        break
+        break;
       }
-      levelWords.forEach(word => wordList.delete(word))
-      levelWords.clear()
-      queue.push(null)
-      continue
+      levelWords.forEach((word) => wordList.delete(word));
+      levelWords.clear();
+      queue.push(null);
+      continue;
     }
 
-    const word = node[0]
+    const word = node[0];
 
     for (let i = word.length - 1; i >= 0; i--) {
-      const head = word.slice(0, i)
-      const tail = word.slice(i+1)
+      const head = word.slice(0, i);
+      const tail = word.slice(i + 1);
 
       for (let c = 0; c < 26; c++) {
         if (ALPHABET[c] !== word[i]) {
-          const w = head + ALPHABET[c] + tail
+          const w = head + ALPHABET[c] + tail;
           if (w === endWord) {
-            const path = [endWord]
+            const path = [endWord];
             for (let n = node; n !== null; n = n[1]) {
-              path.unshift(n[0])
+              path.unshift(n[0]);
             }
-            result.push(path)
-            isEndWordFound = true
+            result.push(path);
+            isEndWordFound = true;
           }
           if (wordList.has(w)) {
-            levelWords.add(w)
-            queue.push([w, node])
+            levelWords.add(w);
+            queue.push([w, node]);
           }
         }
       }
     }
   }
 
-  return result
-};
+  return result;
+}
 ```
 
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+_Template generated via [Leetmark](https://github.com/crimx/crx-leetmark)._
 
 ---
+
 Difficulty: Medium
 Related Topics:
-  "Breadth-first Search": https://leetcode.com/tag/breadth-first-search
+"Breadth-first Search": https://leetcode.com/tag/breadth-first-search
 Similar Questions:
-  "Word Ladder II": https://leetcode.com/problems/word-ladder-ii
-  "Minimum Genetic Mutation": https://leetcode.com/problems/minimum-genetic-mutation
+"Word Ladder II": https://leetcode.com/problems/word-ladder-ii
+"Minimum Genetic Mutation": https://leetcode.com/problems/minimum-genetic-mutation
+
 ---
 
 ## [127. Word Ladder](https://leetcode.com/problems/word-ladder/description/)
 
 ### Problem:
 
-Given two words (*beginWord* and *endWord*), and a dictionary's word list, find the length of shortest transformation sequence from *beginWord* to *endWord*, such that:
+Given two words (_beginWord_ and _endWord_), and a dictionary's word list, find the length of shortest transformation sequence from _beginWord_ to _endWord_, such that:
 
 1. Only one letter can be changed at a time.
-2. Each transformed word must exist in the word list. Note that *beginWord* is *not* a transformed word.
+2. Each transformed word must exist in the word list. Note that _beginWord_ is _not_ a transformed word.
 
 **Note:**
 
@@ -9862,7 +10320,7 @@ Given two words (*beginWord* and *endWord*), and a dictionary's word list, find 
 - All words have the same length.
 - All words contain only lowercase alphabetic characters.
 - You may assume no duplicates in the word list.
-- You may assume *beginWord* and *endWord* are non-empty and are not the same.
+- You may assume _beginWord_ and _endWord_ are non-empty and are not the same.
 
 **Example 1:**
 
@@ -9910,54 +10368,58 @@ To find all the next words, instead of filtering the `wordList`, enumerate all 2
  * @param {string[]} wordList
  * @return {number}
  */
-let ladderLength = function(beginWord, endWord, wordList) {
-  wordList = new Set(wordList)
-  if (!wordList.has(endWord)) { return 0 }
+let ladderLength = function (beginWord, endWord, wordList) {
+  wordList = new Set(wordList);
+  if (!wordList.has(endWord)) {
+    return 0;
+  }
 
-  const ALPHABET = 'abcdefghijklmnopqrstuvwxyz'
+  const ALPHABET = "abcdefghijklmnopqrstuvwxyz";
 
-  let level = 1
-  const queue = [beginWord, null]
+  let level = 1;
+  const queue = [beginWord, null];
   while (queue.length > 1) {
-    const word = queue.shift()
+    const word = queue.shift();
 
     if (word === null) {
-      level++
-      queue.push(null)
-      continue
+      level++;
+      queue.push(null);
+      continue;
     }
 
     for (let i = word.length - 1; i >= 0; i--) {
-      const head = word.slice(0, i)
-      const tail = word.slice(i+1)
+      const head = word.slice(0, i);
+      const tail = word.slice(i + 1);
 
       for (let c = 0; c < 26; c++) {
         if (ALPHABET[c] !== word[i]) {
-          const word = head + ALPHABET[c] + tail
+          const word = head + ALPHABET[c] + tail;
           if (word === endWord) {
-            return level + 1
+            return level + 1;
           }
           if (wordList.delete(word)) {
-            queue.push(word)
+            queue.push(word);
           }
         }
       }
     }
   }
 
-  return 0
+  return 0;
 };
 ```
 
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+_Template generated via [Leetmark](https://github.com/crimx/crx-leetmark)._
 
 ---
+
 Difficulty: Hard
 Related Topics:
-  "Array": https://leetcode.com/tag/array
-  "Union Find": https://leetcode.com/tag/union-find
+"Array": https://leetcode.com/tag/array
+"Union Find": https://leetcode.com/tag/union-find
 Similar Questions:
-  "Binary Tree Longest Consecutive Sequence": https://leetcode.com/problems/binary-tree-longest-consecutive-sequence
+"Binary Tree Longest Consecutive Sequence": https://leetcode.com/problems/binary-tree-longest-consecutive-sequence
+
 ---
 
 ## [128. Longest Consecutive Sequence](https://leetcode.com/problems/longest-consecutive-sequence/description/)
@@ -9966,7 +10428,7 @@ Similar Questions:
 
 Given an unsorted array of integers, find the length of the longest consecutive elements sequence.
 
-Your algorithm should run in O(*n*) complexity.
+Your algorithm should run in O(_n_) complexity.
 
 **Example:**
 
@@ -9986,38 +10448,39 @@ Build a Set from the list. Pick a number, find all it's adjacent numbers that ar
  * @param {number[]} nums
  * @return {number}
  */
-let longestConsecutive = function(nums) {
-  const numSet = new Set(nums)
-  let maxCount = 0
+let longestConsecutive = function (nums) {
+  const numSet = new Set(nums);
+  let maxCount = 0;
   while (numSet.size > 0) {
-    const num = numSet.values().next().value
-    numSet.delete(num)
-    let count = 1
+    const num = numSet.values().next().value;
+    numSet.delete(num);
+    let count = 1;
     for (let n = num + 1; numSet.delete(n); n++) {
-      count++
+      count++;
     }
     for (let n = num - 1; numSet.delete(n); n--) {
-      count++
+      count++;
     }
     if (count > maxCount) {
-      maxCount = count
+      maxCount = count;
     }
   }
-  return maxCount
+  return maxCount;
 };
 ```
 
-
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+_Template generated via [Leetmark](https://github.com/crimx/crx-leetmark)._
 
 ---
+
 Difficulty: Medium
 Related Topics:
-  "Tree": https://leetcode.com/tag/tree
-  "Depth-first Search": https://leetcode.com/tag/depth-first-search
+"Tree": https://leetcode.com/tag/tree
+"Depth-first Search": https://leetcode.com/tag/depth-first-search
 Similar Questions:
-  "Path Sum": https://leetcode.com/problems/path-sum
-  "Binary Tree Maximum Path Sum": https://leetcode.com/problems/binary-tree-maximum-path-sum
+"Path Sum": https://leetcode.com/problems/path-sum
+"Binary Tree Maximum Path Sum": https://leetcode.com/problems/binary-tree-maximum-path-sum
+
 ---
 
 ## [129. Sum Root to Leaf Numbers](https://leetcode.com/problems/sum-root-to-leaf-numbers/description/)
@@ -10079,25 +10542,28 @@ To write a clean solution for this promblem, use `0` as indicator of leaf node. 
  * @param {TreeNode} root
  * @return {number}
  */
-let sumNumbers = function(root, sum = 0) {
-  if (!root) { return 0 }
-  sum = sum * 10 + root.val
-  return sumNumbers(root.left, sum) + sumNumbers(root.right, sum) || sum
+let sumNumbers = function (root, sum = 0) {
+  if (!root) {
+    return 0;
+  }
+  sum = sum * 10 + root.val;
+  return sumNumbers(root.left, sum) + sumNumbers(root.right, sum) || sum;
 };
 ```
 
-
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+_Template generated via [Leetmark](https://github.com/crimx/crx-leetmark)._
 
 ---
+
 Difficulty: Medium
 Related Topics:
-  "Depth-first Search": https://leetcode.com/tag/depth-first-search
-  "Breadth-first Search": https://leetcode.com/tag/breadth-first-search
-  "Union Find": https://leetcode.com/tag/union-find
+"Depth-first Search": https://leetcode.com/tag/depth-first-search
+"Breadth-first Search": https://leetcode.com/tag/breadth-first-search
+"Union Find": https://leetcode.com/tag/union-find
 Similar Questions:
-  "Number of Islands": https://leetcode.com/problems/number-of-islands
-  "Walls and Gates": https://leetcode.com/problems/walls-and-gates
+"Number of Islands": https://leetcode.com/problems/number-of-islands
+"Walls and Gates": https://leetcode.com/problems/walls-and-gates
+
 ---
 
 ## [130. Surrounded Regions](https://leetcode.com/problems/surrounded-regions/description/)
@@ -10145,83 +10611,88 @@ So both BFS and DFS are good. I prefer BFS when pruning is not needed in favor o
  * @param {character[][]} board
  * @return {void} Do not return anything, modify board in-place instead.
  */
-let solve = function(board) {
-  const height = board.length
-  if (height <= 1) { return }
-  const width = board[0].length
-  if (width <= 1) { return }
+let solve = function (board) {
+  const height = board.length;
+  if (height <= 1) {
+    return;
+  }
+  const width = board[0].length;
+  if (width <= 1) {
+    return;
+  }
 
-  const rowend = height - 1
-  const colend = width - 1
+  const rowend = height - 1;
+  const colend = width - 1;
 
-  const queue = []
+  const queue = [];
 
   for (let row = 0; row < height; row++) {
-    if (board[row][0] === 'O') {
-      board[row][0] = '#'
-      queue.push(row, 0)
+    if (board[row][0] === "O") {
+      board[row][0] = "#";
+      queue.push(row, 0);
     }
-    if (board[row][colend] === 'O') {
-      board[row][colend] = '#'
-      queue.push(row, colend)
+    if (board[row][colend] === "O") {
+      board[row][colend] = "#";
+      queue.push(row, colend);
     }
   }
 
   for (let col = 0; col < width; col++) {
-    if (board[0][col] === 'O') {
-      board[0][col] = '#'
-      queue.push(0, col)
+    if (board[0][col] === "O") {
+      board[0][col] = "#";
+      queue.push(0, col);
     }
-    if (board[rowend][col] === 'O') {
-      board[rowend][col] = '#'
-      queue.push(rowend, col)
+    if (board[rowend][col] === "O") {
+      board[rowend][col] = "#";
+      queue.push(rowend, col);
     }
   }
 
   while (queue.length > 0) {
-    const row = queue.shift()
-    const col = queue.shift()
-    if (row < rowend && board[row + 1][col] === 'O') {
-      board[row + 1][col] = '#'
-      queue.push(row + 1, col)
+    const row = queue.shift();
+    const col = queue.shift();
+    if (row < rowend && board[row + 1][col] === "O") {
+      board[row + 1][col] = "#";
+      queue.push(row + 1, col);
     }
-    if (row > 0 && board[row - 1][col] === 'O') {
-      board[row - 1][col] = '#'
-      queue.push(row - 1, col)
+    if (row > 0 && board[row - 1][col] === "O") {
+      board[row - 1][col] = "#";
+      queue.push(row - 1, col);
     }
-    if (board[row][col + 1] === 'O') {
-      board[row][col + 1] = '#'
-      queue.push(row, col + 1)
+    if (board[row][col + 1] === "O") {
+      board[row][col + 1] = "#";
+      queue.push(row, col + 1);
     }
-    if (board[row][col - 1] === 'O') {
-      board[row][col - 1] = '#'
-      queue.push(row, col - 1)
+    if (board[row][col - 1] === "O") {
+      board[row][col - 1] = "#";
+      queue.push(row, col - 1);
     }
   }
 
   for (let row = 0; row < height; row++) {
     for (let col = 0; col < width; col++) {
-      if (board[row][col] === '#') {
-        board[row][col] = 'O'
-      } else if (board[row][col] === 'O') {
-        board[row][col] = 'X'
+      if (board[row][col] === "#") {
+        board[row][col] = "O";
+      } else if (board[row][col] === "O") {
+        board[row][col] = "X";
       }
     }
   }
 };
 ```
 
-
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+_Template generated via [Leetmark](https://github.com/crimx/crx-leetmark)._
 
 ---
+
 Difficulty: Medium
 Related Topics:
-  "Depth-first Search": https://leetcode.com/tag/depth-first-search
-  "Breadth-first Search": https://leetcode.com/tag/breadth-first-search
-  "Graph": https://leetcode.com/tag/graph
+"Depth-first Search": https://leetcode.com/tag/depth-first-search
+"Breadth-first Search": https://leetcode.com/tag/breadth-first-search
+"Graph": https://leetcode.com/tag/graph
 Similar Questions:
-  "Copy List with Random Pointer": https://leetcode.com/problems/copy-list-with-random-pointer
+"Copy List with Random Pointer": https://leetcode.com/problems/copy-list-with-random-pointer
+
 ---
 
 ## [133. Clone Graph](https://leetcode.com/problems/clone-graph/description/)
@@ -10275,24 +10746,25 @@ DFS. Cache the visited node before entering the next recursion.
  * @param {UndirectedGraphNode} graph
  * @return {UndirectedGraphNode}
  */
-let cloneGraph = function(graph) {
-  const cache = {}
-  return _clone(graph)
+let cloneGraph = function (graph) {
+  const cache = {};
+  return _clone(graph);
 
-  function _clone (graph) {
-    if (!graph) { return graph }
-    const label = graph.label
-    if (!cache[label]) {
-      cache[label] = new UndirectedGraphNode(label)
-      cache[label].neighbors = graph.neighbors.map(_clone)
+  function _clone(graph) {
+    if (!graph) {
+      return graph;
     }
-    return cache[label]
+    const label = graph.label;
+    if (!cache[label]) {
+      cache[label] = new UndirectedGraphNode(label);
+      cache[label].neighbors = graph.neighbors.map(_clone);
+    }
+    return cache[label];
   }
 };
 ```
 
-
-*Template generated via [Leetmark](https://github.com/crimx/crx-leetmark).*
+_Template generated via [Leetmark](https://github.com/crimx/crx-leetmark)._
 
 ![alt text](https://github.com/everthis/leetcode-js/blob/master/images/binary-tree-upside-down.webp "binary-tree-upside-down")
 
@@ -10308,36 +10780,37 @@ let cloneGraph = function(graph) {
  * @param {TreeNode} root
  * @return {TreeNode}
  */
-const upsideDownBinaryTree = function(root) {
-  let curr = root
-  let next = null
-  let temp = null
-  let prev = null
+const upsideDownBinaryTree = function (root) {
+  let curr = root;
+  let next = null;
+  let temp = null;
+  let prev = null;
   while (curr !== null) {
-    next = curr.left
-    curr.left = temp
-    temp = curr.right
-    curr.right = prev
-    prev = curr
-    curr = next
+    next = curr.left;
+    curr.left = temp;
+    temp = curr.right;
+    curr.right = prev;
+    prev = curr;
+    curr = next;
   }
-  return prev
-}
+  return prev;
+};
 
 // another
 
-const upsideDownBinaryTree = function(root) {
+const upsideDownBinaryTree = function (root) {
   if (root == null || root.left == null) {
-    return root
+    return root;
   }
-  const newRoot = upsideDownBinaryTree(root.left)
-  root.left.left = root.right
-  root.left.right = root
-  root.left = null
-  root.right = null
-  return newRoot
-}
+  const newRoot = upsideDownBinaryTree(root.left);
+  root.left.left = root.right;
+  root.left.right = root;
+  root.left = null;
+  root.right = null;
+  return newRoot;
+};
 ```
+
 ![alt text](https://github.com/everthis/leetcode-js/blob/master/images/maximum-sum-circular-subarray.png "maximum-sum-circular-subarray")
 
 ```js
@@ -10345,18 +10818,23 @@ const upsideDownBinaryTree = function(root) {
  * @param {number[]} A
  * @return {number}
  */
-const maxSubarraySumCircular = function(A) {
-  let minSum = Infinity, sum = 0, maxSum = -Infinity, curMax = 0, curMin = 0
-  for(let a of A) {
-    sum += a
+const maxSubarraySumCircular = function (A) {
+  let minSum = Infinity,
+    sum = 0,
+    maxSum = -Infinity,
+    curMax = 0,
+    curMin = 0;
+  for (let a of A) {
+    sum += a;
     curMax = Math.max(curMax + a, a);
     maxSum = Math.max(maxSum, curMax);
     curMin = Math.min(curMin + a, a);
     minSum = Math.min(minSum, curMin);
   }
-  return  maxSum > 0 ? Math.max(maxSum, sum - minSum) : maxSum;
+  return maxSum > 0 ? Math.max(maxSum, sum - minSum) : maxSum;
 };
 ```
+
 # Balanced Binary Tree - LeetCode
 
 > Level up your coding skills and quickly land a job. This is the best place to expand your knowledge and get prepared for your next interview.
@@ -10388,9 +10866,8 @@ For this problem, a height-balanced binary tree is defined as:
 
 **Constraints:**
 
-*   The number of nodes in the tree is in the range `[0, 5000]`.
-*   `-104 <= Node.val <= 104`
-
+- The number of nodes in the tree is in the range `[0, 5000]`.
+- `-104 <= Node.val <= 104`
 
 [Source](https://leetcode.com/problems/balanced-binary-tree/)# Convert Sorted Array to Binary Search Tree
 
@@ -10408,10 +10885,10 @@ One possible answer is: \[0,-3,9,-10,null,5\], which represents the following he
 
       0
      / \\
-   -3   9
-   /   /
- -10  5
 
+-3 9
+/ /
+-10 5
 
 [Source](https://leetcode.com/problems/convert-sorted-array-to-binary-search-tree/)# Delete Node in a BST
 
@@ -10450,12 +10927,11 @@ Please notice that another valid answer is \[5,2,6,null,4,null,7\] and it's also
 
 **Constraints:**
 
-*   The number of nodes in the tree is in the range `[0, 104]`.
-*   `-105 <= Node.val <= 105`
-*   Each node has a **unique** value.
-*   `root` is a valid binary search tree.
-*   `-105 <= key <= 105`
-
+- The number of nodes in the tree is in the range `[0, 104]`.
+- `-105 <= Node.val <= 105`
+- Each node has a **unique** value.
+- `root` is a valid binary search tree.
+- `-105 <= key <= 105`
 
 [Source](https://leetcode.com/problems/delete-node-in-a-bst/)![alt text](https://github.com/everthis/leetcode-js/blob/master/images/meeting-room-ii-0.jpg "meeting-room-ii")
 ![alt text](https://github.com/everthis/leetcode-js/blob/master/images/meeting-room-ii-1.jpg "meeting-room-ii")
@@ -10465,22 +10941,22 @@ Please notice that another valid answer is \[5,2,6,null,4,null,7\] and it's also
  * @param {number[][]} intervals
  * @return {number}
  */
-const minMeetingRooms = function(intervals) {
-  const len = intervals.length
-  const starts = new Array(len)
-  const ends = new Array(len)
+const minMeetingRooms = function (intervals) {
+  const len = intervals.length;
+  const starts = new Array(len);
+  const ends = new Array(len);
   for (let i = 0; i < len; i++) {
-    starts[i] = intervals[i][0]
-    ends[i] = intervals[i][1]
+    starts[i] = intervals[i][0];
+    ends[i] = intervals[i][1];
   }
-  starts.sort((a, b) => a - b)
-  ends.sort((a, b) => a - b)
-  let rooms = 0
-  let endsIdx = 0
+  starts.sort((a, b) => a - b);
+  ends.sort((a, b) => a - b);
+  let rooms = 0;
+  let endsIdx = 0;
   for (let i = 0; i < len; i++) {
-    if (starts[i] < ends[endsIdx]) rooms++
-    else endsIdx++
+    if (starts[i] < ends[endsIdx]) rooms++;
+    else endsIdx++;
   }
-  return rooms
-}
+  return rooms;
+};
 ```

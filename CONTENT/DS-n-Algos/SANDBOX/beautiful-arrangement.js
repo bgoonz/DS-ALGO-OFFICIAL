@@ -5,7 +5,7 @@
  * @param {number} N
  * @return {number}
  */
-var countArrangement = function(N) {
+var countArrangement = function (N) {
   let [ans, hash] = [0, {}];
 
   let dfs = (index) => {

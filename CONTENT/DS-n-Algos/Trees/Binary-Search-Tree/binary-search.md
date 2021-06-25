@@ -1,4 +1,5 @@
 // Recursive Boolean
+
 ```js
 function recurBSearch(array, target) {
   // Our base case:
@@ -9,7 +10,7 @@ function recurBSearch(array, target) {
 
   // Get a reference to the middle index, and middle element
   const midIdx = Math.floor(array.length / 2);
-  const midEl = array[midIdx]
+  const midEl = array[midIdx];
   // We get a subarray that represents our left half by slicing up to but not
   // including our midIdx.
   const leftHalf = array.slice(0, midIdx);
@@ -32,7 +33,9 @@ function recurBSearch(array, target) {
   }
 }
 ```
+
 // Iterative Boolean
+
 ```js
 function iterBSearch(array, target) {
   // Get a reference to our lower and upper bounds that we would like to search
@@ -71,7 +74,9 @@ function iterBSearch(array, target) {
   return false;
 }
 ```
+
 // Recursive Index
+
 ```js
 function recurBSearchIdx(array, target) {
   // Our base case
@@ -108,12 +113,11 @@ function recurBSearchIdx(array, target) {
     // Ultimately this means taking our return value and adding on our midIdx + 1
     // Take a look at the comments below this function for an example
   } else if (target > midEl) {
-    const idxShift = recurBSearchIdx(rightHalf, target)
+    const idxShift = recurBSearchIdx(rightHalf, target);
     if (idxShift === -1) {
-      return -1
-    }
-    else {
-      return idxShift + midIdx + 1
+      return -1;
+    } else {
+      return idxShift + midIdx + 1;
     }
     // If neither of the above cases are true, we found our element and return that
     // index (the midIdx that we compared)
@@ -122,6 +126,7 @@ function recurBSearchIdx(array, target) {
   }
 }
 ```
+
 // Using the right-side shift example:
 // Array: [1, 2, 3, 4, 5], Target: 5
 // The first index that we are going to compare is Math.floor(array.length/2) = 2,
@@ -146,8 +151,8 @@ function recurBSearchIdx(array, target) {
 // of the subarrays are the same as the indices of our larger array (index 1 of
 // the left subarray is the same element as index 1 of the larger original).
 
-
 // Recursive Index v2
+
 ```js
 function recurBSearchIdxV2(array, target, lo = 0, hi = array.length - 1) {
   // I'm adding a second condition to this base case that Alvin doesn't do. It's
@@ -173,6 +178,7 @@ function recurBSearchIdxV2(array, target, lo = 0, hi = array.length - 1) {
 ```
 
 // Iterative Index
+
 ```js
 function iterBSearchIdx(array, target) {
   // The implementation of this function is exactly the same as returning a boolean
@@ -198,12 +204,13 @@ function iterBSearchIdx(array, target) {
   return -1;
 }
 ```
+
 ```js
 module.exports = {
   recurBSearch,
   iterBSearch,
   recurBSearchIdx,
   recurBSearchIdxV2,
-  iterBSearchIdx
-}
+  iterBSearchIdx,
+};
 ```

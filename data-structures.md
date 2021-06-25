@@ -170,51 +170,51 @@ class ArrayADT {
   }
 
   print() {
-    console.log(this.array.join(' '));
+    console.log(this.array.join(" "));
   }
 }
 
 const array = new ArrayADT();
-console.log('const array = new ArrayADT();: ', array);
-console.log('-------------------------------');
+console.log("const array = new ArrayADT();: ", array);
+console.log("-------------------------------");
 
-console.log('array.add(1): ', array.add(1));
+console.log("array.add(1): ", array.add(1));
 array.add(3);
 array.add(4);
 console.log(
-  'array.add(2);: ',
+  "array.add(2);: ",
   array.add(2),
-  'array.add(3);',
+  "array.add(3);",
   array.add(3),
-  'array.add(4); ',
+  "array.add(4); ",
   array.add(4)
 );
 
-console.log('-------------------------------');
+console.log("-------------------------------");
 array.print();
-console.log('-------------------------------');
+console.log("-------------------------------");
 
-console.log('search 3 gives index 2:', array.search(3));
-console.log('-------------------------------');
+console.log("search 3 gives index 2:", array.search(3));
+console.log("-------------------------------");
 
-console.log('getAtIndex 2 gives 3:', array.getAtIndex(2));
-console.log('-------------------------------');
+console.log("getAtIndex 2 gives 3:", array.getAtIndex(2));
+console.log("-------------------------------");
 
-console.log('length is 4:', array.length());
-console.log('-------------------------------');
+console.log("length is 4:", array.length());
+console.log("-------------------------------");
 
 array.remove(3);
 array.print();
-console.log('-------------------------------');
+console.log("-------------------------------");
 
 array.add(5);
 array.add(5);
 array.print();
-console.log('-------------------------------');
+console.log("-------------------------------");
 
 array.remove(5);
 array.print();
-console.log('-------------------------------');
+console.log("-------------------------------");
 /*
      ~ final : (master) node 01-array.js 
     const array = new ArrayADT();:  ArrayADT { array: [] }
@@ -346,8 +346,8 @@ The main difference is that object's "index" need not be numbers and is not nece
 let newObj = {
   name: "I'm an object",
   values: [1, 10, 11, 20],
-  others: '',
-  '1property': 'example of property name starting with digit',
+  others: "",
+  "1property": "example of property name starting with digit",
 };
 
 // 17. Figure out what keys/properties are in an object
@@ -376,15 +376,15 @@ for (let [key, value] of Object.entries(newObj)) {
 // 20. Accessing Object's Properties
 // Two different ways to access properties, both produce same results
 console.log(newObj.name);
-console.log(newObj['name']);
+console.log(newObj["name"]);
 
 // But if the property name starts with a digit,
 // we CANNOT use dot notation
-console.log(newObj['1property']);
+console.log(newObj["1property"]);
 
 // 21. Adding a Method to an Object
 newObj.helloWorld = function () {
-  console.log('Hello World from inside an object!');
+  console.log("Hello World from inside an object!");
 };
 
 // 22. Invoking an Object's Method
@@ -457,28 +457,28 @@ class HashTable {
     return this.numberOfValues;
   }
   print() {
-    let string = '';
+    let string = "";
     for (let value in this.values) {
       for (let key in this.values[value]) {
-        string += this.values[value][key] + ' ';
+        string += this.values[value][key] + " ";
       }
     }
     console.log(string.trim());
   }
 }
 let hashTable = new HashTable(3);
-hashTable.add('first', 1);
-hashTable.add('second', 2);
-hashTable.add('third', 3);
-hashTable.add('fourth', 4);
-hashTable.add('fifth', 5);
+hashTable.add("first", 1);
+hashTable.add("second", 2);
+hashTable.add("third", 3);
+hashTable.add("fourth", 4);
+hashTable.add("fifth", 5);
 hashTable.print(); // => 2 4 1 3 5
-console.log('length gives 5:', hashTable.length()); // => 5
-console.log('search second gives 2:', hashTable.search('second')); // => 2
-hashTable.remove('fourth');
-hashTable.remove('first');
+console.log("length gives 5:", hashTable.length()); // => 5
+console.log("search second gives 2:", hashTable.search("second")); // => 2
+hashTable.remove("fourth");
+hashTable.remove("first");
 hashTable.print(); // => 2 3 5
-console.log('length gives 3:', hashTable.length()); // => 3
+console.log("length gives 3:", hashTable.length()); // => 3
 /*
        ~ js-files : (master) node hash.js 
     2 4 1 3 5
@@ -501,7 +501,7 @@ let newSet = new Set();
 
 // 24. Adding new elements to a set
 newSet.add(1); // Set[1]
-newSet.add('text'); // Set[1, "text"]
+newSet.add("text"); // Set[1, "text"]
 
 // 25. Check if element is in set
 newSet.has(1); // true
@@ -647,7 +647,7 @@ Set.prototype.length = function () {
   return this.numberOfValues;
 };
 Set.prototype.print = function () {
-  console.log(this.values.join(' '));
+  console.log(this.values.join(" "));
 };
 
 let set = new Set();
@@ -658,9 +658,9 @@ set.add(4);
 set.print(); // => 1 2 3 4
 set.remove(3);
 set.print(); // => 1 2 4
-console.log('contains 4 is true:', set.contains(4)); // => true
-console.log('contains 3 is false:', set.contains(3)); // => false
-console.log('---');
+console.log("contains 4 is true:", set.contains(4)); // => true
+console.log("contains 3 is false:", set.contains(3)); // => false
+console.log("---");
 let set1 = new Set();
 set1.add(1);
 set1.add(2);
@@ -675,10 +675,10 @@ let set5 = set.difference(set3); // 1 2 4 diff 1 2 3
 set5.print(); // => 4
 let set6 = set3.difference(set); // 1 2 3 diff 1 2 4
 set6.print(); // => 3
-console.log('set1 subset of set is true:', set.isSubset(set1)); // => true
-console.log('set2 subset of set is false:', set.isSubset(set2)); // => false
-console.log('set1 length gives 2:', set1.length()); // => 2
-console.log('set3 length gives 3:', set3.length()); // => 3
+console.log("set1 subset of set is true:", set.isSubset(set1)); // => true
+console.log("set2 subset of set is false:", set.isSubset(set2)); // => false
+console.log("set1 length gives 2:", set1.length()); // => 2
+console.log("set3 length gives 3:", set3.length()); // => 3
 ```
 
 ## The Singly Linked List
@@ -770,10 +770,10 @@ SinglyLinkedList.prototype.length = function () {
   return this.numberOfValues;
 };
 SinglyLinkedList.prototype.print = function () {
-  let string = '';
+  let string = "";
   let current = this.head;
   while (current) {
-    string += current.data + ' ';
+    string += current.data + " ";
     current = current.next;
   }
   console.log(string.trim());
@@ -786,7 +786,7 @@ singlyLinkedList.add(2);
 singlyLinkedList.add(3);
 singlyLinkedList.add(4);
 singlyLinkedList.print(); // => 1 2 3 4
-console.log('length is 4:', singlyLinkedList.length()); // => 4
+console.log("length is 4:", singlyLinkedList.length()); // => 4
 singlyLinkedList.remove(3); // remove value
 singlyLinkedList.print(); // => 1 2 4
 singlyLinkedList.remove(9); // remove non existing value
@@ -795,7 +795,7 @@ singlyLinkedList.remove(1); // remove head
 singlyLinkedList.print(); // => 2 4
 singlyLinkedList.remove(4); // remove tail
 singlyLinkedList.print(); // => 2
-console.log('length is 1:', singlyLinkedList.length()); // => 1
+console.log("length is 1:", singlyLinkedList.length()); // => 1
 singlyLinkedList.add(6);
 singlyLinkedList.print(); // => 2 6
 singlyLinkedList.insertAfter(3, 2);
@@ -809,7 +809,7 @@ singlyLinkedList.insertAfter(7, 6); // insertAfter the tail
 singlyLinkedList.print(); // => 2 3 4 5 6 7
 singlyLinkedList.add(8); // add node with normal method
 singlyLinkedList.print(); // => 2 3 4 5 6 7 8
-console.log('length is 7:', singlyLinkedList.length()); // => 7
+console.log("length is 7:", singlyLinkedList.length()); // => 7
 singlyLinkedList.traverse(function (node) {
   node.data = node.data + 10;
 });
@@ -817,7 +817,7 @@ singlyLinkedList.print(); // => 12 13 14 15 16 17 18
 singlyLinkedList.traverse(function (node) {
   console.log(node.data);
 }); // => 12 13 14 15 16 17 18
-console.log('length is 7:', singlyLinkedList.length()); // => 7
+console.log("length is 7:", singlyLinkedList.length()); // => 7
 ```
 
 ## The Doubly Linked List

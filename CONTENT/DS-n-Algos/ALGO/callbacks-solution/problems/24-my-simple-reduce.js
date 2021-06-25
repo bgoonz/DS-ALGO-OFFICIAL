@@ -30,11 +30,11 @@ let result3 = mySimpleReduce([4, 6, 2, 8, 3], function(max, el) {
 console.log(result3); // 8
 *******************************************************************************/
 
-function mySimpleReduce( array, cb ) {
-  let accumulator = array[ 0 ];
-  array.slice( 1 ).forEach( el => {
-    accumulator = cb( accumulator, el );
-  } );
+function mySimpleReduce(array, cb) {
+  let accumulator = array[0];
+  array.slice(1).forEach((el) => {
+    accumulator = cb(accumulator, el);
+  });
   return accumulator;
 }
 

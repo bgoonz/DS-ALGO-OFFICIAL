@@ -27,15 +27,14 @@ function makeDog() {
     name: "Jet",
     // here we have to use an anonymous function to ensure the context
     // is set correctly when this method is invoked
-    speak: function ( word ) {
+    speak: function (word) {
       return this.name + " says " + word;
     },
-    changeName: function ( newName ) {
+    changeName: function (newName) {
       this.name = newName;
       return this.name;
     },
   };
 }
-
 
 module.exports = makeDog;

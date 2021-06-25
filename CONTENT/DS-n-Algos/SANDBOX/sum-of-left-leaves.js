@@ -12,7 +12,7 @@
  * @param {TreeNode} root
  * @return {number}
  */
-var sumOfLeftLeaves = function(root) {
+var sumOfLeftLeaves = function (root) {
   let ans = 0;
 
   root && root.left && dfs(root.left, 1);

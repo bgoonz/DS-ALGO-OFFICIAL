@@ -16,7 +16,6 @@ function quickSort(array) {
   return [...leftSort, pivot, ...rightSort];
 }
 
-
 /*
 vg Case: O(n log(n))The partition step alone is O(n). We are lucky and always choose the median as the pivot. This will halve the array length at every step of the recursionO(log(n)).Worst Case: O(n2)We are unlucky and always choose the min or max as the pivot. This means one partition will contain everything, and the other partition is empty O(n)
 

@@ -4,7 +4,7 @@ module.exports = function (fn, delay, execAsap) {
   return function () {
     // Keep the functions execution context and arguments in tact
     var that = this,
-        args = arguments;
+      args = arguments;
 
     // If we already have a function ready to execute, clear it
     // Else if we are allowed to execute immediately, call the function

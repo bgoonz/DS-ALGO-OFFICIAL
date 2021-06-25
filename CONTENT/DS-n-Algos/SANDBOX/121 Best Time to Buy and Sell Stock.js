@@ -21,26 +21,26 @@
  * @return {number}
  */
 //  http://fisherlei.blogspot.com/2013/01/leetcode-best-time-to-buy-and-sell.html
-const maxProfit = prices => {
-    if(prices === null || prices.length === 0){
-        return 0;
+const maxProfit = (prices) => {
+  if (prices === null || prices.length === 0) {
+    return 0;
+  }
+
+  let max = 0;
+  let diff = 0;
+  let min = Infinity;
+
+  prices.forEach((price) => {
+    if (min > price) {
+      min = price;
     }
 
-    let max = 0;
-    let diff = 0;
-    let min = Infinity;
+    diff = price - min;
 
-    prices.forEach(price => {
-        if(min > price){
-            min = price;
-        }
+    if (max < diff) {
+      max = diff;
+    }
+  });
 
-        diff = price - min;
-
-        if(max < diff){
-            max = diff;
-        }
-    });
-
-    return max;
+  return max;
 };

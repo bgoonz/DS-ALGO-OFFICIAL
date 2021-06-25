@@ -17,21 +17,19 @@ A>> Because the array is sorted, duplicate elements will be side-by-side.
 B>> So, I will start from the last element of the array ( i = nums.length), moving left, by decrementing i. And with each non-duplicate element found, I will increment the "resultLength" variable by 1
 C>> For first iteration, i.e. the last element of the array I have to increment the resultLength anyway. Hence, the condition  < if ( i === nums.length - 1) > Only for the first iteration of the for loop this will be satisfied and so resultLength will be incremented by 1
 */
-const removeDuplicates = nums => {
-
+const removeDuplicates = (nums) => {
   let resultLength = 0;
 
-  for ( let i = nums.length; i--; ) {
-    if ( i === nums.length - 1 ) {
+  for (let i = nums.length; i--; ) {
+    if (i === nums.length - 1) {
       resultLength++;
-    } else if ( nums[ i ] === nums[ i + 1 ] ) {
-      nums.splice( i, 1 ); // This will remove 1 element from the position nums[i]
+    } else if (nums[i] === nums[i + 1]) {
+      nums.splice(i, 1); // This will remove 1 element from the position nums[i]
     } else {
-      resultLength++
+      resultLength++;
     }
   }
   return resultLength;
 };
 
-
-console.log( removeDuplicates( [ 1, 1, 2 ] ) );
+console.log(removeDuplicates([1, 1, 2]));

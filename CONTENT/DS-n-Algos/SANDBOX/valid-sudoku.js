@@ -16,29 +16,25 @@ function check(array) {
   return true;
 }
 
-var isValidSudoku = function(board) {
+var isValidSudoku = function (board) {
   // every row
   for (var i = 0; i < 9; i++) {
     var tmp = [];
     for (var j = 0; j < 9; j++)
-      if (board[i][j] !== '.')
-        tmp.push(Number(board[i][j]));
+      if (board[i][j] !== ".") tmp.push(Number(board[i][j]));
 
     var f = check(tmp);
-    if (!f)
-      return f;
+    if (!f) return f;
   }
 
   // every column
   for (var i = 0; i < 9; i++) {
     var tmp = [];
     for (var j = 0; j < 9; j++)
-      if (board[j][i] !== '.')
-        tmp.push(Number(board[j][i]));
+      if (board[j][i] !== ".") tmp.push(Number(board[j][i]));
 
     var f = check(tmp);
-     if (!f)
-      return f;
+    if (!f) return f;
   }
 
   // 9 squares
@@ -47,11 +43,9 @@ var isValidSudoku = function(board) {
       var tmp = [];
       for (var _i = i; _i < i + 3; _i++)
         for (var _j = j; _j < j + 3; _j++)
-          if (board[_i][_j] !== '.')
-            tmp.push(Number(board[_i][_j]));
+          if (board[_i][_j] !== ".") tmp.push(Number(board[_i][_j]));
       var f = check(tmp);
-      if (!f)
-        return f;
+      if (!f) return f;
     }
 
   return true;

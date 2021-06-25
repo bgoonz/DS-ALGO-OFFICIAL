@@ -12,12 +12,11 @@
  * @param {number[]} nums
  * @return {TreeNode}
  */
-var sortedArrayToBST = function(nums) {
+var sortedArrayToBST = function (nums) {
   return dfs(0, nums.length - 1);
 
   function dfs(start, end) {
-    if (start > end)
-      return null;
+    if (start > end) return null;
 
     var mid = (start + end) >> 1;
     var node = new TreeNode(nums[mid]);
@@ -27,7 +26,6 @@ var sortedArrayToBST = function(nums) {
     return node;
   }
 };
-
 
 /**
  * Definition for singly-linked list.
@@ -47,7 +45,7 @@ var sortedArrayToBST = function(nums) {
  * @param {ListNode} head
  * @return {TreeNode}
  */
-var sortedListToBST = function(head) {
+var sortedListToBST = function (head) {
   var ans = [];
   while (head) {
     ans.push(head.val);

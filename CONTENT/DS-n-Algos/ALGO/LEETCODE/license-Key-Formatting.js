@@ -38,30 +38,29 @@ Return value - A new string containing the specified part of the given string.
 
 */
 
-const licenseKeyFormatting = ( S, K ) => {
-
-  let cleanStr = S.toUpperCase().replace( /-/g, '' );
+const licenseKeyFormatting = (S, K) => {
+  let cleanStr = S.toUpperCase().replace(/-/g, "");
 
   let len = cleanStr.length;
 
   // let s1 is the length of the first group
 
-  let s1 = ( ( len % K ) === 0 ) ? K : ( len % K );
+  let s1 = len % K === 0 ? K : len % K;
 
   // now form the first group of the resultant string
-  let resultStr = cleanStr.substring( 0, s1 );
+  let resultStr = cleanStr.substring(0, s1);
 
   // Now that, I have the first group, the next group will be >> first-group + "-" + K elements of the string
   // Also as a final reconciliation after I place all the K number of elements in each group the total length should be equal to cleanStr length
   // i.e. s1 + K + K ... === len  . Till this is not the case, I have to keep placing each K elements to each group
 
-  while ( len > s1 ) {
-    resultStr += "-" + cleanStr.substring( s1, s1 + K )
-    s1 += K
+  while (len > s1) {
+    resultStr += "-" + cleanStr.substring(s1, s1 + K);
+    s1 += K;
   }
   return resultStr;
 };
 
-console.log( licenseKeyFormatting( "5F3Z-2e-9-w", 4 ) ) // => 5F3Z-2E9W
+console.log(licenseKeyFormatting("5F3Z-2e-9-w", 4)); // => 5F3Z-2E9W
 
-console.log( licenseKeyFormatting( "2-5g-3-J", 2 ) ) // => "2-5G-3J"
+console.log(licenseKeyFormatting("2-5g-3-J", 2)); // => "2-5G-3J"

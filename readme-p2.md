@@ -1,31 +1,19 @@
-
 [Readme](https://github.com/bgoonz/DS-ALGO-OFFICIAL/blob/master/README.md)
-
-
-
 
 [readme part 2](https://github.com/bgoonz/DS-ALGO-OFFICIAL/blob/master/readme-p2.md)
 
-
-
 [readme part 3](https://github.com/bgoonz/DS-ALGO-OFFICIAL/blob/master/readme-p3.md)
 
-
-
 [readme part 4](https://github.com/bgoonz/DS-ALGO-OFFICIAL/blob/master/readme-p4.md)
-
-
-
 
 ---
 
 Difficulty: Hard
 Related Topics:
-  "String": https://leetcode.com/tag/string
-  "Dynamic Programming": https://leetcode.com/tag/dynamic-programming
+"String": https://leetcode.com/tag/string
+"Dynamic Programming": https://leetcode.com/tag/dynamic-programming
 
 ---
-
 
 [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#115-distinct-subsequenceshttpsleetcodecomproblemsdistinct-subsequencesdescription)
 
@@ -97,39 +85,33 @@ Dynamic array can be used.
  * @param {string} t
  * @return {number}
  */
-let numDistinct = function(s, t) {
-  const lens = s.length
-  const lent = t.length
-  const dp = new Array(lent + 1).fill(0)
-  dp[0] = 1
+let numDistinct = function (s, t) {
+  const lens = s.length;
+  const lent = t.length;
+  const dp = new Array(lent + 1).fill(0);
+  dp[0] = 1;
   for (let i = 1; i <= lens; i++) {
     for (let j = lent; j >= 1; j--) {
-      if (s[i-1] === t[j-1]) {
-        dp[j] += dp[j-1]
+      if (s[i - 1] === t[j - 1]) {
+        dp[j] += dp[j - 1];
       }
     }
   }
-  return dp[lent]
+  return dp[lent];
 };
-
 ```
-
-
-
-
 
 ---
 
 Difficulty: Medium
 Related Topics:
-  "Tree": https://leetcode.com/tag/tree
-  "Depth-first Search": https://leetcode.com/tag/depth-first-search
+"Tree": https://leetcode.com/tag/tree
+"Depth-first Search": https://leetcode.com/tag/depth-first-search
 Similar Questions:
-  "Populating Next Right Pointers in Each Node II": https://leetcode.com/problems/populating-next-right-pointers-in-each-node-ii
-  "Binary Tree Right Side View": https://leetcode.com/problems/binary-tree-right-side-view
+"Populating Next Right Pointers in Each Node II": https://leetcode.com/problems/populating-next-right-pointers-in-each-node-ii
+"Binary Tree Right Side View": https://leetcode.com/problems/binary-tree-right-side-view
 
 ---
-
 
 [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#116-populating-next-right-pointers-in-each-nodehttpsleetcodecomproblemspopulating-next-right-pointers-in-each-nodedescription)
 
@@ -206,17 +188,19 @@ For every `node`:
  * @param {TreeLinkNode} root
  * @return {void} Do not return anything, modify tree in-place instead.
  */
-let connect = function(root) {
-  if (!root) { return }
+let connect = function (root) {
+  if (!root) {
+    return;
+  }
   if (root.left !== null) {
-    root.left.next = root.right
-    connect(root.left)
+    root.left.next = root.right;
+    connect(root.left);
   }
   if (root.right !== null) {
     if (root.next !== null) {
-      root.right.next = root.next.left
+      root.right.next = root.next.left;
     }
-    connect(root.right)
+    connect(root.right);
   }
 };
 ```
@@ -238,39 +222,41 @@ Level order traversal.
  * @param {TreeLinkNode} root
  * @return {void} Do not return anything, modify tree in-place instead.
  */
-let connect = function(root) {
-  if (!root) { return }
+let connect = function (root) {
+  if (!root) {
+    return;
+  }
 
-  const queue = [NaN, root]
+  const queue = [NaN, root];
   while (queue.length > 1) {
-    const node = queue.shift()
+    const node = queue.shift();
     if (node !== node) {
       for (let i = 0; i < queue.length; i++) {
-        queue[i].next = queue[i+1] || null
+        queue[i].next = queue[i + 1] || null;
       }
-      queue.push(NaN)
+      queue.push(NaN);
     } else {
-      if (node.left !== null) { queue.push(node.left) }
-      if (node.right !== null) { queue.push(node.right) }
+      if (node.left !== null) {
+        queue.push(node.left);
+      }
+      if (node.right !== null) {
+        queue.push(node.right);
+      }
     }
   }
 };
 ```
 
-
-
-
 ---
 
 Difficulty: Medium
 Related Topics:
-  "Tree": https://leetcode.com/tag/tree
-  "Depth-first Search": https://leetcode.com/tag/depth-first-search
+"Tree": https://leetcode.com/tag/tree
+"Depth-first Search": https://leetcode.com/tag/depth-first-search
 Similar Questions:
-  "Populating Next Right Pointers in Each Node": https://leetcode.com/problems/populating-next-right-pointers-in-each-node
+"Populating Next Right Pointers in Each Node": https://leetcode.com/problems/populating-next-right-pointers-in-each-node
 
 ---
-
 
 [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#117-populating-next-right-pointers-in-each-node-iihttpsleetcodecomproblemspopulating-next-right-pointers-in-each-node-iidescription)
 
@@ -345,27 +331,29 @@ This also means post-order traversal is required.
  * @param {TreeLinkNode} root
  * @return {void} Do not return anything, modify tree in-place instead.
  */
-let connect = function(root) {
-  if (!root) { return }
-  let next = null
+let connect = function (root) {
+  if (!root) {
+    return;
+  }
+  let next = null;
   for (let node = root.next; node !== null; node = node.next) {
     if (node.left !== null) {
-      next = node.left
-      break
+      next = node.left;
+      break;
     }
     if (node.right !== null) {
-      next = node.right
-      break
+      next = node.right;
+      break;
     }
   }
   if (root.right !== null) {
-    root.right.next = next
+    root.right.next = next;
   }
   if (root.left !== null) {
-    root.left.next = root.right || next
+    root.left.next = root.right || next;
   }
-  connect(root.right)
-  connect(root.left)
+  connect(root.right);
+  connect(root.left);
 };
 ```
 
@@ -386,38 +374,40 @@ Level order traversal. Exact same as [116. Populating Next Right Pointers in Eac
  * @param {TreeLinkNode} root
  * @return {void} Do not return anything, modify tree in-place instead.
  */
-let connect = function(root) {
-  if (!root) { return }
+let connect = function (root) {
+  if (!root) {
+    return;
+  }
 
-  const queue = [NaN, root]
+  const queue = [NaN, root];
   while (queue.length > 1) {
-    const node = queue.shift()
+    const node = queue.shift();
     if (node !== node) {
       for (let i = 0; i < queue.length; i++) {
-        queue[i].next = queue[i+1] || null
+        queue[i].next = queue[i + 1] || null;
       }
-      queue.push(NaN)
+      queue.push(NaN);
     } else {
-      if (node.left !== null) { queue.push(node.left) }
-      if (node.right !== null) { queue.push(node.right) }
+      if (node.left !== null) {
+        queue.push(node.left);
+      }
+      if (node.right !== null) {
+        queue.push(node.right);
+      }
     }
   }
 };
 ```
 
-
-
-
 ---
 
 Difficulty: Easy
 Related Topics:
-  "Array": https://leetcode.com/tag/array
+"Array": https://leetcode.com/tag/array
 Similar Questions:
-  "Pascal's Triangle II": https://leetcode.com/problems/pascals-triangle-ii
+"Pascal's Triangle II": https://leetcode.com/problems/pascals-triangle-ii
 
 ---
-
 
 [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#118-pascals-trianglehttpsleetcodecomproblemspascals-triangledescription)
 
@@ -425,7 +415,7 @@ Similar Questions:
 
 ### Problem:
 
-Given a non-negative integer *numRows*, generate the first *numRows* of Pascal's triangle.
+Given a non-negative integer *numRows*, generate the first _numRows_ of Pascal's triangle.
 
 ![PascalTriangleAnimated2.gif](https://upload.wikimedia.org/wikipedia/commons/0/0d/PascalTriangleAnimated2.gif)
 
@@ -455,38 +445,35 @@ Dynamic Programming 101.
  * @param {number} numRows
  * @return {number[][]}
  */
-let generate = function(numRows) {
-  if (numRows <= 0) { return [] }
-
-  const result = [[1]]
-  for (let i = 1; i < numRows; i++) {
-    const lastRow = result[i-1]
-    const row = [1]
-    for (let j = 1; j < i; j++) {
-      row[j] = lastRow[j] + lastRow[j-1]
-    }
-    row.push(1)
-    result.push(row)
+let generate = function (numRows) {
+  if (numRows <= 0) {
+    return [];
   }
-  
-  return result
+
+  const result = [[1]];
+  for (let i = 1; i < numRows; i++) {
+    const lastRow = result[i - 1];
+    const row = [1];
+    for (let j = 1; j < i; j++) {
+      row[j] = lastRow[j] + lastRow[j - 1];
+    }
+    row.push(1);
+    result.push(row);
+  }
+
+  return result;
 };
 ```
-
-
-
-
 
 ---
 
 Difficulty: Easy
 Related Topics:
-  "Array": https://leetcode.com/tag/array
+"Array": https://leetcode.com/tag/array
 Similar Questions:
-  "Pascal's Triangle": https://leetcode.com/problems/pascals-triangle
+"Pascal's Triangle": https://leetcode.com/problems/pascals-triangle
 
 ---
-
 
 [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#119-pascals-triangle-iihttpsleetcodecomproblemspascals-triangle-iidescription)
 
@@ -494,7 +481,7 @@ Similar Questions:
 
 ### Problem:
 
-Given a non-negative index *k* where *k* ≤ 33, return the *k*th index row of the Pascal's triangle.
+Given a non-negative index *k* where _k_ ≤ 33, return the *k*th index row of the Pascal's triangle.
 
 Note that the row index starts from 0.
 
@@ -512,7 +499,7 @@ Output: [1,3,3,1]
 
 **Follow up:**
 
-Could you optimize your algorithm to use only *O*(*k*) extra space?
+Could you optimize your algorithm to use only _O_(_k_) extra space?
 
 ### Solution:
 
@@ -525,34 +512,31 @@ State `(i, j)` depends on `(i-1, j)` and `(i-1, j-1)`. So to access `(i-1, j-1)`
  * @param {number} rowIndex
  * @return {number[]}
  */
-let getRow = function(rowIndex) {
-  if (rowIndex < 0) { return [] }
+let getRow = function (rowIndex) {
+  if (rowIndex < 0) {
+    return [];
+  }
 
-  const row = [1]
+  const row = [1];
   for (let i = 1; i <= rowIndex; i++) {
     for (let j = i - 1; j > 0; j--) {
-      row[j] += row[j-1]
+      row[j] += row[j - 1];
     }
-    row.push(1)
+    row.push(1);
   }
-  
-  return row
+
+  return row;
 };
 ```
-
-
-
-
 
 ---
 
 Difficulty: Medium
 Related Topics:
-  "Array": https://leetcode.com/tag/array
-  "Dynamic Programming": https://leetcode.com/tag/dynamic-programming
+"Array": https://leetcode.com/tag/array
+"Dynamic Programming": https://leetcode.com/tag/dynamic-programming
 
 ---
-
 
 [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#120-trianglehttpsleetcodecomproblemstriangledescription)
 
@@ -578,7 +562,7 @@ The minimum path sum from top to bottom is `11` (i.e., **2** + **3** + **5** + *
 
 **Note:**
 
-Bonus point if you are able to do this using only *O*(*n*) extra space, where *n* is the total number of rows in the triangle.
+Bonus point if you are able to do this using only _O_(_n_) extra space, where _n_ is the total number of rows in the triangle.
 
 ### Solution:
 
@@ -597,39 +581,37 @@ Dynamic array can be used.
  * @param {number[][]} triangle
  * @return {number}
  */
-let minimumTotal = function(triangle) {
-  if (triangle.length <= 0) { return 0 }
-
-  const dp = [triangle[0][0]]
-  for (let i = 1; i < triangle.length; i++) {
-    dp[i] = dp[i-1] + triangle[i][i]
-    for (let j = i - 1; j >= 1; j--) {
-      dp[j] = Math.min(dp[j], dp[j-1]) + triangle[i][j]
-    }
-    dp[0] += triangle[i][0]
+let minimumTotal = function (triangle) {
+  if (triangle.length <= 0) {
+    return 0;
   }
-  return Math.min(...dp)
+
+  const dp = [triangle[0][0]];
+  for (let i = 1; i < triangle.length; i++) {
+    dp[i] = dp[i - 1] + triangle[i][i];
+    for (let j = i - 1; j >= 1; j--) {
+      dp[j] = Math.min(dp[j], dp[j - 1]) + triangle[i][j];
+    }
+    dp[0] += triangle[i][0];
+  }
+  return Math.min(...dp);
 };
 ```
-
-
-
 
 ---
 
 Difficulty: Easy
 Related Topics:
-  "Array": https://leetcode.com/tag/array
-  "Dynamic Programming": https://leetcode.com/tag/dynamic-programming
+"Array": https://leetcode.com/tag/array
+"Dynamic Programming": https://leetcode.com/tag/dynamic-programming
 Similar Questions:
-  "Maximum Subarray": https://leetcode.com/problems/maximum-subarray
-  "Best Time to Buy and Sell Stock II": https://leetcode.com/problems/best-time-to-buy-and-sell-stock-ii
-  "Best Time to Buy and Sell Stock III": https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iii
-  "Best Time to Buy and Sell Stock IV": https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iv
-  "Best Time to Buy and Sell Stock with Cooldown": https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-cooldown
+"Maximum Subarray": https://leetcode.com/problems/maximum-subarray
+"Best Time to Buy and Sell Stock II": https://leetcode.com/problems/best-time-to-buy-and-sell-stock-ii
+"Best Time to Buy and Sell Stock III": https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iii
+"Best Time to Buy and Sell Stock IV": https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iv
+"Best Time to Buy and Sell Stock with Cooldown": https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-cooldown
 
 ---
-
 
 [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#121-best-time-to-buy-and-sell-stockhttpsleetcodecomproblemsbest-time-to-buy-and-sell-stockdescription)
 
@@ -637,7 +619,7 @@ Similar Questions:
 
 ### Problem:
 
-Say you have an array for which the *i*th element is the price of a given stock on day *i*.
+Say you have an array for which the *i*th element is the price of a given stock on day _i_.
 
 If you were only permitted to complete at most one transaction (i.e., buy one and sell one share of the stock), design an algorithm to find the maximum profit.
 
@@ -673,40 +655,35 @@ Because `price[j]` is lower that the base, using `j` as new base is guaranteed t
  * @param {number[]} prices
  * @return {number}
  */
-let maxProfit = function(prices) {
-  let max = 0
-  let base = prices[0]
+let maxProfit = function (prices) {
+  let max = 0;
+  let base = prices[0];
   for (let i = 1; i < prices.length; i++) {
-    const profit = prices[i] - base
+    const profit = prices[i] - base;
     if (profit > max) {
-      max = profit
+      max = profit;
     } else if (profit < 0) {
-      base = prices[i]
+      base = prices[i];
     }
   }
-  return max
+  return max;
 };
 ```
-
-
-
-
 
 ---
 
 Difficulty: Easy
 Related Topics:
-  "Array": https://leetcode.com/tag/array
-  "Greedy": https://leetcode.com/tag/greedy
+"Array": https://leetcode.com/tag/array
+"Greedy": https://leetcode.com/tag/greedy
 Similar Questions:
-  "Best Time to Buy and Sell Stock": https://leetcode.com/problems/best-time-to-buy-and-sell-stock
-  "Best Time to Buy and Sell Stock III": https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iii
-  "Best Time to Buy and Sell Stock IV": https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iv
-  "Best Time to Buy and Sell Stock with Cooldown": https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-cooldown
-  "Best Time to Buy and Sell Stock with Transaction Fee": https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-transaction-fee
+"Best Time to Buy and Sell Stock": https://leetcode.com/problems/best-time-to-buy-and-sell-stock
+"Best Time to Buy and Sell Stock III": https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iii
+"Best Time to Buy and Sell Stock IV": https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iv
+"Best Time to Buy and Sell Stock with Cooldown": https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-cooldown
+"Best Time to Buy and Sell Stock with Transaction Fee": https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-transaction-fee
 
 ---
-
 
 [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#122-best-time-to-buy-and-sell-stock-iihttpsleetcodecomproblemsbest-time-to-buy-and-sell-stock-iidescription)
 
@@ -714,7 +691,7 @@ Similar Questions:
 
 ### Problem:
 
-Say you have an array for which the *i*th element is the price of a given stock on day *i*.
+Say you have an array for which the *i*th element is the price of a given stock on day _i_.
 
 Design an algorithm to find the maximum profit. You may complete as many transactions as you like (i.e., buy one and sell one share of the stock multiple times).
 
@@ -758,34 +735,30 @@ Sell immediately after the price drops. Or in other perspective, it is the sum o
  * @param {number[]} prices
  * @return {number}
  */
-let maxProfit = function(prices) {
-  let max = 0
+let maxProfit = function (prices) {
+  let max = 0;
   for (let i = 1; i < prices.length; i++) {
-    if (prices[i] > prices[i-1]) {
-      max += prices[i] - prices[i-1]
+    if (prices[i] > prices[i - 1]) {
+      max += prices[i] - prices[i - 1];
     }
   }
-  return max
+  return max;
 };
 ```
-
-
-
 
 ---
 
 Difficulty: Hard
 Related Topics:
-  "Array": https://leetcode.com/tag/array
-  "Dynamic Programming": https://leetcode.com/tag/dynamic-programming
+"Array": https://leetcode.com/tag/array
+"Dynamic Programming": https://leetcode.com/tag/dynamic-programming
 Similar Questions:
-  "Best Time to Buy and Sell Stock": https://leetcode.com/problems/best-time-to-buy-and-sell-stock
-  "Best Time to Buy and Sell Stock II": https://leetcode.com/problems/best-time-to-buy-and-sell-stock-ii
-  "Best Time to Buy and Sell Stock IV": https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iv
-  "Maximum Sum of 3 Non-Overlapping Subarrays": https://leetcode.com/problems/maximum-sum-of-3-non-overlapping-subarrays
+"Best Time to Buy and Sell Stock": https://leetcode.com/problems/best-time-to-buy-and-sell-stock
+"Best Time to Buy and Sell Stock II": https://leetcode.com/problems/best-time-to-buy-and-sell-stock-ii
+"Best Time to Buy and Sell Stock IV": https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iv
+"Maximum Sum of 3 Non-Overlapping Subarrays": https://leetcode.com/problems/maximum-sum-of-3-non-overlapping-subarrays
 
 ---
-
 
 [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#123-best-time-to-buy-and-sell-stock-iiihttpsleetcodecomproblemsbest-time-to-buy-and-sell-stock-iiidescription)
 
@@ -793,9 +766,9 @@ Similar Questions:
 
 ### Problem:
 
-Say you have an array for which the *i*th element is the price of a given stock on day *i*.
+Say you have an array for which the *i*th element is the price of a given stock on day _i_.
 
-Design an algorithm to find the maximum profit. You may complete at most *two* transactions.
+Design an algorithm to find the maximum profit. You may complete at most _two_ transactions.
 
 **Note:**You may not engage in multiple transactions at the same time (i.e., you must sell the stock before you buy again).
 
@@ -829,7 +802,7 @@ Explanation: In this case, no transaction is done, i.e. max profit = 0.
 
 ### Solution:
 
-Multiple transactions may not be engaged in at the same time. That means if we view the days that involed in the same transaction as a group, there won't be any intersection. We may complete at most *two* transactions, so divide the days into two groups, `[0...k]` and `[k...n-1]`. Notice `k` exists in both groups because technically we can sell out then immediately buy in at the same day.
+Multiple transactions may not be engaged in at the same time. That means if we view the days that involed in the same transaction as a group, there won't be any intersection. We may complete at most _two_ transactions, so divide the days into two groups, `[0...k]` and `[k...n-1]`. Notice `k` exists in both groups because technically we can sell out then immediately buy in at the same day.
 
 Define `p1(i)` to be the max profit of day `[0...i]`. This is just like the problem of [121. Best Time to Buy and Sell Stock](./121.%20Best%20Time%20to%20Buy%20and%20Sell%20Stock.md).
 
@@ -852,48 +825,45 @@ Define `f(k)` to be `p1(k) + p2(k)`. We need to get `max( f(0), ..., f(n-1) )`.
  * @param {number[]} prices
  * @return {number}
  */
-let maxProfit = function(prices) {
-  const len = prices.length
-  if (len <= 1) { return 0 }
+let maxProfit = function (prices) {
+  const len = prices.length;
+  if (len <= 1) {
+    return 0;
+  }
 
-  const dp = [0]
+  const dp = [0];
 
-  let min = prices[0]
+  let min = prices[0];
   for (let i = 1; i < len; i++) {
-    dp[i] = Math.max(dp[i-1], prices[i] - min)
-    min = Math.min(prices[i], min)
+    dp[i] = Math.max(dp[i - 1], prices[i] - min);
+    min = Math.min(prices[i], min);
   }
 
-  let p2 = 0
-  let max = prices[len-1]
-  for (let i = len-2; i >= 0; i--) {
-    max = Math.max(prices[i], max)
-    p2 = Math.max(p2, max - prices[i])
-    dp[i] += p2
+  let p2 = 0;
+  let max = prices[len - 1];
+  for (let i = len - 2; i >= 0; i--) {
+    max = Math.max(prices[i], max);
+    p2 = Math.max(p2, max - prices[i]);
+    dp[i] += p2;
   }
 
-  return Math.max(...dp)
+  return Math.max(...dp);
 };
 ```
-
-
-
-
 
 ---
 
 Difficulty: Hard
 Related Topics:
-  "Tree": https://leetcode.com/tag/tree
-  "Depth-first Search": https://leetcode.com/tag/depth-first-search
+"Tree": https://leetcode.com/tag/tree
+"Depth-first Search": https://leetcode.com/tag/depth-first-search
 Similar Questions:
-  "Path Sum": https://leetcode.com/problems/path-sum
-  "Sum Root to Leaf Numbers": https://leetcode.com/problems/sum-root-to-leaf-numbers
-  "Path Sum IV": https://leetcode.com/problems/path-sum-iv
-  "Longest Univalue Path": https://leetcode.com/problems/longest-univalue-path
+"Path Sum": https://leetcode.com/problems/path-sum
+"Sum Root to Leaf Numbers": https://leetcode.com/problems/sum-root-to-leaf-numbers
+"Path Sum IV": https://leetcode.com/problems/path-sum-iv
+"Longest Univalue Path": https://leetcode.com/problems/longest-univalue-path
 
 ---
-
 
 [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#124-binary-tree-maximum-path-sumhttpsleetcodecomproblemsbinary-tree-maximum-path-sumdescription)
 
@@ -964,23 +934,29 @@ Define a function that returns two values. The max sum of a path that may or may
  * @param {TreeNode} root
  * @return {number}
  */
-let maxPathSum = function(root) {
-  return Math.max(..._maxPathSum(root))
+let maxPathSum = function (root) {
+  return Math.max(..._maxPathSum(root));
 };
 
 /**
  * @param {TreeNode} root
  * @return {number[]}
  */
-function _maxPathSum (root) {
-  if (!root) { return [-Infinity, -Infinity] }
-  
-  const left = _maxPathSum(root.left)
-  const right = _maxPathSum(root.right)
+function _maxPathSum(root) {
+  if (!root) {
+    return [-Infinity, -Infinity];
+  }
+
+  const left = _maxPathSum(root.left);
+  const right = _maxPathSum(root.right);
   return [
-    Math.max(left[0], right[0], root.val + Math.max(0, left[1], right[1], left[1] + right[1])),
-    Math.max(left[1], right[1], 0) + root.val
-  ]
+    Math.max(
+      left[0],
+      right[0],
+      root.val + Math.max(0, left[1], right[1], left[1] + right[1])
+    ),
+    Math.max(left[1], right[1], 0) + root.val,
+  ];
 }
 ```
 
@@ -1000,45 +976,42 @@ Just return the later (max sum of a path that ends with `root`). Maintain a glob
  * @param {TreeNode} root
  * @return {number}
  */
-let maxPathSum = function(root) {
-  const global = { max: -Infinity }
-  _maxPathSum(root, global)
-  return global.max
+let maxPathSum = function (root) {
+  const global = { max: -Infinity };
+  _maxPathSum(root, global);
+  return global.max;
 };
-
 
 /**
  * @param {TreeNode} root
  * @param {object} global
- * @param {number} global.max 
+ * @param {number} global.max
  * @return {number[]}
  */
-function _maxPathSum (root, global) {
-  if (!root) { return -Infinity }
-  
-  const left = _maxPathSum(root.left, global)
-  const right = _maxPathSum(root.right, global)
-  const localMax = Math.max(left, right, 0) + root.val
-  global.max = Math.max(global.max, localMax, root.val + left + right)
-  return localMax
+function _maxPathSum(root, global) {
+  if (!root) {
+    return -Infinity;
+  }
+
+  const left = _maxPathSum(root.left, global);
+  const right = _maxPathSum(root.right, global);
+  const localMax = Math.max(left, right, 0) + root.val;
+  global.max = Math.max(global.max, localMax, root.val + left + right);
+  return localMax;
 }
 ```
-
-
-
 
 ---
 
 Difficulty: Easy
 Related Topics:
-  "Two Pointers": https://leetcode.com/tag/two-pointers
-  "String": https://leetcode.com/tag/string
+"Two Pointers": https://leetcode.com/tag/two-pointers
+"String": https://leetcode.com/tag/string
 Similar Questions:
-  "Palindrome Linked List": https://leetcode.com/problems/palindrome-linked-list
-  "Valid Palindrome II": https://leetcode.com/problems/valid-palindrome-ii
+"Palindrome Linked List": https://leetcode.com/problems/palindrome-linked-list
+"Valid Palindrome II": https://leetcode.com/problems/valid-palindrome-ii
 
 ---
-
 
 [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#125-valid-palindromehttpsleetcodecomproblemsvalid-palindromedescription)
 
@@ -1075,9 +1048,9 @@ Output: false
  * @param {string} s
  * @return {boolean}
  */
-let isPalindrome = function(s) {
-  const clean = s.toLowerCase().split(/[^a-z0-9]*/)
-  return clean.join('') === clean.reverse().join('')
+let isPalindrome = function (s) {
+  const clean = s.toLowerCase().split(/[^a-z0-9]*/);
+  return clean.join("") === clean.reverse().join("");
 };
 ```
 
@@ -1090,12 +1063,14 @@ Remove non-alphanumeric characters then compare.
  * @param {string} s
  * @return {boolean}
  */
-let isPalindrome = function(s) {
-  const clean = s.replace(/[^a-zA-Z0-9]/g, '').toLowerCase()
+let isPalindrome = function (s) {
+  const clean = s.replace(/[^a-zA-Z0-9]/g, "").toLowerCase();
   for (let i = 0, j = clean.length - 1; i < j; i++, j--) {
-    if (clean[i] !== clean[j]) { return false }
+    if (clean[i] !== clean[j]) {
+      return false;
+    }
   }
-  return true
+  return true;
 };
 ```
 
@@ -1108,50 +1083,63 @@ Compare the char codes.
  * @param {string} s
  * @return {boolean}
  */
-let isPalindrome = function(s) {
+let isPalindrome = function (s) {
   for (let i = 0, j = s.length - 1; i < j; i++, j--) {
-    let left = s.charCodeAt(i)
-    while (i < j && (left < 48 || left > 57 && left < 65 || left > 90 && left < 97 || left > 122)) {
-      left = s.charCodeAt(++i)
+    let left = s.charCodeAt(i);
+    while (
+      i < j &&
+      (left < 48 ||
+        (left > 57 && left < 65) ||
+        (left > 90 && left < 97) ||
+        left > 122)
+    ) {
+      left = s.charCodeAt(++i);
     }
-    if (i >= j) { return true }
+    if (i >= j) {
+      return true;
+    }
     if (left >= 65 && left <= 90) {
-      left += 32
+      left += 32;
     }
-    
-    let right = s.charCodeAt(j)
-    while (i < j && (right < 48 || right > 57 && right < 65 || right > 90 && right < 97 || right > 122)) {
-      right = s.charCodeAt(--j)
+
+    let right = s.charCodeAt(j);
+    while (
+      i < j &&
+      (right < 48 ||
+        (right > 57 && right < 65) ||
+        (right > 90 && right < 97) ||
+        right > 122)
+    ) {
+      right = s.charCodeAt(--j);
     }
-    if (i >= j) { return true }
+    if (i >= j) {
+      return true;
+    }
     if (right >= 65 && right <= 90) {
-      right += 32
+      right += 32;
     }
-    
-    if (left !== right) { return false }
+
+    if (left !== right) {
+      return false;
+    }
   }
-  
-  return true
+
+  return true;
 };
 ```
-
-
-
-
 
 ---
 
 Difficulty: Hard
 Related Topics:
-  "Array": https://leetcode.com/tag/array
-  "String": https://leetcode.com/tag/string
-  "Backtracking": https://leetcode.com/tag/backtracking
-  "Breadth-first Search": https://leetcode.com/tag/breadth-first-search
+"Array": https://leetcode.com/tag/array
+"String": https://leetcode.com/tag/string
+"Backtracking": https://leetcode.com/tag/backtracking
+"Breadth-first Search": https://leetcode.com/tag/breadth-first-search
 Similar Questions:
-  "Word Ladder": https://leetcode.com/problems/word-ladder
+"Word Ladder": https://leetcode.com/problems/word-ladder
 
 ---
-
 
 [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#126-word-ladder-iihttpsleetcodecomproblemsword-ladder-iidescription)
 
@@ -1159,10 +1147,10 @@ Similar Questions:
 
 ### Problem:
 
-Given two words (*beginWord* and *endWord*), and a dictionary's word list, find all shortest transformation sequence(s) from *beginWord* to *endWord*, such that:
+Given two words (_beginWord_ and _endWord_), and a dictionary's word list, find all shortest transformation sequence(s) from _beginWord_ to _endWord_, such that:
 
 1. Only one letter can be changed at a time
-2. Each transformed word must exist in the word list. Note that *beginWord* is *not* a transformed word.
+2. Each transformed word must exist in the word list. Note that _beginWord_ is _not_ a transformed word.
 
 **Note:**
 
@@ -1170,7 +1158,7 @@ Given two words (*beginWord* and *endWord*), and a dictionary's word list, find 
 - All words have the same length.
 - All words contain only lowercase alphabetic characters.
 - You may assume no duplicates in the word list.
-- You may assume *beginWord* and *endWord* are non-empty and are not the same.
+- You may assume _beginWord_ and _endWord_ are non-empty and are not the same.
 
 **Example 1:**
 
@@ -1217,73 +1205,71 @@ The items in the queue are not just words now. Parent nodes are also kept so tha
  * @param {string[]} wordList
  * @return {string[][]}
  */
-function findLadders (beginWord, endWord, wordList) {
-  wordList = new Set(wordList)
-  if (!wordList.has(endWord)) { return [] }
+function findLadders(beginWord, endWord, wordList) {
+  wordList = new Set(wordList);
+  if (!wordList.has(endWord)) {
+    return [];
+  }
 
-  const ALPHABET = 'abcdefghijklmnopqrstuvwxyz'
+  const ALPHABET = "abcdefghijklmnopqrstuvwxyz";
 
-  const result = []
-  let isEndWordFound = false
-  const levelWords = new Set()
-  const queue = [[beginWord, null], null]
+  const result = [];
+  let isEndWordFound = false;
+  const levelWords = new Set();
+  const queue = [[beginWord, null], null];
   while (queue.length > 1) {
-    const node = queue.shift()
+    const node = queue.shift();
 
     if (node === null) {
       if (isEndWordFound) {
-        break
+        break;
       }
-      levelWords.forEach(word => wordList.delete(word))
-      levelWords.clear()
-      queue.push(null)
-      continue
+      levelWords.forEach((word) => wordList.delete(word));
+      levelWords.clear();
+      queue.push(null);
+      continue;
     }
 
-    const word = node[0]
+    const word = node[0];
 
     for (let i = word.length - 1; i >= 0; i--) {
-      const head = word.slice(0, i)
-      const tail = word.slice(i+1)
+      const head = word.slice(0, i);
+      const tail = word.slice(i + 1);
 
       for (let c = 0; c < 26; c++) {
         if (ALPHABET[c] !== word[i]) {
-          const w = head + ALPHABET[c] + tail
+          const w = head + ALPHABET[c] + tail;
           if (w === endWord) {
-            const path = [endWord]
+            const path = [endWord];
             for (let n = node; n !== null; n = n[1]) {
-              path.unshift(n[0])
+              path.unshift(n[0]);
             }
-            result.push(path)
-            isEndWordFound = true
+            result.push(path);
+            isEndWordFound = true;
           }
           if (wordList.has(w)) {
-            levelWords.add(w)
-            queue.push([w, node])
+            levelWords.add(w);
+            queue.push([w, node]);
           }
         }
       }
     }
   }
 
-  return result
-};
+  return result;
+}
 ```
-
-
-
 
 ---
 
 Difficulty: Medium
 Related Topics:
-  "Breadth-first Search": https://leetcode.com/tag/breadth-first-search
+"Breadth-first Search": https://leetcode.com/tag/breadth-first-search
 Similar Questions:
-  "Word Ladder II": https://leetcode.com/problems/word-ladder-ii
-  "Minimum Genetic Mutation": https://leetcode.com/problems/minimum-genetic-mutation
+"Word Ladder II": https://leetcode.com/problems/word-ladder-ii
+"Minimum Genetic Mutation": https://leetcode.com/problems/minimum-genetic-mutation
 
 ---
-
 
 [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#127-word-ladderhttpsleetcodecomproblemsword-ladderdescription)
 
@@ -1291,10 +1277,10 @@ Similar Questions:
 
 ### Problem:
 
-Given two words (*beginWord* and *endWord*), and a dictionary's word list, find the length of shortest transformation sequence from *beginWord* to *endWord*, such that:
+Given two words (_beginWord_ and _endWord_), and a dictionary's word list, find the length of shortest transformation sequence from _beginWord_ to _endWord_, such that:
 
 1. Only one letter can be changed at a time.
-2. Each transformed word must exist in the word list. Note that *beginWord* is *not* a transformed word.
+2. Each transformed word must exist in the word list. Note that _beginWord_ is _not_ a transformed word.
 
 **Note:**
 
@@ -1302,7 +1288,7 @@ Given two words (*beginWord* and *endWord*), and a dictionary's word list, find 
 - All words have the same length.
 - All words contain only lowercase alphabetic characters.
 - You may assume no duplicates in the word list.
-- You may assume *beginWord* and *endWord* are non-empty and are not the same.
+- You may assume _beginWord_ and _endWord_ are non-empty and are not the same.
 
 **Example 1:**
 
@@ -1350,59 +1336,57 @@ To find all the next words, instead of filtering the `wordList`, enumerate all 2
  * @param {string[]} wordList
  * @return {number}
  */
-let ladderLength = function(beginWord, endWord, wordList) {
-  wordList = new Set(wordList)
-  if (!wordList.has(endWord)) { return 0 }
+let ladderLength = function (beginWord, endWord, wordList) {
+  wordList = new Set(wordList);
+  if (!wordList.has(endWord)) {
+    return 0;
+  }
 
-  const ALPHABET = 'abcdefghijklmnopqrstuvwxyz'
+  const ALPHABET = "abcdefghijklmnopqrstuvwxyz";
 
-  let level = 1
-  const queue = [beginWord, null]
+  let level = 1;
+  const queue = [beginWord, null];
   while (queue.length > 1) {
-    const word = queue.shift()
+    const word = queue.shift();
 
     if (word === null) {
-      level++
-      queue.push(null)
-      continue
+      level++;
+      queue.push(null);
+      continue;
     }
 
     for (let i = word.length - 1; i >= 0; i--) {
-      const head = word.slice(0, i)
-      const tail = word.slice(i+1)
+      const head = word.slice(0, i);
+      const tail = word.slice(i + 1);
 
       for (let c = 0; c < 26; c++) {
         if (ALPHABET[c] !== word[i]) {
-          const word = head + ALPHABET[c] + tail
+          const word = head + ALPHABET[c] + tail;
           if (word === endWord) {
-            return level + 1
+            return level + 1;
           }
           if (wordList.delete(word)) {
-            queue.push(word)
+            queue.push(word);
           }
         }
       }
     }
   }
 
-  return 0
+  return 0;
 };
 ```
-
-
-
 
 ---
 
 Difficulty: Hard
 Related Topics:
-  "Array": https://leetcode.com/tag/array
-  "Union Find": https://leetcode.com/tag/union-find
+"Array": https://leetcode.com/tag/array
+"Union Find": https://leetcode.com/tag/union-find
 Similar Questions:
-  "Binary Tree Longest Consecutive Sequence": https://leetcode.com/problems/binary-tree-longest-consecutive-sequence
+"Binary Tree Longest Consecutive Sequence": https://leetcode.com/problems/binary-tree-longest-consecutive-sequence
 
 ---
-
 
 [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#128-longest-consecutive-sequencehttpsleetcodecomproblemslongest-consecutive-sequencedescription)
 
@@ -1412,7 +1396,7 @@ Similar Questions:
 
 Given an unsorted array of integers, find the length of the longest consecutive elements sequence.
 
-Your algorithm should run in O(*n*) complexity.
+Your algorithm should run in O(_n_) complexity.
 
 **Example:**
 
@@ -1432,43 +1416,38 @@ Build a Set from the list. Pick a number, find all it's adjacent numbers that ar
  * @param {number[]} nums
  * @return {number}
  */
-let longestConsecutive = function(nums) {
-  const numSet = new Set(nums)
-  let maxCount = 0
+let longestConsecutive = function (nums) {
+  const numSet = new Set(nums);
+  let maxCount = 0;
   while (numSet.size > 0) {
-    const num = numSet.values().next().value
-    numSet.delete(num)
-    let count = 1
+    const num = numSet.values().next().value;
+    numSet.delete(num);
+    let count = 1;
     for (let n = num + 1; numSet.delete(n); n++) {
-      count++
+      count++;
     }
     for (let n = num - 1; numSet.delete(n); n--) {
-      count++
+      count++;
     }
     if (count > maxCount) {
-      maxCount = count
+      maxCount = count;
     }
   }
-  return maxCount
+  return maxCount;
 };
 ```
-
-
-
-
 
 ---
 
 Difficulty: Medium
 Related Topics:
-  "Tree": https://leetcode.com/tag/tree
-  "Depth-first Search": https://leetcode.com/tag/depth-first-search
+"Tree": https://leetcode.com/tag/tree
+"Depth-first Search": https://leetcode.com/tag/depth-first-search
 Similar Questions:
-  "Path Sum": https://leetcode.com/problems/path-sum
-  "Binary Tree Maximum Path Sum": https://leetcode.com/problems/binary-tree-maximum-path-sum
+"Path Sum": https://leetcode.com/problems/path-sum
+"Binary Tree Maximum Path Sum": https://leetcode.com/problems/binary-tree-maximum-path-sum
 
 ---
-
 
 [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#129-sum-root-to-leaf-numbershttpsleetcodecomproblemssum-root-to-leaf-numbersdescription)
 
@@ -1531,30 +1510,27 @@ To write a clean solution for this promblem, use `0` as indicator of leaf node. 
  * @param {TreeNode} root
  * @return {number}
  */
-let sumNumbers = function(root, sum = 0) {
-  if (!root) { return 0 }
-  sum = sum * 10 + root.val
-  return sumNumbers(root.left, sum) + sumNumbers(root.right, sum) || sum
+let sumNumbers = function (root, sum = 0) {
+  if (!root) {
+    return 0;
+  }
+  sum = sum * 10 + root.val;
+  return sumNumbers(root.left, sum) + sumNumbers(root.right, sum) || sum;
 };
 ```
-
-
-
-
 
 ---
 
 Difficulty: Medium
 Related Topics:
-  "Depth-first Search": https://leetcode.com/tag/depth-first-search
-  "Breadth-first Search": https://leetcode.com/tag/breadth-first-search
-  "Union Find": https://leetcode.com/tag/union-find
+"Depth-first Search": https://leetcode.com/tag/depth-first-search
+"Breadth-first Search": https://leetcode.com/tag/breadth-first-search
+"Union Find": https://leetcode.com/tag/union-find
 Similar Questions:
-  "Number of Islands": https://leetcode.com/problems/number-of-islands
-  "Walls and Gates": https://leetcode.com/problems/walls-and-gates
+"Number of Islands": https://leetcode.com/problems/number-of-islands
+"Walls and Gates": https://leetcode.com/problems/walls-and-gates
 
 ---
-
 
 [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#130-surrounded-regionshttpsleetcodecomproblemssurrounded-regionsdescription)
 
@@ -1603,88 +1579,87 @@ So both BFS and DFS are good. I prefer BFS when pruning is not needed in favor o
  * @param {character[][]} board
  * @return {void} Do not return anything, modify board in-place instead.
  */
-let solve = function(board) {
-  const height = board.length
-  if (height <= 1) { return }
-  const width = board[0].length
-  if (width <= 1) { return }
+let solve = function (board) {
+  const height = board.length;
+  if (height <= 1) {
+    return;
+  }
+  const width = board[0].length;
+  if (width <= 1) {
+    return;
+  }
 
-  const rowend = height - 1
-  const colend = width - 1
+  const rowend = height - 1;
+  const colend = width - 1;
 
-  const queue = []
+  const queue = [];
 
   for (let row = 0; row < height; row++) {
-    if (board[row][0] === 'O') {
-      board[row][0] = '#'
-      queue.push(row, 0)
+    if (board[row][0] === "O") {
+      board[row][0] = "#";
+      queue.push(row, 0);
     }
-    if (board[row][colend] === 'O') {
-      board[row][colend] = '#'
-      queue.push(row, colend)
+    if (board[row][colend] === "O") {
+      board[row][colend] = "#";
+      queue.push(row, colend);
     }
   }
 
   for (let col = 0; col < width; col++) {
-    if (board[0][col] === 'O') {
-      board[0][col] = '#'
-      queue.push(0, col)
+    if (board[0][col] === "O") {
+      board[0][col] = "#";
+      queue.push(0, col);
     }
-    if (board[rowend][col] === 'O') {
-      board[rowend][col] = '#'
-      queue.push(rowend, col)
+    if (board[rowend][col] === "O") {
+      board[rowend][col] = "#";
+      queue.push(rowend, col);
     }
   }
 
   while (queue.length > 0) {
-    const row = queue.shift()
-    const col = queue.shift()
-    if (row < rowend && board[row + 1][col] === 'O') {
-      board[row + 1][col] = '#'
-      queue.push(row + 1, col)
+    const row = queue.shift();
+    const col = queue.shift();
+    if (row < rowend && board[row + 1][col] === "O") {
+      board[row + 1][col] = "#";
+      queue.push(row + 1, col);
     }
-    if (row > 0 && board[row - 1][col] === 'O') {
-      board[row - 1][col] = '#'
-      queue.push(row - 1, col)
+    if (row > 0 && board[row - 1][col] === "O") {
+      board[row - 1][col] = "#";
+      queue.push(row - 1, col);
     }
-    if (board[row][col + 1] === 'O') {
-      board[row][col + 1] = '#'
-      queue.push(row, col + 1)
+    if (board[row][col + 1] === "O") {
+      board[row][col + 1] = "#";
+      queue.push(row, col + 1);
     }
-    if (board[row][col - 1] === 'O') {
-      board[row][col - 1] = '#'
-      queue.push(row, col - 1)
+    if (board[row][col - 1] === "O") {
+      board[row][col - 1] = "#";
+      queue.push(row, col - 1);
     }
   }
 
   for (let row = 0; row < height; row++) {
     for (let col = 0; col < width; col++) {
-      if (board[row][col] === '#') {
-        board[row][col] = 'O'
-      } else if (board[row][col] === 'O') {
-        board[row][col] = 'X'
+      if (board[row][col] === "#") {
+        board[row][col] = "O";
+      } else if (board[row][col] === "O") {
+        board[row][col] = "X";
       }
     }
   }
 };
 ```
 
-
-
-
-
 ---
 
 Difficulty: Medium
 Related Topics:
-  "Depth-first Search": https://leetcode.com/tag/depth-first-search
-  "Breadth-first Search": https://leetcode.com/tag/breadth-first-search
-  "Graph": https://leetcode.com/tag/graph
+"Depth-first Search": https://leetcode.com/tag/depth-first-search
+"Breadth-first Search": https://leetcode.com/tag/breadth-first-search
+"Graph": https://leetcode.com/tag/graph
 Similar Questions:
-  "Copy List with Random Pointer": https://leetcode.com/problems/copy-list-with-random-pointer
+"Copy List with Random Pointer": https://leetcode.com/problems/copy-list-with-random-pointer
 
 ---
-
 
 [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#133-clone-graphhttpsleetcodecomproblemsclone-graphdescription)
 
@@ -1739,24 +1714,23 @@ DFS. Cache the visited node before entering the next recursion.
  * @param {UndirectedGraphNode} graph
  * @return {UndirectedGraphNode}
  */
-let cloneGraph = function(graph) {
-  const cache = {}
-  return _clone(graph)
+let cloneGraph = function (graph) {
+  const cache = {};
+  return _clone(graph);
 
-  function _clone (graph) {
-    if (!graph) { return graph }
-    const label = graph.label
-    if (!cache[label]) {
-      cache[label] = new UndirectedGraphNode(label)
-      cache[label].neighbors = graph.neighbors.map(_clone)
+  function _clone(graph) {
+    if (!graph) {
+      return graph;
     }
-    return cache[label]
+    const label = graph.label;
+    if (!cache[label]) {
+      cache[label] = new UndirectedGraphNode(label);
+      cache[label].neighbors = graph.neighbors.map(_clone);
+    }
+    return cache[label];
   }
 };
 ```
-
-
-
 
 ![alt text](https://github.com/everthis/leetcode-js/blob/master/images/binary-tree-upside-down.webp "binary-tree-upside-down")
 
@@ -1772,36 +1746,37 @@ let cloneGraph = function(graph) {
  * @param {TreeNode} root
  * @return {TreeNode}
  */
-const upsideDownBinaryTree = function(root) {
-  let curr = root
-  let next = null
-  let temp = null
-  let prev = null
+const upsideDownBinaryTree = function (root) {
+  let curr = root;
+  let next = null;
+  let temp = null;
+  let prev = null;
   while (curr !== null) {
-    next = curr.left
-    curr.left = temp
-    temp = curr.right
-    curr.right = prev
-    prev = curr
-    curr = next
+    next = curr.left;
+    curr.left = temp;
+    temp = curr.right;
+    curr.right = prev;
+    prev = curr;
+    curr = next;
   }
-  return prev
-}
+  return prev;
+};
 
 // another
 
-const upsideDownBinaryTree = function(root) {
+const upsideDownBinaryTree = function (root) {
   if (root == null || root.left == null) {
-    return root
+    return root;
   }
-  const newRoot = upsideDownBinaryTree(root.left)
-  root.left.left = root.right
-  root.left.right = root
-  root.left = null
-  root.right = null
-  return newRoot
-}
+  const newRoot = upsideDownBinaryTree(root.left);
+  root.left.left = root.right;
+  root.left.right = root;
+  root.left = null;
+  root.right = null;
+  return newRoot;
+};
 ```
+
 ![alt text](https://github.com/everthis/leetcode-js/blob/master/images/maximum-sum-circular-subarray.png "maximum-sum-circular-subarray")
 
 ```js
@@ -1809,16 +1784,20 @@ const upsideDownBinaryTree = function(root) {
  * @param {number[]} A
  * @return {number}
  */
-const maxSubarraySumCircular = function(A) {
-  let minSum = Infinity, sum = 0, maxSum = -Infinity, curMax = 0, curMin = 0
-  for(let a of A) {
-    sum += a
+const maxSubarraySumCircular = function (A) {
+  let minSum = Infinity,
+    sum = 0,
+    maxSum = -Infinity,
+    curMax = 0,
+    curMin = 0;
+  for (let a of A) {
+    sum += a;
     curMax = Math.max(curMax + a, a);
     maxSum = Math.max(maxSum, curMax);
     curMin = Math.min(curMin + a, a);
     minSum = Math.min(minSum, curMin);
   }
-  return  maxSum > 0 ? Math.max(maxSum, sum - minSum) : maxSum;
+  return maxSum > 0 ? Math.max(maxSum, sum - minSum) : maxSum;
 };
 ```
 
@@ -1855,9 +1834,8 @@ For this problem, a height-balanced binary tree is defined as:
 
 **Constraints:**
 
-*   The number of nodes in the tree is in the range `[0, 5000]`.
-*   `-104 <= Node.val <= 104`
-
+- The number of nodes in the tree is in the range `[0, 5000]`.
+- `-104 <= Node.val <= 104`
 
 [Source](https://leetcode.com/problems/balanced-binary-tree/)# Convert Sorted Array to Binary Search Tree
 
@@ -1875,10 +1853,10 @@ One possible answer is: \[0,-3,9,-10,null,5\], which represents the following he
 
       0
      / \\
-   -3   9
-   /   /
- -10  5
 
+-3 9
+/ /
+-10 5
 
 [Source](https://leetcode.com/problems/convert-sorted-array-to-binary-search-tree/)# Delete Node in a BST
 
@@ -1917,12 +1895,11 @@ Please notice that another valid answer is \[5,2,6,null,4,null,7\] and it's also
 
 **Constraints:**
 
-*   The number of nodes in the tree is in the range `[0, 104]`.
-*   `-105 <= Node.val <= 105`
-*   Each node has a **unique** value.
-*   `root` is a valid binary search tree.
-*   `-105 <= key <= 105`
-
+- The number of nodes in the tree is in the range `[0, 104]`.
+- `-105 <= Node.val <= 105`
+- Each node has a **unique** value.
+- `root` is a valid binary search tree.
+- `-105 <= key <= 105`
 
 [Source](https://leetcode.com/problems/delete-node-in-a-bst/)![alt text](https://github.com/everthis/leetcode-js/blob/master/images/meeting-room-ii-0.jpg "meeting-room-ii")
 ![alt text](https://github.com/everthis/leetcode-js/blob/master/images/meeting-room-ii-1.jpg "meeting-room-ii")
@@ -1932,73 +1909,68 @@ Please notice that another valid answer is \[5,2,6,null,4,null,7\] and it's also
  * @param {number[][]} intervals
  * @return {number}
  */
-const minMeetingRooms = function(intervals) {
-  const len = intervals.length
-  const starts = new Array(len)
-  const ends = new Array(len)
+const minMeetingRooms = function (intervals) {
+  const len = intervals.length;
+  const starts = new Array(len);
+  const ends = new Array(len);
   for (let i = 0; i < len; i++) {
-    starts[i] = intervals[i][0]
-    ends[i] = intervals[i][1]
+    starts[i] = intervals[i][0];
+    ends[i] = intervals[i][1];
   }
-  starts.sort((a, b) => a - b)
-  ends.sort((a, b) => a - b)
-  let rooms = 0
-  let endsIdx = 0
+  starts.sort((a, b) => a - b);
+  ends.sort((a, b) => a - b);
+  let rooms = 0;
+  let endsIdx = 0;
   for (let i = 0; i < len; i++) {
-    if (starts[i] < ends[endsIdx]) rooms++
-    else endsIdx++
+    if (starts[i] < ends[endsIdx]) rooms++;
+    else endsIdx++;
   }
-  return rooms
-}
+  return rooms;
+};
 ```
 
 [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#-)
 
-
-
-  
-  
 ## ➤Contact
 
 Thank you very much for your interest in this project.  
-Feel free to reach out to provide feedback, bug reports, or anything else :) .  
+Feel free to reach out to provide feedback, bug reports, or anything else :) .
 
 <!-- CONTRIBUTOR PROFILE -->
 <!-- Include: Name, title, job/search status, (opt) photo, (opt) summary of contributions, (opt) a few words or a quote, socials badges (github follow, linkedin, angellist, email, resume, portfolio, twitter, etc.), (opt) team/contact page from app's site -->
 
-  <img 
+<img 
     src="[docs/images/portrait.png](https://avatars.githubusercontent.com/u/66654881?s=460&u=fa9d2cc45bc228dd9b7d3dee6d4653f940fab35a&v=4)" 
     alt="Bryan Gimer" 
     height="100px"
     align="left">
+
 </div>
 
 ##Bryan Guner
-*(Full-stack software developer)*  
+_(Full-stack software developer)_
 
-[![Portfolio](https://img.shields.io/badge/-❤_Portfolio-f58?style=flat-square&logo=a&logoColor=white&link=https://bgoonz.github.io/)](https://bgoonz.github.io) 
-<a href="https://github.com/bgoonz/resume-cv-portfolio-samples/blob/master/2021-resume/bryan-guner-resume-2021.pdf" download>![Resume PDF](https://img.shields.io/badge/-Resume-f00?style=flat-square&logo=adobe-acrobat-reader&logoColor=white)</a> 
-[![Bryan's email](https://img.shields.io/badge/bryan.guner@gmail.com-f4b400?style=flat-square&logo=gmail&logoColor=black&link=mailto:bryan.guner@gmail.com)](mailto:bryan.guner@gmail.com) 
-[![Blog](https://img.shields.io/badge/-Blog-21759b?style=flat-square&logo=WordPress&logoColor=white&link=https://web-dev-hub.com/)](https://web-dev-hub.com/) 
-[![Linkedin](https://img.shields.io/badge/-LinkedIn-0077b5?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/bryan-guner-046199128/)](https://www.linkedin.com/in/bryan-guner-046199128/) 
-[![AngelList](https://img.shields.io/badge/-AngelList-black?style=flat-square&logo=AngelList&logoColor=white&link=https://angel.co/u/bryan-guner)](https://angel.co/u/bryan-guner) 
-[![GitHub bgoonz](https://img.shields.io/github/followers/bgoonz?label=follow&style=social)](https://github.com/bgoonz) 
+[![Portfolio](https://img.shields.io/badge/-❤_Portfolio-f58?style=flat-square&logo=a&logoColor=white&link=https://bgoonz.github.io/)](https://bgoonz.github.io)
+<a href="https://github.com/bgoonz/resume-cv-portfolio-samples/blob/master/2021-resume/bryan-guner-resume-2021.pdf" download>![Resume PDF](https://img.shields.io/badge/-Resume-f00?style=flat-square&logo=adobe-acrobat-reader&logoColor=white)</a>
+[![Bryan's email](https://img.shields.io/badge/bryan.guner@gmail.com-f4b400?style=flat-square&logo=gmail&logoColor=black&link=mailto:bryan.guner@gmail.com)](mailto:bryan.guner@gmail.com)
+[![Blog](https://img.shields.io/badge/-Blog-21759b?style=flat-square&logo=WordPress&logoColor=white&link=https://web-dev-hub.com/)](https://web-dev-hub.com/)
+[![Linkedin](https://img.shields.io/badge/-LinkedIn-0077b5?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/bryan-guner-046199128/)](https://www.linkedin.com/in/bryan-guner-046199128/)
+[![AngelList](https://img.shields.io/badge/-AngelList-black?style=flat-square&logo=AngelList&logoColor=white&link=https://angel.co/u/bryan-guner)](https://angel.co/u/bryan-guner)
+[![GitHub bgoonz](https://img.shields.io/github/followers/bgoonz?label=follow&style=social)](https://github.com/bgoonz)
 
 </div>
 
 <br clear="both">
 
 ---
+
 <!--end-->
 
-
-
-----
+---
 
 <details> <summary>CONTENT/DS-n-Algos/_Extra-Practice/</summary>
 
-### [CONTENT/DS-n-Algos/_Extra-Practice/README.md](CONTENT/DS-n-Algos/_Extra-Practice/README.md)
-
+### [CONTENT/DS-n-Algos/\_Extra-Practice/README.md](CONTENT/DS-n-Algos/_Extra-Practice/README.md)
 
 # The data structures
 
@@ -2014,80 +1986,67 @@ Feel free to reach out to provide feedback, bug reports, or anything else :) .
 - [x] Trie
 - [x] Graph
 
-
-
-
-
 </details><details> <summary>CONTENT/DS-n-Algos/0-TESTING-RESOURCES/main-data/</summary>
 
 ### [CONTENT/DS-n-Algos/0-TESTING-RESOURCES/main-data/test-data.md](CONTENT/DS-n-Algos/0-TESTING-RESOURCES/main-data/test-data.md)
-  let numbers99Arr =[
-   0,  1,  2,  3,  4,  5,  6,  7,  8,  9, 10, 11,
-  12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23,
-  24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35,
-  36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47,
-  48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59,
-  60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71,
-  72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83,
-  84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95,
-  96, 97, 98, 99
+
+let numbers99Arr =[
+0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11,
+12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23,
+24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35,
+36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47,
+48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59,
+60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71,
+72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83,
+84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95,
+96, 97, 98, 99
 ]
 
 let alphAr=['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z',
-        'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
-
-
+'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
 
 let numStringsArr= [
-  '0',  '1',  '2',  '3',  '4',  '5',  '6',  '7',  '8',  '9',
-  '10', '11', '12', '13', '14', '15', '16', '17', '18', '19',
-  '20', '21', '22', '23', '24', '25', '26', '27', '28', '29',
-  '30', '31', '32', '33', '34', '35', '36', '37', '38', '39',
-  '40', '41', '42', '43', '44', '45', '46', '47', '48', '49',
-  '50', '51', '52', '53', '54', '55', '56', '57', '58', '59',
-  '60', '61', '62', '63', '64', '65', '66', '67', '68', '69',
-  '70', '71', '72', '73', '74', '75', '76', '77', '78', '79',
-  '80', '81', '82', '83', '84', '85', '86', '87', '88', '89',
-  '90', '91', '92', '93', '94', '95', '96', '97', '98', '99'
+'0', '1', '2', '3', '4', '5', '6', '7', '8', '9',
+'10', '11', '12', '13', '14', '15', '16', '17', '18', '19',
+'20', '21', '22', '23', '24', '25', '26', '27', '28', '29',
+'30', '31', '32', '33', '34', '35', '36', '37', '38', '39',
+'40', '41', '42', '43', '44', '45', '46', '47', '48', '49',
+'50', '51', '52', '53', '54', '55', '56', '57', '58', '59',
+'60', '61', '62', '63', '64', '65', '66', '67', '68', '69',
+'70', '71', '72', '73', '74', '75', '76', '77', '78', '79',
+'80', '81', '82', '83', '84', '85', '86', '87', '88', '89',
+'90', '91', '92', '93', '94', '95', '96', '97', '98', '99'
 ]
 
-
 let personObj={
-  name: 'Celestine Stracke',
-  username: 'Angelica.Weimann',
-  email: 'Reanna_Mayert55@yahoo.com',
-  address: {
-    street: 'Aubrey Track',
-    suite: 'Suite 437',
-    city: 'South Liana',
-    zipcode: '92739',
-    geo: {
-      lat: '-20.3782',
-      lng: '-51.5498'
-    }
-  },
-  phone: '887-731-9357 x3878',
-  website: 'irma.biz',
-  company: {
-    name: 'Lockman - Veum',
-    catchPhrase: 'Future-proofed actuating collaboration',
-    bs: 'cross-media synergize e-tailers'
-  }
+name: 'Celestine Stracke',
+username: 'Angelica.Weimann',
+email: 'Reanna_Mayert55@yahoo.com',
+address: {
+street: 'Aubrey Track',
+suite: 'Suite 437',
+city: 'South Liana',
+zipcode: '92739',
+geo: {
+lat: '-20.3782',
+lng: '-51.5498'
+}
+},
+phone: '887-731-9357 x3878',
+website: 'irma.biz',
+company: {
+name: 'Lockman - Veum',
+catchPhrase: 'Future-proofed actuating collaboration',
+bs: 'cross-media synergize e-tailers'
+}
 }
 
-
-
-
-
 let bigFarrv = ["0","01","02","03","1","10","11","12","13","14","15","16","17","18","19","2","20","3","3com","4","5","6","7","8","9","ILMI","a","a.auth-ns","a01","a02","a1","a2","abc","about","ac","academico","acceso","access","accounting","accounts","acid","activestat","ad","adam","adkit","admin","administracion","administrador","administrator","administrators","admins","ads","adserver","adsl","ae","af","affiliate","affiliates","afiliados","ag","agenda","agent","ai","aix","ajax","ak","akamai","al","alabama","alaska","albuquerque","alerts","alpha","alterwind","am","amarillo","americas","an","anaheim","analyzer","announce","announcements","antivirus","ao","ap","apache","apollo","app","app01","app1","apple","application","applications","apps","appserver","aq","ar","archie","arcsight","argentina","arizona","arkansas","arlington","as","as400","asia","asterix","at","athena","atlanta","atlas","att","au","auction","austin","auth","auto","autodiscover","autorun","av","aw","ayuda","az","b","b.auth-ns","b01","b02","b1","b2","b2b","b2c","ba","back","backend","backup","baker","bakersfield","balance","balancer","baltimore","banking","bayarea","bb","bbdd","bbs","bd","bdc","be","bea","beta","bf","bg","bh","bi","billing","biz","biztalk","bj","black","blackberry","blog","blogs","blue","bm","bn","bnc","bo","bob","bof","boise","bolsa","border","boston","boulder","boy","br","bravo","brazil","britian","broadcast","broker","bronze","brown","bs","bsd","bsd0","bsd01","bsd02","bsd1","bsd2","bt","bug","buggalo","bugs","bugzilla","build","bulletins","burn","burner","buscador","buy","bv","bw","by","bz","c","c.auth-ns","ca","cache","cafe","calendar","california","call","calvin","canada","canal","canon","careers","catalog","cc","cd","cdburner","cdn","cert","certificates","certify","certserv","certsrv","cf","cg","cgi","ch","channel","channels","charlie","charlotte","chat","chats","chatserver","check","checkpoint","chi","chicago","ci","cims","cincinnati","cisco","citrix","ck","cl","class","classes","classifieds","classroom","cleveland","clicktrack","client","clientes","clients","club","clubs","cluster","clusters","cm","cmail","cms","cn","co","cocoa","code","coldfusion","colombus","colorado","columbus","com","commerce","commerceserver","communigate","community","compaq","compras","con","concentrator","conf","conference","conferencing","confidential","connect","connecticut","consola","console","consult","consultant","consultants","consulting","consumer","contact","content","contracts","core","core0","core01","corp","corpmail","corporate","correo","correoweb","cortafuegos","counterstrike","courses","cr","cricket","crm","crs","cs","cso","css","ct","cu","cust1","cust10","cust100","cust101","cust102","cust103","cust104","cust105","cust106","cust107","cust108","cust109","cust11","cust110","cust111","cust112","cust113","cust114","cust115","cust116","cust117","cust118","cust119","cust12","cust120","cust121","cust122","cust123","cust124","cust125","cust126","cust13","cust14","cust15","cust16","cust17","cust18","cust19","cust2","cust20","cust21","cust22","cust23","cust24","cust25","cust26","cust27","cust28","cust29","cust3","cust30","cust31","cust32","cust33","cust34","cust35","cust36","cust37","cust38","cust39","cust4","cust40","cust41","cust42","cust43","cust44","cust45","cust46","cust47","cust48","cust49","cust5","cust50","cust51","cust52","cust53","cust54","cust55","cust56","cust57","cust58","cust59","cust6","cust60","cust61","cust62","cust63","cust64","cust65","cust66","cust67","cust68","cust69","cust7","cust70","cust71","cust72","cust73","cust74","cust75","cust76","cust77","cust78","cust79","cust8","cust80","cust81","cust82","cust83","cust84","cust85","cust86","cust87","cust88","cust89","cust9","cust90","cust91","cust92","cust93","cust94","cust95","cust96","cust97","cust98","cust99","customer","customers","cv","cvs","cx","cy","cz","d","dallas","data","database","database01","database02","database1","database2","databases","datastore","datos","david","db","db0","db01","db02","db1","db2","dc","de","dealers","dec","def","default","defiant","delaware","dell","delta","delta1","demo","demonstration","demos","denver","depot","des","desarrollo","descargas","design","designer","desktop","detroit","dev","dev0","dev01","dev1","devel","develop","developer","developers","development","device","devserver","devsql","dhcp","dial","dialup","digital","dilbert","dir","direct","directory","disc","discovery","discuss","discussion","discussions","disk","disney","distributer","distributers","dj","dk","dm","dmail","dmz","dnews","dns","dns-2","dns0","dns1","dns2","dns3","do","docs","documentacion","documentos","domain","domains","dominio","domino","dominoweb","doom","download","downloads","downtown","dragon","drupal","dsl","dyn","dynamic","dynip","dz","e","e-com","e-commerce","e0","eagle","earth","east","ec","echo","ecom","ecommerce","edi","edu","education","edward","ee","eg","eh","ejemplo","elpaso","email","employees","empresa","empresas","en","enable","eng","eng01","eng1","engine","engineer","engineering","enterprise","epsilon","er","erp","es","esd","esm","espanol","estadisticas","esx","et","eta","europe","events","example","exchange","exec","extern","external","extranet","f","f5","falcon","farm","faststats","fax","feedback","feeds","fi","field","file","files","fileserv","fileserver","filestore","filter","find","finger","firewall","fix","fixes","fj","fk","fl","flash","florida","flow","fm","fo","foobar","formacion","foro","foros","fortworth","forum","forums","foto","fotos","foundry","fox","foxtrot","fr","france","frank","fred","freebsd","freebsd0","freebsd01","freebsd02","freebsd1","freebsd2","freeware","fresno","front","frontdesk","fs","fsp","ftp","ftp-","ftp0","ftp2","ftpserver","fw","fw-1","fw1","fwsm","fwsm0","fwsm01","fwsm1","g","ga","galeria","galerias","galleries","gallery","games","gamma","gandalf","gate","gatekeeper","gateway","gauss","gd","ge","gemini","general","george","georgia","germany","gf","gg","gh","gi","gl","glendale","gm","gmail","gn","go","gold","goldmine","golf","gopher","gp","gq","gr","green","group","groups","groupwise","gs","gsx","gt","gu","guest","gw","gw1","gy","h","hal","halflife","hawaii","hello","help","helpdesk","helponline","henry","hermes","hi","hidden","hk","hm","hn","hobbes","hollywood","home","homebase","homer","honeypot","honolulu","host","host1","host3","host4","host5","hotel","hotjobs","houstin","houston","howto","hp","hpov","hr","ht","http","https","hu","hub","humanresources","i","ia","ias","ibm","ibmdb","id","ida","idaho","ids","ie","iis","il","illinois","im","images","imail","imap","imap4","img","img0","img01","img02","in","inbound","inc","include","incoming","india","indiana","indianapolis","info","informix","inside","install","int","intern","internal","international","internet","intl","intranet","invalid","investor","investors","io","iota","iowa","iplanet","ipmonitor","ipsec","ipsec-gw","ipv6","ipv6.teredo","iq","ir","irc","ircd","ircserver","ireland","iris","irvine","irving","is","isa","isaserv","isaserver","ism","israel","isync","it","italy","ix","j","japan","java","je","jedi","jm","jo","jobs","john","jp","jrun","juegos","juliet","juliette","juniper","k","kansas","kansascity","kappa","kb","ke","kentucky","kerberos","keynote","kg","kh","ki","kilo","king","km","kn","knowledgebase","knoxville","koe","korea","kp","kr","ks","kw","ky","kz","l","la","lab","laboratory","labs","lambda","lan","laptop","laserjet","lasvegas","launch","lb","lc","ldap","legal","leo","li","lib","library","lima","lincoln","link","linux","linux0","linux01","linux02","linux1","linux2","lista","lists","listserv","listserver","live","lk","load","loadbalancer","local","localhost","log","log0","log01","log02","log1","log2","logfile","logfiles","logger","logging","loghost","login","logs","london","longbeach","losangeles","lotus","louisiana","lr","ls","lt","lu","luke","lv","ly","lyris","m","ma","mac","mac1","mac10","mac11","mac2","mac3","mac4","mac5","mach","macintosh","madrid","mail","mail2","mailer","mailgate","mailhost","mailing","maillist","maillists","mailroom","mailserv","mailsite","mailsrv","main","maine","maint","mall","manage","management","manager","manufacturing","map","mapas","maps","marketing","marketplace","mars","marvin","mary","maryland","massachusetts","master","max","mc","mci","md","mdaemon","me","media","member","members","memphis","mercury","merlin","messages","messenger","mg","mgmt","mh","mi","miami","michigan","mickey","midwest","mike","milwaukee","minneapolis","minnesota","mirror","mis","mississippi","missouri","mk","ml","mm","mn","mngt","mo","mobile","mobilemail","mom","monitor","monitoring","montana","moon","moscow","movies","mozart","mp","mp3","mpeg","mpg","mq","mr","mrtg","ms","ms-exchange","ms-sql","msexchange","mssql","mssql0","mssql01","mssql1","mt","mta","mtu","mu","multimedia","music","mv","mw","mx","my","mysql","mysql0","mysql01","mysql1","mz","n","na","name","names","nameserv","nameserver","nas","nashville","nat","nc","nd","nds","ne","nebraska","neptune","net","netapp","netdata","netgear","netmeeting","netscaler","netscreen","netstats","network","nevada","new","newhampshire","newjersey","newmexico","neworleans","news","newsfeed","newsfeeds","newsgroups","newton","newyork","newzealand","nf","ng","nh","ni","nigeria","nj","nl","nm","nms","nntp","no","node","nokia","nombres","nora","north","northcarolina","northdakota","northeast","northwest","noticias","novell","november","np","nr","ns","ns-","ns0","ns01","ns02","ns1","ns2","ns3","ns4","ns5","nt","nt4","nt40","ntmail","ntp","ntserver","nu","null","nv","ny","nz","o","oakland","ocean","odin","office","offices","oh","ohio","ok","oklahoma","oklahomacity","old","om","omaha","omega","omicron","online","ontario","open","openbsd","openview","operations","ops","ops0","ops01","ops02","ops1","ops2","opsware","or","oracle","orange","order","orders","oregon","orion","orlando","oscar","out","outbound","outgoing","outlook","outside","ov","owa","owa01","owa02","owa1","owa2","ows","oxnard","p","pa","page","pager","pages","paginas","papa","paris","parners","partner","partners","patch","patches","paul","payroll","pbx","pc","pc01","pc1","pc10","pc101","pc11","pc12","pc13","pc14","pc15","pc16","pc17","pc18","pc19","pc2","pc20","pc21","pc22","pc23","pc24","pc25","pc26","pc27","pc28","pc29","pc3","pc30","pc31","pc32","pc33","pc34","pc35","pc36","pc37","pc38","pc39","pc4","pc40","pc41","pc42","pc43","pc44","pc45","pc46","pc47","pc48","pc49","pc5","pc50","pc51","pc52","pc53","pc54","pc55","pc56","pc57","pc58","pc59","pc6","pc60","pc7","pc8","pc9","pcmail","pda","pdc","pe","pegasus","pennsylvania","peoplesoft","personal","pf","pg","pgp","ph","phi","philadelphia","phoenix","phoeniz","phone","phones","photos","pi","pics","pictures","pink","pipex-gw","pittsburgh","pix","pk","pki","pl","plano","platinum","pluto","pm","pm1","pn","po","policy","polls","pop","pop3","portal","portals","portfolio","portland","post","postales","postoffice","ppp1","ppp10","ppp11","ppp12","ppp13","ppp14","ppp15","ppp16","ppp17","ppp18","ppp19","ppp2","ppp20","ppp21","ppp3","ppp4","ppp5","ppp6","ppp7","ppp8","ppp9","pptp","pr","prensa","press","printer","printserv","printserver","priv","privacy","private","problemtracker","products","profiles","project","projects","promo","proxy","prueba","pruebas","ps","psi","pss","pt","pub","public","pubs","purple","pw","py","q","qa","qmail","qotd","quake","quebec","queen","quotes","r","r01","r02","r1","r2","ra","radio","radius","rapidsite","raptor","ras","rc","rcs","rd","re","read","realserver","recruiting","red","redhat","ref","reference","reg","register","registro","registry","regs","relay","rem","remote","remstats","reports","research","reseller","reserved","resumenes","rho","rhodeisland","ri","ris","rmi","ro","robert","romeo","root","rose","route","router","router1","rs","rss","rtelnet","rtr","rtr01","rtr1","ru","rune","rw","rwhois","s","s1","s2","sa","sac","sacramento","sadmin","safe","sales","saltlake","sam","san","sanantonio","sandiego","sanfrancisco","sanjose","saskatchewan","saturn","sb","sbs","sc","scanner","schedules","scotland","scotty","sd","se","search","seattle","sec","secret","secure","secured","securid","security","sendmail","seri","serv","serv2","server","server1","servers","service","services","servicio","servidor","setup","sg","sh","shared","sharepoint","shareware","shipping","shop","shoppers","shopping","si","siebel","sierra","sigma","signin","signup","silver","sim","sirius","site","sj","sk","skywalker","sl","slackware","slmail","sm","smc","sms","smtp","smtphost","sn","sniffer","snmp","snmpd","snoopy","snort","so","soap","socal","software","sol","solaris","solutions","soporte","source","sourcecode","sourcesafe","south","southcarolina","southdakota","southeast","southwest","spain","spam","spider","spiderman","splunk","spock","spokane","springfield","sprint","sqa","sql","sql0","sql01","sql1","sql7","sqlserver","squid","sr","ss","ssh","ssl","ssl0","ssl01","ssl1","st","staff","stage","staging","start","stat","static","statistics","stats","stlouis","stock","storage","store","storefront","streaming","stronghold","strongmail","studio","submit","subversion","sun","sun0","sun01","sun02","sun1","sun2","superman","supplier","suppliers","support","sv","sw","sw0","sw01","sw1","sweden","switch","switzerland","sy","sybase","sydney","sysadmin","sysback","syslog","syslogs","system","sz","t","tacoma","taiwan","talk","tampa","tango","tau","tc","tcl","td","team","tech","technology","techsupport","telephone","telephony","telnet","temp","tennessee","terminal","terminalserver","termserv","test","test2k","testajax","testasp","testaspnet","testbed","testcf","testing","testjsp","testlab","testlinux","testphp","testserver","testsite","testsql","testxp","texas","tf","tftp","tg","th","thailand","theta","thor","tienda","tiger","time","titan","tivoli","tj","tk","tm","tn","to","tokyo","toledo","tom","tool","tools","toplayer","toronto","tour","tp","tr","tracker","train","training","transfers","trinidad","trinity","ts","ts1","tt","tucson","tulsa","tunnel","tv","tw","tx","tz","u","ua","uddi","ug","uk","um","uniform","union","unitedkingdom","unitedstates","unix","unixware","update","updates","upload","ups","upsilon","uranus","urchin","us","usa","usenet","user","users","ut","utah","utilities","uy","uz","v","v6","va","vader","vantive","vault","vc","ve","vega","vegas","vend","vendors","venus","vermont","vg","vi","victor","video","videos","viking","violet","vip","virginia","vista","vm","vmserver","vmware","vn","vnc","voice","voicemail","voip","voyager","vpn","vpn0","vpn01","vpn02","vpn1","vpn2","vt","vu","w","w1","w2","w3","wa","wais","wallet","wam","wan","wap","warehouse","washington","wc3","web","webaccess","webadmin","webalizer","webboard","webcache","webcam","webcast","webdev","webdocs","webfarm","webhelp","weblib","weblogic","webmail","webmaster","webproxy","webring","webs","webserv","webserver","webservices","website","websites","websphere","websrv","websrvr","webstats","webstore","websvr","webtrends","welcome","west","westvirginia","wf","whiskey","white","whois","wi","wichita","wiki","wililiam","win","win01","win02","win1","win2","win2000","win2003","win2k","win2k3","windows","windows01","windows02","windows1","windows2","windows2000","windows2003","windowsxp","wingate","winnt","winproxy","wins","winserve","winxp","wire","wireless","wisconsin","wlan","wordpress","work","world","wpad","write","ws","ws1","ws10","ws11","ws12","ws13","ws2","ws3","ws4","ws5","ws6","ws7","ws8","ws9","wusage","wv","ww","www","www-","www-01","www-02","www-1","www-2","www-int","www0","www01","www02","www1","www2","www3","wwwchat","wwwdev","wwwmail","wy","wyoming","x","x-ray","xi","xlogan","xmail","xml","xp","y","yankee","ye","yellow","young","yt","yu","z","z-log","za","zebra","zera","zeus","zlog","zm","zulu","zw"]
-
-
-
-
 
 </details><details> <summary>CONTENT/DS-n-Algos/ALGO/coin-change/</summary>
 
 ### [CONTENT/DS-n-Algos/ALGO/coin-change/coinchange.md](CONTENT/DS-n-Algos/ALGO/coin-change/coinchange.md)
+
 There are only two ways to make change for 6 cents, but f(6) = 3. f gives the number of ways of making 5 cents and
 adding a penny, plus the number of ways of making 1 cent and adding a nickel. When changing money, we would like
 "1 penny, l nickel" and "l nickel, l penny" to be considered as just one way of making change for 6 cents.
@@ -2112,44 +2071,53 @@ sort of problem so that change can be made for any integral amount). is always e
 ---
 
 ```js
-
-function waysToReturnChange ( denominations, numOfCoins, amount ) {
-  if ( amount === 0 ) return 1; // Perfect!
-  if ( amount < 0 ) return 0; // No solution exists for negative amount
-  if ( numOfCoins < 0 && amount > 0 ) return 0; // We don't have coins left!
-  console.log( `checking ways to make ${ amount } with ${ denominations.slice( numOfCoins ) }` );
-  return waysToReturnChange( denominations, numOfCoins, amount - denominations[ numOfCoins ] ) +
-    waysToReturnChange( denominations, numOfCoins - 1, amount );
+function waysToReturnChange(denominations, numOfCoins, amount) {
+  if (amount === 0) return 1; // Perfect!
+  if (amount < 0) return 0; // No solution exists for negative amount
+  if (numOfCoins < 0 && amount > 0) return 0; // We don't have coins left!
+  console.log(
+    `checking ways to make ${amount} with ${denominations.slice(numOfCoins)}`
+  );
+  return (
+    waysToReturnChange(
+      denominations,
+      numOfCoins,
+      amount - denominations[numOfCoins]
+    ) + waysToReturnChange(denominations, numOfCoins - 1, amount)
+  );
 }
-function waysToReturnMemoize ( amount, denominations ) {
+function waysToReturnMemoize(amount, denominations) {
   // intialize an array of zeros with indices up to amount
   var waysOfDoingNcents = [];
-  for ( var i = 0; i <= amount; i++ ) {
-    waysOfDoingNcents[ i ] = 0;
+  for (var i = 0; i <= amount; i++) {
+    waysOfDoingNcents[i] = 0;
   }
   // there is 1 way to renturn 0 cents
-  waysOfDoingNcents[ 0 ] = 1;
-  for ( var j = 0; j < denominations.length; j++ ) {
+  waysOfDoingNcents[0] = 1;
+  for (var j = 0; j < denominations.length; j++) {
     //  can only start returning change with coins in our denominations
-    var coin = denominations[ j ];
+    var coin = denominations[j];
     //  start bottom up, each time reducing change amout with curr coin.
-    for ( var higherAmount = coin; higherAmount <= amount; higherAmount++ ) {
+    for (var higherAmount = coin; higherAmount <= amount; higherAmount++) {
       var higherAmountRemainder = higherAmount - coin;
       // ways to create change is equivalent to reducing the problem to a known problem
       // and gaining all the ways to solve for smaller problems
-      waysOfDoingNcents[ higherAmount ] += waysOfDoingNcents[ higherAmountRemainder ];
+      waysOfDoingNcents[higherAmount] +=
+        waysOfDoingNcents[higherAmountRemainder];
     }
   }
-  return waysOfDoingNcents[ amount ];
+  return waysOfDoingNcents[amount];
 }
-var denominations = [ 1, 2, 3 ];
+var denominations = [1, 2, 3];
 var amount = 4;
-console.time( "answer time" );
-console.log( waysToReturnChange( denominations, denominations.length - 1, amount ) );
-console.timeEnd( "answer time" );
-console.time( "answer time1" );
-console.log( waysToReturnMemoize( amount, denominations ) );
-console.timeEnd( "answer time1" );
+console.time("answer time");
+console.log(
+  waysToReturnChange(denominations, denominations.length - 1, amount)
+);
+console.timeEnd("answer time");
+console.time("answer time1");
+console.log(waysToReturnMemoize(amount, denominations));
+console.timeEnd("answer time1");
 /*
 node memo-coin-change.js
 checking ways to make 4 with 3
@@ -2192,51 +2160,39 @@ bryan_dir:coinchange-memoized_exitstatus:0 ====>
 */
 ```
 
-
-
-
-
 </details><details> <summary>CONTENT/DS-n-Algos/ALGO/insertion-sort/</summary>
 
 ### [CONTENT/DS-n-Algos/ALGO/insertion-sort/README.md](CONTENT/DS-n-Algos/ALGO/insertion-sort/README.md)
+
 # Insertion Sort
 
 Implement the [insertion sort algorithm](http://en.wikipedia.org/wiki/Insertion_sort).
 
-
-
-
-
 </details><details> <summary>CONTENT/DS-n-Algos/ALGO/integer-difference/</summary>
 
 ### [CONTENT/DS-n-Algos/ALGO/integer-difference/Readme.md](CONTENT/DS-n-Algos/ALGO/integer-difference/Readme.md)
+
 # Integer Difference
 
-Write a function that accepts an array of random integers and an integer *n*. Determine the number of times where two integers in the array have the difference of *n*.
+Write a function that accepts an array of random integers and an integer _n_. Determine the number of times where two integers in the array have the difference of _n_.
 
 ```js
-f(4, [1, 1, 5, 6, 9, 16, 27]) // 3 (Due to 2x [1, 5], and [5, 9])
-f(2, [1, 1, 3, 3]) // 4 (Due to 4x [1, 3])
+f(4, [1, 1, 5, 6, 9, 16, 27]); // 3 (Due to 2x [1, 5], and [5, 9])
+f(2, [1, 1, 3, 3]); // 4 (Due to 4x [1, 3])
 ```
-
-
-
-
 
 </details><details> <summary>CONTENT/DS-n-Algos/ALGO/integer-length/</summary>
 
 ### [CONTENT/DS-n-Algos/ALGO/integer-length/Readme.md](CONTENT/DS-n-Algos/ALGO/integer-length/Readme.md)
+
 # Integer Length
 
 Write a function that takes an integer as input and returns the number of digits in that integer.
 
-
-
-
-
 </details><details> <summary>CONTENT/DS-n-Algos/ALGO/kth-largest-element-in-array/</summary>
 
 ### [CONTENT/DS-n-Algos/ALGO/kth-largest-element-in-array/Readme.md](CONTENT/DS-n-Algos/ALGO/kth-largest-element-in-array/Readme.md)
+
 # Kth Largest Element in Array
 
 Given an array of integers find the kth element in the sorted order (not the kth distinct element). So, if the array is `[3, 1, 2, 1, 4]` and k is 3 then the result is 2, because it's the 3rd element in sorted order (but the 3rd distinct element is 3).
@@ -2245,13 +2201,10 @@ Given an array of integers find the kth element in the sorted order (not the kth
 
 [http://www.ardendertat.com/2011/10/27/programming-interview-questions-10-kth-largest-element-in-array/](http://www.ardendertat.com/2011/10/27/programming-interview-questions-10-kth-largest-element-in-array/)
 
-
-
-
-
 </details><details> <summary>CONTENT/DS-n-Algos/ALGO/largest-continuous-sum/</summary>
 
 ### [CONTENT/DS-n-Algos/ALGO/largest-continuous-sum/Readme.md](CONTENT/DS-n-Algos/ALGO/largest-continuous-sum/Readme.md)
+
 # Largest Continuous Sum
 
 Given an array of integers (positive and negative) find the largest continuous sum.
@@ -2260,35 +2213,26 @@ Given an array of integers (positive and negative) find the largest continuous s
 
 [http://www.ardendertat.com/2011/09/24/programming-interview-questions-3-largest-continuous-sum/](http://www.ardendertat.com/2011/09/24/programming-interview-questions-3-largest-continuous-sum/)
 
-
-
-
-
 </details><details> <summary>CONTENT/DS-n-Algos/ALGO/largest-palindrome/</summary>
 
 ### [CONTENT/DS-n-Algos/ALGO/largest-palindrome/Readme.md](CONTENT/DS-n-Algos/ALGO/largest-palindrome/Readme.md)
+
 # Largest Palindrome
 
 Write a function that finds the largest palindrome in a string. All characters can be valid for the palindrome, including whitespace. In the string "I am a red racecar driver" - the largest palindrome would be "d racecar d".
 
-
-
-
-
 </details><details> <summary>CONTENT/DS-n-Algos/ALGO/linked-list/</summary>
 
 ### [CONTENT/DS-n-Algos/ALGO/linked-list/Readme.md](CONTENT/DS-n-Algos/ALGO/linked-list/Readme.md)
+
 # Linked List
 
 Write a linked list implementation, better yet - make it doubly linked.
 
-
-
-
-
 </details><details> <summary>CONTENT/DS-n-Algos/ALGO/longest-common-prefix/</summary>
 
 ### [CONTENT/DS-n-Algos/ALGO/longest-common-prefix/Readme.md](CONTENT/DS-n-Algos/ALGO/longest-common-prefix/Readme.md)
+
 # Longest Common Prefix
 
 Given a String array, find the longest common prefix.
@@ -2301,15 +2245,13 @@ f(['shuffle', 'shuttle', 'shut'] // 'shu'
 ```
 
 ## Source
+
 Personal Phone Interview
-
-
-
-
 
 </details><details> <summary>CONTENT/DS-n-Algos/ALGO/longest-compound-word/</summary>
 
 ### [CONTENT/DS-n-Algos/ALGO/longest-compound-word/Readme.md](CONTENT/DS-n-Algos/ALGO/longest-compound-word/Readme.md)
+
 # Longest Compound Word
 
 Given a sorted list of words, find the longest compound word in the list that is constructed by concatenating the words in the list. For example, if the input list is: `['cat', 'cats', 'catsdogcats', 'catxdogcatsrat', 'dog', 'dogcatsdog', 'hippopotamuses', 'rat', 'ratcat', 'ratcatdog', 'ratcatdogcat']`. Then the longest compound word is 'ratcatdogcat' with 12 letters. Note that the longest individual words are 'catxdogcatsrat' and 'hippopotamuses' with 14 letters, but they're not fully constructed by other words. Former one has an extra 'x' letter, and latter is an individual word by itself not a compound word.
@@ -2318,13 +2260,10 @@ Given a sorted list of words, find the longest compound word in the list that is
 
 [http://www.ardendertat.com/2012/06/15/programming-interview-questions-28-longest-compound-word/](http://www.ardendertat.com/2012/06/15/programming-interview-questions-28-longest-compound-word/)
 
-
-
-
-
 </details><details> <summary>CONTENT/DS-n-Algos/ALGO/longest-words/</summary>
 
 ### [CONTENT/DS-n-Algos/ALGO/longest-words/Readme.md](CONTENT/DS-n-Algos/ALGO/longest-words/Readme.md)
+
 # Longest Words
 
 Write a function that returns the longest word(s) from a sentence. The function should not return any duplicate words (case-insensitive).
@@ -2332,18 +2271,15 @@ Write a function that returns the longest word(s) from a sentence. The function 
 ## Example
 
 ```js
-longestWords("You are just an old antidisestablishmentarian") // ["antidisestablishmentarian"]
-longestWords("I gave a present to my parents") // ["present", "parents"]
-longestWords("Buffalo buffalo Buffalo buffalo buffalo buffalo Buffalo buffalo") // ["buffalo"] or ["Buffalo"]
+longestWords("You are just an old antidisestablishmentarian"); // ["antidisestablishmentarian"]
+longestWords("I gave a present to my parents"); // ["present", "parents"]
+longestWords("Buffalo buffalo Buffalo buffalo buffalo buffalo Buffalo buffalo"); // ["buffalo"] or ["Buffalo"]
 ```
-
-
-
-
 
 </details><details> <summary>CONTENT/DS-n-Algos/ALGO/matching-nodes/</summary>
 
 ### [CONTENT/DS-n-Algos/ALGO/matching-nodes/Readme.md](CONTENT/DS-n-Algos/ALGO/matching-nodes/Readme.md)
+
 # Matching Nodes
 
 Given two identical tree structures (consider them DOM tree if you want) and a node from the first tree, find and return the same node on the second tree. Assume you have access to a function that can test whether two nodes are the same (E.g. the node in the first tree matches the one in the second tree). Consider ways to optimize your approach.
@@ -2352,13 +2288,10 @@ Given two identical tree structures (consider them DOM tree if you want) and a n
 
 In-person interview question using whiteboard
 
-
-
-
-
 </details><details> <summary>CONTENT/DS-n-Algos/ALGO/median-integer-stream/</summary>
 
 ### [CONTENT/DS-n-Algos/ALGO/median-integer-stream/Readme.md](CONTENT/DS-n-Algos/ALGO/median-integer-stream/Readme.md)
+
 # Median of Integer Stream
 
 Given a stream of unsorted integers, find the median element in sorted order at any given time. So, we will be receiving a continuous stream of numbers in some random order and we don't know the stream length in advance. Write a function that finds the median of the already received numbers efficiently at any time. We will be asked to find the median multiple times. Just to recall, median is the middle element in an odd length sorted array, and in the even case it's the average of the middle elements.
@@ -2367,35 +2300,26 @@ Given a stream of unsorted integers, find the median element in sorted order at 
 
 [http://www.ardendertat.com/2011/11/03/programming-interview-questions-13-median-of-integer-stream/](http://www.ardendertat.com/2011/11/03/programming-interview-questions-13-median-of-integer-stream/)
 
-
-
-
-
 </details><details> <summary>CONTENT/DS-n-Algos/ALGO/merge-sort/</summary>
 
 ### [CONTENT/DS-n-Algos/ALGO/merge-sort/Readme.md](CONTENT/DS-n-Algos/ALGO/merge-sort/Readme.md)
+
 # Merge Sort
 
 Implement the [merge sort algorithm](http://en.wikipedia.org/wiki/Merge_sort).
 
-
-
-
-
 </details><details> <summary>CONTENT/DS-n-Algos/ALGO/missing-number/</summary>
 
 ### [CONTENT/DS-n-Algos/ALGO/missing-number/Readme.md](CONTENT/DS-n-Algos/ALGO/missing-number/Readme.md)
+
 # Missing Number
 
 Write a function that accepts an array of integers in random order of unknown length, but with one number missing. Return the missing number.
 
-
-
-
-
 </details><details> <summary>CONTENT/DS-n-Algos/ALGO/money-format/</summary>
 
 ### [CONTENT/DS-n-Algos/ALGO/money-format/Readme.md](CONTENT/DS-n-Algos/ALGO/money-format/Readme.md)
+
 # Money Formatting
 
 Given an amount of money as a float, format it as a string.
@@ -2405,13 +2329,10 @@ formatMoney(2310000.159897); // '2 310 000.16'
 formatMoney(1600); // '1 600.00'
 ```
 
-
-
-
-
 </details><details> <summary>CONTENT/DS-n-Algos/ALGO/multiples-of-3-and-5/</summary>
 
 ### [CONTENT/DS-n-Algos/ALGO/multiples-of-3-and-5/Readme.md](CONTENT/DS-n-Algos/ALGO/multiples-of-3-and-5/Readme.md)
+
 # Multiples of 3 and 5
 
 If we list all the natural numbers below 10 that are multiples of 3 or 5, we get 3, 5, 6 and 9. The sum of these multiples is 23.
@@ -2422,13 +2343,10 @@ Find the sum of all the multiples of 3 or 5 below 1000.
 
 [http://projecteuler.net/problem=1](http://projecteuler.net/problem=1)
 
-
-
-
-
 </details><details> <summary>CONTENT/DS-n-Algos/ALGO/next-highest-number/</summary>
 
 ### [CONTENT/DS-n-Algos/ALGO/next-highest-number/Readme.md](CONTENT/DS-n-Algos/ALGO/next-highest-number/Readme.md)
+
 # Find Next Higher Number With Same Digits
 
 Given a number, find the next higher number using only the digits in the given number. For example if the given number is 1234, next higher number with same digits is 1243.
@@ -2437,13 +2355,10 @@ Given a number, find the next higher number using only the digits in the given n
 
 [http://www.ardendertat.com/2012/01/02/programming-interview-questions-24-find-next-higher-number-with-same-digits/](http://www.ardendertat.com/2012/01/02/programming-interview-questions-24-find-next-higher-number-with-same-digits/)
 
-
-
-
-
 </details><details> <summary>CONTENT/DS-n-Algos/ALGO/next-palindrome-number/</summary>
 
 ### [CONTENT/DS-n-Algos/ALGO/next-palindrome-number/Readme.md](CONTENT/DS-n-Algos/ALGO/next-palindrome-number/Readme.md)
+
 # Find Next Palindrome Number
 
 Given a number, find the next smallest palindrome larger than the number. For example if the number is 125, next smallest palindrome is 131.
@@ -2452,24 +2367,18 @@ Given a number, find the next smallest palindrome larger than the number. For ex
 
 [http://www.ardendertat.com/2011/12/01/programming-interview-questions-19-find-next-palindrome-number/](http://www.ardendertat.com/2011/12/01/programming-interview-questions-19-find-next-palindrome-number/)
 
-
-
-
-
 </details><details> <summary>CONTENT/DS-n-Algos/ALGO/number-format/</summary>
 
 ### [CONTENT/DS-n-Algos/ALGO/number-format/Readme.md](CONTENT/DS-n-Algos/ALGO/number-format/Readme.md)
+
 # Numeric String
 
 Format any number into a string with "," (commas) in the correct places. E.g. "1,000,000".
 
-
-
-
-
 </details><details> <summary>CONTENT/DS-n-Algos/ALGO/odd-occuring-element/</summary>
 
 ### [CONTENT/DS-n-Algos/ALGO/odd-occuring-element/Readme.md](CONTENT/DS-n-Algos/ALGO/odd-occuring-element/Readme.md)
+
 # Find Odd Occurring Element
 
 Given an integer array, one element occurs odd number of times and all others have even occurrences. Find the element with odd occurrences.
@@ -2478,59 +2387,44 @@ Given an integer array, one element occurs odd number of times and all others ha
 
 [http://www.ardendertat.com/2011/12/13/programming-interview-questions-22-find-odd-occurring-element/](http://www.ardendertat.com/2011/12/13/programming-interview-questions-22-find-odd-occurring-element/)
 
-
-
-
-
 </details><details> <summary>CONTENT/DS-n-Algos/ALGO/once/</summary>
 
 ### [CONTENT/DS-n-Algos/ALGO/once/Readme.md](CONTENT/DS-n-Algos/ALGO/once/Readme.md)
+
 # Once
 
 Write a function that accepts a function as it's only argument and returns a new function that can only ever be executed once.
 
 Once completed, add a second arguments that allows the function to be executed `x` number of times before it stops working.
 
-
-
-
-
 </details><details> <summary>CONTENT/DS-n-Algos/ALGO/prime-number/</summary>
 
 ### [CONTENT/DS-n-Algos/ALGO/prime-number/Readme.md](CONTENT/DS-n-Algos/ALGO/prime-number/Readme.md)
+
 # Prime Number
 
 Write a function that accepts a number and return a boolean based on whether it's a prime number.
 
-
-
-
-
 </details><details> <summary>CONTENT/DS-n-Algos/ALGO/queue/</summary>
 
 ### [CONTENT/DS-n-Algos/ALGO/queue/Readme.md](CONTENT/DS-n-Algos/ALGO/queue/Readme.md)
+
 # Basic Queue
 
 Implement a basic queue function with the ability to `add` and `remove` values.
 
-
-
-
-
 </details><details> <summary>CONTENT/DS-n-Algos/ALGO/quick-sort/</summary>
 
 ### [CONTENT/DS-n-Algos/ALGO/quick-sort/Readme.md](CONTENT/DS-n-Algos/ALGO/quick-sort/Readme.md)
+
 # Quick Sort
 
 Implement the [quick sort algorithm](http://en.wikipedia.org/wiki/Quicksort).
 
-
-
-
-
 </details><details> <summary>CONTENT/DS-n-Algos/ALGO/remove-duplicates-from-string/</summary>
 
 ### [CONTENT/DS-n-Algos/ALGO/remove-duplicates-from-string/Readme.md](CONTENT/DS-n-Algos/ALGO/remove-duplicates-from-string/Readme.md)
+
 # Remove Duplicate Characters in String
 
 Remove duplicate characters in a given string keeping only the first occurrences. For example, if the input is 'tree traversal' the output will be "tre avsl".
@@ -2539,50 +2433,38 @@ Remove duplicate characters in a given string keeping only the first occurrences
 
 [http://www.ardendertat.com/2012/01/06/programming-interview-questions-25-remove-duplicate-characters-in-string/](http://www.ardendertat.com/2012/01/06/programming-interview-questions-25-remove-duplicate-characters-in-string/)
 
-
-
-
-
 </details><details> <summary>CONTENT/DS-n-Algos/ALGO/reverse-words-in-string/</summary>
 
 ### [CONTENT/DS-n-Algos/ALGO/reverse-words-in-string/Readme.md](CONTENT/DS-n-Algos/ALGO/reverse-words-in-string/Readme.md)
+
 # Reverse Words in a String
 
-Given an input string, reverse all the words. To clarify, input: "Interviews are awesome!" output: "awesome! are Interviews". Consider all consecutive non-whitespace characters as individual words. If there are multiple spaces between words reduce them to a single white space. Also remove all leading and trailing whitespaces. So, the output for "   CS degree", "CS    degree", "CS degree   ", or "   CS   degree   " are all the same: "degree CS".
+Given an input string, reverse all the words. To clarify, input: "Interviews are awesome!" output: "awesome! are Interviews". Consider all consecutive non-whitespace characters as individual words. If there are multiple spaces between words reduce them to a single white space. Also remove all leading and trailing whitespaces. So, the output for " CS degree", "CS degree", "CS degree ", or " CS degree " are all the same: "degree CS".
 
 ## Source
 
 [http://www.ardendertat.com/2011/10/31/programming-interview-questions-12-reverse-words-in-a-string/](http://www.ardendertat.com/2011/10/31/programming-interview-questions-12-reverse-words-in-a-string/)
 
-
-
-
-
 </details><details> <summary>CONTENT/DS-n-Algos/ALGO/search-unknown-length-array/</summary>
 
 ### [CONTENT/DS-n-Algos/ALGO/search-unknown-length-array/Readme.md](CONTENT/DS-n-Algos/ALGO/search-unknown-length-array/Readme.md)
+
 # Search Unknown Length Array
 
 Given a sorted array of unknown length and a number to search for, return the index of the number in the array. Accessing an element out of bounds throws exception. If the number occurs multiple times, return the index of any occurrence. If it isn't present, return -1.
 
-
-
-
-
 </details><details> <summary>CONTENT/DS-n-Algos/ALGO/selection-sort/</summary>
 
 ### [CONTENT/DS-n-Algos/ALGO/selection-sort/readme.md](CONTENT/DS-n-Algos/ALGO/selection-sort/readme.md)
+
 # Selection Sort
 
 Implement the [selection sort algorithm](http://en.wikipedia.org/wiki/Selection_sort).
 
-
-
-
-
 </details><details> <summary>CONTENT/DS-n-Algos/ALGO/shortest-fizz-buzz/</summary>
 
 ### [CONTENT/DS-n-Algos/ALGO/shortest-fizz-buzz/Readme.md](CONTENT/DS-n-Algos/ALGO/shortest-fizz-buzz/Readme.md)
+
 # Shortest Fizz Buzz
 
 Write a program that prints (to STDOUT) the numbers from 1 to 100. But for multiples of three print "Fizz" instead of the number and for the multiples of five print "Buzz". For numbers which are multiples of both three and five print "FizzBuzz".
@@ -2597,29 +2479,23 @@ Your output should exactly match the above.
 
 [https://www.hackerrank.com/challenges/fizzbuzz](https://www.hackerrank.com/challenges/fizzbuzz)
 
-
-
-
-
 </details><details> <summary>CONTENT/DS-n-Algos/ALGO/sorted-array-search/</summary>
 
 ### [CONTENT/DS-n-Algos/ALGO/sorted-array-search/Readme.md](CONTENT/DS-n-Algos/ALGO/sorted-array-search/Readme.md)
+
 # Sorted Array Search
 
 Given an array of numbers sorted in ascending order, write a function that will return the index at which the number is found.
 
-
-
-
-
 </details><details> <summary>CONTENT/DS-n-Algos/ALGO/spiral/</summary>
 
 ### [CONTENT/DS-n-Algos/ALGO/spiral/Readme.md](CONTENT/DS-n-Algos/ALGO/spiral/Readme.md)
+
 # Spiral
 
-Write a function that accepts four arguments. The first two arguments are the size of the grid (*h x w*), filled with ascending integers from left to right, top to bottom, starting from 1. The next two arguments are the starting positions, the row (*r*) and column (*c*).
+Write a function that accepts four arguments. The first two arguments are the size of the grid (_h x w_), filled with ascending integers from left to right, top to bottom, starting from 1. The next two arguments are the starting positions, the row (_r_) and column (_c_).
 
-Return an array of integers obtained by spiralling outward anti-clockwise from the *r* and *c*, starting upward.
+Return an array of integers obtained by spiralling outward anti-clockwise from the _r_ and _c_, starting upward.
 
 ```
 f(5, 5, 3, 3) // [ 13, 8, 7, 12, 17, 18, 19, 14, 9, 4, 3, 2, 1, 6, 11, 16, 21, 22, 23, 24, 25, 20, 15, 10, 5 ]
@@ -2635,24 +2511,18 @@ The following graphics show the grid in question and the spiral generated, begin
 
 ![Grid 2](input-2.png)
 
-
-
-
-
 </details><details> <summary>CONTENT/DS-n-Algos/ALGO/stack/</summary>
 
 ### [CONTENT/DS-n-Algos/ALGO/stack/Readme.md](CONTENT/DS-n-Algos/ALGO/stack/Readme.md)
+
 # Basic Stack
 
 Implement a basic stack function with the ability to `add` and `remove` values.
 
-
-
-
-
 </details><details> <summary>CONTENT/DS-n-Algos/ALGO/string-format/</summary>
 
 ### [CONTENT/DS-n-Algos/ALGO/string-format/Readme.md](CONTENT/DS-n-Algos/ALGO/string-format/Readme.md)
+
 # String Format
 
 Create a string formatting function that accepts an input string and a number of arguments to replace positions in the input string.
@@ -2666,13 +2536,10 @@ f('{1}_{0}', '{1}', '{0}')     // => '{0}_{1}'
 
 By [Riga](https://github.com/riga).
 
-
-
-
-
 </details><details> <summary>CONTENT/DS-n-Algos/ALGO/string-permutations/</summary>
 
 ### [CONTENT/DS-n-Algos/ALGO/string-permutations/Readme.md](CONTENT/DS-n-Algos/ALGO/string-permutations/Readme.md)
+
 # All Permutations of a String
 
 Generate all permutations of a given string. (Note: also known as the generating anagrams problem).
@@ -2681,13 +2548,10 @@ Generate all permutations of a given string. (Note: also known as the generating
 
 [http://www.ardendertat.com/2011/10/28/programming-interview-questions-11-all-permutations-of-string/](http://www.ardendertat.com/2011/10/28/programming-interview-questions-11-all-permutations-of-string/)
 
-
-
-
-
 </details><details> <summary>CONTENT/DS-n-Algos/ALGO/string-rotation/</summary>
 
 ### [CONTENT/DS-n-Algos/ALGO/string-rotation/Readme.md](CONTENT/DS-n-Algos/ALGO/string-rotation/Readme.md)
+
 # String Rotation
 
 Find out if a string is a rotation of another string. E.g. `ABCD` is a rotation of `BCDA` but not `ACBD`.
@@ -2696,13 +2560,10 @@ Find out if a string is a rotation of another string. E.g. `ABCD` is a rotation 
 
 [Reddit](http://www.reddit.com/r/javascript/comments/1ftyjh/common_code_problems_solved_in_javascript_xpost/cae25ra)
 
-
-
-
-
 </details><details> <summary>CONTENT/DS-n-Algos/ALGO/sum-of-array-plus-one/</summary>
 
 ### [CONTENT/DS-n-Algos/ALGO/sum-of-array-plus-one/Readme.md](CONTENT/DS-n-Algos/ALGO/sum-of-array-plus-one/Readme.md)
+
 # Sum of Array Plus One
 
 Write a function that takes an array of integers and returns the sum of the integers after adding 1 to each.
@@ -2711,26 +2572,20 @@ Write a function that takes an array of integers and returns the sum of the inte
 plusOneSum([1, 2, 3, 4]); // 14
 ```
 
-
-
-
-
 </details><details> <summary>CONTENT/DS-n-Algos/ALGO/throttle/</summary>
 
 ### [CONTENT/DS-n-Algos/ALGO/throttle/Readme.md](CONTENT/DS-n-Algos/ALGO/throttle/Readme.md)
+
 # Throttle
 
 Write a function that accepts a function and timeout, `x`, in number of milliseconds. It returns a function that can only be executed once per `x` milliseconds. This can be useful for limiting the number of time and computation heavy function that are run. For example, making AJAX requests to an autocompletion API.
 
 Once written, add a third parameter that will allow the function to be executed immediately if set to true. Otherwise the function will run at the end of the timeout period.
 
-
-
-
-
 </details><details> <summary>CONTENT/DS-n-Algos/ALGO/transform-word/</summary>
 
 ### [CONTENT/DS-n-Algos/ALGO/transform-word/Readme.md](CONTENT/DS-n-Algos/ALGO/transform-word/Readme.md)
+
 # Transform Word
 
 Given a source word, target word and an English dictionary, transform the source word to target by changing/adding/removing 1 character at a time, while all intermediate words being valid English words. Return the transformation chain which has the smallest number of intermediate words.
@@ -2738,20 +2593,17 @@ Given a source word, target word and an English dictionary, transform the source
 ## Example
 
 ```js
-transformWord(['cat', 'bat', 'bet', 'bed', 'at', 'ad', 'ed'], 'cat', 'bed');
+transformWord(["cat", "bat", "bet", "bed", "at", "ad", "ed"], "cat", "bed");
 ```
 
 ## Source
 
 [http://www.ardendertat.com/2011/10/17/programming-interview-questions-8-transform-word/](http://www.ardendertat.com/2011/10/17/programming-interview-questions-8-transform-word/)
 
-
-
-
-
 </details><details> <summary>CONTENT/DS-n-Algos/ALGO/tree-level-order-print/</summary>
 
 ### [CONTENT/DS-n-Algos/ALGO/tree-level-order-print/Readme.md](CONTENT/DS-n-Algos/ALGO/tree-level-order-print/Readme.md)
+
 # Tree Level Order Print
 
 Given a binary tree of integers, print it in level order. The output will contain space between the numbers in the same level, and new line between different levels.
@@ -2760,13 +2612,10 @@ Given a binary tree of integers, print it in level order. The output will contai
 
 [http://www.ardendertat.com/2011/12/05/programming-interview-questions-20-tree-level-order-print/](http://www.ardendertat.com/2011/12/05/programming-interview-questions-20-tree-level-order-print/)
 
-
-
-
-
 </details><details> <summary>CONTENT/DS-n-Algos/ALGO/word-analytics/</summary>
 
 ### [CONTENT/DS-n-Algos/ALGO/word-analytics/Readme.md](CONTENT/DS-n-Algos/ALGO/word-analytics/Readme.md)
+
 # Word Analytics
 
 You're a newly hired engineer for a brand-new company that's building a "killer Word-like application". You've been specifically assigned to implement a tool that gives the user some details on common word usage, letter usage, and some other analytics for a given document! More specifically, you must read a given text file (no special formatting, just a plain ASCII text file) and print off the following details:
@@ -2782,7 +2631,7 @@ You're a newly hired engineer for a brand-new company that's building a "killer 
 
 Please note that your tool does not have to be case sensitive, meaning the word "Hello" is the same as "hello" and "HELLO".
 
-*Author:Bryan Guner*
+_Author:Bryan Guner_
 
 ## Formal Inputs & Outputs
 
@@ -2813,13 +2662,10 @@ If there are certain lines that have no answers (such as the situation in which 
 cat huckleberry-finn.txt | node index.js
 ```
 
-
-
-
-
 </details><details> <summary>CONTENT/DS-n-Algos/ALGO/word-positions/</summary>
 
 ### [CONTENT/DS-n-Algos/ALGO/word-positions/Readme.md](CONTENT/DS-n-Algos/ALGO/word-positions/Readme.md)
+
 # Find Word Positions in Text
 
 Given a text file and a word, find the positions that the word occurs in the file. We'll be asked to find the positions of many words in the same file.
@@ -2828,26 +2674,19 @@ Given a text file and a word, find the positions that the word occurs in the fil
 
 [http://www.ardendertat.com/2011/12/20/programming-interview-questions-23-find-word-positions-in-text/](http://www.ardendertat.com/2011/12/20/programming-interview-questions-23-find-word-positions-in-text/)
 
-
-
-
-
 </details><details> <summary>CONTENT/DS-n-Algos/Arrays/All Unique/test/</summary>
 
 ### [CONTENT/DS-n-Algos/Arrays/All Unique/test/scrap.md](CONTENT/DS-n-Algos/Arrays/All Unique/test/scrap.md)
+
 ./../all-unique.js
-
-
-
-
 
 </details><details> <summary>CONTENT/DS-n-Algos/Arrays/all/</summary>
 
 ### [CONTENT/DS-n-Algos/Arrays/all/all.md](CONTENT/DS-n-Algos/Arrays/all/all.md)
+
 > The Boolean() constructor is used to create Boolean objects.
 
-Syntax
-------
+## Syntax
 
 new Boolean(\[value\])
 
@@ -2857,7 +2696,6 @@ new Boolean(\[value\])
 
 The initial value of the `Boolean` object.
 
-
 ### Creating `Boolean` objects with an initial value of `false`
 
     let bNoParam = new Boolean();
@@ -2865,7 +2703,6 @@ The initial value of the `Boolean` object.
     let bNull = new Boolean(null);
     let bEmptyString = new Boolean('');
     let bfalse = new Boolean(false);
-    
 
 ### Creating `Boolean` objects with an initial value of `true`
 
@@ -2876,16 +2713,13 @@ The initial value of the `Boolean` object.
     let bArrayProto = new Boolean([]);
     let bObjProto = new Boolean({});
 
-
 # Array.prototype.every()
 
 > The every() method tests whether all elements in the array pass the test implemented by the provided function. It returns a Boolean value.
 
 The **`every()`** method tests whether all elements in the array pass the test implemented by the provided function. It returns a Boolean value.
 
-
-Syntax
-------
+## Syntax
 
 arr.every(callback(element\[, index\[, array\]\])\[, thisArg\])
 
@@ -2925,14 +2759,9 @@ value for all elements, `every` returns `true`.
 
 If a `thisArg` parameter is provided to `every`, it will be used as callback's `this` value. Otherwise, the value `undefined` will be used as its `this` value. The `this` value ultimately observable by `callback` is determined according to [the usual rules for determining the `this` seen by a function](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/en-US/docs/Web/JavaScript/Reference/Operators/this).
 
-
 `every` acts like the "for all" quantifier in mathematics. In particular, for an empty array, it returns `true`.
 
-
-
-
-
-### [CONTENT/DS-n-Algos/Arrays/all/Array.prototype.every().md](CONTENT/DS-n-Algos/Arrays/all/Array.prototype.every().md)
+### [CONTENT/DS-n-Algos/Arrays/all/Array.prototype.every().md](<CONTENT/DS-n-Algos/Arrays/all/Array.prototype.every().md>)
 
 # Array.prototype.every()
 
@@ -2942,18 +2771,17 @@ The **`every()`** method tests whether all elements in the array pass the test i
 
 The source for this interactive example is stored in a GitHub repository. If you'd like to contribute to the interactive examples project, please clone [https://github.com/mdn/interactive-examples](https://github.com/mdn/interactive-examples) and send us a pull request.
 
-Syntax
-------
+## Syntax
 
 arr.every(callback(element\[, index\[, array\]\])\[, thisArg\])
 
 ### Parameters
 
- `callback`
+`callback`
 
 A function to test for each element, taking three arguments:
 
- `element`
+`element`
 
 The current element being processed in the array.
 
@@ -2973,8 +2801,7 @@ A value to use as `this` when executing `callback` .
 
 **`true`** if the `callback` function returns a [truthy](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/en-US/docs/Glossary/truthy) value for every array element. Otherwise, **`false`**.
 
-Description
------------
+## Description
 
 The `every` method executes the provided `callback` function once for each element present in the array until it finds the one where `callback` returns a [falsy](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/en-US/docs/Glossary/falsy) value. If such an element is found, the `every` method immediately returns `false` . Otherwise, if `callback` returns a [truthy](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/en-US/docs/Glossary/truthy) value for all elements, `every` returns `true` .
 
@@ -2992,8 +2819,7 @@ The range of elements processed by `every` is set before the first invocation of
 
 `every` acts like the "for all" quantifier in mathematics. In particular, for an empty array, it returns `true` . (It is [vacuously true](https://en.wikipedia.org/wiki/Vacuous_truth) that all elements of the [empty set](https://en.wikipedia.org/wiki/Empty_set#Properties) satisfy any given condition.)
 
-Polyfill
---------
+## Polyfill
 
 `every` was added to the ECMA-262 standard in the 5th edition, and it may not be present in other implementations of the standard. You can work around this by inserting the following code at the beginning of your scripts, allowing use of `every` in implementations which do not natively support it.
 
@@ -3003,58 +2829,58 @@ This algorithm is exactly the one specified in ECMA-262, 5th edition, assuming `
       Array.prototype.every = function(callbackfn, thisArg) {
         'use strict';
         var T, k;
-    
+
         if (this == null) {
           throw new TypeError('this is null or not defined');
         }
-    
-        
-        
+
+
+
         var O = Object(this);
-    
-        
-        
-        
+
+
+
+
         var len = O.length >>> 0;
-    
-        
+
+
         if (typeof callbackfn !== 'function' && Object.prototype.toString.call(callbackfn) !== '[object Function]') {
           throw new TypeError();
         }
-    
-        
+
+
         if (arguments.length > 1) {
           T = thisArg;
         }
-    
-        
+
+
         k = 0;
-    
-        
+
+
         while (k < len) {
-    
+
           var kValue;
-    
-          
-          
-          
-          
-          
-          
+
+
+
+
+
+
+
           if (k in O) {
             var testResult;
-            
-            
+
+
             kValue = O[k];
-    
-            
-            
-            
-            
-            if(T) testResult = callbackfn.call(T, kValue, k, O); 
+
+
+
+
+
+            if(T) testResult = callbackfn.call(T, kValue, k, O);
             else testResult = callbackfn(kValue,k,O)
-    
-            
+
+
             if (!testResult) {
               return false;
             }
@@ -3064,10 +2890,8 @@ This algorithm is exactly the one specified in ECMA-262, 5th edition, assuming `
         return true;
       };
     }
-    
 
-Examples
---------
+## Examples
 
 ### Testing size of all array elements
 
@@ -3076,87 +2900,75 @@ The following example tests whether all elements in the array are bigger than 10
     function isBigEnough(element, index, array) {
       return element >= 10;
     }
-    [12, 5, 8, 130, 44].every(isBigEnough);   
-    [12, 54, 18, 130, 44].every(isBigEnough); 
-    
+    [12, 5, 8, 130, 44].every(isBigEnough);
+    [12, 54, 18, 130, 44].every(isBigEnough);
 
 ### Using arrow functions
 
 [Arrow functions](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions) provide a shorter syntax for the same test.
 
-    [12, 5, 8, 130, 44].every(x => x >= 10);   
-    [12, 54, 18, 130, 44].every(x => x >= 10); 
+    [12, 5, 8, 130, 44].every(x => x >= 10);
+    [12, 54, 18, 130, 44].every(x => x >= 10);
 
 ### Affecting Initial Array (modifying, appending, and deleting)
 
 The following examples tests the behaviour of the `every` method when the array is modified.
 
-    
-    
-    
     let arr = [1, 2, 3, 4];
     arr.every( (elem, index, arr) => {
       arr[index+1] -= 1
       console.log( `[${arr}][${index}] -> ${elem}` )
-      return elem < 2 
+      return elem < 2
     })
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+
+
+
+
+
+
+
+
+
+
+
     arr = [1, 2, 3];
     arr.every( (elem, index, arr) => {
       arr.push('new')
       console.log( `[${arr}][${index}] -> ${elem}` )
       return elem < 4
     })
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+
+
+
+
+
+
+
+
+
+
     arr = [1, 2, 3, 4];
     arr.every( (elem, index, arr) => {
       arr.pop()
       console.log( `[${arr}][${index}] -> ${elem}` )
       return elem < 4
     })
-    
-    
-    
-    
-    
-    
 
-Specifications
---------------
+## Specifications
 
 | Specification                                                                                                         |
 | --------------------------------------------------------------------------------------------------------------------- |
 | [ECMAScript (ECMA-262)                                                                                                |
 | The definition of 'Array.prototype.every' in that specification.](https://tc39.es/ecma262/#sec-array.prototype.every) |
 
-Browser compatibility
----------------------
+## Browser compatibility
 
 The compatibility table in this page is generated from structured data. If you'd like to contribute to the data, please check out [https://github.com/mdn/browser-compat-data](https://github.com/mdn/browser-compat-data) and send us a pull request.
 
 [Update compatibility data on GitHub](https://github.com/mdn/browser-compat-data)
 
 |         | Desktop               | Mobile               | Server                   |
-| ------- | --------------------- | -------------------- | ------------------------ |
+| ------- | --------------------- | -------------------- | ------------------------ | ----------------- | ---------------------- | --------------------- | -------------------------------- | ------------------------------ | ------------------------------ | ------------------------------- | ------------------------- | ----------------------------------------- | --------------------------- |
 |         | Chrome                | Edge                 | Firefox                  | Internet Explorer | Opera                  | Safari                | Android webview                  | Chrome for Android             | Firefox for Android            | Opera for Android               | Safari on iOS             | Samsung Internet                          | Node.js                     |
 | ---     | ---                   | ---                  | ---                      | ---               | ---                    | ---                   | ---                              | ---                            | ---                            | ---                             | ---                       | ---                                       | ---                         |
 | `every` | Chrome Full support 1 | Edge Full support 12 | Firefox Full support 1.5 | IE Full support 9 | Opera Full support 9.5 | Safari Full support 3 | WebView Android Full support ≤37 | Chrome Android Full support 18 | Firefox Android Full support 4 | Opera Android Full support 10.1 | Safari iOS Full support 1 | Samsung Internet Android Full support 1.0 | nodejs Full support 0.1.100 |
@@ -3184,20 +2996,18 @@ Connection error: Sorry, we can't seem to reach the server. We are working to fi
 
 ### Legend
 
-Full support 
+Full support
 
 Full support
 
-See also
---------
+## See also
 
-*   [`Array.prototype.forEach()`](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach)
-*   [`Array.prototype.some()`](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/some)
-*   [`Array.prototype.find()`](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/find)
-*   [`TypedArray.prototype.every()`](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/en-US/docs/Web/JavaScript/Reference/Global_Objects/TypedArray/every)
+- [`Array.prototype.forEach()`](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach)
+- [`Array.prototype.some()`](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/some)
+- [`Array.prototype.find()`](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/find)
+- [`TypedArray.prototype.every()`](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/en-US/docs/Web/JavaScript/Reference/Global_Objects/TypedArray/every)
 
 [Source](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/every)
-
 
 ### [CONTENT/DS-n-Algos/Arrays/all/boolean-constructor.md](CONTENT/DS-n-Algos/Arrays/all/boolean-constructor.md)
 
@@ -3209,8 +3019,7 @@ The **`Boolean()`** constructor is used to create [ `Boolean` ](chrome-extension
 
 The source for this interactive example is stored in a GitHub repository. If you'd like to contribute to the interactive examples project, please clone [https://github.com/mdn/interactive-examples](https://github.com/mdn/interactive-examples) and send us a pull request.
 
-Syntax
-------
+## Syntax
 
 new Boolean(\[value\])
 
@@ -3220,8 +3029,7 @@ new Boolean(\[value\])
 
 The initial value of the `Boolean` object.
 
-Examples
---------
+## Examples
 
 ### Creating `Boolean` objects with an initial value of `false`
 
@@ -3230,7 +3038,6 @@ Examples
     var bNull = new Boolean(null);
     var bEmptyString = new Boolean('');
     var bfalse = new Boolean(false);
-    
 
 ### Creating `Boolean` objects with an initial value of `true`
 
@@ -3241,25 +3048,24 @@ Examples
     var bArrayProto = new Boolean([]);
     var bObjProto = new Boolean({});
 
-Specifications
---------------
+## Specifications
 
 | Specification |
-| --- |
+| ------------- |
+
 | [ECMAScript (ECMA-262)  
 The definition of 'Boolean constructor' in that specification.](https://tc39.es/ecma262/#sec-boolean-constructor) |
 
-Browser compatibility
----------------------
+## Browser compatibility
 
 The compatibility table on this page is generated from structured data. If you'd like to contribute to the data, please check out [https://github.com/mdn/browser-compat-data](https://github.com/mdn/browser-compat-data) and send us a pull request.
 
 [Update compatibility data on GitHub](https://github.com/mdn/browser-compat-data)
 
-|  | Desktop | Mobile | Server |
-| --- | --- | --- | --- |
-|  | Chrome | Edge | Firefox | Internet Explorer | Opera | Safari | Android webview | Chrome for Android | Firefox for Android | Opera for Android | Safari on iOS | Samsung Internet | Node.js |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+|                         | Desktop               | Mobile               | Server                 |
+| ----------------------- | --------------------- | -------------------- | ---------------------- | ----------------- | -------------------- | --------------------- | ------------------------------ | ------------------------------ | ------------------------------ | ------------------------------- | ------------------------- | ----------------------------------------- | --------------------------- |
+|                         | Chrome                | Edge                 | Firefox                | Internet Explorer | Opera                | Safari                | Android webview                | Chrome for Android             | Firefox for Android            | Opera for Android               | Safari on iOS             | Samsung Internet                          | Node.js                     |
+| ---                     | ---                   | ---                  | ---                    | ---               | ---                  | ---                   | ---                            | ---                            | ---                            | ---                             | ---                       | ---                                       | ---                         |
 | `Boolean()` constructor | Chrome Full support 1 | Edge Full support 12 | Firefox Full support 1 | IE Full support 3 | Opera Full support 4 | Safari Full support 1 | WebView Android Full support 1 | Chrome Android Full support 18 | Firefox Android Full support 4 | Opera Android Full support 10.1 | Safari iOS Full support 1 | Samsung Internet Android Full support 1.0 | nodejs Full support 0.1.100 |
 
 #### What happens next?
@@ -3285,41 +3091,40 @@ Connection error: Sorry, we can't seem to reach the server. We are working to fi
 
 ### Legend
 
-Full support 
+Full support
 
 Full support
 
-See also
---------
+## See also
 
-*   [Boolean](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/en-US/docs/Glossary/Boolean)
+- [Boolean](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/en-US/docs/Glossary/Boolean)
 
 [Source](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean/Boolean)
-
 
 </details><details> <summary>CONTENT/DS-n-Algos/Arrays/flatten/</summary>
 
 ### [CONTENT/DS-n-Algos/Arrays/flatten/flatten1.md](CONTENT/DS-n-Algos/Arrays/flatten/flatten1.md)
-``` js
+
+```js
 function flatten(array) {
-    // This is the array we are building out with non-Array elements
-    let newArray = [];
+  // This is the array we are building out with non-Array elements
+  let newArray = [];
 
-    // We are iterating through each element of the array...
-    array.forEach(function(element) {
-        // ... if it is an array, flatten it, spread each individual element into the new array
-        if (Array.isArray(element)) {
-            // Recursive case (the element is an array)
-            newArray.push(...flatten(element)); // Recursive step (flatten this nested array - at a certain point we will get to our deepest level of nesting and not recurse any more)
-            // ... if it is a non-Array element, push it directly into the new array
-        } else {
-            // Base case (the element is not an array)
-            newArray.push(element);
-        }
-    });
+  // We are iterating through each element of the array...
+  array.forEach(function (element) {
+    // ... if it is an array, flatten it, spread each individual element into the new array
+    if (Array.isArray(element)) {
+      // Recursive case (the element is an array)
+      newArray.push(...flatten(element)); // Recursive step (flatten this nested array - at a certain point we will get to our deepest level of nesting and not recurse any more)
+      // ... if it is a non-Array element, push it directly into the new array
+    } else {
+      // Base case (the element is not an array)
+      newArray.push(element);
+    }
+  });
 
-    // Now that we've built up our array with non-Array elements, return it
-    return newArray;
+  // Now that we've built up our array with non-Array elements, return it
+  return newArray;
 }
 
 console.log(flatten([1, "a", ["hello", ["world", "1"]]])); // [1, "a", "hello", "world", "1"]
@@ -3327,9 +3132,9 @@ console.log(flatten([1, "a", ["hello", ["world", "1"]]])); // [1, "a", "hello", 
 
 ---
 
-``` js
+```js
 // Tracing the call stack:
-flatten([1, "a", ["hello", ["world", "1"]]])
+flatten([1, "a", ["hello", ["world", "1"]]]);
 // create newArray = []
 // iterate through each element:
 // current element: 1
@@ -3340,7 +3145,7 @@ flatten([1, "a", ["hello", ["world", "1"]]])
 // newArray is now [1, "a"]
 // current element: ["hello", ["world", "1"]]
 // element is an array, call flatten on it:
-flatten(["hello", ["world", "1"]])
+flatten(["hello", ["world", "1"]]);
 // create newArray = []
 // iterate through each element:
 // current element: "hello"
@@ -3348,7 +3153,7 @@ flatten(["hello", ["world", "1"]])
 // newArray is now ["hello"]
 // current element: ["world", "1"]
 // element is an array, call flatten on it:
-flatten(["world", "1"])
+flatten(["world", "1"]);
 // create newArray = []
 // iterate through each element:
 // current element: "world"
@@ -3366,42 +3171,38 @@ flatten(["world", "1"])
 // Finished iterating, return newArray
 ```
 
-
-
-
-
 ### [CONTENT/DS-n-Algos/Arrays/flatten/flatten2.md](CONTENT/DS-n-Algos/Arrays/flatten/flatten2.md)
 
 Flattens an array up to the specified depth.
 
-* Use recursion, decrementing `depth` by 1 for each level of depth.
-* Use `Array..reduce()` and `Array..concat()` to merge elements or arrays.
-* Base case, for `depth` equal to `1` stops recursion.
-* Omit the second argument,  `depth` to flatten only to a depth of `1` (single flatten).
+- Use recursion, decrementing `depth` by 1 for each level of depth.
+- Use `Array..reduce()` and `Array..concat()` to merge elements or arrays.
+- Base case, for `depth` equal to `1` stops recursion.
+- Omit the second argument, `depth` to flatten only to a depth of `1` (single flatten).
 
-``` js
+```js
 function flatten(arr, depth = 1) {
-    return arr.reduce((newArr, curEle) => {
-        if (depth > 1 && Array.isArray(curEle)) {
-            return newArr.concat(flatten(curEle, depth - 1));
-        } else {
-            return newArr.concat(curEle);
-        }
-    }, []);
+  return arr.reduce((newArr, curEle) => {
+    if (depth > 1 && Array.isArray(curEle)) {
+      return newArr.concat(flatten(curEle, depth - 1));
+    } else {
+      return newArr.concat(curEle);
+    }
+  }, []);
 }
 console.log("flatten([1, [2], 3, 4], 3): ", flatten([1, [2], 3, 4], 3));
 ```
 
-``` js
-flatten([1, "a", ["hello", ["world", "1"]]])
+```js
+flatten([1, "a", ["hello", ["world", "1"]]]);
 flatten([1, [2], 3, 4]); // [1, 2, 3, 4]
 flatten([1, [2, [3, [4, 5], 6], 7], 8], 2); // [1, 2, 3, [4, 5], 6, 7, 8]
 ```
 
-
 </details><details> <summary>CONTENT/DS-n-Algos/Arrays/Intersection/</summary>
 
 ### [CONTENT/DS-n-Algos/Arrays/Intersection/intersection.md](CONTENT/DS-n-Algos/Arrays/Intersection/intersection.md)
+
 Write a function named intersection(firstArr) that takes in an array and
 returns a function. When the function returned by intersection is invoked
 passing in an array (secondArr) it returns a new array containing the elements
@@ -3415,10 +3216,10 @@ Example 2:
 let fame = intersection(["f", "a", "m", "e"]); // returns a function
 console.log(fame(["a", "f", "z", "b"])); // returns [ 'f', 'a' ]
 
-*******************************************************************************/
+**************************************\*\*\***************************************/
 
 function intersection(firstArr) {
-  return (secondArr) => {
+return (secondArr) => {
 
     let common = [];
 
@@ -3431,12 +3232,8 @@ function intersection(firstArr) {
 
     return common;
 
-  }; 
+};
 }
-
-
-
-
 
 </details><details> <summary>CONTENT/DS-n-Algos/Binary-Trees/105-construct-b-tree/</summary>
 
@@ -3505,12 +3302,12 @@ i.right = j;
 k.left = l;
 l.right = m;
 //--------------------------------------\\
-console.log( a );
-console.log(h)
-console.log('a.val: ', a.val);
-console.log('b.val: ', b.val);
-console.log('a.left: ', a.left);
-console.log( 'a.right: ', a.right );
+console.log(a);
+console.log(h);
+console.log("a.val: ", a.val);
+console.log("b.val: ", b.val);
+console.log("a.left: ", a.left);
+console.log("a.right: ", a.right);
 console.log("h.left: ", h.left);
 //--------------------------------------------------------------------------------------\\
 console.log(
@@ -3538,8 +3335,8 @@ function buildTree(preorder, inorder) {
 console.log(
   "//--------------------------------------------------------------------------------------\\"
 );
-buildTree( preO, inO );
-console.log('buildTree( preO, inO ): ', buildTree( preO, inO ));
+buildTree(preO, inO);
+console.log("buildTree( preO, inO ): ", buildTree(preO, inO));
 //--------------------------results below--------------------------------------------
 /*
 node 105-Construct\ Binary\ Tree\ from\ Preorder\ and\ Inorder\ Traversal.js
@@ -3612,13 +3409,10 @@ bryan_dir:105-construct-b-tree_exitstatus:0 ====>
  *************************************/
 ```
 
-
-
-
-
 </details><details> <summary>CONTENT/DS-n-Algos/Binary-Trees/</summary>
 
 ### [CONTENT/DS-n-Algos/Binary-Trees/binary-tree-reading.md](CONTENT/DS-n-Algos/Binary-Trees/binary-tree-reading.md)
+
 # Example Binary Tree
 
 ### Visual Aid
@@ -4058,13 +3852,10 @@ class BST {
 }
 ```
 
-
-
-
-
 </details><details> <summary>CONTENT/DS-n-Algos/Binary-Trees/leetcode110-balanced-bin-tree/</summary>
 
 ### [CONTENT/DS-n-Algos/Binary-Trees/leetcode110-balanced-bin-tree/Balanced Binary Tree - LeetCode.md](CONTENT/DS-n-Algos/Binary-Trees/leetcode110-balanced-bin-tree/Balanced Binary Tree - LeetCode.md)
+
 # Balanced Binary Tree - LeetCode
 
 > Level up your coding skills and quickly land a job. This is the best place to expand your knowledge and get prepared for your next interview.
@@ -4096,74 +3887,62 @@ For this problem, a height-balanced binary tree is defined as:
 
 **Constraints:**
 
-*   The number of nodes in the tree is in the range `[0, 5000]`.
-*   `-104 <= Node.val <= 104`
-
+- The number of nodes in the tree is in the range `[0, 5000]`.
+- `-104 <= Node.val <= 104`
 
 [Source](https://leetcode.com/problems/balanced-binary-tree/)
-
-
-
-
 
 </details><details> <summary>CONTENT/DS-n-Algos/Dynamic-Programming/dynamic-time-warping/doc/api/</summary>
 
 ### [CONTENT/DS-n-Algos/Dynamic-Programming/dynamic-time-warping/doc/api/dtw.md](CONTENT/DS-n-Algos/Dynamic-Programming/dynamic-time-warping/doc/api/dtw.md)
-DTW API
-=======
+
+# DTW API
+
 **Author:** Elmar Langholz
 
-DTW(\[options\])
-----------------
+## DTW(\[options\])
+
 Initializes a new instance of the `DTW`. If no options are provided the squared euclidean distance function is used.
 
-
 **Parameters**
 
-**[options]**:  *DTWOptions*,  The options to initialize the dynamic time warping instance with.
+**[options]**: _DTWOptions_, The options to initialize the dynamic time warping instance with.
 
-class DTWOptions
-----------------
+## class DTWOptions
+
 **Members**
 
-**distanceMetric**:  *string*,  The distance metric to use: `'manhattan' | 'euclidean' | 'squaredEuclidean'`.
+**distanceMetric**: _string_, The distance metric to use: `'manhattan' | 'euclidean' | 'squaredEuclidean'`.
 
-**distanceFunction**:  *function*,  The distance function to use. The function should accept two numeric arguments and return the numeric distance. e.g. function (a, b) { return a + b; }
+**distanceFunction**: _function_, The distance function to use. The function should accept two numeric arguments and return the numeric distance. e.g. function (a, b) { return a + b; }
 
-class DTW
----------
+## class DTW
+
 **Methods**
 
-DTW.compute(firstSequence, secondSequence, \[window\])
-------------------------------------------------------
-Computes the optimal match between two provided sequences.
+## DTW.compute(firstSequence, secondSequence, \[window\])
 
+Computes the optimal match between two provided sequences.
 
 **Parameters**
 
-**firstSequence**:  *number[]*,  The first sequence.
+**firstSequence**: _number[]_, The first sequence.
 
-**secondSequence**:  *number[]*,  The second sequence.
+**secondSequence**: _number[]_, The second sequence.
 
-**[window]**:  *number*,  The window parameter (for the locality constraint) to use.
+**[window]**: _number_, The window parameter (for the locality constraint) to use.
 
 **Returns**
 
-*number*,  The similarity between the provided temporal sequences.
+_number_, The similarity between the provided temporal sequences.
 
-DTW.path()
-----------
+## DTW.path()
+
 Retrieves the optimal match between two provided sequences.
 
-
 **Returns**
 
-*number[]*,  The array containing the optimal path points.
-
-
-
-
-
+_number[]_, The array containing the optimal path points.
 
 </details><details> <summary>CONTENT/DS-n-Algos/Dynamic-Programming/dynamic-time-warping/doc/</summary>
 
@@ -4172,38 +3951,55 @@ Retrieves the optimal match between two provided sequences.
 # DTW.js
 
 ```js
-var debug = require( 'debug' )( 'dtw' );
-var validate = require( './validate' );
-var matrix = require( './matrix' );
-var comparison = require( './comparison' );
+var debug = require("debug")("dtw");
+var validate = require("./validate");
+var matrix = require("./matrix");
+var comparison = require("./comparison");
 
-function validateOptions( options ) {
-  if ( typeof options !== 'object' ) {
-    throw new TypeError( 'Invalid options type: expected an object' );
-  } else if ( typeof options.distanceMetric !== 'string' && typeof options.distanceFunction !== 'function' ) {
-    throw new TypeError( 'Invalid distance types: expected a string distance type or a distance function' );
-  } else if ( typeof options.distanceMetric === 'string' && typeof options.distanceFunction === 'function' ) {
-    throw new Error( 'Invalid parameters: provide either a distance metric or function but not both' );
+function validateOptions(options) {
+  if (typeof options !== "object") {
+    throw new TypeError("Invalid options type: expected an object");
+  } else if (
+    typeof options.distanceMetric !== "string" &&
+    typeof options.distanceFunction !== "function"
+  ) {
+    throw new TypeError(
+      "Invalid distance types: expected a string distance type or a distance function"
+    );
+  } else if (
+    typeof options.distanceMetric === "string" &&
+    typeof options.distanceFunction === "function"
+  ) {
+    throw new Error(
+      "Invalid parameters: provide either a distance metric or function but not both"
+    );
   }
 
-  if ( typeof options.distanceMetric === 'string' ) {
+  if (typeof options.distanceMetric === "string") {
     var normalizedDistanceMetric = options.distanceMetric.toLowerCase();
-    if ( normalizedDistanceMetric !== 'manhattan' && normalizedDistanceMetric !== 'euclidean' &&
-      normalizedDistanceMetric !== 'squaredeuclidean' ) {
-      throw new Error( 'Invalid parameter value: Unknown distance metric \'' + options.distanceMetric + '\'' );
+    if (
+      normalizedDistanceMetric !== "manhattan" &&
+      normalizedDistanceMetric !== "euclidean" &&
+      normalizedDistanceMetric !== "squaredeuclidean"
+    ) {
+      throw new Error(
+        "Invalid parameter value: Unknown distance metric '" +
+          options.distanceMetric +
+          "'"
+      );
     }
   }
 }
 
-function retrieveDistanceFunction( distanceMetric ) {
+function retrieveDistanceFunction(distanceMetric) {
   var normalizedDistanceMetric = distanceMetric.toLowerCase();
   var distanceFunction = null;
-  if ( normalizedDistanceMetric === 'manhattan' ) {
-    distanceFunction = require( './distanceFunctions/manhattan' ).distance;
-  } else if ( normalizedDistanceMetric === 'euclidean' ) {
-    distanceFunction = require( './distanceFunctions/euclidean' ).distance;
-  } else if ( normalizedDistanceMetric === 'squaredeuclidean' ) {
-    distanceFunction = require( './distanceFunctions/squaredEuclidean' ).distance;
+  if (normalizedDistanceMetric === "manhattan") {
+    distanceFunction = require("./distanceFunctions/manhattan").distance;
+  } else if (normalizedDistanceMetric === "euclidean") {
+    distanceFunction = require("./distanceFunctions/euclidean").distance;
+  } else if (normalizedDistanceMetric === "squaredeuclidean") {
+    distanceFunction = require("./distanceFunctions/squaredEuclidean").distance;
   }
 
   return distanceFunction;
@@ -4238,29 +4034,34 @@ function retrieveDistanceFunction( distanceMetric ) {
  * @method path
  * @returns {number[]} The array containing the optimal path points.
  */
-var DTW = function ( options ) {
-    var state = {
-      distanceCostMatrix: null
-    };
-    if ( typeof options === 'undefined' ) {
-      state.distance = require( './distanceFunctions/squaredEuclidean' ).distance;
+var DTW = function (options) {
+  var state = {
+    distanceCostMatrix: null,
+  };
+  if (typeof options === "undefined") {
+    state.distance = require("./distanceFunctions/squaredEuclidean").distance;
   } else {
-    validateOptions( options );
-    if ( typeof options.distanceMetric === 'string' ) {
-      state.distance = retrieveDistanceFunction( options.distanceMetric );
-    } else if ( typeof options.distanceFunction === 'function' ) {
+    validateOptions(options);
+    if (typeof options.distanceMetric === "string") {
+      state.distance = retrieveDistanceFunction(options.distanceMetric);
+    } else if (typeof options.distanceFunction === "function") {
       state.distance = options.distanceFunction;
     }
   }
 
-  this.compute = function ( firstSequence, secondSequence, window ) {
+  this.compute = function (firstSequence, secondSequence, window) {
     var cost = Number.POSITIVE_INFINITY;
-    if ( typeof window === 'undefined' ) {
-      cost = computeOptimalPath( firstSequence, secondSequence, state );
-    } else if ( typeof window === 'number' ) {
-      cost = computeOptimalPathWithWindow( firstSequence, secondSequence, window, state );
+    if (typeof window === "undefined") {
+      cost = computeOptimalPath(firstSequence, secondSequence, state);
+    } else if (typeof window === "number") {
+      cost = computeOptimalPathWithWindow(
+        firstSequence,
+        secondSequence,
+        window,
+        state
+      );
     } else {
-      throw new TypeError( 'Invalid window parameter type: expected a number' );
+      throw new TypeError("Invalid window parameter type: expected a number");
     }
 
     return cost;
@@ -4268,148 +4069,177 @@ var DTW = function ( options ) {
 
   this.path = function () {
     var path = null;
-    if ( state.distanceCostMatrix instanceof Array ) {
-      path = retrieveOptimalPath( state );
+    if (state.distanceCostMatrix instanceof Array) {
+      path = retrieveOptimalPath(state);
     }
 
     return path;
   };
 };
 
-function validateComputeParameters( s, t ) {
-  validate.sequence( s, 'firstSequence' );
-  validate.sequence( t, 'secondSequence' );
+function validateComputeParameters(s, t) {
+  validate.sequence(s, "firstSequence");
+  validate.sequence(t, "secondSequence");
 }
 
-function computeOptimalPath( s, t, state ) {
-  debug( '> computeOptimalPath' );
-  validateComputeParameters( s, t );
+function computeOptimalPath(s, t, state) {
+  debug("> computeOptimalPath");
+  validateComputeParameters(s, t);
   var start = new Date().getTime();
   state.m = s.length;
   state.n = t.length;
-  var distanceCostMatrix = matrix.create( state.m, state.n, Number.POSITIVE_INFINITY );
+  var distanceCostMatrix = matrix.create(
+    state.m,
+    state.n,
+    Number.POSITIVE_INFINITY
+  );
 
-  distanceCostMatrix[ 0 ][ 0 ] = state.distance( s[ 0 ], t[ 0 ] );
+  distanceCostMatrix[0][0] = state.distance(s[0], t[0]);
 
-  for ( var rowIndex = 1; rowIndex < state.m; rowIndex++ ) {
-    var cost = state.distance( s[ rowIndex ], t[ 0 ] );
-    distanceCostMatrix[ rowIndex ][ 0 ] = cost + distanceCostMatrix[ rowIndex - 1 ][ 0 ];
+  for (var rowIndex = 1; rowIndex < state.m; rowIndex++) {
+    var cost = state.distance(s[rowIndex], t[0]);
+    distanceCostMatrix[rowIndex][0] =
+      cost + distanceCostMatrix[rowIndex - 1][0];
   }
 
-  for ( var columnIndex = 1; columnIndex < state.n; columnIndex++ ) {
-    var cost = state.distance( s[ 0 ], t[ columnIndex ] );
-    distanceCostMatrix[ 0 ][ columnIndex ] = cost + distanceCostMatrix[ 0 ][ columnIndex - 1 ];
+  for (var columnIndex = 1; columnIndex < state.n; columnIndex++) {
+    var cost = state.distance(s[0], t[columnIndex]);
+    distanceCostMatrix[0][columnIndex] =
+      cost + distanceCostMatrix[0][columnIndex - 1];
   }
 
-  for ( var rowIndex = 1; rowIndex < state.m; rowIndex++ ) {
-    for ( var columnIndex = 1; columnIndex < state.n; columnIndex++ ) {
-      var cost = state.distance( s[ rowIndex ], t[ columnIndex ] );
-      distanceCostMatrix[ rowIndex ][ columnIndex ] =
-        cost + Math.min(
-          distanceCostMatrix[ rowIndex - 1 ][ columnIndex ], // Insertion
-            distanceCostMatrix[ rowIndex ][ columnIndex - 1 ], // Deletion
-            distanceCostMatrix[ rowIndex - 1 ][ columnIndex - 1 ] ); // Match
+  for (var rowIndex = 1; rowIndex < state.m; rowIndex++) {
+    for (var columnIndex = 1; columnIndex < state.n; columnIndex++) {
+      var cost = state.distance(s[rowIndex], t[columnIndex]);
+      distanceCostMatrix[rowIndex][columnIndex] =
+        cost +
+        Math.min(
+          distanceCostMatrix[rowIndex - 1][columnIndex], // Insertion
+          distanceCostMatrix[rowIndex][columnIndex - 1], // Deletion
+          distanceCostMatrix[rowIndex - 1][columnIndex - 1]
+        ); // Match
     }
   }
 
   var end = new Date().getTime();
   var time = end - start;
-  debug( '< computeOptimalPath (' + time + ' ms)' );
+  debug("< computeOptimalPath (" + time + " ms)");
   state.distanceCostMatrix = distanceCostMatrix;
-  state.similarity = distanceCostMatrix[ state.m - 1 ][ state.n - 1 ];
+  state.similarity = distanceCostMatrix[state.m - 1][state.n - 1];
   return state.similarity;
 }
 
-function computeOptimalPathWithWindow( s, t, w, state ) {
-  debug( '> computeOptimalPathWithWindow' );
-  validateComputeParameters( s, t );
+function computeOptimalPathWithWindow(s, t, w, state) {
+  debug("> computeOptimalPathWithWindow");
+  validateComputeParameters(s, t);
   var start = new Date().getTime();
   state.m = s.length;
   state.n = t.length;
-  var window = Math.max( w, Math.abs( s.length - t.length ) );
-  var distanceCostMatrix = matrix.create( state.m + 1, state.n + 1, Number.POSITIVE_INFINITY );
-  distanceCostMatrix[ 0 ][ 0 ] = 0;
+  var window = Math.max(w, Math.abs(s.length - t.length));
+  var distanceCostMatrix = matrix.create(
+    state.m + 1,
+    state.n + 1,
+    Number.POSITIVE_INFINITY
+  );
+  distanceCostMatrix[0][0] = 0;
 
-  for ( var rowIndex = 1; rowIndex <= state.m; rowIndex++ ) {
-    for ( var columnIndex = Math.max( 1, rowIndex - window ); columnIndex <= Math.min( state.n, rowIndex + window ); columnIndex++ ) {
-      var cost = state.distance( s[ rowIndex - 1 ], t[ columnIndex - 1 ] );
-      distanceCostMatrix[ rowIndex ][ columnIndex ] =
-        cost + Math.min(
-          distanceCostMatrix[ rowIndex - 1 ][ columnIndex ], // Insertion
-            distanceCostMatrix[ rowIndex ][ columnIndex - 1 ], // Deletion
-            distanceCostMatrix[ rowIndex - 1 ][ columnIndex - 1 ] ); // Match
+  for (var rowIndex = 1; rowIndex <= state.m; rowIndex++) {
+    for (
+      var columnIndex = Math.max(1, rowIndex - window);
+      columnIndex <= Math.min(state.n, rowIndex + window);
+      columnIndex++
+    ) {
+      var cost = state.distance(s[rowIndex - 1], t[columnIndex - 1]);
+      distanceCostMatrix[rowIndex][columnIndex] =
+        cost +
+        Math.min(
+          distanceCostMatrix[rowIndex - 1][columnIndex], // Insertion
+          distanceCostMatrix[rowIndex][columnIndex - 1], // Deletion
+          distanceCostMatrix[rowIndex - 1][columnIndex - 1]
+        ); // Match
     }
   }
 
   var end = new Date().getTime();
   var time = end - start;
-  debug( '< computeOptimalPathWithWindow (' + time + ' ms)' );
+  debug("< computeOptimalPathWithWindow (" + time + " ms)");
   distanceCostMatrix.shift();
-  distanceCostMatrix = distanceCostMatrix.map( function ( row ) {
-    return row.slice( 1, row.length );
-  } );
+  distanceCostMatrix = distanceCostMatrix.map(function (row) {
+    return row.slice(1, row.length);
+  });
   state.distanceCostMatrix = distanceCostMatrix;
-  state.similarity = distanceCostMatrix[ state.m - 1 ][ state.n - 1 ];
+  state.similarity = distanceCostMatrix[state.m - 1][state.n - 1];
   return state.similarity;
 }
 
-function retrieveOptimalPath( state ) {
-  debug( '> retrieveOptimalPath' );
+function retrieveOptimalPath(state) {
+  debug("> retrieveOptimalPath");
   var start = new Date().getTime();
 
   var rowIndex = state.m - 1;
   var columnIndex = state.n - 1;
-  var path = [
-    [ rowIndex, columnIndex ]
-  ];
+  var path = [[rowIndex, columnIndex]];
   var epsilon = 1e-14;
-  while ( ( rowIndex > 0 ) || ( columnIndex > 0 ) ) {
-    if ( ( rowIndex > 0 ) && ( columnIndex > 0 ) ) {
+  while (rowIndex > 0 || columnIndex > 0) {
+    if (rowIndex > 0 && columnIndex > 0) {
       var min = Math.min(
-        state.distanceCostMatrix[ rowIndex - 1 ][ columnIndex ], // Insertion
-          state.distanceCostMatrix[ rowIndex ][ columnIndex - 1 ], // Deletion
-          state.distanceCostMatrix[ rowIndex - 1 ][ columnIndex - 1 ] ); // Match
-        if ( comparison.nearlyEqual( min, state.distanceCostMatrix[ rowIndex - 1 ][ columnIndex - 1 ], epsilon ) ) {
+        state.distanceCostMatrix[rowIndex - 1][columnIndex], // Insertion
+        state.distanceCostMatrix[rowIndex][columnIndex - 1], // Deletion
+        state.distanceCostMatrix[rowIndex - 1][columnIndex - 1]
+      ); // Match
+      if (
+        comparison.nearlyEqual(
+          min,
+          state.distanceCostMatrix[rowIndex - 1][columnIndex - 1],
+          epsilon
+        )
+      ) {
         rowIndex--;
         columnIndex--;
-      } else if ( comparison.nearlyEqual( min, state.distanceCostMatrix[ rowIndex - 1 ][ columnIndex ], epsilon ) ) {
+      } else if (
+        comparison.nearlyEqual(
+          min,
+          state.distanceCostMatrix[rowIndex - 1][columnIndex],
+          epsilon
+        )
+      ) {
         rowIndex--;
-      } else if ( comparison.nearlyEqual( min, state.distanceCostMatrix[ rowIndex ][ columnIndex - 1 ], epsilon ) ) {
+      } else if (
+        comparison.nearlyEqual(
+          min,
+          state.distanceCostMatrix[rowIndex][columnIndex - 1],
+          epsilon
+        )
+      ) {
         columnIndex--;
       }
-    } else if ( ( rowIndex > 0 ) && ( columnIndex === 0 ) ) {
+    } else if (rowIndex > 0 && columnIndex === 0) {
       rowIndex--;
-    } else if ( ( rowIndex === 0 ) && ( columnIndex > 0 ) ) {
+    } else if (rowIndex === 0 && columnIndex > 0) {
       columnIndex--;
     }
 
-    path.push( [ rowIndex, columnIndex ] );
+    path.push([rowIndex, columnIndex]);
   }
 
   var end = new Date().getTime();
   var time = end - start;
-  debug( '< retrieveOptimalPath (' + time + ' ms)' );
+  debug("< retrieveOptimalPath (" + time + " ms)");
   return path.reverse();
 }
 
 module.exports = DTW;
-
-
 ```
-
-
-
-
 
 </details><details> <summary>CONTENT/DS-n-Algos/Dynamic-Programming/dynamic-time-warping/</summary>
 
 ### [CONTENT/DS-n-Algos/Dynamic-Programming/dynamic-time-warping/Dynamic Time Warping.md](CONTENT/DS-n-Algos/Dynamic-Programming/dynamic-time-warping/Dynamic Time Warping.md)
+
 # Dynamic Time Warping
 
 > Explanation and Code Implementation
 
-Explanation and Code Implementation
------------------------------------
+## Explanation and Code Implementation
 
 [![Jeremy Zhang](https://miro.medium.com/fit/c/56/56/0*OHP4EDyFQhdpx4uk.)](https://meatba11.medium.com/?source=post_page-----3933f25fcdd--------------------------------)
 
@@ -4431,8 +4261,7 @@ Before digging into the algorithm, you might have the question that is it useful
 
 Yes, in a lot of scenarios DTW is playing a key role.
 
-Sound Pattern Recognition
--------------------------
+## Sound Pattern Recognition
 
 One use case is to detect the sound pattern of the same kind. Suppose we want to recognise the voice of a person by analysing his sound track, and we are able to collect his sound track of saying `Hello` in one scenario. However, people speak in the same word in different ways, what if he speaks hello in a much slower pace like `Heeeeeeelloooooo` , we will need an algorithm to match up the sound track of different lengths and be able to identify they come from the same person.
 
@@ -4440,8 +4269,7 @@ One use case is to detect the sound pattern of the same kind. Suppose we want to
 
 ![Image for post](https://miro.medium.com/max/2352/1*gi1TtOqFCsb2M_U7iAUAag.png)
 
-Stock Market
-------------
+## Stock Market
 
 In a stock market, people always hope to be able to predict the future, however using general machine learning algorithms can be exhaustive, as most prediction task requires test and training set to have the same dimension of features. However, if you ever speculate in the stock market, you will know that even the same pattern of a stock can have very different length reflection on klines and indicators.
 
@@ -4463,10 +4291,10 @@ DTW overcomes the issue by developing a one-to-many match so that the troughs an
 
 In general, DTW is a method that calculates an optimal match between two given sequences (e.g. time series) with certain restriction and rules(comes from wiki):
 
-*   Every index from the first sequence must be matched with one or more indices from the other sequence and vice versa
-*   The first index from the first sequence must be matched with the first index from the other sequence (but it does not have to be its only match)
-*   The last index from the first sequence must be matched with the last index from the other sequence (but it does not have to be its only match)
-*   The mapping of the indices from the first sequence to indices from the other sequence must be monotonically increasing, and vice versa, i.e. if `j > i` are indices from the first sequence, then there must not be two indices `l > k` in the other sequence, such that index `i` is matched with index `l` and index `j` is matched with index `k` , and vice versa
+- Every index from the first sequence must be matched with one or more indices from the other sequence and vice versa
+- The first index from the first sequence must be matched with the first index from the other sequence (but it does not have to be its only match)
+- The last index from the first sequence must be matched with the last index from the other sequence (but it does not have to be its only match)
+- The mapping of the indices from the first sequence to indices from the other sequence must be monotonically increasing, and vice versa, i.e. if `j > i` are indices from the first sequence, then there must not be two indices `l > k` in the other sequence, such that index `i` is matched with index `l` and index `j` is matched with index `k` , and vice versa
 
 The optimal match is denoted by the match that satisfies all the restrictions and the rules and that has the minimal cost, where the cost is computed as the sum of absolute differences, for each matched pair of indices, between their values.
 
@@ -4480,9 +4308,9 @@ where `DTW[i, j]` is the distance between `s[1:i]` and `t[1:j]` with the best al
 
 The key lies in:
 
-DTW\[i, j\] := cost + minimum(DTW\[i-1, j  \],  
-                            DTW\[i  , j-1\],  
-                            DTW\[i-1, j-1\])
+DTW\[i, j\] := cost + minimum(DTW\[i-1, j \],  
+ DTW\[i , j-1\],  
+ DTW\[i-1, j-1\])
 
 Which is saying that the cost of between two arrays with length `i and j` equals _the distance between the tails + the minimum of cost in arrays with length_ `_i-1, j_` _,_ `_i, j-1_` _, and_ `_i-1, j-1_` _._
 
@@ -4494,8 +4322,7 @@ Example:
 
 The distance between `a and b` would be the last element of the matrix, which is 2.
 
-Add Window Constraint
----------------------
+## Add Window Constraint
 
 One issue of the above algorithm is that we allow one element in an array to match an unlimited number of elements in the other array(as long as the tail can match in the end), this would cause the mapping to bent over a lot, for example, the following array:
 
@@ -4522,18 +4349,14 @@ Lastly, you can check out the implementation [here](https://github.com/MJeremy20
 
 \[1\] [https://databricks.com/blog/2019/04/30/understanding-dynamic-time-warping.html](https://databricks.com/blog/2019/04/30/understanding-dynamic-time-warping.html)
 
-\[2\] [https://en.wikipedia.org/wiki/Dynamic\_time\_warping](https://en.wikipedia.org/wiki/Dynamic_time_warping)
-
+\[2\] [https://en.wikipedia.org/wiki/Dynamic_time_warping](https://en.wikipedia.org/wiki/Dynamic_time_warping)
 
 [Source](https://towardsdatascience.com/dynamic-time-warping-3933f25fcdd)
-
-
-
-
 
 </details><details> <summary>CONTENT/DS-n-Algos/Dynamic-Programming/dynamic-time-warping/ms/</summary>
 
 ### [CONTENT/DS-n-Algos/Dynamic-Programming/dynamic-time-warping/ms/license.md](CONTENT/DS-n-Algos/Dynamic-Programming/dynamic-time-warping/ms/license.md)
+
 The MIT License (MIT)
 
 Copyright (c) 2016 Zeit, Inc.
@@ -4556,10 +4379,6 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
-
-
-
-
 ### [CONTENT/DS-n-Algos/Dynamic-Programming/dynamic-time-warping/ms/readme.md](CONTENT/DS-n-Algos/Dynamic-Programming/dynamic-time-warping/ms/readme.md)
 
 # ms
@@ -4572,36 +4391,36 @@ Use this package to easily convert various time formats to milliseconds.
 ## Examples
 
 ```js
-ms('2 days')  // 172800000
-ms('1d')      // 86400000
-ms('10h')     // 36000000
-ms('2.5 hrs') // 9000000
-ms('2h')      // 7200000
-ms('1m')      // 60000
-ms('5s')      // 5000
-ms('1y')      // 31557600000
-ms('100')     // 100
-ms('-3 days') // -259200000
-ms('-1h')     // -3600000
-ms('-200')    // -200
+ms("2 days"); // 172800000
+ms("1d"); // 86400000
+ms("10h"); // 36000000
+ms("2.5 hrs"); // 9000000
+ms("2h"); // 7200000
+ms("1m"); // 60000
+ms("5s"); // 5000
+ms("1y"); // 31557600000
+ms("100"); // 100
+ms("-3 days"); // -259200000
+ms("-1h"); // -3600000
+ms("-200"); // -200
 ```
 
 ### Convert from Milliseconds
 
 ```js
-ms(60000)             // "1m"
-ms(2 * 60000)         // "2m"
-ms(-3 * 60000)        // "-3m"
-ms(ms('10 hours'))    // "10h"
+ms(60000); // "1m"
+ms(2 * 60000); // "2m"
+ms(-3 * 60000); // "-3m"
+ms(ms("10 hours")); // "10h"
 ```
 
 ### Time Format Written-Out
 
 ```js
-ms(60000, { long: true })             // "1 minute"
-ms(2 * 60000, { long: true })         // "2 minutes"
-ms(-3 * 60000, { long: true })        // "-3 minutes"
-ms(ms('10 hours'), { long: true })    // "10 hours"
+ms(60000, { long: true }); // "1 minute"
+ms(2 * 60000, { long: true }); // "2 minutes"
+ms(-3 * 60000, { long: true }); // "-3 minutes"
+ms(ms("10 hours"), { long: true }); // "10 hours"
 ```
 
 ## Features
@@ -4623,10 +4442,10 @@ ms(ms('10 hours'), { long: true })    // "10 hours"
 
 As always, you can run the tests using: `npm test`
 
-
 </details><details> <summary>CONTENT/DS-n-Algos/functions/bindTo/</summary>
 
-### [CONTENT/DS-n-Algos/functions/bindTo/function.apply().md](CONTENT/DS-n-Algos/functions/bindTo/function.apply().md)
+### [CONTENT/DS-n-Algos/functions/bindTo/function.apply().md](<CONTENT/DS-n-Algos/functions/bindTo/function.apply().md>)
+
 # Function.prototype.apply()
 
 > The apply() method calls a function with a given this value, and arguments provided as an array (or an array-like object).
@@ -4635,8 +4454,7 @@ The `**apply()**` method calls a function with a given `this` value, and `argume
 
 The source for this interactive example is stored in a GitHub repository. If you'd like to contribute to the interactive examples project, please clone [https://github.com/mdn/interactive-examples](https://github.com/mdn/interactive-examples) and send us a pull request.
 
-Syntax
-------
+## Syntax
 
     func
 
@@ -4658,8 +4476,7 @@ Starting with ECMAScript 5 these arguments can be a generic array-like object in
 
 The result of calling the function with the specified `**this**` value and arguments.
 
-Description
------------
+## Description
 
 **Note:** While the syntax of this function is almost identical to that of [`call()`](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/call), the fundamental difference is that `call()` accepts an **argument list**, while `apply()` accepts a **single array of arguments**.
 
@@ -4675,8 +4492,7 @@ Since ECMAScript 5th Edition, you can also use any kind of object which is array
 
 **Note:** Many older browsers—including Chrome <17 and Internet Explorer <9—don't accept array-like objects, and will throw an exception.
 
-Examples
---------
+## Examples
 
 ### Using apply to append an array to another
 
@@ -4693,8 +4509,7 @@ But you wanted to append to the existing array... So what now? Write a loop? Sur
     const array = ['a', 'b'];
     const elements = [0, 1, 2];
     array.push.apply(array, elements);
-    console.info(array); 
-    
+    console.info(array);
 
 ### Using apply and built-in functions
 
@@ -4702,19 +4517,18 @@ Clever usage of `apply` allows you to use built-in functions for some tasks that
 
 As an example, here are `Math.max`/`Math.min`, used to find out the maximum/minimum value in an array.
 
-    
     const numbers = [5, 6, 2, 3, 7];
-    
-    
-    let max = Math.max.apply(null, numbers); 
-    
-    
-    
+
+
+    let max = Math.max.apply(null, numbers);
+
+
+
     let min = Math.min.apply(null, numbers);
-    
-    
+
+
     max = -Infinity, min = +Infinity;
-    
+
     for (let i = 0; i < numbers.length; i++) {
       if (numbers[i] > max) {
         max = numbers[i];
@@ -4723,7 +4537,6 @@ As an example, here are `Math.max`/`Math.min`, used to find out the maximum/mini
         min = numbers[i];
       }
     }
-    
 
 But beware: by using `apply` this way, you run the risk of exceeding the JavaScript engine's argument length limit. The consequences of applying a function with too many arguments (that is, more than tens of thousands of arguments) varies across engines. (The JavaScriptCore engine has hard-coded [argument limit of 65536](https://bugs.webkit.org/show_bug.cgi?id=80797).
 
@@ -4734,18 +4547,17 @@ If your value array might grow into the tens of thousands, use a hybrid strategy
     function minOfArray(arr) {
       let min = Infinity;
       let QUANTUM = 32768;
-    
+
       for (var i = 0, len = arr.length; i < len; i += QUANTUM) {
-        var submin = Math.min.apply(null, 
+        var submin = Math.min.apply(null,
                                     arr.slice(i, Math.min(i+QUANTUM, len)));
         min = Math.min(submin, min);
       }
-    
+
       return min;
     }
-    
+
     let min = minOfArray([5, 6, 2, 3, 7]);
-    
 
 ### Using apply to chain constructors
 
@@ -4758,7 +4570,6 @@ In the following example we will create a global [`Function`](chrome-extension:/
       this.apply(oNew, aArgs);
       return oNew;
     };
-    
 
 **Note:** The `Object.create()` method used above is relatively new. For alternative methods, please consider one of the following approaches:
 
@@ -4770,13 +4581,12 @@ Using [`Object.__proto__`](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/e
       this.apply(oNew, aArgs);
       return oNew;
     };
-    
 
 Using [closures](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/en-US/docs/Web/JavaScript/Closures):
 
     Function.prototype.construct = function(aArgs) {
-      let fConstructor = this, fNewConstr = function() { 
-        fConstructor.apply(this, aArgs); 
+      let fConstructor = this, fNewConstr = function() {
+        fConstructor.apply(this, aArgs);
       };
       fNewConstr.prototype = fConstructor.prototype;
       return new fNewConstr();
@@ -4791,7 +4601,6 @@ Using the [`Function`](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/en-US
       this.apply(oNew, aArgs);
       return oNew;
     };
-    
 
 Example usage:
 
@@ -4800,14 +4609,13 @@ Example usage:
         this['property' + nProp] = arguments[nProp];
       }
     }
-    
+
     let myArray = [4, 'Hello world!', false];
     let myInstance = MyConstructor.construct(myArray);
-    
-    console.log(myInstance.property1);                
-    console.log(myInstance instanceof MyConstructor); 
-    console.log(myInstance.constructor);              
-    
+
+    console.log(myInstance.property1);
+    console.log(myInstance instanceof MyConstructor);
+    console.log(myInstance.constructor);
 
 **Note:** This non-native `Function.construct` method will not work with some native constructors; like [`Date`](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date), for example. In these cases you have to use the [`Function.prototype.bind`](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/bind) method.
 
@@ -4815,27 +4623,26 @@ For example, imagine having an array like the following, to be used with [`Date`
 
 This is not the best way to do things, and probably not to be used in any production environment.
 
-Specifications
---------------
+## Specifications
 
 | Specification |
-| --- |
+| ------------- |
+
 | [ECMAScript (ECMA-262)  
 The definition of 'Function.prototype.apply' in that specification.](https://tc39.es/ecma262/#sec-function.prototype.apply) |
 
-Browser compatibility
----------------------
+## Browser compatibility
 
 The compatibility table on this page is generated from structured data. If you'd like to contribute to the data, please check out [https://github.com/mdn/browser-compat-data](https://github.com/mdn/browser-compat-data) and send us a pull request.
 
 [Update compatibility data on GitHub](https://github.com/mdn/browser-compat-data)
 
-|  | Desktop | Mobile | Server |
-| --- | --- | --- | --- |
-|  | Chrome | Edge | Firefox | Internet Explorer | Opera | Safari | Android webview | Chrome for Android | Firefox for Android | Opera for Android | Safari on iOS | Samsung Internet | Node.js |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| `apply` | Chrome Full support 1 | Edge Full support 12 | Firefox Full support 1 | IE Full support 5.5 | Opera Full support 4 | Safari Full support 1 | WebView Android Full support 1 | Chrome Android Full support 18 | Firefox Android Full support 4 | Opera Android Full support 10.1 | Safari iOS Full support 1 | Samsung Internet Android Full support 1.0 | nodejs Full support Yes |
-| ES 5.1: generic array-like object as `arguments` | Chrome Full support 17 | Edge Full support 12 | Firefox Full support 4 | IE Full support 9 | Opera Full support 5 | Safari Full support 6 | WebView Android Full support ≤37 | Chrome Android Full support 18 | Firefox Android Full support 4 | Opera Android Full support 10.1 | Safari iOS Full support 6 | Samsung Internet Android Full support 1.0 | nodejs Full support Yes |
+|                                                  | Desktop                | Mobile               | Server                 |
+| ------------------------------------------------ | ---------------------- | -------------------- | ---------------------- | ------------------- | -------------------- | --------------------- | -------------------------------- | ------------------------------ | ------------------------------ | ------------------------------- | ------------------------- | ----------------------------------------- | ----------------------- |
+|                                                  | Chrome                 | Edge                 | Firefox                | Internet Explorer   | Opera                | Safari                | Android webview                  | Chrome for Android             | Firefox for Android            | Opera for Android               | Safari on iOS             | Samsung Internet                          | Node.js                 |
+| ---                                              | ---                    | ---                  | ---                    | ---                 | ---                  | ---                   | ---                              | ---                            | ---                            | ---                             | ---                       | ---                                       | ---                     |
+| `apply`                                          | Chrome Full support 1  | Edge Full support 12 | Firefox Full support 1 | IE Full support 5.5 | Opera Full support 4 | Safari Full support 1 | WebView Android Full support 1   | Chrome Android Full support 18 | Firefox Android Full support 4 | Opera Android Full support 10.1 | Safari iOS Full support 1 | Samsung Internet Android Full support 1.0 | nodejs Full support Yes |
+| ES 5.1: generic array-like object as `arguments` | Chrome Full support 17 | Edge Full support 12 | Firefox Full support 4 | IE Full support 9   | Opera Full support 5 | Safari Full support 6 | WebView Android Full support ≤37 | Chrome Android Full support 18 | Firefox Android Full support 4 | Opera Android Full support 10.1 | Safari iOS Full support 6 | Samsung Internet Android Full support 1.0 | nodejs Full support Yes |
 
 #### What happens next?
 
@@ -4860,28 +4667,22 @@ Connection error:Sorry, we can't seem to reach the server. We are working to fix
 
 ### Legend
 
-Full support 
+Full support
 
 Full support
 
-See also
---------
+## See also
 
-*   [`arguments`](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/en-US/docs/Web/JavaScript/Reference/Functions/arguments) object
-*   [`Function.prototype.bind()`](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/bind)
-*   [`Function.prototype.call()`](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/call)
-*   [Functions and function scope](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/en-US/docs/Web/JavaScript/Reference/Functions)
-*   [`Reflect.apply()`](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/en-US/docs/Web/JavaScript/Reference/Global_Objects/Reflect/apply)
-*   [Spread syntax](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax)
-
+- [`arguments`](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/en-US/docs/Web/JavaScript/Reference/Functions/arguments) object
+- [`Function.prototype.bind()`](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/bind)
+- [`Function.prototype.call()`](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/call)
+- [Functions and function scope](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/en-US/docs/Web/JavaScript/Reference/Functions)
+- [`Reflect.apply()`](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/en-US/docs/Web/JavaScript/Reference/Global_Objects/Reflect/apply)
+- [Spread syntax](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax)
 
 [Source](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/apply)
 
-
-
-
-
-### [CONTENT/DS-n-Algos/functions/bindTo/function.bind().md](CONTENT/DS-n-Algos/functions/bindTo/function.bind().md)
+### [CONTENT/DS-n-Algos/functions/bindTo/function.bind().md](<CONTENT/DS-n-Algos/functions/bindTo/function.bind().md>)
 
 # Function.prototype.bind()
 
@@ -4891,8 +4692,7 @@ The `**bind()**` method creates a new function that, when called, has its `this`
 
 The source for this interactive example is stored in a GitHub repository. If you'd like to contribute to the interactive examples project, please clone [https://github.com/mdn/interactive-examples](https://github.com/mdn/interactive-examples) and send us a pull request.
 
-Syntax
-------
+## Syntax
 
 let boundFunc = func.bind(thisArg\[, arg1\[, arg2\[, ...argN\]\]\])
 
@@ -4910,8 +4710,7 @@ Arguments to prepend to arguments provided to the bound function when invoking `
 
 A copy of the given function with the specified `this` value, and initial arguments (if provided).
 
-Description
------------
+## Description
 
 The `bind()` function creates a new **bound function**, which is an _exotic function object_ (a term from ECMAScript 2015) that wraps the original function object. Calling the bound function generally results in the execution of its wrapped function.
 
@@ -4937,8 +4736,7 @@ When a bound function is called, it calls internal method `[[Call]]` on `[[Bound
 
 A bound function may also be constructed using the [`new`](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/en-US/docs/Web/JavaScript/Reference/Operators/new) operator. Doing so acts as though the target function had instead been constructed. The provided `this` value is ignored, while prepended arguments are provided to the emulated function.
 
-Polyfill
---------
+## Polyfill
 
 Because older browsers are generally also slower browsers, it is far more critical than most people recognize to create performance polyfills to make the browsing experience in outdated browsers slightly less horrible.
 
@@ -4949,15 +4747,14 @@ Thus, presented below are two options for `Function.prototype.bind()` polyfills:
 
 Generally, in most code it's very rare to see `new` used on a bound function, so it is generally best to go with the first option.
 
-    
     if (!Function.prototype.bind) (function(){
       var slice = Array.prototype.slice;
       Function.prototype.bind = function() {
         var thatFunc = this, thatArg = arguments[0];
         var args = slice.call(arguments, 1);
         if (typeof thatFunc !== 'function') {
-          
-          
+
+
           throw new TypeError('Function.prototype.bind - ' +
                  'what is trying to be bound is not callable');
         }
@@ -4970,53 +4767,50 @@ Generally, in most code it's very rare to see `new` used on a bound function, so
 
 You can partially work around this by inserting the following code at the beginning of your scripts, allowing use of much of the functionality of `bind()` in implementations that do not natively support it.
 
-    
     if (!Function.prototype.bind) (function(){
       var ArrayPrototypeSlice = Array.prototype.slice;
       Function.prototype.bind = function(otherThis) {
         if (typeof this !== 'function') {
-          
-          
+
+
           throw new TypeError('Function.prototype.bind - what is trying to be bound is not callable');
         }
-    
+
         var baseArgs= ArrayPrototypeSlice.call(arguments, 1),
             baseArgsLength = baseArgs.length,
             fToBind = this,
             fNOP    = function() {},
             fBound  = function() {
-              baseArgs.length = baseArgsLength; 
+              baseArgs.length = baseArgsLength;
               baseArgs.push.apply(baseArgs, arguments);
               return fToBind.apply(
                      fNOP.prototype.isPrototypeOf(this) ? this : otherThis, baseArgs
               );
             };
-    
+
         if (this.prototype) {
-          
-          fNOP.prototype = this.prototype; 
+
+          fNOP.prototype = this.prototype;
         }
         fBound.prototype = new fNOP();
-    
+
         return fBound;
       };
     })();
-    
 
 Some of the many differences (there may well be others, as this list does not seriously attempt to be exhaustive) between this algorithm and the specified algorithm are:
 
-*   The partial implementation relies on [`Array.prototype.slice()`](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/slice), [`Array.prototype.concat()`](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/concat), [`Function.prototype.call()`](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/call) and [`Function.prototype.apply()`](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/apply), built-in methods to have their original values.
-*   The partial implementation creates functions that do not have immutable "poison pill" [`caller`](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/caller) and `arguments` properties that throw a [`TypeError`](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/en-US/docs/Web/JavaScript/Reference/Global_Objects/TypeError) upon get, set, or deletion. (This could be added if the implementation supports [`Object.defineProperty`](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty), or partially implemented \[without throw-on-delete behavior\] if the implementation supports the [`__defineGetter__`](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/__defineGetter__) and [`__defineSetter__`](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/__defineSetter__) extensions.)
-*   The partial implementation creates functions that have a `prototype` property. (Proper bound functions have none.)
-*   The partial implementation creates bound functions whose [`length`](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/length) property does not agree with that mandated by ECMA-262: it creates functions with `length` of `0`. A full implementation—depending on the length of the target function and the number of pre-specified arguments—may return a non-zero length.
-*   The partial implementation creates bound functions whose [`name`](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/name) property is not derived from the original function name. According to ECMA-262, name of the returned bound function should be "bound " + name of target function (note the space character).
+- The partial implementation relies on [`Array.prototype.slice()`](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/slice), [`Array.prototype.concat()`](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/concat), [`Function.prototype.call()`](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/call) and [`Function.prototype.apply()`](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/apply), built-in methods to have their original values.
+- The partial implementation creates functions that do not have immutable "poison pill" [`caller`](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/caller) and `arguments` properties that throw a [`TypeError`](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/en-US/docs/Web/JavaScript/Reference/Global_Objects/TypeError) upon get, set, or deletion. (This could be added if the implementation supports [`Object.defineProperty`](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty), or partially implemented \[without throw-on-delete behavior\] if the implementation supports the [`__defineGetter__`](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/__defineGetter__) and [`__defineSetter__`](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/__defineSetter__) extensions.)
+- The partial implementation creates functions that have a `prototype` property. (Proper bound functions have none.)
+- The partial implementation creates bound functions whose [`length`](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/length) property does not agree with that mandated by ECMA-262: it creates functions with `length` of `0`. A full implementation—depending on the length of the target function and the number of pre-specified arguments—may return a non-zero length.
+- The partial implementation creates bound functions whose [`name`](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/name) property is not derived from the original function name. According to ECMA-262, name of the returned bound function should be "bound " + name of target function (note the space character).
 
 If you choose to use this partial implementation, **you must not rely on those cases where behavior deviates from ECMA-262, 5th edition!** Thankfully, these deviations from the specification rarely (if ever) come up in most coding situations. If you do not understand any of the deviations from the specification above, then it is safe in this particular case to not worry about these noncompliant deviation details.
 
 **If it's absolutely necessary and performance is not a concern**, a far slower (but more specification-compliant solution) can be found at [https://github.com/Raynos/function-bind](https://github.com/Raynos/function-bind).
 
-Examples
---------
+## Examples
 
 ### Creating a bound function
 
@@ -5026,26 +4820,24 @@ A common mistake for new JavaScript programmers is to extract a method from an o
 
 Without special care, however, the original object is usually lost. Creating a bound function from the function, using the original object, neatly solves this problem:
 
-    this.x = 9;    
+    this.x = 9;
     const module = {
       x: 81,
       getX: function() { return this.x; }
     };
-    
+
     module.getX();
-    
-    
+
+
     const retrieveX = module.getX;
     retrieveX();
-    
-    
-    
-    
-    
+
+
+
+
+
     const boundGetX = retrieveX.bind(module);
-    boundGetX(); 
-    
-    
+    boundGetX();
 
 ### Partially applied functions
 
@@ -5056,36 +4848,33 @@ These arguments (if any) follow the provided `this` value and are then inserted 
     function list() {
       return Array.prototype.slice.call(arguments);
     }
-    
+
     function addArguments(arg1, arg2) {
       return arg1 + arg2
     }
-    
+
     const list1 = list(1, 2, 3);
-    
-    
+
+
     const result1 = addArguments(1, 2);
-    
-    
-    
+
+
+
     const leadingThirtysevenList = list.bind(null, 37);
-    
-    
-    const addThirtySeven = addArguments.bind(null, 37); 
-    
-    const list2 = leadingThirtysevenList(); 
-    
-    
-    const list3 = leadingThirtysevenList(1, 2, 3); 
-    
-    
-    const result2 = addThirtySeven(5); 
-    
-    
+
+
+    const addThirtySeven = addArguments.bind(null, 37);
+
+    const list2 = leadingThirtysevenList();
+
+
+    const list3 = leadingThirtysevenList(1, 2, 3);
+
+
+    const result2 = addThirtySeven(5);
+
+
     const result3 = addThirtySeven(5, 10);
-    
-    
-    
 
 ### With `setTimeout()`
 
@@ -5094,20 +4883,18 @@ By default within [`window.setTimeout()`](chrome-extension://cjedbglnccaioiolemn
     function LateBloomer() {
       this.petalCount = Math.floor(Math.random() * 12) + 1;
     }
-    
-    
+
+
     LateBloomer.prototype.bloom = function() {
       window.setTimeout(this.declare.bind(this), 1000);
     };
-    
+
     LateBloomer.prototype.declare = function() {
       console.log(`I am a beautiful flower with ${this.petalCount} petals!`);
     };
-    
+
     const flower = new LateBloomer();
-    flower.bloom();  
-    
-    
+    flower.bloom();
 
 ### Bound functions used as constructors
 
@@ -5123,48 +4910,40 @@ However, provided arguments are still prepended to the constructor call:
       this.x = x;
       this.y = y;
     }
-    
-    Point.prototype.toString = function() { 
-      return `${this.x},${this.y}`; 
+
+    Point.prototype.toString = function() {
+      return `${this.x},${this.y}`;
     };
-    
+
     const p = new Point(1, 2);
     p.toString();
-    
-    
-    
-    
-    
-    
-    
+
+
+
+
+
+
+
     const YAxisPoint = Point.bind(null, 0);
-    
-    
+
+
     const emptyObj = {};
     const YAxisPoint = Point.bind(emptyObj, 0);
-    
+
     const axisPoint = new YAxisPoint(5);
-    axisPoint.toString();                    
-    
-    axisPoint instanceof Point;              
-    axisPoint instanceof YAxisPoint;         
-    new YAxisPoint(17, 42) instanceof Point; 
-    
+    axisPoint.toString();
+
+    axisPoint instanceof Point;
+    axisPoint instanceof YAxisPoint;
+    new YAxisPoint(17, 42) instanceof Point;
 
 Note that you need not do anything special to create a bound function for use with [`new`](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/en-US/docs/Web/JavaScript/Reference/Operators/new).
 
 The corollary is that you need not do anything special to create a bound function to be called plainly, even if you would rather require the bound function to only be called using [`new`](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/en-US/docs/Web/JavaScript/Reference/Operators/new).
 
-    
-    
-    
-    
-    
     YAxisPoint(13);
-    
+
     `${emptyObj.x},${emptyObj.y}`;
-    
-    
 
 If you wish to support the use of a bound function only using [`new`](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/en-US/docs/Web/JavaScript/Reference/Operators/new), or only by calling it, the target function must enforce that restriction.
 
@@ -5175,44 +4954,40 @@ If you wish to support the use of a bound function only using [`new`](chrome-ext
 Take [`Array.prototype.slice()`](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/slice), for example, which you want to use for converting an array-like object to a real array. You could create a shortcut like this:
 
     const slice = Array.prototype.slice;
-    
-    
-    
+
+
+
     slice.apply(arguments);
-    
 
 With `bind()`, this can be simplified.
 
 In the following piece of code, `slice()` is a bound function to the [`apply()`](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/apply) function of [`Function.prototype`](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/prototype), with the `this` value set to the [`slice()`](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/slice) function of `Array.prototype`. This means that additional `apply()` calls can be eliminated:
 
-    
     const unboundSlice = Array.prototype.slice;
     const slice = Function.prototype.apply.bind(unboundSlice);
-    
-    
-    
-    slice(arguments);
-    
 
-Specifications
---------------
+
+
+    slice(arguments);
+
+## Specifications
 
 | Specification |
-| --- |
+| ------------- |
+
 | [ECMAScript (ECMA-262)  
 The definition of 'Function.prototype.bind' in that specification.](https://tc39.es/ecma262/#sec-function.prototype.bind) |
 
-Browser compatibility
----------------------
+## Browser compatibility
 
 The compatibility table on this page is generated from structured data. If you'd like to contribute to the data, please check out [https://github.com/mdn/browser-compat-data](https://github.com/mdn/browser-compat-data) and send us a pull request.
 
 [Update compatibility data on GitHub](https://github.com/mdn/browser-compat-data)
 
-|  | Desktop | Mobile | Server |
-| --- | --- | --- | --- |
-|  | Chrome | Edge | Firefox | Internet Explorer | Opera | Safari | Android webview | Chrome for Android | Firefox for Android | Opera for Android | Safari on iOS | Samsung Internet | Node.js |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+|        | Desktop               | Mobile               | Server                 |
+| ------ | --------------------- | -------------------- | ---------------------- | ----------------- | ----------------------- | ----------------------- | ------------------------------ | ------------------------------ | ------------------------------ | ----------------------------- | ------------------------- | ----------------------------------------- | ----------------------- |
+|        | Chrome                | Edge                 | Firefox                | Internet Explorer | Opera                   | Safari                  | Android webview                | Chrome for Android             | Firefox for Android            | Opera for Android             | Safari on iOS             | Samsung Internet                          | Node.js                 |
+| ---    | ---                   | ---                  | ---                    | ---               | ---                     | ---                     | ---                            | ---                            | ---                            | ---                           | ---                       | ---                                       | ---                     |
 | `bind` | Chrome Full support 7 | Edge Full support 12 | Firefox Full support 4 | IE Full support 9 | Opera Full support 11.6 | Safari Full support 5.1 | WebView Android Full support 4 | Chrome Android Full support 18 | Firefox Android Full support 4 | Opera Android Full support 12 | Safari iOS Full support 6 | Samsung Internet Android Full support 1.0 | nodejs Full support Yes |
 
 #### What happens next?
@@ -5238,148 +5013,139 @@ Connection error:Sorry, we can't seem to reach the server. We are working to fix
 
 ### Legend
 
-Full support 
+Full support
 
 Full support
 
-See also
---------
+## See also
 
-*   [`Function.prototype.apply()`](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/apply)
-*   [`Function.prototype.call()`](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/call)
-*   [Functions](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/en-US/docs/Web/JavaScript/Reference/Functions)
-
+- [`Function.prototype.apply()`](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/apply)
+- [`Function.prototype.call()`](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/call)
+- [Functions](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/en-US/docs/Web/JavaScript/Reference/Functions)
 
 [Source](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_objects/Function/bind)
-
 
 </details><details> <summary>CONTENT/DS-n-Algos/functions/MemoizeFunc/</summary>
 
 ### [CONTENT/DS-n-Algos/functions/MemoizeFunc/advanced-memoize.md](CONTENT/DS-n-Algos/functions/MemoizeFunc/advanced-memoize.md)
 
-/**
- * Memoize a given function by caching the computed result.
- * The cache of a memoized function can be cleared by deleting the `cache`
- * property of the function.
- *
- * @param {function} fn                     The function to be memoized.
- *                                          Must be a pure function.
- * @param {function(args: Array)} [hasher]  A custom hash builder.
- *                                          Is JSON.stringify by default.
- * @return {function}                       Returns the memoized function
+/\*\*
+
+- Memoize a given function by caching the computed result.
+- The cache of a memoized function can be cleared by deleting the `cache`
+- property of the function.
+-
+- @param {function} fn The function to be memoized.
+-                                          Must be a pure function.
+- @param {function(args: Array)} [hasher] A custom hash builder.
+-                                          Is JSON.stringify by default.
+- @return {function} Returns the memoized function
 
 ```js
 export function memoize(fn, hasher) {
-    return function memoize() {
-        if (typeof memoize.cache !== "object") {
-            memoize.cache = {};
-        }
+  return function memoize() {
+    if (typeof memoize.cache !== "object") {
+      memoize.cache = {};
+    }
 
-        const args = [];
-        for (let i = 0; i < arguments.length; i++) {
-            args[i] = arguments[i];
-        }
+    const args = [];
+    for (let i = 0; i < arguments.length; i++) {
+      args[i] = arguments[i];
+    }
 
-        const hash = hasher ? hasher(args) : JSON.stringify(args);
-        if (!(hash in memoize.cache)) {
-            memoize.cache[hash] = fn.apply(fn, args);
-        }
-        return memoize.cache[hash];
-    };
+    const hash = hasher ? hasher(args) : JSON.stringify(args);
+    if (!(hash in memoize.cache)) {
+      memoize.cache[hash] = fn.apply(fn, args);
+    }
+    return memoize.cache[hash];
+  };
 }
 ```
-/**
- * Memoize a given function by caching all results and the arguments,
- * and comparing against the arguments of previous results before
- * executing again.
- * This is less performant than `memoize` which calculates a hash,
- * which is very fast to compare. Use `memoizeCompare` only when it is
- * not possible to create a unique serializable hash from the function
- * arguments.
- * The isEqual function must compare two sets of arguments
- * and return true when equal (can be a deep equality check for example).
- * @param {function} fn
- * @param {function(a: *, b: *) : boolean} isEqual
- * @returns {function}
+
+/\*\*
+
+- Memoize a given function by caching all results and the arguments,
+- and comparing against the arguments of previous results before
+- executing again.
+- This is less performant than `memoize` which calculates a hash,
+- which is very fast to compare. Use `memoizeCompare` only when it is
+- not possible to create a unique serializable hash from the function
+- arguments.
+- The isEqual function must compare two sets of arguments
+- and return true when equal (can be a deep equality check for example).
+- @param {function} fn
+- @param {function(a: _, b: _) : boolean} isEqual
+- @returns {function}
 
 ```js
 export function memoizeCompare(fn, isEqual) {
-    const memoize = function memoize() {
-        const args = [];
-        for (let i = 0; i < arguments.length; i++) {
-            args[i] = arguments[i];
-        }
+  const memoize = function memoize() {
+    const args = [];
+    for (let i = 0; i < arguments.length; i++) {
+      args[i] = arguments[i];
+    }
 
-        for (let c = 0; c < memoize.cache.length; c++) {
-            const cached = memoize.cache[c];
+    for (let c = 0; c < memoize.cache.length; c++) {
+      const cached = memoize.cache[c];
 
-            if (isEqual(args, cached.args)) {
-                // TODO: move this cache entry to the top so recently used entries move up?
-                return cached.res;
-            }
-        }
+      if (isEqual(args, cached.args)) {
+        // TODO: move this cache entry to the top so recently used entries move up?
+        return cached.res;
+      }
+    }
 
-        const res = fn.apply(fn, args);
-        memoize.cache.unshift({ args, res });
+    const res = fn.apply(fn, args);
+    memoize.cache.unshift({ args, res });
 
-        return res;
-    };
+    return res;
+  };
 
-    memoize.cache = [];
+  memoize.cache = [];
 
-    return memoize;
+  return memoize;
 }
 ```
-/**
- * Find the maximum number of arguments expected by a typed function.
- * @param {function} fn   A typed function
- * @return {number} Returns the maximum number of expected arguments.
-*    Returns -1 when no signatures where found on the function.
 
- ```js
+/\*\*
+
+- Find the maximum number of arguments expected by a typed function.
+- @param {function} fn A typed function
+- @return {number} Returns the maximum number of expected arguments.
+- Returns -1 when no signatures where found on the function.
+
+```js
 export function maxArgumentCount(fn) {
-    return Object.keys(fn.signatures || {}).reduce(function (args, signature) {
-        const count = (signature.match(/,/g) || []).length + 1;
-        return Math.max(args, count);
-    }, -1);
+  return Object.keys(fn.signatures || {}).reduce(function (args, signature) {
+    const count = (signature.match(/,/g) || []).length + 1;
+    return Math.max(args, count);
+  }, -1);
 }
 ```
-
-
-
-
 
 </details><details> <summary>CONTENT/DS-n-Algos/Graphs/graphs-intro-solution/node_modules/assertion-error/</summary>
 
 ### [CONTENT/DS-n-Algos/Graphs/graphs-intro-solution/node_modules/assertion-error/History.md](CONTENT/DS-n-Algos/Graphs/graphs-intro-solution/node_modules/assertion-error/History.md)
-1.1.0 / 2018-01-02
-==================
 
-  * Add type definitions ([#11](https://github.com/chaijs/assertion-error/pull/11))
+# 1.1.0 / 2018-01-02
 
-1.0.1 / 2015-03-04
-==================
+- Add type definitions ([#11](https://github.com/chaijs/assertion-error/pull/11))
 
-  * Merge pull request #2 from simonzack/master
-  * fixes `.stack` on firefox
+# 1.0.1 / 2015-03-04
 
-1.0.0 / 2013-06-08
-==================
+- Merge pull request #2 from simonzack/master
+- fixes `.stack` on firefox
 
-  * readme: change travis and component urls
-  * refactor: [*] prepare for move to chaijs gh org
+# 1.0.0 / 2013-06-08
 
-0.1.0 / 2013-04-07
-==================
+- readme: change travis and component urls
+- refactor: [*] prepare for move to chaijs gh org
 
-  * test: use vanilla test runner/assert
-  * pgk: remove unused deps
-  * lib: implement
-  * "Initial commit"
+# 0.1.0 / 2013-04-07
 
-
-
-
+- test: use vanilla test runner/assert
+- pgk: remove unused deps
+- lib: implement
+- "Initial commit"
 
 ### [CONTENT/DS-n-Algos/Graphs/graphs-intro-solution/node_modules/assertion-error/README.md](CONTENT/DS-n-Algos/Graphs/graphs-intro-solution/node_modules/assertion-error/README.md)
 
@@ -5425,10 +5191,10 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 
-
 </details><details> <summary>CONTENT/DS-n-Algos/Graphs/graphs-intro-solution/node_modules/chai-spies/</summary>
 
 ### [CONTENT/DS-n-Algos/Graphs/graphs-intro-solution/node_modules/chai-spies/History.md](CONTENT/DS-n-Algos/Graphs/graphs-intro-solution/node_modules/chai-spies/History.md)
+
 ### Note
 
 As of 0.6.0, the History.md file has been deprecated. [Please refer to the full
@@ -5436,116 +5202,102 @@ commit logs available on GitHub](https://github.com/chaijs/chai-spies/commits/ma
 
 ---
 
-0.6.0 / 2015-04-24
-==================
+# 0.6.0 / 2015-04-24
 
-  * Merge pull request #21 from stalniy/master
-  * Added test for anonymous spy object implementation
-  * Fixed JsDoc for spy.object method
-  * Implemented support for spy.on and spy.object methods
-  * Merge pull request #20 from Ryckes/patch-1
-  * Merge pull request #17 from Ryuno-Ki/master
-  * Update spy.js
-  * Update chai-spies.js
-  * Merge pull request #19 from sateffen/master
-  * Corrected some spelling mistakes in README.md
-  * Fixed typo.
-  * Merge pull request #16 from plaxdan/patch-1
-  * Add .with to the API docs
-  * Merge pull request #15 from brandonhorst/master
-  * Added docs for above/below
-  * Implemented min/at least and max/at most
-  * Fixed language of above and below
-  * Fix the `called` examples
-  * Merge pull request #10 from pgherveou/patch-1
-  * 'twice' instead of 'once'
-  * Merge pull request #9 from pgherveou/master
-  * Update component.json
-  * add component.json
+- Merge pull request #21 from stalniy/master
+- Added test for anonymous spy object implementation
+- Fixed JsDoc for spy.object method
+- Implemented support for spy.on and spy.object methods
+- Merge pull request #20 from Ryckes/patch-1
+- Merge pull request #17 from Ryuno-Ki/master
+- Update spy.js
+- Update chai-spies.js
+- Merge pull request #19 from sateffen/master
+- Corrected some spelling mistakes in README.md
+- Fixed typo.
+- Merge pull request #16 from plaxdan/patch-1
+- Add .with to the API docs
+- Merge pull request #15 from brandonhorst/master
+- Added docs for above/below
+- Implemented min/at least and max/at most
+- Fixed language of above and below
+- Fix the `called` examples
+- Merge pull request #10 from pgherveou/patch-1
+- 'twice' instead of 'once'
+- Merge pull request #9 from pgherveou/master
+- Update component.json
+- add component.json
 
-0.5.1 / 2012-11-15
-==================
+# 0.5.1 / 2012-11-15
 
-  * fix output of .called(n) assertion error
+- fix output of .called(n) assertion error
 
-0.5.0 / 2012-11-14
-==================
+# 0.5.0 / 2012-11-14
 
-  * Merge branch 'feature/arguments'
-  * browser build
-  * tests for argument call assertions
-  * add assertions for argument checking
-  * add assertion: .with() / .with
+- Merge branch 'feature/arguments'
+- browser build
+- tests for argument call assertions
+- add assertions for argument checking
+- add assertion: .with() / .with
 
-0.4.0 / 2012-10-09
-==================
+# 0.4.0 / 2012-10-09
 
-  * Merge pull request #5 from tregusti/feature/return-value
-  * Make spies have a return value.
-  * credit where due
+- Merge pull request #5 from tregusti/feature/return-value
+- Make spies have a return value.
+- credit where due
 
-0.3.0 / 2012-07-11
-==================
+# 0.3.0 / 2012-07-11
 
-  * Merge branch 'feature/human-stringified' of git://github.com/tregusti/chai-spies into tregusti-feature/human-stringified
-  * Merge pull request #3 from tregusti/feature/spyname
-  * Merge pull request #2 from tregusti/feature/wording
-  * Make spies print out prettier
-  * Add possibility to specify a name of a spy
-  * Documentation typo fix.
-  * More typo fixes
-  * Fix type in docs
-  * Corrected textual message
+- Merge branch 'feature/human-stringified' of git://github.com/tregusti/chai-spies into tregusti-feature/human-stringified
+- Merge pull request #3 from tregusti/feature/spyname
+- Merge pull request #2 from tregusti/feature/wording
+- Make spies print out prettier
+- Add possibility to specify a name of a spy
+- Documentation typo fix.
+- More typo fixes
+- Fix type in docs
+- Corrected textual message
 
-0.2.3 / 2012-07-09
-==================
+# 0.2.3 / 2012-07-09
 
-  * update folio dep version
-  * one more try
-  * improve amd wrapper
-  * browser build improved wrapper
-  * Merge branch 'refactor/compile'
-  * browser build
-  * use folio for build
-  * cleanup pre-folio
+- update folio dep version
+- one more try
+- improve amd wrapper
+- browser build improved wrapper
+- Merge branch 'refactor/compile'
+- browser build
+- use folio for build
+- cleanup pre-folio
 
-0.2.2 / 2012-05-17
-==================
+# 0.2.2 / 2012-05-17
 
-  * bug - not correctly overwriting above/below
-  * browser build
+- bug - not correctly overwriting above/below
+- browser build
 
-0.2.1 / 2012-05-17
-==================
+# 0.2.1 / 2012-05-17
 
-  * spies mimic length of original function
+- spies mimic length of original function
 
-0.2.0 / 2012-05-16
-==================
+# 0.2.0 / 2012-05-16
 
-  * chai 1.0.0 compatibility
-  * browser build
-  * tests for 1.0.0 compatibility
-  * chai 1.0.0 compatibility
-  * Merge pull request #1 from JamesMaroney/master
-  * added link to jack project
-  * small typo fixes
+- chai 1.0.0 compatibility
+- browser build
+- tests for 1.0.0 compatibility
+- chai 1.0.0 compatibility
+- Merge pull request #1 from JamesMaroney/master
+- added link to jack project
+- small typo fixes
 
-0.1.0 / 2012-02-13
-==================
+# 0.1.0 / 2012-02-13
 
-  * mit license
-  * readme
-  * makefile
-  * more comments
-  * comments
-  * browser support
-  * tests working
-  * initial commit
-
-
-
-
+- mit license
+- readme
+- makefile
+- more comments
+- comments
+- browser support
+- tests working
+- initial commit
 
 ### [CONTENT/DS-n-Algos/Graphs/graphs-intro-solution/node_modules/chai-spies/README.md](CONTENT/DS-n-Algos/Graphs/graphs-intro-solution/node_modules/chai-spies/README.md)
 
@@ -5582,13 +5334,13 @@ namespace and automatically get used.
 If you are using node, here is a useful bit.
 
 ```js
-const chai = require('chai')
-  , spies = require('chai-spies');
+const chai = require("chai"),
+  spies = require("chai-spies");
 
 chai.use(spies);
 
-const should = chai.should()
-  , expect = chai.expect;
+const should = chai.should(),
+  expect = chai.expect;
 ```
 
 ## Building for the Browser
@@ -5603,18 +5355,18 @@ In this module, a spy is either an empty function, or a wrapped named function.
 Once chai has been extended, you can create a spy through chai's own interface.
 
 ```js
-function original () {
+function original() {
   // do something cool
 }
 
 const spy = chai.spy(original);
 
 // then use in place of original
-ee.on('some event', spy);
+ee.on("some event", spy);
 
 // or use without original
 const spyAgain = chai.spy();
-ee.on('some other event', spyAgain);
+ee.on("some other event", spyAgain);
 ```
 
 #### spy.on
@@ -5624,16 +5376,16 @@ ee.on('some other event', spyAgain);
 ```js
 const array = [1, 2, 3];
 
-chai.spy.on(array, 'push');
+chai.spy.on(array, "push");
 
 // or multiple spies
-chai.spy.on(array, ['push', 'pop']);
+chai.spy.on(array, ["push", "pop"]);
 ```
 
 It's also possible to provide custom implementation of spied method:
 
 ```js
-chai.spy.on(array, 'push', function (...items) {
+chai.spy.on(array, "push", function (...items) {
   // custom implementation of `push` method
 });
 ```
@@ -5641,10 +5393,10 @@ chai.spy.on(array, 'push', function (...items) {
 Using arrow functions, it's also easy to replace method implementation with constant:
 
 ```js
-chai.spy.on(array, 'push', () => 5);
+chai.spy.on(array, "push", () => 5);
 
 // or more readable :)
-chai.spy.on(array, 'push', returns => 5);
+chai.spy.on(array, "push", (returns) => 5);
 ```
 
 #### spy.interface
@@ -5652,13 +5404,13 @@ chai.spy.on(array, 'push', returns => 5);
 This method allows to create mock (or spy object), basically an interface with fake implementation or without implementation at all:
 
 ```js
-const eventBus = chai.spy.interface(['on', 'off', 'emit']);
+const eventBus = chai.spy.interface(["on", "off", "emit"]);
 
 // with implementation
 const arrayLike = chai.spy.interface({
   push(item) {
     this.__items = this.__items || [];
-    return this.__items.push(item)
+    return this.__items.push(item);
   },
   // other methods
 });
@@ -5679,7 +5431,7 @@ returnTrue(); // true
 Better to use arrow function:
 
 ```js
-const returnTrue = chai.spy(returns => true);
+const returnTrue = chai.spy((returns) => true);
 ```
 
 ### Sandboxes
@@ -5690,19 +5442,19 @@ To create sandbox:
 ```js
 const sandbox = chai.spy.sandbox();
 
-describe('Array', () => {
+describe("Array", () => {
   let array;
 
   beforeEach(() => {
     array = [];
-    sandbox.on(array, ['push', 'pop']);
+    sandbox.on(array, ["push", "pop"]);
   });
 
   afterEach(() => {
     sandbox.restore(); // restores original methods on `array`
-  })
+  });
 
-  it('allows to add items', () => {
+  it("allows to add items", () => {
     array.push(1);
 
     expect(array.push).to.have.been.called.with(1);
@@ -5718,10 +5470,10 @@ So to restore all methods spied by `chai.spy.on`, just call `chai.spy.restore()`
 ```js
 const array = [1, 2, 3];
 
-chai.spy.on(array, ['push', 'pop']);
+chai.spy.on(array, ["push", "pop"]);
 
-chai.spy.restore(array) // restores all methods on object
-chai.spy.restore(array, 'push') // restores only `push` method
+chai.spy.restore(array); // restores all methods on object
+chai.spy.restore(array, "push"); // restores only `push` method
 ```
 
 ### Assertions
@@ -5752,9 +5504,9 @@ Assert that a spy has been called with a given argument at least once,
 even if more arguments were provided.
 
 ```js
-spy('foo');
-expect(spy).to.have.been.called.with('foo');
-spy.should.have.been.called.with('foo');
+spy("foo");
+expect(spy).to.have.been.called.with("foo");
+spy.should.have.been.called.with("foo");
 ```
 
 Will also pass for `spy('foo', 'bar')` and `spy(); spy('foo')`.
@@ -5763,9 +5515,9 @@ If used with multiple arguments, assert that a spy has been called
 with all the given arguments at least once.
 
 ```js
-spy('foo', 'bar', 1);
-expect(spy).to.have.been.called.with('bar', 'foo');
-spy.should.have.been.called.with('bar', 'foo');
+spy("foo", "bar", 1);
+expect(spy).to.have.been.called.with("bar", "foo");
+spy.should.have.been.called.with("bar", "foo");
 ```
 
 #### .with.exactly
@@ -5775,13 +5527,12 @@ exactly the same as the one provided.
 
 ```js
 spy();
-spy('foo', 'bar');
-expect(spy).to.have.been.called.with.exactly('foo', 'bar');
-spy.should.have.been.called.with.exactly('foo', 'bar');
+spy("foo", "bar");
+expect(spy).to.have.been.called.with.exactly("foo", "bar");
+spy.should.have.been.called.with.exactly("foo", "bar");
 ```
 
-Will not pass for `spy('foo')`, `spy('bar')`, `spy('bar');
-spy('foo')`, `spy('foo'); spy('bar')`, `spy('bar', 'foo')` or
+Will not pass for `spy('foo')`, `spy('bar')`, `spy('bar'); spy('foo')`, `spy('foo'); spy('bar')`, `spy('bar', 'foo')` or
 `spy('foo', 'bar', 1)`.
 
 Can be used for calls with a single argument too.
@@ -5792,11 +5543,11 @@ Assert that every time the spy has been called the argument list
 contained the given arguments.
 
 ```js
-spy('foo');
-spy('foo', 'bar');
-spy(1, 2, 'foo');
-expect(spy).to.have.been.called.always.with('foo');
-spy.should.have.been.called.always.with('foo');
+spy("foo");
+spy("foo", "bar");
+spy(1, 2, "foo");
+expect(spy).to.have.been.called.always.with("foo");
+spy.should.have.been.called.always.with("foo");
 ```
 
 #### .always.with.exactly
@@ -5805,39 +5556,39 @@ Assert that the spy has never been called with a different list of
 arguments than the one provided.
 
 ```js
-spy('foo');
-spy('foo');
-expect(spy).to.have.been.called.always.with.exactly('foo');
-spy.should.have.been.called.always.with.exactly('foo');
+spy("foo");
+spy("foo");
+expect(spy).to.have.been.called.always.with.exactly("foo");
+spy.should.have.been.called.always.with.exactly("foo");
 ```
 
 #### .nth(n).called.with
 
 Asserts that the nth call of the spy has been made with the list of arguments provided. This assertion comes with other three flavors:
 
-* .first.called.with
-* .second.called.with
-* .third.called.with
+- .first.called.with
+- .second.called.with
+- .third.called.with
 
 ```js
-spy('foo');
-spy('bar');
-spy('baz');
-spy('foobar');
-expect(spy).to.have.been.first.called.with('foo');
-spy.should.have.been.first.called.with('foo');
-expect(spy).on.nth(5).be.called.with('foobar');
-spy.should.on.nth(5).be.called.with('foobar');
+spy("foo");
+spy("bar");
+spy("baz");
+spy("foobar");
+expect(spy).to.have.been.first.called.with("foo");
+spy.should.have.been.first.called.with("foo");
+expect(spy).on.nth(5).be.called.with("foobar");
+spy.should.on.nth(5).be.called.with("foobar");
 ```
 
 These assertions requires the spy to be called at least the
 number of times required, for example
 
 ```js
-spy('foo');
-spy('bar');
-expect(spy).to.have.been.third.called.with('baz');
-spy.should.have.been.third.called.with('baz');
+spy("foo");
+spy("bar");
+expect(spy).to.have.been.third.called.with("baz");
+spy.should.have.been.third.called.with("baz");
 ```
 
 Won't pass because the spy has not been called a third time.
@@ -5896,6 +5647,7 @@ expect(spy).to.not.have.been.called.at.most(3);
 spy.should.have.been.called.at.most(3);
 spy.should.not.have.been.called.max(3);
 ```
+
 #### .above(n) / .gt(n)
 
 Assert that a spy has been called more than `n` times.
@@ -5925,26 +5677,26 @@ Node tests can be executed using `npm test`. Browser tests can be seen by openin
 
 ## Contributors
 
- project  : chai-spies  
+project : chai-spies  
  repo age : 3 years, 2 months  
- active   : 26 days  
- commits  : 77  
- files    : 12  
- authors  :  
-    48  Jake Luer         62.3%  
-     7  Glenn Jorde       9.1%  
-     4  Keith Cirkel      5.2%  
-     3  =                 3.9%  
-     3  Sergiy Stotskiy   3.9%  
-     2  JamesMaroney      2.6%  
-     2  PG Herveou        2.6%  
-     2  Ryckes            2.6%  
-     1  Veselin Todorov   1.3%  
-     1  Steffen           1.3%  
-     1  Daniel Walker     1.3%  
-     1  Domenic Denicola  1.3%  
-     1  Andre Jaenisch    1.3%  
-     1  PG                1.3%  
+ active : 26 days  
+ commits : 77  
+ files : 12  
+ authors :  
+ 48 Jake Luer 62.3%  
+ 7 Glenn Jorde 9.1%  
+ 4 Keith Cirkel 5.2%  
+ 3 = 3.9%  
+ 3 Sergiy Stotskiy 3.9%  
+ 2 JamesMaroney 2.6%  
+ 2 PG Herveou 2.6%  
+ 2 Ryckes 2.6%  
+ 1 Veselin Todorov 1.3%  
+ 1 Steffen 1.3%  
+ 1 Daniel Walker 1.3%  
+ 1 Domenic Denicola 1.3%  
+ 1 Andre Jaenisch 1.3%  
+ 1 PG 1.3%
 
 ## License
 
@@ -5970,15 +5722,13 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 
-
 ### [CONTENT/DS-n-Algos/Graphs/graphs-intro-solution/node_modules/chai-spies/ReleaseNotes.md](CONTENT/DS-n-Algos/Graphs/graphs-intro-solution/node_modules/chai-spies/ReleaseNotes.md)
 
 # Release Notes
 
 ## Note
 
-As of 0.6.0, the ReleaseNotes.md file has been deprecated. [Please refer to the release notes available on Github](https://github.com/chaijs/chai-spies/releases).
----
+## As of 0.6.0, the ReleaseNotes.md file has been deprecated. [Please refer to the release notes available on Github](https://github.com/chaijs/chai-spies/releases).
 
 ## 0.6.0 / 2015-04-24
 
@@ -5986,51 +5736,51 @@ Added `.spy.on` and `.spy.object` to easily make new spies, for example:
 
 ```js
 // Returns `fs` but with readFile and readFileSync spied on
-var fs = chai.spy.object(fs, ['readFile', 'readFileSync']);
+var fs = chai.spy.object(fs, ["readFile", "readFileSync"]);
 
 // Shortcut for `fs.writeFile = chai.spy(fs.writeFile)`
-chai.spy.on(fs, 'writeFile');
+chai.spy.on(fs, "writeFile");
 ```
 
 Added new assertions:
 
- * `.called.min(n)/.at.least(n)` to assert a spy has been called a minimum of
-   `n` many times.
- * `.called.max(n)/.at.most(n)` to assert that a spy has been called at most `n`
-   number of times.
+- `.called.min(n)/.at.least(n)` to assert a spy has been called a minimum of
+  `n` many times.
+- `.called.max(n)/.at.most(n)` to assert that a spy has been called at most `n`
+  number of times.
 
 ### Community Contributions
 
 #### Code Features & Fixes
 
- * [#9](https://github.com/chaijs/chai/pull/9) Add support for component
-   By [@pgherveou](https://github.com/pgherveou)
+- [#9](https://github.com/chaijs/chai/pull/9) Add support for component
+  By [@pgherveou](https://github.com/pgherveou)
 
- * [#15](https://github.com/chaijs/chai/pull/15) Add `above`/`below`/`at.most`/
-   `at.least` call count assertions.
-   By [@brandonhorst](https://github.com/brandonhorst)
+- [#15](https://github.com/chaijs/chai/pull/15) Add `above`/`below`/`at.most`/
+  `at.least` call count assertions.
+  By [@brandonhorst](https://github.com/brandonhorst)
 
- * [#20](https://github.com/chaijs/chai/pull/20) Fix output for `.called()`
-   By [@Ryckes](https://github.com/Ryckes)
+- [#20](https://github.com/chaijs/chai/pull/20) Fix output for `.called()`
+  By [@Ryckes](https://github.com/Ryckes)
 
- * [#21](https://github.com/chaijs/chai/pull/21) Add `.spy.on` and `.spy.object`
-   methods.
-   By [@stalniy](https://github.com/stalniy)
+- [#21](https://github.com/chaijs/chai/pull/21) Add `.spy.on` and `.spy.object`
+  methods.
+  By [@stalniy](https://github.com/stalniy)
 
 #### Documentation fixes
 
- * [#10](https://github.com/chaijs/chai/pull/10) Fix documentation with `once`
-   By [@pgherveou](https://github.com/pgherveou)
+- [#10](https://github.com/chaijs/chai/pull/10) Fix documentation with `once`
+  By [@pgherveou](https://github.com/pgherveou)
 
- * [#16](https://github.com/chaijs/chai/pull/16) Add `.with` docs
-   By [@plaxdan](https://github.com/plaxdan)
+- [#16](https://github.com/chaijs/chai/pull/16) Add `.with` docs
+  By [@plaxdan](https://github.com/plaxdan)
 
- * [#17](https://github.com/chaijs/chai/pull/17) Fix small typo in docs
-   By [@Ryuno-Ki](https://github.com/Ryuno-Ki)
+- [#17](https://github.com/chaijs/chai/pull/17) Fix small typo in docs
+  By [@Ryuno-Ki](https://github.com/Ryuno-Ki)
 
- * [#19](https://github.com/chaijs/chai/pull/19) Fix a handful of typos in
-   README.md
-   By [@sateffen](https://github.com/sateffen)
+- [#19](https://github.com/chaijs/chai/pull/19) Fix a handful of typos in
+  README.md
+  By [@sateffen](https://github.com/sateffen)
 
 ## 0.5.1 / 2012-11-15
 
@@ -6040,8 +5790,8 @@ Small bugfix, fixing the output of the `.called(n)` assertion error.
 
 A few new features:
 
- - Add `.with()` and `.exactly.with()` assertion for asserting what arguments
-   a spy was called with.
+- Add `.with()` and `.exactly.with()` assertion for asserting what arguments
+  a spy was called with.
 
 ## 0.4.0 / 2012-10-09
 
@@ -6051,8 +5801,8 @@ Ensure spies return the value of their wrapped functions
 
 #### Code Features & Fixes
 
- * [#5](https://github.com/chaijs/chai/pull/5) Make spies have a return value.
-   By [@tregusti](https://github.com/tregusti)
+- [#5](https://github.com/chaijs/chai/pull/5) Make spies have a return value.
+  By [@tregusti](https://github.com/tregusti)
 
 ## 0.3.0 / 2012-07-11
 
@@ -6062,18 +5812,17 @@ Add ability for spies to have an (optional) name.
 
 #### Code Features & Fixes
 
- * [#3](https://github.com/chaijs/chai/pull/3) Add an optional name to spies
-   By [@tregusti](https://github.com/tregusti)
+- [#3](https://github.com/chaijs/chai/pull/3) Add an optional name to spies
+  By [@tregusti](https://github.com/tregusti)
 
 #### Documentation fixes
 
- * [#2](https://github.com/chaijs/chai-spies/pull/2) Fix typos in `called.twice`
-   assertion
-   By [@tregusti](https://github.com/tregusti)
+- [#2](https://github.com/chaijs/chai-spies/pull/2) Fix typos in `called.twice`
+  assertion
+  By [@tregusti](https://github.com/tregusti)
 
- * [#3](https://github.com/chaijs/chai-spies/pull/2) Fix various typos
-   By [@tregusti](https://github.com/tregusti)
-
+- [#3](https://github.com/chaijs/chai-spies/pull/2) Fix various typos
+  By [@tregusti](https://github.com/tregusti)
 
 ## 0.2.3 / 2012-07-09
 
@@ -6095,18 +5844,18 @@ Add Chai 1.0.0 compatibility.
 
 #### Documentation fixes
 
- * [#1](https://github.com/chaijs/chai-spies/pull/1) Fix README typos and
-   missing link
-   By [@JamesMaroney](https://github.com/JamesMaroney)
+- [#1](https://github.com/chaijs/chai-spies/pull/1) Fix README typos and
+  missing link
+  By [@JamesMaroney](https://github.com/JamesMaroney)
 
 ## 0.1.0 / 2012-02-13
 
 Initial release
 
-
 </details><details> <summary>CONTENT/DS-n-Algos/Graphs/graphs-intro-solution/node_modules/chai/</summary>
 
 ### [CONTENT/DS-n-Algos/Graphs/graphs-intro-solution/node_modules/chai/History.md](CONTENT/DS-n-Algos/Graphs/graphs-intro-solution/node_modules/chai/History.md)
+
 ### Note
 
 As of 3.0.0, the History.md file has been deprecated. [Please refer to the full
@@ -6114,1062 +5863,999 @@ commit logs available on GitHub](https://github.com/chaijs/chai/commits/master).
 
 ---
 
-2.3.0 / 2015-04-26
-==================
-
-  * Merge pull request #423 from ehntoo/patch-1
-  * Merge pull request #422 from ljharb/fix_descriptor_tests
-  * Fix a small bug in the .null assertion docs
-  * Use a regex to account for property ordering issues across engines.
-  * Add `make test-firefox`
-  * Merge pull request #417 from astorije/astorije/minimalist-typo
-  * Remove trailing whitespaces
-  * Fix super minor typo in an example
-  * Merge pull request #408 from ljharb/enumerableProperty
-  * Add `ownPropertyDescriptor` assertion.
-
-2.2.0 / 2015-03-26
-==================
-
-  * Merge pull request #405 from chaijs/deep-escape-doc-tweaks
-  * Tweak documentation on `.deep` flag.
-  * Merge pull request #402 from umireon/escaping-dot-should-be-taken
-  * Documentation of escaping in `.deep` flag.
-  * take regular expression apart
-  * Feature: backslash-escaping in `.deep.property`
-  * Escaping dot should be taken in deep property
-
-2.1.2 / 2015-03-15
-==================
-
-  * Merge pull request #396 from chaijs/add-keith-cirkel-contributing-md
-  * Add Keith Cirkel to CONTRIBUTING.md
-  * Merge pull request #395 from cjqed/386-assert-operator-no-eval
-  * No longer using eval on assert operator #386
-  * Merge pull request #389 from chaijs/update-git-summary
-  * Update `git summary` in README
-
-2.1.1 / 2015-03-04
-==================
-
-  * Merge pull request #385 from eldritch-fossicker/master
-  * updates to reflect code style preference from @keithamus
-  * fix indexing into array with deep propery
-  * Merge pull request #382 from astorije/patch-2
-  * Merge pull request #383 from gurdiga/config-doc-wording-improvement
-  * config.truncateThreshold docs: simpler wording
-  * Add missing docstring for showDiff argument of assert
-  * Merge pull request #381 from astorije/patch-1
-  * Add a minor precision that empty asserts on strings too.
-  * Merge pull request #379 from dcneiner/should-primitive-fix
-  * Primitives now use valueOf in shouldGetter
-
-2.1.0 / 2015-02-23
-==================
-
-  * Merge pull request #374 from jmm/v2.0.1
-  * Increment version to 2.0.1.
-  * Merge pull request #365 from chaijs/fix-travis
-  * Fix travis.yml deploy
-  * Merge pull request #356 from Soviut/master
-  * documented fail methods for expect and should interfaces
-  * fail method added directly to expect
-
-2.0.0 / 2015-02-09
-==================
-
- * Merge pull request #361 from gregglind/b265-keys-object
- * fix #359.  Add `.keys(object)`
- * Merge pull request #359 from gregglind/b359-unexpected-keys-sort
- * Fix #359 keys() sorts input unexpectedly
- * contrib: publish release strategy and travis npm creds #337
- * Merge pull request #357 from danilovaz/master
- * Update copyright date
- * Merge pull request #349 from toastynerd/add-which-chain-method
- * add the which chain method as per issue #347
- * Merge pull request #333 from cmpolis/change-assertions
- * more `by` cleanup
- * cleaned out `.by` for #333
- * Merge pull request #335 from DingoEatingFuzz/expose-util
- * Expose chai util through the chai object
- * cleanup (per notes on pr #333)
- * updated `change` to work w/ non-number values + tests
- * Merge pull request #334 from hurrymaplelad/patch-1
- * Typo, the flag is called 'contains' with an 's'
- * updated assertion interface with `change` (#330)
- * added `change`,`increase`,`decrease` assertions (#330)
- * assert tests for `change`,`increase`,`decrease`
- * expect/should tests for `change`,`increase`,`decrease`
- * Merge pull request #328 from lo1tuma/issue-327
- * Add includes and contains alias (fixes #327)
- * Merge pull request #325 from chasenlehara/overwriteChainableMethodDocs
- * Fix docs for overwriteChainableMethod parameters
- * Merge pull request #317 from jasonkarns/patch-2
- * Merge pull request #318 from jasonkarns/patch-3
- * Merge pull request #316 from jasonkarns/patch-1
- * typos in docs
- * minor docs typo
- * update docs: getAllFlags -> transferFlags
- * Merge pull request #313 from cjqed/254-expect-any-all
- * Added the all and any flags for keys assertion, with all being the default behavior
- * Merge pull request #312 from cjqed/291-assert-same-deep-members
- * Changed public comment of sameDeepMemebers to be more clear
- * Fixes issue #291, adds assert.sameDeepMembers
- * Merge pull request #311 from cjqed/305-above-below-on-assert
- * Merge pull request #308 from prodatakey/hasproperty
- * Issue #305 fixed, added assert.isAbove and assert.isBelow
- * Fix typo
- * More unit tests for new utility functions
- * Refactor common functionality, document, test
- * Refactor if statement out
- * Small unit test fix
- * Handle array indexing terminating paths
- * Merge pull request #309 from ericdouglas/iterableEqual-couting-once
- * couting variables just once
- * Fix properties with `undefined` value pass property assertion
- * Merge pull request #306 from chaijs/revert-297-noopchainfunc
- * Revert "Allows writing lint-friendly tests"
-
-1.10.0 / 2014-11-10
-==================
-
- * Merge pull request #297 from prodatakey/noopchainfunc
- * Merge pull request #300 from julienw/299-fix-getMessage-test
- * Fix #299: the test is defining global variables
- * Add a couple more unit tests
- * Add unit tests for chained terminating property asserts
- * Revise documentation wording
- * Add docs for function style NOOP asserts
- * Make the NOOP function a shared constant
- * Merge pull request #298 from dasilvacontin/negativeZeroLogging
- * why not more assertions
- * added test for inspecting `-0`
- * a more readable/simple condition statement, as pointed out by @keithamus
- * added check for logging negative zero
- * Change test to not trigger argument bug
- * Allows writing lint-friendly tests
- * readme: update contributors for 1.9.2
-
-1.9.2 / 2014-09-29
-==================
-
- * Merge pull request #268 from charlierudolph/cr-lazyMessages
- * Merge pull request #269 from charlierudolph/cr-codeCleanup
- * Merge pull request #277 from charlierudolph/fix-doc
- * Merge pull request #279 from mohayonao/fix-closeTo
- * Merge pull request #292 from boneskull/mocha
- * resolves #255: upgrade mocha
- * Merge pull request #289 from charlierudolph/cr-dryUpCode
- * Dry up code
- * Merge pull request #275 from DrRataplan/master
- * assert: .closeTo() verify value's type before assertion
- * Rewrite pretty-printing HTML elements to prevent throwing internal errors Fixes errors occuring when using a non-native DOM implementation
- * Fix assert documentation
- * Remove unused argument
- * Allow messages to be functions
- * Merge pull request #267 from shinnn/master
- * Use SVG badge
- * Merge pull request #264 from cjthompson/keys_diff
- * Show diff for keys assertion
-
-1.9.1 / 2014-03-19
-==================
-
-  * deps update
-  * util: [getActual] select actual logic now allows undefined for actual. Closes #183
-  * docs: [config] make public, express param type
-  * Merge pull request #251 from romario333/threshold3
-  * Fix issue #166 - configurable threshold in objDisplay.
-  * Move configuration options to config.js.
-  * Merge pull request #233 from Empeeric/master
-  * Merge pull request #244 from leider/fix_for_contains
-  * Merge pull request #247 from didoarellano/typo-fixes
-  * Fix typos
-  * Merge pull request #245 from lfac-pt/patch-1
-  * Update `exports.version` to 1.9.0
-  * aborting loop on finding
-  * declaring variable only once
-  * additional test finds incomplete implementation
-  * simplified code
-  * fixing #239 (without changing chai.js)
-  * ssfi as it should be
-  * Merge pull request #228 from duncanbeevers/deep_members
-  * Deep equality check for collection membership
-
-1.9.0 / 2014-01-29
-==================
-
-  * docs: add contributing.md #238
-  * assert: .throws() returns thrown error. Closes #185
-  * Merge pull request #232 from laconbass/assert-throws
-  * assert: .fail() parameter mismatch. Closes #206
-  * Merge branch 'karma-fixes'
-  * Add karma phantomjs launcher
-  * Use latest karma and sauce launcher
-  * Karma tweaks
-  * Merge pull request #230 from jkroso/include
-  * Merge pull request #237 from chaijs/coverage
-  * Add coverage to npmignore
-  * Remove lib-cov from test-travisci dependents
-  * Remove the not longer needed lcov reporter
-  * Test coverage with istanbul
-  * Remove jscoverage
-  * Remove coveralls
-  * Merge pull request #226 from duncanbeevers/add_has
-  * Avoid error instantiation if possible on assert.throws
-  * Merge pull request #231 from duncanbeevers/update_copyright_year
-  * Update Copyright notices to 2014
-  * handle negation correctly
-  * add failing test case
-  * support `{a:1,b:2}.should.include({a:1})`
-  * Merge pull request #224 from vbardales/master
-  * Add `has` to language chains
-  * Merge pull request #219 from demands/overwrite_chainable
-  * return error on throw method to chain on error properties, possibly different from message
-  * util: store chainable behavior in a __methods object on ctx
-  * util: code style fix
-  * util: add overwriteChainableMethod utility (for #215)
-  * Merge pull request #217 from demands/test_cleanup
-  * test: make it possible to run utilities tests with --watch
-  * makefile: change location of karma-runner bin script
-  * Merge pull request #202 from andreineculau/patch-2
-  * test: add tests for throwing custom errors
-  * Merge pull request #201 from andreineculau/patch-1
-  * test: updated for the new assertion errors
-  * core: improve message for assertion errors (throw assertion)
-
-1.8.1 / 2013-10-10
-==================
-
- * pkg: update deep-eql version
-
-1.8.0 / 2013-09-18
-==================
-
- * test: [sauce] add a few more browsers
- * Merge branch 'refactor/deep-equal'
- * util: remove embedded deep equal utility
- * util: replace embedded deep equal with external module
- * Merge branch 'feature/karma'
- * docs: add sauce badge to readme [ci skip]
- * test: [sauce] use karma@canary to prevent timeouts
- * travis: only run on node 0.10
- * test: [karma] use karma phantomjs runner
- * Merge pull request #181 from tricknotes/fix-highlight
- * Fix highlight for example code
-
-1.7.2 / 2013-06-27
-==================
-
-  * coverage: add coveralls badge
-  * test: [coveralls] add coveralls api integration. testing travis-ci integration
-  * Merge branch 'master' of github.com:chaijs/chai
-  * Merge branch 'feature/bower'
-  * Merge pull request #180 from tricknotes/modify-method-title
-  * Merge pull request #179 from tricknotes/highlight-code-example
-  * Modify method title to include argument name
-  * Fix to highlight code example
-  * bower: granular ignores
-
-1.7.1 / 2013-06-24
-==================
-
-  * Merge branch 'feature/bower'. #175
-  * bower: add json file
-  * build: browser
-
-1.7.0 / 2013-06-17
-==================
-
-  * error: remove internal assertion error constructor
-  * core: [assertion-error] replace internal assertion error with dep
-  * deps: add chaijs/assertion-error@1.0.0
-  * docs: fix typo in source file. #174
-  * Merge pull request #174 from piecioshka/master
-  * typo
-  * Merge branch 'master' of github.com:chaijs/chai
-  * pkg: lock mocha/mocha-phantomjs versions (for now)
-  * Merge pull request #173 from chaijs/inspect-fix
-  * Fix `utils.inspect` with custom object-returning inspect()s.
-  * Merge pull request #171 from Bartvds/master
-  * replaced tabs with 2 spaces
-  * added assert.notOk()
-  * Merge pull request #169 from katsgeorgeek/topics/master
-  * Fix comparison objects.
-
-1.6.1 / 2013-06-05
-==================
-
-  * Merge pull request #168 from katsgeorgeek/topics/master
-  * Add test for different RegExp flags.
-  * Add test for regexp comparison.
-  * Downgrade mocha version for fix running Phantom tests.
-  * Fix comparison equality of two regexps.
-  * Merge pull request #161 from brandonpayton/master
-  * Fix documented name for assert interfaces isDefined method
-
-1.6.0 / 2013-04-29
-==================
-
-  * build: browser
-  * assert: [(not)include] throw on incompatible haystack. Closes #142
-  * assert: [notInclude] add assert.notInclude. Closes #158
-  * browser build
-  * makefile: force browser build on browser-test
-  * makefile: use component for browser build
-  * core: [assertions] remove extraneous comments
-  * Merge branch 'master' of github.com:chaijs/chai
-  * test: [assert] deep equal ordering
-  * Merge pull request #153 from NickHeiner/array-assertions
-  * giving members a no-flag assertion
-  * Code review comments - changing syntax
-  * Code review comments
-  * Adding members and memberEquals assertions for checking for subsets and set equality. Implements chaijs/chai#148.
-  * Merge pull request #140 from RubenVerborgh/function-prototype
-  * Restore the `call` and `apply` methods of Function when adding a chainable method.
-  * readme: 2013
-  * notes: migration notes for deep equal changes
-  * test: for ever err() there must be a passing version
-
-1.5.0 / 2013-02-03
-==================
-
-  * docs: add Release Notes for non-gitlog summary of changes.
-  * lib: update copyright to 2013
-  * Merge branch 'refactor/travis'
-  * makefile: remove test-component for full test run
-  * pkg: script test now runs make test so travis will test browser
-  * browser: build
-  * tests: refactor some tests to support new objDisplay output
-  * test: [bootstrap] normalize boostrap across all test scenarios
-  * assertions: refactor some assertions to use objDisplay instead of inspect
-  * util: [objDisplay] normalize output of functions
-  * makefile: refactor for full build scenarios
-  * component: fix build bug where missing util:type file
-  * assertions: [throw] code cleanup
-  * Merge branch 'refactor/typeDetection'
-  * browser: build
-  * makefile: chai.js is .PHONY so it builds every time
-  * test: [expect] add arguments type detection test
-  * core/assertions: [type] (a/an) refactor to use type detection utility
-  * util: add cross-browser type detection utility
-  * Merge branch 'feature/component'
-  * browser: build
-  * component: add component.json file
-  * makefile: refactor for fine grain control of testing scenarios
-  * test: add mochaPhantomJS support and component test file
-  * deps: add component and mocha-phantomjs for browser testing
-  * ignore: update ignore files for component support
-  * travis: run for all branches
-  * Merge branch 'feature/showDiff'
-  * test: [Assertion] configruable showDiff flag. Closes #132
-  * lib: [Assertion] add configurable showDiff flag. #132
-  * Merge branch 'feature/saucelabs'
-  * Merge branch 'master' into feature/saucelabs
-  * browser: build
-  * support: add mocha cloud runner, client, and html test page
-  * test: [saucelabs] add auth placeholder
-  * deps: add mocha-cloud
-  * Merge pull request #136 from whatthejeff/message_fix
-  * Merge pull request #138 from timnew/master
-  * Fix issue #137, test message existence by using message!=null rather than using message
-  * Fixed backwards negation messages.
-  * Merge pull request #133 from RubenVerborgh/throw
-  * Functions throwing strings can reliably be tested.
-  * Merge pull request #131 from RubenVerborgh/proto
-  * Cache whether __proto__ is supported.
-  * Use __proto__ if available.
-  * Determine the property names to exclude beforehand.
-  * Merge pull request #126 from RubenVerborgh/eqls
-  * Add alias eqls for eql.
-  * Use inherited enumerable properties in deep equality comparison.
-  * Show inherited properties when inspecting an object.
-  * Add new getProperties and getEnumerableProperties utils.
-  * showDiff: force true for equal and eql
-
-1.4.2 / 2012-12-21
-==================
-
-  * browser build: (object diff support when used with mocha) #106
-  * test: [display] array test for mocha object diff
-  * browser: no longer need different AssertionError constructor
-
-1.4.1 / 2012-12-21
-==================
-
-  * showDiff: force diff for equal and eql. #106
-  * test: [expect] type null. #122
-  * Merge pull request #115 from eshao/fix-assert-Throw
-  * FIX: assert.Throw checks error type/message
-  * TST: assert.Throw should check error type/message
-
-1.4.0 / 2012-11-29
-==================
-
-  * pre-release browser build
-  * clean up index.js to not check for cov, revert package.json to use index.js
-  * convert tests to use new bootstrap
-  * refactor testing bootstrap
-  * use spaces (not tabs). Clean up #114
-  * Merge pull request #114 from trantorLiu/master
-  * Add most() (alias: lte) and least() (alias: gte) to the API with new chainers "at" and "of".
-  * Change `main` to ./lib/chai. Fixes #28.
-  * Merge pull request #104 from connec/deep_equals_circular_references_
-  * Merge pull request #109 from nnarhinen/patch-1
-  * Check for 'actual' type
-  * Added support for circular references when checking deep (in)equality.
-
-1.3.0 / 2012-10-01
-==================
-
-  * browser build w/ folio >= 0.3.4. Closes #99
-  * add back buffer test for deep equal
-  * do not write flags to assertion.prototype
-  * remove buffer test from expect
-  * browser build
-  * improve documentation of custom error messages
-  * Merge branch 'master' of git://github.com/Liffft/chai into Liffft-master
-  * browser build
-  * improved buffer deep equal checking
-  * mocha is npm test command
-  * Cleaning up the js style…
-  * expect tests now include message pass-through
-  * packaging up browser-side changes…
-  * Increasing Throws error message verbosity
-  * Should syntax: piping message through
-  * Make globalShould test work in browser too.
-  * Add a setter for `Object.prototype.should`. Closes #86.
-
-1.2.0 / 2012-08-07
-==================
-
-  * Merge branch 'feature/errmsg'
-  * browser build
-  * comment updates for utilities
-  * tweak objDislay to only kick in if object inspection is too long
-  * Merge branch 'master' into feature/errmsg
-  * add display sample for error message refactor
-  * first draft of error message refactor. #93
-  * add `closeTo` assertion to `assert` interface. Closes #89.
-  * update folio build for better require.js handling. Closes #85
-  * Merge pull request #92 from paulmillr/topics/add-dom-checks
-  * Add check for DOM objects.
-  * browser build
-  * Merge branch 'master' of github.com:chaijs/chai
-  * bug - getActual not defaulting to assertion subject
-  * Merge pull request #88 from pwnall/master
-  * Don't inspect() assertion arguments if the assertion passes.
-
-1.1.1 / 2012-07-09
-==================
-
-  * improve commonjs support on browser build
-  * Merge pull request #83 from tkazec/equals
-  * Document .equals
-  * Add .equals as an alias of .equal
-  * remove unused browser prefix/suffix
-  * Merge branch 'feature/folio-build'
-  * browser build
-  * using folio to compile
-  * clean up makefile
-  * early folio 0.3.x support
-
-1.1.0 / 2012-06-26
-==================
-
-  * browser build
-  * Disable "Assertion.includeStack is false" test in IE.
-  * Use `utils.getName` for all function inspections.
-  * Merge pull request #80 from kilianc/closeTo
-  * fixes #79
-  * browser build
-  * expand  docs to indicate change of subject for chaining. Closes #78
-  * add `that` chain noop
-  * Merge branch 'bug/74'
-  * comments on how to property use `length` as chain. Closes #74
-  * tests for length as chainable property. #74
-  * add support for `length` as chainable prop/method.
-  * Merge branch 'bug/77'
-  * tests for getPathValue when working with nested arrays. Closes #77
-  * add getPathValue support for nested arrays
-  * browser build
-  * fix bug for missing browser utils
-  * compile tool aware of new folder layout
-  * Merge branch 'refactor/1dot1'
-  * move core assertions to own file and refactor all using utils
-  * rearrange folder structure
-
-1.0.4 / 2012-06-03
-==================
-
-  * Merge pull request #68 from fizker/itself
-  * Added itself chain.
-  * simplify error inspections for cross browser compatibility
-  * fix safari `addChainableMethod` errors. Closes #69
-
-1.0.3 / 2012-05-27
-==================
-
-  * Point Travis badge to the right place.
-  * Make error message for eql/deep.equal more clear.
-  * Fix .not.deep.equal.
-  * contributors list
-
-1.0.2 / 2012-05-26
-==================
-
-  * Merge pull request #67 from chaijs/chaining-and-flags
-  * Browser build.
-  * Use `addChainableMethod` to get away from `__proto__` manipulation.
-  * New `addChainableMethod` utility.
-  * Replace `getAllFlags` with `transferFlags` utility.
-  * browser build
-  * test - get all flags
-  * utility - get all flags
-  * Add .mailmap to .npmignore.
-  * Add a .mailmap file to fix my name in shortlogs.
-
-1.0.1 / 2012-05-18
-==================
-
-  * browser build
-  * Fixing "an" vs. "a" grammar in type assertions.
-  * Uniformize `assert` interface inline docs.
-  * Don't use `instanceof` for `assert.isArray`.
-  * Add `deep` flag for equality and property value.
-  * Merge pull request #64 from chaijs/assertion-docs
-  * Uniformize assertion inline docs.
-  * Add npm-debug.log to .gitignore.
-  * no reserved words as actuals. #62
-
-1.0.0 / 2012-05-15
-==================
-
-  * readme cleanup
-  * browser build
-  * utility comments
-  * removed docs
-  * update to package.json
-  * docs build
-  * comments / docs updates
-  * plugins app cleanup
-  * Merge pull request #61 from joliss/doc
-  * Fix and improve documentation of assert.equal and friends
-  * browser build
-  * doc checkpoint - texture
-  * Update chai-jquery link
-  * Use defined return value of Assertion extension functions
-  * Update utility docs
-
-1.0.0-rc3 / 2012-05-09
-==================
-
-  * Merge branch 'feature/rc3'
-  * docs update
-  * browser build
-  * assert test conformity for minor refactor api
-  * assert minor refactor
-  * update util tests for new add/overwrite prop/method format
-  * added chai.Assertion.add/overwrite prop/method for plugin toolbox
-  * add/overwrite prop/method don't make assumptions about context
-  * doc test suite
-  * docs don't need coverage
-  * refactor all simple chains into one forEach loop, for clean documentation
-  * updated npm ignore
-  * remove old docs
-  * docs checkpoint - guide styled
-  * Merge pull request #59 from joliss/doc
-  * Document how to run the test suite
-  * don't need to rebuild docs to view
-  * dep update
-  * docs checkpoint - api section
-  * comment updates for docs
-  * new doc site checkpoint - plugin directory!
-  * Merge pull request #57 from kossnocorp/patch-1
-  * Fix typo: devDependancies → devDependencies
-  * Using message flag in `getMessage` util instead of old `msg` property.
-  * Adding self to package.json contributors.
-  * `getMessage` shouldn't choke on null/omitted messages.
-  * `return this` not necessary in example.
-  * `return this` not necessary in example.
-  * Sinon–Chai has a dash
-  * updated plugins list for docs
-
-1.0.0-rc2 / 2012-05-06
-==================
-
-  * Merge branch 'feature/test-cov'
-  * browser build
-  * missing assert tests for ownProperty
-  * appropriate assert equivalent for expect.to.have.property(key, val)
-  * reset AssertionError to include full stack
-  * test for plugin utilities
-  * overwrite Property and Method now ensure chain
-  * version notes in readme
-
-1.0.0-rc1 / 2012-05-04
-==================
-
-  * browser build (rc1)
-  * assert match/notMatch tests
-  * assert interface - notMatch, ownProperty, notOwnProperty, ownPropertyVal, ownPropertyNotVal
-  * cleaner should interface export.
-  * added chai.Assertion.prototype._obj (getter) for quick access to object flag
-  * moved almostEqual / almostDeepEqual to stats plugin
-  * added mocha.opts
-  * Add test for `utils.addMethod`
-  * Fix a typo
-  * Add test for `utils.overwriteMethod`
-  * Fix a typo
-  * Browser build
-  * Add undefined assertion
-  * Add null assertion
-  * Fix an issue with `mocha --watch`
-  * travis no longer tests on node 0.4.x
-  * removing unnecissary carbon dep
-  * Merge branch 'feature/plugins-app'
-  * docs build
-  * templates for docs express app for plugin directory
-  * express app for plugin and static serving
-  * added web server deps
-  * Merge pull request #54 from josher19/master
-  * Remove old test.assert code
-  * Use util.inspect instead of inspect for deepAlmostEqual and almostEqual
-  * browser build
-  * Added almostEqual and deepAlmostEqual to assert test suite.
-  * bug - context determinants for utils
-  * dec=0 means rounding, so assert.deepAlmostEqual({pi: 3.1416}, {pi: 3}, 0) is true
-  * wrong travis link
-  * readme updates for version information
-  * travis tests 0.5.x branch as well
-  * [bug] util `addProperty` not correctly exporting
-  * read me version notes
-  * browser build 1.0.0alpha1
-  * not using reserved words in internal assertions. #52
-  * version tick
-  * clean up redundant tests
-  * Merge branch 'refs/heads/0.6.x'
-  * update version tag in package 1.0.0alpha1
-  * browser build
-  * added utility tests to browser specs
-  * beginning utility testing
-  * updated utility comments
-  * utility - overwriteMethod
-  * utility - overwriteProperty
-  * utility - addMethod
-  * utility - addProperty
-  * missing ;
-  * contributors list update
-  * Merge branch 'refs/heads/0.6.x-docs' into 0.6.x
-  * Added guide link to docs. WIP
-  * Include/contain are now both properties and methods
-  * Add an alias annotation
-  * Remove usless function wrapper
-  * Fix a typo
-  * A/an are now both properties and methods
-  * [docs] new site homepage layout / color checkpoint
-  * Ignore IE-specific error properties.
-  * Fixing order of error message test.
-  * New cross-browser `getName` util.
-  * Fixing up `AssertionError` inheritance.
-  * backup docs
-  * Add doctypes
-  * [bug] was still using `constructor.name` in `throw` assertion
-  * [bug] flag Object.create(null) instead of new Object
-  * [test] browser build
-  * [refactor] all usage of Assertion.prototype.assert now uses template tags and flags
-  * [refactor] remove Assertion.prototype.inspect for testable object inspection
-  * [refactor] object to test is now stored in flag, with ssfi and custom message
-  * [bug] flag util - don't return on `set`
-  * [docs] comments for getMessage utility
-  * [feature] getMessage
-  * [feature] testing utilities
-  * [refactor] flag doesn't require `call`
-  * Make order of source files well-defined
-  * Added support for throw(errorInstance).
-  * Use a foolproof method of grabbing an error's name.
-  * Removed constructor.name check from throw.
-  * disabled stackTrack configuration tests until api is stable again
-  * first version of line displayed error for node js (unstable)
-  * refactor core Assertion to use flag utility for negation
-  * added flag utility
-  * tests for assert interface negatives. Closed #42
-  * added assertion negatives that were missing. #42
-  * Support for expected and actual parameters in assert-style error object
-  * chai as promised - readme
-  * Added assert.fail. Closes #40
-  * better error message for assert.operator. Closes #39
-  * [refactor] Assertion#property to use getPathValue property
-  * added getPathValue utility helper
-  * removed todo about browser build
-  * version notes
-  * version bumb 0.6.0
-  * browser build
-  * [refactor] browser compile function to replace with `require('./error')' with 'require('./browser/error')'
-  * [feature] browser uses different error.js
-  * [refactor] error without chai.fail
-  * Assertion & interfaces use new utils helper export
-  * [refactor] primary export for new plugin util usage
-  * added util index.js helper
-  * added 2012 to copyright headers
-  * Added DeepEqual assertions
-
-0.5.3 / 2012-04-21
-==================
-
-  * Merge branch 'refs/heads/jgonera-oldbrowsers'
-  * browser build
-  * fixed reserved names for old browsers in interface/assert
-  * fixed reserved names for old browsers in interface/should
-  * fixed: chai.js no longer contains fail()
-  * fixed reserved names for old browsers in Assertion
-  * Merge pull request #49 from joliss/build-order
-  * Make order of source files well-defined
-  * Merge pull request #43 from zzen/patch-1
-  * Support for expected and actual parameters in assert-style error object
-  * chai as promised - readme
-
-0.5.2 / 2012-03-21
-==================
-
-  * browser build
-  * Merge branch 'feature/assert-fail'
-  * Added assert.fail. Closes #40
-  * Merge branch 'bug/operator-msg'
-  * better error message for assert.operator. Closes #39
-  * version notes
-
-0.5.1 / 2012-03-14
-==================
-
-  * chai.fail no longer exists
-  * Merge branch 'feature/assertdefined'
-  * Added asset#isDefined. Closes #37.
-  * dev docs update for Assertion#assert
-
-0.5.0 / 2012-03-07
-==================
-
-  * [bug] on inspect of reg on n 0.4.12
-  * Merge branch 'bug/33-throws'
-  * Merge pull request #35 from logicalparadox/empty-object
-  * browser build
-  * updated #throw docs
-  * Assertion#throw `should` tests updated
-  * Assertion#throw `expect` tests
-  * Should interface supports multiple throw parameters
-  * Update Assertion#throw to support strings and type checks.
-  * Add more tests for `empty` in `should`.
-  * Add more tests for `empty` in `expect`.
-  * Merge branch 'master' into empty-object
-  * don't switch act/exp
-  * Merge pull request #34 from logicalparadox/assert-operator
-  * Update the compiled verison.
-  * Add `assert.operator`.
-  * Notes on messages. #22
-  * browser build
-  * have been test
-  * below tests
-  * Merge branch 'feature/actexp'
-  * browser build
-  * remove unnecessary fail export
-  * full support for actual/expected where relevant
-  * Assertion.assert support expected value
-  * clean up error
-  * Update the compiled version.
-  * Add object & sane arguments support to `Assertion#empty`.
-
-0.4.2 / 2012-02-28
-==================
-
-  * fix for `process` not available in browser when used via browserify. Closes #28
-  * Merge pull request #31 from joliss/doc
-  * Document that "should" works in browsers other than IE
-  * Merge pull request #30 from logicalparadox/assert-tests
-  * Update the browser version of chai.
-  * Update `assert.doesNotThrow` test in order to check the use case when type is a string.
-  * Add test for `assert.ifError`.
-  * Falsey -> falsy.
-  * Full coverage for `assert.throws` and `assert.doesNotThrow`.
-  * Add test for `assert.doesNotThrow`.
-  * Add test for `assert.throws`.
-  * Add test for `assert.length`.
-  * Add test for `assert.include`.
-  * Add test for `assert.isBoolean`.
-  * Fix the implementation of `assert.isNumber`.
-  * Add test for `assert.isNumber`.
-  * Add test for `assert.isString`.
-  * Add test for `assert.isArray`.
-  * Add test for `assert.isUndefined`.
-  * Add test for `assert.isNotNull`.
-  * Fix `assert.isNotNull` implementation.
-  * Fix `assert.isNull` implementation.
-  * Add test for `assert.isNull`.
-  * Add test for `assert.notDeepEqual`.
-  * Add test for `assert.deepEqual`.
-  * Add test for `assert.notStrictEqual`.
-  * Add test for `assert.strictEqual`.
-  * Add test for `assert.notEqual`.
-
-0.4.1 / 2012-02-26
-==================
-
-  * Merge pull request #27 from logicalparadox/type-fix
-  * Update the browser version.
-  * Add should tests for type checks.
-  * Add function type check test.
-  * Add more type checks tests.
-  * Add test for `new Number` type check.
-  * Fix type of actual checks.
-
-0.4.0 / 2012-02-25
-==================
-
-  * docs and readme for upcoming 0.4.0
-  * docs generated
-  * putting coverage and tests for docs in docs/out/support
-  * make docs
-  * makefile copy necessary resources for tests in docs
-  * rename configuration test
-  * Merge pull request #21 from logicalparadox/close-to
-  * Update the browser version.
-  * Update `closeTo()` docs.
-  * Add `Assertion.closeTo()` method.
-  * Add `.closeTo()` should test.
-  * Add `.closeTo()` expect test.
-  * Merge pull request #20 from logicalparadox/satisfy
-  * Update the browser version.
-  * `..` -> `()` in `.satisfy()` should test.
-  * Update example for `.satisfy()`.
-  * Update the compiled browser version.
-  * Add `Assertion.satisfy()` method.
-  * Add `.satisfy()` should test.
-  * Add `.satisfy()` expect test.
-  * Merge pull request #19 from logicalparadox/respond-to
-  * Update the compiled browser version.
-  * Add `respondTo` Assertion.
-  * Add `respondTo` should test.
-  * Add `respondTo` expect test.
-  * Merge branch 'feature/coverage'
-  * mocha coverage support
-  * doc contributors
-  * README contributors
-
-0.3.4 / 2012-02-23
-==================
-
-  * inline comment typos for #15
-  * Merge branch 'refs/heads/jeffbski-configErrorStackCompat'
-  * includeStack documentation for all interfaces
-  * suite name more generic
-  * Update test to be compatible with browsers that do not support err.stack
-  * udpated compiled chai.js and added to browser tests
-  * Allow inclusion of stack trace for Assert error messages to be configurable
-  * docs sharing buttons
-  * sinon-chai link
-  * doc updates
-  * read me updates include plugins
-
-0.3.3 / 2012-02-12
-==================
-
-  * Merge pull request #14 from jfirebaugh/configurable_properties
-  * Make Assertion.prototype properties configurable
-
-0.3.2 / 2012-02-10
-==================
-
-  * codex version
-  * docs
-  * docs cleanup
-
-0.3.1 / 2012-02-07
-==================
-
-  * node 0.4.x compat
-
-0.3.0 / 2012-02-07
-==================
-
-  * Merge branch 'feature/03x'
-  * browser build
-  * remove html/json/headers testign
-  * regex error.message testing
-  * tests for using plugins
-  * Merge pull request #11 from domenic/master
-  * Make `chai.use` a no-op if the function has already been used.
-
-0.2.4 / 2012-02-02
-==================
-
-  * added in past tense switch for `been`
-
-0.2.3 / 2012-02-01
-==================
-
-  * try that again
-
-0.2.2 / 2012-02-01
-==================
-
-  * added `been` (past of `be`) alias
-
-0.2.1 / 2012-01-29
-==================
-
-  * added Throw, with a capital T, as an alias to `throw` (#7)
-
-0.2.0 / 2012-01-26
-==================
-
-  * update gitignore for vim *.swp
-  * Merge branch 'feature/plugins'
-  * browser build
-  * interfaces now work with use
-  * simple .use function. See #9.
-  * readme notice on browser compat
-
-0.1.7 / 2012-01-25
-==================
-
-  * added assert tests to browser test runner
-  * browser update
-  * `should` interface patch for primitives support in FF
-  * fix isObject() Thanks @milewise
-  * travis only on branch `master`
-  * add instanceof alias `instanceOf`. #6
-  * some tests for assert module
-
-0.1.6 / 2012-01-02
-==================
-
-  * commenting for assert interface
-  * updated codex dep
-
-0.1.5 / 2012-01-02
-==================
-
-  * browser tests pass
-  * type in should.not.equal
-  * test for should (not) exist
-  * added should.exist and should.not.exist
-  * browser uses tdd
-  * convert tests to tdd
-
-0.1.4 / 2011-12-26
-==================
-
-  * browser lib update for new assert interface compatiblitiy
-  * inspect typos
-  * added strict equal + negatives and ifError
-  * interface assert had doesNotThrow
-  * added should tests to browser
-  * new expect empty tests
-  * should test browser compat
-  * Fix typo for instanceof docs. Closes #3 [ci skip]
-
-0.1.3 / 2011-12-18
-==================
-
-  * much cleaner reporting string on error.
-
-0.1.2 / 2011-12-18
-==================
-
-  * [docs] for upcoming 0.1.2
-  * browser version built with pre/suffix … all tests passing
-  * make / compile now use prefix/suffix correctly
-  * code clean
-  * prefix/suffix to wrap browser output to prevent conflicts with other `require` methods.
-  * Merge branch 'feature/should4xcompatibility'
-  * compile for browser tests.. all pass
-  * added header/status/html/json
-  * throw tests
-  * should.throw & should.not.throw shortcuts
-  * improved `throw` type detection and messaging
-  * contain is now `include` … keys modifier is now `contain`
-  * removed object() test
-  * removed #respondTo
-  * Merge branch 'bug/2'
-  * replaced __defineGetter__ with defineProperty for all uses
-  * [docs] change mp tracking code
-  * docs site updated with assert (TDD) interface
-  * updated doc comments for assert interface
-
-0.1.1 / 2011-12-16
-==================
-
-  * docs ready for upcoming 0.1.1
-  * readme image fixed [ci skip]
-  * more readme tweaks [ci skip]
-  * réadmet image fixed [ci skip]
-  * documentation
-  * codex locked in version 0.0.5
-  * more comments to assertions for docs
-  * assertions fully commented, browser library updated
-  * adding codex as doc dependancy
-  * prepping for docs
-  * assertion component completely commented for documentation
-  * added exist test
-  * var expect outside of browser if check
-  * added keywords to package.json
-
-0.1.0 / 2011-12-15
-==================
-
-  * failing on purpose successful .. back to normal
-  * testing travis failure
-  * assert#arguments getter
-  * readme typo
-  * updated README
-  * added travis and npmignore
-  * copyright notices … think i got them all
-  * moved expect interface to own file for consistency
-  * assert ui deepEqual
-  * browser tests expect (all working)
-  * browser version built
-  * chai.fail (should ui)
-  * expect tests browser compatible
-  * tests for should and expect (all pass)
-  * moved fail to primary export
-  * should compatibility testing
-  * within, greaterThan, object, keys,
-  * Aliases
-  * Assertion#property now correctly works with negate and undefined values
-  * error message language matches should
-  * Assertion#respondTo
-  * Assertion now uses inspect util
-  * git ignore node modules
-  * should is exported
-  * AssertionError __proto__ from Error.prototype
-  * add should interface for should.js compatibility
-  * moved eql to until folder and added inspect from (joyent/node)
-  * added mocha for testing
-  * browser build for current api
-  * multiple .property assertions
-  * added deep equal from node
-
-0.0.2 / 2011-12-07
-==================
-
-  * cleaner output on error
-  * improved exists detection
-  * package remnant artifact
-  * empty deep equal
-  * test browser build
-  * assertion cleanup
-  * client compile script
-  * makefile
-  * most of the basic assertions
-  * allow no parameters to assertion error
-  * name change
-  * assertion error instance
-  * main exports: assert() & expect()
-  * initialize
-
-
-
-
+# 2.3.0 / 2015-04-26
+
+- Merge pull request #423 from ehntoo/patch-1
+- Merge pull request #422 from ljharb/fix_descriptor_tests
+- Fix a small bug in the .null assertion docs
+- Use a regex to account for property ordering issues across engines.
+- Add `make test-firefox`
+- Merge pull request #417 from astorije/astorije/minimalist-typo
+- Remove trailing whitespaces
+- Fix super minor typo in an example
+- Merge pull request #408 from ljharb/enumerableProperty
+- Add `ownPropertyDescriptor` assertion.
+
+# 2.2.0 / 2015-03-26
+
+- Merge pull request #405 from chaijs/deep-escape-doc-tweaks
+- Tweak documentation on `.deep` flag.
+- Merge pull request #402 from umireon/escaping-dot-should-be-taken
+- Documentation of escaping in `.deep` flag.
+- take regular expression apart
+- Feature: backslash-escaping in `.deep.property`
+- Escaping dot should be taken in deep property
+
+# 2.1.2 / 2015-03-15
+
+- Merge pull request #396 from chaijs/add-keith-cirkel-contributing-md
+- Add Keith Cirkel to CONTRIBUTING.md
+- Merge pull request #395 from cjqed/386-assert-operator-no-eval
+- No longer using eval on assert operator #386
+- Merge pull request #389 from chaijs/update-git-summary
+- Update `git summary` in README
+
+# 2.1.1 / 2015-03-04
+
+- Merge pull request #385 from eldritch-fossicker/master
+- updates to reflect code style preference from @keithamus
+- fix indexing into array with deep propery
+- Merge pull request #382 from astorije/patch-2
+- Merge pull request #383 from gurdiga/config-doc-wording-improvement
+- config.truncateThreshold docs: simpler wording
+- Add missing docstring for showDiff argument of assert
+- Merge pull request #381 from astorije/patch-1
+- Add a minor precision that empty asserts on strings too.
+- Merge pull request #379 from dcneiner/should-primitive-fix
+- Primitives now use valueOf in shouldGetter
+
+# 2.1.0 / 2015-02-23
+
+- Merge pull request #374 from jmm/v2.0.1
+- Increment version to 2.0.1.
+- Merge pull request #365 from chaijs/fix-travis
+- Fix travis.yml deploy
+- Merge pull request #356 from Soviut/master
+- documented fail methods for expect and should interfaces
+- fail method added directly to expect
+
+# 2.0.0 / 2015-02-09
+
+- Merge pull request #361 from gregglind/b265-keys-object
+- fix #359. Add `.keys(object)`
+- Merge pull request #359 from gregglind/b359-unexpected-keys-sort
+- Fix #359 keys() sorts input unexpectedly
+- contrib: publish release strategy and travis npm creds #337
+- Merge pull request #357 from danilovaz/master
+- Update copyright date
+- Merge pull request #349 from toastynerd/add-which-chain-method
+- add the which chain method as per issue #347
+- Merge pull request #333 from cmpolis/change-assertions
+- more `by` cleanup
+- cleaned out `.by` for #333
+- Merge pull request #335 from DingoEatingFuzz/expose-util
+- Expose chai util through the chai object
+- cleanup (per notes on pr #333)
+- updated `change` to work w/ non-number values + tests
+- Merge pull request #334 from hurrymaplelad/patch-1
+- Typo, the flag is called 'contains' with an 's'
+- updated assertion interface with `change` (#330)
+- added `change`,`increase`,`decrease` assertions (#330)
+- assert tests for `change`,`increase`,`decrease`
+- expect/should tests for `change`,`increase`,`decrease`
+- Merge pull request #328 from lo1tuma/issue-327
+- Add includes and contains alias (fixes #327)
+- Merge pull request #325 from chasenlehara/overwriteChainableMethodDocs
+- Fix docs for overwriteChainableMethod parameters
+- Merge pull request #317 from jasonkarns/patch-2
+- Merge pull request #318 from jasonkarns/patch-3
+- Merge pull request #316 from jasonkarns/patch-1
+- typos in docs
+- minor docs typo
+- update docs: getAllFlags -> transferFlags
+- Merge pull request #313 from cjqed/254-expect-any-all
+- Added the all and any flags for keys assertion, with all being the default behavior
+- Merge pull request #312 from cjqed/291-assert-same-deep-members
+- Changed public comment of sameDeepMemebers to be more clear
+- Fixes issue #291, adds assert.sameDeepMembers
+- Merge pull request #311 from cjqed/305-above-below-on-assert
+- Merge pull request #308 from prodatakey/hasproperty
+- Issue #305 fixed, added assert.isAbove and assert.isBelow
+- Fix typo
+- More unit tests for new utility functions
+- Refactor common functionality, document, test
+- Refactor if statement out
+- Small unit test fix
+- Handle array indexing terminating paths
+- Merge pull request #309 from ericdouglas/iterableEqual-couting-once
+- couting variables just once
+- Fix properties with `undefined` value pass property assertion
+- Merge pull request #306 from chaijs/revert-297-noopchainfunc
+- Revert "Allows writing lint-friendly tests"
+
+# 1.10.0 / 2014-11-10
+
+- Merge pull request #297 from prodatakey/noopchainfunc
+- Merge pull request #300 from julienw/299-fix-getMessage-test
+- Fix #299: the test is defining global variables
+- Add a couple more unit tests
+- Add unit tests for chained terminating property asserts
+- Revise documentation wording
+- Add docs for function style NOOP asserts
+- Make the NOOP function a shared constant
+- Merge pull request #298 from dasilvacontin/negativeZeroLogging
+- why not more assertions
+- added test for inspecting `-0`
+- a more readable/simple condition statement, as pointed out by @keithamus
+- added check for logging negative zero
+- Change test to not trigger argument bug
+- Allows writing lint-friendly tests
+- readme: update contributors for 1.9.2
+
+# 1.9.2 / 2014-09-29
+
+- Merge pull request #268 from charlierudolph/cr-lazyMessages
+- Merge pull request #269 from charlierudolph/cr-codeCleanup
+- Merge pull request #277 from charlierudolph/fix-doc
+- Merge pull request #279 from mohayonao/fix-closeTo
+- Merge pull request #292 from boneskull/mocha
+- resolves #255: upgrade mocha
+- Merge pull request #289 from charlierudolph/cr-dryUpCode
+- Dry up code
+- Merge pull request #275 from DrRataplan/master
+- assert: .closeTo() verify value's type before assertion
+- Rewrite pretty-printing HTML elements to prevent throwing internal errors Fixes errors occuring when using a non-native DOM implementation
+- Fix assert documentation
+- Remove unused argument
+- Allow messages to be functions
+- Merge pull request #267 from shinnn/master
+- Use SVG badge
+- Merge pull request #264 from cjthompson/keys_diff
+- Show diff for keys assertion
+
+# 1.9.1 / 2014-03-19
+
+- deps update
+- util: [getActual] select actual logic now allows undefined for actual. Closes #183
+- docs: [config] make public, express param type
+- Merge pull request #251 from romario333/threshold3
+- Fix issue #166 - configurable threshold in objDisplay.
+- Move configuration options to config.js.
+- Merge pull request #233 from Empeeric/master
+- Merge pull request #244 from leider/fix_for_contains
+- Merge pull request #247 from didoarellano/typo-fixes
+- Fix typos
+- Merge pull request #245 from lfac-pt/patch-1
+- Update `exports.version` to 1.9.0
+- aborting loop on finding
+- declaring variable only once
+- additional test finds incomplete implementation
+- simplified code
+- fixing #239 (without changing chai.js)
+- ssfi as it should be
+- Merge pull request #228 from duncanbeevers/deep_members
+- Deep equality check for collection membership
+
+# 1.9.0 / 2014-01-29
+
+- docs: add contributing.md #238
+- assert: .throws() returns thrown error. Closes #185
+- Merge pull request #232 from laconbass/assert-throws
+- assert: .fail() parameter mismatch. Closes #206
+- Merge branch 'karma-fixes'
+- Add karma phantomjs launcher
+- Use latest karma and sauce launcher
+- Karma tweaks
+- Merge pull request #230 from jkroso/include
+- Merge pull request #237 from chaijs/coverage
+- Add coverage to npmignore
+- Remove lib-cov from test-travisci dependents
+- Remove the not longer needed lcov reporter
+- Test coverage with istanbul
+- Remove jscoverage
+- Remove coveralls
+- Merge pull request #226 from duncanbeevers/add_has
+- Avoid error instantiation if possible on assert.throws
+- Merge pull request #231 from duncanbeevers/update_copyright_year
+- Update Copyright notices to 2014
+- handle negation correctly
+- add failing test case
+- support `{a:1,b:2}.should.include({a:1})`
+- Merge pull request #224 from vbardales/master
+- Add `has` to language chains
+- Merge pull request #219 from demands/overwrite_chainable
+- return error on throw method to chain on error properties, possibly different from message
+- util: store chainable behavior in a \_\_methods object on ctx
+- util: code style fix
+- util: add overwriteChainableMethod utility (for #215)
+- Merge pull request #217 from demands/test_cleanup
+- test: make it possible to run utilities tests with --watch
+- makefile: change location of karma-runner bin script
+- Merge pull request #202 from andreineculau/patch-2
+- test: add tests for throwing custom errors
+- Merge pull request #201 from andreineculau/patch-1
+- test: updated for the new assertion errors
+- core: improve message for assertion errors (throw assertion)
+
+# 1.8.1 / 2013-10-10
+
+- pkg: update deep-eql version
+
+# 1.8.0 / 2013-09-18
+
+- test: [sauce] add a few more browsers
+- Merge branch 'refactor/deep-equal'
+- util: remove embedded deep equal utility
+- util: replace embedded deep equal with external module
+- Merge branch 'feature/karma'
+- docs: add sauce badge to readme [ci skip]
+- test: [sauce] use karma@canary to prevent timeouts
+- travis: only run on node 0.10
+- test: [karma] use karma phantomjs runner
+- Merge pull request #181 from tricknotes/fix-highlight
+- Fix highlight for example code
+
+# 1.7.2 / 2013-06-27
+
+- coverage: add coveralls badge
+- test: [coveralls] add coveralls api integration. testing travis-ci integration
+- Merge branch 'master' of github.com:chaijs/chai
+- Merge branch 'feature/bower'
+- Merge pull request #180 from tricknotes/modify-method-title
+- Merge pull request #179 from tricknotes/highlight-code-example
+- Modify method title to include argument name
+- Fix to highlight code example
+- bower: granular ignores
+
+# 1.7.1 / 2013-06-24
+
+- Merge branch 'feature/bower'. #175
+- bower: add json file
+- build: browser
+
+# 1.7.0 / 2013-06-17
+
+- error: remove internal assertion error constructor
+- core: [assertion-error] replace internal assertion error with dep
+- deps: add chaijs/assertion-error@1.0.0
+- docs: fix typo in source file. #174
+- Merge pull request #174 from piecioshka/master
+- typo
+- Merge branch 'master' of github.com:chaijs/chai
+- pkg: lock mocha/mocha-phantomjs versions (for now)
+- Merge pull request #173 from chaijs/inspect-fix
+- Fix `utils.inspect` with custom object-returning inspect()s.
+- Merge pull request #171 from Bartvds/master
+- replaced tabs with 2 spaces
+- added assert.notOk()
+- Merge pull request #169 from katsgeorgeek/topics/master
+- Fix comparison objects.
+
+# 1.6.1 / 2013-06-05
+
+- Merge pull request #168 from katsgeorgeek/topics/master
+- Add test for different RegExp flags.
+- Add test for regexp comparison.
+- Downgrade mocha version for fix running Phantom tests.
+- Fix comparison equality of two regexps.
+- Merge pull request #161 from brandonpayton/master
+- Fix documented name for assert interfaces isDefined method
+
+# 1.6.0 / 2013-04-29
+
+- build: browser
+- assert: [(not)include] throw on incompatible haystack. Closes #142
+- assert: [notInclude] add assert.notInclude. Closes #158
+- browser build
+- makefile: force browser build on browser-test
+- makefile: use component for browser build
+- core: [assertions] remove extraneous comments
+- Merge branch 'master' of github.com:chaijs/chai
+- test: [assert] deep equal ordering
+- Merge pull request #153 from NickHeiner/array-assertions
+- giving members a no-flag assertion
+- Code review comments - changing syntax
+- Code review comments
+- Adding members and memberEquals assertions for checking for subsets and set equality. Implements chaijs/chai#148.
+- Merge pull request #140 from RubenVerborgh/function-prototype
+- Restore the `call` and `apply` methods of Function when adding a chainable method.
+- readme: 2013
+- notes: migration notes for deep equal changes
+- test: for ever err() there must be a passing version
+
+# 1.5.0 / 2013-02-03
+
+- docs: add Release Notes for non-gitlog summary of changes.
+- lib: update copyright to 2013
+- Merge branch 'refactor/travis'
+- makefile: remove test-component for full test run
+- pkg: script test now runs make test so travis will test browser
+- browser: build
+- tests: refactor some tests to support new objDisplay output
+- test: [bootstrap] normalize boostrap across all test scenarios
+- assertions: refactor some assertions to use objDisplay instead of inspect
+- util: [objDisplay] normalize output of functions
+- makefile: refactor for full build scenarios
+- component: fix build bug where missing util:type file
+- assertions: [throw] code cleanup
+- Merge branch 'refactor/typeDetection'
+- browser: build
+- makefile: chai.js is .PHONY so it builds every time
+- test: [expect] add arguments type detection test
+- core/assertions: [type] (a/an) refactor to use type detection utility
+- util: add cross-browser type detection utility
+- Merge branch 'feature/component'
+- browser: build
+- component: add component.json file
+- makefile: refactor for fine grain control of testing scenarios
+- test: add mochaPhantomJS support and component test file
+- deps: add component and mocha-phantomjs for browser testing
+- ignore: update ignore files for component support
+- travis: run for all branches
+- Merge branch 'feature/showDiff'
+- test: [Assertion] configruable showDiff flag. Closes #132
+- lib: [Assertion] add configurable showDiff flag. #132
+- Merge branch 'feature/saucelabs'
+- Merge branch 'master' into feature/saucelabs
+- browser: build
+- support: add mocha cloud runner, client, and html test page
+- test: [saucelabs] add auth placeholder
+- deps: add mocha-cloud
+- Merge pull request #136 from whatthejeff/message_fix
+- Merge pull request #138 from timnew/master
+- Fix issue #137, test message existence by using message!=null rather than using message
+- Fixed backwards negation messages.
+- Merge pull request #133 from RubenVerborgh/throw
+- Functions throwing strings can reliably be tested.
+- Merge pull request #131 from RubenVerborgh/proto
+- Cache whether **proto** is supported.
+- Use **proto** if available.
+- Determine the property names to exclude beforehand.
+- Merge pull request #126 from RubenVerborgh/eqls
+- Add alias eqls for eql.
+- Use inherited enumerable properties in deep equality comparison.
+- Show inherited properties when inspecting an object.
+- Add new getProperties and getEnumerableProperties utils.
+- showDiff: force true for equal and eql
+
+# 1.4.2 / 2012-12-21
+
+- browser build: (object diff support when used with mocha) #106
+- test: [display] array test for mocha object diff
+- browser: no longer need different AssertionError constructor
+
+# 1.4.1 / 2012-12-21
+
+- showDiff: force diff for equal and eql. #106
+- test: [expect] type null. #122
+- Merge pull request #115 from eshao/fix-assert-Throw
+- FIX: assert.Throw checks error type/message
+- TST: assert.Throw should check error type/message
+
+# 1.4.0 / 2012-11-29
+
+- pre-release browser build
+- clean up index.js to not check for cov, revert package.json to use index.js
+- convert tests to use new bootstrap
+- refactor testing bootstrap
+- use spaces (not tabs). Clean up #114
+- Merge pull request #114 from trantorLiu/master
+- Add most() (alias: lte) and least() (alias: gte) to the API with new chainers "at" and "of".
+- Change `main` to ./lib/chai. Fixes #28.
+- Merge pull request #104 from connec/deep*equals_circular_references*
+- Merge pull request #109 from nnarhinen/patch-1
+- Check for 'actual' type
+- Added support for circular references when checking deep (in)equality.
+
+# 1.3.0 / 2012-10-01
+
+- browser build w/ folio >= 0.3.4. Closes #99
+- add back buffer test for deep equal
+- do not write flags to assertion.prototype
+- remove buffer test from expect
+- browser build
+- improve documentation of custom error messages
+- Merge branch 'master' of git://github.com/Liffft/chai into Liffft-master
+- browser build
+- improved buffer deep equal checking
+- mocha is npm test command
+- Cleaning up the js style…
+- expect tests now include message pass-through
+- packaging up browser-side changes…
+- Increasing Throws error message verbosity
+- Should syntax: piping message through
+- Make globalShould test work in browser too.
+- Add a setter for `Object.prototype.should`. Closes #86.
+
+# 1.2.0 / 2012-08-07
+
+- Merge branch 'feature/errmsg'
+- browser build
+- comment updates for utilities
+- tweak objDislay to only kick in if object inspection is too long
+- Merge branch 'master' into feature/errmsg
+- add display sample for error message refactor
+- first draft of error message refactor. #93
+- add `closeTo` assertion to `assert` interface. Closes #89.
+- update folio build for better require.js handling. Closes #85
+- Merge pull request #92 from paulmillr/topics/add-dom-checks
+- Add check for DOM objects.
+- browser build
+- Merge branch 'master' of github.com:chaijs/chai
+- bug - getActual not defaulting to assertion subject
+- Merge pull request #88 from pwnall/master
+- Don't inspect() assertion arguments if the assertion passes.
+
+# 1.1.1 / 2012-07-09
+
+- improve commonjs support on browser build
+- Merge pull request #83 from tkazec/equals
+- Document .equals
+- Add .equals as an alias of .equal
+- remove unused browser prefix/suffix
+- Merge branch 'feature/folio-build'
+- browser build
+- using folio to compile
+- clean up makefile
+- early folio 0.3.x support
+
+# 1.1.0 / 2012-06-26
+
+- browser build
+- Disable "Assertion.includeStack is false" test in IE.
+- Use `utils.getName` for all function inspections.
+- Merge pull request #80 from kilianc/closeTo
+- fixes #79
+- browser build
+- expand docs to indicate change of subject for chaining. Closes #78
+- add `that` chain noop
+- Merge branch 'bug/74'
+- comments on how to property use `length` as chain. Closes #74
+- tests for length as chainable property. #74
+- add support for `length` as chainable prop/method.
+- Merge branch 'bug/77'
+- tests for getPathValue when working with nested arrays. Closes #77
+- add getPathValue support for nested arrays
+- browser build
+- fix bug for missing browser utils
+- compile tool aware of new folder layout
+- Merge branch 'refactor/1dot1'
+- move core assertions to own file and refactor all using utils
+- rearrange folder structure
+
+# 1.0.4 / 2012-06-03
+
+- Merge pull request #68 from fizker/itself
+- Added itself chain.
+- simplify error inspections for cross browser compatibility
+- fix safari `addChainableMethod` errors. Closes #69
+
+# 1.0.3 / 2012-05-27
+
+- Point Travis badge to the right place.
+- Make error message for eql/deep.equal more clear.
+- Fix .not.deep.equal.
+- contributors list
+
+# 1.0.2 / 2012-05-26
+
+- Merge pull request #67 from chaijs/chaining-and-flags
+- Browser build.
+- Use `addChainableMethod` to get away from `__proto__` manipulation.
+- New `addChainableMethod` utility.
+- Replace `getAllFlags` with `transferFlags` utility.
+- browser build
+- test - get all flags
+- utility - get all flags
+- Add .mailmap to .npmignore.
+- Add a .mailmap file to fix my name in shortlogs.
+
+# 1.0.1 / 2012-05-18
+
+- browser build
+- Fixing "an" vs. "a" grammar in type assertions.
+- Uniformize `assert` interface inline docs.
+- Don't use `instanceof` for `assert.isArray`.
+- Add `deep` flag for equality and property value.
+- Merge pull request #64 from chaijs/assertion-docs
+- Uniformize assertion inline docs.
+- Add npm-debug.log to .gitignore.
+- no reserved words as actuals. #62
+
+# 1.0.0 / 2012-05-15
+
+- readme cleanup
+- browser build
+- utility comments
+- removed docs
+- update to package.json
+- docs build
+- comments / docs updates
+- plugins app cleanup
+- Merge pull request #61 from joliss/doc
+- Fix and improve documentation of assert.equal and friends
+- browser build
+- doc checkpoint - texture
+- Update chai-jquery link
+- Use defined return value of Assertion extension functions
+- Update utility docs
+
+# 1.0.0-rc3 / 2012-05-09
+
+- Merge branch 'feature/rc3'
+- docs update
+- browser build
+- assert test conformity for minor refactor api
+- assert minor refactor
+- update util tests for new add/overwrite prop/method format
+- added chai.Assertion.add/overwrite prop/method for plugin toolbox
+- add/overwrite prop/method don't make assumptions about context
+- doc test suite
+- docs don't need coverage
+- refactor all simple chains into one forEach loop, for clean documentation
+- updated npm ignore
+- remove old docs
+- docs checkpoint - guide styled
+- Merge pull request #59 from joliss/doc
+- Document how to run the test suite
+- don't need to rebuild docs to view
+- dep update
+- docs checkpoint - api section
+- comment updates for docs
+- new doc site checkpoint - plugin directory!
+- Merge pull request #57 from kossnocorp/patch-1
+- Fix typo: devDependancies → devDependencies
+- Using message flag in `getMessage` util instead of old `msg` property.
+- Adding self to package.json contributors.
+- `getMessage` shouldn't choke on null/omitted messages.
+- `return this` not necessary in example.
+- `return this` not necessary in example.
+- Sinon–Chai has a dash
+- updated plugins list for docs
+
+# 1.0.0-rc2 / 2012-05-06
+
+- Merge branch 'feature/test-cov'
+- browser build
+- missing assert tests for ownProperty
+- appropriate assert equivalent for expect.to.have.property(key, val)
+- reset AssertionError to include full stack
+- test for plugin utilities
+- overwrite Property and Method now ensure chain
+- version notes in readme
+
+# 1.0.0-rc1 / 2012-05-04
+
+- browser build (rc1)
+- assert match/notMatch tests
+- assert interface - notMatch, ownProperty, notOwnProperty, ownPropertyVal, ownPropertyNotVal
+- cleaner should interface export.
+- added chai.Assertion.prototype.\_obj (getter) for quick access to object flag
+- moved almostEqual / almostDeepEqual to stats plugin
+- added mocha.opts
+- Add test for `utils.addMethod`
+- Fix a typo
+- Add test for `utils.overwriteMethod`
+- Fix a typo
+- Browser build
+- Add undefined assertion
+- Add null assertion
+- Fix an issue with `mocha --watch`
+- travis no longer tests on node 0.4.x
+- removing unnecissary carbon dep
+- Merge branch 'feature/plugins-app'
+- docs build
+- templates for docs express app for plugin directory
+- express app for plugin and static serving
+- added web server deps
+- Merge pull request #54 from josher19/master
+- Remove old test.assert code
+- Use util.inspect instead of inspect for deepAlmostEqual and almostEqual
+- browser build
+- Added almostEqual and deepAlmostEqual to assert test suite.
+- bug - context determinants for utils
+- dec=0 means rounding, so assert.deepAlmostEqual({pi: 3.1416}, {pi: 3}, 0) is true
+- wrong travis link
+- readme updates for version information
+- travis tests 0.5.x branch as well
+- [bug] util `addProperty` not correctly exporting
+- read me version notes
+- browser build 1.0.0alpha1
+- not using reserved words in internal assertions. #52
+- version tick
+- clean up redundant tests
+- Merge branch 'refs/heads/0.6.x'
+- update version tag in package 1.0.0alpha1
+- browser build
+- added utility tests to browser specs
+- beginning utility testing
+- updated utility comments
+- utility - overwriteMethod
+- utility - overwriteProperty
+- utility - addMethod
+- utility - addProperty
+- missing ;
+- contributors list update
+- Merge branch 'refs/heads/0.6.x-docs' into 0.6.x
+- Added guide link to docs. WIP
+- Include/contain are now both properties and methods
+- Add an alias annotation
+- Remove usless function wrapper
+- Fix a typo
+- A/an are now both properties and methods
+- [docs] new site homepage layout / color checkpoint
+- Ignore IE-specific error properties.
+- Fixing order of error message test.
+- New cross-browser `getName` util.
+- Fixing up `AssertionError` inheritance.
+- backup docs
+- Add doctypes
+- [bug] was still using `constructor.name` in `throw` assertion
+- [bug] flag Object.create(null) instead of new Object
+- [test] browser build
+- [refactor] all usage of Assertion.prototype.assert now uses template tags and flags
+- [refactor] remove Assertion.prototype.inspect for testable object inspection
+- [refactor] object to test is now stored in flag, with ssfi and custom message
+- [bug] flag util - don't return on `set`
+- [docs] comments for getMessage utility
+- [feature] getMessage
+- [feature] testing utilities
+- [refactor] flag doesn't require `call`
+- Make order of source files well-defined
+- Added support for throw(errorInstance).
+- Use a foolproof method of grabbing an error's name.
+- Removed constructor.name check from throw.
+- disabled stackTrack configuration tests until api is stable again
+- first version of line displayed error for node js (unstable)
+- refactor core Assertion to use flag utility for negation
+- added flag utility
+- tests for assert interface negatives. Closed #42
+- added assertion negatives that were missing. #42
+- Support for expected and actual parameters in assert-style error object
+- chai as promised - readme
+- Added assert.fail. Closes #40
+- better error message for assert.operator. Closes #39
+- [refactor] Assertion#property to use getPathValue property
+- added getPathValue utility helper
+- removed todo about browser build
+- version notes
+- version bumb 0.6.0
+- browser build
+- [refactor] browser compile function to replace with `require('./error')' with 'require('./browser/error')'
+- [feature] browser uses different error.js
+- [refactor] error without chai.fail
+- Assertion & interfaces use new utils helper export
+- [refactor] primary export for new plugin util usage
+- added util index.js helper
+- added 2012 to copyright headers
+- Added DeepEqual assertions
+
+# 0.5.3 / 2012-04-21
+
+- Merge branch 'refs/heads/jgonera-oldbrowsers'
+- browser build
+- fixed reserved names for old browsers in interface/assert
+- fixed reserved names for old browsers in interface/should
+- fixed: chai.js no longer contains fail()
+- fixed reserved names for old browsers in Assertion
+- Merge pull request #49 from joliss/build-order
+- Make order of source files well-defined
+- Merge pull request #43 from zzen/patch-1
+- Support for expected and actual parameters in assert-style error object
+- chai as promised - readme
+
+# 0.5.2 / 2012-03-21
+
+- browser build
+- Merge branch 'feature/assert-fail'
+- Added assert.fail. Closes #40
+- Merge branch 'bug/operator-msg'
+- better error message for assert.operator. Closes #39
+- version notes
+
+# 0.5.1 / 2012-03-14
+
+- chai.fail no longer exists
+- Merge branch 'feature/assertdefined'
+- Added asset#isDefined. Closes #37.
+- dev docs update for Assertion#assert
+
+# 0.5.0 / 2012-03-07
+
+- [bug] on inspect of reg on n 0.4.12
+- Merge branch 'bug/33-throws'
+- Merge pull request #35 from logicalparadox/empty-object
+- browser build
+- updated #throw docs
+- Assertion#throw `should` tests updated
+- Assertion#throw `expect` tests
+- Should interface supports multiple throw parameters
+- Update Assertion#throw to support strings and type checks.
+- Add more tests for `empty` in `should`.
+- Add more tests for `empty` in `expect`.
+- Merge branch 'master' into empty-object
+- don't switch act/exp
+- Merge pull request #34 from logicalparadox/assert-operator
+- Update the compiled verison.
+- Add `assert.operator`.
+- Notes on messages. #22
+- browser build
+- have been test
+- below tests
+- Merge branch 'feature/actexp'
+- browser build
+- remove unnecessary fail export
+- full support for actual/expected where relevant
+- Assertion.assert support expected value
+- clean up error
+- Update the compiled version.
+- Add object & sane arguments support to `Assertion#empty`.
+
+# 0.4.2 / 2012-02-28
+
+- fix for `process` not available in browser when used via browserify. Closes #28
+- Merge pull request #31 from joliss/doc
+- Document that "should" works in browsers other than IE
+- Merge pull request #30 from logicalparadox/assert-tests
+- Update the browser version of chai.
+- Update `assert.doesNotThrow` test in order to check the use case when type is a string.
+- Add test for `assert.ifError`.
+- Falsey -> falsy.
+- Full coverage for `assert.throws` and `assert.doesNotThrow`.
+- Add test for `assert.doesNotThrow`.
+- Add test for `assert.throws`.
+- Add test for `assert.length`.
+- Add test for `assert.include`.
+- Add test for `assert.isBoolean`.
+- Fix the implementation of `assert.isNumber`.
+- Add test for `assert.isNumber`.
+- Add test for `assert.isString`.
+- Add test for `assert.isArray`.
+- Add test for `assert.isUndefined`.
+- Add test for `assert.isNotNull`.
+- Fix `assert.isNotNull` implementation.
+- Fix `assert.isNull` implementation.
+- Add test for `assert.isNull`.
+- Add test for `assert.notDeepEqual`.
+- Add test for `assert.deepEqual`.
+- Add test for `assert.notStrictEqual`.
+- Add test for `assert.strictEqual`.
+- Add test for `assert.notEqual`.
+
+# 0.4.1 / 2012-02-26
+
+- Merge pull request #27 from logicalparadox/type-fix
+- Update the browser version.
+- Add should tests for type checks.
+- Add function type check test.
+- Add more type checks tests.
+- Add test for `new Number` type check.
+- Fix type of actual checks.
+
+# 0.4.0 / 2012-02-25
+
+- docs and readme for upcoming 0.4.0
+- docs generated
+- putting coverage and tests for docs in docs/out/support
+- make docs
+- makefile copy necessary resources for tests in docs
+- rename configuration test
+- Merge pull request #21 from logicalparadox/close-to
+- Update the browser version.
+- Update `closeTo()` docs.
+- Add `Assertion.closeTo()` method.
+- Add `.closeTo()` should test.
+- Add `.closeTo()` expect test.
+- Merge pull request #20 from logicalparadox/satisfy
+- Update the browser version.
+- `..` -> `()` in `.satisfy()` should test.
+- Update example for `.satisfy()`.
+- Update the compiled browser version.
+- Add `Assertion.satisfy()` method.
+- Add `.satisfy()` should test.
+- Add `.satisfy()` expect test.
+- Merge pull request #19 from logicalparadox/respond-to
+- Update the compiled browser version.
+- Add `respondTo` Assertion.
+- Add `respondTo` should test.
+- Add `respondTo` expect test.
+- Merge branch 'feature/coverage'
+- mocha coverage support
+- doc contributors
+- README contributors
+
+# 0.3.4 / 2012-02-23
+
+- inline comment typos for #15
+- Merge branch 'refs/heads/jeffbski-configErrorStackCompat'
+- includeStack documentation for all interfaces
+- suite name more generic
+- Update test to be compatible with browsers that do not support err.stack
+- udpated compiled chai.js and added to browser tests
+- Allow inclusion of stack trace for Assert error messages to be configurable
+- docs sharing buttons
+- sinon-chai link
+- doc updates
+- read me updates include plugins
+
+# 0.3.3 / 2012-02-12
+
+- Merge pull request #14 from jfirebaugh/configurable_properties
+- Make Assertion.prototype properties configurable
+
+# 0.3.2 / 2012-02-10
+
+- codex version
+- docs
+- docs cleanup
+
+# 0.3.1 / 2012-02-07
+
+- node 0.4.x compat
+
+# 0.3.0 / 2012-02-07
+
+- Merge branch 'feature/03x'
+- browser build
+- remove html/json/headers testign
+- regex error.message testing
+- tests for using plugins
+- Merge pull request #11 from domenic/master
+- Make `chai.use` a no-op if the function has already been used.
+
+# 0.2.4 / 2012-02-02
+
+- added in past tense switch for `been`
+
+# 0.2.3 / 2012-02-01
+
+- try that again
+
+# 0.2.2 / 2012-02-01
+
+- added `been` (past of `be`) alias
+
+# 0.2.1 / 2012-01-29
+
+- added Throw, with a capital T, as an alias to `throw` (#7)
+
+# 0.2.0 / 2012-01-26
+
+- update gitignore for vim \*.swp
+- Merge branch 'feature/plugins'
+- browser build
+- interfaces now work with use
+- simple .use function. See #9.
+- readme notice on browser compat
+
+# 0.1.7 / 2012-01-25
+
+- added assert tests to browser test runner
+- browser update
+- `should` interface patch for primitives support in FF
+- fix isObject() Thanks @milewise
+- travis only on branch `master`
+- add instanceof alias `instanceOf`. #6
+- some tests for assert module
+
+# 0.1.6 / 2012-01-02
+
+- commenting for assert interface
+- updated codex dep
+
+# 0.1.5 / 2012-01-02
+
+- browser tests pass
+- type in should.not.equal
+- test for should (not) exist
+- added should.exist and should.not.exist
+- browser uses tdd
+- convert tests to tdd
+
+# 0.1.4 / 2011-12-26
+
+- browser lib update for new assert interface compatiblitiy
+- inspect typos
+- added strict equal + negatives and ifError
+- interface assert had doesNotThrow
+- added should tests to browser
+- new expect empty tests
+- should test browser compat
+- Fix typo for instanceof docs. Closes #3 [ci skip]
+
+# 0.1.3 / 2011-12-18
+
+- much cleaner reporting string on error.
+
+# 0.1.2 / 2011-12-18
+
+- [docs] for upcoming 0.1.2
+- browser version built with pre/suffix … all tests passing
+- make / compile now use prefix/suffix correctly
+- code clean
+- prefix/suffix to wrap browser output to prevent conflicts with other `require` methods.
+- Merge branch 'feature/should4xcompatibility'
+- compile for browser tests.. all pass
+- added header/status/html/json
+- throw tests
+- should.throw & should.not.throw shortcuts
+- improved `throw` type detection and messaging
+- contain is now `include` … keys modifier is now `contain`
+- removed object() test
+- removed #respondTo
+- Merge branch 'bug/2'
+- replaced **defineGetter** with defineProperty for all uses
+- [docs] change mp tracking code
+- docs site updated with assert (TDD) interface
+- updated doc comments for assert interface
+
+# 0.1.1 / 2011-12-16
+
+- docs ready for upcoming 0.1.1
+- readme image fixed [ci skip]
+- more readme tweaks [ci skip]
+- réadmet image fixed [ci skip]
+- documentation
+- codex locked in version 0.0.5
+- more comments to assertions for docs
+- assertions fully commented, browser library updated
+- adding codex as doc dependancy
+- prepping for docs
+- assertion component completely commented for documentation
+- added exist test
+- var expect outside of browser if check
+- added keywords to package.json
+
+# 0.1.0 / 2011-12-15
+
+- failing on purpose successful .. back to normal
+- testing travis failure
+- assert#arguments getter
+- readme typo
+- updated README
+- added travis and npmignore
+- copyright notices … think i got them all
+- moved expect interface to own file for consistency
+- assert ui deepEqual
+- browser tests expect (all working)
+- browser version built
+- chai.fail (should ui)
+- expect tests browser compatible
+- tests for should and expect (all pass)
+- moved fail to primary export
+- should compatibility testing
+- within, greaterThan, object, keys,
+- Aliases
+- Assertion#property now correctly works with negate and undefined values
+- error message language matches should
+- Assertion#respondTo
+- Assertion now uses inspect util
+- git ignore node modules
+- should is exported
+- AssertionError **proto** from Error.prototype
+- add should interface for should.js compatibility
+- moved eql to until folder and added inspect from (joyent/node)
+- added mocha for testing
+- browser build for current api
+- multiple .property assertions
+- added deep equal from node
+
+# 0.0.2 / 2011-12-07
+
+- cleaner output on error
+- improved exists detection
+- package remnant artifact
+- empty deep equal
+- test browser build
+- assertion cleanup
+- client compile script
+- makefile
+- most of the basic assertions
+- allow no parameters to assertion error
+- name change
+- assertion error instance
+- main exports: assert() & expect()
+- initialize
 
 ### [CONTENT/DS-n-Algos/Graphs/graphs-intro-solution/node_modules/chai/README.md](CONTENT/DS-n-Algos/Graphs/graphs-intro-solution/node_modules/chai/README.md)
 
@@ -7284,46 +6970,46 @@ You can also use it within the browser; install via npm and use the `chai.js` fi
 Import the library in your code, and then pick one of the styles you'd like to use - either `assert`, `expect` or `should`:
 
 ```js
-var chai = require('chai');  
-var assert = chai.assert;    // Using Assert style
-var expect = chai.expect;    // Using Expect style
-var should = chai.should();  // Using Should style
+var chai = require("chai");
+var assert = chai.assert; // Using Assert style
+var expect = chai.expect; // Using Expect style
+var should = chai.should(); // Using Should style
 ```
 
 ### Pre-Native Modules Usage (_registers the chai testing style globally_)
 
 ```js
-require('chai/register-assert');  // Using Assert style
-require('chai/register-expect');  // Using Expect style
-require('chai/register-should');  // Using Should style
+require("chai/register-assert"); // Using Assert style
+require("chai/register-expect"); // Using Expect style
+require("chai/register-should"); // Using Should style
 ```
 
 ### Pre-Native Modules Usage (_as local variables_)
 
 ```js
-const { assert } = require('chai');  // Using Assert style
-const { expect } = require('chai');  // Using Expect style
-const { should } = require('chai');  // Using Should style
-should();  // Modifies `Object.prototype`
+const { assert } = require("chai"); // Using Assert style
+const { expect } = require("chai"); // Using Expect style
+const { should } = require("chai"); // Using Should style
+should(); // Modifies `Object.prototype`
 
-const { expect, use } = require('chai');  // Creates local variables `expect` and `use`; useful for plugin use
+const { expect, use } = require("chai"); // Creates local variables `expect` and `use`; useful for plugin use
 ```
 
 ### Native Modules Usage (_registers the chai testing style globally_)
 
 ```js
-import 'chai/register-assert';  // Using Assert style
-import 'chai/register-expect';  // Using Expect style
-import 'chai/register-should';  // Using Should style
+import "chai/register-assert"; // Using Assert style
+import "chai/register-expect"; // Using Expect style
+import "chai/register-should"; // Using Should style
 ```
 
 ### Native Modules Usage (_local import only_)
 
 ```js
-import { assert } from 'chai';  // Using Assert style
-import { expect } from 'chai';  // Using Expect style
-import { should } from 'chai';  // Using Should style
-should();  // Modifies `Object.prototype`
+import { assert } from "chai"; // Using Assert style
+import { expect } from "chai"; // Using Expect style
+import { should } from "chai"; // Using Should style
+should(); // Modifies `Object.prototype`
 ```
 
 ### Usage with Mocha
@@ -7343,9 +7029,9 @@ Chai offers a robust Plugin architecture for extending Chai's assertions and int
 - Need a plugin? View the [official plugin list](http://chaijs.com/plugins).
 - Want to build a plugin? Read the [plugin api documentation](http://chaijs.com/guide/plugins/).
 - Have a plugin and want it listed? Simply add the following keywords to your package.json:
-  -  `chai-plugin`
-  -  `browser` if your plugin works in the browser as well as Node.js
-  -  `browser-only` if your plugin does not work with Node.js
+  - `chai-plugin`
+  - `browser` if your plugin works in the browser as well as Node.js
+  - `browser-only` if your plugin does not work with Node.js
 
 ### Related Projects
 
@@ -7386,7 +7072,6 @@ concerns. We will do our best to respond in a timely manner.
 [![Lucas Fernandes da Costa](https://avatars3.githubusercontent.com/u/6868147?v=3&s=50)](https://github.com/lucasfcosta)
 [![Grant Snodgrass](https://avatars3.githubusercontent.com/u/17260989?v=3&s=50)](https://github.com/meeber)
 
-
 ### [CONTENT/DS-n-Algos/Graphs/graphs-intro-solution/node_modules/chai/ReleaseNotes.md](CONTENT/DS-n-Algos/Graphs/graphs-intro-solution/node_modules/chai/ReleaseNotes.md)
 
 # Release Notes
@@ -7403,55 +7088,65 @@ As of 3.0.0, the ReleaseNotes.md file has been deprecated. [Please refer to the 
 Added `ownPropertyDescriptor` assertion:
 
 ```js
-expect('test').to.have.ownPropertyDescriptor('length');
-expect('test').to.have.ownPropertyDescriptor('length', { enumerable: false, configurable: false, writable: false, value: 4 });
-expect('test').not.to.have.ownPropertyDescriptor('length', { enumerable: false, configurable: false, writable: false, value: 3 });
-expect('test').ownPropertyDescriptor('length').to.have.property('enumerable', false);
-expect('test').ownPropertyDescriptor('length').to.have.keys('value');
+expect("test").to.have.ownPropertyDescriptor("length");
+expect("test").to.have.ownPropertyDescriptor("length", {
+  enumerable: false,
+  configurable: false,
+  writable: false,
+  value: 4,
+});
+expect("test").not.to.have.ownPropertyDescriptor("length", {
+  enumerable: false,
+  configurable: false,
+  writable: false,
+  value: 3,
+});
+expect("test")
+  .ownPropertyDescriptor("length")
+  .to.have.property("enumerable", false);
+expect("test").ownPropertyDescriptor("length").to.have.keys("value");
 ```
 
 ### Community Contributions
 
 #### Code Features & Fixes
 
- * [#408](https://github.com/chaijs/chai/pull/408) Add `ownPropertyDescriptor`
-   assertion.
-   By [@ljharb](https://github.com/ljharb)
- * [#422](https://github.com/chaijs/chai/pull/422) Improve ownPropertyDescriptor
-   tests.
-   By [@ljharb](https://github.com/ljharb)
+- [#408](https://github.com/chaijs/chai/pull/408) Add `ownPropertyDescriptor`
+  assertion.
+  By [@ljharb](https://github.com/ljharb)
+- [#422](https://github.com/chaijs/chai/pull/422) Improve ownPropertyDescriptor
+  tests.
+  By [@ljharb](https://github.com/ljharb)
 
 #### Documentation fixes
 
- * [#417](https://github.com/chaijs/chai/pull/417) Fix documentation typo
- By [@astorije](https://github.com/astorije)
- * [#423](https://github.com/chaijs/chai/pull/423) Fix inconsistency in docs.
- By [@ehntoo](https://github.com/ehntoo)
-
+- [#417](https://github.com/chaijs/chai/pull/417) Fix documentation typo
+  By [@astorije](https://github.com/astorije)
+- [#423](https://github.com/chaijs/chai/pull/423) Fix inconsistency in docs.
+  By [@ehntoo](https://github.com/ehntoo)
 
 ## 2.2.0 / 2015-03-26
 
 Deep property strings can now be escaped using `\\` - for example:
 
 ```js
-var deepCss = { '.link': { '[target]': 42 }};
-expect(deepCss).to.have.deep.property('\\.link.\\[target\\]', 42)
+var deepCss = { ".link": { "[target]": 42 } };
+expect(deepCss).to.have.deep.property("\\.link.\\[target\\]", 42);
 ```
 
 ### Community Contributions
 
 #### Code Features & Fixes
 
- * [#402](https://github.com/chaijs/chai/pull/402) Allow escaping of deep
-   property keys.
-   By [@umireon](https://github.com/umireon)
+- [#402](https://github.com/chaijs/chai/pull/402) Allow escaping of deep
+  property keys.
+  By [@umireon](https://github.com/umireon)
 
 #### Documentation fixes
 
- * [#405](https://github.com/chaijs/chai/pull/405) Tweak documentation around
- deep property escaping.
- By [@keithamus](https://github.com/keithamus)
-
+- [#405](https://github.com/chaijs/chai/pull/405) Tweak documentation around
+  deep property escaping.
+  By [@keithamus](https://github.com/keithamus)
 
 ## 2.1.2 / 2015-03-15
 
@@ -7461,9 +7156,9 @@ A minor bug fix. No new features.
 
 #### Code Features & Fixes
 
- * [#395](https://github.com/chaijs/chai/pull/395) Fix eval-related bugs with
-   assert.operator ([#386](https://github.com/chaijs/chai/pull/386)).
-   By [@cjqed](https://github.com/cjqed)
+- [#395](https://github.com/chaijs/chai/pull/395) Fix eval-related bugs with
+  assert.operator ([#386](https://github.com/chaijs/chai/pull/386)).
+  By [@cjqed](https://github.com/cjqed)
 
 ## 2.1.1 / 2015-03-04
 
@@ -7473,21 +7168,21 @@ Two minor bugfixes. No new features.
 
 #### Code Features & Fixes
 
- * [#385](https://github.com/chaijs/chai/pull/385) Fix a bug (also described in
-   [#387](https://github.com/chaijs/chai/pull/385)) where `deep.property` would not work with single
-   key names. By [@eldritch-fossicker](https://github.com/eldritch-fossicker)
- * [#379](https://github.com/chaijs/chai/pull/379) Fix bug where tools which overwrite
-   primitive prototypes, such as Babel or core-js would fail.
-   By [@dcneiner](https://github.com/dcneiner)
+- [#385](https://github.com/chaijs/chai/pull/385) Fix a bug (also described in
+  [#387](https://github.com/chaijs/chai/pull/385)) where `deep.property` would not work with single
+  key names. By [@eldritch-fossicker](https://github.com/eldritch-fossicker)
+- [#379](https://github.com/chaijs/chai/pull/379) Fix bug where tools which overwrite
+  primitive prototypes, such as Babel or core-js would fail.
+  By [@dcneiner](https://github.com/dcneiner)
 
 #### Documentation fixes
 
- * [#382](https://github.com/chaijs/chai/pull/382) Add doc for showDiff argument in assert.
-   By [@astorije](https://github.com/astorije)
- * [#383](https://github.com/chaijs/chai/pull/383) Improve wording for truncateTreshold docs
-   By [@gurdiga](https://github.com/gurdiga)
- * [#381](https://github.com/chaijs/chai/pull/381) Improve wording for assert.empty docs
-   By [@astorije](https://github.com/astorije)
+- [#382](https://github.com/chaijs/chai/pull/382) Add doc for showDiff argument in assert.
+  By [@astorije](https://github.com/astorije)
+- [#383](https://github.com/chaijs/chai/pull/383) Improve wording for truncateTreshold docs
+  By [@gurdiga](https://github.com/gurdiga)
+- [#381](https://github.com/chaijs/chai/pull/381) Improve wording for assert.empty docs
+  By [@astorije](https://github.com/astorije)
 
 ## 2.1.0 / 2015-02-23
 
@@ -7501,8 +7196,8 @@ methods to throw Assertion Errors.
 
 #### Code Features & Fixes
 
- * [#356](https://github.com/chaijs/chai/pull/356) Add should.fail(), expect.fail(). By [@Soviut](https://github.com/Soviut)
- * [#374](https://github.com/chaijs/chai/pull/374) Increment version. By [@jmm](https://github.com/jmm)
+- [#356](https://github.com/chaijs/chai/pull/356) Add should.fail(), expect.fail(). By [@Soviut](https://github.com/Soviut)
+- [#374](https://github.com/chaijs/chai/pull/374) Increment version. By [@jmm](https://github.com/jmm)
 
 ## 2.0.0 / 2015-02-09
 
@@ -7518,28 +7213,27 @@ by [@joshperry](https://github.com/joshperry)
 
 #### Code Features & Fixes
 
- * [#361](https://github.com/chaijs/chai/pull/361) `.keys()` now accepts Objects, extracting keys from them. By [@gregglind](https://github.com/gregglind)
- * [#359](https://github.com/chaijs/chai/pull/359) `.keys()` no longer mutates passed arrays. By [@gregglind](https://github.com/gregglind)
- * [#349](https://github.com/chaijs/chai/pull/349) Add a new chainable keyword - `.which`. By [@toastynerd](https://github.com/toastynerd)
- * [#333](https://github.com/chaijs/chai/pull/333) Add `.change`, `.increase` and `.decrease` assertions. By [@cmpolis](https://github.com/cmpolis)
- * [#335](https://github.com/chaijs/chai/pull/335) `chai.util` is now exposed [@DingoEatingFuzz](https://github.com/DingoEatingFuzz)
- * [#328](https://github.com/chaijs/chai/pull/328) Add `.includes` and `.contains` aliases (for `.include` and `.contain`). By [@lo1tuma](https://github.com/lo1tuma)
- * [#313](https://github.com/chaijs/chai/pull/313) Add `.any.keys()` and `.all.keys()` qualifiers. By [@cjqed](https://github.com/cjqed)
- * [#312](https://github.com/chaijs/chai/pull/312) Add `assert.sameDeepMembers()`. By [@cjqed](https://github.com/cjqed)
- * [#311](https://github.com/chaijs/chai/pull/311) Add `assert.isAbove()` and `assert.isBelow()`. By [@cjqed](https://github.com/cjqed)
- * [#308](https://github.com/chaijs/chai/pull/308) `property` and `deep.property` now pass if a value is set to `undefined`. By [@prodatakey](https://github.com/prodatakey)
- * [#309](https://github.com/chaijs/chai/pull/309) optimize deep equal in Arrays. By [@ericdouglas](https://github.com/ericdouglas)
- * [#306](https://github.com/chaijs/chai/pull/306) revert #297 - allowing lint-friendly tests. By [@keithamus](https://github.com/keithamus)
+- [#361](https://github.com/chaijs/chai/pull/361) `.keys()` now accepts Objects, extracting keys from them. By [@gregglind](https://github.com/gregglind)
+- [#359](https://github.com/chaijs/chai/pull/359) `.keys()` no longer mutates passed arrays. By [@gregglind](https://github.com/gregglind)
+- [#349](https://github.com/chaijs/chai/pull/349) Add a new chainable keyword - `.which`. By [@toastynerd](https://github.com/toastynerd)
+- [#333](https://github.com/chaijs/chai/pull/333) Add `.change`, `.increase` and `.decrease` assertions. By [@cmpolis](https://github.com/cmpolis)
+- [#335](https://github.com/chaijs/chai/pull/335) `chai.util` is now exposed [@DingoEatingFuzz](https://github.com/DingoEatingFuzz)
+- [#328](https://github.com/chaijs/chai/pull/328) Add `.includes` and `.contains` aliases (for `.include` and `.contain`). By [@lo1tuma](https://github.com/lo1tuma)
+- [#313](https://github.com/chaijs/chai/pull/313) Add `.any.keys()` and `.all.keys()` qualifiers. By [@cjqed](https://github.com/cjqed)
+- [#312](https://github.com/chaijs/chai/pull/312) Add `assert.sameDeepMembers()`. By [@cjqed](https://github.com/cjqed)
+- [#311](https://github.com/chaijs/chai/pull/311) Add `assert.isAbove()` and `assert.isBelow()`. By [@cjqed](https://github.com/cjqed)
+- [#308](https://github.com/chaijs/chai/pull/308) `property` and `deep.property` now pass if a value is set to `undefined`. By [@prodatakey](https://github.com/prodatakey)
+- [#309](https://github.com/chaijs/chai/pull/309) optimize deep equal in Arrays. By [@ericdouglas](https://github.com/ericdouglas)
+- [#306](https://github.com/chaijs/chai/pull/306) revert #297 - allowing lint-friendly tests. By [@keithamus](https://github.com/keithamus)
 
 #### Documentation fixes
 
- * [#357](https://github.com/chaijs/chai/pull/357) Copyright year updated in docs. By [@danilovaz](https://github.com/danilovaz)
- * [#325](https://github.com/chaijs/chai/pull/325) Fix documentation for overwriteChainableMethod. By [@chasenlehara](https://github.com/chasenlehara)
- * [#334](https://github.com/chaijs/chai/pull/334) Typo fix. By [@hurrymaplelad](https://github.com/hurrymaplelad)
- * [#317](https://github.com/chaijs/chai/pull/317) Typo fix. By [@jasonkarns](https://github.com/jasonkarns)
- * [#318](https://github.com/chaijs/chai/pull/318) Typo fix. By [@jasonkarns](https://github.com/jasonkarns)
- * [#316](https://github.com/chaijs/chai/pull/316) Typo fix. By [@jasonkarns](https://github.com/jasonkarns)
-
+- [#357](https://github.com/chaijs/chai/pull/357) Copyright year updated in docs. By [@danilovaz](https://github.com/danilovaz)
+- [#325](https://github.com/chaijs/chai/pull/325) Fix documentation for overwriteChainableMethod. By [@chasenlehara](https://github.com/chasenlehara)
+- [#334](https://github.com/chaijs/chai/pull/334) Typo fix. By [@hurrymaplelad](https://github.com/hurrymaplelad)
+- [#317](https://github.com/chaijs/chai/pull/317) Typo fix. By [@jasonkarns](https://github.com/jasonkarns)
+- [#318](https://github.com/chaijs/chai/pull/318) Typo fix. By [@jasonkarns](https://github.com/jasonkarns)
+- [#316](https://github.com/chaijs/chai/pull/316) Typo fix. By [@jasonkarns](https://github.com/jasonkarns)
 
 ## 1.10.0 / 2014-11-10
 
@@ -7556,15 +7250,15 @@ The following changes are required if you are upgrading from the previous versio
 
 The following assertions can now also be used in the function-call form:
 
-* ok
-* true
-* false
-* null
-* undefined
-* exist
-* empty
-* arguments
-* Arguments
+- ok
+- true
+- false
+- null
+- undefined
+- exist
+- empty
+- arguments
+- Arguments
 
 The above list of assertions are property getters that assert immediately on
 access. Because of that, they were written to be used by terminating the assertion
@@ -7898,7 +7592,7 @@ This update constructor has a different constructor param signature that conform
 with the new signature.
 
 ```js
-var AssertionError = require('chai').AssertionError;
+var AssertionError = require("chai").AssertionError;
 
 /**
  * previous
@@ -7907,11 +7601,11 @@ var AssertionError = require('chai').AssertionError;
  */
 
 throw new AssertionError({
-    message: 'An assertion error occurred'
-  , actual: actual
-  , expect: expect
-  , startStackFunction: arguments.callee
-  , showStack: true
+  message: "An assertion error occurred",
+  actual: actual,
+  expect: expect,
+  startStackFunction: arguments.callee,
+  showStack: true,
 });
 
 /**
@@ -7922,15 +7616,19 @@ throw new AssertionError({
  * @param {Function} start stack function
  */
 
-throw new AssertionError('An assertion error occurred', {
-    actual: actual
-  , expect: expect
-  , showStack: true
-}, arguments.callee);
+throw new AssertionError(
+  "An assertion error occurred",
+  {
+    actual: actual,
+    expect: expect,
+    showStack: true,
+  },
+  arguments.callee
+);
 
 // other signatures
-throw new AssertionError('An assertion error occurred');
-throw new AssertionError('An assertion error occurred', null, arguments.callee);
+throw new AssertionError("An assertion error occurred");
+throw new AssertionError("An assertion error occurred", null, arguments.callee);
 ```
 
 #### External Dependencies
@@ -8005,11 +7703,10 @@ expect([1, 2, 3]).to.include.members([3, 2]);
 expect([1, 2, 3]).to.not.include.members([3, 2, 8]);
 
 // (assert) full set
-assert.sameMembers([ 1, 2, 3 ], [ 2, 1, 3 ], 'same members');
+assert.sameMembers([1, 2, 3], [2, 1, 3], "same members");
 
 // (assert) inclusion
-assert.includeMembers([ 1, 2, 3 ], [ 2, 1 ], 'include members');
-
+assert.includeMembers([1, 2, 3], [2, 1], "include members");
 ```
 
 #### Non-inclusion for Assert Interface
@@ -8018,8 +7715,8 @@ Most `assert` functions have a negative version, like `instanceOf()` has a corre
 However `include()` did not have a corresponding `notInclude()`. This has been added.
 
 ```js
-assert.notInclude([ 1, 2, 3 ], 8);
-assert.notInclude('foobar', 'baz');
+assert.notInclude([1, 2, 3], 8);
+assert.notInclude("foobar", "baz");
 ```
 
 ### Community Contributions
@@ -8043,8 +7740,8 @@ The following changes are required if you are upgrading from the previous versio
 
 - **Users:**
   - _Update [2013-02-04]:_ Some users may notice a small subset of deep equality assertions will no longer pass. This is the result of
-  [#120](https://github.com/chaijs/chai/issues/120), an improvement to our deep equality algorithm. Users will need to revise their assertions
-  to be more granular should this occur. Further information: [#139](https://github.com/chaijs/chai/issues/139).
+    [#120](https://github.com/chaijs/chai/issues/120), an improvement to our deep equality algorithm. Users will need to revise their assertions
+    to be more granular should this occur. Further information: [#139](https://github.com/chaijs/chai/issues/139).
 - **Plugin Developers:**
   - No changes required.
 - **Core Contributors:**
@@ -8065,7 +7762,6 @@ Thank you to all who took time to contribute!
 - Improve type detection of `.a()`/`.an()` to work in cross-browser scenarios.
 - [#116](https://github.com/chaijs/chai/issues/116): `.throw()` has cleaner display of errors when WebKit browsers.
 - [#120](https://github.com/chaijs/chai/issues/120): `.eql()` now works to compare dom nodes in browsers.
-
 
 ### Usage Updates
 
@@ -8127,10 +7823,10 @@ _Note: Contributors opening pull requests should still NOT include the browser b
 Those interested in trying it out should create a free [Open Sauce](https://saucelabs.com/signup/plan) account
 and include their credentials in `./test/auth/sauce.json`.
 
-
 </details><details> <summary>CONTENT/DS-n-Algos/Graphs/graphs-intro-solution/node_modules/check-error/</summary>
 
 ### [CONTENT/DS-n-Algos/Graphs/graphs-intro-solution/node_modules/check-error/README.md](CONTENT/DS-n-Algos/Graphs/graphs-intro-solution/node_modules/check-error/README.md)
+
 <h1 align=center>
   <a href="http://chaijs.com" title="Chai Documentation">
     <img alt="ChaiJS" src="http://chaijs.com/img/chai-logo.png"/> check-error
@@ -8230,47 +7926,51 @@ You can also use it within the browser; install via npm and use the `check-error
 
 The primary export of `check-error` is an object which has the following methods:
 
-* `compatibleInstance(err, errorLike)` - Checks if an error is compatible with another `errorLike` object. If `errorLike` is an error instance we do a strict comparison, otherwise we return `false` by default, because instances of objects can only be compatible if they're both error instances.
-* `compatibleConstructor(err, errorLike)` - Checks if an error's constructor is compatible with another `errorLike` object. If `err` has the same constructor as `errorLike` or if `err` is an instance of `errorLike`.
-* `compatibleMessage(err, errMatcher)` - Checks if an error message is compatible with an `errMatcher` RegExp or String (we check if the message contains the String).
-* `getConstructorName(errorLike)` - Retrieves the name of a constructor, an error's constructor or `errorLike` itself if it's not an error instance or constructor.
-* `getMessage(err)` - Retrieves the message of an error or `err` itself if it's a String. If `err` or `err.message` is undefined we return an empty String.
+- `compatibleInstance(err, errorLike)` - Checks if an error is compatible with another `errorLike` object. If `errorLike` is an error instance we do a strict comparison, otherwise we return `false` by default, because instances of objects can only be compatible if they're both error instances.
+- `compatibleConstructor(err, errorLike)` - Checks if an error's constructor is compatible with another `errorLike` object. If `err` has the same constructor as `errorLike` or if `err` is an instance of `errorLike`.
+- `compatibleMessage(err, errMatcher)` - Checks if an error message is compatible with an `errMatcher` RegExp or String (we check if the message contains the String).
+- `getConstructorName(errorLike)` - Retrieves the name of a constructor, an error's constructor or `errorLike` itself if it's not an error instance or constructor.
+- `getMessage(err)` - Retrieves the message of an error or `err` itself if it's a String. If `err` or `err.message` is undefined we return an empty String.
 
 ```js
-var checkError = require('check-error');
+var checkError = require("check-error");
 ```
 
 #### .compatibleInstance(err, errorLike)
 
 ```js
-var checkError = require('check-error');
+var checkError = require("check-error");
 
-var funcThatThrows = function() { throw new TypeError('I am a TypeError') };
+var funcThatThrows = function () {
+  throw new TypeError("I am a TypeError");
+};
 var caughtErr;
 
 try {
   funcThatThrows();
-} catch(e) {
+} catch (e) {
   caughtErr = e;
 }
 
 var sameInstance = caughtErr;
 
 checkError.compatibleInstance(caughtErr, sameInstance); // true
-checkError.compatibleInstance(caughtErr, new TypeError('Another error')); // false
+checkError.compatibleInstance(caughtErr, new TypeError("Another error")); // false
 ```
 
 #### .compatibleConstructor(err, errorLike)
 
 ```js
-var checkError = require('check-error');
+var checkError = require("check-error");
 
-var funcThatThrows = function() { throw new TypeError('I am a TypeError') };
+var funcThatThrows = function () {
+  throw new TypeError("I am a TypeError");
+};
 var caughtErr;
 
 try {
   funcThatThrows();
-} catch(e) {
+} catch (e) {
   caughtErr = e;
 }
 
@@ -8282,70 +7982,73 @@ checkError.compatibleConstructor(caughtErr, RangeError); // false
 #### .compatibleMessage(err, errMatcher)
 
 ```js
-var checkError = require('check-error');
+var checkError = require("check-error");
 
-var funcThatThrows = function() { throw new TypeError('I am a TypeError') };
+var funcThatThrows = function () {
+  throw new TypeError("I am a TypeError");
+};
 var caughtErr;
 
 try {
   funcThatThrows();
-} catch(e) {
+} catch (e) {
   caughtErr = e;
 }
 
 var sameInstance = caughtErr;
 
 checkError.compatibleMessage(caughtErr, /TypeError$/); // true
-checkError.compatibleMessage(caughtErr, 'I am a'); // true
+checkError.compatibleMessage(caughtErr, "I am a"); // true
 checkError.compatibleMessage(caughtErr, /unicorn/); // false
-checkError.compatibleMessage(caughtErr, 'I do not exist'); // false
+checkError.compatibleMessage(caughtErr, "I do not exist"); // false
 ```
 
 #### .getConstructorName(errorLike)
 
 ```js
-var checkError = require('check-error');
+var checkError = require("check-error");
 
-var funcThatThrows = function() { throw new TypeError('I am a TypeError') };
+var funcThatThrows = function () {
+  throw new TypeError("I am a TypeError");
+};
 var caughtErr;
 
 try {
   funcThatThrows();
-} catch(e) {
+} catch (e) {
   caughtErr = e;
 }
 
 var sameInstance = caughtErr;
 
-checkError.getConstructorName(caughtErr) // 'TypeError'
+checkError.getConstructorName(caughtErr); // 'TypeError'
 ```
 
 #### .getMessage(err)
 
 ```js
-var checkError = require('check-error');
+var checkError = require("check-error");
 
-var funcThatThrows = function() { throw new TypeError('I am a TypeError') };
+var funcThatThrows = function () {
+  throw new TypeError("I am a TypeError");
+};
 var caughtErr;
 
 try {
   funcThatThrows();
-} catch(e) {
+} catch (e) {
   caughtErr = e;
 }
 
 var sameInstance = caughtErr;
 
-checkError.getMessage(caughtErr) // 'I am a TypeError'
+checkError.getMessage(caughtErr); // 'I am a TypeError'
 ```
-
-
-
-
 
 </details><details> <summary>CONTENT/DS-n-Algos/Graphs/graphs-intro-solution/node_modules/deep-eql/</summary>
 
 ### [CONTENT/DS-n-Algos/Graphs/graphs-intro-solution/node_modules/deep-eql/README.md](CONTENT/DS-n-Algos/Graphs/graphs-intro-solution/node_modules/deep-eql/README.md)
+
 <h1 align=center>
   <a href="http://chaijs.com" title="Chai Documentation">
     <img alt="ChaiJS" src="http://chaijs.com/img/chai-logo.png"/> deep-eql
@@ -8463,13 +8166,10 @@ The primary export of `deep-eql` is function that can be given two objects to co
   - `eql(new Error('msg'), new Error('msg')).should.be.false;`
   - `var err = new Error('msg'); eql(err, err).should.be.true;`
 
-
-
-
-
 </details><details> <summary>CONTENT/DS-n-Algos/Graphs/graphs-intro-solution/node_modules/get-func-name/</summary>
 
 ### [CONTENT/DS-n-Algos/Graphs/graphs-intro-solution/node_modules/get-func-name/README.md](CONTENT/DS-n-Algos/Graphs/graphs-intro-solution/node_modules/get-func-name/README.md)
+
 <h1 align=center>
   <a href="http://chaijs.com" title="Chai Documentation">
     <img alt="ChaiJS" src="http://chaijs.com/img/chai-logo.png"/>
@@ -8571,36 +8271,33 @@ You can also use it within the browser; install via npm and use the `get-func-na
 
 The module `get-func-name` exports the following method:
 
-* `getFuncName(fn)` - Returns the name of a function.
+- `getFuncName(fn)` - Returns the name of a function.
 
 ```js
-var getFuncName = require('get-func-name');
+var getFuncName = require("get-func-name");
 ```
 
 #### .getFuncName(fun)
 
 ```js
-var getFuncName = require('get-func-name');
+var getFuncName = require("get-func-name");
 
 var unknownFunction = function myCoolFunction(word) {
-   return word + 'is cool'; 
+  return word + "is cool";
 };
 
 var anonymousFunction = (function () {
-    return function () {};
-}());
+  return function () {};
+})();
 
-getFuncName(unknownFunction) // 'myCoolFunction'
-getFuncName(anonymousFunction) // ''
+getFuncName(unknownFunction); // 'myCoolFunction'
+getFuncName(anonymousFunction); // ''
 ```
-
-
-
-
 
 </details><details> <summary>CONTENT/DS-n-Algos/Graphs/graphs-intro-solution/node_modules/pathval/</summary>
 
 ### [CONTENT/DS-n-Algos/Graphs/graphs-intro-solution/node_modules/pathval/README.md](CONTENT/DS-n-Algos/Graphs/graphs-intro-solution/node_modules/pathval/README.md)
+
 <h1 align=center>
   <a href="http://chaijs.com" title="Chai Documentation">
     <img alt="ChaiJS" src="http://chaijs.com/img/chai-logo.png"/> pathval
@@ -8700,60 +8397,57 @@ You can also use it within the browser; install via npm and use the `pathval.js`
 
 The primary export of `pathval` is an object which has the following methods:
 
-* `hasProperty(object, name)` - Checks whether an `object` has `name`d property or numeric array index.
-* `getPathInfo(object, path)` - Returns an object with info indicating the value of the `parent` of that path, the `name ` of the property we're retrieving and its `value`.
-* `getPathValue(object, path)` - Retrieves the value of a property at a given `path` inside an `object`'.
-* `setPathValue(object, path, value)` - Sets the `value` of a property at a given `path` inside an `object`'.
+- `hasProperty(object, name)` - Checks whether an `object` has `name`d property or numeric array index.
+- `getPathInfo(object, path)` - Returns an object with info indicating the value of the `parent` of that path, the `name ` of the property we're retrieving and its `value`.
+- `getPathValue(object, path)` - Retrieves the value of a property at a given `path` inside an `object`'.
+- `setPathValue(object, path, value)` - Sets the `value` of a property at a given `path` inside an `object`'.
 
 ```js
-var pathval = require('pathval');
+var pathval = require("pathval");
 ```
 
 #### .hasProperty(object, name)
 
 ```js
-var pathval = require('pathval');
+var pathval = require("pathval");
 
-var obj = { prop: 'a value' };
-pathval.hasProperty(obj, 'prop'); // true
+var obj = { prop: "a value" };
+pathval.hasProperty(obj, "prop"); // true
 ```
 
 #### .getPathInfo(object, path)
 
 ```js
-var pathval = require('pathval');
+var pathval = require("pathval");
 
-var obj = { earth: { country: 'Brazil' } };
-pathval.getPathInfo(obj, 'earth.country'); // { parent: { country: 'Brazil'  }, name: 'country', value: 'Brazil', exists: true }
+var obj = { earth: { country: "Brazil" } };
+pathval.getPathInfo(obj, "earth.country"); // { parent: { country: 'Brazil'  }, name: 'country', value: 'Brazil', exists: true }
 ```
 
 #### .getPathValue(object, path)
 
 ```js
-var pathval = require('pathval');
+var pathval = require("pathval");
 
-var obj = { earth: { country: 'Brazil' } };
-pathval.getPathValue(obj, 'earth.country'); // 'Brazil'
+var obj = { earth: { country: "Brazil" } };
+pathval.getPathValue(obj, "earth.country"); // 'Brazil'
 ```
 
 #### .setPathValue(object, path, value)
 
 ```js
-var pathval = require('pathval');
+var pathval = require("pathval");
 
-var obj = { earth: { country: 'Brazil' } };
-pathval.setPathValue(obj, 'earth.country', 'USA');
+var obj = { earth: { country: "Brazil" } };
+pathval.setPathValue(obj, "earth.country", "USA");
 
 obj.earth.country; // 'USA'
 ```
 
-
-
-
-
 </details><details> <summary>CONTENT/DS-n-Algos/Graphs/graphs-intro-solution/node_modules/type-detect/</summary>
 
 ### [CONTENT/DS-n-Algos/Graphs/graphs-intro-solution/node_modules/type-detect/README.md](CONTENT/DS-n-Algos/Graphs/graphs-intro-solution/node_modules/type-detect/README.md)
+
 <h1 align=center>
   <a href="http://chaijs.com" title="Chai Documentation">
     <img alt="ChaiJS" src="http://chaijs.com/img/chai-logo.png"/> type-detect
@@ -8844,7 +8538,7 @@ Type Detect is a module which you can use to detect the type of a given object. 
 
 ## Why?
 
-The `typeof` operator will only specify primitive values; everything else is `"object"` (including `null`, arrays, regexps, etc). Many developers use `Object.prototype.toString()` - which is a fine alternative and returns many more types (null returns `[object Null]`, Arrays as `[object Array]`, regexps as `[object RegExp]` etc). 
+The `typeof` operator will only specify primitive values; everything else is `"object"` (including `null`, arrays, regexps, etc). Many developers use `Object.prototype.toString()` - which is a fine alternative and returns many more types (null returns `[object Null]`, Arrays as `[object Array]`, regexps as `[object RegExp]` etc).
 
 Sadly, `Object.prototype.toString` is slow, and buggy. By slow - we mean it is slower than `typeof`. By buggy - we mean that some values (like Promises, the global object, iterators, dataviews, a bunch of HTML elements) all report different things in different browsers.
 
@@ -8871,84 +8565,84 @@ You can also use it within the browser; install via npm and use the `type-detect
 The primary export of `type-detect` is function that can serve as a replacement for `typeof`. The results of this function will be more specific than that of native `typeof`.
 
 ```js
-var type = require('type-detect');
+var type = require("type-detect");
 ```
 
 #### array
 
 ```js
-assert(type([]) === 'Array');
-assert(type(new Array()) === 'Array');
+assert(type([]) === "Array");
+assert(type(new Array()) === "Array");
 ```
 
 #### regexp
 
 ```js
-assert(type(/a-z/gi) === 'RegExp');
-assert(type(new RegExp('a-z')) === 'RegExp');
+assert(type(/a-z/gi) === "RegExp");
+assert(type(new RegExp("a-z")) === "RegExp");
 ```
 
 #### function
 
 ```js
-assert(type(function () {}) === 'function');
+assert(type(function () {}) === "function");
 ```
 
 #### arguments
 
 ```js
 (function () {
-  assert(type(arguments) === 'Arguments');
+  assert(type(arguments) === "Arguments");
 })();
 ```
 
 #### date
 
 ```js
-assert(type(new Date) === 'Date');
+assert(type(new Date()) === "Date");
 ```
 
 #### number
 
 ```js
-assert(type(1) === 'number');
-assert(type(1.234) === 'number');
-assert(type(-1) === 'number');
-assert(type(-1.234) === 'number');
-assert(type(Infinity) === 'number');
-assert(type(NaN) === 'number');
-assert(type(new Number(1)) === 'Number'); // note - the object version has a capital N
+assert(type(1) === "number");
+assert(type(1.234) === "number");
+assert(type(-1) === "number");
+assert(type(-1.234) === "number");
+assert(type(Infinity) === "number");
+assert(type(NaN) === "number");
+assert(type(new Number(1)) === "Number"); // note - the object version has a capital N
 ```
 
 #### string
 
 ```js
-assert(type('hello world') === 'string');
-assert(type(new String('hello')) === 'String'); // note - the object version has a capital S
+assert(type("hello world") === "string");
+assert(type(new String("hello")) === "String"); // note - the object version has a capital S
 ```
 
 #### null
 
 ```js
-assert(type(null) === 'null');
-assert(type(undefined) !== 'null');
+assert(type(null) === "null");
+assert(type(undefined) !== "null");
 ```
 
 #### undefined
 
 ```js
-assert(type(undefined) === 'undefined');
-assert(type(null) !== 'undefined');
+assert(type(undefined) === "undefined");
+assert(type(null) !== "undefined");
 ```
 
 #### object
 
 ```js
 var Noop = function () {};
-assert(type({}) === 'Object');
-assert(type(Noop) !== 'Object');
-assert(type(new Noop) === 'Object');
-assert(type(new Object) === 'Object');
+assert(type({}) === "Object");
+assert(type(Noop) !== "Object");
+assert(type(new Noop()) === "Object");
+assert(type(new Object()) === "Object");
 ```
 
 #### ECMA6 Types
@@ -8979,17 +8673,14 @@ Also, if you use `Symbol.toStringTag` to change an Objects return value of the `
 
 ```js
 var myObject = {};
-myObject[Symbol.toStringTag] = 'myCustomType';
-assert(type(myObject) === 'myCustomType');
+myObject[Symbol.toStringTag] = "myCustomType";
+assert(type(myObject) === "myCustomType");
 ```
-
-
-
-
 
 </details><details> <summary>CONTENT/DS-n-Algos/Graphs/</summary>
 
 ### [CONTENT/DS-n-Algos/Graphs/graphs.md](CONTENT/DS-n-Algos/Graphs/graphs.md)
+
 # Example Graph
 
 ### Visual Aid
@@ -9246,13 +8937,10 @@ function _depthFirstRecur(node, graph, visited) {
 depthFirst(graph);
 ```
 
-
-
-
-
 </details><details> <summary>CONTENT/DS-n-Algos/Misc/whiteboarding/</summary>
 
 ### [CONTENT/DS-n-Algos/Misc/whiteboarding/whiteboarding-problems.md](CONTENT/DS-n-Algos/Misc/whiteboarding/whiteboarding-problems.md)
+
 # Module 3 Whiteboarding Exercises
 
 ## Problem 1: Breadth First Search on a Graph
@@ -9264,16 +8952,16 @@ NOTE: your function should return the number of friends visited, not including J
 
 ```javascript
 const adjacencyList = {
-  'derek':['selam', 'dean'],
-  'joe':['selam'],
-  'selam': ['derek', 'joe', 'dean', 'evan'],
-  'dean': ['derek', 'evan', 'selam'],
-  'sam': ['jen'],
-  'evan': ['selam', 'jesse', 'dean'],
-  'jen':['sam', 'javier'],
-  'javier':['jen'],
-  'chris':[],
-  'jesse': ['evan'],
+  derek: ["selam", "dean"],
+  joe: ["selam"],
+  selam: ["derek", "joe", "dean", "evan"],
+  dean: ["derek", "evan", "selam"],
+  sam: ["jen"],
+  evan: ["selam", "jesse", "dean"],
+  jen: ["sam", "javier"],
+  javier: ["jen"],
+  chris: [],
+  jesse: ["evan"],
 };
 ```
 
@@ -9286,16 +8974,16 @@ NOTE: your function should return a list of friends visited, not including Joe h
 
 ```javascript
 const adjacencyList = {
-  'derek':['selam', 'dean'],
-  'joe':['selam'],
-  'selam': ['derek', 'joe', 'dean', 'evan'],
-  'dean': ['derek', 'evan', 'selam'],
-  'sam': ['jen'],
-  'evan': ['selam', 'jesse', 'dean'],
-  'jen':['sam', 'javier'],
-  'javier':['jen'],
-  'chris':[],
-  'jesse': ['evan'],
+  derek: ["selam", "dean"],
+  joe: ["selam"],
+  selam: ["derek", "joe", "dean", "evan"],
+  dean: ["derek", "evan", "selam"],
+  sam: ["jen"],
+  evan: ["selam", "jesse", "dean"],
+  jen: ["sam", "javier"],
+  javier: ["jen"],
+  chris: [],
+  jesse: ["evan"],
 };
 ```
 
@@ -9325,35 +9013,30 @@ The maximum depth is the number of nodes along the longest path from the root no
 Note: the depth at the root is 0.
 
 ```js
-  //   3
-  //  / \
-  // 9  20
-  //   /  \
-  //  15   7
+//   3
+//  / \
+// 9  20
+//   /  \
+//  15   7
 ```
 
 ## Now go ahead and start the problems that are in AAO
-
-
-
-
 
 </details><details> <summary>CONTENT/DS-n-Algos/POJOs/</summary>
 
 ### [CONTENT/DS-n-Algos/POJOs/utils.md](CONTENT/DS-n-Algos/POJOs/utils.md)
 
-
 ## Clone an object
-      clone(x)
-  Can clone any primitive type, array, and object.
-  If x has a function clone, this function will be invoked to clone the object.
-  >param {} x
-  >return {} clone
 
+      clone(x)
+
+Can clone any primitive type, array, and object.
+If x has a function clone, this function will be invoked to clone the object.
+
+> param {} x
+> return {} clone
 
 ```js
-
-
 export function clone(x) {
   const type = typeof x;
   // immutable primitive types
@@ -9381,18 +9064,15 @@ export function clone(x) {
   // object
   return mapObject(x, clone);
 }
-
 ```
 
 ## Apply map to all properties of an object
-  >param {Object} object
-  >param {function} callback
-  >return {Object} Returns a copy of the object with mapped properties
 
+> param {Object} object
+> param {function} callback
+> return {Object} Returns a copy of the object with mapped properties
 
 ```js
-
-
 export function mapObject(object, callback) {
   const clone = {};
   for (const key in object) {
@@ -9402,18 +9082,15 @@ export function mapObject(object, callback) {
   }
   return clone;
 }
-
 ```
 
 ## Extend object a with the properties of object b
-  >param {Object} a
-  >param {Object} b
-  >return {Object} a
 
+> param {Object} a
+> param {Object} b
+> return {Object} a
 
 ```js
-
-
 export function extend(a, b) {
   for (const prop in b) {
     if (hasOwnProperty(b, prop)) {
@@ -9422,21 +9099,17 @@ export function extend(a, b) {
   }
   return a;
 }
-
 ```
 
-
-
 ## Deep test equality of all fields in two pairs of arrays or objects.
-  Compares values and functions strictly (ie. 2 is not the same as '2').
-  >param {Array | Object} a
-  >param {Array | Object} b
-  >returns {boolean}
 
+Compares values and functions strictly (ie. 2 is not the same as '2').
+
+> param {Array | Object} a
+> param {Array | Object} b
+> returns {boolean}
 
 ```js
-
-
 export function deepStrictEqual(a, b) {
   let prop, i, len;
   if (Array.isArray(a)) {
@@ -9475,17 +9148,14 @@ export function deepStrictEqual(a, b) {
     return a === b;
   }
 }
-
 ```
 
 ## Recursively flatten a nested object.
-  >param {Object} nestedObject
-  >return {Object} Returns the flattened object
 
+> param {Object} nestedObject
+> return {Object} Returns the flattened object
 
 ```js
-
-
 export function deepFlatten(nestedObject) {
   const flattenedObject = {};
   _deepFlatten(nestedObject, flattenedObject);
@@ -9504,16 +9174,13 @@ function _deepFlatten(nestedObject, flattenedObject) {
     }
   }
 }
-
 ```
 
 ## Test whether the current JavaScript engine supports Object.defineProperty
-  >returns {boolean} returns true if supported
 
+> returns {boolean} returns true if supported
 
 ```js
-
-
 export function canDefineProperty() {
   // test needed for broken IE8 implementation
   try {
@@ -9524,20 +9191,19 @@ export function canDefineProperty() {
   } catch (e) {}
   return false;
 }
-
 ```
 
 ## Attach a lazy loading property to a constant.
-  The given function `fn` is called once when the property is first requested.
-  >param {Object} object         Object where to add the property
-  >param {string} prop           Property name
-  >param {Function} valueResolver Function returning the property value. Called
+
+The given function `fn` is called once when the property is first requested.
+
+> param {Object} object Object where to add the property
+> param {string} prop Property name
+> param {Function} valueResolver Function returning the property value. Called
+
                                  without arguments.
 
-
 ```js
-
-
 export function lazy(object, prop, valueResolver) {
   let _uninitialized = true;
   let _value;
@@ -9557,18 +9223,15 @@ export function lazy(object, prop, valueResolver) {
     enumerable: true,
   });
 }
-
 ```
 
 ## Get a nested property from an object
-  >param {Object} object
-  >param {string | string[]} path
-  >returns {Object}
 
+> param {Object} object
+> param {string | string[]} path
+> returns {Object}
 
 ```js
-
-
 export function get(object, path) {
   if (typeof path === "string") {
     if (isPath(path)) {
@@ -9584,21 +9247,19 @@ export function get(object, path) {
   }
   return child;
 }
-
 ```
 
 ## Set a nested property in an object
-  Mutates the object itself
-  If the path doesn't exist, it will be created
-  >param {Object} object
-  >param {string | string[]} path
-  >param {} value
-  >returns {Object}
 
+Mutates the object itself
+If the path doesn't exist, it will be created
+
+> param {Object} object
+> param {string | string[]} path
+> param {} value
+> returns {Object}
 
 ```js
-
-
 export function set(object, path, value) {
   if (typeof path === "string") {
     if (isPath(path)) {
@@ -9622,23 +9283,17 @@ export function set(object, path, value) {
   }
   return object;
 }
-
 ```
-
-
-
-
-
-
 
 </details><details> <summary>CONTENT/DS-n-Algos/Recursion/fibonacci/</summary>
 
 ### [CONTENT/DS-n-Algos/Recursion/fibonacci/README.md](CONTENT/DS-n-Algos/Recursion/fibonacci/README.md)
+
 # Fibonacci Number
 
-In mathematics, the Fibonacci numbers are the numbers in the following 
-integer sequence, called the Fibonacci sequence, and characterized by 
-the fact that every number after the first two is the sum of the two 
+In mathematics, the Fibonacci numbers are the numbers in the following
+integer sequence, called the Fibonacci sequence, and characterized by
+the fact that every number after the first two is the sum of the two
 preceding ones:
 
 `0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, ...`
@@ -9653,42 +9308,42 @@ The Fibonacci spiral: an approximation of the golden spiral created by drawing c
 
 Fibonacci_number)
 
-
-
-
-
 </details><details> <summary>CONTENT/DS-n-Algos/Recursion/My-Recursion-Prac-Website/Recur-website/blank/</summary>
 
 ### [CONTENT/DS-n-Algos/Recursion/My-Recursion-Prac-Website/Recur-website/blank/README.md](CONTENT/DS-n-Algos/Recursion/My-Recursion-Prac-Website/Recur-website/blank/README.md)
+
 # Recursion Prompts
 
 ### **What is this?**
+
 This is a repository of toy problems to be solved using recursion and JavaScript. While the concept of recursion may not be difficult to grasp, the only way to improve at thinking recursively is by practice. If you need practice, then maybe this repo is for you.
 
 ### **A few guidelines:**
+
 - Please refrain from sharing solutions. As crazy as it sounds, giving someone the answer doesn't help them. Instead, give them a question that encourages them to think differently.
 
-    > **Q:** Why does my function keep exceeding the call stack?
+  > **Q:** Why does my function keep exceeding the call stack?
 
-    > **A:** What's your base case?
+  > **A:** What's your base case?
 
 - Don't be afraid to pseudocode your algorithm before writing actual code.
 
-    > Pseudocode helps you focus on the algorithm instead of getting distracted by syntax.
+  > Pseudocode helps you focus on the algorithm instead of getting distracted by syntax.
 
 - This repo requires each function call itself recursively and pays no attention to whether inner recursive functions are defined and called.
 
-    > While both are valid uses of recursion, there are important lessons to learn by following the method this repo enforces. Defining inner functions and calling them recursively relies on side effects, while following the more pure approach requires an understanding of how values are passed through the call stack.
+  > While both are valid uses of recursion, there are important lessons to learn by following the method this repo enforces. Defining inner functions and calling them recursively relies on side effects, while following the more pure approach requires an understanding of how values are passed through the call stack.
 
 - This repo restricts expanding the number of parameters a function accepts.
 
-    > Expanding the number of parameters is a valid approach, but has been restricted here to emphasize certain lessons while learning recursion.
+  > Expanding the number of parameters is a valid approach, but has been restricted here to emphasize certain lessons while learning recursion.
 
 - An attempt was made to order prompts by difficulty, but they don't have to be solved in any particular order.
 - Feel free to make pull requests or open issues regarding bugs or suggestions.
 - **`Watch`**, **`Star`**, and **`Fork`** this repo. You know you want to.
 
 ### **How to use this repo:**
+
 1. Fork this repo and clone it to your local machine
 2. Open `SpecRunner.html` in your web browser
 3. Code your solutions in `recursion.js`
@@ -9696,24 +9351,31 @@ This is a repository of toy problems to be solved using recursion and JavaScript
 5. Save your work and refresh your browser to check for passing/failing tests
 
 ---
+
 ### What is recursion?
+
 > Recursion is when a function calls itself until it doesn't. --not helpful person
 
 Is it a true definition? Mostly. Recursion is when a function calls itself. A recursive function can call itself forever, but that's generally not preferred. It's often a good idea to include a condition in the function definition that allows it to stop calling itself. This condition is referred to as a **_base_** case. As a general rule, recursion shouldn't be utilized without an accompanying base case unless an infinite operation is desired. This leaves us with two fundamental conditions every recursive function should include:
+
 - A **`base`** case
 - A **`recursive`** case
 
 _What does this all mean?_ Let's consider a silly example:
+
 ```javascript
 function stepsToZero(n) {
-  if (n === 0) { /* base case */
-    return 'Reached zero';
-  } else { /* recursive case */
-    console.log(n + ' is not zero');
-    return stepsToZero(n-1);
+  if (n === 0) {
+    /* base case */
+    return "Reached zero";
+  } else {
+    /* recursive case */
+    console.log(n + " is not zero");
+    return stepsToZero(n - 1);
   }
 }
 ```
+
 This function doesn't do anything meaningful, but hopefully it demonstrates the fundamental idea behind recursion. Simply put, recursion provides us a looping or repeating mechanism. It repeats an operation until a `base` condition is met. Let's step through an invocation of the above function to see how it evaluates.
 
 1. Invoke `stepsToZero(n)` where `n` is the number `2`
@@ -9721,7 +9383,7 @@ This function doesn't do anything meaningful, but hopefully it demonstrates the 
 3. No, print message to console that 2 is not zero
 4. Invoke `stepsToZero(n-1)` where `n-1` evaluates to `1`
 
-    > Every recursive call adds a new invocation to the stack on top of the previous invocation
+   > Every recursive call adds a new invocation to the stack on top of the previous invocation
 
 5. Is 1 zero?
 6. No, print message that 1 is not zero
@@ -9729,63 +9391,63 @@ This function doesn't do anything meaningful, but hopefully it demonstrates the 
 8. Is 0 zero?
 9. Yes, return message that reached zero
 10. The above return pops the current invocation off the stack
-6. Resume the invocation from step 4 where it left off (in-between steps 6 and 7)
-6. Return out of the invocation from step 4
-12. Resume the initial invocation from step 1 where it left off (in-between steps 3 and 4)
-12. Return out of the initial invocation
+11. Resume the invocation from step 4 where it left off (in-between steps 6 and 7)
+12. Return out of the invocation from step 4
+13. Resume the initial invocation from step 1 where it left off (in-between steps 3 and 4)
+14. Return out of the initial invocation
 
 Note that the value returned from the base case (step 9) gets returned to the previous invocation (step 4) on the stack. Step 4's invocation takes that value and returns it to the invocation that preceded it (step 1). Once the initial invocation is reached, it returns the value to whatever invoked it. Through these steps, you can watch the call stack build up and once the base case is reached, the return value is passed back down as each invocation pops off the stack.
 
 Due to the way the execution stack operates, it's as if each function invocation pauses in time when a recursive call is made. The function that pauses before a recursive call will resume once the recursive call completes. If you've seen the movie [Inception], this model may sound reminiscent to when the characters enter a person's dreams and time slowed. The difference is time doesn't actually slow with recursive invocations; rather, it's a matter of order of operations. If a new invocation enters the execution stack, that invocation must complete before the previous can continue and complete.
 
-
 ### Why use recursion?
+
 Recursion can be elegant, but it can also be dangerous. In some cases, recursion feels like a more natural and readable solution; in others, it ends up being contrived. In most cases, recursion can be avoided entirely and sometimes should in order to minimize the possibility of exceeding the call stack and crashing your app. But keep in mind that code readability is important. If a recursive solution reads more naturally, then it may be the best solution for the given problem.
 
 Recursion isn't unique to any one programming language. As a software engineer, you _will_ encounter recursion and it's important to understand what's happening and how to work with it. It's also important to understand why someone might use it. Recursion is often used when the depth of a thing is unknown or every element of a thing needs to be touched. For example, you might use recursion if you want to find all DOM elements with a specific class name. You may not know how deep the DOM goes and need to touch every element so that none are missed. The same can be said for traversing any structure where all possible paths need to be considered and investigated.
 
-
 ### Divide and Conquer
+
 Recursion is often used in _divide and conquer_ algorithms where problems can be divided into similar subproblems and conquered individually. Consider traversing a tree structure. Each branch may have its own "children" branches. Every branch is essentially just another tree which means, as long as child trees are found, we can recurse on each child.
 
-[inception]: <https://en.wikipedia.org/wiki/Inception>
-
-
-
-
+[inception]: https://en.wikipedia.org/wiki/Inception
 
 </details><details> <summary>CONTENT/DS-n-Algos/Recursion/My-Recursion-Prac-Website/Recur-website/my-solutions/</summary>
 
 ### [CONTENT/DS-n-Algos/Recursion/My-Recursion-Prac-Website/Recur-website/my-solutions/README.md](CONTENT/DS-n-Algos/Recursion/My-Recursion-Prac-Website/Recur-website/my-solutions/README.md)
+
 # Recursion Prompts
 
 ### **What is this?**
+
 This is a repository of toy problems to be solved using recursion and JavaScript. While the concept of recursion may not be difficult to grasp, the only way to improve at thinking recursively is by practice. If you need practice, then maybe this repo is for you.
 
 ### **A few guidelines:**
+
 - Please refrain from sharing solutions. As crazy as it sounds, giving someone the answer doesn't help them. Instead, give them a question that encourages them to think differently.
 
-    > **Q:** Why does my function keep exceeding the call stack?
+  > **Q:** Why does my function keep exceeding the call stack?
 
-    > **A:** What's your base case?
+  > **A:** What's your base case?
 
 - Don't be afraid to pseudocode your algorithm before writing actual code.
 
-    > Pseudocode helps you focus on the algorithm instead of getting distracted by syntax.
+  > Pseudocode helps you focus on the algorithm instead of getting distracted by syntax.
 
 - This repo requires each function call itself recursively and pays no attention to whether inner recursive functions are defined and called.
 
-    > While both are valid uses of recursion, there are important lessons to learn by following the method this repo enforces. Defining inner functions and calling them recursively relies on side effects, while following the more pure approach requires an understanding of how values are passed through the call stack.
+  > While both are valid uses of recursion, there are important lessons to learn by following the method this repo enforces. Defining inner functions and calling them recursively relies on side effects, while following the more pure approach requires an understanding of how values are passed through the call stack.
 
 - This repo restricts expanding the number of parameters a function accepts.
 
-    > Expanding the number of parameters is a valid approach, but has been restricted here to emphasize certain lessons while learning recursion.
+  > Expanding the number of parameters is a valid approach, but has been restricted here to emphasize certain lessons while learning recursion.
 
 - An attempt was made to order prompts by difficulty, but they don't have to be solved in any particular order.
 - Feel free to make pull requests or open issues regarding bugs or suggestions.
 - **`Watch`**, **`Star`**, and **`Fork`** this repo. You know you want to.
 
 ### **How to use this repo:**
+
 1. Fork this repo and clone it to your local machine
 2. Open `SpecRunner.html` in your web browser
 3. Code your solutions in `recursion.js`
@@ -9793,24 +9455,31 @@ This is a repository of toy problems to be solved using recursion and JavaScript
 5. Save your work and refresh your browser to check for passing/failing tests
 
 ---
+
 ### What is recursion?
+
 > Recursion is when a function calls itself until it doesn't. --not helpful person
 
 Is it a true definition? Mostly. Recursion is when a function calls itself. A recursive function can call itself forever, but that's generally not preferred. It's often a good idea to include a condition in the function definition that allows it to stop calling itself. This condition is referred to as a **_base_** case. As a general rule, recursion shouldn't be utilized without an accompanying base case unless an infinite operation is desired. This leaves us with two fundamental conditions every recursive function should include:
+
 - A **`base`** case
 - A **`recursive`** case
 
 _What does this all mean?_ Let's consider a silly example:
+
 ```javascript
 function stepsToZero(n) {
-  if (n === 0) { /* base case */
-    return 'Reached zero';
-  } else { /* recursive case */
-    console.log(n + ' is not zero');
-    return stepsToZero(n-1);
+  if (n === 0) {
+    /* base case */
+    return "Reached zero";
+  } else {
+    /* recursive case */
+    console.log(n + " is not zero");
+    return stepsToZero(n - 1);
   }
 }
 ```
+
 This function doesn't do anything meaningful, but hopefully it demonstrates the fundamental idea behind recursion. Simply put, recursion provides us a looping or repeating mechanism. It repeats an operation until a `base` condition is met. Let's step through an invocation of the above function to see how it evaluates.
 
 1. Invoke `stepsToZero(n)` where `n` is the number `2`
@@ -9818,7 +9487,7 @@ This function doesn't do anything meaningful, but hopefully it demonstrates the 
 3. No, print message to console that 2 is not zero
 4. Invoke `stepsToZero(n-1)` where `n-1` evaluates to `1`
 
-    > Every recursive call adds a new invocation to the stack on top of the previous invocation
+   > Every recursive call adds a new invocation to the stack on top of the previous invocation
 
 5. Is 1 zero?
 6. No, print message that 1 is not zero
@@ -9826,34 +9495,31 @@ This function doesn't do anything meaningful, but hopefully it demonstrates the 
 8. Is 0 zero?
 9. Yes, return message that reached zero
 10. The above return pops the current invocation off the stack
-6. Resume the invocation from step 4 where it left off (in-between steps 6 and 7)
-6. Return out of the invocation from step 4
-12. Resume the initial invocation from step 1 where it left off (in-between steps 3 and 4)
-12. Return out of the initial invocation
+11. Resume the invocation from step 4 where it left off (in-between steps 6 and 7)
+12. Return out of the invocation from step 4
+13. Resume the initial invocation from step 1 where it left off (in-between steps 3 and 4)
+14. Return out of the initial invocation
 
 Note that the value returned from the base case (step 9) gets returned to the previous invocation (step 4) on the stack. Step 4's invocation takes that value and returns it to the invocation that preceded it (step 1). Once the initial invocation is reached, it returns the value to whatever invoked it. Through these steps, you can watch the call stack build up and once the base case is reached, the return value is passed back down as each invocation pops off the stack.
 
 Due to the way the execution stack operates, it's as if each function invocation pauses in time when a recursive call is made. The function that pauses before a recursive call will resume once the recursive call completes. If you've seen the movie [Inception], this model may sound reminiscent to when the characters enter a person's dreams and time slowed. The difference is time doesn't actually slow with recursive invocations; rather, it's a matter of order of operations. If a new invocation enters the execution stack, that invocation must complete before the previous can continue and complete.
 
-
 ### Why use recursion?
+
 Recursion can be elegant, but it can also be dangerous. In some cases, recursion feels like a more natural and readable solution; in others, it ends up being contrived. In most cases, recursion can be avoided entirely and sometimes should in order to minimize the possibility of exceeding the call stack and crashing your app. But keep in mind that code readability is important. If a recursive solution reads more naturally, then it may be the best solution for the given problem.
 
 Recursion isn't unique to any one programming language. As a software engineer, you _will_ encounter recursion and it's important to understand what's happening and how to work with it. It's also important to understand why someone might use it. Recursion is often used when the depth of a thing is unknown or every element of a thing needs to be touched. For example, you might use recursion if you want to find all DOM elements with a specific class name. You may not know how deep the DOM goes and need to touch every element so that none are missed. The same can be said for traversing any structure where all possible paths need to be considered and investigated.
 
-
 ### Divide and Conquer
+
 Recursion is often used in _divide and conquer_ algorithms where problems can be divided into similar subproblems and conquered individually. Consider traversing a tree structure. Each branch may have its own "children" branches. Every branch is essentially just another tree which means, as long as child trees are found, we can recurse on each child.
 
-[inception]: <https://en.wikipedia.org/wiki/Inception>
-
-
-
-
+[inception]: https://en.wikipedia.org/wiki/Inception
 
 </details><details> <summary>CONTENT/DS-n-Algos/Recursion/My-Recursion-Prac-Website/Recur-website/part-2/</summary>
 
 ### [CONTENT/DS-n-Algos/Recursion/My-Recursion-Prac-Website/Recur-website/part-2/README.md](CONTENT/DS-n-Algos/Recursion/My-Recursion-Prac-Website/Recur-website/part-2/README.md)
+
 #2013-08-more-data-structures
 
 This is a copy of the work I did on a private repo, originally a project from
@@ -9863,30 +9529,24 @@ tackled, but not of my solo work.
 
 For a better perspective on my own work, please see [CoderCombat](https://github.com/tylermcginnis33/CoderCombat).
 
-
-
-
-
 </details><details> <summary>CONTENT/DS-n-Algos/Recursion/My-Recursion-Prac-Website/Recur-website/</summary>
 
 ### [CONTENT/DS-n-Algos/Recursion/My-Recursion-Prac-Website/Recur-website/README.md](CONTENT/DS-n-Algos/Recursion/My-Recursion-Prac-Website/Recur-website/README.md)
+
 # Recursion Practice
----
-
 
 ---
 
-
-
+---
 
 ### TODO:
->Implement with jsfiddle so people can see the specs and their code in the same window rather than a combo of editor/browser
 
- 
+> Implement with jsfiddle so people can see the specs and their code in the same window rather than a combo of editor/browser
+
 ---
 
-
 ### **How to use this repo:**
+
 1. Fork this repo and clone it to your local machine
 2. Open `SpecRunner.html` in your web browser
 3. Code your solutions in `recursion.js`
@@ -9894,24 +9554,31 @@ For a better perspective on my own work, please see [CoderCombat](https://github
 5. Save your work and refresh your browser to check for passing/failing tests
 
 ---
+
 ### What is recursion?
+
 > Recursion is when a function calls itself until it doesn't. --not helpful person
 
 Is it a true definition? Mostly. Recursion is when a function calls itself. A recursive function can call itself forever, but that's generally not preferred. It's often a good idea to include a condition in the function definition that allows it to stop calling itself. This condition is referred to as a **_base_** case. As a general rule, recursion shouldn't be utilized without an accompanying base case unless an infinite operation is desired. This leaves us with two fundamental conditions every recursive function should include:
+
 - A **`base`** case
 - A **`recursive`** case
 
 _What does this all mean?_ Let's consider a silly example:
+
 ```javascript
 function stepsToZero(n) {
-  if (n === 0) { /* base case */
-    return 'Reached zero';
-  } else { /* recursive case */
-    console.log(n + ' is not zero');
-    return stepsToZero(n-1);
+  if (n === 0) {
+    /* base case */
+    return "Reached zero";
+  } else {
+    /* recursive case */
+    console.log(n + " is not zero");
+    return stepsToZero(n - 1);
   }
 }
 ```
+
 This function doesn't do anything meaningful, but hopefully it demonstrates the fundamental idea behind recursion. Simply put, recursion provides us a looping or repeating mechanism. It repeats an operation until a `base` condition is met. Let's step through an invocation of the above function to see how it evaluates.
 
 1. Invoke `stepsToZero(n)` where `n` is the number `2`
@@ -9919,7 +9586,7 @@ This function doesn't do anything meaningful, but hopefully it demonstrates the 
 3. No, print message to console that 2 is not zero
 4. Invoke `stepsToZero(n-1)` where `n-1` evaluates to `1`
 
-    > Every recursive call adds a new invocation to the stack on top of the previous invocation
+   > Every recursive call adds a new invocation to the stack on top of the previous invocation
 
 5. Is 1 zero?
 6. No, print message that 1 is not zero
@@ -9927,30 +9594,28 @@ This function doesn't do anything meaningful, but hopefully it demonstrates the 
 8. Is 0 zero?
 9. Yes, return message that reached zero
 10. The above return pops the current invocation off the stack
-6. Resume the invocation from step 4 where it left off (in-between steps 6 and 7)
-6. Return out of the invocation from step 4
-12. Resume the initial invocation from step 1 where it left off (in-between steps 3 and 4)
-12. Return out of the initial invocation
+11. Resume the invocation from step 4 where it left off (in-between steps 6 and 7)
+12. Return out of the invocation from step 4
+13. Resume the initial invocation from step 1 where it left off (in-between steps 3 and 4)
+14. Return out of the initial invocation
 
 Note that the value returned from the base case (step 9) gets returned to the previous invocation (step 4) on the stack. Step 4's invocation takes that value and returns it to the invocation that preceded it (step 1). Once the initial invocation is reached, it returns the value to whatever invoked it. Through these steps, you can watch the call stack build up and once the base case is reached, the return value is passed back down as each invocation pops off the stack.
 
 Due to the way the execution stack operates, it's as if each function invocation pauses in time when a recursive call is made. The function that pauses before a recursive call will resume once the recursive call completes. If you've seen the movie [Inception], this model may sound reminiscent to when the characters enter a person's dreams and time slowed. The difference is time doesn't actually slow with recursive invocations; rather, it's a matter of order of operations. If a new invocation enters the execution stack, that invocation must complete before the previous can continue and complete.
 
-
 ### Why use recursion?
+
 Recursion can be elegant, but it can also be dangerous. In some cases, recursion feels like a more natural and readable solution; in others, it ends up being contrived. In most cases, recursion can be avoided entirely and sometimes should in order to minimize the possibility of exceeding the call stack and crashing your app. But keep in mind that code readability is important. If a recursive solution reads more naturally, then it may be the best solution for the given problem.
 
 Recursion isn't unique to any one programming language. As a software engineer, you _will_ encounter recursion and it's important to understand what's happening and how to work with it. It's also important to understand why someone might use it. Recursion is often used when the depth of a thing is unknown or every element of a thing needs to be touched. For example, you might use recursion if you want to find all DOM elements with a specific class name. You may not know how deep the DOM goes and need to touch every element so that none are missed. The same can be said for traversing any structure where all possible paths need to be considered and investigated.
 
-
 ### Divide and Conquer
+
 Recursion is often used in _divide and conquer_ algorithms where problems can be divided into similar subproblems and conquered individually. Consider traversing a tree structure. Each branch may have its own "children" branches. Every branch is essentially just another tree which means, as long as child trees are found, we can recurse on each child.
 
-[inception]: <https://en.wikipedia.org/wiki/Inception>
+[inception]: https://en.wikipedia.org/wiki/Inception
 
-
-
-> What's the difference and connections between recursion, divide-and-conquer algorithm, dynamic programming, and greedy algorithm? If you haven't made it clear. Doesn't matter! I would give you a brief introduction to kick     off this section.
+> What's the difference and connections between recursion, divide-and-conquer algorithm, dynamic programming, and greedy algorithm? If you haven't made it clear. Doesn't matter! I would give you a brief introduction to kick off this section.
 
 What's the difference and connections between recursion, divide-and-conquer algorithm, dynamic programming, and greedy algorithm? If you haven't made it clear. Doesn't matter! I would give you a brief introduction to kick off this section.
 
@@ -10214,8 +9879,8 @@ The divide-and-conquer algorithm will be explained in this section. Taking the m
 
 
 ```
-Recursion in detail
--------------------
+
+## Recursion in detail
 
 Before introducing divide and conquer algorithm, we must first understand the concept of recursion.
 
@@ -10243,14 +9908,14 @@ Second, practice analyzing the structure of the problem. When the problem can be
 
 Third, go beyond the details and look at the problem as a whole. Let's talk about merge and sort. In fact, you can divide the left and right areas without recursion, but the cost is that the code is extremely difficult to understand. Take a look at the code below (merge sorting will be described later. You can understand the meaning here, and appreciate the beauty of recursion).
 
-    void sort(Comparable[] a){    
+    void sort(Comparable[] a){
         int N = a.length;
         // So complicated! It shows disrespect for sorting. I refuse to study such code.
         for (int sz = 1; sz < N; sz = sz + sz)
             for (int lo = 0; lo < N - sz; lo += sz + sz)
                 merge(a, lo, lo + sz - 1, Math.min(lo + sz + sz - 1, N - 1));
     }
-    
+
     /* I prefer recursion, simple and beautiful */
     void sort(Comparable[] a, int lo, int hi) {
         if (lo >= hi) return;
@@ -10299,7 +9964,7 @@ Count function: Give it a node and a target value. It returns a tree rooted at t
         // Can I stand on my own as a separate path?
         int isMe = (node.val == sum) ? 1 : 0;
         // Left brother, how many sum-node.val can you put together?
-        int leftBrother = count(node.left, sum - node.val); 
+        int leftBrother = count(node.left, sum - node.val);
         // Right brother, how many sum-node.val can you put together?
         int rightBrother = count(node.right, sum - node.val);
         return  isMe + leftBrother + rightBrother; // all count i can make up
@@ -10309,8 +9974,7 @@ Again, understand what each function can do and trust that they can do it.
 
 In summary, the binary tree traversal framework provided by the PathSum function calls the count function for each node during the traversal. Can you see the pre-order traversal (the order is the same for this question)? The count function is also a binary tree traversal, used to find the target value path starting with this node. Understand it deeply!
 
-Divide and conquer algorithm
-----------------------------
+## Divide and conquer algorithm
 
 **Merge and sort**, typical divide-and-conquer algorithm; divide-and-conquer, typical recursive structure.
 
@@ -10325,16 +9989,17 @@ To merge and sort, let's call this function `merge_sort` . According to what we 
 Well, this algorithm is like this, there is no difficulty at all. Remember what I said before, believe in the function's ability, and pass it to him half of the array, then the half of the array is already sorted. Have you found it's a binary tree traversal template? Why it is postorder traversal? Because the routine of our divide-and-conquer algorithm is **decomposition-> solve (bottom)-> merge (backtracking)** Ah, first left and right decomposition, and then processing merge, backtracking is popping stack, which is equivalent to post-order traversal. As for the `merge` function, referring to the merging of two ordered linked lists, they are exactly the same, and the code is directly posted below.
 
 Let's refer to the Java code in book `Algorithm 4` below, which is pretty. This shows that not only algorithmic thinking is important, but coding skills are also very important! Think more and imitate more.
+
 ```java
     public class Merge {
         // Do not construct new arrays in the merge function, because the merge function will be called multiple times, affecting performance.Construct a large enough array directly at once, concise and efficient.
         private static Comparable[] aux;
-    
+
          public static void sort(Comparable[] a) {
             aux = new Comparable[a.length];
             sort(a, 0, a.length - 1);
         }
-    
+
         private static void sort(Comparable[] a, int lo, int hi) {
             if (lo >= hi) return;
             int mid = lo + (hi - lo) / 2;
@@ -10342,7 +10007,7 @@ Let's refer to the Java code in book `Algorithm 4` below, which is pretty. This 
             sort(a, mid + 1, hi);
             merge(a, lo, mid, hi);
         }
-    
+
         private static void merge(Comparable[] a, int lo, int mid, int hi) {
             int i = lo, j = mid + 1;
             for (int k = lo; k <= hi; k++)
@@ -10354,12 +10019,13 @@ Let's refer to the Java code in book `Algorithm 4` below, which is pretty. This 
                 else                           { a[k] = aux[i++]; }
             }
         }
-    
+
         private static boolean less(Comparable v, Comparable w) {
             return v.compareTo(w) < 0;
         }
     }
 ```
+
 LeetCode has a special exercise of the divide-and-conquer algorithm. Copy the link below to web browser and have a try:
 
 https://leetcode.com/tag/divide-and-conquer/
@@ -10416,15 +10082,16 @@ To be clear: recursion is not about being fancy or clever… it is an important 
 **//more useful example**
 
 Prompt: check to see if a binary-search-tree contains a value
+
 ```js
-var searchBST = function(tree, num){  
+var searchBST = function(tree, num){
 if(tree.val === num){
 
 } else if(num > tree.val){
 
 } else{
 
-}  
+}
 }; var tree = {val: 9,
 
 searchBST(tree, 4) // return false
@@ -10440,8 +10107,7 @@ In this function definition, there are three base cases that will return a value
 
 ---
 
-
-* * *
+---
 
 [**Big O**](#big-o-) [**Memoization And Tabulation**](#memoization-and-tabulation-) \- [Recursion Videos](#recursion-videos) - [Curating Complexity: A Guide to Big-O Notation](#curating-complexity-a-guide-to-big-o-notation) - [Why Big-O?](#why-big-o) - [Big-O Notation](#big-o-notation) - [Common Complexity Classes](#common-complexity-classes) - [The seven major classes](#the-seven-major-classes) - [Memoization](#memoization) - [Memoizing factorial](#memoizing-factorial) - [Memoizing the Fibonacci generator](#memoizing-the-fibonacci-generator) - [The memoization formula](#the-memoization-formula) - [Tabulation](#tabulation) - [Tabulating the Fibonacci number](#tabulating-the-fibonacci-number) - [Aside: Refactoring for O(1) Space](#aside-refactoring-for-o1-space) - [Analysis of Linear Search](#analysis-of-linear-search) - [Analysis of Binary Search](#analysis-of-binary-search) - [Analysis of the Merge Sort](#analysis-of-the-merge-sort) - [Analysis of Bubble Sort](#analysis-of-bubble-sort) - [LeetCode.com](#leetcodecom) - [Memoization Problems](#memoization-problems) - [Tabulation Problems](#tabulation-problems)
 
@@ -10451,7 +10117,7 @@ In this function definition, there are three base cases that will return a value
 
 [**Graphs and Heaps**](#graphs-and-heaps-) \- [Introduction to Heaps](#introduction-to-heaps) - [Binary Heap Implementation](#binary-heap-implementation) - [Heap Sort](#heap-sort) - [In-Place Heap Sort](#in-place-heap-sort) -
 
-* * *
+---
 
 **The objective of this lesson** is get you comfortable with identifying the time and space complexity of code you see. Being able to diagnose time complexity for algorithms is an essential for interviewing software engineers.
 
@@ -10467,7 +10133,7 @@ At the end of this, you will be able to
 2.  Identify the complexity classes of common sort methods
 3.  Identify complexity classes of code
 
-* * *
+---
 
 **The objective of this lesson** is to give you a couple of ways to optimize a computation (algorithm) from a higher complexity class to a lower complexity class. Being able to optimize algorithms is an essential for interviewing software engineers.
 
@@ -10481,17 +10147,17 @@ At the end of this, you will be able to
 1.  Apply memoization to recursive problems to make them less than polynomial time.
 2.  Apply tabulation to iterative problems to make them less than polynomial time.
 
-* * *
+---
 
 A lot of algorithms that we use in the upcoming days will use recursion. The next two videos are just helpful reminders about recursion so that you can get that thought process back into your brain.
 
-* * *
+---
 
 Colt Steele provides a very nice, non-mathy introduction to Big-O notation. Please watch this so you can get the easy introduction. Big-O is, by its very nature, math based. It's good to get an understanding before jumping in to math expressions.
 
 [Complete Beginner's Guide to Big O Notation](https://www.youtube.com/embed/kS_gr2_-ws8) by Colt Steele.
 
-* * *
+---
 
 As software engineers, our goal is not just to solve problems. Rather, our goal is to solve problems efficiently and elegantly. Not all solutions are made equal! In this section we'll explore how to analyze the efficiency of algorithms in terms of their speed (_time complexity_) and memory consumption (_space complexity_).
 
@@ -10499,11 +10165,10 @@ As software engineers, our goal is not just to solve problems. Rather, our goal 
 
 When you finish this article you will be able to:
 
-*   explain why computer scientists use Big-O notation
-*   simplify a mathematical function into Big-O notation
+- explain why computer scientists use Big-O notation
+- simplify a mathematical function into Big-O notation
 
-Why Big-O?
-----------
+## Why Big-O?
 
 Let's begin by understanding what method we should _not_ use when describing the efficiency of our algorithms. Most importantly, we'll want to avoid using absolute units of time when describing speed. When the software engineer exclaims, "My function runs in 0.2 seconds, it's so fast!!!", the computer scientist is not impressed. Skeptical, the computer scientist asks the following questions:
 
@@ -10515,8 +10180,7 @@ The job of the software engineer is to focus on the software detail and not nece
 
 > The argument above focuses on _time_, but a similar argument could also be made for _space_. For example, we should not analyze our code in terms of the amount of absolute kilobytes of memory it uses, because this is dependent on the programming language.
 
-Big-O Notation
---------------
+## Big-O Notation
 
 In Computer Science, we use Big-O notation as a tool for describing the efficiency of algorithms with respect to the size of the input argument(s). We use mathematical functions in Big-O notation, so there are a few big picture ideas that we'll want to keep in mind:
 
@@ -10531,14 +10195,14 @@ The first 3 points are conceptual, so they are easy to swallow. However, point 4
 
 We want our Big-O notation to describe the performance of our algorithm with respect to the input size and nothing else. Because of this, we should to simplify our Big-O functions using the following rules:
 
-*   **Simplify Products:** if the function is a product of many terms, we drop the terms that _don't_ depend on the size of the input.
-*   **Simplify Sums:** if the function is a sum of many terms, we keep the term with the _largest_ growth rate and drop the other terms.
+- **Simplify Products:** if the function is a product of many terms, we drop the terms that _don't_ depend on the size of the input.
+- **Simplify Sums:** if the function is a sum of many terms, we keep the term with the _largest_ growth rate and drop the other terms.
 
 We'll look at these rules in action, but first we'll define a few things:
 
-*   **n** is the size of the input
-*   **T(f)** refers to an unsimplified mathematical **f**unction
-*   **O(f)** refers to the Big-O simplified mathematical **f**unction
+- **n** is the size of the input
+- **T(f)** refers to an unsimplified mathematical **f**unction
+- **O(f)** refers to the Big-O simplified mathematical **f**unction
 
 ### Simplifying a Product
 
@@ -10577,23 +10241,21 @@ The _product_ and _sum_ rules are all we'll need to Big-O simplify any math func
 
 > Aside: We'll often omit the multiplication symbol in expressions as a form of shorthand. For example, we'll write _O( 5n2 )_ in place of _O( 5 \* n2 )_.
 
-RECAP
------
+## RECAP
 
-*   explained why Big-O is the preferred notation used to describe the efficiency of algorithms
-*   used the product and sum rules to simplify mathematical functions into Big-O notation
+- explained why Big-O is the preferred notation used to describe the efficiency of algorithms
+- used the product and sum rules to simplify mathematical functions into Big-O notation
 
-* * *
+---
 
 Analyzing the efficiency of our code seems like a daunting task because there are many different possibilities in how we may choose to implement something. Luckily, most code we write can be categorized into one of a handful of common complexity classes. In this reading, we'll identify the common classes and explore some of the code characteristics that will lead to these classes.
 
 When you finish this reading, you should be able to:
 
-*   name _and_ order the seven common complexity classes
-*   identify the time complexity class of a given code snippet
+- name _and_ order the seven common complexity classes
+- identify the time complexity class of a given code snippet
 
-The seven major classes
------------------------
+## The seven major classes
 
 There are seven complexity classes that we will encounter most often. Below is a list of each complexity class as well as its Big-O notation. This list is ordered from _smallest to largest_. Bear in mind that a "more efficient" algorithm is one with a smaller complexity class, because it requires fewer resources.
 
@@ -10788,8 +10450,7 @@ The `factorial` function has O(n!) runtime because the code is _recursive_ but t
 
 You may it difficult to identify the complexity class of a given code snippet, especially if the code falls into the loglinear, exponential, or factorial classes. In the upcoming videos, we'll explain the analysis of these functions in greater detail. For now, you should focus on the _relative order_ of these seven complexity classes!
 
-RECAP
------
+## RECAP
 
 In this reading, we listed the seven common complexity classes and saw some example code for each. In order of ascending growth, the seven classes are:
 
@@ -10801,4 +10462,4 @@ In this reading, we listed the seven common complexity classes and saw some exam
 6.  Exponential
 7.  Factorial
 
-* * *
+---

@@ -12,17 +12,15 @@
  * @param {TreeNode} root
  * @return {number[]}
  */
-var findMode = function(root) {
+var findMode = function (root) {
   let hash = {};
 
   let helper = (node) => {
     let val = node.val;
-    hash[val] = (~~hash[val]) + 1;
+    hash[val] = ~~hash[val] + 1;
 
-    if (node.left)
-      helper(node.left);
-    if (node.right)
-      helper(node.right);
+    if (node.left) helper(node.left);
+    if (node.right) helper(node.right);
   };
 
   root && helper(root);

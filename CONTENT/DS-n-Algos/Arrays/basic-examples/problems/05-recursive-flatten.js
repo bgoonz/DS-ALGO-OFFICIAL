@@ -10,16 +10,16 @@ flatten([1, 2]); // => [1, 2]
 flatten([1, [2, [3]]]); // => [1, 2, 3]
 ***********************************************************************/
 
-function flatten( arr ) {
+function flatten(arr) {
   let newArray = [];
 
-  arr.forEach( contents => {
-        if ( Array.isArray( contents ) ) {
-          newArray.push( ...flatten( contents ) );
+  arr.forEach((contents) => {
+    if (Array.isArray(contents)) {
+      newArray.push(...flatten(contents));
     } else {
-      newArray.push( contents );
+      newArray.push(contents);
     }
-  } );
+  });
 
   return newArray;
 }

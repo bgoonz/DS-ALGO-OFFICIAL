@@ -20,11 +20,10 @@ sandwich2("pb") // => "One sandwich with tomato and pb"
 function sandwichMaker() {
   let order = "One sandwich with tomato";
 
-  return function ( food ) {
-    order = order.slice( 0, order.length ) + " and " + food;
+  return function (food) {
+    order = order.slice(0, order.length) + " and " + food;
     return order;
   };
 }
-
 
 module.exports = sandwichMaker;

@@ -5,6 +5,6 @@
  * @param {number} n
  * @return {boolean}
  */
-var canWinNim = function(n) {
-  return n % 4
+var canWinNim = function (n) {
+  return n % 4;
 };

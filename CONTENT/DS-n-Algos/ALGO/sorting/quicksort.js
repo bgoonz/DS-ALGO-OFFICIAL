@@ -19,7 +19,7 @@ function quicksort(array, left, right) {
 
 function partitionHoare(array, left, right) {
   // Calculate currently active pivot.
-  const pivot = Math.floor((left + right) / 2 );
+  const pivot = Math.floor((left + right) / 2);
 
   // If left's value is smaller than or equal to right's value, meaning that the values are in the right place,
   // and the left item's value is smaller than the pivot, move the currently checked item
@@ -29,7 +29,7 @@ function partitionHoare(array, left, right) {
       left++;
     }
     while (array[right] > array[pivot]) {
-      // The same as for left, however, the right value goes from right to left. This means that the 
+      // The same as for left, however, the right value goes from right to left. This means that the
       // current right's value has to go down one in order to check the next element's value.
       right--;
     }

@@ -11,12 +11,12 @@ function shellsort(array) {
   var countInner = 0;
   var countSwap = 0;
 
-  for(var g = 0; g < gaps.length; g++) {
+  for (var g = 0; g < gaps.length; g++) {
     var gap = gaps[g];
-    for(var i = gap; i < array.length; i++) {
+    for (var i = gap; i < array.length; i++) {
       countOuter++;
       var temp = array[i];
-      for(var j = i; j >= gap && array[j - gap] > temp; j -= gap) {
+      for (var j = i; j >= gap && array[j - gap] > temp; j -= gap) {
         countInner++;
         countSwap++;
         array[j] = array[j - gap];
@@ -24,7 +24,7 @@ function shellsort(array) {
       array[j] = temp;
     }
   }
-  console.log('outer:', countOuter, 'inner:', countInner, 'swap:', countSwap);
+  console.log("outer:", countOuter, "inner:", countInner, "swap:", countSwap);
   return array;
 }
 

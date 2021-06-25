@@ -6,8 +6,7 @@ The **`Boolean()`** constructor is used to create [ `Boolean` ](chrome-extension
 
 The source for this interactive example is stored in a GitHub repository. If you'd like to contribute to the interactive examples project, please clone [https://github.com/mdn/interactive-examples](https://github.com/mdn/interactive-examples) and send us a pull request.
 
-Syntax
-------
+## Syntax
 
 new Boolean(\[value\])
 
@@ -17,8 +16,7 @@ new Boolean(\[value\])
 
 The initial value of the `Boolean` object.
 
-Examples
---------
+## Examples
 
 ### Creating `Boolean` objects with an initial value of `false`
 
@@ -27,7 +25,6 @@ Examples
     var bNull = new Boolean(null);
     var bEmptyString = new Boolean('');
     var bfalse = new Boolean(false);
-    
 
 ### Creating `Boolean` objects with an initial value of `true`
 
@@ -38,25 +35,24 @@ Examples
     var bArrayProto = new Boolean([]);
     var bObjProto = new Boolean({});
 
-Specifications
---------------
+## Specifications
 
 | Specification |
-| --- |
+| ------------- |
+
 | [ECMAScript (ECMA-262)  
 The definition of 'Boolean constructor' in that specification.](https://tc39.es/ecma262/#sec-boolean-constructor) |
 
-Browser compatibility
----------------------
+## Browser compatibility
 
 The compatibility table on this page is generated from structured data. If you'd like to contribute to the data, please check out [https://github.com/mdn/browser-compat-data](https://github.com/mdn/browser-compat-data) and send us a pull request.
 
 [Update compatibility data on GitHub](https://github.com/mdn/browser-compat-data)
 
-|  | Desktop | Mobile | Server |
-| --- | --- | --- | --- |
-|  | Chrome | Edge | Firefox | Internet Explorer | Opera | Safari | Android webview | Chrome for Android | Firefox for Android | Opera for Android | Safari on iOS | Samsung Internet | Node.js |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+|                         | Desktop               | Mobile               | Server                 |
+| ----------------------- | --------------------- | -------------------- | ---------------------- | ----------------- | -------------------- | --------------------- | ------------------------------ | ------------------------------ | ------------------------------ | ------------------------------- | ------------------------- | ----------------------------------------- | --------------------------- |
+|                         | Chrome                | Edge                 | Firefox                | Internet Explorer | Opera                | Safari                | Android webview                | Chrome for Android             | Firefox for Android            | Opera for Android               | Safari on iOS             | Samsung Internet                          | Node.js                     |
+| ---                     | ---                   | ---                  | ---                    | ---               | ---                  | ---                   | ---                            | ---                            | ---                            | ---                             | ---                       | ---                                       | ---                         |
 | `Boolean()` constructor | Chrome Full support 1 | Edge Full support 12 | Firefox Full support 1 | IE Full support 3 | Opera Full support 4 | Safari Full support 1 | WebView Android Full support 1 | Chrome Android Full support 18 | Firefox Android Full support 4 | Opera Android Full support 10.1 | Safari iOS Full support 1 | Samsung Internet Android Full support 1.0 | nodejs Full support 0.1.100 |
 
 #### What happens next?
@@ -82,13 +78,12 @@ Connection error: Sorry, we can't seem to reach the server. We are working to fi
 
 ### Legend
 
-Full support 
+Full support
 
 Full support
 
-See also
---------
+## See also
 
-*   [Boolean](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/en-US/docs/Glossary/Boolean)
+- [Boolean](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/en-US/docs/Glossary/Boolean)
 
 [Source](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean/Boolean)

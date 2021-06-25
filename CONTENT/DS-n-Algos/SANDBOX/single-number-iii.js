@@ -5,20 +5,17 @@
  * @param {number[]} nums
  * @return {number[]}
  */
-var singleNumber = function(nums) {
-  var ans = []
-    , hash = [];
+var singleNumber = function (nums) {
+  var ans = [],
+    hash = [];
 
-  nums.forEach(function(item) {
-    if (!hash[item])
-      hash[item] = 1;
-    else 
-      hash[item]++;
+  nums.forEach(function (item) {
+    if (!hash[item]) hash[item] = 1;
+    else hash[item]++;
   });
 
-  nums.forEach(function(item) {
-    if (hash[item] === 1)
-      ans.push(item);
+  nums.forEach(function (item) {
+    if (hash[item] === 1) ans.push(item);
   });
 
   return ans;

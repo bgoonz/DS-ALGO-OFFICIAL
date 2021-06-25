@@ -8,22 +8,22 @@ function selectionSort(array) {
   let countInner = 0;
   let countSwap = 0;
 
-  for(let i = 0; i < array.length; i++) {
+  for (let i = 0; i < array.length; i++) {
     countOuter++;
     let min = i;
-    for(let j = i + 1; j < array.length; j++) {
+    for (let j = i + 1; j < array.length; j++) {
       countInner++;
-      if(array[j] < array[min]) {
+      if (array[j] < array[min]) {
         min = j;
       }
     }
-    if(i !== min) {
+    if (i !== min) {
       countSwap++;
       [array[i], array[min]] = [array[min], array[i]];
     }
   }
 
-  console.log('outer:', countOuter, 'inner:', countInner, 'swap:', countSwap);
+  console.log("outer:", countOuter, "inner:", countInner, "swap:", countSwap);
   return array;
 }
 

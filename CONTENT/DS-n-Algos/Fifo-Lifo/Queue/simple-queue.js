@@ -4,9 +4,9 @@ class Queue {
     this.queue = [];
   }
 
-  enqueue( value ) {
+  enqueue(value) {
     // Push value to queue.
-    this.queue.push( value );
+    this.queue.push(value);
   }
 
   dequeue() {
@@ -16,7 +16,7 @@ class Queue {
 
   peek() {
     // Return first item in queue.
-    return this.queue[ 0 ];
+    return this.queue[0];
   }
 
   length() {
@@ -25,6 +25,6 @@ class Queue {
   }
 
   print() {
-    console.log( this.queue.join( ' ' ) );
+    console.log(this.queue.join(" "));
   }
 }
