@@ -4,7 +4,7 @@ function findElement(arr, func) {
 }
 
 console.log(
-  findElement([1, 3, 5, 8, 9, 10], num => {
+  findElement([1, 3, 5, 8, 9, 10], (num) => {
     return num % 2 === 0;
   })
 );

@@ -3,7 +3,7 @@ const Person = function (firstAndLast) {
   let lastName = [...firstAndLast.split(" ")][1];
   this.setFirstName = (first) => (firstName = first);
   this.setLastName = (last) => (lastName = last);
-  this.setFullName = full => {
+  this.setFullName = (full) => {
     const fullName = [...full.split(" ")];
     firstName = fullName[0];
     lastName = fullName[1];

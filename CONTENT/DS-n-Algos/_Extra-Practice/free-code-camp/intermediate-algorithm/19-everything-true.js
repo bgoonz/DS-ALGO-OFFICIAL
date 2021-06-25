@@ -1,5 +1,5 @@
 function truthCheck(collection, pre) {
-  const verdict = collection.map(obj => {
+  const verdict = collection.map((obj) => {
     if (obj[pre]) {
       return true;
     } else {

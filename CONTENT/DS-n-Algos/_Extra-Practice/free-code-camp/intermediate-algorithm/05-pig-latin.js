@@ -11,7 +11,9 @@ function translatePigLatin(str) {
       }
     }
     const firstVowelIndex = findVowel.sort()[0];
-    return `${str.substring(firstVowelIndex) + str.substring(0, firstVowelIndex)}ay`;
+    return `${
+      str.substring(firstVowelIndex) + str.substring(0, firstVowelIndex)
+    }ay`;
   }
   return `${str}way`;
 }

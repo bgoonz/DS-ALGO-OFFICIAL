@@ -1,11 +1,11 @@
 function updateInventory(arr1, arr2) {
   let present = false;
   // go through each item in arr2 to check for presence of items in arr1
-  arr2.forEach(newInv => {
+  arr2.forEach((newInv) => {
     // indicator if product is present
     present = false;
     // for each item in arr2, go through each item in arr1
-    arr1.forEach(curInv => {
+    arr1.forEach((curInv) => {
       // if product is already present, update the quantity
       if (newInv[1] === curInv[1]) {
         curInv[0] += newInv[0];

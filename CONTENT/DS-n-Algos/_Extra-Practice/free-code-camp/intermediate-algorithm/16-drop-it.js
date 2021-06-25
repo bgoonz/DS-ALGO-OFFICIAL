@@ -9,7 +9,7 @@ function dropElements(arr, func) {
 }
 
 console.log(
-  dropElements([1, 2, 3, 4], n => {
+  dropElements([1, 2, 3, 4], (n) => {
     return n > 5;
   })
 );

@@ -120,7 +120,7 @@ h1 {
   color: #757575;
 }
 .cards {
-	margin: 10px;
+  margin: 10px;
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-gap: 10px;
@@ -131,13 +131,14 @@ h1 {
   background-color: #0084ad;
   color: #fff;
 }
-.card header h2,a {
+.card header h2,
+a {
   font-size: 1.4rem;
   font-weight: normal;
-	color: white;
+  color: white;
   margin: 0;
   padding: 0;
-	text-decoration: none;
+  text-decoration: none;
 }
 
 .card .body {
