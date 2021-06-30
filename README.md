@@ -24,7 +24,7 @@ hi
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/274fc2e2-6ccd-42af-8d83-473278f504fe/deploy-status)](https://app.netlify.com/sites/trusting-dijkstra-4d3b17/deploys)
 
-[Deployment](https://trusting-dijkstra-4d3b17.netlify.app/)
+[Deployment](https://ds-algo-official.netlify.app/)
 
 [github-pages](https://bgoonz.github.io/DS-ALGO-OFFICIAL/)
 
