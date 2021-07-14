@@ -24,3 +24,11 @@ fs.readFile(filename, (err, text) => {
     }
   );
 });
+
+
+
+//----------------------------
+
+let arr2html= function (arr, fileName, callback) {
+  
+}
