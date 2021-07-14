@@ -1,7 +1,7 @@
 <!-- HEADER -->
 <div align="center">
 
-[Live Site](https://ds-algo-official.netlify.app/)
+# ➤ [Live Site](https://ds-algo-official.netlify.app/)
 
 [Readme](https://github.com/bgoonz/DS-ALGO-OFFICIAL/blob/master/README.md)
 
