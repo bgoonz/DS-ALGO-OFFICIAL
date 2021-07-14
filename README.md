@@ -1,7 +1,7 @@
 <!-- HEADER -->
 <div align="center">
 
-[Directory](https://trusting-dijkstra-4d3b17.netlify.app/tree.html)
+[Live Site](https://ds-algo-official.netlify.app/)
 
 [Readme](https://github.com/bgoonz/DS-ALGO-OFFICIAL/blob/master/README.md)
 
