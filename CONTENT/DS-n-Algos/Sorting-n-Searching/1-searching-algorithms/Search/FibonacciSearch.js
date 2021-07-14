@@ -1,9 +1,8 @@
 /****************************************************************************
- * Fibonacci Search JavaScript Implementation
- * Author   Alhassan Atama Isiaka
+ * Author   : Bryan Guner
  * Version v1.0.0
  * Copyright 2020
- * https://github.com/komputarist
+ * https://github.com/DS-Algo-Official
  *
  * This implementation is based on Generalizing the Fibonacci search we
  * define the Fibonacci search of degree K. Like the Fibonacci search,
@@ -12,9 +11,6 @@
  *  Capocelli R.M. (1991) A Generalization of the Fibonacci Search. In:
  * Bergum G.E., Philippou A.N., Horadam A.F. (eds) Applications of Fibonacci
  * Numbers. Springer, Dordrecht. https://doi.org/10.1007/978-94-011-3586-3_9
- *
- * This snippet is free. Feel free to improve on it
- *
  * We define a function fibonacciSearch() that takes an array of numbers,
  * the item (number) to be searched for and the length of the items in the array
  ****************************************************************************/

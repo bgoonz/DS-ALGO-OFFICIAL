@@ -9,20 +9,6 @@ h1 {
     0 0 30px #a5acff, 0 0 40px #a5a8ff;
 }
 
-.outer {
-  zoom: 1.4;
-  position: absolute;
-  height: 80%;
-  width: 80%;
-  top: 10%;
-  left: 10%;
-}
-
-.shadow {
-  -moz-box-shadow: inset 0 0 10px #f9f3f3;
-  -webkit-box-shadow: inset 0 0 10px #fffefe;
-  box-shadow: inset 0 0 10px #ffffff;
-}
 
 body {
   padding: 20px;

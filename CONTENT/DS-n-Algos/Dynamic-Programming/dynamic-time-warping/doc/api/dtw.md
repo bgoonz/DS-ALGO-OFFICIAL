@@ -1,7 +1,5 @@
 # DTW API
 
-**Author:** Elmar Langholz
-
 ## DTW(\[options\])
 
 Initializes a new instance of the `DTW`. If no options are provided the squared euclidean distance function is used.

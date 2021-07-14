@@ -147,7 +147,6 @@ section .mbr-background-video-preview {
 }
 
 @media (max-width: 767px) {
-
   .align-left,
   .align-center,
   .align-right,
@@ -234,7 +233,7 @@ section .mbr-background-video-preview {
   align-items: stretch;
 }
 
-.media-container-column>* {
+.media-container-column > * {
   width: 100%;
 }
 
@@ -282,7 +281,7 @@ figure[mbr-media-size] {
   align-self: center;
 }
 
-.media-container>div {
+.media-container > div {
   max-width: 100%;
 }
 
@@ -307,8 +306,8 @@ figure[mbr-media-size] {
 
 /*! Buttons */
 .mbr-section-btn {
-  margin-left: -.25rem;
-  margin-right: -.25rem;
+  margin-left: -0.25rem;
+  margin-right: -0.25rem;
   font-size: 0;
 }
 
@@ -405,7 +404,7 @@ nav .mbr-section-btn {
   outline-style: none !important;
   position: relative;
   text-decoration: none;
-  transition: all .3s ease-in-out;
+  transition: all 0.3s ease-in-out;
   cursor: pointer;
   text-align: center;
 }
@@ -451,7 +450,7 @@ nav .mbr-section-btn {
   transform: translateX(-50%);
 }
 
-.mbr-arrow>a {
+.mbr-arrow > a {
   display: inline-block;
   text-decoration: none;
   outline-style: none;
@@ -459,7 +458,7 @@ nav .mbr-section-btn {
   animation: arrowdown 1.7s ease-in-out infinite;
 }
 
-.mbr-arrow>a>i {
+.mbr-arrow > a > i {
   position: absolute;
   top: -2px;
   left: 15px;

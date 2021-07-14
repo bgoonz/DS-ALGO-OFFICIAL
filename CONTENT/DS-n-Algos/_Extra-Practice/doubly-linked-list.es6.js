@@ -126,7 +126,7 @@ doublyLinkedList.add(6);
 doublyLinkedList.print(); // => 2 6
 doublyLinkedList.insertAfter(3, 2);
 doublyLinkedList.print(); // => 2 3 6
-doublyLinkedList.traverseReverse(({data}) => {
+doublyLinkedList.traverseReverse(({ data }) => {
   console.log(data);
 });
 doublyLinkedList.insertAfter(4, 3);
@@ -143,11 +143,11 @@ doublyLinkedList.traverse((node) => {
   node.data = node.data + 10;
 });
 doublyLinkedList.print(); // => 12 13 14 15 16 17 18
-doublyLinkedList.traverse(({data}) => {
+doublyLinkedList.traverse(({ data }) => {
   console.log(data);
 }); // => 12 13 14 15 16 17 18
 console.log("length is 7:", doublyLinkedList.length()); // => 7
-doublyLinkedList.traverseReverse(({data}) => {
+doublyLinkedList.traverseReverse(({ data }) => {
   console.log(data);
 }); // => 18 17 16 15 14 13 12
 doublyLinkedList.print(); // => 12 13 14 15 16 17 18
