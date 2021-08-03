@@ -37,14 +37,25 @@
   <script async defer src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
     integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous">
     </script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@algolia/algoliasearch-netlify-frontend@1/dist/algoliasearchNetlify.css" />
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@algolia/algoliasearch-netlify-frontend@1/dist/algoliasearchNetlify.js"></script>
+<script type="text/javascript">
+  algoliasearchNetlify({
+    appId: 'JXBUGAW4Y5',
+    apiKey: '1a3f37da28fc61aa422e0a26fa17739b',
+    siteId: '274fc2e2-6ccd-42af-8d83-473278f504fe',
+    branch: 'master',
+    selector: 'div#search',
+  });
+</script>
   <!---------------------------------------------------------------------------------------------------------------------------------------------------------->
 </head>
 <!------------------------------------------------------------------------------------------------------------------------------------------------->
 
 <body>
+  <div id="search"></div>
   <div class="shadow">
-    <button id="scrollBtn" title="Go to top" onclick="topFunction()">Back To
-      Top</button><br>
+    
 
     <a href="https://github.com/bgoonz/DS-ALGO-OFFICIAL" class="github-corner" aria-label="View source on Github"><svg
         width="80" height="80" viewBox="0 0 250 250"
