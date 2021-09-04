@@ -3216,7 +3216,7 @@ Example 2:
 let fame = intersection(["f", "a", "m", "e"]); // returns a function
 console.log(fame(["a", "f", "z", "b"])); // returns [ 'f', 'a' ]
 
-**************************************\*\*\***************************************/
+******************\*\*******************\*\*\*******************\*\*******************/
 
 function intersection(firstArr) {
 return (secondArr) => {
@@ -3898,7 +3898,7 @@ For this problem, a height-balanced binary tree is defined as:
 
 # DTW API
 
-**Author:** 
+**Author:**
 
 ## DTW(\[options\])
 
@@ -5748,7 +5748,6 @@ Added new assertions:
   `n` many times.
 - `.called.max(n)/.at.most(n)` to assert that a spy has been called at most `n`
   number of times.
-
 
 ### [CONTENT/DS-n-Algos/Graphs/graphs-intro-solution/node_modules/check-error/README.md](CONTENT/DS-n-Algos/Graphs/graphs-intro-solution/node_modules/check-error/README.md)
 
