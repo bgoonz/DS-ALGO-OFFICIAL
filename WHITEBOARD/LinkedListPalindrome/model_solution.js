@@ -29,7 +29,7 @@ function isLinkedListPalindrome(listNode) {
     fast = fast.next.next;
   }
   // fast is a valid node, but fast.next is not
-  // this means we have a list with an odd number 
+  // this means we have a list with an odd number
   // of nodes, so we're going to skip the middle one
   if (fast) {
     slow = slow.next;
@@ -48,7 +48,6 @@ function isLinkedListPalindrome(listNode) {
 
   return true;
 }
-
 
 class ListNode {
   constructor(value) {
@@ -77,7 +76,7 @@ w.next = x;
 x.next = y;
 y.next = z;
 
-console.log(isLinkedListPalindrome(a));   // should print true
-console.log(isLinkedListPalindrome(b));   // should print false since now the 'a' node is not included in the linked list
+console.log(isLinkedListPalindrome(a)); // should print true
+console.log(isLinkedListPalindrome(b)); // should print false since now the 'a' node is not included in the linked list
 
-console.log(isLinkedListPalindrome(w));   // should print true
+console.log(isLinkedListPalindrome(w)); // should print true

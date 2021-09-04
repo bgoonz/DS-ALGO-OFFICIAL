@@ -3,8 +3,8 @@
 Write a function `reverseSubList` that receives a linked list node as input as
 well as two integer values, `start` and `end`. `start` indicates the starting
 position of the sub-list and `end` indicates the ending position of the sub-list.
-The function should reverse the nodes in this specified sub-list. Do this in-place 
-without using any extra memory (in other words, the input linked list itself 
+The function should reverse the nodes in this specified sub-list. Do this in-place
+without using any extra memory (in other words, the input linked list itself
 should be changed).
 
 Example:
@@ -29,7 +29,7 @@ So our function would change our linked list to the following:
      |---------|
 ```
 
-where the sub-list `2 -> 3 -> 4` is reversed within the entire list. 
+where the sub-list `2 -> 3 -> 4` is reversed within the entire list.
 
 Here are some example Linked List Node classes:
 
@@ -37,7 +37,7 @@ JavaScript:
 
 ```js
 class ListNode {
-  constructor(value, next=null) {
+  constructor(value, next = null) {
     this.value = value;
     this.next = next;
   }
@@ -66,4 +66,4 @@ class ListNode<T> {
 }
 ```
 
-Analyze the time and space complexity of your solution. 
+Analyze the time and space complexity of your solution.

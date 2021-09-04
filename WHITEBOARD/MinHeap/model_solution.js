@@ -34,7 +34,7 @@ class Heap {
     }
 
     const min = this.storage[0];
-    // overwrite the old min value at the root of 
+    // overwrite the old min value at the root of
     // the heap with the last value in the heap
     this.storage[0] = this.storage.pop();
     // call `_siftDown` to move the new value at the root
@@ -48,17 +48,20 @@ class Heap {
     return this.storage[0];
   }
   // helper method that checks to see if the value at the given index
-  // is in a valid spot in the heap; if it isn't, the value will 
+  // is in a valid spot in the heap; if it isn't, the value will
   // be swapped with its parent's value until it reaches a valid spot
   _bubbleUp(index) {
     const parentIndex = Math.floor((index - 1) / 2);
     if (this.storage[parentIndex] > this.storage[index]) {
-      [this.storage[parentIndex], this.storage[index]] = [this.storage[index], this.storage[parentIndex]];
+      [this.storage[parentIndex], this.storage[index]] = [
+        this.storage[index],
+        this.storage[parentIndex],
+      ];
       this._bubbleUp(parentIndex);
     }
   }
   // helper method that checks to see if the value at the given index
-  // is in a valid spot in the heap; if it isn't, the value will 
+  // is in a valid spot in the heap; if it isn't, the value will
   // be swapped with its smallest child's value until it reaches a valid spot
   _siftDown(index) {
     const leftChildIndex = index * 2 + 1;
@@ -66,7 +69,10 @@ class Heap {
     let minChildIndex;
 
     if (this.storage[leftChildIndex] && this.storage[rightChildIndex]) {
-      minChildIndex = this.storage[leftChildIndex] < this.storage[rightChildIndex] ? leftChildIndex : rightChildIndex;
+      minChildIndex =
+        this.storage[leftChildIndex] < this.storage[rightChildIndex]
+          ? leftChildIndex
+          : rightChildIndex;
     } else if (this.storage[leftChildIndex]) {
       minChildIndex = leftChildIndex;
     } else if (this.storage[rightChildIndex]) {
@@ -74,7 +80,10 @@ class Heap {
     }
 
     if (this.storage[index] > this.storage[minChildIndex]) {
-      [this.storage[minChildIndex], this.storage[index]] = [this.storage[index], this.storage[minChildIndex]];
+      [this.storage[minChildIndex], this.storage[index]] = [
+        this.storage[index],
+        this.storage[minChildIndex],
+      ];
       this._siftDown(minChildIndex);
     }
   }
@@ -82,19 +91,19 @@ class Heap {
 
 /* Some console.log tests */
 const heap = new Heap();
-console.log(heap.getMin());    // should print 'undefined'
+console.log(heap.getMin()); // should print 'undefined'
 
 heap.insert(5);
-console.log(heap.getMin());   // should print 5
+console.log(heap.getMin()); // should print 5
 
 heap.insert(100);
-console.log(heap.getMin());   // should print 5
+console.log(heap.getMin()); // should print 5
 
 heap.insert(2);
-console.log(heap.getMin());   // should print 2
+console.log(heap.getMin()); // should print 2
 
-console.log(heap.delete());   // should print 2
-console.log(heap.delete());   // should print 5
-console.log(heap.delete());   // should print 100
+console.log(heap.delete()); // should print 2
+console.log(heap.delete()); // should print 5
+console.log(heap.delete()); // should print 100
 
-console.log(heap.getMin());   // should print 'undefined'
+console.log(heap.getMin()); // should print 'undefined'

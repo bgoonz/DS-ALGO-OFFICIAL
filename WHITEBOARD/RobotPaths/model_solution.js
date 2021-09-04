@@ -27,10 +27,9 @@ function robotPaths(n) {
     if (i < 0 || i >= n || j < 0 || j >= n) {
       return;
     }
-    if (board.hasBeenVisited(i,j)) {
+    if (board.hasBeenVisited(i, j)) {
       return;
-    }
-    else {
+    } else {
       board.toggle(i, j);
       traversePaths(i, j + 1);
       traversePaths(i + 1, j);
@@ -39,7 +38,7 @@ function robotPaths(n) {
       board.toggle(i, j);
     }
   };
-  
+
   traversePaths(0, 0);
   return pathCounter;
 }

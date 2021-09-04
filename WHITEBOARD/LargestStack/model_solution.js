@@ -16,7 +16,7 @@ class Stack {
 
   peek() {
     if (this.items.length) {
-      return this.items[this.items.length-1];
+      return this.items[this.items.length - 1];
     }
     return null;
   }
@@ -45,7 +45,7 @@ class MaxStack {
     // check to see if the item we popped off
     // is the current max
     // if it is, pop off the max Stack
-    // the previous max value in the Stack 
+    // the previous max value in the Stack
     // takes its place
     if (item === this.maxValues.peek()) {
       this.maxValues.pop();
@@ -61,13 +61,13 @@ class MaxStack {
 
 /* Some console.log tests */
 const maxStack = new MaxStack();
-console.log(maxStack.getMax());   // should print `null`
+console.log(maxStack.getMax()); // should print `null`
 
 maxStack.push(1);
-console.log(maxStack.getMax());   // should print 1
+console.log(maxStack.getMax()); // should print 1
 
 maxStack.push(100);
-console.log(maxStack.getMax());   // should print 100
+console.log(maxStack.getMax()); // should print 100
 
 maxStack.pop();
-console.log(maxStack.getMax());   // should print 1
+console.log(maxStack.getMax()); // should print 1

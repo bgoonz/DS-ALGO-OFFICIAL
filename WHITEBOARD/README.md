@@ -1,9 +1,9 @@
 # Whiteboard Pairing
 
 When doing this exercise as the _interviewee_, you should record yourself
-answering the interviewers question.  This must be uploaded on youtube and the
-link is one of the components of your development journal.  If you prefer, you
-may make the video private and invite your PM.  This will be of great use when
+answering the interviewers question. This must be uploaded on youtube and the
+link is one of the components of your development journal. If you prefer, you
+may make the video private and invite your PM. This will be of great use when
 working with your career coach!
 
 In order to get you guys more practice whiteboarding, we're going to have you
@@ -16,7 +16,7 @@ be the problem that you will pose to your interviewee when it's your turn to be
 interviewer. You're being assigned the problem at the beginning because it's
 very important that you get familiar with your assigned problem. In order to be
 an effective interviewer, you need to know the problem you're asking inside and
-out. 
+out.
 
 A working reference solution will be given to you, but you should figure out
 other ways to solve the problem because everyone thinks about problems
@@ -26,7 +26,7 @@ between working solutions. Your interviewee may very well come up with a
 solution to the problem that is very different from the reference solution or
 your own preferred solution, but that doesn't mean they are _wrong_. At that
 point, it will be your job as their interviewer to discuss with them the
-tradeoffs between their solution and yours. 
+tradeoffs between their solution and yours.
 
 Additionally, the working reference solution you've been provided with will be
 in JavaScript, but we don't want to limit interviewees to having to whiteboard
@@ -67,7 +67,7 @@ example, "When seeing a problem like this, your first thought should be to use
 this data structure because of x, y, and z."
 
 _Don't ever put your interviewee down._ Everyone is here to learn. Don't forget
-that, and always try to be patient with your interviewee. 
+that, and always try to be patient with your interviewee.
 
 As you interview, mentally note things that you appreciated that the interviewee
 did, and things you think might not have reflected positively on them. (You
@@ -85,8 +85,8 @@ the answer, that's fine--just think your way though it.
 But don't think just to yourself. Think aloud. The interviewer wants to see your
 thought processes. This benefits you a couple different ways:
 
-* It's easier to think about a problem when you're talking out loud.
-* The interviewer can tell if you're getting closer to the right track, and can
+- It's easier to think about a problem when you're talking out loud.
+- The interviewer can tell if you're getting closer to the right track, and can
   offer you hints to guide you along.
 
 When you are asked a whiteboarding question, step one is: **understand the

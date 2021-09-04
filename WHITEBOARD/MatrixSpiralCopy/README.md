@@ -1,10 +1,11 @@
-# Matrix Spiral Copy 
+# Matrix Spiral Copy
 
-Given a 2D array (matrix) `inputMatrix` of integers, create a function 
-`spiralCopy` that copies `inputMatrix`’s values into a 1D array in a clockwise 
-spiral order. Your function then should return that array. 
+Given a 2D array (matrix) `inputMatrix` of integers, create a function
+`spiralCopy` that copies `inputMatrix`’s values into a 1D array in a clockwise
+spiral order. Your function then should return that array.
 
 Examples:
+
 ```
 input:  inputMatrix  = [
                         [1, 2, 3, 4, 5],

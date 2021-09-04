@@ -20,7 +20,7 @@ function nthFib(n) {
 
   function recurse(n) {
     if (n === 0 || n === 1) return n;
-    return nthFibMemo(n-1) + nthFibMemo(n-2);
+    return nthFibMemo(n - 1) + nthFibMemo(n - 2);
   }
 
   return nthFibMemo(n);
@@ -36,7 +36,7 @@ function nthFibIterative(n) {
   memo[1] = 1;
 
   for (let i = 2; i <= n; i++) {
-    memo[i] = memo[i-1] + memo[i-2];
+    memo[i] = memo[i - 1] + memo[i - 2];
   }
 
   return memo[n];
