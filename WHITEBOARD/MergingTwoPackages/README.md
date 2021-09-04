@@ -9,10 +9,10 @@ Example:
 **JavaScript**:
 
 ```js
-input: arr = [4, 6, 10, 15, 16]
-       limit = 21
-output: [3, 1]   // since these are the indices of 
-                 // weights 6 and 15 whose sum equals 21
+input: arr = [4, 6, 10, 15, 16];
+limit = 21;
+output: [3, 1]; // since these are the indices of
+// weights 6 and 15 whose sum equals 21
 ```
 
 **Swift**:

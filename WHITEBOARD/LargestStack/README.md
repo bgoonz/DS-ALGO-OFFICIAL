@@ -21,14 +21,14 @@ class Stack {
 
   peek() {
     if (this.items.length) {
-      return this.items[this.items.length-1];
+      return this.items[this.items.length - 1];
     }
     return null;
   }
 }
 ```
 
-We wish to augment this Stack class such that we can always fetch the max value from the Stack in constant time. 
+We wish to augment this Stack class such that we can always fetch the max value from the Stack in constant time.
 
 Use the given Stack class to implement a new `MaxStack` class that has all the same methods as the base Stack class, along with a `getMax` method that returns the max value of the MaxStack in O(1) time. `getMax` should not remove the item.
 

@@ -32,7 +32,7 @@
   to reach that spot from `arr[0]`. At the end, return 
   `jumps[n-1]`.
 */
-function minJumps(arr, n=arr.length) {
+function minJumps(arr, n = arr.length) {
   const jumps = new Array(n);
 
   if (n === 0 || arr[0] === 0) {
@@ -51,10 +51,10 @@ function minJumps(arr, n=arr.length) {
     }
   }
 
-  return jumps[n-1];
+  return jumps[n - 1];
 }
 
-console.log(minJumps([1, 3, 5, 8, 9, 2, 6, 7, 6, 8, 9]));  // should print 3
-console.log(minJumps([1, 3, 6, 1, 0, 9]));  // should print 3
-console.log(minJumps([2, 0, 0, 5, 8, 1, 7, 4, 9, 12, 1]));  // should print Infinity
-console.log(minJumps([1, 3, 6, 3, 2, 3, 6, 8, 9, 5]));  // should print 4
+console.log(minJumps([1, 3, 5, 8, 9, 2, 6, 7, 6, 8, 9])); // should print 3
+console.log(minJumps([1, 3, 6, 1, 0, 9])); // should print 3
+console.log(minJumps([2, 0, 0, 5, 8, 1, 7, 4, 9, 12, 1])); // should print Infinity
+console.log(minJumps([1, 3, 6, 3, 2, 3, 6, 8, 9, 5])); // should print 4

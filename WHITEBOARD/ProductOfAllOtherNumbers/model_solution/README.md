@@ -1,11 +1,11 @@
-# Product Of All Other Numbers 
+# Product Of All Other Numbers
 
 ## Understanding the Problem
 
 This problems asks, given an array of integers as input, to produce another
 array where each value in the resulting is the product of every element from the
 input array _except_ the one at the current index. Let's break that down with
-some more examples. 
+some more examples.
 
 If we're given the array `[6, 9, 1, 4, 8]`, then our function should produce an
 array of the same length, where the value at index 0 should be the product of
@@ -59,7 +59,7 @@ def product_of_all_others(arr):
             product = 1
             if inner loop index matches outer loop index
                 don't multiply by this value
-            otherwise, multiply this value to product 
+            otherwise, multiply this value to product
             add product to our result array
     return result
 ```
@@ -68,15 +68,15 @@ This implementation exhibits O(n^2) runtime, since we're looping over every
 element as many times as there are elements in the array. The best we can
 probably do as far as runtime is concerned is linear, since there's no way
 around touching every array element at least once, since we'll have to do that
-to calculate the running products. 
+to calculate the running products.
 
 Are there any clues in the problem that we could make use of? Since this problem
 is asking us to not include a particular value, could we perhaps frame the
-problem slightly differently? After all, in order to not include some element, 
+problem slightly differently? After all, in order to not include some element,
 we could just as well include it and then take it away. How do we reverse
-multiplication? Division! Well, wouldn't the value that we would need at every 
-index be the same as the _total_ product of every element in the array, but 
-divided by element at that index? 
+multiplication? Division! Well, wouldn't the value that we would need at every
+index be the same as the _total_ product of every element in the array, but
+divided by element at that index?
 
 Here's an idea: what if we calculated the total product of the entire array, and
 then looped through our array, dividing the total product by the current array
@@ -85,17 +85,17 @@ current index. In pseudocode, that might look like this:
 
 ```
 def product_of_all_others(arr):
-    calculate the total product of every array element 
+    calculate the total product of every array element
     loop through our array
         divide the total product by the current array element
         add this product to a result array
-    return the result array 
+    return the result array
 ```
 
 That seems promising. It would be a linear solution, though we'd have to perform
 two passes over the data, the first time to calculate the total product, and the
 second time to divide the total product by each array element. Nonetheless, that
-is a linear solution! 
+is a linear solution!
 
 In python, that might look like the following:
 
@@ -110,7 +110,7 @@ def product_of_all_others(arr):
     return [total_product // x for x in arr]
 ```
 
-Short and sweet! 
+Short and sweet!
 
 As a follow up, think about how you would solve this problem if division was
-disallowed. 
+disallowed.
