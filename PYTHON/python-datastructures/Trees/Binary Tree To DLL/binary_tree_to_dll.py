@@ -37,7 +37,7 @@ def binary_tree_to_dll(node, head, tail):
        returns : the head and tail of the the linked lists 
     """
 
-    if node == None:
+    if node is None:
         return head, tail
 
     head, tail = binary_tree_to_dll(
@@ -45,7 +45,7 @@ def binary_tree_to_dll(node, head, tail):
     )  # converting the left subtree
 
     # updating the tail of the list to point towards current node
-    if head == None:
+    if head is None:
         head = node
     else:
         tail.right = node

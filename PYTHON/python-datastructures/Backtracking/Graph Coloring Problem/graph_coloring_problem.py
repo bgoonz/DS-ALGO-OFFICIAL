@@ -9,11 +9,7 @@ Intuition: We consider all the different combinations of the colors for the
 
 
 def isSafe(graph, v, n, temp, color):
-    # This checks whether if it safe to color the given node with temp color i.e checking if the adjacent nodes are different from temp
-    for i in range(v):
-        if graph[n][i] == 1 and color[i] == temp:
-            return False
-    return True
+    return not any(graph[n][i] == 1 and color[i] == temp for i in range(v))
 
 
 def check(graph, m, v, n, color):
@@ -45,7 +41,7 @@ def main():
         list = [int(x) for x in input().strip().split()]
         graph = [[0 for i in range(V)] for j in range(V)]
         cnt = 0
-        for i in range(E):
+        for _ in range(E):
             graph[list[cnt] - 1][list[cnt + 1] - 1] = 1
             graph[list[cnt + 1] - 1][list[cnt] - 1] = 1
             cnt += 2

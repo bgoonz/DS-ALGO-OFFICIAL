@@ -24,7 +24,7 @@ def get_search_type():
     s = input("Enter 'b' for BFS, 'd' for DFS: ")
     s = s.lower()
 
-    while s != "b" and s != "d":
+    while s not in ["b", "d"]:
         s = input("The input is not valid! Enter 'b' for BFS, 'd' for DFS: ")
         s = s[0].lower()
     return s == "b"
@@ -131,10 +131,8 @@ def next_transitions(jugs, path, check_dict):
     node.insert(0, a - (node[0] - b))
     if not been_there(node, check_dict):
         next_nodes.append(node)
-    node = []
+    node = [0]
 
-    # 5. empty first jug
-    node.append(0)
     node.append(b)
     if not been_there(node, check_dict):
         next_nodes.append(node)
@@ -147,12 +145,12 @@ def next_transitions(jugs, path, check_dict):
         next_nodes.append(node)
 
     # create a list of next paths
-    for i in range(0, len(next_nodes)):
+    for next_node in next_nodes:
         temp = list(path)
-        temp.append(next_nodes[i])
+        temp.append(next_node)
         result.append(temp)
 
-    if len(next_nodes) == 0:
+    if not next_nodes:
         print("No more unvisited nodes...\nBacktracking...")
     else:
         print("Possible transitions: ")
@@ -187,17 +185,15 @@ def transition(old, new, jugs):
             return "Clear {0}-liter jug:\t\t\t".format(a_max)
         else:
             return "Pour {0}-liter jug into {1}-liter jug:\t".format(a_max, b_max)
-    else:
-        if b > b_prime:
-            if a == a_prime:
-                return "Clear {0}-liter jug:\t\t\t".format(b_max)
-            else:
-                return "Pour {0}-liter jug into {1}-liter jug:\t".format(b_max, a_max)
+    elif b > b_prime:
+        if a == a_prime:
+            return "Clear {0}-liter jug:\t\t\t".format(b_max)
         else:
-            if a == a_prime:
-                return "Fill {0}-liter jug:\t\t\t".format(b_max)
-            else:
-                return "Fill {0}-liter jug:\t\t\t".format(a_max)
+            return "Pour {0}-liter jug into {1}-liter jug:\t".format(b_max, a_max)
+    elif a == a_prime:
+        return "Fill {0}-liter jug:\t\t\t".format(b_max)
+    else:
+        return "Fill {0}-liter jug:\t\t\t".format(a_max)
 
 
 # This method prints the goal path
@@ -208,7 +204,7 @@ def transition(old, new, jugs):
 def print_path(path, jugs):
 
     print("Starting from:\t\t\t\t", path[0])
-    for i in range(0, len(path) - 1):
+    for i in range(len(path) - 1):
         print(i + 1, ":", transition(path[i], path[i + 1], jugs), path[i + 1])
 
 

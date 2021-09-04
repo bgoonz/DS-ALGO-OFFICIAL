@@ -4,7 +4,6 @@ key = int(input("Enter key: "))
 
 # Encryption
 def encryption(msg):
-    cipher = ""
     text_len = float(len(msg))
     text_list = list(msg)
     col = key
@@ -23,13 +22,10 @@ def encryption(msg):
     for i in matrix:
         print(i)
 
-    # read matrix column-wise
-    key_index = 0
-    for i in range(col):
-        cipher += "".join([row[key_index] for row in matrix])
-        key_index += 1
-
-    return cipher
+    return "".join(
+        "".join(row[key_index] for row in matrix)
+        for key_index, i in enumerate(range(col))
+    )
 
 
 def decryption(c, key):

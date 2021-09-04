@@ -312,9 +312,7 @@ class DoublyLinkedList:
             NotImplementedError("Negative indexing not implemented yet")
 
         # Handling upper boundary case.
-        if index > self._size:
-            index = self._size
-
+        index = min(index, self._size)
         # We're filtered the upper and lower boundaries
         # So that we can find nodes by counting.
 

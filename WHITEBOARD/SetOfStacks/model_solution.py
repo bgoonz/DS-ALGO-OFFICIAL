@@ -11,14 +11,13 @@ class SetOfStacks:
 
     def push(self, item):
         # check to see if the current stack has room
-        if len(self.stacks[self.stack_index]) < self.capacity:
-            self.stacks[self.stack_index].append(item)
-        else:
+        if len(self.stacks[self.stack_index]) >= self.capacity:
             # current stack has reached its capacity
             # add a new stack to the stack of stacks and append to the new stack
             self.stacks.append([])
             self.stack_index += 1
-            self.stacks[self.stack_index].append(item)
+
+        self.stacks[self.stack_index].append(item)
 
     def pop(self):
         # check to see if the current stack is empty

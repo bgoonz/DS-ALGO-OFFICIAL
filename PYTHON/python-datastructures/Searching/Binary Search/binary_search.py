@@ -22,7 +22,7 @@ def binary_search(arr, x):
 arr = []
 n = int(input("Enter size of array : "))
 print("Enter array  elements : ")
-for i in range(n):
+for _ in range(n):
     e = int(input())
     arr.append(e)
 x = int(input("Enter element to search "))

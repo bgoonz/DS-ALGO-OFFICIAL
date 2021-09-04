@@ -21,11 +21,7 @@ if __name__ == "__main__":
 
     # This section asks user if comparisons are case sensitive
     case = input("\nIs it case sensitive? (1/0): ")
-    if case == "0":
-        tmp = s.lower()
-    else:
-        tmp = s[:]
-
+    tmp = s.lower() if case == "0" else s[:]
     # Calling the function
     ans = isPalindrome(tmp)
 

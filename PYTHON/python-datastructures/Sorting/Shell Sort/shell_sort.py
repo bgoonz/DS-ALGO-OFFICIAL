@@ -38,7 +38,7 @@ def shellSort(arr):
 arr = []
 size = int(input("Enter size: "))
 print("Enter elements:")
-for i in range(0, size):
+for _ in range(size):
     item = int(input())
     arr.append(item)
 

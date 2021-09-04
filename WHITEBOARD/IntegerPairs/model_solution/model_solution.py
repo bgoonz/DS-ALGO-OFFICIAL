@@ -20,13 +20,10 @@ def integerPairs(arr, k):
             first += 1
             last -= 1
             found_pair = True
+        elif sum < k:
+            first += 1
         else:
-            # if they don't then we decide whether we increment
-            # the first index or decrement the last index
-            if sum < k:
-                first += 1
-            else:
-                last -= 1
+            last -= 1
     if not found_pair:
         print("No pairs found")
 

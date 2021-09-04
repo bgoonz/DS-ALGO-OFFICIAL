@@ -17,7 +17,7 @@ def nthFib(n):
         return v
 
     def recurse(n):
-        if n == 0 or n == 1:
+        if n in [0, 1]:
             return n
         return nthFibMemo(n - 1) + nthFibMemo(n - 2)
 

@@ -54,7 +54,7 @@ if __name__ == "__main__":
     n, m = map(int, input("Enter the number of vertex and edges: ").split())
     print("Enter the edges: ")
     graph = defaultdict(list)
-    for i in range(m):
+    for _ in range(m):
         a, b = map(int, input().split())
         graph[a] += [b]
         graph[b] += [a]

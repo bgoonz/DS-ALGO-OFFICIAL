@@ -12,7 +12,7 @@ def firstIndex(arr, si, x):
 
 arr = []  # initialised array.
 n = int(input("Enter size of array : "))
-for i in range(n):  # input array.
+for _ in range(n):  # input array.
     ele = int(input())
     arr.append(ele)
 x = int(input("Enter element to be searched "))  # element to be searched

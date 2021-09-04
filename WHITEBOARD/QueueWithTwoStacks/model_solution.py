@@ -22,9 +22,8 @@ class Queue:
         # same logic as `dequeue`
         if len(self.inStack) == 0:
             return None
-        else:
-            while len(self.inStack) > 0:
-                self.outStack.append(self.inStack.pop())
+        while len(self.inStack) > 0:
+            self.outStack.append(self.inStack.pop())
 
         return self.outStack[0]
 

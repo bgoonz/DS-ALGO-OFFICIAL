@@ -15,7 +15,7 @@ def search(arr, x):  # function to  search.
 n = int(input("Enter Size of array: "))
 arr = []
 print("Enter array elements: ")
-for i in range(n):
+for _ in range(n):
     e = int(input())
     arr.append(e)
 x = int(input("Enter element to be searched: "))

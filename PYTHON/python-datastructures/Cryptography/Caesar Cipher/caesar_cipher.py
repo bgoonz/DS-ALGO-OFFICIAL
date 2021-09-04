@@ -45,8 +45,7 @@ if choose == 1:
     key_val = int(input("Enter the key value "))
     print("Encrypted string is : " + encrypt(input_string, key_val))
 
-# This is the code for decryption choice , it calls the function and prints the decrypted value
-if choose == 2:
+elif choose == 2:
     encrypted_string = input("Enter the encrypted text ")
     key_val = int(input("Enter the key value "))
     print("Decrypted string is : " + decrypt(encrypted_string, key_val))

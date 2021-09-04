@@ -8,7 +8,7 @@ def bubbleSort(a):
 
     for i in range(n - 1):
         # Last i elements are already in place
-        for j in range(0, n - i - 1):
+        for j in range(n - i - 1):
 
             # traverse the array from 0 to n-i-1
             # Swap if the element found is greater
@@ -19,13 +19,13 @@ def bubbleSort(a):
 
 arr = []
 n = int(input("Enter size of array: "))
-for i in range(n):
+for _ in range(n):
     e = int(input())
     arr.append(e)
 bubbleSort(arr)
 print("Sorted array is:")
-for i in range(len(arr)):
-    print(arr[i])
+for item in arr:
+    print(item)
 
 # Time complexity - O(n^2)
 # Space complexity - O(1)

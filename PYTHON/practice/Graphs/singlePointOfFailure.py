@@ -95,13 +95,14 @@ def singlePointOfFailure(connections):
     size = len(connections)
     for item in cuttable_nodes:
         for i in range(size):
-            # test that there are no other connections between the items first
-            a = []
             if i in cuttable_nodes and i not in added_nodes:
-                for l in range(size):
-                    if l in cuttable_nodes:
-                        continue
-                    a.append((connections[item][l] == 1 and connections[i][l] == 1))
+                            # test that there are no other connections between the items first
+                a = [
+                    ((connections[item][l] == 1 and connections[i][l] == 1))
+                    for l in range(size)
+                    if l not in cuttable_nodes
+                ]
+
                 print(item, i, a)
                 if not any(a):
                     total += connections[item][i]
@@ -112,11 +113,7 @@ def singlePointOfFailure(connections):
 
 
 def anySingleEdges(adj_matrix):
-    for item in adj_matrix:
-        if sum(item) == 1:
-            return True
-
-    return False
+    return any(sum(item) == 1 for item in adj_matrix)
 
 
 def remove_empty_nodes(adj_matrix, nodes):
@@ -141,17 +138,13 @@ def remove_empty_nodes(adj_matrix, nodes):
 
 def remove_node(node, adj_matrix):
     size = len(adj_matrix)
-    indices = set()
-    for i, a in enumerate(adj_matrix[node]):
-        if a == 1:
-            indices.add(i)
-
+    indices = {i for i, a in enumerate(adj_matrix[node]) if a == 1}
     output = []
     for i, item in enumerate(adj_matrix):
         if i == node:
             this_row = [0 for l in range(size)]
         else:
-            this_row = [a if (not l == node) else 0 for l, a in enumerate(item)]
+            this_row = [a if l != node else 0 for l, a in enumerate(item)]
         output.append(this_row)
 
     return output
@@ -159,15 +152,17 @@ def remove_node(node, adj_matrix):
 
 # determine if the graph described is connected or not!
 def adjacency_matrix_BFS(node, adj_matrix):
-    seen = set()
-    seen.add(node)
+    seen = {node}
     queue = [i for i, a in enumerate(adj_matrix[node]) if a == 1]
     while queue:
         curr_node = queue.pop(0)
         seen.add(curr_node)
         new_items = [
-            i for i, a in enumerate(adj_matrix[curr_node]) if a == 1 and not i in seen
+            i
+            for i, a in enumerate(adj_matrix[curr_node])
+            if a == 1 and i not in seen
         ]
+
         queue.extend(new_items)
 
     if len(adj_matrix) == len(seen) + 1:

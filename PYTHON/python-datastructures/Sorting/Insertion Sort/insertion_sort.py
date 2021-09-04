@@ -8,18 +8,18 @@ for i in range(1, len(a)):
     while j >= 0 and val < a[j]:
         a[j + 1] = a[j]  # right element getting val of left
         j = j - 1
-        swaps = swaps + 1  # increments swaps var
-        comp = comp + 1
+        swaps += 1
+        comp += 1
 
     a[j + 1] = val  # replaces the swapped number into its sorted location
     if val > a[j]:  # increments comparisions for case when no swaps are made
-        comp = comp + 1
+        comp += 1
 
 print("No. of swaps= %d" % swaps)
 print("No. of comparisions=%d" % comp)
 print("Sorted Array is: ")
-for i in range(len(a)):
-    print("% d" % a[i], end=" ")
+for item in a:
+    print("% d" % item, end=" ")
 
     # Test cases"
 """input:

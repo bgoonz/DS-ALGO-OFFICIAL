@@ -14,9 +14,7 @@ def largest_contiguous_sum(arr):
         current_sum += x
         max_sum = max(current_sum, max_sum)
 
-        if current_sum < 0:
-            current_sum = 0
-
+        current_sum = max(current_sum, 0)
     return max_sum
 
 

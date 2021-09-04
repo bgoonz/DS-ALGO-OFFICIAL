@@ -9,13 +9,13 @@ def checkBalanced(rootNode):
 
     # recursive helper function to check the min depth of the tree
     def minDepth(node):
-        if node == None:
+        if node is None:
             return 0
         return 1 + min(minDepth(node.left), minDepth(node.right))
 
     # recursive helper function to check the max depth of the tree
     def maxDepth(node):
-        if node == None:
+        if node is None:
             return 0
         return 1 + max(maxDepth(node.left), maxDepth(node.right))
 

@@ -46,11 +46,14 @@ def minJumps(arr, n=None):
 
     for i in range(1, n):
         jumps[i] = float("inf")
-        for j in range(0, n):
-            if i <= j + arr[j] and jumps[j] != float("inf"):
-                if jumps[j] is not None:
-                    jumps[i] = min(jumps[i], int(jumps[j]) + 1)
-                    break
+        for j in range(n):
+            if (
+                i <= j + arr[j]
+                and jumps[j] != float("inf")
+                and jumps[j] is not None
+            ):
+                jumps[i] = min(jumps[i], int(jumps[j]) + 1)
+                break
 
     return jumps[n - 1]
 

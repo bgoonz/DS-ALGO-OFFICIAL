@@ -6,7 +6,7 @@ the most bottem-right cell."""
 
 # Check if cell is valid or not
 def valid_cell(x, y):
-    return not (x < 0 or y < 0 or x >= length or y >= length)
+    return x >= 0 and y >= 0 and x < length and y < length
 
 
 # Main recursion function
@@ -23,13 +23,13 @@ def count_valid_paths(maze, x, y, checked, paths):
         if x + 1 < length and not checked[x + 1][y]:
             paths = count_valid_paths(maze, x + 1, y, checked, paths)
 
-        if x - 1 >= 0 and not checked[x - 1][y]:
+        if x >= 1 and not checked[x - 1][y]:
             paths = count_valid_paths(maze, x - 1, y, checked, paths)
 
         if y + 1 < length and not checked[x][y + 1]:
             paths = count_valid_paths(maze, x, y + 1, checked, paths)
 
-        if y - 1 >= 0 and not checked[x][y - 1]:
+        if y >= 1 and not checked[x][y - 1]:
             paths = count_valid_paths(maze, x, y - 1, checked, paths)
 
     # Backtrack from the cell and mark it as checked

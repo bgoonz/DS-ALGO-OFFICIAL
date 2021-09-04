@@ -1,8 +1,8 @@
 def makeBoard(n):
     board = []
-    for i in range(0, n):
+    for i in range(n):
         board.append([])
-        for j in range(0, n):
+        for _ in range(n):
             board[i].append(False)
 
     return board
@@ -25,13 +25,12 @@ def robotPaths(n):
         if hasBeenVisited(i, j):
             return
 
-        else:
-            board[i][j] = not board[i][j]
-            traversePaths(i, j + 1)
-            traversePaths(i + 1, j)
-            traversePaths(i, j - 1)
-            traversePaths(i - 1, j)
-            board[i][j] = not board[i][j]
+        board[i][j] = not board[i][j]
+        traversePaths(i, j + 1)
+        traversePaths(i + 1, j)
+        traversePaths(i, j - 1)
+        traversePaths(i - 1, j)
+        board[i][j] = not board[i][j]
 
     traversePaths(0, 0)
 

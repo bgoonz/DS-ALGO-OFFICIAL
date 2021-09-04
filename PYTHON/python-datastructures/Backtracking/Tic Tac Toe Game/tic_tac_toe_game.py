@@ -168,9 +168,7 @@ def getBestMove(state, player):
                 empty_cells.append(i * 3 + (j + 1))
 
     for empty_cell in empty_cells:
-        move = {}
-
-        move["index"] = empty_cell
+        move = {'index': empty_cell}
 
         # Call the copy_game_state method
         new_state = copy_game_state(state)
@@ -179,11 +177,9 @@ def getBestMove(state, player):
         # if player is computer
         if player == "O":
             result = getBestMove(new_state, "X")
-            move["score"] = result
         else:
             result = getBestMove(new_state, "O")
-            move["score"] = result
-
+        move["score"] = result
         moves.append(move)
 
     # Find best move
@@ -207,7 +203,7 @@ def getBestMove(state, player):
 
 # Now PLaying the Tic-Tac-Toe Game
 play_again = "Y"
-while play_again == "Y" or play_again == "y":
+while play_again in {"Y", "y"}:
     # Set the empty board for Tic-Tac-Toe
     game_state = [[" ", " ", " "], [" ", " ", " "], [" ", " ", " "]]
     # Set current_state as "Not Done"
@@ -224,11 +220,7 @@ while play_again == "Y" or play_again == "y":
     winner = None
 
     # if player_choice is ('X' or 'x') for humans else for computer
-    if player_choice == "X" or player_choice == "x":
-        current_player_idx = 0
-    else:
-        current_player_idx = 1
-
+    current_player_idx = 0 if player_choice in ["X", "x"] else 1
     while current_state == "Not Done":
         # For Human Turn
         if current_player_idx == 0:

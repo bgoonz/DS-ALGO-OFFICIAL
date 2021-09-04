@@ -18,9 +18,7 @@ def average(array):
 # getting the input
 arr = input("Enter numbers: ").strip().split()
 # converting elements into integer type for calculating average
-arr_int = []
-for i in arr:
-    arr_int.append(int(i))
+arr_int = [int(i) for i in arr]
 # calling function to compute the average
 average(arr_int)
 

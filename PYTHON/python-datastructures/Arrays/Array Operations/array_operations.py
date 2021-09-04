@@ -4,9 +4,7 @@ import array as arr
 print("INTEGER ARRAY OPERATIONS:")
 size = int(input(" Enter the size of Array: "))
 # creating an array with integer type
-lst = list()
-for i in range(size):
-    lst.append(int(input("Enter the  Integer Element:")))
+lst = [int(input("Enter the  Integer Element:")) for _ in range(size)]
 n = arr.array(lst)
 
 # printing array

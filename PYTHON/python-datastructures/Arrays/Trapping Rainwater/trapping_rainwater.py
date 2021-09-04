@@ -19,7 +19,7 @@ def maxWater(arr, n):
             right = max(right, arr[j])
             # Update the maximum water
 
-        res = res + (min(left, right) - arr[i])
+        res += min(left, right) - arr[i]
 
     return res
 
@@ -28,7 +28,7 @@ if __name__ == "__main__":
 
     arr = []
     n = int(input())
-    for i in range(n):
+    for _ in range(n):
         e = int(input())
         arr.append(e)
 

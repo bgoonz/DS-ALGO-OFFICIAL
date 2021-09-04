@@ -39,11 +39,11 @@ def isLinkedListPalindrome(listNode):
     if fast:
         slow = slow.next
 
+    top = stack.pop()
+
     # compare each stack element with the current element
     # the slow runner sees if there is a mismatch, return false
     while slow:
-        top = stack.pop()
-
         if top != slow.value:
             return False
 

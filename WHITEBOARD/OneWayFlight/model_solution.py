@@ -9,7 +9,7 @@ def reconstructTrip(tickets):
 
     for ticket in tickets:
         # check for the start destination of our trip
-        if ticket[0] == None:
+        if ticket[0] is None:
             # add it to our `route` array as the first element
             route[0] = ticket[1]
 

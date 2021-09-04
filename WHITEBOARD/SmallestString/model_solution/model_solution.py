@@ -18,24 +18,21 @@ def shortest_string(str1, str2):
 
     while s1 <= len1 and s2 <= len2:
         if str1[s1].isalpha() and str2[s2].isalpha():
-            if str1[s1] == str2[s2]:
-                s1 += 1
-                s2 += 1
-            else:
+            if str1[s1] != str2[s2]:
                 return str1 if str1[s1] < str2[s2] else str2
+            s1 += 1
+            s2 += 1
         else:
-            if str1[s1].isdigit() and str2[s2].isdigit():
-                n1, l1 = parse_number(str1, s1)
-                n2, l2 = parse_number(str2, s2)
-
-                if n1 != n2:
-                    return str1 if n1 < n2 else str2
-                else:
-                    s1 += l1
-                    s2 += l2
-            else:
+            if not str1[s1].isdigit() or not str2[s2].isdigit():
                 return str1 if str1[s1] < str2[s2] else str2
 
+            n1, l1 = parse_number(str1, s1)
+            n2, l2 = parse_number(str2, s2)
+
+            if n1 != n2:
+                return str1 if n1 < n2 else str2
+            s1 += l1
+            s2 += l2
     return str1 if len1 < len2 else str2
 
 

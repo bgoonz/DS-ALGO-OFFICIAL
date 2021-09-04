@@ -24,9 +24,9 @@ class Node:
 def expression_tree_evaluation(node):
     """A recursive function which evaluates the expression subtree passed to it
         and returns the evaluated value"""
-    if node == None:  # Node doesn't exist
+    if node is None:  # Node doesn't exist
         return 0
-    if node.left == None and node.right == None:  # leaf node containing an operand
+    if node.left is None and node.right is None:  # leaf node containing an operand
         return node.value
 
     # node is an operator
