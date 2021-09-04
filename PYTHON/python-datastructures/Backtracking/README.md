@@ -19,5 +19,3 @@
 - [Tic Tac Toe Game](https://github.com/prathimacode-hub/PyAlgo-Tree/tree/main/Backtracking/Tic%20Tac%20Toe%20Game)
 
 - [Water Jug Problem](https://github.com/prathimacode-hub/PyAlgo-Tree/tree/main/Backtracking/Water%20Jug%20Problem)
-
-

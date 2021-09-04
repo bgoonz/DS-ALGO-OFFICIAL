@@ -11,7 +11,3 @@
 - [First Index](https://github.com/prathimacode-hub/PyAlgo-Tree/tree/main/Recursion/First%20Index)
 
 - [Last Index](https://github.com/prathimacode-hub/PyAlgo-Tree/tree/main/Recursion/Last%20Index)
-
-
-
-

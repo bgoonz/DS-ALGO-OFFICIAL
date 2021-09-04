@@ -26,6 +26,7 @@ $ git submodule add https://github.com/getpelican/pelican-plugins.git plugins/pe
 ```
 
 Copy the notebook content to the right location (this script also modifies some links for the HTML):
+
 ```
 $ python copy_notebooks.py
 ```

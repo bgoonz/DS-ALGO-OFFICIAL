@@ -2,9 +2,9 @@
 <h2> Welcome to the Repo Officially!!..🙌👏 </h2> <br>
 
 ## Total Number Of PR's : 64
+
 ## Total Number of Contributors : 17
 
-  
 Name : Siddhi Bhanushali <br>
 Github : https://github.com/siddhi-244 <br>
 Number of PR's : 8 <br>
@@ -50,7 +50,7 @@ Email Id : shiwanshraj@gmail.com
 Name : Pushpit Jain <br>
 Github : https://github.com/pushpit-J19 <br>
 Number of PR's : 9 <br>
-Projects Done : Palindrome Check with Recursion (Level 1) | Expression Tree Evaluation (Level 2) | Infix To Postfix Conversion (Level 2) | Segment Tree Creation (Level 2) | Segment Tree Update Query (Level 2) |  Segment Tree Range Sum Query (Level 2) | Binary Tree to DLL (Level 2) | Lowest Common Ancestor Binary Tree (Level 2) | Lowest Common Ancestor Binary Search Tree (Level 2) | <br>
+Projects Done : Palindrome Check with Recursion (Level 1) | Expression Tree Evaluation (Level 2) | Infix To Postfix Conversion (Level 2) | Segment Tree Creation (Level 2) | Segment Tree Update Query (Level 2) | Segment Tree Range Sum Query (Level 2) | Binary Tree to DLL (Level 2) | Lowest Common Ancestor Binary Tree (Level 2) | Lowest Common Ancestor Binary Search Tree (Level 2) | <br>
 Points : 170 <br>
 Email Id : pushpitjain3@gmail.com
 
@@ -123,5 +123,3 @@ Number of PR's : 1 <br>
 Projects Done : Circular Linked List Traversal (Level 2) | <br>
 Points : 20 <br>
 Email Id : vishvarana2009@gmail.com
-
-

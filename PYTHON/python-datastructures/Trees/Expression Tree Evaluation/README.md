@@ -1,5 +1,4 @@
-# Expression Tree Evaluation 
-
+# Expression Tree Evaluation
 
 ## Aim
 
@@ -11,7 +10,7 @@ The purpose is to come up with an efficient solution while implementing recursio
 
 ## Short description of project
 
-The project takes in input the expression tree to be checked, 
+The project takes in input the expression tree to be checked,
 and then checks the evaluated the from the root node, bu recursively calling its left and right subtrees.
 
 ## Workflow of the Project
@@ -22,7 +21,7 @@ Node --> Class to define each node of the tree
 
 expression_tree_evaluation --> recursive method to evaluate expression tree
 
-After the root node of the tree is passed to the function, the control is passed to the isPalindrome function, which returns the evaluated value, 
+After the root node of the tree is passed to the function, the control is passed to the isPalindrome function, which returns the evaluated value,
 which is then printed with an appropriate output to the user.
 
 ## Required libraries
@@ -30,12 +29,11 @@ which is then printed with an appropriate output to the user.
 None
 
 ## Compilation Steps
+
 Run the script, after that :
 
- 1. The expression tree is made manually here, to focus on evaluation part 
- 2. The program tells the value of the expression calculated from the tree
-
-
+1.  The expression tree is made manually here, to focus on evaluation part
+2.  The program tells the value of the expression calculated from the tree
 
 # Output
 
@@ -43,6 +41,6 @@ Run the script, after that :
 
 <img width = 300 height = 100 src="../Expression Tree Evaluation/Images/expression_tree_evaluation_output2.PNG">
 
-
 ## Author
+
 [Pushpit Jain](https://github.com/pushpit-J19)

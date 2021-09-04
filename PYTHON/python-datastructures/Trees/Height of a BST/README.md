@@ -4,11 +4,9 @@
 
 To form a Binary Search Tree of the integers entered and display its height.
 
-
 ## Purpose
 
 The purpose is to work with trees.
-
 
 ## Short description of package/script
 
@@ -16,14 +14,12 @@ The purpose is to work with trees.
 - The BST is constructed according to the rules, with each node having an element entered by the user.
 - A recursive function calculates the height of the tree.
 
-
 ## Workflow of the Project
 
 - The tree is initialized.
 - Nodes are inserted.
 - Recursion is performed.
 - Height is accordingly printed.
-
 
 ## Compilation Steps
 
@@ -34,13 +30,10 @@ After the script is run, enter:
 
 That's it! The height of the BST thus formed will get printed.
 
-
 ## Output
 
-<img src="../Height of a BST/Images/ss.png"> 
-
+<img src="../Height of a BST/Images/ss.png">
 
 ## Author
 
 [Manasi Chhibber](https://github.com/Manasi2001)
-

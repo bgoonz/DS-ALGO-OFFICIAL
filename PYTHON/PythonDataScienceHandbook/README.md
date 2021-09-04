@@ -40,7 +40,7 @@ To install the requirements using [conda](http://conda.pydata.org), run the foll
 $ conda install --file requirements.txt
 ```
 
-To create a stand-alone environment named ``PDSH`` with Python 3.5 and all the required package versions, run the following:
+To create a stand-alone environment named `PDSH` with Python 3.5 and all the required package versions, run the following:
 
 ```
 $ conda create -n PDSH python=3.5 --file requirements.txt
@@ -48,11 +48,12 @@ $ conda create -n PDSH python=3.5 --file requirements.txt
 
 You can read more about using conda environments in the [Managing Environments](http://conda.pydata.org/docs/using/envs.html) section of the conda documentation.
 
-
 ## License
 
 ### Code
+
 The code in this repository, including all code samples in the notebooks listed above, is released under the [MIT license](LICENSE-CODE). Read more at the [Open Source Initiative](https://opensource.org/licenses/MIT).
 
 ### Text
+
 The text content of the book is released under the [CC-BY-NC-ND license](LICENSE-TEXT). Read more at [Creative Commons](https://creativecommons.org/licenses/by-nc-nd/3.0/us/legalcode).

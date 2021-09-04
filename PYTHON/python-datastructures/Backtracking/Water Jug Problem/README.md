@@ -4,11 +4,9 @@
 
 The aim is to solve Water Jug Problem using BFS or DFS as per user's choice.
 
-
 ## Purpose
 
 Given Problem: You are given a 'm' liter jug and a 'n' liter jug where '0<m<n'. Both the jugs are initially empty. The jugs don't have markings to allow measuring smaller quantities. You have to use the jugs to measure 'd' liters of water where 'd<n'. Determine the minimum no of operations to be performed to obtain 'd' liters of water in one of jug. The **purpose** is to come up with a solution for this problem.
-
 
 ## Short description of package/script
 
@@ -16,10 +14,9 @@ Given Problem: You are given a 'm' liter jug and a 'n' liter jug where '0<m<n'. 
 - Backtracking is used for keeping track of all the visited nodes and possible solutions.
 - Complete steps get printed with each and every state mentioned.
 
-
 ## Workflow of the Project
 
-Description of functions used in the code and their purpose: 
+Description of functions used in the code and their purpose:
 
 get_search_type --> This method accepts an input for asking the choice for type of searching required i.e. BFS or DFS.
 
@@ -42,12 +39,12 @@ After the desired values are entered by the user, the 'search' function is calle
 ## Compilation Steps
 
 After the script is run, enter:
+
 1. The volume for first jug.
 2. The volume of secong jug.
 3. The desired amount of water.
 4. Choose the search technique.
-That's it! All the steps to the goal state (if found) will be listed.
-
+   That's it! All the steps to the goal state (if found) will be listed.
 
 ## Output
 

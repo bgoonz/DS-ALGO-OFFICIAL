@@ -3,15 +3,13 @@ Title: Project Title
 About: Create a report to help us improve.
 Name: YourName
 Label: Bug Report
-Assignee: ''
-
+Assignee: ""
 ---
 
 Define You:
 
-- [ ] DevIncept Participant 
+- [ ] DevIncept Participant
 - [ ] Contributor
-
 
 <!-- Have you talked to any of the Moderators or Project Admin (Prathima Kadari) before creating this issue? If not, just have a quick discussion and then once approved, create this issue. -->
 
@@ -23,10 +21,10 @@ Define You:
 
 Steps to reproduce the behavior:
 
-1. 
-2. 
-3. 
-4. 
+1.
+2.
+3.
+4.
 
 **Expected Behavior**
 
