@@ -1,7 +1,7 @@
-name: 'Auto Assign PR Reviewers'
+name: "Auto Assign PR Reviewers"
 on: pull_request_target
 
-jobs: 
+jobs:
   add-reviews:
     runs-on: ubuntu-latest
     steps:

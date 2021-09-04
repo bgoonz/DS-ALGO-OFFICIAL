@@ -42,9 +42,9 @@ The first language you learn is the hardest. The second one is about half as har
 
 Why Python? Python is a very popular, well-formed, and useful language. Although the syntax is farther from JavaScript than C is, it's an easy language to step into. There are a lot of Python shops out there.
 
-*Why C?* Although C was at one time considered a high-level language, it's now considered a low-level language as so many more higher-level languages have been invented since its creation. We teach it because it gives you near-maximal perspective across the spectrum of languages. Low-level, high control, high speed, and minimal room for programming errors defines C programming. After learning it, JavaScript seems (and is) easy to program with.
+_Why C?_ Although C was at one time considered a high-level language, it's now considered a low-level language as so many more higher-level languages have been invented since its creation. We teach it because it gives you near-maximal perspective across the spectrum of languages. Low-level, high control, high speed, and minimal room for programming errors defines C programming. After learning it, JavaScript seems (and is) easy to program with.
 
-*Why not C++?* Short answer: there's not enough time. While a really popular language, the nuances of the language are so many that giving adequate coverage to C++ in even three weeks is not possible.
+_Why not C++?_ Short answer: there's not enough time. While a really popular language, the nuances of the language are so many that giving adequate coverage to C++ in even three weeks is not possible.
 
 > C gives you enough rope to hang yourself. C++ gives you enough to hang yourself and all your friends.
 
@@ -86,7 +86,7 @@ In what might be a surprise, state machines are closely related to [_regular exp
 
 ### Learn Algorithms, Data Structures, and Time Complexity
 
-Knowing what algorithm to implement (or use from a library) can have great impacts on the time it takes for a process you implement to complete. A not-uncommon task at work is to take a job that completes in 5 minutes, and change it to complete in 10 seconds. 
+Knowing what algorithm to implement (or use from a library) can have great impacts on the time it takes for a process you implement to complete. A not-uncommon task at work is to take a job that completes in 5 minutes, and change it to complete in 10 seconds.
 
 Knowing how to analyze an algorithm can help you figure out what about the process is taking so long to complete.
 
@@ -124,7 +124,7 @@ Lots of times problem solving might seem like a drag. You might have been hoping
 
 It's a subtle change of perspective, but work to convince yourself that a problem to be solved presents an interesting and unique challenge. This might take some forcing at first.
 
-But the secret is this: the more problems you solve, the easier problems become to solve. This is especially true if you remain in the same subfield for a while and build up a massive collection of domain knowledge. 
+But the secret is this: the more problems you solve, the easier problems become to solve. This is especially true if you remain in the same subfield for a while and build up a massive collection of domain knowledge.
 
 ### Never Stop Learning
 
@@ -145,18 +145,18 @@ Remember: it's a big computing world out there, yours to pursue as you choose!
 #### De-mystify computers and computing:
 
 - Breadth of Technical Knowledge
-Students should understand how code works, how computers work, how the internet works, and how they all work together.
+  Students should understand how code works, how computers work, how the internet works, and how they all work together.
 
 - Sense of Scale
-Students should be comfortable identifying and measuring complexity and understand techniques for refactoring code for scalability.
+  Students should be comfortable identifying and measuring complexity and understand techniques for refactoring code for scalability.
 
 #### Write better code:
 
 - Quality
-Students code with a consistent eye toward scalability and readability, i.e. code that is efficient and easily maintained.
+  Students code with a consistent eye toward scalability and readability, i.e. code that is efficient and easily maintained.
 
 - Quantity
-Students write large quantities of code every day, building the reps needed to overcome difficult challenges and build confidence.
+  Students write large quantities of code every day, building the reps needed to overcome difficult challenges and build confidence.
 
 - Diversity
-Students tackle a variety of challenges, picking up a versatile set of skills and building comfort with the unknown.
+  Students tackle a variety of challenges, picking up a versatile set of skills and building comfort with the unknown.

@@ -3,15 +3,13 @@ Title: Project Title
 About: Suggest an idea for this project
 Name: YourName
 Label: Feature Request
-Assignee: ''
-
+Assignee: ""
 ---
 
 Define You:
 
-- [ ] DevIncept Participant 
+- [ ] DevIncept Participant
 - [ ] Contributor
-
 
 <!-- Have you talked to any of the Moderators or Project Admin (Prathima Kadari) before creating this issue? If not, just have a quick discussion and then once approved, create this feature request. -->
 

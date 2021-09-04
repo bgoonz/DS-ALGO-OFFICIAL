@@ -15,7 +15,3 @@
 - [Selection Sort](https://github.com/prathimacode-hub/PyAlgo-Tree/tree/main/Sorting/Selection%20Sort)
 
 - [Shell Sort](https://github.com/prathimacode-hub/PyAlgo-Tree/tree/main/Sorting/Shell%20Sort)
-
-
-
-

@@ -11,28 +11,29 @@ It is an alternative to array based queue. Also do enqueue() and dequeue() opera
 ## Short description of script
 
 Queue ADT:
+
 - Queue is a linear data structure in which insertion and deletion
-performed based on FIFO principle.
+  performed based on FIFO principle.
 - FIFO: First In First Out.
 
 Linked Queue:
+
 - Queue implemented by linked list concept is known as Linked Queue.
 - It reduces the complexity in array based queue.
 - It manages every enqueue() and dequeue() operation run in O(1) time.
 
-
 ## Workflow of the Project
 
 - Script Contents:
-    - Class: LinkedQueue: Manages the queue.
-    - Methods:
-        - clear(): Clears the queue.
-        - dequeue(): Deletes first element of the queue and returns it. 
-        - enqueue(): Adds the given element at the end of queue.
-        - extend(): Extends the queue with given iterable elements.
-        - is_empty(): Tells the queue is empty or not.
-        - peek(): Return the first element without deleting it.
-        - reverse(): Reverses the queue.
+  - Class: LinkedQueue: Manages the queue.
+  - Methods:
+    - clear(): Clears the queue.
+    - dequeue(): Deletes first element of the queue and returns it.
+    - enqueue(): Adds the given element at the end of queue.
+    - extend(): Extends the queue with given iterable elements.
+    - is_empty(): Tells the queue is empty or not.
+    - peek(): Return the first element without deleting it.
+    - reverse(): Reverses the queue.
 - In our implementation we use head and trail variables that respectively stores header and trailer of linked queue.
 - It is used for easy enqueue() and dequeue() operation.
 - There is no upper limit condition, because of linked structure.
@@ -40,21 +41,21 @@ Linked Queue:
 ## Setup instructions
 
 - Import using,
-    ```python
-    from linked_queue import * 
-    ```
-    OR
-    ```python
-    import linked_queue
-    ```
+  ```python
+  from linked_queue import *
+  ```
+  OR
+  ```python
+  import linked_queue
+  ```
 - Create a instance,
-    ```python
-    varible_name = LinkedQueue()
-    ```
-    OR
-    ```python
-    varible_name = linked_queue.LinkedQueue()
-    ```
+  ```python
+  varible_name = LinkedQueue()
+  ```
+  OR
+  ```python
+  varible_name = linked_queue.LinkedQueue()
+  ```
 - And start work on it.
 
 ## Sample Test Cases
@@ -88,11 +89,10 @@ LinkedQueue([])
 ## Output
 
 - Test case above,  
-    ![Screenshot_1](Images/Screenshot_1.png)
+   ![Screenshot_1](Images/Screenshot_1.png)
 
 - Test case inside script,  
-    ![Screenshot_2](Images/Screenshot_2.png)
-
+   ![Screenshot_2](Images/Screenshot_2.png)
 
 ## Author
 

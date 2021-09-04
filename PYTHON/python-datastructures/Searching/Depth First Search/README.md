@@ -4,18 +4,15 @@
 
 To implement depth first search.
 
-
 ## Purpose
 
 The purpose is to understand the functioning of DFS Algorithm in AI.
-
 
 ## Short description of package/script
 
 - First the graph is created, according to the edges entered by the user.
 - The details of visited nodes are maintained.
 - According to the algorithm, all the nodes are traversed one by one.
-
 
 ## Workflow of the Project
 
@@ -31,7 +28,6 @@ dfs_helper --> Function to assist in calling dfs. Also prints the final dfs trav
 
 Based on the graph that is obtained according to the user's details, the DFS is done.
 
-
 ## Compilation Steps
 
 After the script is run, enter:
@@ -44,12 +40,10 @@ After the script is run, enter:
 
 That's it! The complete traversal will get printed out.
 
-
 ## Output
 
 <img src="../Depth First Search/Images/ss1.png">
-<img src="../Depth First Search/Images/ss2.png">  
-
+<img src="../Depth First Search/Images/ss2.png">
 
 ## Author
 

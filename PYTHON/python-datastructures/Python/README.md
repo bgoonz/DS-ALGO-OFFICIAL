@@ -1,4 +1,5 @@
 # The Algorithms - Python
+
 [![Gitpod Ready-to-Code](https://img.shields.io/badge/Gitpod-Ready--to--Code-blue?logo=gitpod&style=flat-square)](https://gitpod.io/#https://github.com/TheAlgorithms/Python)&nbsp;
 [![Discord chat](https://img.shields.io/discord/808045925556682782.svg?logo=discord&colorB=7289DA&style=flat-square)](https://discord.gg/c7MnfGFGa6)&nbsp;
 [![Gitter chat](https://img.shields.io/badge/Chat-Gitter-ff69b4.svg?label=Chat&logo=gitter&style=flat-square)](https://gitter.im/TheAlgorithms)&nbsp;
@@ -9,6 +10,7 @@
 ![](https://img.shields.io/github/repo-size/TheAlgorithms/Python.svg?label=Repo%20size&style=flat-square)&nbsp;
 [![pre-commit](https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white&style=flat-square)](https://github.com/pre-commit/pre-commit)&nbsp;
 [![code style: black](https://img.shields.io/static/v1?label=code%20style&message=black&color=black&style=flat-square)](https://github.com/psf/black)&nbsp;
+
 <!--[![Tested on Python 3.8](https://img.shields.io/badge/Tested%20-Python%203.8-blue.svg?logo=python&style=flat-square)](https://www.python.org/downloads) &nbsp;-->
 
 ### All algorithms implemented in Python (for education)
@@ -21,7 +23,7 @@ Read our [Contribution Guidelines](CONTRIBUTING.md) before you contribute.
 
 ## Community Channel
 
-We're on [Gitter](https://gitter.im/TheAlgorithms)!  Please join us.
+We're on [Gitter](https://gitter.im/TheAlgorithms)! Please join us.
 
 ## List of Algorithms
 

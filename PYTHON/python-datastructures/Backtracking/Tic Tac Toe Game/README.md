@@ -1,20 +1,17 @@
-# Tic Tac Toe Game 
+# Tic Tac Toe Game
 
 ## Aim
 
 The aim is to build a Tic Tac Toe Game using minimax algorithm.
 
-
 ## Purpose
 
 To create a two-player fun game in python.
-
 
 ## Short description of package/script
 
 - The problem is solved using minimax algorithm.
 - Backtracking is used for keeping track of all states in the game.
-
 
 ## Workflow of the Project
 
@@ -32,7 +29,6 @@ getBestMove --> Method for implement the Minimax Algorithm.
 
 After the desired values are entered by the user, the 'play_move' function gains control and the game begins.
 
-
 ## Compilation Steps
 
 After the script is run, enter:
@@ -43,14 +39,11 @@ After the script is run, enter:
 
 That's it! All the states will be listed too.
 
-
 ## Output
 
 <img width = 300 height = 600 src="../Tic Tac Toe Game/Images/ss1.png">
 <img width = 300 height = 600 src="../Tic Tac Toe Game/Images/ss2.png">
 
-
 ## Author
 
 [Manasi Chhibber](https://github.com/Manasi2001)
-

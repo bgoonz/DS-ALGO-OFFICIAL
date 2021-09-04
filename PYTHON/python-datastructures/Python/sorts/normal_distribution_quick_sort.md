@@ -1,9 +1,7 @@
 # Normal Distribution QuickSort
 
-
 Algorithm implementing QuickSort Algorithm where the pivot element is chosen randomly between first and last elements of the array and the array elements are taken from a Standard Normal Distribution.
 This is different from the ordinary quicksort in the sense, that it applies more to real life problems , where elements usually follow a normal distribution. Also the pivot is randomized to make it a more generic one.
-
 
 ## Array Elements
 
@@ -25,7 +23,7 @@ The array elements are taken from a Standard Normal Distribution , having mean =
 
 ```
 
-------
+---
 
 #### The Distribution of the Array elements.
 
@@ -38,17 +36,13 @@ The array elements are taken from a Standard Normal Distribution , having mean =
 
 ```
 
-
------
-
-
-
+---
 
 ![](https://www.mathsisfun.com/data/images/normal-distrubution-large.gif)
 
 ---
 
----------------------
+---
 
 --
 
@@ -68,8 +62,6 @@ The array elements are taken from a Standard Normal Distribution , having mean =
 
 ```
 
+---
 
-----
-
-
-------------------
+---

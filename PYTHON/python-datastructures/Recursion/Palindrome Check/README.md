@@ -1,5 +1,4 @@
-# Palindrome Check  
-
+# Palindrome Check
 
 ## Aim
 
@@ -11,7 +10,7 @@ The purpose is to come up with an efficient solution while implementing recursio
 
 ## Short description of project
 
-The project takes in input the string to be checked, and if it comparisons are case sensitive, 
+The project takes in input the string to be checked, and if it comparisons are case sensitive,
 and then checks the string by comparing the first and last member of string and checking on a shorter version of string recursively
 
 ## Workflow of the Project
@@ -27,13 +26,12 @@ After the desired values are entered by the user, the control is passed to the i
 None
 
 ## Compilation Steps
+
 Run the script, after that :
-  
- 1. User is prompted to enter a string which will be checked
- 2. User is asked if comparisons are to be case sensitive, enter 0 for False, 1 for True
- 3. The program tells if the string is a palindrome or not
 
-
+1.  User is prompted to enter a string which will be checked
+2.  User is asked if comparisons are to be case sensitive, enter 0 for False, 1 for True
+3.  The program tells if the string is a palindrome or not
 
 # Output
 
@@ -42,6 +40,6 @@ Run the script, after that :
 <img width = 300 height = 100 src="../Palindrome Check/Images/Palindrome_Check_3.PNG">
 <img width = 300 height = 100 src="../Palindrome Check/Images/Palindrome_Check_4.PNG">
 
-
 ## Author
+
 [Pushpit Jain](https://github.com/pushpit-J19)
