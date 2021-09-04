@@ -1,4 +1,4 @@
-'''
+"""
 Linked List:
     - Linked List is a linear data structure.
     - It contains collection of nodes that are connected through
@@ -18,67 +18,67 @@ Aim:
 :Author: NanthaKumar <nknanthakumar13@gmail.com>
 :Contact: https://github.com/nknantha
 :Date: 2021-07-15
-'''
+"""
 
 
 class SinglyLinkedList:
-    '''
+    """
     Singly Linked List class.
 
     Attributes:
         head: Points the header node.
-    '''
+    """
 
-    __slots__ = '_head', '_length'
+    __slots__ = "_head", "_length"
 
     class _Node:
-        '''
+        """
         A simple class represents node.
 
         Attributes:
             data: The data which was given.
             next: Points the next node.
-        '''
+        """
 
-        __slots__ = 'data', 'next'
+        __slots__ = "data", "next"
 
         def __init__(self, data=None, next=None):
-            '''
+            """
             Creates Node instance.
 
             :param data: Stores the given value. (Default: None)
             :param next: Points the next node. (Default: None)
-            '''
+            """
             self.data = data
             self.next = next
 
         def __str__(self):
-            '''
+            """
             String representation of Node.
 
             :return: string representation of data stored in node.
-            '''
+            """
             return str(self.data)
 
     def __init__(self, iterable=()):
-        '''
+        """
         Creates Singly Linked List instance.
 
         :param iterable: takes iterable object if no argument is given empty Singly Linked List.
-        '''
+        """
         # Initializing Header node
-        self._head = self._Node('HEAD')
+        self._head = self._Node("HEAD")
         # For storing length
         self._length = 0
         # For creating linked list using initial iterable
         self.extend(iterable)
 
     def __iter__(self):
-        '''
+        """
         Returns iterator of Singly Linked List.
 
         :return: iterator of Singly Linked List.
-        '''
+        """
         # Walking through list while yielding elements.
         curr = self._head.next
         while curr:
@@ -86,28 +86,28 @@ class SinglyLinkedList:
             curr = curr.next
 
     def __len__(self):
-        '''
+        """
         Returns length of Singly Linked List.
 
         :return: length of Singly Linked List.
-        '''
+        """
         return self._length
 
     def __repr__(self):
-        '''
+        """
         Returns representation of Singly Linked list.
 
         :return: representation of Singly Linked list.
-        '''
+        """
         # Here repr used for exactly represent what the data type looks like.
         return f"SinglyLinkedList([{', '.join(repr(el) for el in self.__iter__())}])"
 
     def __str__(self):
-        '''
+        """
         Returns string version of Singly Linked List.
 
         :return: string version of Singly Linked List.
-        '''
+        """
         # Here repr used for exactly represent what the data type looks like.
 
         # We can divide the string structure in to 3 parts.
@@ -115,18 +115,20 @@ class SinglyLinkedList:
         # 2) Objects Part: Iteratively adding objects as string.
         # 3) Suffix Part: '-> END' used when list has elements.
         #                  and 'END' used when list has no elements.
-        return 'SinglyLinkedList: HEAD -> ' \
-            + ' -> '.join(repr(el) for el in self.__iter__()) \
-            + ' -> ' * bool(self._length) + 'END'
-
+        return (
+            "SinglyLinkedList: HEAD -> "
+            + " -> ".join(repr(el) for el in self.__iter__())
+            + " -> " * bool(self._length)
+            + "END"
+        )
 
     def __getitem__(self, index):
-        '''
+        """
         Returns the object stored in the index.
 
         :param index: takes an integer as index.
         :return: the object stored in index.
-        '''
+        """
         self.__validate_index(index)
         curr = self._head
         # Marking the HEAD node as -1 so that it not conflict with index access
@@ -140,12 +142,12 @@ class SinglyLinkedList:
         return curr.data
 
     def __setitem__(self, index, data):
-        '''
+        """
         Assigns the given object at given index.
 
         :param index: takes an integer as index.
         :param data: the object to be stored in index.
-        '''
+        """
         self.__validate_index(index)
         curr = self._head
         # Marking the HEAD node as -1 so that it not conflict with index access
@@ -158,25 +160,25 @@ class SinglyLinkedList:
         curr.data = data
 
     def __validate_index(self, index):
-        '''
+        """
         Validates the index and raise Exceptions.
 
         :param index: takes an integer as index.
-        '''
+        """
         # Checking for negative index
         if index < 0:
-            raise NotImplementedError('Negative indexing not implemented yet')
-        
+            raise NotImplementedError("Negative indexing not implemented yet")
+
         # Checking for index boundary
         if index >= self._length:
-            raise IndexError('list index out of range')
+            raise IndexError("list index out of range")
 
     def append(self, data):
-        '''
+        """
         Adds given object at the end of the Singly Linked List.
 
         :param data: takes an object.
-        '''
+        """
         # Walking throught the last node
         curr = self._head
         while curr.next:
@@ -187,9 +189,9 @@ class SinglyLinkedList:
         self._length += 1  # Increasing the length
 
     def clear(self):
-        '''
+        """
         Clears the Singly Linked List.
-        '''
+        """
         # Simply we change the HEAD's next to None
         self._head.next = None
 
@@ -197,11 +199,11 @@ class SinglyLinkedList:
         self._length = 0
 
     def extend(self, iterable):
-        '''
+        """
         Adds the elements of iterable in Singly Linked List.
 
         :param iterable: takes an iterable.
-        '''
+        """
         # Walking through the list and finds last node
         curr = self._head
         while curr.next:
@@ -214,12 +216,12 @@ class SinglyLinkedList:
             curr = curr.next
 
     def index(self, data):
-        '''
+        """
         Returns the index of the object data in Singly Linked List.
 
         :param data: takes an object.
         :return: index of the given object in Singly Linked List.
-        '''
+        """
         # Walking through the list and finds element of given index
         curr = self._head.next
         index = 0
@@ -232,20 +234,20 @@ class SinglyLinkedList:
 
         # If iteration reaches end we need to raise the ValueError
         if index >= self._length:
-            raise ValueError(f'{data!r} not in list')
+            raise ValueError(f"{data!r} not in list")
         else:
             return index
 
     def insert(self, index, data):
-        '''
+        """
         Add the given object at given index.
 
         :param index: takes integer as index.
         :param data: takes an object.
-        '''
+        """
         # Filtering negative index
         if index < 0:
-            raise NotImplementedError('Negative indexing not implemented yet')
+            raise NotImplementedError("Negative indexing not implemented yet")
 
         # If index greater than our list's length, we simply
         # make an append operation.
@@ -266,24 +268,24 @@ class SinglyLinkedList:
         self._length += 1
 
     def is_empty(self):
-        '''
+        """
         Returns True when Singly Linked List is Empty else False.
 
         :return: True when Singly Linked List is Empty else False.
-        '''
+        """
         return self._length == 0
 
     def pop(self, index=None):
-        '''
+        """
         Deletes the given index and returns the value. If index is None, deletes
         and returns the last index.
 
         :param index: takes integer as index. (Default: None)
         :return: deleted object in the list.
-        '''
+        """
         # Checking for empty list
         if self.is_empty():
-            raise IndexError('pop from empty list')
+            raise IndexError("pop from empty list")
 
         # If index None then we need to delete the last index
         if index is None:
@@ -305,11 +307,11 @@ class SinglyLinkedList:
         return data
 
     def remove(self, data):
-        '''
+        """
         Removes given object in Singly Linked List.
 
         :param data: takes an object.
-        '''
+        """
         # Walking through the list and finding the object
         curr = self._head
         while curr.next:
@@ -317,18 +319,18 @@ class SinglyLinkedList:
             if type(curr.next.data) == type(data) and curr.next.data == data:
                 break
             curr = curr.next
-        
+
         # If object was not present we raise ValueError else we remove/unlink the node
         if curr.next is None:
-            raise ValueError(f'{data!r} not in list')
+            raise ValueError(f"{data!r} not in list")
         else:
             curr.next = curr.next.next
             self._length -= 1
 
     def reverse(self):
-        '''
+        """
         Reverse the Singly Linked List in place.
-        '''
+        """
         # Initially we store None in prev and the HEAD's after node in curr
         prev = None
         curr = self._head.next
@@ -343,26 +345,26 @@ class SinglyLinkedList:
 
 
 # --------------------------------------DRIVER-CODE------------------------------------------- #
-if __name__ == '__main__':
-    print('Creating Linked List with range of 5,')
+if __name__ == "__main__":
+    print("Creating Linked List with range of 5,")
     s = SinglyLinkedList(range(5))
     print(s)
-    print('\nPrinting Individual Elements:')
+    print("\nPrinting Individual Elements:")
     for el in s:
         print(el)
-    print('\nChanging value of index 1,')
+    print("\nChanging value of index 1,")
     s[1] = 99
     print(s)
-    print(f'\nPopping {s.pop()},')
+    print(f"\nPopping {s.pop()},")
     print(s)
-    print('\nClearing the list,')
+    print("\nClearing the list,")
     s.clear()
     print(s)
 
 
 # -----------------------------------------EXAMPLE-------------------------------------------- #
 
-'''
+"""
 >>> from singly_linked_list import *
 >>> s = SinglyLinkedList()
 >>> s
@@ -405,4 +407,4 @@ COMPLEXITY:
     | remove()  |      O(K)       |
     | reverse() |      O(N)       |
     +-----------+-----------------+
-'''
+"""

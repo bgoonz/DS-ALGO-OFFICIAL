@@ -22,14 +22,14 @@ and finally recursively solving the right subtree
 """
 
 
-
-
-class Node :
+class Node:
     """Class, to define node of the binary tree and dll, has data, left, and right as attributes"""
-    def  __init__(self, value):
+
+    def __init__(self, value):
         self.data = value
         self.left = None
         self.right = None
+
 
 def binary_tree_to_dll(node, head, tail):
     """This function converts a binary tree to a doubly linked list with recursive approach
@@ -37,52 +37,54 @@ def binary_tree_to_dll(node, head, tail):
        returns : the head and tail of the the linked lists 
     """
 
-    if node == None :
+    if node == None:
         return head, tail
-    
-    head, tail = binary_tree_to_dll(node.left, head, tail)  # converting the left subtree
+
+    head, tail = binary_tree_to_dll(
+        node.left, head, tail
+    )  # converting the left subtree
 
     # updating the tail of the list to point towards current node
     if head == None:
         head = node
-    else :
+    else:
         tail.right = node
         node.left = tail
-    tail = node         # shifting the tail to the latest node
+    tail = node  # shifting the tail to the latest node
 
-    head, tail = binary_tree_to_dll(node.right, head, tail)  # converting the right subtree
+    head, tail = binary_tree_to_dll(
+        node.right, head, tail
+    )  # converting the right subtree
 
     return head, tail
 
-def print_list (head):
+
+def print_list(head):
     """ iterates over the linked list prints the data elements
         input : head of the linked list
         prints the elements, does not return anything
     """
     while head != None:
-        print(head.data, end = " ")
+        print(head.data, end=" ")
         head = head.right
 
 
 # DRIVER CODE
 
 if __name__ == "__main__":
-    
+
     root = Node(10)
     root.left = Node(12)
     root.right = Node(15)
     root.left.left = Node(25)
     root.left.right = Node(30)
     root.right.left = Node(36)
-       
 
     head, tail = None, None
     head, tail = binary_tree_to_dll(root, head, tail)
     print("\nEquivaltent doubly linked list : ", end="")
-    print_list (head)
+    print_list(head)
     print("\n")
-
-
 
     # Extra examples for testing
     """

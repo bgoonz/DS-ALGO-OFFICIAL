@@ -15,14 +15,14 @@ Algorithm
 8. Print the output 
 """
 
-operators = {'+':1,'-':1,'*':3,'/':3,'^':5}
+operators = {"+": 1, "-": 1, "*": 3, "/": 3, "^": 5}
 
 # Tells if a given list is empty or not
-def isEmpty (l):
+def isEmpty(l):
     return not l
 
 
-def infix_to_postfix (infix):
+def infix_to_postfix(infix):
     """Converts infix expression to postfix
         takes argument : infix expression string
         returns : equivalent postfix expressiion string"""
@@ -30,7 +30,7 @@ def infix_to_postfix (infix):
     stack = []
     top = -1
     for c in infix:
-        
+
         if c == "(":
             stack.append(c)
         elif c == ")":
@@ -38,36 +38,40 @@ def infix_to_postfix (infix):
                 if stack[top] == "(":
                     stack.pop()
                     break
-                else :
+                else:
                     post += stack.pop()
 
-        elif c.isalpha():   # operand
+        elif c.isalpha():  # operand
             post += c
-        elif c in operators:           
-            if isEmpty(stack) or stack[top] == "(" or operators[c] > operators[stack[top]]:
+        elif c in operators:
+            if (
+                isEmpty(stack)
+                or stack[top] == "("
+                or operators[c] > operators[stack[top]]
+            ):
                 stack.append(c)
 
-            else:       # operators
-                while not isEmpty(stack) :
-                    if stack[top] == "(" :
-                        break  
-                    
-                    if operators[stack[top]] >= operators[c] :
+            else:  # operators
+                while not isEmpty(stack):
+                    if stack[top] == "(":
+                        break
+
+                    if operators[stack[top]] >= operators[c]:
                         post += stack.pop()
                     else:
                         stack.append(c)
-                if isEmpty(stack) or stack[top]=="(":
+                if isEmpty(stack) or stack[top] == "(":
                     stack.append(c)
-        
+
     while not isEmpty(stack):
         post += stack.pop()
-    
+
     return post
 
 
 # DRIVER CODE
 if __name__ == "__main__":
-    
+
     infix_exp = "a+b*(c^d-e)^(f+g*h)-i"
     postfix_exp = infix_to_postfix(infix_exp)
 
@@ -76,10 +80,9 @@ if __name__ == "__main__":
 
     # input = a+b*(c^d-e)^(f+g*h)-i
     # output = abcd^e-fgh*+^*+i-
-    
+
     # input = (A+B)*(C+D)
     # output = AB+CD+*
-    
+
     # input = a-b+c-d*e
     # output = ab-c+de*-
-

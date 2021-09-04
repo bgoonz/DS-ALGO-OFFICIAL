@@ -56,7 +56,7 @@ class LinkedQueue:
         """
 
         # Slots for _Node class.
-        __slots__ = 'data', 'next'
+        __slots__ = "data", "next"
 
         def __init__(self, data, next):
             """
@@ -72,7 +72,7 @@ class LinkedQueue:
     # -------------------------------END-NODE-CLASS------------------------------- #
 
     # Slots for LinkedQueue.
-    __slots__ = '_head', '_trail', '_size'
+    __slots__ = "_head", "_trail", "_size"
 
     def __init__(self, iterable=()):
         """
@@ -123,7 +123,7 @@ class LinkedQueue:
         :return: the string representation of queue.
         :rtype: str
         """
-        suffix = ' - ' * bool(self._size) + 'END'
+        suffix = " - " * bool(self._size) + "END"
         return f"LinkedQueue: START - {' - '.join(repr(el) for el in self)}{suffix}"
 
     def clear(self):
@@ -144,7 +144,7 @@ class LinkedQueue:
         """
         # Checking for underflow.
         if self.is_empty():
-            raise IndexError('Queue is empty')
+            raise IndexError("Queue is empty")
 
         # Preserving data and deleting header node.
         data = self._head.data
@@ -201,7 +201,7 @@ class LinkedQueue:
         """
         # Checking for underflow.
         if self.is_empty():
-            raise IndexError('Queue is empty')
+            raise IndexError("Queue is empty")
         else:
             return self._head.data
 
@@ -233,9 +233,9 @@ class LinkedQueue:
 
 
 # ----------------------------------DRIVER-CODE----------------------------------- #
-if __name__ == '__main__':
+if __name__ == "__main__":
     # Creating a Queue with range of 5.
-    print('Creating queue with range of 5,')
+    print("Creating queue with range of 5,")
     q = LinkedQueue(range(5))
     print(q)
 
@@ -243,38 +243,38 @@ if __name__ == '__main__':
     print(f"\nRepresent Format: \n{repr(q)}")
 
     # Enqueueing elements.
-    print('\nQueueing some elements,')
+    print("\nQueueing some elements,")
     q.enqueue(True)
     q.enqueue(2.0)
     print(q)
 
     # Peeking element.
-    print(f'\nPeek element, {q.peek()}')
+    print(f"\nPeek element, {q.peek()}")
 
     # Reversing queue.
     q.reverse()
-    print('\nAfter reversing,')
+    print("\nAfter reversing,")
     print(q)
 
     # Dequeueing elements.
-    print('\nDequeueing some elements,')
+    print("\nDequeueing some elements,")
     print(q.dequeue())
     print(q.dequeue())
     print(q.dequeue())
     print(q)
 
     # Checking size and empty.
-    print('\nChecking size and empty,')
-    print(f'Size: {len(q)}, Empty: {q.is_empty()}')
+    print("\nChecking size and empty,")
+    print(f"Size: {len(q)}, Empty: {q.is_empty()}")
 
     # Clearing queue.
     q.clear()
-    print('\nAfter clearing the queue,')
-    print(f'Size: {len(q)}, Empty: {q.is_empty()}')
+    print("\nAfter clearing the queue,")
+    print(f"Size: {len(q)}, Empty: {q.is_empty()}")
     print(q)
 
 # ------------------------------------EXAMPLE------------------------------------- #
-'''
+"""
 >>> from linked_queue import *
 >>> q = LinkedQueue(range(1,6))
 >>> q
@@ -298,8 +298,8 @@ LinkedQueue([4, 3, 2, 1, 2.0])
 LinkedQueue([])
 >>> len(q)
 0
-'''
-'''
+"""
+"""
 Complexity:
     +------------+-----------------+
     | Operation  | Time Complexity |
@@ -312,4 +312,4 @@ Complexity:
     |   peek()   |       O(1)      |
     | reverse()  |       O(N)      |
     +------------+-----------------+
-'''
+"""

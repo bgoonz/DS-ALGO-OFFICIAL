@@ -1,8 +1,8 @@
-'''
+"""
 Aim: Read a string, S and print its integer value. If S cannot be converted to 
 an integer, print Bad String.
 
-'''
+"""
 
 # getting the input
 S = input().strip()
@@ -11,9 +11,9 @@ try:
     print(int(S))
 except:
     # if it's not possible, then this block will be executed
-    print('Bad String')
-    
-'''
+    print("Bad String")
+
+"""
 COMPLEXITY:
 	
 	 Time Complexity -> O(1)
@@ -33,4 +33,4 @@ Explaination:
 converted to an integer hence the 'except' block is executed and 'Bad String' 
 is printed.
 
-''' 
+"""

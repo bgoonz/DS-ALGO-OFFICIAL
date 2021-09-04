@@ -1,4 +1,4 @@
-'''
+"""
 Cryptarithmetic problems are mathematical puzzles where digits are replaced by symbols. 
 And the aim is to find unique digits(0-9) that the letters should represent, such that 
 they satisfy the given constraints.
@@ -14,15 +14,15 @@ The cryptarithmetic problem that is needed to be solved here is:
 Distinct variables are: S, E, N, D, M, O, R, Y
 Domain: {0,...,9}
 
-'''
+"""
 
 # importing the necessary libraries
 from typing import Generic, TypeVar, Dict, List, Optional
 from abc import ABC, abstractmethod
 
 # declaring a type variable V as variable type and D as domain type
-V = TypeVar('V') # variable type
-D = TypeVar('D') # domain type
+V = TypeVar("V")  # variable type
+D = TypeVar("D")  # domain type
 
 # this is a Base class for all constraints
 class Constraint(Generic[V, D], ABC):
@@ -34,7 +34,8 @@ class Constraint(Generic[V, D], ABC):
     @abstractmethod
     def satisfied(self, assignment: Dict[V, D]) -> bool:
         ...
-        
+
+
 # A constraint satisfaction problem consists of variables of type V
 # that have ranges of values known as domains of type D and constraints
 # that determine whether a particular variable's domain selection is valid
@@ -42,7 +43,7 @@ class CSP(Generic[V, D]):
     def __init__(self, variables: List[V], domains: Dict[V, List[D]]) -> None:
         # variables to be constrained
         # assigning variables parameter to self.variables
-        self.variables: List[V] = variables 
+        self.variables: List[V] = variables
         # domain of each variable
         # assigning domains parameter to self.domains
         self.domains: Dict[V, List[D]] = domains
@@ -54,7 +55,8 @@ class CSP(Generic[V, D]):
             # if the variable is not in domains, then raise a LookupError("Every variable should have a domain assigned to it.")
             if variable not in self.domains:
                 raise LookupError("Every variable should have a domain assigned to it.")
-    # this method adds constraint to variables as per their domains 
+
+    # this method adds constraint to variables as per their domains
     def add_constraint(self, constraint: Constraint[V, D]) -> None:
         for variable in constraint.variables:
             if variable not in self.variables:
@@ -72,7 +74,7 @@ class CSP(Generic[V, D]):
                 return False
         # otherwise returning True
         return True
-    
+
     # this method is performing the backtracking search to find the result
     def backtracking_search(self, assignment: Dict[V, D] = {}) -> Optional[Dict[V, D]]:
         # assignment is complete if every variable is assigned (our base case)
@@ -92,15 +94,17 @@ class CSP(Generic[V, D]):
             # if we're still consistent, we recurse (continue)
             if self.consistent(first, local_assignment):
                 # recursively calling the self.backtracking_search method based on the local_assignment
-                result: Optional[Dict[V, D]] = self.backtracking_search(local_assignment)
+                result: Optional[Dict[V, D]] = self.backtracking_search(
+                    local_assignment
+                )
                 # if we didn't find the result, we will end up backtracking
                 if result is not None:
                     return result
         return None
-    
+
+
 # SendMoreMoneyConstraint is a subclass of Constraint class
 class SendMoreMoneyConstraint(Constraint[str, int]):
-    
     def __init__(self, letters: List[str]) -> None:
         super().__init__(letters)
         self.letters: List[str] = letters
@@ -124,7 +128,8 @@ class SendMoreMoneyConstraint(Constraint[str, int]):
             more: int = m * 1000 + o * 100 + r * 10 + e
             money: int = m * 10000 + o * 1000 + n * 100 + e * 10 + y
             return send + more == money
-        return True # no conflict
+        return True  # no conflict
+
 
 if __name__ == "__main__":
     letters: List[str] = ["S", "E", "N", "D", "M", "O", "R", "Y"]
@@ -141,9 +146,9 @@ if __name__ == "__main__":
         print("No solution found!")
     else:
         print(solution)
-    print("\n******************************************************************")  
-    
-'''
+    print("\n******************************************************************")
+
+"""
 Sample working:
 
 ******************************************************************
@@ -154,4 +159,4 @@ Here are the results:
 
 ******************************************************************
 
-'''
+"""

@@ -45,7 +45,7 @@ class DoublyLinkedList:
         """
 
         # Slots for node class.
-        __slots__ = 'data', 'next', 'prev'
+        __slots__ = "data", "next", "prev"
 
         def __init__(self, data=None, prev=None, next=None):
             """
@@ -68,10 +68,11 @@ class DoublyLinkedList:
             Returns: string representation of node.
             """
             return str(self.data)
+
     # -----------------------------------END-NODE-CLASS---------------------------------- #
 
     # Slots for Doubly Linked List.
-    __slots__ = '_head', '_trail', '_size'
+    __slots__ = "_head", "_trail", "_size"
 
     def __init__(self, iterable=()):
         """
@@ -81,8 +82,8 @@ class DoublyLinkedList:
             iterable: takes an iterable object.
         """
         # Initializing node attributes.
-        self._head = self._Node('HEAD')
-        self._trail = self._Node('END')
+        self._head = self._Node("HEAD")
+        self._trail = self._Node("END")
 
         # Connecting header and trail nodes.
         self._head.next = self._trail
@@ -104,7 +105,7 @@ class DoublyLinkedList:
         """
         # Raising error for slicing.
         if isinstance(index, slice):
-            raise NotImplementedError('Slicing not implemented yet.')
+            raise NotImplementedError("Slicing not implemented yet.")
 
         # Validating index.
         self._validate_index(index)
@@ -173,7 +174,7 @@ class DoublyLinkedList:
         Returns: the string representation of Doubly Linked List.
         """
         # Determining suffix part.
-        suffix = ' <=> ' * bool(self._size) + 'END'
+        suffix = " <=> " * bool(self._size) + "END"
         return f"DoublyLinkedList: HEAD <=> {' <=> '.join(repr(el) for el in self)}{suffix}"
 
     def _delete_node(self, node):
@@ -227,11 +228,11 @@ class DoublyLinkedList:
         """
         # Filtering out negative index.
         if index < 0:
-            raise NotImplementedError('Negative indexing not implemented yet')
+            raise NotImplementedError("Negative indexing not implemented yet")
 
         # Handling upper boundary.
         if index >= self._size:
-            raise IndexError('list index out of range')
+            raise IndexError("list index out of range")
 
     def append(self, element):
         """
@@ -294,7 +295,7 @@ class DoublyLinkedList:
 
         # If the element not found we raise ValueError.
         if index >= self._size:
-            raise ValueError(f'{element!r} not in list')
+            raise ValueError(f"{element!r} not in list")
         else:
             return index
 
@@ -308,7 +309,7 @@ class DoublyLinkedList:
         """
         # Filtering out negative values.
         if index < 0:
-            NotImplementedError('Negative indexing not implemented yet')
+            NotImplementedError("Negative indexing not implemented yet")
 
         # Handling upper boundary case.
         if index > self._size:
@@ -348,7 +349,7 @@ class DoublyLinkedList:
         """
         # Handling case empty list.
         if self.is_empty():
-            raise IndexError('list is empty')
+            raise IndexError("list is empty")
 
         # Handling default case None.
         if index is None:
@@ -382,7 +383,7 @@ class DoublyLinkedList:
 
         # Checking for ValueError and deleting node
         if node == self._trail:
-            raise ValueError(f'{element!r} not in list')
+            raise ValueError(f"{element!r} not in list")
         else:
             self._delete_node(node)
 
@@ -428,67 +429,67 @@ class DoublyLinkedList:
 
 
 # --------------------------------------DRIVER-CODE-------------------------------------- #
-if __name__ == '__main__':
-    print('Running Tests,')
+if __name__ == "__main__":
+    print("Running Tests,")
 
     # Creating list.
-    print('\nCreating Linked List with range of 2,')
+    print("\nCreating Linked List with range of 2,")
     dll = DoublyLinkedList(range(2))
     print(dll)
 
     # Appending some elements.
-    print('\nAppending some elements,')
+    print("\nAppending some elements,")
     dll.append(2.0)
-    dll.append('string')
+    dll.append("string")
     print(dll)
 
     # Getting index.
     print("\nGetting index of 2.0 and 'string',")
-    print(f'Value 2.0 is at index {dll.index(2.0)}')
+    print(f"Value 2.0 is at index {dll.index(2.0)}")
     print(f"Value 'string' is at index {dll.index('string')}")
 
     # Inserting values.
-    print('\nInserting values at index 1 and 5,')
+    print("\nInserting values at index 1 and 5,")
     dll.insert(1, True)
     dll.insert(5, False)
     print(dll)
 
     # Changing some values.
-    print('\nChanging values of index 0 and 3,')
+    print("\nChanging values of index 0 and 3,")
     dll[0] = 99
     dll[3] = 109
     print(dll)
 
     # Reversing list.
-    print('\nReversing list,')
+    print("\nReversing list,")
     dll.reverse()
     print(dll)
 
     # Removing elements.
-    print('\nRemoving elements False and 109,')
+    print("\nRemoving elements False and 109,")
     dll.remove(False)
     dll.remove(109)
     print(dll)
 
     # Removing elements by index,
-    print('\nRemoving elements at index 2 and 3,')
+    print("\nRemoving elements at index 2 and 3,")
     dll.pop(3)
     dll.pop(2)
     print(dll)
 
     # Checking for empty and length.
-    print('\nChecking for empty,')
-    print(f'Empty: {dll.is_empty()}, Size: {len(dll)}')
+    print("\nChecking for empty,")
+    print(f"Empty: {dll.is_empty()}, Size: {len(dll)}")
 
     # Clearing list.
-    print('\nClearing list,')
+    print("\nClearing list,")
     dll.clear()
     print(dll)
-    print(f'Empty: {dll.is_empty()}, Size: {len(dll)}')
+    print(f"Empty: {dll.is_empty()}, Size: {len(dll)}")
 
 
 # ----------------------------------------EXAMPLE---------------------------------------- #
-'''
+"""
 >>> from doubly_linked_list import *
 >>> dll = DoublyLinkedList([1, 2, 3, 2.0, 3.0, 'alpha', ['a list']])
 >>> dll
@@ -543,4 +544,4 @@ Complexity:
     |    len()     |       O(1)      |
     | subscription |       O(N)      |
     +--------------+-----------------+
-'''
+"""

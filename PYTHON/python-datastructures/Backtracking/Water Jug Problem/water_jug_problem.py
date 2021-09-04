@@ -1,4 +1,4 @@
-'''
+"""
 WATER JUG PROBLEM USING BFS AND DFS
 
 Given Problem: You are given a 'm' liter jug and a 'n' liter jug where 
@@ -9,96 +9,102 @@ be performed to obtain 'd' liters of water in one of jug.
 
 The aim is to solve this problem using BFS or DFS as per user's choice.
 
-'''
+"""
 import collections
 
-# This method return a key value for a given node. 
+# This method return a key value for a given node.
 # Node is a list of two integers representing current state of the jugs
 def get_index(node):
     return pow(7, node[0]) * pow(5, node[1])
 
-#This method accepts an input for asking the choice for type of searching required i.e. BFS or DFS.
-#Method return True for BFS, False otherwise
+
+# This method accepts an input for asking the choice for type of searching required i.e. BFS or DFS.
+# Method return True for BFS, False otherwise
 def get_search_type():
     s = input("Enter 'b' for BFS, 'd' for DFS: ")
     s = s.lower()
-    
-    while s!='b' and s!='d':
-        s = input("The input is not valid! Enter 'b' for BFS, 'd' for DFS: ")
-        s = s[0].lower()  
-    return s=='b'
 
-#This method accept volumes of the jugs as an input from the user.
-#Returns a list of two integers representing volumes of the jugs.
+    while s != "b" and s != "d":
+        s = input("The input is not valid! Enter 'b' for BFS, 'd' for DFS: ")
+        s = s[0].lower()
+    return s == "b"
+
+
+# This method accept volumes of the jugs as an input from the user.
+# Returns a list of two integers representing volumes of the jugs.
 def get_jugs():
     print("Receiving the volume of the jugs...")
     jugs = []
-    
+
     temp = int(input("Enter first jug volume (>1): "))
     while temp < 1:
-        temp = int(input("Enter a valid amount (>1): "))     
+        temp = int(input("Enter a valid amount (>1): "))
     jugs.append(temp)
-    
+
     temp = int(input("Enter second jug volume (>1): "))
     while temp < 1:
-        temp = int(input("Enter a valid amount (>1): "))     
-    
+        temp = int(input("Enter a valid amount (>1): "))
+
     jugs.append(temp)
-    
+
     return jugs
 
-#This method accepts the desired amount of water as an input from the user whereas 
-#the parameter jugs is a list of two integers representing volumes of the jugs
-#Returns the desired amount of water as goal
+
+# This method accepts the desired amount of water as an input from the user whereas
+# the parameter jugs is a list of two integers representing volumes of the jugs
+# Returns the desired amount of water as goal
 def get_goal(jugs):
-    
+
     print("Receiving the desired amount of the water...")
 
     max_amount = max(jugs)
     s = "Enter the desired amount of water (1 - {0}): ".format(max_amount)
     goal_amount = int(input(s))
-    while goal_amount not in range(1, max_amount+1):
+    while goal_amount not in range(1, max_amount + 1):
         goal_amount = int(input("Enter a valid amount (1 - {0}): ".format(max_amount)))
-    
+
     return goal_amount
 
-#This method checks whether the given path matches the goal node.
-#The path parameter is a list of nodes representing the path to be checked
-#The goal_amount parameter is an integer representing the desired amount of water
+
+# This method checks whether the given path matches the goal node.
+# The path parameter is a list of nodes representing the path to be checked
+# The goal_amount parameter is an integer representing the desired amount of water
 def is_goal(path, goal_amount):
-    
+
     print("Checking if the goal is achieved...")
-    
+
     return path[-1][0] == goal_amount
 
-#This method validates whether the given node is already visited.
-#The parameter node is a list of two integers representing current state of the jugs
-#The parameter check_dict is a dictionary storing visited nodes
+
+# This method validates whether the given node is already visited.
+# The parameter node is a list of two integers representing current state of the jugs
+# The parameter check_dict is a dictionary storing visited nodes
 def been_there(node, check_dict):
-    
+
     print("Checking if {0} is visited before...".format(node))
 
     return check_dict.get(get_index(node))
 
-#This method returns the list of all possible transitions
-#The parameter jugs is a list of two integers representing volumes of the jugs
-#The parameter path is a list of nodes represeting the current path
-#The parameter check_dict is a dictionary storing visited nodes
+
+# This method returns the list of all possible transitions
+# The parameter jugs is a list of two integers representing volumes of the jugs
+# The parameter path is a list of nodes represeting the current path
+# The parameter check_dict is a dictionary storing visited nodes
 def next_transitions(jugs, path, check_dict):
-    
+
     print("Finding next transitions and checking for the loops...")
-    
+
     result = []
     next_nodes = []
     node = []
-    
+
     a_max = jugs[0]
     b_max = jugs[1]
-    
-    a = path[-1][0]  
+
+    a = path[-1][0]
     b = path[-1][1]
 
-    #Operation Used in Water Jug problem
+    # Operation Used in Water Jug problem
     # 1. fill in the first jug
     node.append(a_max)
     node.append(b)
@@ -121,7 +127,7 @@ def next_transitions(jugs, path, check_dict):
     node = []
 
     # 4. first jug to second jug
-    node.append(min(a+b, b_max))
+    node.append(min(a + b, b_max))
     node.insert(0, a - (node[0] - b))
     if not been_there(node, check_dict):
         next_nodes.append(node)
@@ -154,24 +160,26 @@ def next_transitions(jugs, path, check_dict):
             print(nnode)
     return result
 
+
 # This method returns a string explaining the transition from old state/node to new state/node
 # The parameter old is a list representing old state/node
 # The parameter new is a list representing new state/node
 # The parameter jugs is a list of two integers representing volumes of the jugs
-     
+
+
 def transition(old, new, jugs):
-    
-    #Get the amount of water from old state/node for first Jug
+
+    # Get the amount of water from old state/node for first Jug
     a = old[0]
-    #Get the amount of water from old state/node for second Jug
+    # Get the amount of water from old state/node for second Jug
     b = old[1]
-    #Get the amount of water from new state/node for first Jug
+    # Get the amount of water from new state/node for first Jug
     a_prime = new[0]
-    #Get the amount of water from new state/node for second Jug
+    # Get the amount of water from new state/node for second Jug
     b_prime = new[1]
-    #Get the amount of water from jugs representing volume for first Jug
+    # Get the amount of water from jugs representing volume for first Jug
     a_max = jugs[0]
-    #Get the amount of water from jugs representing volume for second Jug
+    # Get the amount of water from jugs representing volume for second Jug
     b_max = jugs[1]
 
     if a > a_prime:
@@ -190,25 +198,28 @@ def transition(old, new, jugs):
                 return "Fill {0}-liter jug:\t\t\t".format(b_max)
             else:
                 return "Fill {0}-liter jug:\t\t\t".format(a_max)
-            
-#This method prints the goal path
-#The path is a list of nodes representing the goal path
-#The jugs is a list of two integers representing volumes of the jugs
-     
-def print_path(path, jugs):
-    
-    print("Starting from:\t\t\t\t", path[0])
-    for i in  range(0, len(path) - 1):
-        print(i+1,":", transition(path[i], path[i+1], jugs), path[i+1])
 
-#This method searches for a path between starting node and goal node
+
+# This method prints the goal path
+# The path is a list of nodes representing the goal path
+# The jugs is a list of two integers representing volumes of the jugs
+
+
+def print_path(path, jugs):
+
+    print("Starting from:\t\t\t\t", path[0])
+    for i in range(0, len(path) - 1):
+        print(i + 1, ":", transition(path[i], path[i + 1], jugs), path[i + 1])
+
+
+# This method searches for a path between starting node and goal node
 # The parameter starting_node is a list of list of two integers representing initial state of the jugs
-#The parameter jugs a list of two integers representing volumes of the jugs
-#The parameter goal_amount is an integer represting the desired amount
-#The parameter check_dict is  a dictionary storing visited nodes
-#The parameter is_breadth is implements BFS, if True; DFS otherwise
+# The parameter jugs a list of two integers representing volumes of the jugs
+# The parameter goal_amount is an integer represting the desired amount
+# The parameter check_dict is  a dictionary storing visited nodes
+# The parameter is_breadth is implements BFS, if True; DFS otherwise
 def search(starting_node, jugs, goal_amount, check_dict, is_breadth):
-    
+
     if is_breadth:
         print("Implementing BFS...")
     else:
@@ -216,10 +227,10 @@ def search(starting_node, jugs, goal_amount, check_dict, is_breadth):
 
     goal = []
     accomplished = False
-    
+
     q = collections.deque()
     q.appendleft(starting_node)
-    
+
     while len(q) != 0:
         path = q.popleft()
         check_dict[get_index(path[-1])] = True
@@ -243,15 +254,16 @@ def search(starting_node, jugs, goal_amount, check_dict, is_breadth):
     else:
         print("Problem cannot be solved.")
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     starting_node = [[0, 0]]
     jugs = get_jugs()
     goal_amount = get_goal(jugs)
     check_dict = {}
     is_breadth = get_search_type()
-    search(starting_node, jugs, goal_amount, check_dict, is_breadth)  
+    search(starting_node, jugs, goal_amount, check_dict, is_breadth)
 
-'''
+"""
 Sample woking:
 
 Receiving the volume of the jugs...
@@ -377,4 +389,4 @@ Starting from:				             [0, 0]
 3 : Fill 3-liter jug:			         [3, 3]
 4 : Pour 3-liter jug into 4-liter jug:	 [2, 4]
 
-'''          
+"""

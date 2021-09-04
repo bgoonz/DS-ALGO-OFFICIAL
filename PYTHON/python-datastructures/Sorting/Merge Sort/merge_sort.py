@@ -63,4 +63,3 @@ print_array(arr)
 merge_sort(arr)
 print("array after sort is: ", end="\n")
 print_array(arr)
-

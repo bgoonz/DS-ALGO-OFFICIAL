@@ -1,54 +1,57 @@
-'''
+"""
 Aim: To perform level-order traversal on a BST.
 
-'''
+"""
 
 # initializing the tree
 class Node:
-    def __init__(self,data):
-        self.right=self.left=None
+    def __init__(self, data):
+        self.right = self.left = None
         self.data = data
-        
+
+
 class Solution:
     # inserting node
-    def insert(self,root,data):
-        if root==None:
+    def insert(self, root, data):
+        if root == None:
             return Node(data)
         else:
-            if data<=root.data:
-                cur=self.insert(root.left,data)
-                root.left=cur
+            if data <= root.data:
+                cur = self.insert(root.left, data)
+                root.left = cur
             else:
-                cur=self.insert(root.right,data)
-                root.right=cur
+                cur = self.insert(root.right, data)
+                root.right = cur
         return root
+
     # performing level order traversal
     # the values will be printed according to the level they are in
-    def levelOrder(self,root):
+    def levelOrder(self, root):
         if root is None:
-            return 
+            return
         q = []
         q.append(root)
-        while len(q) !=0:
+        while len(q) != 0:
             p = q.pop(0)
-            print(p.data, end=' ')
+            print(p.data, end=" ")
             if p.left is not None:
                 q.append(p.left)
             if p.right is not None:
                 q.append(p.right)
         return q
-    
-# getting the input    
-T=int(input())
-myTree=Solution()
-root=None
+
+
+# getting the input
+T = int(input())
+myTree = Solution()
+root = None
 for i in range(T):
-    data=int(input())
-    root=myTree.insert(root,data)
+    data = int(input())
+    root = myTree.insert(root, data)
 # printing the result
 myTree.levelOrder(root)
 
-'''
+"""
 COMPLEXITY:
 	
 	 Time Complexity -> O(N)
@@ -74,4 +77,4 @@ The BST looks something like this:
  
 So, starting from level 0 and going to level 2, traversal will look like: 3, 2 5, 1 4 7.
 
-'''
+"""

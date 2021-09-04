@@ -6,15 +6,14 @@
 # Difficulty as per HackerRank : Medium
 
 
-
-'''
+"""
 Problem Statement : ABC is a right triangle with 90° at B
                     Therefore ∠ABC = 90°
                     Point M is the midpoint of hypotenuse .
                     You are given the lengths AB and BC.
                     Your task is to find ∠MBC (angle θ°, as shown 
                     in the figure) in degrees.
-'''
+"""
 
 
 # Importing required package
@@ -28,18 +27,18 @@ import math
 
 # 1. Enter the length of AB
 
-print ('Enter the value of AB : ')
+print("Enter the value of AB : ")
 ab = float(input())
 
 # 2. Enter the length of BC
 
-print ('Enter the value of BC : ')
+print("Enter the value of BC : ")
 bc = float(input())
 
 # Finding out the length of the hypotenuse
 # Here the hypotenuse is AC
 
-ac = math.sqrt((ab*ab)+(bc*bc))
+ac = math.sqrt((ab * ab) + (bc * bc))
 
 # As the hypotenuse is divided into to equal parts by MB
 # Finding out the length of BM
@@ -51,7 +50,7 @@ bm = ac / 2.0
 mc = bm
 
 # Now take all those required values in dummy parameters for further usage
-#let,
+# let,
 
 b = mc
 c = bm
@@ -63,25 +62,25 @@ a = bc
 # Using cosine to find out the value of the angle angle B
 # But the angle will be in the radian unit
 
-angel_b_radian = math.acos(a / (2*b))
+angel_b_radian = math.acos(a / (2 * b))
 
 # Change the angle in degree unit using the pi function
 
 angel_b_degree = int(round((180 * angel_b_radian) / math.pi))
 
-# Creating the final output and adding the degree symbol 
+# Creating the final output and adding the degree symbol
 # Final Output
 
-output_str = str(angel_b_degree)+'°'
+output_str = str(angel_b_degree) + "°"
 
 
-# Printing the final output 
+# Printing the final output
 
-print ('----------------------------------')
-print('∠MBC = ',output_str)
+print("----------------------------------")
+print("∠MBC = ", output_str)
 
 
-'''
+"""
 ---------------------------------------------------------------------------------
 
 Test Case #1
@@ -114,7 +113,7 @@ Output :
 
 ---------------------------------------------------------------------------------
 
-'''
+"""
 
 
 # --------------------------------------------------------------------------------

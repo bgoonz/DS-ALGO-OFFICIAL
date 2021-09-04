@@ -1,25 +1,23 @@
 class Node(object):
-
     def __init__(self, data=None, next_node=None):
         self.data = data
         self.next_node = next_node
 
 
 class CircularLinkedList(object):
-
     def __init__(self, head=None, end=None):
-        '''
+        """
             Initalize a linke list with a head and a tail.
-        '''
+        """
 
         self.head = head
         self.end = end
 
     def traverse(self):
-        '''
+        """
             Traverse the list and print each value.
             Time Complexity: O(n)
-        '''
+        """
 
         # define the first node
         curr_node = self.head
@@ -39,10 +37,10 @@ class CircularLinkedList(object):
                 break
 
     def insert_end(self, data):
-        '''
+        """
             Insert a node at the end of our linked list.
             Time Complexity: O(1)
-        '''
+        """
 
         new_node = Node(data)
 
@@ -61,10 +59,10 @@ class CircularLinkedList(object):
             return
 
     def insert_beg(self, data):
-        '''
+        """
             Insert a node at the beginning of our linked list.
             Time Complexity: O(1)
-        '''
+        """
 
         new_node = Node(data)
         new_node.next_node = self.head
@@ -85,10 +83,10 @@ class CircularLinkedList(object):
             return
 
     def insert_mid(self, ref_node, data):
-        '''
+        """
             Insert a node at the middle of our linked list, after a given node.
             Time Complexity: O(1)
-        '''
+        """
 
         # handle empty node case
         if ref_node == None:
@@ -106,10 +104,10 @@ class CircularLinkedList(object):
         new_node.next_node = ref_next
 
     def delete_beg(self):
-        '''
+        """
             Delete a node at the beginning of our list.
             Time Complexity: O(1)
-        '''
+        """
 
         if self.head != None:
 
@@ -126,10 +124,10 @@ class CircularLinkedList(object):
             raise ValueError("The list is empty")
 
     def delete_end(self):
-        '''
+        """
             Delete a node at the end of our list.
             Time Complexity: O(1)
-        '''
+        """
 
         if self.end != None:
 
@@ -150,10 +148,10 @@ class CircularLinkedList(object):
             raise ValueError("The list is empty")
 
     def delete_mid(self, position):
-        '''
+        """
             Delete a node in the middle of our list, after that given node.
             Time Complexity: O(n)
-        '''
+        """
 
         # if position is 0 then delete first.
         if position == 0:
@@ -180,10 +178,10 @@ class CircularLinkedList(object):
         curr_node.next_node = curr_node.next_node.next_node
 
     def list_size(self):
-        '''
+        """
             Return the size of our list.
             Time Complexity: O(n)
-        '''
+        """
 
         # grab the head
         curr_node = self.head
@@ -202,10 +200,10 @@ class CircularLinkedList(object):
         return count
 
     def get_prev_node(self, ref_node):
-        '''
+        """
             Return the node before a given reference node.
             Time Complexity: O(n)
-        '''
+        """
 
         # handle empty list case
         if self.head is None:
@@ -221,10 +219,10 @@ class CircularLinkedList(object):
         return current
 
     def reverse(self):
-        '''
+        """
             Reverse the circular list, so that the tail is now the head.
             Time Complexity: O(n)
-        '''
+        """
 
         # if the head is empty return
         if self.head is None:
@@ -263,7 +261,7 @@ class CircularLinkedList(object):
         self.end = curr
 
     def split_list(self, head1, head2):
-        '''
+        """
             Split the list into two separate circular linked list.
             Time Complexity: O(n)
 
@@ -272,7 +270,7 @@ class CircularLinkedList(object):
 
             PARA: head2
             TYPE: CircularLinkedList
-        '''
+        """
 
         slow_ptr = self.head
         fast_ptr = self.head
@@ -283,7 +281,10 @@ class CircularLinkedList(object):
 
         # For ODD NODES: fast_ptr.next_node will become the head.
         # For EVEN NODES: fast_ptr.next_node.next_node will become the head.
-        while (fast_ptr.next_node != self.head and fast_ptr.next_node.next_node != self.head):
+        while (
+            fast_ptr.next_node != self.head
+            and fast_ptr.next_node.next_node != self.head
+        ):
             fast_ptr = fast_ptr.next_node.next_node
             slow_ptr = slow_ptr.next_node
 
@@ -305,7 +306,7 @@ class CircularLinkedList(object):
         slow_ptr.next_node = self.head
 
     def split_list_2(self, head1, head2):
-        '''
+        """
             Split the list into two separate circular linked list.
             Time Complexity: O(n)
 
@@ -314,7 +315,7 @@ class CircularLinkedList(object):
 
             PARA: head2
             TYPE: CircularLinkedList
-        '''
+        """
 
         # grab the list size
         list_size = self.list_size()
@@ -359,8 +360,8 @@ circular_list.insert_end(70)
 circular_list.insert_beg(90)
 circular_list.insert_beg(100)
 
-print('After Insertion')
-print('-' * 20)
+print("After Insertion")
+print("-" * 20)
 circular_list.traverse()
 
 # grab a node
@@ -369,23 +370,23 @@ first_node = circular_list.end
 # insert value inbetween two nodes.
 circular_list.insert_mid(first_node, 20)
 
-print('After Mid Insertion')
-print('-' * 20)
+print("After Mid Insertion")
+print("-" * 20)
 circular_list.traverse()
 
 # delete the first and last value
 circular_list.delete_beg()
 circular_list.delete_end()
 
-print('Before Reversal, and after deletion')
-print('-' * 20)
+print("Before Reversal, and after deletion")
+print("-" * 20)
 circular_list.traverse()
 
 # reverse the list
 circular_list.reverse()
 
-print('After Reversal')
-print('-' * 20)
+print("After Reversal")
+print("-" * 20)
 circular_list.traverse()
 
 # return the list size
@@ -394,8 +395,8 @@ circular_list.list_size()
 # delete a node at position 3
 circular_list.delete_mid(3)
 
-print('After Mid Deletion')
-print('-' * 20)
+print("After Mid Deletion")
+print("-" * 20)
 circular_list.traverse()
 
 # grab the node before the second node
@@ -411,10 +412,10 @@ circular_list.split_list_2(head1, head2)
 # circular_list.split_list(head1, head2)
 
 
-print('List One')
-print('-' * 20)
+print("List One")
+print("-" * 20)
 head1.traverse()
 
-print('List Two')
-print('-' * 20)
+print("List Two")
+print("-" * 20)
 head2.traverse()

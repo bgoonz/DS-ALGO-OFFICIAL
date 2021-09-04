@@ -16,23 +16,25 @@ If yes then we find the LCA of both the elements with find_lca() function, which
 """
 
 
-class Node :
+class Node:
     """Class to define nodes of binary tree, with attributes data to store values, and left and right pointers"""
-    def __init__(self, value) :
+
+    def __init__(self, value):
         self.data = value
         self.left = None
         self.right = None
 
-def find_lca(node, n1, n2):    
+
+def find_lca(node, n1, n2):
     """Finds LCA of 2 numbers by recursively searching in left and right subtree
     input args : current node, the numbers whose lca is to be found, isFound list telling if the particular element is found
     returns : lca if found else None    
     Time complexity : O(n), Space complexity : O(1)
     """
-    if node==None:
+    if node == None:
         return None
 
-    # if one element is found in current node, we return it 
+    # if one element is found in current node, we return it
     # in normal case, both elements are found in different subtrees, called recursively, which is handeled later in this function
     # there may also be the case when one element is ancestor of another, which is handeled here, as this node is tha lca
     if node.data == n1:
@@ -43,11 +45,15 @@ def find_lca(node, n1, n2):
     # Recursive calls
     lca_left = find_lca(node.left, n1, n2)
     lca_right = find_lca(node.right, n1, n2)
-    
-    if lca_left and lca_right:      # if both are not none, that is 1 element is found in each subtree
-        return node                 # that means, current node is the lca
-    else:                           # both numbers in same sub tree
-        return lca_left if lca_left!=None else lca_right    # return lca whichever is not none
+
+    if (
+        lca_left and lca_right
+    ):  # if both are not none, that is 1 element is found in each subtree
+        return node  # that means, current node is the lca
+    else:  # both numbers in same sub tree
+        return (
+            lca_left if lca_left != None else lca_right
+        )  # return lca whichever is not none
 
 
 def exists_in_tree(node, n):
@@ -60,12 +66,11 @@ def exists_in_tree(node, n):
         return False
     if node.data == n:
         return True
-    
+
     if exists_in_tree(node.left, n) or exists_in_tree(node.right, n):
         return True
     else:
         return False
-
 
 
 def lowest_common_ancestor_binary_tree(root, n1, n2):
@@ -74,11 +79,12 @@ def lowest_common_ancestor_binary_tree(root, n1, n2):
         output : returns calculated LCA, if both exist, else None
         Both Time and Space complexity are : O(1)        
     """
-    if exists_in_tree(root,n1) and exists_in_tree(root,n2):     # if both the elements exist in the tree
-        return find_lca(root, n1, n2)                           # then we calculate its LCA
-    else :
-        return None                 # otherwise we give answer None
-
+    if exists_in_tree(root, n1) and exists_in_tree(
+        root, n2
+    ):  # if both the elements exist in the tree
+        return find_lca(root, n1, n2)  # then we calculate its LCA
+    else:
+        return None  # otherwise we give answer None
 
 
 def print_output(lca, n1, n2):
@@ -89,7 +95,7 @@ def print_output(lca, n1, n2):
         print(f"\nlca({n1}, {n2}) = {lca.data}\n")
 
 
-#============================= DRIVER CODE =============================
+# ============================= DRIVER CODE =============================
 if __name__ == "__main__":
 
     root = Node(1)
@@ -108,17 +114,15 @@ if __name__ == "__main__":
         4  5 6  7
     """
 
-      
     lca = lowest_common_ancestor_binary_tree(root, 4, 5)
     print_output(lca, 4, 5)
     lca = lowest_common_ancestor_binary_tree(root, 2, 5)
     print_output(lca, 2, 5)
     lca = lowest_common_ancestor_binary_tree(root, 4, 2)
     print_output(lca, 4, 2)
-    
 
-# OTHER EXAMPLES
-    
+    # OTHER EXAMPLES
+
     """lca = lowest_common_ancestor_binary_tree(root, 4, 7)
     print_output(lca, 4, 7)
     lca = lowest_common_ancestor_binary_tree(root, 2, 3)
@@ -132,7 +136,7 @@ if __name__ == "__main__":
     print_output(lca, 1, 1)
     lca = lowest_common_ancestor_binary_tree(root, 2, 6)
     print_output(lca, 2, 6)"""
-    
+
     """lca = lowest_common_ancestor_binary_tree(root, 9, 8)
     print_output(lca, 9, 8)
     lca = lowest_common_ancestor_binary_tree(root, -1, 1)

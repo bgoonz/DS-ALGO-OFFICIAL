@@ -3,21 +3,21 @@
 """
 
 # Code to use Brute force on Caesar cipher if you don't have the key.
-msg=input("Enter encrypted message: ")
-msg=msg.upper()
-LETTERS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+msg = input("Enter encrypted message: ")
+msg = msg.upper()
+LETTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
 # loop through every possible key
 for key in range(len(LETTERS)):
 
     # Set translated to the blank string so that the previous iteration's value for translated is cleared.
-    translated = ''
+    translated = ""
 
     # run the encryption/decryption code on each symbol in the message
     for i in msg:
         if i in LETTERS:
-            num = LETTERS.find(i) # get the number of the symbol
-            num = num - key  #to get the orignal letter (before the shifting)
+            num = LETTERS.find(i)  # get the number of the symbol
+            num = num - key  # to get the orignal letter (before the shifting)
 
             # handle the wrap-around if num is 26 or larger or less than 0
             if num < 0:
@@ -31,10 +31,10 @@ for key in range(len(LETTERS)):
             translated = translated + i
 
     # display the current key being tested, along with its decryption
-    print('Key %s: %s' % (key, translated))
+    print("Key %s: %s" % (key, translated))
 
 
-''' test cases:
+""" test cases:
 encrypted string: 'Rcb Vjprl'
 Output:
 Key 0: RCB VJPRL
@@ -64,6 +64,4 @@ Key 23: UFE YMSUO
 Key 24: TED XLRTN
 Key 25: SDC WKQSM
 
-'''
-
-
+"""

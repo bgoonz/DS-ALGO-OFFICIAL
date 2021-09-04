@@ -5,26 +5,28 @@ known only to the two participants value of key depends on the participants and 
 
 """
 
-p=int(input("Enter prime value chosen by A & B: "))     # number chosen by both the parties
+p = int(
+    input("Enter prime value chosen by A & B: ")
+)  # number chosen by both the parties
 
-g=int(input("Enter the primitive root: "))
+g = int(input("Enter the primitive root: "))
 
-a=int(input("Enter private key of A: "))            # secret key of party1
+a = int(input("Enter private key of A: "))  # secret key of party1
 
-A=(g**a)%p
+A = (g ** a) % p
 print("A sends to B:", A)
 
-b=int(input("Enter private key of B: "))            # secret key of party2
+b = int(input("Enter private key of B: "))  # secret key of party2
 
-B=(g**b)%p
-print("B sends to A:",B)
+B = (g ** b) % p
+print("B sends to A:", B)
 
 print("\nCalculating shared secret....")
 
-sec1=(B**a)%p
-print("\nShared secret key of A is: ",  sec1)
+sec1 = (B ** a) % p
+print("\nShared secret key of A is: ", sec1)
 
-sec2=(A**b)%p
+sec2 = (A ** b) % p
 print("Shared secret key of B is: ", sec2)
 print("Therefore, both the parties obtain the same value of secret key")
 
@@ -52,10 +54,3 @@ Secret key obtained by Alice                    Secret key obtained by Bob
 
 Finally, both the parties obtain the same value of secret key.
 """
-
-
-
-
-
-
-      

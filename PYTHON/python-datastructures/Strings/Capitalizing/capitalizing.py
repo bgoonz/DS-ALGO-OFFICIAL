@@ -1,7 +1,7 @@
-'''
+"""
 Aim: To replace the first character of all the words with their upper case characters.
 
-'''
+"""
 
 # Complete the solve function below.
 def solve(s):
@@ -9,14 +9,15 @@ def solve(s):
     for x in s[:].split():
         # replacing the character with it's capital form
         s = s.replace(x, x.capitalize())
-    print('Updated string:',s) 
-    
+    print("Updated string:", s)
+
+
 # getting the input
-s = input('Enter string: ')
+s = input("Enter string: ")
 # calling function to compute the result
 solve(s)
 
-'''
+"""
 COMPLEXITY:
 	
 	 Time Complexity -> O(N)
@@ -31,4 +32,4 @@ Updated string: Summer Of Code
 Explanation:
 All the initial characters of the words are capitalized.
 
-'''
+"""

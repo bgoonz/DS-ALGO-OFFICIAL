@@ -1,4 +1,4 @@
-'''
+"""
     IMPLEMENTATION OF BINARY SEARCH TREE (BST)
     Binary Search Tree is a special type of binary tree where:
     1. The value of all the nodes in the left sub-tree is less than or equal to the value of the root.
@@ -9,7 +9,7 @@
     2. Search Node in BST
     3. Delete Node in BST
     4. Print BST (inorder way)
-'''
+"""
 
 
 class BSTNode:
@@ -116,13 +116,13 @@ def inorder(root):
         # visit the left subtree (or leaf)
         inorder(root.left)
         # visit the parent
-        print(root.val, end=' ')
+        print(root.val, end=" ")
         # visit the right subtree (or leaf)
         inorder(root.right)
 
 
 # A menu based implementation
-if __name__ == '__main__':
+if __name__ == "__main__":
     bst = None
     op = 1
     while op != 5:
@@ -165,7 +165,7 @@ if __name__ == '__main__':
             print()
 
 
-'''
+"""
     Sample Input/Output:
     1: Insert
     2: Search
@@ -206,4 +206,4 @@ if __name__ == '__main__':
         Search: O(n)
         Delete: O(n)
         Print (Inorder): O(n)
-'''
+"""

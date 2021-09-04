@@ -28,66 +28,71 @@ so we stop, range_sum is our answer
 from math import ceil, log2
 
 
-def segment_tree_range_sum_query (tree, l, r):
+def segment_tree_range_sum_query(tree, l, r):
     """The function tells the sum of elements in a given range using the segment tree in O(log(n))
         input : segment tree, array starting and ending index of range
         returns the sum of elements of array in that range"""
 
     m = len(tree)
-    l,r = l+m//2, r+m//2    # converting array index to segment tree index
+    l, r = l + m // 2, r + m // 2  # converting array index to segment tree index
     rsum = 0
-    while (l<=r) :          # while the lower and upper limit do not cross each other
-        if l%2 == 1:        # if lower range index is a right child, add that and jump to next index (towards right)
+    while l <= r:  # while the lower and upper limit do not cross each other
+        if (
+            l % 2 == 1
+        ):  # if lower range index is a right child, add that and jump to next index (towards right)
             rsum += tree[l]
             l += 1
-        if r%2 == 0:        # if upper range index is a left child, add that and jump to next index (towards left)
+        if (
+            r % 2 == 0
+        ):  # if upper range index is a left child, add that and jump to next index (towards left)
             rsum += tree[r]
             r -= 1
 
-        l, r = l//2, r//2       # both the indices are have a common ancestor in tree, so move up, till that ancestor
-        
+        l, r = (
+            l // 2,
+            r // 2,
+        )  # both the indices are have a common ancestor in tree, so move up, till that ancestor
 
     return rsum
 
-    
-    
-def segment_tree_creation (arr):
+
+def segment_tree_creation(arr):
     """The function creates a segment tree in O(n) time
         arguments : array, whose corresponding segment tree is to be made
         returns : the correspoding segment tree in a list format
     """
     n = len(arr)
-    # for n leaf nodes, there are maximum double of 2**max_height-1 nodes, adding extra 0th elem for ease of calculations 
+    # for n leaf nodes, there are maximum double of 2**max_height-1 nodes, adding extra 0th elem for ease of calculations
     height = ceil(log2(n))
-    m = 2*(2**height)
-    tree = [0]*m        
+    m = 2 * (2 ** height)
+    tree = [0] * m
     # filling the second half of the tree list (leaf nodes) with the array elements
     for i in range(n):
-        index = i+int(m/2)
+        index = i + int(m / 2)
         tree[index] = arr[i]
     # creating the internal nodes, calculating the from leaf to the root
-    for i in range(int(m/2)-1,0,-1):
-        tree[i] = tree[2*i] + tree[2*i+1]
+    for i in range(int(m / 2) - 1, 0, -1):
+        tree[i] = tree[2 * i] + tree[2 * i + 1]
     return tree
 
 
-
-
 # DRIVER CODE
-if __name__ == '__main__':
-    
+if __name__ == "__main__":
+
     arr = [5, 8, 6, 3, 2, 7, 4, 6]
-    print("\nOriginal array : ", arr)    
+    print("\nOriginal array : ", arr)
     seg_tree = segment_tree_creation(arr)
     print("\nSegment tree : ", seg_tree)
 
-    range_sum = segment_tree_range_sum_query(seg_tree, 1, 7)    # 8 + 6 + 3 + 2 + 7 + 4 + 6 = 36
+    range_sum = segment_tree_range_sum_query(
+        seg_tree, 1, 7
+    )  # 8 + 6 + 3 + 2 + 7 + 4 + 6 = 36
     print("\nRange sum index 1-7 = ", range_sum)
 
-    range_sum = segment_tree_range_sum_query(seg_tree, 2, 4)    # 6 + 3 + 2 = 11
+    range_sum = segment_tree_range_sum_query(seg_tree, 2, 4)  # 6 + 3 + 2 = 11
     print("\nRange sum index 2-4 = ", range_sum)
- 
-    range_sum = segment_tree_range_sum_query(seg_tree, 5, 5)    # 7
+
+    range_sum = segment_tree_range_sum_query(seg_tree, 5, 5)  # 7
     print("\nRange sum index 5-5 = ", range_sum)
 
     print()
@@ -112,9 +117,7 @@ if __name__ == '__main__':
 """
 
 
-
-    # arrays for test input. Can further try with different index
-    # input : [5, 8, 6, 3, 2, 7, 4, 6]
-    # input : [1,2,3,4]
-    # input : [-2, 5, 7, 1, 10]
-    
+# arrays for test input. Can further try with different index
+# input : [5, 8, 6, 3, 2, 7, 4, 6]
+# input : [1,2,3,4]
+# input : [-2, 5, 7, 1, 10]

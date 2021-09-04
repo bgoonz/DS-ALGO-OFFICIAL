@@ -1,4 +1,4 @@
-'''
+"""
 Aim: To check whether it is possible for a Knight to visit each
          cell of the N*N chessboard without visiting any cell
          twice starting from (X, Y) position.
@@ -6,7 +6,7 @@ Intution: To visit each and every positions which are available from
           the current position and recursively repeat this until
           all the cells are covered.
         
-'''
+"""
 
 from time import time
 
@@ -33,12 +33,11 @@ def Knight_Tour(n, pos):
     x, y = pos
 
     # All valid moves that a Knight can make
-    move = [[2, 1], [2, -1], [-2, 1], [-2, -1],
-            [1, 2], [1, -2], [-1, 2], [-1, -2]]
+    move = [[2, 1], [2, -1], [-2, 1], [-2, -1], [1, 2], [1, -2], [-1, 2], [-1, -2]]
 
     # To keep a track of already visited cells and
     # Answer Matrix
-    answer = [[0]*n for i in range(n)]
+    answer = [[0] * n for i in range(n)]
 
     # To mark (X, Y) cell as visited
     answer[x][y] = 1
@@ -54,16 +53,16 @@ if __name__ == "__main__":
     N = int(input("Enter the size of the Chessboard: "))
     X, Y = map(int, input("Enter Initial Position of the Knight: ").split())
     start = time()
-    ans_mat = Knight_Tour(N, (X-1, Y-1))
+    ans_mat = Knight_Tour(N, (X - 1, Y - 1))
     if ans_mat is False:
         print("Knight's Tour form the given initial position is not possible")
     else:
         print("The desired Knight's Tour :")
         for i in ans_mat:
             print("\t\t", *i)
-    print("Time taken: ", time()-start)
+    print("Time taken: ", time() - start)
 
-'''
+"""
 Sample Working:
     
 Enter the size of the Chessboard: 5
@@ -76,4 +75,4 @@ The desired Knight's Tour :
                 25 18 3 12 23
 Time taken:  0.10171318054199219
 
-'''
+"""

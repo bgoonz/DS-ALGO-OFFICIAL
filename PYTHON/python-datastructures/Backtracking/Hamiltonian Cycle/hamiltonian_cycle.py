@@ -1,4 +1,4 @@
-'''
+"""
 Hamiltonian Path: A Hamiltonian path (or traceable path) is a path
     in an undirected or directed graph that visits each vertex exactly
     once. A Hamiltonian cycle (or Hamiltonian circuit) is a Hamiltonian
@@ -7,7 +7,7 @@ Aim: To determine the existence of a Hamiltonian Cycle in the provided
         undirected graph and return the path if such path exist.
         The nodes are numbered from 1 to N.
 
-'''
+"""
 
 from collections import defaultdict
 
@@ -65,7 +65,7 @@ if __name__ == "__main__":
         print("Hamiltonian Cycle is possible in the graph")
         print("The path is : ", *ans)
 
-'''
+"""
 Sample Working:
     
      5----1------2
@@ -105,4 +105,4 @@ COMPLEXITY:
      Time Complexity ->  O(2^N)
      Space Complexity -> O(N)
      
-'''
+"""

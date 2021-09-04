@@ -1,11 +1,12 @@
 # Python program for implementation of Shell Sort
-'''
+"""
 Shell sort is a highly efficient sorting algorithm and is based on insertion sort algorithm. 
 Shell sort is the generalization of insertion sort which overcomes the drawbacks of insertion sort by comparing elements separated by a gap of several positions.
 
 Shell sort divides the array in the form of N/2 , N/4 , …, 1 (where N is the length of array)
 and then sorting is done. This breaking of sequence and sorting takes place until the entire array is sorted.
-'''
+"""
+
 
 def shellSort(arr):
 
@@ -35,19 +36,19 @@ def shellSort(arr):
 
 
 arr = []
-size = int(input('Enter size: '))
-print ('Enter elements:')
+size = int(input("Enter size: "))
+print("Enter elements:")
 for i in range(0, size):
     item = int(input())
     arr.append(item)
 
 shellSort(arr)
 
-print ('\nSorted Array:')
+print("\nSorted Array:")
 for i in range(size):
-    print (arr[i])
+    print(arr[i])
 
-'''
+"""
 INPUT 
 Enter size: 5
 Enter elements:
@@ -66,4 +67,4 @@ Sorted Array:
 
 Time Complexity: O(n^2)
 Space Complexity: O(1)
-'''
+"""

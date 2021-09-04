@@ -19,38 +19,37 @@ like elements 1 and 2 at index 4 and 5, have their parent 3 at index 2 (4/2=2, 5
 
 from math import ceil, log2
 
-def segment_tree_creation (arr):
+
+def segment_tree_creation(arr):
     """The function creates a segment tree in O(n) time
         arguments : array, whose corresponding segment tree is to be made
         returns : the correspoding segment tree in a list format
     """
     n = len(arr)
 
-    # for n leaf nodes, there are maximum double of 2**max_height-1 nodes, adding extra 0th elem for ease of calculations 
+    # for n leaf nodes, there are maximum double of 2**max_height-1 nodes, adding extra 0th elem for ease of calculations
     height = ceil(log2(n))
-    m = 2*(2**height)
-    tree = [0]*m        
+    m = 2 * (2 ** height)
+    tree = [0] * m
 
     # filling the second half of the tree list (leaf nodes) with the array elements
     for i in range(n):
-        index = i+int(m/2)
+        index = i + int(m / 2)
         tree[index] = arr[i]
 
     # creating the internal nodes, calculating the from leaf to the root
-    for i in range(int(m/2)-1,0,-1):
-        tree[i] = tree[2*i] + tree[2*i+1]
-    
+    for i in range(int(m / 2) - 1, 0, -1):
+        tree[i] = tree[2 * i] + tree[2 * i + 1]
+
     return tree
 
 
-
-
 # DRIVER CODE
-if __name__ == '__main__':
-    
+if __name__ == "__main__":
+
     arr = [5, 8, 6, 3, 2, 7, 4, 6]
     print("\nOriginal array : ", arr)
-    
+
     seg_tree = segment_tree_creation(arr)
     print("\nSegment tree : ", seg_tree, "\n")
 
@@ -62,5 +61,3 @@ if __name__ == '__main__':
 
     # input : [-2, 5, 7, 1, 10]
     # output: [0, 21, 11, 10, 3, 8, 10, 0, -2, 5, 7, 1, 10, 0, 0, 0]
-
-    

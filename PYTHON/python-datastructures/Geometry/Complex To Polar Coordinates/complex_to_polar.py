@@ -1,27 +1,29 @@
-''' 
+""" 
 Aim: Read a complex number as input from user, complex_num and print 
 its value in polar coordinates.
 
-'''
+"""
 
-#importing cmath library
+# importing cmath library
 import cmath
 
-#getting the input
-complex_num= complex(int(input("Enter your x value : ")),int(input("Enter your y value: ")))
+# getting the input
+complex_num = complex(
+    int(input("Enter your x value : ")), int(input("Enter your y value: "))
+)
 
-#using library converting the complex values into coordinates
+# using library converting the complex values into coordinates
 r = float(abs(complex_num))
 theta = float(cmath.phase(complex_num))
 
-#printing the output
-print("Your inputed complex number is :",complex_num)
-print("r : ",r)
-print("theta :",theta)
-print("Hence Polar co-ordinates are : {0:0.4f} + i{1:0.4f}".format(r,theta))
+# printing the output
+print("Your inputed complex number is :", complex_num)
+print("r : ", r)
+print("theta :", theta)
+print("Hence Polar co-ordinates are : {0:0.4f} + i{1:0.4f}".format(r, theta))
 
 
-'''
+"""
 sample input 1 :
 x : 4 y : 3
 sample output 1 :
@@ -37,4 +39,4 @@ The user enters two values x and y , which stand for x+iy in complex
 number notation.This inputted values are then converted into r and theta 
 using the abs function on x and phase function on y.
 
-'''
+"""

@@ -1,4 +1,4 @@
-'''
+"""
 Aim: To place N queens in a N*N Chessboard such that no two queens
      attack each other. A queen is said to be attacked by another queen
      if they share same diagonal(right/left), Row or Column.
@@ -10,7 +10,7 @@ Intution: Since there could be only one queen in each row, we can assume the
           a queen in any of the column is a particular row, then we backtrack
           and try next Column.
 
-'''
+"""
 
 # Main function argument =size of the board
 def n_queens(board_size):
@@ -25,25 +25,25 @@ def n_queens(board_size):
 
     return ans
 
+
 # Recursive Function to check and place the queens
 def place_queen(row, a, n, diagonal1, diagonal2, Col):
 
     # If the answer is found, row will be equal to the size of the board i.e. n
-    if(row == n):
+    if row == n:
         return a
     R = row + 1
 
     for C in range(1, n + 1):
         # Check that particular Column is free to place a queen or not
-        if((C not in Col) and ((R + C) not in diagonal1) and ((R - C) not in diagonal2)):
+        if (C not in Col) and ((R + C) not in diagonal1) and ((R - C) not in diagonal2):
 
             # Add the Column and their respective Diagonals to the dictionary
             # to mark they are Occupied
             Col[C] = 0
             diagonal1[R + C] = 0
             diagonal2[R - C] = 0
-            chk = place_queen(
-                row + 1, a + [(row, C - 1)], n, diagonal1, diagonal2, Col)
+            chk = place_queen(row + 1, a + [(row, C - 1)], n, diagonal1, diagonal2, Col)
 
             # If the answer is found, Stop the recursion
             if chk:
@@ -70,7 +70,7 @@ if __name__ == "__main__":
         print("Queens are Placed in the chessboard")
         print("Position :", *answer)
 
-'''
+"""
 Sample Working:
     
 Enter the Board Size: 3
@@ -103,4 +103,4 @@ Enter the Board Size: 8
 Queens are Placed in the chessboard
 Position : (0, 0) (1, 4) (2, 7) (3, 5) (4, 2) (5, 6) (6, 1) (7, 3)
      
-'''
+"""
