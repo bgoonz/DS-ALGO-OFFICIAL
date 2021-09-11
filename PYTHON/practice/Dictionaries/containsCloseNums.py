@@ -20,19 +20,15 @@ def containsCloseNums(nums, k):
 
     # remove all nums that are not repeated
     # first make a set of keys to remove to prevent editing the dictionary size while iterating over it
-    removals = set()
-    for key in num_dict.keys():
-        if len(num_dict[key]) < 2:
-            removals.add(key)
-
+    removals = {key for key, value in num_dict.items() if len(value) < 2}
     # now remove each key from the num_dict that has fewer than two values
     for key in removals:
         num_dict.pop(key)
 
     # now check remaining numbers to see if they fall within the desired range
-    for key in num_dict.keys():
+    for key, value_ in num_dict.items():
         last_ind = num_dict[key][0]
-        for next_ind in num_dict[key][1:]:
+        for next_ind in value_[1:]:
             if next_ind - last_ind <= k:
                 return True
             last_ind = next_ind

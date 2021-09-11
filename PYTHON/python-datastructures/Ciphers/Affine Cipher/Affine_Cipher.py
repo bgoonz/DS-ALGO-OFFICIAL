@@ -27,10 +27,8 @@ def modinv(a, m):
 
 # Affine cipher encryption formula: C = (a * P + b) mod 26, where C is cipher text, a is key1, P is plaintext, b is key2.
 def affine_enc(key1, key2, plaintext):
-    cursor = list()
-    ciphertext = list()
-    for p in plaintext:
-        cursor.append((mapping_table[p] * key1 + key2) % 26)
+    ciphertext = []
+    cursor = [(mapping_table[p] * key1 + key2) % 26 for p in plaintext]
     for c in cursor:
         for letter, num in mapping_table.items():
             if num == c:
@@ -41,10 +39,11 @@ def affine_enc(key1, key2, plaintext):
 
 # Formula for Affine decryption: P = a^-1 (C - b) mod 26, where P is plaintext, a is key1, C is cipher text and b is key2.
 def affine_decrypt(key1, key2, ciphertext):
-    cursor = list()
-    plaintext = list()
-    for c in ciphertext:
-        cursor.append((modinv(key1, 26) * (mapping_table[c] - key2)) % 26)
+    plaintext = []
+    cursor = [
+        (modinv(key1, 26) * (mapping_table[c] - key2)) % 26 for c in ciphertext
+    ]
+
     for cur in cursor:
         for letter, num in mapping_table.items():
             if num == cur:
@@ -57,7 +56,7 @@ if __name__ == "__main__":
     plaintext = input("Enter your message here: ")  # Change your plaintext here
     key1 = rng.randint(1, 25)  # key1 is between 1 and 25.
 
-    while modinv(key1, 26) == None:
+    while modinv(key1, 26) is None:
         key1 = rng.randint(1, 25)
     key2 = rng.randint(0, 25)  # key2 is between 1 and 25.
 

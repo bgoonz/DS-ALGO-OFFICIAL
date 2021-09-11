@@ -8,18 +8,17 @@ def lastIndex(arr, si, x):
         return (
             smallerListOutput
         )  # if the element is found in the second part of array return index+1
+    if (
+        arr[si] == x
+    ):  # if element is not found in second part of array check for 1st element
+        return si
     else:
-        if (
-            arr[si] == x
-        ):  # if element is not found in second part of array check for 1st element
-            return si
-        else:
-            return -1
+        return -1
 
 
 n = int(input("Enter size of array : "))
 a = []
-for i in range(n):
+for _ in range(n):
     ele = int(input())
     a.append(ele)
 x = int(input("Enter element whose last index is to be found : "))

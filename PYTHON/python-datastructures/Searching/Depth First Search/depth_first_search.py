@@ -16,19 +16,14 @@ class Graph:
         self.graph[vertex] = []
 
     def add_edge(self, source, destination):
-        # directional edges are added in this function
-        # the edge is directional, i.e., going from source to destination
-
-        # conditional statements in case the vertex aren't present in the graph
-        if destination not in self.graph or source not in self.graph:
-            if source not in self.graph:
-                print(str(source) + " is not a vertex")
-                # 1 is returned to avoid stopping the running of the program allows the user to re-enter values
-                return 1
-            if destination not in self.graph:
-                print("\n" + str(destination) + " is not a vertex.")
-                # 1 is returned to avoid stopping the running of the program allows the user to re-enter values
-                return 1
+        if source not in self.graph:
+            print(str(source) + " is not a vertex")
+            # 1 is returned to avoid stopping the running of the program allows the user to re-enter values
+            return 1
+        if destination not in self.graph:
+            print("\n" + str(destination) + " is not a vertex.")
+            # 1 is returned to avoid stopping the running of the program allows the user to re-enter values
+            return 1
 
         # edge is added to the graph, from source to destination
         self.graph[source].append(destination)
@@ -104,14 +99,14 @@ if __name__ == "__main__":
     number_of_vertices = int(input("How many vertices are in the graph? "))
 
     # vertices are added to the graph
-    for v in range(number_of_vertices):
+    for _ in range(number_of_vertices):
         G.add_vertex(str(input("Enter Vertex: ")))
 
     # Number of edges in the graph read from user input
     number_of_edges = int(input("\n" + "How many edges are in the Graph? "))
 
     # edges are added to the graph
-    for e in range(number_of_edges):
+    for _ in range(number_of_edges):
         source, destination = input(
             "Enter Source and Destination vertices separated by a space: "
         ).split()

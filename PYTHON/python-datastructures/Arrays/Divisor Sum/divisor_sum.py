@@ -5,11 +5,7 @@ Aim: Calculate the sum of all the divisors of the entered number and display it.
 
 # function to find out all divisors and add them up
 def divisorSum(n):
-    temp = []
-    for i in range(1, n + 1):
-        # condition for finding factors
-        if n % i == 0:
-            temp.append(i)
+    temp = [i for i in range(1, n + 1) if n % i == 0]
     # adding all divisors
     return sum(temp)
 

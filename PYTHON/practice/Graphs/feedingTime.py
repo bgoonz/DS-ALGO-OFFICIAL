@@ -19,7 +19,7 @@ def feedingTime(classes):
     # fully connected graph
     for i in range(c_size):
         for j in range(c_size):
-            if not i == j:
+            if i != j:
                 class_graph[i].add(j)
 
     # animals graph to classes - constructed here
@@ -44,11 +44,11 @@ def feedingTime(classes):
 
     # check.append(graph_search([9, 5, 1, 4, 6, 2, 7, 3, 8, 0], class_graph.copy(), neg_graph.copy()))
 
-    for i in range(200):
+    for _ in range(200):
         vals = list(range(c_size))
         random.shuffle(vals)
         curr_graph = class_graph.copy()
-        for key in curr_graph.keys():
+        for key in curr_graph:
             l = list(curr_graph[key])
             random.shuffle(l)
             curr_graph[key] = set(l)
@@ -73,8 +73,7 @@ def graph_search(vals, class_graph, neg_graph):
         if i not in seen:
             queue = [i]
             seen.add(i)
-            route = set()
-            route.add(i)
+            route = {i}
             found_val = False
 
             while queue:
@@ -85,7 +84,7 @@ def graph_search(vals, class_graph, neg_graph):
                     # halts the BFS if any connections to another class that has the same animals
                     # should actually only add item if not in conflict with anything in route
                     # not break altogether
-                    test = [True if item in neg_graph[a] else False for a in route]
+                    test = [item in neg_graph[a] for a in route]
                     if not any(test) and item not in seen:
                         seen.add(item)
                         queue.append(item)

@@ -54,9 +54,7 @@ def print_array(arr):
 
 
 total_element = int(input("Number of element in array "))
-arr = []
-for i in range(total_element):
-    arr.append(int(input(f"Enter {i}th element ")))
+arr = [int(input(f"Enter {i}th element ")) for i in range(total_element)]
 print("Input array is ", end="\n")
 print_array(arr)
 

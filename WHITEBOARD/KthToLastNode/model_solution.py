@@ -24,7 +24,7 @@ def kthToLastNode(k, head):
     rightNode = head
 
     # move rightNode to the kth node
-    for i in range(k - 1):
+    for _ in range(k - 1):
         # but along the way, if a rightNode doesn't have a next,
         # then k is greater than the length of the list and there
         # can't be a kth-to-last node! we'll raise an error

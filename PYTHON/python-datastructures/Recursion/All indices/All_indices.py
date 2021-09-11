@@ -2,23 +2,22 @@ def allIndexes(input, x, start):
 
     # If the start index is equal to end of array then return empty array
     if start == len(input):
-        ans = []
-        return ans
+        return []
 
     # recursion
 
     smallIndex = allIndexes(input, x, start + 1)
     # If the element at start index is equal to x then put the start in first index of array.
-    if input[start] == x:
-        myAns = [0 for i in range(len(smallIndex) + 1)]
-        myAns[0] = start
-        for i in range(len(smallIndex)):
-
-            # Shift the elements of the array by 1 to right
-            myAns[i + 1] = smallIndex[i]
-        return myAns
-    else:
+    if input[start] != x:
         return smallIndex
+
+    myAns = [0 for i in range(len(smallIndex) + 1)]
+    myAns[0] = start
+    for i in range(len(smallIndex)):
+
+        # Shift the elements of the array by 1 to right
+        myAns[i + 1] = smallIndex[i]
+    return myAns
 
 
 def allIndices(input, x):
@@ -27,7 +26,7 @@ def allIndices(input, x):
 
 n = int(input("Enter size of array : "))
 arr = []
-for i in range(n):
+for _ in range(n):
     e = int(input())
     arr.append(e)
 

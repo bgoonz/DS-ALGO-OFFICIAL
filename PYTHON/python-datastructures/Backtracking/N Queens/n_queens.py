@@ -21,9 +21,7 @@ def n_queens(board_size):
     diagonal2 = {}
     Col = {}
 
-    ans = place_queen(0, [], board_size, diagonal1, diagonal2, Col)
-
-    return ans
+    return place_queen(0, [], board_size, diagonal1, diagonal2, Col)
 
 
 # Recursive Function to check and place the queens

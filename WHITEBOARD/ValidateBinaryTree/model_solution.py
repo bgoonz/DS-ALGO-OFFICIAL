@@ -16,10 +16,9 @@ the smallest number it must be less than.
 def is_binary_search_tree(root):
     # start at the root, with an arbitrarily low lower bound
     # and an arbitrarily high upper bound
-    node_bounds_stack = []
-    node_bounds_stack.append(
+    node_bounds_stack = [
         {"node": root, "lower": float("-inf"), "upper": float("inf")}
-    )
+    ]
 
     # perform a depth-first traversal
     while len(node_bounds_stack):

@@ -9,12 +9,11 @@ def zeros_to_the_right(arr):
             left += 1
             right -= 1
             n_zeros += 1
-        else:
-            if arr[left] != 0:
-                left += 1
-            if arr[right] == 0:
-                right -= 1
-                n_zeros += 1
+        if arr[left] != 0:
+            left += 1
+        if arr[right] == 0:
+            right -= 1
+            n_zeros += 1
 
     print(arr)
     return len(arr) - n_zeros

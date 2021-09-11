@@ -34,9 +34,7 @@ def possibleSums(coins, quantity):
     comb_indices = [i for i in range(len(coins))]
     possible_sums = []
     for i, c in enumerate(coins):
-        this_set = set()
-        for q in range(1, 1 + quantity[i]):
-            this_set.add(c * q)
+        this_set = {c * q for q in range(1, 1 + quantity[i])}
         possible_sums.append(this_set)
     # print(possible_sums)
 

@@ -251,9 +251,7 @@ class SinglyLinkedList:
 
         # If index greater than our list's length, we simply
         # make an append operation.
-        if index > self._length:
-            index = self._length
-
+        index = min(index, self._length)
         # Walking to the given index
         curr = self._head
         count = -1  # Marking the 'HEAD' node as -1
@@ -323,9 +321,8 @@ class SinglyLinkedList:
         # If object was not present we raise ValueError else we remove/unlink the node
         if curr.next is None:
             raise ValueError(f"{data!r} not in list")
-        else:
-            curr.next = curr.next.next
-            self._length -= 1
+        curr.next = curr.next.next
+        self._length -= 1
 
     def reverse(self):
         """

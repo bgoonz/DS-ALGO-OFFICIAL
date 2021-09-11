@@ -30,7 +30,7 @@ def max_bit(n, k):
 
 if __name__ == "__main__":
     t = int(input())
-    for t_itr in range(t):
+    for _ in range(t):
         nk = input().split()
         n = int(nk[0])  # getting the value of N
         k = int(nk[1])  # getting the value of K

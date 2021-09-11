@@ -13,20 +13,19 @@ class Node:
 class Solution:
     # function for inserting values according to BST rules
     def insert(self, root, data):
-        if root == None:
+        if root is None:
             return Node(data)
+        if data <= root.data:
+            cur = self.insert(root.left, data)
+            root.left = cur
         else:
-            if data <= root.data:
-                cur = self.insert(root.left, data)
-                root.left = cur
-            else:
-                cur = self.insert(root.right, data)
-                root.right = cur
+            cur = self.insert(root.right, data)
+            root.right = cur
         return root
 
     # calculating the height of the tree
     def getHeight(self, root):
-        if root == None:
+        if root is None:
             return -1
         return 1 + max(self.getHeight(root.left), self.getHeight(root.right))
 
@@ -38,7 +37,7 @@ myTree = Solution()
 root = None
 
 # inserting values
-for i in range(T):
+for _ in range(T):
     data = int(input())
     root = myTree.insert(root, data)
 # geeting the height calculated

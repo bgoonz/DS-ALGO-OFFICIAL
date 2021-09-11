@@ -11,7 +11,7 @@ def areFollowingPatterns(strings, patterns):
     for i in range(len(patterns)):
         # first, check condition that strings are equal for patterns[i]=patterns[j]
         this_pattern = patterns[i]
-        if patterns[i] in pattern_to_string:
+        if this_pattern in pattern_to_string:
             if strings[i] != pattern_to_string[this_pattern]:
                 return False
         else:
@@ -19,7 +19,4 @@ def areFollowingPatterns(strings, patterns):
 
     # now check condition that patterns are equal for strings[i]=strings[j]
     # if there are more keys than values, then there is not 1:1 correspondence
-    if len(pattern_to_string.keys()) != len(set(pattern_to_string.values())):
-        return False
-
-    return True
+    return len(pattern_to_string.keys()) == len(set(pattern_to_string.values()))

@@ -67,13 +67,10 @@ class CSP(Generic[V, D]):
     # checking if the value assignment is consistent by checking all constraints
     # for the given variable against it
     def consistent(self, variable: V, assignment: Dict[V, D]) -> bool:
-        # iterating over self.constraints[variable]
-        for constraint in self.constraints[variable]:
-            # if constraint not satisfied then returning False
-            if not constraint.satisfied(assignment):
-                return False
-        # otherwise returning True
-        return True
+        return all(
+            constraint.satisfied(assignment)
+            for constraint in self.constraints[variable]
+        )
 
     # this method is performing the backtracking search to find the result
     def backtracking_search(self, assignment: Dict[V, D] = {}) -> Optional[Dict[V, D]]:

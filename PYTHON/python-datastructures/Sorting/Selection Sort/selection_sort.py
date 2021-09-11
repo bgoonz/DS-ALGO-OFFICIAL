@@ -17,7 +17,7 @@ def selectionSort(array, n):
 data = []
 size = int(input("Enter size of array : "))
 print("Enter array elements: ")
-for i in range(size):
+for _ in range(size):
     e = int(input())
     data.append(e)
 selectionSort(data, size)

@@ -45,7 +45,7 @@ class CircularLinkedList(object):
         new_node = Node(data)
 
         # handle empty list case
-        if self.head == None:
+        if self.head is None:
             self.head = new_node
             self.head.next_node = new_node
             self.end = new_node
@@ -69,7 +69,7 @@ class CircularLinkedList(object):
         curr_node = self.head
 
         # handle empty list case
-        if curr_node == None:
+        if curr_node is None:
             self.head = new_node
             self.end = new_node
             self.head.next_node = new_node
@@ -89,7 +89,7 @@ class CircularLinkedList(object):
         """
 
         # handle empty node case
-        if ref_node == None:
+        if ref_node is None:
             print("You've selected an empty node.")
 
         # if we are inserting after the end node, then just use the insert_end method
@@ -109,19 +109,17 @@ class CircularLinkedList(object):
             Time Complexity: O(1)
         """
 
-        if self.head != None:
-
-            # grab the node that comes after the head.
-            aft_head = self.head.next_node
-
-            # have the last node now point to that node
-            self.end.next_node = aft_head
-
-            # set the head property.
-            self.head = aft_head
-
-        else:
+        if self.head is None:
             raise ValueError("The list is empty")
+
+        # grab the node that comes after the head.
+        aft_head = self.head.next_node
+
+        # have the last node now point to that node
+        self.end.next_node = aft_head
+
+        # set the head property.
+        self.head = aft_head
 
     def delete_end(self):
         """
@@ -129,23 +127,21 @@ class CircularLinkedList(object):
             Time Complexity: O(1)
         """
 
-        if self.end != None:
-
-            # grab the head
-            curr_node = self.head
-
-            # traverse until the end
-            while curr_node.next_node.next_node != self.head:
-                curr_node = curr_node.next_node
-
-            # set the last node equal to the node before the last one.
-            self.end = curr_node
-
-            # have the new last node link to the head.
-            curr_node.next_node = self.head
-
-        else:
+        if self.end is None:
             raise ValueError("The list is empty")
+
+        # grab the head
+        curr_node = self.head
+
+        # traverse until the end
+        while curr_node.next_node.next_node != self.head:
+            curr_node = curr_node.next_node
+
+        # set the last node equal to the node before the last one.
+        self.end = curr_node
+
+        # have the new last node link to the head.
+        curr_node.next_node = self.head
 
     def delete_mid(self, position):
         """
@@ -166,12 +162,8 @@ class CircularLinkedList(object):
         # grab the node after the head.
         curr_node = self.head.next_node
 
-        # initalize count
-        count = 0
-
         # traverse till you reach the position
-        while count <= position:
-            count = count + 1
+        for _ in range(position + 1):
             curr_node = curr_node.next_node
 
         # have it point to the node after the one you want to delete.
@@ -190,7 +182,7 @@ class CircularLinkedList(object):
         # traver until you reach the head again
         while curr_node.next_node:
 
-            count = count + 1
+            count += 1
             curr_node = curr_node.next_node
 
             # prevents infinite loop
@@ -326,9 +318,7 @@ class CircularLinkedList(object):
         # get the first node
         curr = self.head
 
-        # go while the count is less than the list size
-        count = 0
-        while count <= list_size - 1:
+        for count in range(list_size - 1 + 1):
 
             # grab the data
             data = curr.data
@@ -343,9 +333,6 @@ class CircularLinkedList(object):
 
             # grab the next node.
             curr = curr.next_node
-
-            # increment the counter
-            count = count + 1
 
 
 # define a new list

@@ -30,16 +30,13 @@ def find_lca(node, n1, n2):
     returns : lca if found else None    
     Time complexity : O(log(n)), Space complexity : O(1)
     """
-    if node == None:
+    if node is None:
         return None
 
     # if one element is found in current node, we return it
     # the case where one element is ancestor of another, which is handeled here, as this node is tha lca
-    if node.data == n1:
+    if node.data in [n1, n2]:
         return node
-    elif node.data == n2:
-        return node
-
     # Recursive calls
     if (
         node.data > n1 and node.data > n2
@@ -59,7 +56,7 @@ def exists_in_tree(node, n):
         output : returns True if it exists, False if not
         Time complexity : O(log(n)), Space complexity : O(1)
     """
-    if node == None:
+    if node is None:
         return False
     if node.data == n:
         return True
@@ -88,7 +85,7 @@ def lowest_common_ancestor_binary_search_tree(root, n1, n2):
 
 def print_output(lca, n1, n2):
     """Prints LCA of two numbers with a proper message if it exists"""
-    if lca == None:
+    if lca is None:
         print("\nElement does not exist in tree.\n")
     else:
         print(f"\nlca({n1}, {n2}) = {lca.data}\n")

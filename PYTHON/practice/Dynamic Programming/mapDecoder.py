@@ -46,7 +46,7 @@ def mapDecoding(message):
                     counts.append((counts[-1] + counts[-2]) % (10 ** 9 + 7))
                 else:
                     counts.append(counts[-1])
-        elif (last == 2 and 0 < curr <= 6) or (last == 1 and 0 < curr):
+        elif (last == 2 and 0 < curr <= 6) or last == 1 and curr > 0:
             previous_op_count = counts[-1]
             counts.append(counts[-1] * 2 % (10 ** 9 + 7))
         else:
