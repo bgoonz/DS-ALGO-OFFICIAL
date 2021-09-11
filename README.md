@@ -5,8 +5,6 @@
 
 [Readme](https://github.com/bgoonz/DS-ALGO-OFFICIAL/blob/master/README.md)
 
-
-
 hi
 
 [readme part 2](https://github.com/bgoonz/DS-ALGO-OFFICIAL/blob/master/readme-p2.md)

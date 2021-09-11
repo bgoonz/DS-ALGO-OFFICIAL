@@ -1,5 +1,5 @@
 h1 {
-  font-family: 'Trebuchet MS', sans-serif;
+  font-family: "Trebuchet MS", sans-serif;
   font-size: 2em;
   letter-spacing: -2px;
   border-bottom: 2px solid black;
@@ -22,24 +22,24 @@ h1 {
   cursor: pointer;
   padding: 15px;
   border-radius: 10px;
-  font-size: 18px
+  font-size: 18px;
 }
 
 #scrollBtn:hover {
-  background-color: #555
+  background-color: #555;
 }
 body {
   padding: 20px;
   text-align: center;
-  overflow:scroll;
+  overflow: scroll;
 }
 
 .button::-moz-focus-inner {
   border: 0;
   padding: 0;
 }
-iframe{
-  border-radius:25px;
+iframe {
+  border-radius: 25px;
 }
 .button {
   display: inline-block;
@@ -54,26 +54,38 @@ iframe{
   white-space: nowrap;
   color: #555;
   background-color: #ddd;
-  background-image: -webkit-gradient(linear,
-      left top,
-      left bottom,
-      from(rgba(255, 255, 255, 1)),
-      to(rgba(255, 255, 255, 0)));
-  background-image: -webkit-linear-gradient(top,
-      rgba(255, 255, 255, 1),
-      rgba(255, 255, 255, 0));
-  background-image: -moz-linear-gradient(top,
-      rgba(255, 255, 255, 1),
-      rgba(255, 255, 255, 0));
-  background-image: -ms-linear-gradient(top,
-      rgba(255, 255, 255, 1),
-      rgba(255, 255, 255, 0));
-  background-image: -o-linear-gradient(top,
-      rgba(255, 255, 255, 1),
-      rgba(255, 255, 255, 0));
-  background-image: linear-gradient(top,
-      rgba(255, 255, 255, 1),
-      rgba(255, 255, 255, 0));
+  background-image: -webkit-gradient(
+    linear,
+    left top,
+    left bottom,
+    from(rgba(255, 255, 255, 1)),
+    to(rgba(255, 255, 255, 0))
+  );
+  background-image: -webkit-linear-gradient(
+    top,
+    rgba(255, 255, 255, 1),
+    rgba(255, 255, 255, 0)
+  );
+  background-image: -moz-linear-gradient(
+    top,
+    rgba(255, 255, 255, 1),
+    rgba(255, 255, 255, 0)
+  );
+  background-image: -ms-linear-gradient(
+    top,
+    rgba(255, 255, 255, 1),
+    rgba(255, 255, 255, 0)
+  );
+  background-image: -o-linear-gradient(
+    top,
+    rgba(255, 255, 255, 1),
+    rgba(255, 255, 255, 0)
+  );
+  background-image: linear-gradient(
+    top,
+    rgba(255, 255, 255, 1),
+    rgba(255, 255, 255, 0)
+  );
   -webkit-transition: background-color 0.2s ease-out;
   -moz-transition: background-color 0.2s ease-out;
   -ms-transition: background-color 0.2s ease-out;
@@ -150,26 +162,38 @@ iframe{
 .button.blue {
   color: #fff;
   text-shadow: 0 1px 0 rgba(0, 0, 0, 0.2);
-  background-image: -webkit-gradient(linear,
-      left top,
-      left bottom,
-      from(rgba(255, 255, 255, 0.3)),
-      to(rgba(255, 255, 255, 0)));
-  background-image: -webkit-linear-gradient(top,
-      rgba(255, 255, 255, 0.3),
-      rgba(255, 255, 255, 0));
-  background-image: -moz-linear-gradient(top,
-      rgba(255, 255, 255, 0.3),
-      rgba(255, 255, 255, 0));
-  background-image: -ms-linear-gradient(top,
-      rgba(255, 255, 255, 0.3),
-      rgba(255, 255, 255, 0));
-  background-image: -o-linear-gradient(top,
-      rgba(255, 255, 255, 0.3),
-      rgba(255, 255, 255, 0));
-  background-image: linear-gradient(top,
-      rgba(255, 255, 255, 0.3),
-      rgba(255, 255, 255, 0));
+  background-image: -webkit-gradient(
+    linear,
+    left top,
+    left bottom,
+    from(rgba(255, 255, 255, 0.3)),
+    to(rgba(255, 255, 255, 0))
+  );
+  background-image: -webkit-linear-gradient(
+    top,
+    rgba(255, 255, 255, 0.3),
+    rgba(255, 255, 255, 0)
+  );
+  background-image: -moz-linear-gradient(
+    top,
+    rgba(255, 255, 255, 0.3),
+    rgba(255, 255, 255, 0)
+  );
+  background-image: -ms-linear-gradient(
+    top,
+    rgba(255, 255, 255, 0.3),
+    rgba(255, 255, 255, 0)
+  );
+  background-image: -o-linear-gradient(
+    top,
+    rgba(255, 255, 255, 0.3),
+    rgba(255, 255, 255, 0)
+  );
+  background-image: linear-gradient(
+    top,
+    rgba(255, 255, 255, 0.3),
+    rgba(255, 255, 255, 0)
+  );
 }
 
 /* */

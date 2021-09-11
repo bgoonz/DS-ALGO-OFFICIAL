@@ -48,9 +48,10 @@ Test case 1:
 - Operation 1 printing the array created  
   <img src="../Array Operations/Images/Output1_part2.png">
 
-- Operation 2 Adding Integer element to array using append  
-   - We are adding 4 to array
-  <img src="../Array Operations/Images/Output1_part3.png">
+- Operation 2 Adding Integer element to array using append
+
+  - We are adding 4 to array
+    <img src="../Array Operations/Images/Output1_part3.png">
 
 - Operation 3 Adding Integer element to array using insert - We are adding 5 to index 2 of array
   <img src="../Array Operations/Images/Output1_part4.png">
