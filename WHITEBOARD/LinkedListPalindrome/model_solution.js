@@ -6,6 +6,9 @@
   implement a solution quite like this, if their approach is sound
   and their code works, then they are good.
 
+
+
+
   For this problem, we'll have a fast runner and a slow runner. The
   fast runner traverses the list twice as quickly as the slow runner.
   So by the time the fast runner has reached the end of the list, the 
@@ -19,6 +22,7 @@
 
 function isLinkedListPalindrome(listNode) {
   let fast = listNode;
+  
   let slow = listNode;
 
   const stack = [];
