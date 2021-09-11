@@ -40,9 +40,7 @@ def affine_enc(key1, key2, plaintext):
 # Formula for Affine decryption: P = a^-1 (C - b) mod 26, where P is plaintext, a is key1, C is cipher text and b is key2.
 def affine_decrypt(key1, key2, ciphertext):
     plaintext = []
-    cursor = [
-        (modinv(key1, 26) * (mapping_table[c] - key2)) % 26 for c in ciphertext
-    ]
+    cursor = [(modinv(key1, 26) * (mapping_table[c] - key2)) % 26 for c in ciphertext]
 
     for cur in cursor:
         for letter, num in mapping_table.items():

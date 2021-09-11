@@ -11,6 +11,6 @@
 # def passwordCheck(s):
 #    return len(s) > 4 and all(re.search(p, s) for p in ('[A-Z]', '\d', '[a-z]'))
 
-def passwordCheck(s): return len(s) > 4 and all(
-    re.search(i, s) for i in ("[A-Z]", "\d", "[a-z]")
-)
+
+def passwordCheck(s):
+    return len(s) > 4 and all(re.search(i, s) for i in ("[A-Z]", "\d", "[a-z]"))

@@ -96,7 +96,7 @@ def singlePointOfFailure(connections):
     for item in cuttable_nodes:
         for i in range(size):
             if i in cuttable_nodes and i not in added_nodes:
-                            # test that there are no other connections between the items first
+                # test that there are no other connections between the items first
                 a = [
                     ((connections[item][l] == 1 and connections[i][l] == 1))
                     for l in range(size)
@@ -158,9 +158,7 @@ def adjacency_matrix_BFS(node, adj_matrix):
         curr_node = queue.pop(0)
         seen.add(curr_node)
         new_items = [
-            i
-            for i, a in enumerate(adj_matrix[curr_node])
-            if a == 1 and i not in seen
+            i for i, a in enumerate(adj_matrix[curr_node]) if a == 1 and i not in seen
         ]
 
         queue.extend(new_items)

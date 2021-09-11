@@ -16,7 +16,6 @@ Problem Statement : ABC is a right triangle with 90° at B
 """
 
 
-
 # Importing required package
 # here we are using math package
 
@@ -39,7 +38,7 @@ bc = float(input())
 # Finding out the length of the hypotenuse
 # Here the hypotenuse is AC
 
-ac = math.sqrt(ab**2 + bc**2)
+ac = math.sqrt(ab ** 2 + bc ** 2)
 
 # As the hypotenuse is divided into to equal parts by MB
 # Finding out the length of BM

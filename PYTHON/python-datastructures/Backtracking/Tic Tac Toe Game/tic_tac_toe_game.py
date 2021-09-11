@@ -168,7 +168,7 @@ def getBestMove(state, player):
                 empty_cells.append(i * 3 + (j + 1))
 
     for empty_cell in empty_cells:
-        move = {'index': empty_cell}
+        move = {"index": empty_cell}
 
         # Call the copy_game_state method
         new_state = copy_game_state(state)
