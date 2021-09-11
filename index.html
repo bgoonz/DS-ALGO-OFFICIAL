@@ -37,18 +37,29 @@
   <script async defer src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
     integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous">
     </script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@algolia/algoliasearch-netlify-frontend@1/dist/algoliasearchNetlify.css" />
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@algolia/algoliasearch-netlify-frontend@1/dist/algoliasearchNetlify.js"></script>
+<script type="text/javascript">
+  algoliasearchNetlify({
+    appId: 'JXBUGAW4Y5',
+    apiKey: '1a3f37da28fc61aa422e0a26fa17739b',
+    siteId: '274fc2e2-6ccd-42af-8d83-473278f504fe',
+    branch: 'master',
+    selector: 'div#search',
+  });
+</script>
   <!---------------------------------------------------------------------------------------------------------------------------------------------------------->
 </head>
 <!------------------------------------------------------------------------------------------------------------------------------------------------->
 
 <body>
+
   <div class="shadow">
-    <button id="scrollBtn" title="Go to top" onclick="topFunction()">Back To
-      Top</button><br>
+    
 
     <a href="https://github.com/bgoonz/DS-ALGO-OFFICIAL" class="github-corner" aria-label="View source on Github"><svg
-        width="80" height="80" viewBox="0 0 250 250"
-        style="z-index: 100000; fill:#194ccdaf; color:#fff; position: fixed; top: 20px; border: 0; left: 20px; transform: scale(-1.5, 1.5);"
+        width="40" height="40" viewBox="0 0 250 250"
+        style="z-index: 100000; fill:#194ccdaf; color:#fff; position: fixed; top: 0px; border: 0; left: 0px; transform: scale(-1.5, 1.5);"
         aria-hidden="true">
         <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
         <path
@@ -74,6 +85,20 @@
       <!-------------------------------------------------------------------------------->
       <br>
       </br>
+      <br>
+      </br>
+      <br>
+      </br>
+
+  <div id="search"></div>
+      <br>
+      </br>
+
+
+
+    <iframe loading="lazy" height="1400px" width="90%" src="https://thealgorithms.netlify.app/" allowtransparency="true"
+        allowfullscreen="true"
+        sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
       <br>
       </br>
       <br>
@@ -225,12 +250,22 @@
         frameborder="no" allowtransparency="true" allowfullscreen="true"
         sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
       <div class="shadow">
-        <!-- <script src="https://gist.github.com/bgoonz/f1c9f6044dc030c1b8f1906766cdc05e.js"></script> -->
+      
       </div>
     </div>
 
     <br>
     </br>
+<!-- <script>
+    
+    
+    let iframe = document.createElement( 'iframe' );
+      iframe.style =
+        "font-family: Arial, Helvetica, sans-serif; color: rgb(136, 247, 221); background-color: whitesmoke; border-radius: 25px; position: absolute; font-size: 8px; bottom: 0px; left: 0; width: 30%; border: 3px solid gold; padding: 0px; margin: 2px; overflow: auto; overflow-y: auto; height: 25%; -webkit-border-radius: 15px; -moz-border-radius: 15px; -ms-border-radius: 15px; -o-border-radius: 15px; overflow-wrap: break-word; zoom: 1.1;  resize: both;overflow: auto;z-index: 100;";
+
+      iframe.src = "https://replit.com/@bgoonz/medium-sandbox/?lite=true";
+      document.body.appendChild( iframe );
+  </script> -->
 </body>
 
-</html> -->
+</html>
