@@ -1,5 +1,4 @@
 function longestCollatzSequence(limit) {
-
   return true;
 }
 

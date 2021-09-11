@@ -1,5 +1,4 @@
 function rightTrianglesIntCoords() {
-
   return true;
 }
 

@@ -1,5 +1,3 @@
-function clip(subjectPolygon, clipPolygon) {
-
-}
+function clip(subjectPolygon, clipPolygon) {}
 
 // TODO

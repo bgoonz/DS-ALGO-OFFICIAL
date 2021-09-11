@@ -1,6 +1,6 @@
-function PriorityQueue () {
+function PriorityQueue() {
   this.collection = [];
-  this.printCollection = function() {
+  this.printCollection = function () {
     console.log(this.collection);
   };
   // Only change code below this line

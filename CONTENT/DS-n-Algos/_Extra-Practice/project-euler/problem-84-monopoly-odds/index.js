@@ -1,5 +1,4 @@
 function monopolyOdds() {
-
   return true;
 }
 

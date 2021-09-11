@@ -1,5 +1,4 @@
 function quibble(words) {
-
   return true;
 }
 

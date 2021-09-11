@@ -1,5 +1,4 @@
 function amicableChains() {
-
   return true;
 }
 

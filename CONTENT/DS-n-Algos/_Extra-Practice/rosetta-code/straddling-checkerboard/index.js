@@ -1,9 +1,5 @@
-function straddle(message, alphabet) {
+function straddle(message, alphabet) {}
 
-}
-
-function unstraddle(message, alphabet) {
-
-}
+function unstraddle(message, alphabet) {}
 
 // TODO

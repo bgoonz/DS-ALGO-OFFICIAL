@@ -1,5 +1,3 @@
-function genFizzBuzz(rules, num) {
-
-}
+function genFizzBuzz(rules, num) {}
 
 // TODO

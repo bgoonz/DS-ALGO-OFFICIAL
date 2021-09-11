@@ -1,5 +1,3 @@
-function findBestPack(data, maxweight) {
-
-}
+function findBestPack(data, maxweight) {}
 
 // TODO

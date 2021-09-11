@@ -1,5 +1,3 @@
-function symmetricDifference(A, B) {
-
-}
+function symmetricDifference(A, B) {}
 
 // TODO

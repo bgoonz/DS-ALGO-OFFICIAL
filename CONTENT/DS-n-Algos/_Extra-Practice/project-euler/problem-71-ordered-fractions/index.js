@@ -1,5 +1,4 @@
 function orderedFractions() {
-
   return true;
 }
 

@@ -1,5 +1,3 @@
-function ack(m, n) {
-
-}
+function ack(m, n) {}
 
 // TODO

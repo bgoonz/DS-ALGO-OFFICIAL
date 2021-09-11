@@ -1,5 +1,3 @@
-function gaussianElimination(A,b) {
-
-}
+function gaussianElimination(A, b) {}
 
 // TODO

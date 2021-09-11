@@ -1,5 +1,4 @@
 function lexicographicPermutations(n) {
-
   return n;
 }
 

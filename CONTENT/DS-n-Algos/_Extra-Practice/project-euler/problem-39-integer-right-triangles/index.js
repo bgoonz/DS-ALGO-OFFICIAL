@@ -1,5 +1,4 @@
 function intRightTriangles(n) {
-
   return n;
 }
 

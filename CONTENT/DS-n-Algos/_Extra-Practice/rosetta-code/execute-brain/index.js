@@ -1,5 +1,3 @@
-function brain(prog) {
-
-}
+function brain(prog) {}
 
 // TODO

@@ -1,5 +1,3 @@
-function lcs(a, b) {
-
-}
+function lcs(a, b) {}
 
 // TODO

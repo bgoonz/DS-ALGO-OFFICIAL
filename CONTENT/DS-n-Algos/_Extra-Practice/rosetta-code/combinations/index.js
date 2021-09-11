@@ -1,5 +1,4 @@
 function combinations(m, n) {
-
   return true;
 }
 

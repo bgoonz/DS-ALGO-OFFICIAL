@@ -1,5 +1,4 @@
 function iterativeCirclePacking(n) {
-
   return true;
 }
 

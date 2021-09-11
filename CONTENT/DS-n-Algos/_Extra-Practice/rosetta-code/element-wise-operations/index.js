@@ -1,5 +1,3 @@
-function operation(op, arr1, arr2) {
-
-}
+function operation(op, arr1, arr2) {}
 
 // TODO

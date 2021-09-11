@@ -1,5 +1,4 @@
 function cubicPermutations() {
-
   return true;
 }
 

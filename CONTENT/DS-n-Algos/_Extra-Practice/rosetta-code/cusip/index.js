@@ -1,5 +1,3 @@
-function isCusip(s) {
-
-}
+function isCusip(s) {}
 
 // TODO

@@ -1,5 +1,4 @@
 function distinctPrimeFactors(targetNumPrimes, targetConsecutive) {
-
   return true;
 }
 

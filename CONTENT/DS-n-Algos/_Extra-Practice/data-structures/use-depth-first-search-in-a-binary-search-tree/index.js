@@ -1,4 +1,4 @@
-var displayTree = tree => console.log(JSON.stringify(tree, null, 2));
+var displayTree = (tree) => console.log(JSON.stringify(tree, null, 2));
 function Node(value) {
   this.value = value;
   this.left = null;
@@ -7,7 +7,7 @@ function Node(value) {
 function BinarySearchTree() {
   this.root = null;
   // Only change code below this line
-  
+
   // Only change code above this line
 }
 

@@ -1,5 +1,4 @@
 function parseSexpr(str) {
-
   return true;
 }
 

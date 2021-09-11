@@ -19,17 +19,17 @@ Where:
 - \\(m\\) is the number of _matching characters_;
 - \\(t\\) is half the number of _transpositions_.
 
-Two characters from \\(s_1\\) and \\(s_2\\) respectively, are considered
-_matching_ only if they are the same and not farther than
+Two characters from \\(s*1\\) and \\(s_2\\) respectively, are considered
+\_matching* only if they are the same and not farther than
 \\(\\left\\lfloor\\frac{\\max(|s_1|,|s_2|)}{2}\\right\\rfloor-1\\).
 
-Each character of \\(s_1\\) is compared with all its matching characters in
+Each character of \\(s*1\\) is compared with all its matching characters in
 \\(s_2\\) . The number of matching (but different sequence order) characters
-divided by 2 defines the number of _transpositions_.
+divided by 2 defines the number of \_transpositions*.
 
 **Example**
 
-Given the strings \\(s_1\\) _DWAYNE_ and \\(s_2\\) _DUANE_ we find:
+Given the strings \\(s*1\\) \_DWAYNE* and \\(s*2\\) \_DUANE* we find:
 
 - \\(m = 4\\)
 - \\(|s_1| = 6\\)

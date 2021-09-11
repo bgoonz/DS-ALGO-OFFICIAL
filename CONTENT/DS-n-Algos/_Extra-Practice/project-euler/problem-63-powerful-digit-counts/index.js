@@ -1,5 +1,4 @@
 function powerfulDigitCounts(n) {
-
   return true;
 }
 

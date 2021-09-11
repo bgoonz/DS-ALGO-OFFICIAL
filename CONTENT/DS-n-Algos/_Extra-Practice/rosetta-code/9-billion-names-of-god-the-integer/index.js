@@ -1,5 +1,4 @@
 function numberOfNames(num) {
-
   return true;
 }
 

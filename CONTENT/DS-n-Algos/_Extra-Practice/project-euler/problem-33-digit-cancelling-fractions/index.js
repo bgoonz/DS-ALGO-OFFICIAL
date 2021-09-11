@@ -1,5 +1,4 @@
 function digitCancellingFractions() {
-
   return true;
 }
 

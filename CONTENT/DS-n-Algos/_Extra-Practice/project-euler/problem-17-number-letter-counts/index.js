@@ -1,5 +1,4 @@
 function numberLetterCounts(limit) {
-
   return true;
 }
 

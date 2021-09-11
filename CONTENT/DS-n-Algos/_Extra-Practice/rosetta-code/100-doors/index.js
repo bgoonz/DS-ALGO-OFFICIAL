@@ -1,5 +1,3 @@
-function getFinalOpenedDoors(numDoors) {
-
-}
+function getFinalOpenedDoors(numDoors) {}
 
 // TODO

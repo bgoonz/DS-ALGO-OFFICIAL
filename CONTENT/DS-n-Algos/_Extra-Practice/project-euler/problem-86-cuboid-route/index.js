@@ -1,5 +1,4 @@
 function cuboidRoute() {
-
   return true;
 }
 

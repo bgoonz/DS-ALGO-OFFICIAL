@@ -1,5 +1,4 @@
 function arrangedProbability() {
-
   return true;
 }
 

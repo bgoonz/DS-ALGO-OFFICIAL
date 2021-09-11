@@ -1,5 +1,3 @@
-function getDPA(num) {
-
-}
+function getDPA(num) {}
 
 // TODO

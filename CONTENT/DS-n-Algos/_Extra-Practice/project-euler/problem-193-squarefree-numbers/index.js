@@ -1,5 +1,4 @@
 function euler193() {
-
   return true;
 }
 

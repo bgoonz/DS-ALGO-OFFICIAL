@@ -1,5 +1,4 @@
 function countingSummations() {
-
   return true;
 }
 

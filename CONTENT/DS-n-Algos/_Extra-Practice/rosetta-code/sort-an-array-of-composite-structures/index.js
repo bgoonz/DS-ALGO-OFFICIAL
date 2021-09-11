@@ -1,5 +1,3 @@
-function sortByKey(arr) {
-
-}
+function sortByKey(arr) {}
 
 // TODO

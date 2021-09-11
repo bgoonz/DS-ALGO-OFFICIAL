@@ -1,6 +1,6 @@
 function Queue() {
   var collection = [];
-  this.print = function() {
+  this.print = function () {
     console.log(collection);
   };
   // Only change code below this line

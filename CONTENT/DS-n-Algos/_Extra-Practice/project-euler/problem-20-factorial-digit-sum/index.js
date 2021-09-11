@@ -1,5 +1,4 @@
 function sumFactorialDigits(n) {
-
   return n;
 }
 

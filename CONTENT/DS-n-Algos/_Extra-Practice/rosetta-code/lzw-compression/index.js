@@ -1,5 +1,3 @@
-function LZW (compressData, input) {
-
-}
+function LZW(compressData, input) {}
 
 // TODO

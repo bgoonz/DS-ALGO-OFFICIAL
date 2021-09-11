@@ -1,5 +1,4 @@
 function euler342() {
-
   return true;
 }
 

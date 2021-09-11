@@ -1,5 +1,3 @@
-function pancakeSort(arr) {
-
-}
+function pancakeSort(arr) {}
 
 // TODO

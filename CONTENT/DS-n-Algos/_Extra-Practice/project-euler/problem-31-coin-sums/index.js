@@ -1,5 +1,4 @@
 function coinSums(n) {
-
   return n;
 }
 

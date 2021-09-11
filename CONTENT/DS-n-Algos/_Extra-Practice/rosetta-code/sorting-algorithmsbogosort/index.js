@@ -1,5 +1,3 @@
-function bogosort(v) {
-
-}
+function bogosort(v) {}
 
 // TODO

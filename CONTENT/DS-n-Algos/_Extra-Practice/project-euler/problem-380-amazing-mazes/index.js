@@ -1,5 +1,4 @@
 function euler380() {
-
   return true;
 }
 

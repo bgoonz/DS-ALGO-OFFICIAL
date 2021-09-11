@@ -1,5 +1,3 @@
-function strip(s) {
-
-}
+function strip(s) {}
 
 // TODO

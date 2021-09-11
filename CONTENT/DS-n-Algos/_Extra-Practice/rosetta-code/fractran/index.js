@@ -1,5 +1,3 @@
-function fractran(progStr) {
-
-}
+function fractran(progStr) {}
 
 // TODO

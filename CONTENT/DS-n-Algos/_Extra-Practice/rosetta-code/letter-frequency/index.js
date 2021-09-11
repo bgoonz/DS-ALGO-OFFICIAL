@@ -1,5 +1,3 @@
-function letterFrequency(txt) {
-
-}
+function letterFrequency(txt) {}
 
 // TODO

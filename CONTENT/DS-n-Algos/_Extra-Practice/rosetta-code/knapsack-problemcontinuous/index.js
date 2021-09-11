@@ -1,5 +1,3 @@
-function knapContinuous(items, maxweight) {
-
-}
+function knapContinuous(items, maxweight) {}
 
 // TODO

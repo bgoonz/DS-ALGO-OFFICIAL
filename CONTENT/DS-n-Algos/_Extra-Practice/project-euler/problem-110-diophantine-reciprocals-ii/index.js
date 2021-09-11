@@ -1,5 +1,4 @@
 function diophantineTwo() {
-
   return true;
 }
 

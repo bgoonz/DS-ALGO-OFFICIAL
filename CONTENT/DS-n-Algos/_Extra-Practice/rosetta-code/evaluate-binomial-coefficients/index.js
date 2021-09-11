@@ -1,5 +1,3 @@
-function binom(n, k) {
-
-}
+function binom(n, k) {}
 
 // TODO

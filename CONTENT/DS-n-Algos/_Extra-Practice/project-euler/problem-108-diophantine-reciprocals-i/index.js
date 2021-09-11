@@ -1,5 +1,4 @@
 function diophantineOne() {
-
   return true;
 }
 

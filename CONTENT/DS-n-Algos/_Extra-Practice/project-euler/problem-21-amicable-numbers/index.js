@@ -1,5 +1,4 @@
 function sumAmicableNum(n) {
-
   return n;
 }
 

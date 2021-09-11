@@ -1,5 +1,4 @@
 function diophantineEquation() {
-
   return true;
 }
 

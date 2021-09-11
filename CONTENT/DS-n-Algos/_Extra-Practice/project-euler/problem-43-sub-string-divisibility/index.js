@@ -1,5 +1,4 @@
 function substringDivisibility() {
-
   return [];
 }
 

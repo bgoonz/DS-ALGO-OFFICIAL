@@ -1,5 +1,3 @@
-function equilibrium(a) {
-
-}
+function equilibrium(a) {}
 
 // TODO

@@ -1,5 +1,4 @@
 function countingRectangles() {
-
   return true;
 }
 

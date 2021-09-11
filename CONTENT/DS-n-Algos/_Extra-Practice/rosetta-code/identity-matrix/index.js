@@ -1,5 +1,3 @@
-function idMatrix(n) {
-
-}
+function idMatrix(n) {}
 
 // TODO

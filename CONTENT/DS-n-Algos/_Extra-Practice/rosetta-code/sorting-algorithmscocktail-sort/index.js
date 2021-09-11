@@ -1,5 +1,3 @@
-function cocktailSort(arr) {
-
-}
+function cocktailSort(arr) {}
 
 // TODO

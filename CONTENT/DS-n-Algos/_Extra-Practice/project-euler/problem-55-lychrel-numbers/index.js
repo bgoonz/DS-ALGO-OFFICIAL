@@ -1,5 +1,4 @@
 function countLychrelNumbers(num) {
-
   return true;
 }
 

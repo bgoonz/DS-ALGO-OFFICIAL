@@ -1,5 +1,4 @@
 function triPentaHexa(n) {
-
   return true;
 }
 

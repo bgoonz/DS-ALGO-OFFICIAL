@@ -1,7 +1,7 @@
 function specialPythagoreanTriplet(n) {
- let sumOfabc = n;
+  let sumOfabc = n;
 
- return true;
+  return true;
 }
 
 specialPythagoreanTriplet(1000);

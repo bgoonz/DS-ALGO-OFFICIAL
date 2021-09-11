@@ -1,5 +1,4 @@
 function spiralDiagonals(n) {
-
   return n;
 }
 

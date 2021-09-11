@@ -1,5 +1,3 @@
-function knapsack(items, maxweight) {
-
-}
+function knapsack(items, maxweight) {}
 
 // TODO

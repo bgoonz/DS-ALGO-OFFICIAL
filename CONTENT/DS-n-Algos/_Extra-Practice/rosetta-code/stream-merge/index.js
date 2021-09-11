@@ -1,5 +1,3 @@
-function mergeLists(lists) {
-
-}
+function mergeLists(lists) {}
 
 // TODO

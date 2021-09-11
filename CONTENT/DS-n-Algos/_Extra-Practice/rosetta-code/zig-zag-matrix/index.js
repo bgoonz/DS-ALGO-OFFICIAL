@@ -1,5 +1,4 @@
 function ZigZagMatrix(n) {
-
   return [[], []];
 }
 

@@ -1,5 +1,4 @@
 function RSAEncryption(p, q) {
-
   return true;
 }
 

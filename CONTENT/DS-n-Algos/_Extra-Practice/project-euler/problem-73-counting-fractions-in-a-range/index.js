@@ -1,5 +1,4 @@
 function countingFractionsInARange() {
-
   return true;
 }
 

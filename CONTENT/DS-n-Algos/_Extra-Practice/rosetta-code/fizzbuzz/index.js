@@ -1,5 +1,3 @@
-function fizzBuzz() {
-
-}
+function fizzBuzz() {}
 
 // TODO

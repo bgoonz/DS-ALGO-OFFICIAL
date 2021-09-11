@@ -1,5 +1,4 @@
 function sumSquareDifference(n) {
-
   return true;
 }
 

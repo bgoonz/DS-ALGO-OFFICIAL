@@ -1,5 +1,3 @@
-function setConsolidation(sets) {
-
-}
+function setConsolidation(sets) {}
 
 // TODO

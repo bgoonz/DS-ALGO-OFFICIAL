@@ -1,5 +1,4 @@
 function largestPrimeFactor(number) {
-
   return true;
 }
 

@@ -1,5 +1,4 @@
 function digitFibonacci(n) {
-
   return n;
 }
 

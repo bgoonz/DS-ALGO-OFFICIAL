@@ -1,5 +1,3 @@
-function split(str) {
-
-}
+function split(str) {}
 
 // TODO

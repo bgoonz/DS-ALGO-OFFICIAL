@@ -1,5 +1,3 @@
-function cutRectangle(w, h) {
-
-}
+function cutRectangle(w, h) {}
 
 // TODO

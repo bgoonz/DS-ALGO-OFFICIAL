@@ -1,5 +1,3 @@
-function isKaprekar(n, bs) {
-
-}
+function isKaprekar(n, bs) {}
 
 // TODO

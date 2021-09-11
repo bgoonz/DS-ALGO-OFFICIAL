@@ -1,5 +1,4 @@
 function totientMaximum() {
-
   return true;
 }
 

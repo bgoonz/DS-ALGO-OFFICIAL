@@ -1,5 +1,3 @@
-function check_mersenne(p) {
-
-}
+function check_mersenne(p) {}
 
 // TODO

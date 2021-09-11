@@ -1,5 +1,4 @@
 function primePowerTriples() {
-
   return true;
 }
 

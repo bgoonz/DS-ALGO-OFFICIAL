@@ -1,5 +1,4 @@
 function reciprocalCycles(n) {
-
   return n;
 }
 

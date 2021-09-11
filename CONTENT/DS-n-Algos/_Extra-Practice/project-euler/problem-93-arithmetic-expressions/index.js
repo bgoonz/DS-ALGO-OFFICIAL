@@ -1,5 +1,4 @@
 function arithmeticExpressions() {
-
   return true;
 }
 

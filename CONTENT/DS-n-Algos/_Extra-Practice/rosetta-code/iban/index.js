@@ -1,5 +1,3 @@
-function isValid(iban) {
-
-}
+function isValid(iban) {}
 
 // TODO

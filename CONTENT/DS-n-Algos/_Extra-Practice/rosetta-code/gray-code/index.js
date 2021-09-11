@@ -1,5 +1,3 @@
-function gray(enc, number) {
-
-}
+function gray(enc, number) {}
 
 // TODO

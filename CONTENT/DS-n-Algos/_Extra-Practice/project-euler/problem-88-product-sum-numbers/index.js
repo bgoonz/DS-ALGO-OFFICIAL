@@ -1,5 +1,4 @@
 function productSumNumbers() {
-
   return true;
 }
 

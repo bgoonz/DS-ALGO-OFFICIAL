@@ -1,5 +1,3 @@
-function leftFactorial(n) {
-
-}
+function leftFactorial(n) {}
 
 // TODO

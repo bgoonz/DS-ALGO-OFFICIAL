@@ -1,5 +1,4 @@
 function discordianDate(date) {
-
   return true;
 }
 

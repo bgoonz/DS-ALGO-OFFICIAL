@@ -1,5 +1,3 @@
-function shellSort(a) {
-
-}
+function shellSort(a) {}
 
 // TODO

@@ -1,5 +1,3 @@
-function sumTo100(n) {
-
-}
+function sumTo100(n) {}
 
 // TODO

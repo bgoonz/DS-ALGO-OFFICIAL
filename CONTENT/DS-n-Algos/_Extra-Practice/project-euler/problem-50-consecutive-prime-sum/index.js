@@ -1,5 +1,4 @@
 function consecutivePrimeSum(limit) {
-
   return true;
 }
 

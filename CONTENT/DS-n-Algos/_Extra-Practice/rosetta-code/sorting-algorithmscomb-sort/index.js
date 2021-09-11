@@ -1,5 +1,3 @@
-function combSort(arr) {
-
-}
+function combSort(arr) {}
 
 // TODO

@@ -1,5 +1,4 @@
 function squareRootConvergents(n) {
-
   return true;
 }
 

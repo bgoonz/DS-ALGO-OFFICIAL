@@ -1,5 +1,3 @@
-function primeGenerator(num, showPrimes) {
-
-}
+function primeGenerator(num, showPrimes) {}
 
 // TODO

@@ -1,5 +1,3 @@
-function factorial(n) {
-
-}
+function factorial(n) {}
 
 // TODO

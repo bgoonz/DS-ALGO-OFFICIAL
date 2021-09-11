@@ -1,5 +1,4 @@
 function hofstadterQ(n) {
-
   return n;
 }
 

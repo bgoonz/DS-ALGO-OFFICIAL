@@ -1,5 +1,3 @@
-function SHA256(input) {
-
-}
+function SHA256(input) {}
 
 // TODO

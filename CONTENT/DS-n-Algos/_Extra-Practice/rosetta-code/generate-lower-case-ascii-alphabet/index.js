@@ -1,5 +1,3 @@
-function lascii(cFrom, cTo) {
-
-}
+function lascii(cFrom, cTo) {}
 
 // TODO

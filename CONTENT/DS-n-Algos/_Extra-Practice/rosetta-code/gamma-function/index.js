@@ -1,5 +1,3 @@
-function gamma(x) {
-
-}
+function gamma(x) {}
 
 // TODO

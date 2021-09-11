@@ -1,5 +1,4 @@
 function totientPermutation() {
-
   return true;
 }
 

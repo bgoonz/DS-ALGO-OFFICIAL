@@ -1,6 +1,6 @@
-function checkSet(){
-   var set = null;
-   return set;
+function checkSet() {
+  var set = null;
+  return set;
 }
 
 // TODO

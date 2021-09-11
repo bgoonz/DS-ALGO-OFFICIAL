@@ -21,7 +21,7 @@ and 12. There are eight solutions in total.
 
 Solution Set
 
-|  |
+|     |
 | --- | ------------------- |
 | 9   | 4,2,3; 5,3,1; 6,1,2 |
 | 9   | 4,3,2; 6,2,1; 5,1,3 |

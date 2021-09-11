@@ -1,5 +1,3 @@
-function happy(number) {
-
-}
+function happy(number) {}
 
 // TODO

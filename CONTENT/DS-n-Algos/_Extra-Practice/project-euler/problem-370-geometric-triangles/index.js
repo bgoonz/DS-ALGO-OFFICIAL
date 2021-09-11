@@ -1,5 +1,4 @@
 function euler370() {
-
   return true;
 }
 

@@ -1,5 +1,4 @@
 function fiboEvenSum(n) {
-
   return true;
 }
 

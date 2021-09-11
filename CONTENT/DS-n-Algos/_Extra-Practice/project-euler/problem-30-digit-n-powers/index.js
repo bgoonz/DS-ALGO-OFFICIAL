@@ -1,5 +1,4 @@
 function digitnPowers(n) {
-
   return n;
 }
 

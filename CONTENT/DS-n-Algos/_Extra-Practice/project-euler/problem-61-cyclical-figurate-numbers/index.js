@@ -1,5 +1,4 @@
 function cyclicalFigurateNums() {
-
   return true;
 }
 

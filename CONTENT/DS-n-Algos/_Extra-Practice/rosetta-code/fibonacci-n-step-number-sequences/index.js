@@ -1,5 +1,3 @@
-function fib_luc(n, len, w) {
-
-}
+function fib_luc(n, len, w) {}
 
 // TODO

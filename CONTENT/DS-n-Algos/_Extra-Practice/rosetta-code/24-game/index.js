@@ -1,5 +1,4 @@
-function solve24 (numStr) {
-
+function solve24(numStr) {
   return true;
 }
 

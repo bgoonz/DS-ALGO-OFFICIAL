@@ -1,5 +1,4 @@
 function powerfulDigitSum() {
-
   return true;
 }
 

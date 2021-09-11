@@ -1,5 +1,3 @@
-function knightTour(w, h) {
-
-}
+function knightTour(w, h) {}
 
 // TODO

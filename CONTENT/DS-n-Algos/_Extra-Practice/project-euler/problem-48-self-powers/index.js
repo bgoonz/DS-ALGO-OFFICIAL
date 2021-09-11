@@ -1,5 +1,4 @@
 function selfPowers(power, lastDigits) {
-
   return true;
 }
 

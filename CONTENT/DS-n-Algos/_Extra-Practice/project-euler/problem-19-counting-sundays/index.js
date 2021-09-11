@@ -1,5 +1,4 @@
 function countingSundays(firstYear, lastYear) {
-
   return true;
 }
 

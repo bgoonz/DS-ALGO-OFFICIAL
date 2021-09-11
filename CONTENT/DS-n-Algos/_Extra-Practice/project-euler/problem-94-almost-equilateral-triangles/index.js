@@ -1,5 +1,4 @@
 function almostEquilateralTriangles() {
-
   return true;
 }
 

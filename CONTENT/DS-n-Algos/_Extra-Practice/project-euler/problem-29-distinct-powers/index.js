@@ -1,5 +1,4 @@
 function distinctPowers(n) {
-
   return n;
 }
 

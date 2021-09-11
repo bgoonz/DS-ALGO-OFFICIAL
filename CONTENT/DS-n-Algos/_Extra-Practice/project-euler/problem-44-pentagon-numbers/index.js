@@ -1,5 +1,4 @@
 function pentagonNumbers() {
-
   return true;
 }
 

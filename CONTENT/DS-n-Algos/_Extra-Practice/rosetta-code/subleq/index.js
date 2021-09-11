@@ -1,5 +1,3 @@
-function Subleq(mem) {
-
-}
+function Subleq(mem) {}
 
 // TODO

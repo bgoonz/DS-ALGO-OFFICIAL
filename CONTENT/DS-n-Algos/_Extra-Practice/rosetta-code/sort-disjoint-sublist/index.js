@@ -1,5 +1,3 @@
-function sortDisjoint(values, indices) {
-
-}
+function sortDisjoint(values, indices) {}
 
 // TODO

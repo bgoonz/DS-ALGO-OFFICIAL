@@ -1,5 +1,3 @@
-function soundex(s) {
-
-}
+function soundex(s) {}
 
 // TODO

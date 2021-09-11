@@ -1,5 +1,3 @@
-function solveSudoku(puzzle) {
-
-}
+function solveSudoku(puzzle) {}
 
 // TODO

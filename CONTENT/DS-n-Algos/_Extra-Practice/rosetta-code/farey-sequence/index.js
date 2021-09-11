@@ -1,5 +1,3 @@
-function farey(n) {
-
-}
+function farey(n) {}
 
 // TODO

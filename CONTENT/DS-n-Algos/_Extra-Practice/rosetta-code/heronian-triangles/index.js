@@ -1,6 +1,4 @@
 function heronianTriangle(n) {
-
-
   return [];
 }
 

@@ -1,5 +1,4 @@
 function sqrtDigitalExpansion() {
-
   return true;
 }
 

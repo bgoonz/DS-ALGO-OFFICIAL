@@ -1,5 +1,3 @@
-function isLeapYear(year) {
-
-}
+function isLeapYear(year) {}
 
 // TODO

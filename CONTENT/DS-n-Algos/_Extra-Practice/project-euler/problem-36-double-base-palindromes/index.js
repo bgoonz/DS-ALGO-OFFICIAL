@@ -1,5 +1,4 @@
 function doubleBasePalindromes(n) {
-
   return n;
 }
 

@@ -1,5 +1,4 @@
 function coinPartitions() {
-
   return true;
 }
 

@@ -1,5 +1,4 @@
 function powerDigitSum(exponent) {
-
   return true;
 }
 

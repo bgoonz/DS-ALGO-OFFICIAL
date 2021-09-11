@@ -1,5 +1,3 @@
-function lastFriday(year, month) {
-
-}
+function lastFriday(year, month) {}
 
 // TODO

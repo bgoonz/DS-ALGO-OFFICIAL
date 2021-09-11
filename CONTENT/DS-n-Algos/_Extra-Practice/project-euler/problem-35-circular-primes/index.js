@@ -1,5 +1,4 @@
 function circularPrimes(n) {
-
   return n;
 }
 

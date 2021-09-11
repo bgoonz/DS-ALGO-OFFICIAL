@@ -1,5 +1,3 @@
-function jortsort(array) {
-
-}
+function jortsort(array) {}
 
 // TODO

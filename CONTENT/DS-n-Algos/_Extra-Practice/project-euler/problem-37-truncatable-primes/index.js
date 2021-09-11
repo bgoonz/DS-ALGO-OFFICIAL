@@ -1,5 +1,4 @@
 function truncatablePrimes(n) {
-
   return n;
 }
 

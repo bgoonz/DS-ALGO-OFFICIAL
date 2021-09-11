@@ -1,5 +1,4 @@
-function arrToObj (keys, vals) {
-
+function arrToObj(keys, vals) {
   return true;
 }
 

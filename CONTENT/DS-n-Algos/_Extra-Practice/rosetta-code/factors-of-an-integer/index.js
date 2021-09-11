@@ -1,5 +1,3 @@
-function factors(num) {
-
-}
+function factors(num) {}
 
 // TODO

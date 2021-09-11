@@ -1,5 +1,3 @@
-function sternBrocot(num) {
-
-}
+function sternBrocot(num) {}
 
 // TODO

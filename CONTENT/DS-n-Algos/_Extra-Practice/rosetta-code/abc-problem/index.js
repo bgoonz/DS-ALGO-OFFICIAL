@@ -1,5 +1,3 @@
-function canMakeWord(word) {
-
-}
+function canMakeWord(word) {}
 
 // TODO

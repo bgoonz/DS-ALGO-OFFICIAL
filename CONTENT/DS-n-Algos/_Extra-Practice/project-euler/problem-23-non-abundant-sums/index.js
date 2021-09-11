@@ -1,5 +1,4 @@
 function sumOfNonAbundantNumbers(n) {
-
   return n;
 }
 

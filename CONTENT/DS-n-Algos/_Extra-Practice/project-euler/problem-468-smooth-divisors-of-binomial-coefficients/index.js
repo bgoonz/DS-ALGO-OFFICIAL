@@ -1,5 +1,4 @@
 function euler468() {
-
   return true;
 }
 

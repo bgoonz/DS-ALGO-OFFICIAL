@@ -1,5 +1,4 @@
 function spiralPrimes(percent) {
-
   return true;
 }
 

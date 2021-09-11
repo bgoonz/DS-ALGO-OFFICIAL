@@ -1,5 +1,4 @@
 function lrgNonMersennePrime() {
-
   return true;
 }
 

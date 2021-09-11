@@ -1,5 +1,4 @@
 function primePairSets() {
-
   return true;
 }
 

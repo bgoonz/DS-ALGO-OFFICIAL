@@ -1,5 +1,4 @@
 function magic5GonRing() {
-
   return true;
 }
 

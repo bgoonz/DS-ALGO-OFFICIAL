@@ -1,5 +1,4 @@
 function primeSummation(n) {
-
   return true;
 }
 

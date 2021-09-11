@@ -1,5 +1,4 @@
 function Num(n) {
-
   return n;
 }
 

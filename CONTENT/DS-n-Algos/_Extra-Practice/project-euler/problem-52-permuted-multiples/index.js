@@ -1,5 +1,4 @@
 function permutedMultiples() {
-
   return true;
 }
 

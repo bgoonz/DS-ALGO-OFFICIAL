@@ -1,5 +1,4 @@
 function pandigitalPrime(n) {
-
   return n;
 }
 

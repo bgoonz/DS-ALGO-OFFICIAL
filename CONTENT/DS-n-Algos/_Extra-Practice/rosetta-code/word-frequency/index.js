@@ -1,5 +1,3 @@
-function wordFrequency(txt, n) {
-
-}
+function wordFrequency(txt, n) {}
 
 // TODO

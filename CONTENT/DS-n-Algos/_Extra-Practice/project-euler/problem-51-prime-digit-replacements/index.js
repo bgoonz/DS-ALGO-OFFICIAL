@@ -1,5 +1,4 @@
 function primeDigitReplacements() {
-
   return true;
 }
 

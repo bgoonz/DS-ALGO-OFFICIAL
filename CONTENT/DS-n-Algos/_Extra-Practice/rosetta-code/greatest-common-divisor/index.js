@@ -1,5 +1,3 @@
-function gcd(a, b) {
-
-}
+function gcd(a, b) {}
 
 // TODO

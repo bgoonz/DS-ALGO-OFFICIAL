@@ -1,5 +1,3 @@
-function josephus(init, kill) {
-
-}
+function josephus(init, kill) {}
 
 // TODO

@@ -1,5 +1,3 @@
-function crossProduct(a, b) {
-
-}
+function crossProduct(a, b) {}
 
 // TODO

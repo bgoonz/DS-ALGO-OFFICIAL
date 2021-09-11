@@ -1,5 +1,4 @@
 function euler264() {
-
   return true;
 }
 

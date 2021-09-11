@@ -1,5 +1,4 @@
 function primeSummations() {
-
   return true;
 }
 

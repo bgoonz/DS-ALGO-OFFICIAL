@@ -1,5 +1,4 @@
 function latticePaths(gridSize) {
-
   return true;
 }
 

@@ -1,5 +1,3 @@
-function beadSort(arr) {
-
-}
+function beadSort(arr) {}
 
 // TODO

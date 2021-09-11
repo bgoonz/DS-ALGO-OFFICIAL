@@ -1,5 +1,4 @@
 function squareDigitChains() {
-
   return true;
 }
 

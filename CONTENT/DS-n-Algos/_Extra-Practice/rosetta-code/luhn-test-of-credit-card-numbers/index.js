@@ -1,5 +1,3 @@
-function luhnTest(str) {
-
-}
+function luhnTest(str) {}
 
 // TODO

@@ -1,5 +1,4 @@
 function countCoins(cents) {
-
   return true;
 }
 

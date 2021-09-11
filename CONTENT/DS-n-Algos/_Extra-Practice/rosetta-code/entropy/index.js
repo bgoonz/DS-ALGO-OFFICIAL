@@ -1,5 +1,3 @@
-function entropy(s) {
-
-}
+function entropy(s) {}
 
 // TODO

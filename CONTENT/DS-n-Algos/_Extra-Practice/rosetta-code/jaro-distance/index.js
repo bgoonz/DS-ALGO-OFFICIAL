@@ -1,5 +1,3 @@
-function jaro(s, t) {
-
-}
+function jaro(s, t) {}
 
 // TODO

@@ -1,5 +1,4 @@
 function euler365() {
-
   return true;
 }
 

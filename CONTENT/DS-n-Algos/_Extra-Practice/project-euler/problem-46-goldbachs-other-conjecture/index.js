@@ -1,5 +1,4 @@
 function goldbachsOtherConjecture() {
-
   return true;
 }
 

@@ -1,5 +1,3 @@
-function sumDigits(n) {
-
-}
+function sumDigits(n) {}
 
 // TODO

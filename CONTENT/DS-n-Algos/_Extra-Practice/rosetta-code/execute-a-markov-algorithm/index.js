@@ -1,5 +1,3 @@
-function markov(rules,test) {
-
-}
+function markov(rules, test) {}
 
 // TODO

@@ -1,5 +1,3 @@
-function zeckendorf(n) {
-
-}
+function zeckendorf(n) {}
 
 // TODO

@@ -1,5 +1,4 @@
 function countingFractions() {
-
   return true;
 }
 

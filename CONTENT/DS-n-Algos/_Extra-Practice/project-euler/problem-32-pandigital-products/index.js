@@ -1,5 +1,4 @@
 function pandigitalProducts() {
-
   return true;
 }
 

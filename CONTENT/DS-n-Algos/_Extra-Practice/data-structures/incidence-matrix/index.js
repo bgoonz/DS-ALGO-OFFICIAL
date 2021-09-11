@@ -1,5 +1,3 @@
-var incMatUndirected = [
-
-];
+var incMatUndirected = [];
 
 // TODO

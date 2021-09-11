@@ -1,5 +1,3 @@
-function permutationSort(arr) {
-
-}
+function permutationSort(arr) {}
 
 // TODO

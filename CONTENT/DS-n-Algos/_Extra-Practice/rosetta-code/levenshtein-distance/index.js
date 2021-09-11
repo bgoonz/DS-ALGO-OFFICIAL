@@ -1,5 +1,3 @@
-function levenshtein(a, b) {
-
-}
+function levenshtein(a, b) {}
 
 // TODO

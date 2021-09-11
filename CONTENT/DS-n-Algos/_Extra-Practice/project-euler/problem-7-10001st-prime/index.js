@@ -1,5 +1,4 @@
 function nthPrime(n) {
-
   return true;
 }
 

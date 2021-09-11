@@ -1,4 +1,4 @@
-# Problem 283: Integer sided triangles for which the area * perimeter ratio is integral
+# Problem 283: Integer sided triangles for which the area \* perimeter ratio is integral
 
 [FCC link](https://www.freecodecamp.org/learn/coding-interview-prep/project-euler/problem-283-integer-sided-triangles-for-which-the-area--perimeter-ratio-is-integral)
 

@@ -1,5 +1,3 @@
-function maximumSubsequence(population) {
-
-}
+function maximumSubsequence(population) {}
 
 // TODO

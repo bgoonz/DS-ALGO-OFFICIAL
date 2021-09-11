@@ -1,5 +1,4 @@
 function topologicalSort(libs) {
-
   return true;
 }
 

@@ -1,5 +1,3 @@
-function fibWord(n) {
-
-}
+function fibWord(n) {}
 
 // TODO

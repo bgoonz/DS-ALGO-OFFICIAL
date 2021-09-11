@@ -1,5 +1,4 @@
 function quadraticPrimes(range) {
-
   return range;
 }
 

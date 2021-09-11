@@ -1,5 +1,4 @@
 function almostPi(n) {
-  
   return true;
 }
 

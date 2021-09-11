@@ -1,5 +1,4 @@
 function isBalanced(str) {
-
   return true;
 }
 

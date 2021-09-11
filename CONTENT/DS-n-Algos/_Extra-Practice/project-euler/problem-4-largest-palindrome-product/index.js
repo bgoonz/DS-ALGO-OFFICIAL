@@ -1,5 +1,4 @@
 function largestPalindromeProduct(n) {
-
   return true;
 }
 

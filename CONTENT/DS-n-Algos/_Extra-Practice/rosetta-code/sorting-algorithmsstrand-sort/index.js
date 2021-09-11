@@ -1,5 +1,3 @@
-function strandSort(list) {
-
-}
+function strandSort(list) {}
 
 // TODO

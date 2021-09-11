@@ -1,5 +1,4 @@
 function smallestMult(n) {
-
   return true;
 }
 

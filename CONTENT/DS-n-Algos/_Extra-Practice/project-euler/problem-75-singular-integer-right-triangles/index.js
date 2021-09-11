@@ -1,5 +1,4 @@
 function singularIntRightTriangles() {
-
   return true;
 }
 

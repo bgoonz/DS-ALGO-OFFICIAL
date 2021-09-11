@@ -1,5 +1,3 @@
-function accumulator(sum) {
-
-}
+function accumulator(sum) {}
 
 // TODO

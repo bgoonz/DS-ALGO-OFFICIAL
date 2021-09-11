@@ -1,5 +1,4 @@
 function splitCoconuts(intSailors) {
-
   return true;
 }
 

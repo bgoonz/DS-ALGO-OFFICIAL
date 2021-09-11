@@ -1,5 +1,4 @@
 function champernownesConstant(n) {
-
   return true;
 }
 

@@ -1,5 +1,3 @@
-function stableSort(arr) {
-
-}
+function stableSort(arr) {}
 
 // TODO

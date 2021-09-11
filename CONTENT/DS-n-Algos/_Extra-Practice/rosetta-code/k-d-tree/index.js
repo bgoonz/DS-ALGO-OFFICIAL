@@ -1,5 +1,3 @@
-function kdNN(fpoints, fpoint) {
-
-}
+function kdNN(fpoints, fpoint) {}
 
 // TODO

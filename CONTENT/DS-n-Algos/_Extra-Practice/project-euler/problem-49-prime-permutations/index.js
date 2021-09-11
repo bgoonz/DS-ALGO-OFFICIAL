@@ -1,5 +1,4 @@
 function primePermutations() {
-
   return true;
 }
 

@@ -1,5 +1,4 @@
 function euler386() {
-
   return true;
 }
 
