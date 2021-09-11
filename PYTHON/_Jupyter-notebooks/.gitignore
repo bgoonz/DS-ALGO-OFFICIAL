@@ -1,0 +1,11 @@
+*.pyc
+*.~
+data/
+*.temp
+*.txt
+*keys*.csv
+*.html
+*.png
+.DS_Store
+.ipynb_checkpoints
+tmp*
