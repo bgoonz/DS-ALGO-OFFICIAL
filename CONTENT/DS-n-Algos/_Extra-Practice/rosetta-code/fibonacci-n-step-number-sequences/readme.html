@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>readme</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+</head>
+<body>
+<h1 id="fibonacci-n-step-number-sequences">Fibonacci n-step number sequences</h1>
+<p><a href="https://www.freecodecamp.org/learn/coding-interview-prep/rosetta-code/fibonacci-n-step-number-sequences">FCC link</a></p>
+<p>These number series are an expansion of the ordinary <a href="https://rosettacode.org/wiki/Fibonacci%20sequence" title="Fibonacci sequence">Fibonacci sequence</a> where:</p>
+<ol type="1">
+<li>For <span class="math inline"><em>n</em> = 2</span> we have the Fibonacci sequence; with initial values <span class="math inline">$\[1, 1\]$</span> and <span class="math inline"><em>F</em>_<em>k</em><sup>2</sup> = <em>F</em>_<em>k</em> − 1<sup>2</sup> + <em>F</em>_<em>k</em> − 2<sup>2</sup></span></li>
+<li>For <span class="math inline"><em>n</em> = 3</span> we have the tribonacci sequence; with initial values <span class="math inline">$\[1, 1, 2\]$</span> and <span class="math inline"><em>F</em>_<em>k</em><sup>3</sup> = <em>F</em>_<em>k</em> − 1<sup>3</sup> + <em>F</em>_<em>k</em> − 2<sup>3</sup> + <em>F</em>_<em>k</em> − 3<sup>3</sup></span></li>
+<li>For <span class="math inline"><em>n</em> = 4</span> we have the tetranacci sequence; with initial values <span class="math inline">$\[1, 1, 2, 4\]$</span> and <span class="math inline"><em>F</em>_<em>k</em><sup>4</sup> = <em>F</em>_<em>k</em> − 1<sup>4</sup> + <em>F</em>_<em>k</em> − 2<sup>4</sup> + <em>F</em>_<em>k</em> − 3<sup>4</sup> + <em>F</em>_<em>k</em> − 4<sup>4</sup></span>…</li>
+<li>For general <span class="math inline"><em>n</em> &gt; 2</span> we have the Fibonacci <span class="math inline"><em>n</em></span>-step sequence - <span class="math inline"><em>F</em>_<em>k</em><sup><em>n</em></sup></span>; with initial values of the first <span class="math inline"><em>n</em></span> values of the <span class="math inline">(<em>n</em> − 1)</span>’th Fibonacci <span class="math inline"><em>n</em></span>-step sequence <span class="math inline"><em>F</em>_<em>k</em><sup><em>n</em> − 1</sup></span>; and <span class="math inline"><em>k</em></span>’th value of this <span class="math inline"><em>n</em></span>’th sequence being <span class="math inline">$F\_k^n = \\sum\_{i=1}^{(n)} {F\_{k-i}^{(n)}}$</span></li>
+</ol>
+<p>For small values of <span class="math inline"><em>n</em></span>, <a href="https://en.wikipedia.org/wiki/Number%20prefix#Greek_series" title="wp: Number prefix#Greek_series">Greek numeric prefixes</a> are sometimes used to individually name each series.</p>
+<p>Fibonacci <span class="math inline"><em>n</em></span>-step sequences:</p>
+<table>
+<thead>
+<tr class="header">
+<th><span class="math inline"><em>n</em></span></th>
+<th>Series name</th>
+<th>Values</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>2</td>
+<td>fibonacci</td>
+<td>1 1 2 3 5 8 13 21 34 55 89 144 233 377 610 …</td>
+</tr>
+<tr class="even">
+<td>3</td>
+<td>tribonacci</td>
+<td>1 1 2 4 7 13 24 44 81 149 274 504 927 1705 3136 …</td>
+</tr>
+<tr class="odd">
+<td>4</td>
+<td>tetranacci</td>
+<td>1 1 2 4 8 15 29 56 108 208 401 773 1490 2872 5536 …</td>
+</tr>
+<tr class="even">
+<td>5</td>
+<td>pentanacci</td>
+<td>1 1 2 4 8 16 31 61 120 236 464 912 1793 3525 6930 …</td>
+</tr>
+<tr class="odd">
+<td>6</td>
+<td>hexanacci</td>
+<td>1 1 2 4 8 16 32 63 125 248 492 976 1936 3840 7617 …</td>
+</tr>
+<tr class="even">
+<td>7</td>
+<td>heptanacci</td>
+<td>1 1 2 4 8 16 32 64 127 253 504 1004 2000 3984 7936 …</td>
+</tr>
+<tr class="odd">
+<td>8</td>
+<td>octonacci</td>
+<td>1 1 2 4 8 16 32 64 128 255 509 1016 2028 4048 8080 …</td>
+</tr>
+<tr class="even">
+<td>9</td>
+<td>nonanacci</td>
+<td>1 1 2 4 8 16 32 64 128 256 511 1021 2040 4076 8144 …</td>
+</tr>
+<tr class="odd">
+<td>10</td>
+<td>decanacci</td>
+<td>1 1 2 4 8 16 32 64 128 256 512 1023 2045 4088 8172 …</td>
+</tr>
+</tbody>
+</table>
+<p>Allied sequences can be generated where the initial values are changed: The <a href="https://en.wikipedia.org/wiki/Lucas%20number" title="wp: Lucas number">Lucas series</a> sums the two preceding values like the fibonacci series for <span class="math inline"><em>n</em> = 2</span> but uses <span class="math inline">$\[2, 1\]$</span> as its initial values.</p>
+</body>
+</html>

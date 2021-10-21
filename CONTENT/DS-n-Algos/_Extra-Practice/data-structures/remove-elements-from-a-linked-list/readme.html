@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>readme</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+</head>
+<body>
+<h1 id="remove-elements-from-a-linked-list">Remove Elements from a Linked List</h1>
+<p><a href="https://www.freecodecamp.org/learn/coding-interview-prep/data-structures/remove-elements-from-a-linked-list">FCC link</a></p>
+<p>The next important method that any implementation of a linked list will need is a <code>remove</code> method. This method should take the element we want to remove as an argument, and then search the list to find and remove the node that contains that element.</p>
+<p>Whenever we remove a node from a linked list, it’s important that we don’t accidentally orphan the rest of the list in doing so. Recall that every node’s <code>next</code> property points to the node that follows it in the list. If we’re removing the middle element, say, we’ll want to make sure that we have a connection from that element’s previous node’s <code>next</code> property to the middle element’s <code>next</code> property (which is the next node in the list!)</p>
+<p>This might sound really confusing, so let’s return to the conga line example so we have a good conceptual model. Picture yourself in a conga line, and the person directly in front of you leaves the line. The person who just left the line no longer has her hands on anyone in line–and you no longer have your hands on the person that left. You step forward and put your hands on next person you see.</p>
+<p>If the element we wish to remove is the <code>head</code> element, we reassign the <code>head</code> to the second node of the linked list.</p>
+</body>
+</html>

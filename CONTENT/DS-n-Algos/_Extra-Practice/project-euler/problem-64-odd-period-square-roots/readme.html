@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>readme</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+</head>
+<body>
+<h1 id="problem-64-odd-period-square-roots">Problem 64: Odd period square roots</h1>
+<p><a href="https://www.freecodecamp.org/learn/coding-interview-prep/project-euler/problem-64-odd-period-square-roots">FCC link</a></p>
+<p>All square roots are periodic when written as continued fractions and can be written in the form:</p>
+<p><span class="math inline">$\\displaystyle \\quad \\quad \\sqrt{N}=a\_0+\\frac 1 {a\_1+\\frac 1 {a\_2+ \\frac 1 {a3+ \\dots}}}$</span></p>
+<p>For example, let us consider <span class="math inline">$\\sqrt{23}:$</span>:</p>
+<p><span class="math inline">$\\quad \\quad \\sqrt{23}=4+\\sqrt{23}-4=4+\\frac 1 {\\frac 1 {\\sqrt{23}-4}}=4+\\frac 1 {1+\\frac{\\sqrt{23}-3}7}$</span></p>
+<p>If we continue we would get the following expansion:</p>
+<p><span class="math inline">$\\displaystyle \\quad \\quad \\sqrt{23}=4+\\frac 1 {1+\\frac 1 {3+ \\frac 1 {1+\\frac 1 {8+ \\dots}}}}$</span></p>
+<p>The process can be summarized as follows:</p>
+<p><span class="math inline">$\\quad \\quad a\_0=4, \\frac 1 {\\sqrt{23}-4}=\\frac {\\sqrt{23}+4} 7=1+\\frac {\\sqrt{23}-3} 7$</span></p>
+<p><span class="math inline">$\\quad \\quad a\_1=1, \\frac 7 {\\sqrt{23}-3}=\\frac {7(\\sqrt{23}+3)} {14}=3+\\frac {\\sqrt{23}-3} 2$</span></p>
+<p><span class="math inline">$\\quad \\quad a\_2=3, \\frac 2 {\\sqrt{23}-3}=\\frac {2(\\sqrt{23}+3)} {14}=1+\\frac {\\sqrt{23}-4} 7$</span></p>
+<p><span class="math inline">$\\quad \\quad a\_3=1, \\frac 7 {\\sqrt{23}-4}=\\frac {7(\\sqrt{23}+4)} 7=8+\\sqrt{23}-4$</span></p>
+<p><span class="math inline">$\\quad \\quad a\_4=8, \\frac 1 {\\sqrt{23}-4}=\\frac {\\sqrt{23}+4} 7=1+\\frac {\\sqrt{23}-3} 7$</span></p>
+<p><span class="math inline">$\\quad \\quad a\_5=1, \\frac 7 {\\sqrt{23}-3}=\\frac {7 (\\sqrt{23}+3)} {14}=3+\\frac {\\sqrt{23}-3} 2$</span></p>
+<p><span class="math inline">$\\quad \\quad a\_6=3, \\frac 2 {\\sqrt{23}-3}=\\frac {2(\\sqrt{23}+3)} {14}=1+\\frac {\\sqrt{23}-4} 7$</span></p>
+<p><span class="math inline">$\\quad \\quad a\_7=1, \\frac 7 {\\sqrt{23}-4}=\\frac {7(\\sqrt{23}+4)} {7}=8+\\sqrt{23}-4$</span></p>
+<p>It can be seen that the sequence is repeating. For conciseness, we use the notation <span class="math inline">$\\sqrt{23}=\[4;(1,3,1,8)\]$</span>, to indicate that the block (1,3,1,8) repeats indefinitely.</p>
+<p>The first ten continued fraction representations of (irrational) square roots are:</p>
+<p><span class="math inline">$\\quad \\quad \\sqrt{2}=\[1;(2)\]$</span>, period = 1</p>
+<p><span class="math inline">$\\quad \\quad \\sqrt{3}=\[1;(1,2)\]$</span>, period = 2</p>
+<p><span class="math inline">$\\quad \\quad \\sqrt{5}=\[2;(4)\]$</span>, period = 1</p>
+<p><span class="math inline">$\\quad \\quad \\sqrt{6}=\[2;(2,4)\]$</span>, period = 2</p>
+<p><span class="math inline">$\\quad \\quad \\sqrt{7}=\[2;(1,1,1,4)\]$</span>, period = 4</p>
+<p><span class="math inline">$\\quad \\quad \\sqrt{8}=\[2;(1,4)\]$</span>, period = 2</p>
+<p><span class="math inline">$\\quad \\quad \\sqrt{10}=\[3;(6)\]$</span>, period = 1</p>
+<p><span class="math inline">$\\quad \\quad \\sqrt{11}=\[3;(3,6)\]$</span>, period = 2</p>
+<p><span class="math inline">$\\quad \\quad \\sqrt{12}=\[3;(2,6)\]$</span>, period = 2</p>
+<p><span class="math inline">$\\quad \\quad \\sqrt{13}=\[3;(1,1,1,1,6)\]$</span>, period = 5</p>
+<p>Exactly four continued fractions, for <span class="math inline">$N \\le 13$</span>, have an odd period.</p>
+<p>How many continued fractions for <span class="math inline">$N \\le 10\\,000$</span> have an odd period?</p>
+</body>
+</html>

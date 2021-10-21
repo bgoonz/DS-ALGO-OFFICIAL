@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>readme</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+</head>
+<body>
+<h1 id="lychrel-numbers">Lychrel numbers</h1>
+<p><a href="https://www.freecodecamp.org/learn/coding-interview-prep/rosetta-code/lychrel-numbers">FCC link</a></p>
+<ol type="1">
+<li>Take an integer <code>n₀</code>, greater than zero.</li>
+<li>Form the next number <code>n</code> of the series by reversing <code>n₀</code> and adding it to <code>n₀</code></li>
+<li>Stop when <code>n</code> becomes palindromic - i.e. the digits of <code>n</code> in reverse order == <code>n</code>.</li>
+</ol>
+<p>The above recurrence relation when applied to most starting numbers <code>n</code> = 1, 2, … terminates in a palindrome quite quickly.</p>
+<p>For example if <code>n₀</code> = 12 we get:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb1-1" title="1"><span class="ex">12</span></a>
+<a class="sourceLine" id="cb1-2" title="2"><span class="ex">12</span> + 21 = 33,  a palindrome!</a></code></pre></div>
+<p>And if <code>n₀</code> = 55 we get:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb2-1" title="1"><span class="ex">55</span></a>
+<a class="sourceLine" id="cb2-2" title="2"><span class="ex">55</span> + 55 = 110</a>
+<a class="sourceLine" id="cb2-3" title="3"><span class="ex">110</span> + 011 = 121,  a palindrome!</a></code></pre></div>
+<p>Notice that the check for a palindrome happens <em>after</em> an addition.</p>
+<p>Some starting numbers seem to go on forever; the recurrence relation for 196 has been calculated for millions of repetitions forming numbers with millions of digits, without forming a palindrome. These numbers that do not end in a palindrome are called <strong>Lychrel numbers</strong>.</p>
+<p>For the purposes of this task a Lychrel number is any starting number that does not form a palindrome within 500 (or more) iterations.</p>
+<p><strong>Seed and related Lychrel numbers:</strong></p>
+<p>Any integer produced in the sequence of a Lychrel number is also a Lychrel number.</p>
+<p>In general, any sequence from one Lychrel number <em>might</em> converge to join the sequence from a prior Lychrel number candidate; for example the sequences for the numbers 196 and then 689 begin:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb3-1" title="1">    <span class="ex">196</span></a>
+<a class="sourceLine" id="cb3-2" title="2">    <span class="ex">196</span> + 691 = 887</a>
+<a class="sourceLine" id="cb3-3" title="3">    <span class="ex">887</span> + 788 = 1675</a>
+<a class="sourceLine" id="cb3-4" title="4">    <span class="ex">1675</span> + 5761 = 7436</a>
+<a class="sourceLine" id="cb3-5" title="5">    <span class="ex">7436</span> + 6347 = 13783</a>
+<a class="sourceLine" id="cb3-6" title="6">    <span class="ex">13783</span> + 38731 = 52514</a>
+<a class="sourceLine" id="cb3-7" title="7">    <span class="ex">52514</span> + 41525 = 94039</a>
+<a class="sourceLine" id="cb3-8" title="8">    <span class="ex">...</span></a>
+<a class="sourceLine" id="cb3-9" title="9">    <span class="ex">689</span></a>
+<a class="sourceLine" id="cb3-10" title="10">    <span class="ex">689</span> + 986 = 1675</a>
+<a class="sourceLine" id="cb3-11" title="11">    <span class="ex">1675</span> + 5761 = 7436</a>
+<a class="sourceLine" id="cb3-12" title="12">    <span class="ex">...</span></a></code></pre></div>
+<p>So we see that the sequence starting with 689 converges to, and continues with the same numbers as that for 196.</p>
+<p>Because of this we can further split the Lychrel numbers into true <strong>Seed</strong> Lychrel number candidates, and <strong>Related</strong> numbers that produce no palindromes but have integers in their sequence seen as part of the sequence generated from a lower Lychrel number.</p>
+</body>
+</html>

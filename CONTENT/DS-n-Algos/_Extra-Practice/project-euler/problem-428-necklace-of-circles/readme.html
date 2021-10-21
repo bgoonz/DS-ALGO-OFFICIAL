@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>readme</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+</head>
+<body>
+<h1 id="problem-428-necklace-of-circles">Problem 428: Necklace of Circles</h1>
+<p><a href="https://www.freecodecamp.org/learn/coding-interview-prep/project-euler/problem-428-necklace-of-circles">FCC link</a></p>
+<p>Let <code>a</code>, <code>b</code> and <code>c</code> be positive numbers.</p>
+<p>Let W, X, Y, Z be four collinear points where |WX| = <code>a</code>, |XY| = <code>b</code>, |YZ| = <code>c</code> and |WZ| = <code>a</code> + <code>b</code> + <code>c</code>.</p>
+<p>Let Cin be the circle having the diameter XY.</p>
+<p>Let Cout be the circle having the diameter WZ.</p>
+<p>The triplet (<code>a</code>, <code>b</code>, <code>c</code>) is called a <em>necklace triplet</em> if you can place <code>k</code> ≥ 3 distinct circles C1, C2, …, Ck such that:</p>
+<ul>
+<li>Ci has no common interior points with any Cj for 1 ≤ i, j ≤ k and i ≠ j,</li>
+<li>Ci is tangent to both Cin and Cout for 1 ≤ i ≤ k,</li>
+<li>Ci is tangent to Ci+1 for 1 ≤ i &lt; k, and</li>
+<li>Ck is tangent to C1.</li>
+</ul>
+<p>For example, (5, 5, 5) and (4, 3, 21) are necklace triplets, while it can be shown that (2, 2, 5) is not. <img src="https://projecteuler.net/project/images/p428_necklace.png" alt="a visual representation of a necklace triplet" /></p>
+<p>Let T(<code>n</code>) be the number of necklace triplets (<code>a</code>, <code>b</code>, <code>c</code>) such that <code>a</code>, <code>b</code> and <code>c</code> are positive integers, and <code>b</code> ≤ <code>n</code>. For example, T(1) = 9, T(20) = 732 and T(3000) = 438106.</p>
+<p>Find T(1 000 000 000).</p>
+</body>
+</html>

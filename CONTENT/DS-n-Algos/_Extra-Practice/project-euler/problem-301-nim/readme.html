@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>readme</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+</head>
+<body>
+<h1 id="problem-301-nim">Problem 301: Nim</h1>
+<p><a href="https://www.freecodecamp.org/learn/coding-interview-prep/project-euler/problem-301-nim">FCC link</a></p>
+<p>Nim is a game played with heaps of stones, where two players take it in turn to remove any number of stones from any heap until no stones remain.</p>
+<p>We’ll consider the three-heap normal-play version of Nim, which works as follows:</p>
+<ul>
+<li>At the start of the game there are three heaps of stones.</li>
+<li>On his turn the player removes any positive number of stones from any single heap.</li>
+<li>The first player unable to move (because no stones remain) loses.</li>
+</ul>
+<p>If (n1,n2,n3) indicates a Nim position consisting of heaps of size n1, n2 and n3 then there is a simple function X(n1,n2,n3) — that you may look up or attempt to deduce for yourself — that returns: zero if, with perfect strategy, the player about to move will eventually lose; or non-zero if, with perfect strategy, the player about to move will eventually win. For example X(1,2,3) = 0 because, no matter what the current player does, his opponent can respond with a move that leaves two heaps of equal size, at which point every move by the current player can be mirrored by his opponent until no stones remain; so the current player loses. To illustrate:</p>
+<ul>
+<li>current player moves to (1,2,1)</li>
+<li>opponent moves to (1,0,1)</li>
+<li>current player moves to (0,0,1)</li>
+<li>opponent moves to (0,0,0), and so wins.</li>
+</ul>
+<p>For how many positive integers n ≤ 230 does X(n,2n,3n) = 0 ?</p>
+</body>
+</html>

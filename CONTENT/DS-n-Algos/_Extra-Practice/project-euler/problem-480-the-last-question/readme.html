@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>readme</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+</head>
+<body>
+<h1 id="problem-480-the-last-question">Problem 480: The Last Question</h1>
+<p><a href="https://www.freecodecamp.org/learn/coding-interview-prep/project-euler/problem-480-the-last-question">FCC link</a></p>
+<p>Consider all the words which can be formed by selecting letters, in any order, from the phrase:</p>
+<p>thereisasyetinsufficientdataforameaningfulanswer</p>
+<p>Suppose those with 15 letters or less are listed in alphabetical order and numbered sequentially starting at 1.</p>
+<p>The list would include:</p>
+<p>1 : a</p>
+<p>2 : aa</p>
+<p>3 : aaa</p>
+<p>4 : aaaa</p>
+<p>5 : aaaaa</p>
+<p>6 : aaaaaa</p>
+<p>7 : aaaaaac</p>
+<p>8 : aaaaaacd</p>
+<p>9 : aaaaaacde</p>
+<p>10 : aaaaaacdee</p>
+<p>11 : aaaaaacdeee</p>
+<p>12 : aaaaaacdeeee</p>
+<p>13 : aaaaaacdeeeee</p>
+<p>14 : aaaaaacdeeeeee</p>
+<p>15 : aaaaaacdeeeeeef</p>
+<p>16 : aaaaaacdeeeeeeg</p>
+<p>17 : aaaaaacdeeeeeeh</p>
+<p>…</p>
+<p>28 : aaaaaacdeeeeeey</p>
+<p>29 : aaaaaacdeeeeef</p>
+<p>30 : aaaaaacdeeeeefe</p>
+<p>…</p>
+<p>115246685191495242: euleoywuttttsss</p>
+<p>115246685191495243: euler</p>
+<p>115246685191495244: eulera</p>
+<p>…</p>
+<p>525069350231428029: ywuuttttssssrrrDefine P(w) as the position of the word w.</p>
+<p>Define W(p) as the word in position p.</p>
+<p>We can see that P(w) and W(p) are inverses: P(W(p)) = p and W(P(w)) = w.</p>
+<p>Examples:</p>
+<p>W(10) = aaaaaacdee</p>
+<p>P(aaaaaacdee) = 10</p>
+<p>W(115246685191495243) = euler</p>
+<p>P(euler) = 115246685191495243Find W(P(legionary) + P(calorimeters) - P(annihilate) + P(orchestrated) - P(fluttering)).</p>
+<p>Give your answer using lowercase characters (no punctuation or space).</p>
+</body>
+</html>
