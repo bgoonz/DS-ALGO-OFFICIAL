@@ -22,7 +22,7 @@
 
 function isLinkedListPalindrome(listNode) {
   let fast = listNode;
-  
+
   let slow = listNode;
 
   const stack = [];
