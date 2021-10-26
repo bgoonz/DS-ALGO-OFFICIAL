@@ -1,10 +1,10 @@
 function bfs(graph, root) {
-  var nodesLen = {};
+  const nodesLen = {};
 
   return nodesLen;
 }
 
-var exBFSGraph = [
+const exBFSGraph = [
   [0, 1, 0, 0],
   [1, 0, 1, 0],
   [0, 1, 0, 1],

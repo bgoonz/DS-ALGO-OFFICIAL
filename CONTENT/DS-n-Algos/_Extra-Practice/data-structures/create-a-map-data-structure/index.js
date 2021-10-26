@@ -1,4 +1,4 @@
-var Map = function () {
+const Map = function () {
   this.collection = {};
   // Only change code below this line
 

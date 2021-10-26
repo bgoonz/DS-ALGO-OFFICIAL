@@ -1,6 +1,6 @@
 function dfs(graph, root) {}
 
-var exDFSGraph = [
+const exDFSGraph = [
   [0, 1, 0, 0],
   [1, 0, 1, 0],
   [0, 1, 0, 1],

@@ -1,6 +1,6 @@
 function Stack() {
-  var collection = [];
-  this.print = function () {
+  const collection = [];
+  this.print = () => {
     console.log(collection);
   };
   // Only change code below this line

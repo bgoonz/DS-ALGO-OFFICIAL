@@ -1,4 +1,4 @@
-var buffer;
-var i32View;
+let buffer;
+let i32View;
 
 // TODO

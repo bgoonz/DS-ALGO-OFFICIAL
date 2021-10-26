@@ -1,21 +1,21 @@
 function LinkedList() {
-  var length = 0;
-  var head = null;
+  const length = 0;
+  const head = null;
 
-  var Node = function (element) {
+  const Node = function (element) {
     this.element = element;
     this.next = null;
   };
 
-  this.head = function () {
+  this.head = () => {
     return head;
   };
 
-  this.size = function () {
+  this.size = () => {
     return length;
   };
 
-  this.add = function (element) {
+  this.add = element => {
     // Only change code below this line
     // Only change code above this line
   };

@@ -287,7 +287,7 @@ class HashTable {
     let string = "";
     for (let value in this.values) {
       for (let key in this.values[value]) {
-        string += this.values[value][key] + " ";
+        string += `${this.values[value][key]} `;
       }
     }
     console.log(string.trim());
@@ -415,12 +415,12 @@ class Set {
   }
 
   contains(value) {
-    return this.values.indexOf(value) !== -1;
+    return this.values.includes(value);
   }
 
-  union(set) {
+  union({values}) {
     let newSet = new Set();
-    set.values.forEach((value) => {
+    values.forEach((value) => {
       newSet.add(value);
     });
     this.values.forEach((value) => {
@@ -449,8 +449,8 @@ class Set {
     return newSet;
   }
 
-  isSubset(set) {
-    return set.values.every(function (value) {
+  isSubset({values}) {
+    return values.every(function (value) {
       return this.contains(value);
     }, this);
   }
@@ -576,7 +576,7 @@ class SinglyLinkedList {
     let string = "";
     let current = this.head;
     while (current) {
-      string += current.data + " ";
+      string += `${current.data} `;
       current = current.next;
     }
     console.log(string.trim());
@@ -618,8 +618,8 @@ singlyLinkedList.traverse((node) => {
   node.data = node.data + 10;
 });
 singlyLinkedList.print(); // => 12 13 14 15 16 17 18
-singlyLinkedList.traverse((node) => {
-  console.log(node.data);
+singlyLinkedList.traverse(({data}) => {
+  console.log(data);
 }); // => 12 13 14 15 16 17 18
 console.log("length is 7:", singlyLinkedList.length()); // => 7
 
@@ -757,7 +757,7 @@ class Graph {
     console.log(
       this.vertices
         .map(function (vertex) {
-          return (vertex + " -> " + this.edges[vertex].join(", ")).trim();
+          return (`${vertex} -> ${this.edges[vertex].join(", ")}`).trim();
         }, this)
         .join(" | ")
     );

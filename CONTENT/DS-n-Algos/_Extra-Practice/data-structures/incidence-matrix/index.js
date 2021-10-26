@@ -1,3 +1,3 @@
-var incMatUndirected = [];
+const incMatUndirected = [];
 
 // TODO

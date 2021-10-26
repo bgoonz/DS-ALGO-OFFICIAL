@@ -1,5 +1,5 @@
-var displayTree = (tree) => console.log(JSON.stringify(tree, null, 2));
-var Node = function () {
+const displayTree = (tree) => console.log(JSON.stringify(tree, null, 2));
+const Node = function () {
   this.keys = new Map();
   this.end = false;
   this.setEnd = function () {
@@ -9,7 +9,7 @@ var Node = function () {
     return this.end;
   };
 };
-var Trie = function () {
+const Trie = () => {
   // Only change code below this line
   // Only change code above this line
 };

@@ -1,5 +1,5 @@
 function checkSet() {
-  var set = null;
+  const set = null;
   return set;
 }
 

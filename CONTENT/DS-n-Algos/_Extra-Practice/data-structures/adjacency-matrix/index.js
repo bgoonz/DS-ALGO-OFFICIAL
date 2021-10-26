@@ -1,3 +1,3 @@
-var adjMatUndirected = [];
+const adjMatUndirected = [];
 
 // TODO

@@ -1,9 +1,9 @@
-var Node = function (data, prev) {
+const Node = function (data, prev) {
   this.data = data;
   this.prev = prev;
   this.next = null;
 };
-var DoublyLinkedList = function () {
+const DoublyLinkedList = function () {
   this.head = null;
   this.tail = null;
   // Only change code below this line

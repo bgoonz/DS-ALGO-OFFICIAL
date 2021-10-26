@@ -1,4 +1,4 @@
-var displayTree = (tree) => console.log(JSON.stringify(tree, null, 2));
+const displayTree = (tree) => console.log(JSON.stringify(tree, null, 2));
 function Node(value) {
   this.value = value;
   this.left = null;
@@ -11,8 +11,8 @@ function BinarySearchTree() {
     if (this.root === null) {
       return null;
     }
-    var target;
-    var parent = null;
+    let target;
+    let parent = null;
     // Find the target value and its parent
     (function findValue(node = this.root) {
       if (value == node.value) {
@@ -33,7 +33,7 @@ function BinarySearchTree() {
       return null;
     }
     // Count the children of the target to delete
-    var children =
+    const children =
       (target.left !== null ? 1 : 0) + (target.right !== null ? 1 : 0);
     // Case 1: Target has no children
     if (children === 0) {
@@ -49,7 +49,7 @@ function BinarySearchTree() {
     }
     // Case 2: Target has one child
     else if (children == 1) {
-      var newChild = target.left !== null ? target.left : target.right;
+      const newChild = target.left !== null ? target.left : target.right;
       if (parent === null) {
         target.value = newChild.value;
         target.left = null;

@@ -71,11 +71,11 @@ class Set {
     return newSet;
   }
 
-  difference(set) {
+  difference({dictionary}) {
     const newSet = new Set();
 
     this.values().forEach((value) => {
-      if (!set.dictionary[value]) {
+      if (!dictionary[value]) {
         newSet.add(value);
       }
     });

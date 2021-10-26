@@ -11,7 +11,7 @@ function createRandomArray(size = 5) {
 }
 const array = createRandomArray(25);
 
-var MinHeap = function () {
+const MinHeap = () => {
   // Only change code below this line
   // Only change code above this line
 };

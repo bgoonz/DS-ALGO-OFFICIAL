@@ -1,13 +1,13 @@
-var called = 0;
-var hash = (string) => {
+let called = 0;
+const hash = (string) => {
   called++;
-  var hashed = 0;
-  for (var i = 0; i < string.length; i++) {
+  let hashed = 0;
+  for (let i = 0; i < string.length; i++) {
     hashed += string.charCodeAt(i);
   }
   return hashed;
 };
-var HashTable = function () {
+const HashTable = function () {
   this.collection = {};
   // Only change code below this line
 
