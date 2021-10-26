@@ -33,7 +33,7 @@
   "homepage": "https://github.com/bgoonz/DS-ALGO-OFFICIAL#readme",
   "devDependencies": {
     "@appnest/readme": "1.2.7",
-    "@netlify/plugin-sitemap": "^0.8.1"
+    "@netlify/plugin-sitemap": "0.8.1"
   },
   "dependencies": {
     "prettier": "^2.3.0"
