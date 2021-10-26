@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="generator" content="pandoc" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=yes"
+    />
+    <title>065. Valid Number</title>
+    <style type="text/css">
+      code {
+        white-space: pre-wrap;
+      }
+      span.smallcaps {
+        font-variant: small-caps;
+      }
+      span.underline {
+        text-decoration: underline;
+      }
+      div.column {
+        display: inline-block;
+        vertical-align: top;
+        width: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <h2 id="valid-number">
+      <a href="https://leetcode.com/problems/valid-number/description/"
+        >65. Valid Number</a
+      >
+    </h2>
+    <h3 id="problem">Problem:</h3>
+    <p>Validate if a given string is numeric.</p>
+    <p>
+      Some examples:<br />
+      <code>"0"</code> =&gt; <code>true</code><br />
+      <code>" 0.1 "</code> =&gt; <code>true</code><br />
+      <code>"abc"</code> =&gt; <code>false</code><br />
+      <code>"1 a"</code> =&gt; <code>false</code><br />
+      <code>"2e10"</code> =&gt; <code>true</code>
+    </p>
+    <p>
+      <strong>Note:</strong> It is intended for the problem statement to be
+      ambiguous. You should gather all requirements up front before implementing
+      one.
+    </p>
+    <p>
+      <strong>Update (2015-02-10):</strong> The signature of the
+      <code>C++</code> function had been updated. If you still see your function
+      signature accepts a <code>const char *</code> argument, please click the
+      reload button to reset your code definition.
+    </p>
+    <h3 id="solution">Solution:</h3>
+    <p>JavaScript specific solutions:</p>
+    <h4 id="one">ONE</h4>
+    <ul>
+      <li><code>Math.abs</code> will first convert the argument to number.</li>
+      <li>
+        <p><code>Math.abs(' ') === 0</code>.</p>
+        /**
+        <ul>
+          <li>
+            <span class="citation" data-cites="param">@param</span> {string} s
+          </li>
+          <li>
+            <span class="citation" data-cites="return">@return</span> {boolean}
+            */ var isNumber = function(s) { return !!s.trim() &amp;&amp;
+            Math.abs(s) &gt;= 0 };
+          </li>
+        </ul>
+      </li>
+    </ul>
+    <h4 id="two">TWO</h4>
+    <ul>
+      <li><code>isNaN</code> will first convert the argument to number.</li>
+      <li>
+        <p><code>isNaN(' ') === false</code>.</p>
+        /**
+        <ul>
+          <li>
+            <span class="citation" data-cites="param">@param</span> {string} s
+          </li>
+          <li>
+            <span class="citation" data-cites="return">@return</span> {boolean}
+            */ var isNumber = function(s) { return !!s.trim() &amp;&amp;
+            !isNaN(s) };
+          </li>
+        </ul>
+      </li>
+    </ul>
+    <h4 id="three">THREE</h4>
+    <p>
+      General solution. Take a look at the
+      <a
+        href="https://www.ecma-international.org/ecma-262/8.0/#sec-literals-numeric-literals"
+        >ECMA Spec</a
+      >.
+    </p>
+    <p>Similary, we can define our own syntax, which requires a few changes:</p>
+    <pre><code>SignedDecimalLiteral::
+  DecimalLiteral
+  + DecimalLiteral
+  - DecimalLiteral
+
+DecimalLiteral::
+  DecimalDigits . [DecimalDigits] [ExponentPart]
+  . DecimalDigits [ExponentPart]
+  DecimalDigits [ExponentPart]
+
+DecimalDigits::
+  DecimalDigit
+  DecimalDigits DecimalDigit
+
+DecimalDigit:: one of
+  0123456789
+
+ExponentPart::
+  ExponentIndicator SignedInteger
+
+ExponentIndicator::one of
+  eE
+
+SignedInteger::
+  DecimalDigits
+  + DecimalDigits
+  - DecimalDigits</code></pre>
+    <p>
+      Now implement the parser. It is much easier now because we have a clear
+      mental map of the syntax.
+    </p>
+    <pre><code>/**
+ * @param {string} s
+ * @return {boolean}
+ */
+var isNumber = function(s) {
+  let start = 0
+  while (s[start] === &#39; &#39;) {
+    start++
+  }
+  if (s[start] === &#39;+&#39; || s[start] === &#39;-&#39;) {
+    start++
+  }
+  let nextIndex = parseDecimalLiteral(s, start)
+  while (s[nextIndex] === &#39; &#39;) {
+    nextIndex++
+  }
+  return nextIndex === s.length
+}
+
+/**
+ * @param {string} s
+ * @param {number} start - start index
+ * @return {number} next index, -1 means error
+ */
+function parseDecimalLiteral (s, start) {
+  let nextIndex = -1
+  if (s[start] === &#39;.&#39;) {
+    nextIndex = parseDecimalDigits(s, start + 1)
+    if (nextIndex === -1) { return -1 }
+  } else {
+    nextIndex = parseDecimalDigits(s, start)
+    if (nextIndex === -1) { return -1 }
+
+    if (s[nextIndex] === &#39;.&#39;) {
+      const optNextIndex = parseDecimalDigits(s, ++nextIndex)
+      if (optNextIndex !== -1) {
+        nextIndex = optNextIndex
+      }
+    }
+  }
+
+  const optNextIndex = parseExponentPart(s, nextIndex)
+  return optNextIndex === -1 ? nextIndex : optNextIndex
+}
+
+/**
+ * @param {string} s
+ * @param {number} start - start index
+ * @return {number} next index, -1 means error
+ */
+function parseDecimalDigits (s, start) {
+  if (start === s.length) { return -1 }
+
+  for (let i = start; i &lt; s.length; i++) {
+    const digit = s.charCodeAt(i) - 48
+    if (!(digit &gt;= 0 &amp;&amp; digit &lt;= 9)) {
+      return i === start ? -1 : i
+    }
+  }
+  return s.length
+}
+
+/**
+ * @param {string} s
+ * @param {number} start - start index
+ * @return {number} next index, -1 means error
+ */
+function parseDecimalIntegerLiteral (s, start) {
+  if (start === s.length) { return -1 }
+
+  let nextIndex = start
+  if (s[start] === &#39;0&#39;) {
+    nextIndex++
+  }
+
+  const digit = s.charCodeAt(nextIndex) - 48
+  if (!(digit &gt; 0 &amp;&amp; digit &lt;= 9)) {
+    return nextIndex === start ? -1 : nextIndex
+  }
+  nextIndex++
+
+  const optNextIndex = parseDecimalDigits (s, nextIndex)
+  return optNextIndex === -1 ? nextIndex : optNextIndex
+}
+
+/**
+ * @param {string} s
+ * @param {number} start - start index
+ * @return {number} next index, -1 means error
+ */
+function parseExponentPart (s, start) {
+  if (s[start] !== &#39;e&#39; &amp;&amp; s[start] !== &#39;E&#39;) {
+    return -1
+  }
+
+  let nextIndex = start + 1
+  if (s[nextIndex] === &#39;+&#39; || s[nextIndex] === &#39;-&#39;) {
+    nextIndex++
+  }
+
+  return parseDecimalDigits(s, nextIndex)
+}</code></pre>
+    <br />
+    <hr />
+    <br />
+  </body>
+</html>

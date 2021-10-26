@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="generator" content="pandoc" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=yes"
+    />
+    <title>127. Word Ladder</title>
+    <style type="text/css">
+      code {
+        white-space: pre-wrap;
+      }
+      span.smallcaps {
+        font-variant: small-caps;
+      }
+      span.underline {
+        text-decoration: underline;
+      }
+      div.column {
+        display: inline-block;
+        vertical-align: top;
+        width: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <h2 id="word-ladder">
+      <a href="https://leetcode.com/problems/word-ladder/description/"
+        >127. Word Ladder</a
+      >
+    </h2>
+    <h3 id="problem">Problem:</h3>
+    <p>
+      Given two words (<em>beginWord</em> and <em>endWord</em>), and a
+      dictionary’s word list, find the length of shortest transformation
+      sequence from <em>beginWord</em> to <em>endWord</em>, such that:
+    </p>
+    <ol type="1">
+      <li>Only one letter can be changed at a time.</li>
+      <li>
+        Each transformed word must exist in the word list. Note that
+        <em>beginWord</em> is <em>not</em> a transformed word.
+      </li>
+    </ol>
+    <p><strong>Note:</strong></p>
+    <ul>
+      <li>Return 0 if there is no such transformation sequence.</li>
+      <li>All words have the same length.</li>
+      <li>All words contain only lowercase alphabetic characters.</li>
+      <li>You may assume no duplicates in the word list.</li>
+      <li>
+        You may assume <em>beginWord</em> and <em>endWord</em> are non-empty and
+        are not the same.
+      </li>
+    </ul>
+    <p><strong>Example 1:</strong></p>
+    <pre><code>Input:
+beginWord = &quot;hit&quot;,
+endWord = &quot;cog&quot;,
+wordList = [&quot;hot&quot;,&quot;dot&quot;,&quot;dog&quot;,&quot;lot&quot;,&quot;log&quot;,&quot;cog&quot;]
+
+Output: 5
+
+Explanation: As one shortest transformation is &quot;hit&quot; -&gt; &quot;hot&quot; -&gt; &quot;dot&quot; -&gt; &quot;dog&quot; -&gt; &quot;cog&quot;,
+return its length 5.</code></pre>
+    <p><strong>Example 2:</strong></p>
+    <pre><code>Input:
+beginWord = &quot;hit&quot;
+endWord = &quot;cog&quot;
+wordList = [&quot;hot&quot;,&quot;dot&quot;,&quot;dog&quot;,&quot;lot&quot;,&quot;log&quot;]
+
+Output: 0
+
+Explanation: The endWord &quot;cog&quot; is not in wordList, therefore no possible transformation.</code></pre>
+    <h3 id="solution">Solution:</h3>
+    <p>
+      Think of it as building a tree, with <code>begineWord</code> as root and
+      <code>endWord</code> as leaves.
+    </p>
+    <p>
+      The best way control the depth (length of the shortest transformations)
+      while building the tree is level-order traversal (BFS).
+    </p>
+    <p>
+      We do not actually build the tree because it is expensive (astronomical if
+      the list is huge). In fact, we only need one shortest path. So just like
+      Dijkstra’s algorithm, we say that the first time (level <code>i</code>) we
+      encounter a word that turns out to be in a shortest path, then level
+      <code>i</code> is the lowest level this word could ever get. We can safely
+      remove it from the <code>wordList</code>.
+    </p>
+    <p>
+      To find all the next words, instead of filtering the
+      <code>wordList</code>, enumerate all 25 possible words and check if in
+      <code>wordList</code>.
+    </p>
+    <pre><code>/**
+ * @param {string} beginWord
+ * @param {string} endWord
+ * @param {string[]} wordList
+ * @return {number}
+ */
+var ladderLength = function(beginWord, endWord, wordList) {
+  wordList = new Set(wordList)
+  if (!wordList.has(endWord)) { return 0 }
+
+  const ALPHABET = &#39;abcdefghijklmnopqrstuvwxyz&#39;
+
+  let level = 1
+  const queue = [beginWord, null]
+  while (queue.length &gt; 1) {
+    const word = queue.shift()
+
+    if (word === null) {
+      level++
+      queue.push(null)
+      continue
+    }
+
+    for (let i = word.length - 1; i &gt;= 0; i--) {
+      const head = word.slice(0, i)
+      const tail = word.slice(i+1)
+
+      for (let c = 0; c &lt; 26; c++) {
+        if (ALPHABET[c] !== word[i]) {
+          const word = head + ALPHABET[c] + tail
+          if (word === endWord) {
+            return level + 1
+          }
+          if (wordList.delete(word)) {
+            queue.push(word)
+          }
+        }
+      }
+    }
+  }
+
+  return 0
+};</code></pre>
+    <br />
+    <hr />
+    <br />
+  </body>
+</html>

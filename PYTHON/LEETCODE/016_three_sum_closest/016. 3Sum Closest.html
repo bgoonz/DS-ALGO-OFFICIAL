@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="generator" content="pandoc" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=yes"
+    />
+    <title>016. 3Sum Closest</title>
+    <style type="text/css">
+      code {
+        white-space: pre-wrap;
+      }
+      span.smallcaps {
+        font-variant: small-caps;
+      }
+      span.underline {
+        text-decoration: underline;
+      }
+      div.column {
+        display: inline-block;
+        vertical-align: top;
+        width: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <h2 id="sum-closest">
+      <a href="https://leetcode.com/problems/3sum-closest/description/"
+        >16. 3Sum Closest</a
+      >
+    </h2>
+    <h3 id="problem">Problem:</h3>
+    <p>
+      Given an array <code>nums</code> of <em>n</em> integers and an integer
+      <code>target</code>, find three integers in <code>nums</code> such that
+      the sum is closest to <code>target</code>. Return the sum of the three
+      integers. You may assume that each input would have exactly one solution.
+    </p>
+    <p><strong>Example:</strong></p>
+    <pre><code>Given array nums = [-1, 2, 1, -4], and target = 1.
+
+The sum that is closest to the target is 2. (-1 + 2 + 1 = 2).</code></pre>
+    <h3 id="solution">Solution:</h3>
+    <p>Simplified version of <a href="./015.%203Sum.md">15. 3Sum</a>.</p>
+    <pre><code>/**
+ * @param {number[]} nums
+ * @param {number} target
+ * @return {number}
+ */
+let threeSumClosest = function(nums, target) {
+  const len = nums.length
+  const sorted = nums.sort((a, b) =&gt; a - b)
+
+  let minDiff = Infinity
+
+  for (let i = 0; i &lt; len - 2; i++) {
+    if (i &gt; 0 &amp;&amp; sorted[i] === sorted[i-1]) {
+      continue
+    }
+
+    const twoSum = target - sorted[i]
+
+    for (let l = i + 1, r = len - 1; l &lt; r;) {
+      const diff = twoSum - sorted[l] - sorted[r]
+      if (diff === 0) {
+        return target
+      } else {
+        if (diff &gt; 0) {
+          l++
+        } else {
+          r--
+        }
+
+        if (Math.abs(diff) &lt; Math.abs(minDiff)) {
+          minDiff = diff
+        }
+      }
+    }
+  }
+
+  return target - minDiff
+};</code></pre>
+   <br>
+<hr>
+<br>
+
+  </body>
+</html>

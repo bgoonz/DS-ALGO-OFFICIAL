@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="generator" content="pandoc" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=yes"
+    />
+    <title>114. Flatten Binary Tree to Linked List</title>
+    <style type="text/css">
+      code {
+        white-space: pre-wrap;
+      }
+      span.smallcaps {
+        font-variant: small-caps;
+      }
+      span.underline {
+        text-decoration: underline;
+      }
+      div.column {
+        display: inline-block;
+        vertical-align: top;
+        width: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <h2 id="flatten-binary-tree-to-linked-list">
+      <a
+        href="https://leetcode.com/problems/flatten-binary-tree-to-linked-list/description/"
+        >114. Flatten Binary Tree to Linked List</a
+      >
+    </h2>
+    <h3 id="problem">Problem:</h3>
+    <p>Given a binary tree, flatten it to a linked list in-place.</p>
+    <p>For example, given the following tree:</p>
+    <pre><code>    1
+   / \
+  2   5
+ / \   \
+3   4   6</code></pre>
+    <p>The flattened tree should look like:</p>
+    <pre><code>1
+ \
+  2
+   \
+    3
+     \
+      4
+       \
+        5
+         \
+          6</code></pre>
+    <h3 id="solution">Solution:</h3>
+    <p>Return the leaf node of a flattened subtree for concatenation.</p>
+    <pre><code>/**
+ * Definition for a binary tree node.
+ * function TreeNode(val) {
+ *     this.val = val;
+ *     this.left = this.right = null;
+ * }
+ */
+/**
+ * @param {TreeNode} root
+ * @return {void} Do not return anything, modify root in-place instead.
+ */
+var flatten = function(root) {
+  _flatten(root)
+};
+
+/**
+ * @param {TreeNode} root
+ * @return {TreeNode} leaf node of a flattened subtree
+ */
+function _flatten (root) {
+  if (!root) { return null }
+  const leftLeaf = _flatten(root.left)
+  const rightLeaf = _flatten(root.right)
+  if (leftLeaf !== null) {
+    leftLeaf.right = root.right
+    root.right = root.left
+  } else if (rightLeaf === null) {
+    return root
+  }
+  
+  root.left = null
+  return rightLeaf || leftLeaf
+}</code></pre>
+    <br />
+    <hr />
+    <br />
+  </body>
+</html>

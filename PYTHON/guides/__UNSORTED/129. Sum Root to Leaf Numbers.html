@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="generator" content="pandoc" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=yes"
+    />
+    <title>129. Sum Root to Leaf Numbers</title>
+    <style type="text/css">
+      code {
+        white-space: pre-wrap;
+      }
+      span.smallcaps {
+        font-variant: small-caps;
+      }
+      span.underline {
+        text-decoration: underline;
+      }
+      div.column {
+        display: inline-block;
+        vertical-align: top;
+        width: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <h2 id="sum-root-to-leaf-numbers">
+      <a
+        href="https://leetcode.com/problems/sum-root-to-leaf-numbers/description/"
+        >129. Sum Root to Leaf Numbers</a
+      >
+    </h2>
+    <h3 id="problem">Problem:</h3>
+    <p>
+      Given a binary tree containing digits from <code>0-9</code> only, each
+      root-to-leaf path could represent a number.
+    </p>
+    <p>
+      An example is the root-to-leaf path <code>1-&gt;2-&gt;3</code> which
+      represents the number <code>123</code>.
+    </p>
+    <p>Find the total sum of all root-to-leaf numbers.</p>
+    <p><strong>Note:</strong> A leaf is a node with no children.</p>
+    <p><strong>Example:</strong></p>
+    <pre><code>Input: [1,2,3]
+    1
+   / \
+  2   3
+Output: 25
+Explanation:
+The root-to-leaf path 1-&gt;2 represents the number 12.
+The root-to-leaf path 1-&gt;3 represents the number 13.
+Therefore, sum = 12 + 13 = 25.</code></pre>
+    <p><strong>Example 2:</strong></p>
+    <pre><code>Input: [4,9,0,5,1]
+    4
+   / \
+  9   0
+ / \
+5   1
+Output: 1026
+Explanation:
+The root-to-leaf path 4-&gt;9-&gt;5 represents the number 495.
+The root-to-leaf path 4-&gt;9-&gt;1 represents the number 491.
+The root-to-leaf path 4-&gt;0 represents the number 40.
+Therefore, sum = 495 + 491 + 40 = 1026.</code></pre>
+    <h3 id="solution">Solution:</h3>
+    <p>
+      To write a clean solution for this promblem, use <code>0</code> as
+      indicator of leaf node. If all the children get <code>0</code>, it is a
+      leaf node, return the sum of current level.
+    </p>
+    <pre><code>/**
+ * Definition for a binary tree node.
+ * function TreeNode(val) {
+ *     this.val = val;
+ *     this.left = this.right = null;
+ * }
+ */
+/**
+ * @param {TreeNode} root
+ * @return {number}
+ */
+var sumNumbers = function(root, sum = 0) {
+  if (!root) { return 0 }
+  sum = sum * 10 + root.val
+  return sumNumbers(root.left, sum) + sumNumbers(root.right, sum) || sum
+};</code></pre>
+    <br />
+    <hr />
+    <br />
+  </body>
+</html>
