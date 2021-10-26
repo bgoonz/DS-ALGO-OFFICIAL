@@ -13,14 +13,14 @@
 const factorial = (n) => {
   if (n >= 0) {
     if (n === 0) {
-      return 1
+      return 1;
     } else {
-      return n * factorial(n - 1)
+      return n * factorial(n - 1);
     }
   } else {
-    return NaN
+    return NaN;
   }
-}
+};
 
 /**
  * @brief Calculates the number of Permutations from the given data.
@@ -31,8 +31,8 @@ const factorial = (n) => {
             NaN: if negative number is provided.
  */
 const permutation = (n, r) => {
-  return factorial(n) / factorial(n - r)
-}
+  return factorial(n) / factorial(n - r);
+};
 
 /**
  * @brief Calculates the number of Combinations from the given data.
@@ -43,13 +43,13 @@ const permutation = (n, r) => {
             NaN: if negative number is provided.
  */
 const combination = (n, r) => {
-  return factorial(n) / (factorial(r) * factorial(n - r))
-}
+  return factorial(n) / (factorial(r) * factorial(n - r));
+};
 
 // Exports the functions to be used in other files.
-module.exports.factorial = factorial
-module.exports.permutation = permutation
-module.exports.combination = combination
+module.exports.factorial = factorial;
+module.exports.permutation = permutation;
+module.exports.combination = combination;
 
 /**
  * @example

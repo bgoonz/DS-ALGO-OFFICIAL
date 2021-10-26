@@ -15,18 +15,18 @@ function main() {
 
   Link for the Problem: https://leetcode.com/problems/linked-list-cycle/
   */
-  const head = '' // Reference to head is given in the problem. So please ignore this line
-  let fast = head
-  let slow = head
+  const head = ""; // Reference to head is given in the problem. So please ignore this line
+  let fast = head;
+  let slow = head;
 
   while (fast != null && fast.next != null && slow != null) {
-    fast = fast.next.next
-    slow = slow.next
+    fast = fast.next.next;
+    slow = slow.next;
     if (fast === slow) {
-      return true
+      return true;
     }
   }
-  return false
+  return false;
 }
 
-main()
+main();

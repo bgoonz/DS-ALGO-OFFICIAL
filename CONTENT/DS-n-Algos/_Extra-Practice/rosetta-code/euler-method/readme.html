@@ -1,59 +1,138 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
-<head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="pandoc" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>readme</title>
-  <style type="text/css">
-      code{white-space: pre-wrap;}
-      span.smallcaps{font-variant: small-caps;}
-      span.underline{text-decoration: underline;}
-      div.column{display: inline-block; vertical-align: top; width: 50%;}
-  </style>
-</head>
-<body>
-<h1 id="euler-method">Euler method</h1>
-<p><a href="https://www.freecodecamp.org/learn/coding-interview-prep/rosetta-code/euler-method">FCC link</a></p>
-<p>Euler’s method numerically approximates solutions of first-order ordinary differential equations (ODEs) with a given initial value. It is an explicit method for solving initial value problems (IVPs), as described in <a href="https://en.wikipedia.org/wiki/Euler%20method" title="wp: Euler method">the wikipedia page</a>.</p>
-<p>The ODE has to be provided in the following form:</p>
-<ul>
-<li><span class="math inline">$\\frac{dy(t)}{dt} = f(t,y(t))$</span></li>
-</ul>
-<p>with an initial value</p>
-<ul>
-<li><span class="math inline"><em>y</em>(<em>t</em>_0) = <em>y</em>_0</span></li>
-</ul>
-<p>To get a numeric solution, we replace the derivative on the LHS with a finite difference approximation:</p>
-<ul>
-<li><span class="math inline">$\\frac{dy(t)}{dt} \\approx \\frac{y(t+h)-y(t)}{h}$</span></li>
-</ul>
-<p>then solve for <span class="math inline"><em>y</em>(<em>t</em> + <em>h</em>)</span>:</p>
-<ul>
-<li><span class="math inline">$y(t+h) \\approx y(t) + h \\, \\frac{dy(t)}{dt}$</span></li>
-</ul>
-<p>which is the same as</p>
-<ul>
-<li><span class="math inline">$y(t+h) \\approx y(t) + h \\, f(t,y(t))$</span></li>
-</ul>
-<p>The iterative solution rule is then:</p>
-<ul>
-<li><span class="math inline">$y\_{n+1} = y\_n + h \\, f(t\_n, y\_n)$</span></li>
-</ul>
-<p>where <span class="math inline"><em>h</em></span> is the step size, the most relevant parameter for accuracy of the solution. A smaller step size increases accuracy but also the computation cost, so it has always has to be hand-picked according to the problem at hand.</p>
-<p><strong>Example: Newton’s Cooling Law</strong></p>
-<p>Newton’s cooling law describes how an object of initial temperature <span class="math inline"><em>T</em>(<em>t</em>_0) = <em>T</em>_0</span> cools down in an environment of temperature <span class="math inline"><em>T</em>_<em>R</em></span>:</p>
-<ul>
-<li><span class="math inline">$\\frac{dT(t)}{dt} = -k \\, \\Delta T$</span></li>
-</ul>
-<p>or</p>
-<ul>
-<li><span class="math inline">$\\frac{dT(t)}{dt} = -k \\, (T(t) - T\_R)$</span></li>
-</ul>
-<p>It says that the cooling rate <span class="math inline">$\\frac{dT(t)}{dt}$</span> of the object is proportional to the current temperature difference <span class="math inline">$\\Delta T = (T(t) - T\_R)$</span> to the surrounding environment.</p>
-<p>The analytical solution, which we will compare to the numerical approximation, is</p>
-<ul>
-<li><span class="math inline">$T(t) = T\_R + (T\_0 - T\_R) \\; e^{-k t}$</span></li>
-</ul>
-</body>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="generator" content="pandoc" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=yes"
+    />
+    <title>readme</title>
+    <style type="text/css">
+      code {
+        white-space: pre-wrap;
+      }
+      span.smallcaps {
+        font-variant: small-caps;
+      }
+      span.underline {
+        text-decoration: underline;
+      }
+      div.column {
+        display: inline-block;
+        vertical-align: top;
+        width: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 id="euler-method">Euler method</h1>
+    <p>
+      <a
+        href="https://www.freecodecamp.org/learn/coding-interview-prep/rosetta-code/euler-method"
+        >FCC link</a
+      >
+    </p>
+    <p>
+      Euler’s method numerically approximates solutions of first-order ordinary
+      differential equations (ODEs) with a given initial value. It is an
+      explicit method for solving initial value problems (IVPs), as described in
+      <a
+        href="https://en.wikipedia.org/wiki/Euler%20method"
+        title="wp: Euler method"
+        >the wikipedia page</a
+      >.
+    </p>
+    <p>The ODE has to be provided in the following form:</p>
+    <ul>
+      <li><span class="math inline">$\\frac{dy(t)}{dt} = f(t,y(t))$</span></li>
+    </ul>
+    <p>with an initial value</p>
+    <ul>
+      <li>
+        <span class="math inline"><em>y</em>(<em>t</em>_0) = <em>y</em>_0</span>
+      </li>
+    </ul>
+    <p>
+      To get a numeric solution, we replace the derivative on the LHS with a
+      finite difference approximation:
+    </p>
+    <ul>
+      <li>
+        <span class="math inline"
+          >$\\frac{dy(t)}{dt} \\approx \\frac{y(t+h)-y(t)}{h}$</span
+        >
+      </li>
+    </ul>
+    <p>
+      then solve for
+      <span class="math inline"><em>y</em>(<em>t</em> + <em>h</em>)</span>:
+    </p>
+    <ul>
+      <li>
+        <span class="math inline"
+          >$y(t+h) \\approx y(t) + h \\, \\frac{dy(t)}{dt}$</span
+        >
+      </li>
+    </ul>
+    <p>which is the same as</p>
+    <ul>
+      <li>
+        <span class="math inline"
+          >$y(t+h) \\approx y(t) + h \\, f(t,y(t))$</span
+        >
+      </li>
+    </ul>
+    <p>The iterative solution rule is then:</p>
+    <ul>
+      <li>
+        <span class="math inline">$y\_{n+1} = y\_n + h \\, f(t\_n, y\_n)$</span>
+      </li>
+    </ul>
+    <p>
+      where <span class="math inline"><em>h</em></span> is the step size, the
+      most relevant parameter for accuracy of the solution. A smaller step size
+      increases accuracy but also the computation cost, so it has always has to
+      be hand-picked according to the problem at hand.
+    </p>
+    <p><strong>Example: Newton’s Cooling Law</strong></p>
+    <p>
+      Newton’s cooling law describes how an object of initial temperature
+      <span class="math inline"><em>T</em>(<em>t</em>_0) = <em>T</em>_0</span>
+      cools down in an environment of temperature
+      <span class="math inline"><em>T</em>_<em>R</em></span
+      >:
+    </p>
+    <ul>
+      <li>
+        <span class="math inline">$\\frac{dT(t)}{dt} = -k \\, \\Delta T$</span>
+      </li>
+    </ul>
+    <p>or</p>
+    <ul>
+      <li>
+        <span class="math inline"
+          >$\\frac{dT(t)}{dt} = -k \\, (T(t) - T\_R)$</span
+        >
+      </li>
+    </ul>
+    <p>
+      It says that the cooling rate
+      <span class="math inline">$\\frac{dT(t)}{dt}$</span> of the object is
+      proportional to the current temperature difference
+      <span class="math inline">$\\Delta T = (T(t) - T\_R)$</span> to the
+      surrounding environment.
+    </p>
+    <p>
+      The analytical solution, which we will compare to the numerical
+      approximation, is
+    </p>
+    <ul>
+      <li>
+        <span class="math inline"
+          >$T(t) = T\_R + (T\_0 - T\_R) \\; e^{-k t}$</span
+        >
+      </li>
+    </ul>
+  </body>
 </html>

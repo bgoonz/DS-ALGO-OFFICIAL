@@ -1,58 +1,58 @@
 function change(coins, amount) {
-  const combinations = new Array(amount + 1).fill(0)
-  combinations[0] = 1
+  const combinations = new Array(amount + 1).fill(0);
+  combinations[0] = 1;
 
   for (let i = 0; i < coins.length; i++) {
-    const coin = coins[i]
+    const coin = coins[i];
 
     for (let j = coin; j < amount + 1; j++) {
-      combinations[j] += combinations[j - coin]
+      combinations[j] += combinations[j - coin];
     }
   }
-  return combinations[amount]
+  return combinations[amount];
 }
 
 function minimumCoins(coins, amount) {
   // minimumCoins[i] will store the minimum coins needed for amount i
-  const minimumCoins = new Array(amount + 1).fill(0)
+  const minimumCoins = new Array(amount + 1).fill(0);
 
-  minimumCoins[0] = 0
+  minimumCoins[0] = 0;
 
   for (let i = 1; i < amount + 1; i++) {
-    minimumCoins[i] = Number.MAX_SAFE_INTEGER
+    minimumCoins[i] = Number.MAX_SAFE_INTEGER;
   }
   for (let i = 1; i < amount + 1; i++) {
     for (let j = 0; j < coins.length; j++) {
-      const coin = coins[j]
+      const coin = coins[j];
       if (coin <= i) {
-        const subRes = minimumCoins[i - coin]
+        const subRes = minimumCoins[i - coin];
         if (
           subRes !== Number.MAX_SAFE_INTEGER &&
           subRes + 1 < minimumCoins[i]
         ) {
-          minimumCoins[i] = subRes + 1
+          minimumCoins[i] = subRes + 1;
         }
       }
     }
   }
-  return minimumCoins[amount]
+  return minimumCoins[amount];
 }
 
 function main() {
-  const amount = 12
-  const coins = [2, 4, 5]
+  const amount = 12;
+  const coins = [2, 4, 5];
   console.log(
-    'Number of combinations of getting change for ' +
+    "Number of combinations of getting change for " +
       amount +
-      ' is: ' +
+      " is: " +
       change(coins, amount)
-  )
+  );
   console.log(
-    'Minimum number of coins required for amount :' +
+    "Minimum number of coins required for amount :" +
       amount +
-      ' is: ' +
+      " is: " +
       minimumCoins(coins, amount)
-  )
+  );
 }
 
-main()
+main();

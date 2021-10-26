@@ -15,7 +15,7 @@ function LinkedList() {
     return head;
   };
 
-  this.add = element => {
+  this.add = (element) => {
     const node = new Node(element);
     if (head === null) {
       head = node;
@@ -32,7 +32,7 @@ function LinkedList() {
     length++;
   };
 
-  this.remove = element => {
+  this.remove = (element) => {
     // Only change code below this line
     // Only change code above this line
   };

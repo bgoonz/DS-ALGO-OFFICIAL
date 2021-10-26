@@ -1,34 +1,70 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
-<head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="pandoc" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>readme</title>
-  <style type="text/css">
-      code{white-space: pre-wrap;}
-      span.smallcaps{font-variant: small-caps;}
-      span.underline{text-decoration: underline;}
-      div.column{display: inline-block; vertical-align: top; width: 50%;}
-  </style>
-</head>
-<body>
-<h1 id="look-and-say-sequence">Look-and-say sequence</h1>
-<p><a href="https://www.freecodecamp.org/learn/coding-interview-prep/rosetta-code/look-and-say-sequence">FCC link</a></p>
-<p>The <a href="https://en.wikipedia.org/wiki/Look%20and%20say%20sequence">Look and say sequence</a> is a recursively defined sequence of numbers.</p>
-<p>Sequence Definition</p>
-<ul>
-<li>Take a decimal number</li>
-<li>Look at the number, visually grouping consecutive runs of the same digit.</li>
-<li>Say the number, from left to right, group by group; as how many of that digit there are - followed by the digit grouped.</li>
-</ul>
-<p>This becomes the next number of the sequence.</p>
-<p>An example:</p>
-<ul>
-<li>Starting with the number 1, you have one 1 which produces 11</li>
-<li>Starting with 11, you have two 1’s. I.E.: 21</li>
-<li>Starting with 21, you have one 2, then one 1. I.E.: (12)(11) which becomes 1211</li>
-<li>Starting with 1211, you have one 1, one 2, then two 1’s. I.E.: (11)(12)(21) which becomes 111221</li>
-</ul>
-</body>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="generator" content="pandoc" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=yes"
+    />
+    <title>readme</title>
+    <style type="text/css">
+      code {
+        white-space: pre-wrap;
+      }
+      span.smallcaps {
+        font-variant: small-caps;
+      }
+      span.underline {
+        text-decoration: underline;
+      }
+      div.column {
+        display: inline-block;
+        vertical-align: top;
+        width: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 id="look-and-say-sequence">Look-and-say sequence</h1>
+    <p>
+      <a
+        href="https://www.freecodecamp.org/learn/coding-interview-prep/rosetta-code/look-and-say-sequence"
+        >FCC link</a
+      >
+    </p>
+    <p>
+      The
+      <a href="https://en.wikipedia.org/wiki/Look%20and%20say%20sequence"
+        >Look and say sequence</a
+      >
+      is a recursively defined sequence of numbers.
+    </p>
+    <p>Sequence Definition</p>
+    <ul>
+      <li>Take a decimal number</li>
+      <li>
+        Look at the number, visually grouping consecutive runs of the same
+        digit.
+      </li>
+      <li>
+        Say the number, from left to right, group by group; as how many of that
+        digit there are - followed by the digit grouped.
+      </li>
+    </ul>
+    <p>This becomes the next number of the sequence.</p>
+    <p>An example:</p>
+    <ul>
+      <li>Starting with the number 1, you have one 1 which produces 11</li>
+      <li>Starting with 11, you have two 1’s. I.E.: 21</li>
+      <li>
+        Starting with 21, you have one 2, then one 1. I.E.: (12)(11) which
+        becomes 1211
+      </li>
+      <li>
+        Starting with 1211, you have one 1, one 2, then two 1’s. I.E.:
+        (11)(12)(21) which becomes 111221
+      </li>
+    </ul>
+  </body>
 </html>

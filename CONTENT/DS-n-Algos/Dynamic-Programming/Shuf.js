@@ -4,9 +4,9 @@ Get a random sample in a random order
 It's used in data analytics, often as a way to get a small random sample from a data lake or warehouse, or from a large CSV file
 */
 function shuf(datasetSource, sampleSize) {
-  const output = fillBaseSample(datasetSource, sampleSize)
+  const output = fillBaseSample(datasetSource, sampleSize);
 
-  return randomizeOutputFromDataset(datasetSource, output)
+  return randomizeOutputFromDataset(datasetSource, output);
 }
 
 /**
@@ -17,38 +17,38 @@ function shuf(datasetSource, sampleSize) {
  * @template T
  */
 function fillBaseSample(datasetSource, sampleSize) {
-  let filledIndexes = []
-  let output = new Array(sampleSize)
+  let filledIndexes = [];
+  let output = new Array(sampleSize);
 
   // Spread data out filling the array
   while (true) {
-    const iterator = datasetSource.next()
-    if (iterator.done) break
+    const iterator = datasetSource.next();
+    if (iterator.done) break;
 
-    let insertTo = Math.floor(Math.random() * output.length)
+    let insertTo = Math.floor(Math.random() * output.length);
     while (filledIndexes.includes(insertTo)) {
-      insertTo++
+      insertTo++;
       if (insertTo === output.length) {
-        insertTo = 0
+        insertTo = 0;
       }
     }
     output[insertTo] = {
-      value: iterator.value
-    }
+      value: iterator.value,
+    };
 
-    filledIndexes = [...filledIndexes, insertTo]
+    filledIndexes = [...filledIndexes, insertTo];
 
     if (filledIndexes.length === sampleSize) {
-      break
+      break;
     }
   }
 
   if (filledIndexes.length < output.length) {
     // Not a large enough dataset to fill the sample - trim empty values
-    output = output.filter((_, i) => filledIndexes.includes(i))
+    output = output.filter((_, i) => filledIndexes.includes(i));
   }
 
-  return output.map(({ value }) => value)
+  return output.map(({ value }) => value);
 }
 
 /**
@@ -59,21 +59,21 @@ function fillBaseSample(datasetSource, sampleSize) {
  * @template T
  */
 function randomizeOutputFromDataset(datasetSource, output) {
-  const newOutput = [...output]
-  let readSoFar = output.length
+  const newOutput = [...output];
+  let readSoFar = output.length;
 
   while (true) {
-    const iterator = datasetSource.next()
-    if (iterator.done) break
-    readSoFar++
+    const iterator = datasetSource.next();
+    if (iterator.done) break;
+    readSoFar++;
 
-    const insertTo = Math.floor(Math.random() * readSoFar)
+    const insertTo = Math.floor(Math.random() * readSoFar);
     if (insertTo < newOutput.length) {
-      newOutput[insertTo] = iterator.value
+      newOutput[insertTo] = iterator.value;
     }
   }
 
-  return newOutput
+  return newOutput;
 }
 
 // Example
@@ -84,13 +84,13 @@ function randomizeOutputFromDataset(datasetSource, output) {
  * @returns {Iterable<number>} Random iterable data
  */
 function* generateRandomData(length) {
-  const maxValue = 2 ** 31 - 1
+  const maxValue = 2 ** 31 - 1;
   for (let i = 0; i < length; i++) {
-    yield Math.floor(Math.random() * maxValue)
+    yield Math.floor(Math.random() * maxValue);
   }
 }
 
 // const source = generateRandomData(1000)
 // const result = shuf(source, 10)
 
-export { shuf, generateRandomData }
+export { shuf, generateRandomData };

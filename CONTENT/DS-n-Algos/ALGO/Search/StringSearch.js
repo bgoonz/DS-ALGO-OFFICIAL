@@ -5,10 +5,10 @@
 function makeTable(str) {
   // create a table of size equal to the length of `str`
   // table[i] will store the prefix of the longest prefix of the substring str[0..i]
-  const table = new Array(str.length)
-  let maxPrefix = 0
+  const table = new Array(str.length);
+  let maxPrefix = 0;
   // the longest prefix of the substring str[0] has length
-  table[0] = 0
+  table[0] = 0;
 
   // for the substrings the following substrings, we have two cases
   for (let i = 1; i < str.length; i++) {
@@ -16,7 +16,7 @@ function makeTable(str) {
     while (maxPrefix > 0 && str.charAt(i) !== str.charAt(maxPrefix)) {
       // if that is the case, we have to backtrack, and try find a character  that will be equal to the current character
       // if we reach 0, then we couldn't find a chracter
-      maxPrefix = table[maxPrefix - 1]
+      maxPrefix = table[maxPrefix - 1];
     }
     // case 2. The last character of the longest prefix matches the current character in `str`
     if (str.charAt(maxPrefix) === str.charAt(i)) {
@@ -26,29 +26,29 @@ function makeTable(str) {
       // consider `i` to be the last character `c` in `str`
       // maxPrefix = will be 2 (the first `c` in `str`)
       // maxPrefix now will be 3
-      maxPrefix++
+      maxPrefix++;
       // so the max prefix for table[9] is 3
     }
-    table[i] = maxPrefix
+    table[i] = maxPrefix;
   }
-  return table
+  return table;
 }
 
 // Find all the words that matches in a given string `str`
 function stringSearch(str, word) {
   // find the prefix table in O(n)
-  const prefixes = makeTable(word)
-  const matches = []
+  const prefixes = makeTable(word);
+  const matches = [];
 
   // `j` is the index in `P`
-  let j = 0
+  let j = 0;
   // `i` is the index in `S`
-  let i = 0
+  let i = 0;
   while (i < str.length) {
     // Case 1.  S[i] == P[j] so we move to the next index in `S` and `P`
     if (str.charAt(i) === word.charAt(j)) {
-      i++
-      j++
+      i++;
+      j++;
     }
     // Case 2.  `j` is equal to the length of `P`
     // that means that we reached the end of `P` and thus we found a match
@@ -62,22 +62,22 @@ function stringSearch(str, word) {
     // a b a b `d` e
     //     a b `a` b
     if (j === word.length) {
-      matches.push(i - j)
-      j = prefixes[j - 1]
+      matches.push(i - j);
+      j = prefixes[j - 1];
       // Case 3.
       // S[i] != P[j] There's a mismatch!
     } else if (str.charAt(i) !== word.charAt(j)) {
       // if we  found at least a character in common, do the same thing as in case 2
       if (j !== 0) {
-        j = prefixes[j - 1]
+        j = prefixes[j - 1];
       } else {
         // else j = 0, and we can move to the next character S[i+1]
-        i++
+        i++;
       }
     }
   }
 
-  return matches
+  return matches;
 }
 
-console.log(stringSearch('Hello search the position of me', 'pos'))
+console.log(stringSearch("Hello search the position of me", "pos"));

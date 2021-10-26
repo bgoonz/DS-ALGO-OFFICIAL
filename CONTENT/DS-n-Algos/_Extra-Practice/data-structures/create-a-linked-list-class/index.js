@@ -15,7 +15,7 @@ function LinkedList() {
     return length;
   };
 
-  this.add = element => {
+  this.add = (element) => {
     // Only change code below this line
     // Only change code above this line
   };

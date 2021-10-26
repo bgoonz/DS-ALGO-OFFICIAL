@@ -30,8 +30,8 @@ Test iterate-method
 /** Class to handle the vector calculations. */
 class Vector2 {
   constructor(x, y) {
-    this.x = x
-    this.y = y
+    this.x = x;
+    this.y = y;
   }
 
   /**
@@ -41,9 +41,9 @@ class Vector2 {
    * @returns The sum-vector.
    */
   add(vector) {
-    const x = this.x + vector.x
-    const y = this.y + vector.y
-    return new Vector2(x, y)
+    const x = this.x + vector.x;
+    const y = this.y + vector.y;
+    return new Vector2(x, y);
   }
 
   /**
@@ -53,9 +53,9 @@ class Vector2 {
    * @returns The difference-vector.
    */
   subtract(vector) {
-    const x = this.x - vector.x
-    const y = this.y - vector.y
-    return new Vector2(x, y)
+    const x = this.x - vector.x;
+    const y = this.y - vector.y;
+    return new Vector2(x, y);
   }
 
   /**
@@ -65,9 +65,9 @@ class Vector2 {
    * @returns The scaled vector.
    */
   multiply(scalar) {
-    const x = this.x * scalar
-    const y = this.y * scalar
-    return new Vector2(x, y)
+    const x = this.x * scalar;
+    const y = this.y * scalar;
+    return new Vector2(x, y);
   }
 
   /**
@@ -77,12 +77,12 @@ class Vector2 {
    * @returns The rotated vector.
    */
   rotate(angleInDegrees) {
-    const radians = (angleInDegrees * Math.PI) / 180
-    const ca = Math.cos(radians)
-    const sa = Math.sin(radians)
-    const x = ca * this.x - sa * this.y
-    const y = sa * this.x + ca * this.y
-    return new Vector2(x, y)
+    const radians = (angleInDegrees * Math.PI) / 180;
+    const ca = Math.cos(radians);
+    const sa = Math.sin(radians);
+    const x = ca * this.x - sa * this.y;
+    const y = sa * this.x + ca * this.y;
+    return new Vector2(x, y);
   }
 }
 
@@ -95,24 +95,24 @@ class Vector2 {
  */
 function getKochSnowflake(canvasWidth = 600, steps = 5) {
   if (canvasWidth <= 0) {
-    throw new Error('canvasWidth should be greater than zero')
+    throw new Error("canvasWidth should be greater than zero");
   }
 
-  const offsetX = canvasWidth / 10.0
-  const offsetY = canvasWidth / 3.7
-  const vector1 = new Vector2(offsetX, offsetY)
+  const offsetX = canvasWidth / 10.0;
+  const offsetY = canvasWidth / 3.7;
+  const vector1 = new Vector2(offsetX, offsetY);
   const vector2 = new Vector2(
     canvasWidth / 2,
     Math.sin(Math.PI / 3) * canvasWidth * 0.8 + offsetY
-  )
-  const vector3 = new Vector2(canvasWidth - offsetX, offsetY)
-  const initialVectors = []
-  initialVectors.push(vector1)
-  initialVectors.push(vector2)
-  initialVectors.push(vector3)
-  initialVectors.push(vector1)
-  const vectors = iterate(initialVectors, steps)
-  return drawToCanvas(vectors, canvasWidth, canvasWidth)
+  );
+  const vector3 = new Vector2(canvasWidth - offsetX, offsetY);
+  const initialVectors = [];
+  initialVectors.push(vector1);
+  initialVectors.push(vector2);
+  initialVectors.push(vector3);
+  initialVectors.push(vector1);
+  const vectors = iterate(initialVectors, steps);
+  return drawToCanvas(vectors, canvasWidth, canvasWidth);
 }
 
 /**
@@ -124,20 +124,20 @@ function getKochSnowflake(canvasWidth = 600, steps = 5) {
  * @returns The canvas of the rendered edges.
  */
 function drawToCanvas(vectors, canvasWidth, canvasHeight) {
-  const canvas = document.createElement('canvas')
-  canvas.width = canvasWidth
-  canvas.height = canvasHeight
+  const canvas = document.createElement("canvas");
+  canvas.width = canvasWidth;
+  canvas.height = canvasHeight;
 
   // Draw the edges
-  const ctx = canvas.getContext('2d')
-  ctx.beginPath()
-  ctx.moveTo(vectors[0].x, vectors[0].y)
+  const ctx = canvas.getContext("2d");
+  ctx.beginPath();
+  ctx.moveTo(vectors[0].x, vectors[0].y);
   for (let i = 1; i < vectors.length; i++) {
-    ctx.lineTo(vectors[i].x, vectors[i].y)
+    ctx.lineTo(vectors[i].x, vectors[i].y);
   }
-  ctx.stroke()
+  ctx.stroke();
 
-  return canvas
+  return canvas;
 }
 
 /**
@@ -149,12 +149,12 @@ function drawToCanvas(vectors, canvasWidth, canvasHeight) {
  * @returns The transformed vectors after the iteration-steps.
  */
 function iterate(initialVectors, steps) {
-  let vectors = initialVectors
+  let vectors = initialVectors;
   for (let i = 0; i < steps; i++) {
-    vectors = iterationStep(vectors)
+    vectors = iterationStep(vectors);
   }
 
-  return vectors
+  return vectors;
 }
 
 /**
@@ -166,25 +166,25 @@ function iterate(initialVectors, steps) {
  * @returns The transformed vectors after the iteration-step.
  */
 function iterationStep(vectors) {
-  const newVectors = []
+  const newVectors = [];
   for (let i = 0; i < vectors.length - 1; i++) {
-    const startVector = vectors[i]
-    const endVector = vectors[i + 1]
-    newVectors.push(startVector)
-    const differenceVector = endVector.subtract(startVector).multiply(1 / 3)
-    newVectors.push(startVector.add(differenceVector))
+    const startVector = vectors[i];
+    const endVector = vectors[i + 1];
+    newVectors.push(startVector);
+    const differenceVector = endVector.subtract(startVector).multiply(1 / 3);
+    newVectors.push(startVector.add(differenceVector));
     newVectors.push(
       startVector.add(differenceVector).add(differenceVector.rotate(60))
-    )
-    newVectors.push(startVector.add(differenceVector.multiply(2)))
+    );
+    newVectors.push(startVector.add(differenceVector.multiply(2)));
   }
 
-  newVectors.push(vectors[vectors.length - 1])
-  return newVectors
+  newVectors.push(vectors[vectors.length - 1]);
+  return newVectors;
 }
 
 // plot the results if the script is executed in a browser with a window-object
-if (typeof window !== 'undefined') {
-  const canvas = getKochSnowflake()
-  document.body.append(canvas)
+if (typeof window !== "undefined") {
+  const canvas = getKochSnowflake();
+  document.body.append(canvas);
 }

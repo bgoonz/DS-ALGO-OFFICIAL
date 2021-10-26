@@ -1,35 +1,109 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
-<head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="pandoc" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>readme</title>
-  <style type="text/css">
-      code{white-space: pre-wrap;}
-      span.smallcaps{font-variant: small-caps;}
-      span.underline{text-decoration: underline;}
-      div.column{display: inline-block; vertical-align: top; width: 50%;}
-  </style>
-</head>
-<body>
-<h1 id="sorting-algorithmscomb-sort">Sorting algorithms/Comb sort</h1>
-<p><a href="https://www.freecodecamp.org/learn/coding-interview-prep/rosetta-code/sorting-algorithmscomb-sort">FCC link</a></p>
-<p>Implement a <em>comb sort</em>.</p>
-<p>The <strong>Comb Sort</strong> is a variant of the <a href="https://rosettacode.org/wiki/Bubble%20Sort">Bubble Sort</a>.</p>
-<p>Like the <a href="https://rosettacode.org/wiki/Shell%20sort">Shell sort</a>, the Comb Sort increases the gap used in comparisons and exchanges.</p>
-<p>Dividing the gap by <span class="math inline">$(1-e^{-\\varphi})^{-1} \\approx 1.247330950103979$</span> works best, but 1.3 may be more practical.</p>
-<p>Some implementations use the insertion sort once the gap is less than a certain amount.</p>
-<p><strong>Also see</strong></p>
-<ul>
-<li>the Wikipedia article: <a href="https://en.wikipedia.org/wiki/Comb%20sort">Comb sort</a>.</li>
-</ul>
-<p>Variants:</p>
-<ul>
-<li>Combsort11 makes sure the gap ends in (11, 8, 6, 4, 3, 2, 1), which is significantly faster than the other two possible endings.</li>
-<li>Combsort with different endings changes to a more efficient sort when the data is almost sorted (when the gap is small). Comb sort with a low gap isn’t much better than the Bubble Sort.</li>
-</ul>
-<p>Pseudocode:</p>
-<p><strong>function</strong> combsort(<strong>array</strong> input) gap := input<strong>.size</strong> <em>//initialize gap size</em> <strong>loop until</strong> gap = 1 <strong>and</strong> swaps = 0 <em>//update the gap value for a next comb. Below is an example</em> gap := int(gap / 1.25) <strong>if</strong> gap &lt; 1 <em>//minimum gap is 1</em> gap := 1 <strong>end if</strong> i := 0 swaps := 0 <em>//see <a href="https://rosettacode.org/wiki/Sorting_algorithms/Bubble_sort">Bubble Sort</a> for an explanation</em> <em>//a single “comb” over the input list</em> <strong>loop until</strong> i + gap &gt;= input<strong>.size</strong> <em>//see <a href="https://rosettacode.org/wiki/Sorting_algorithms/Shell_sort">Shell sort</a> for similar idea</em> <strong>if</strong> input[i] &gt; input[i+gap] <strong>swap</strong>(input[i], input[i+gap]) swaps := 1 <em>// Flag a swap has occurred, so the</em> <em>// list is not guaranteed sorted</em> <strong>end if</strong> i := i + 1 <strong>end loop</strong> <strong>end loop</strong> <strong>end function</strong></p>
-</body>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="generator" content="pandoc" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=yes"
+    />
+    <title>readme</title>
+    <style type="text/css">
+      code {
+        white-space: pre-wrap;
+      }
+      span.smallcaps {
+        font-variant: small-caps;
+      }
+      span.underline {
+        text-decoration: underline;
+      }
+      div.column {
+        display: inline-block;
+        vertical-align: top;
+        width: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 id="sorting-algorithmscomb-sort">Sorting algorithms/Comb sort</h1>
+    <p>
+      <a
+        href="https://www.freecodecamp.org/learn/coding-interview-prep/rosetta-code/sorting-algorithmscomb-sort"
+        >FCC link</a
+      >
+    </p>
+    <p>Implement a <em>comb sort</em>.</p>
+    <p>
+      The <strong>Comb Sort</strong> is a variant of the
+      <a href="https://rosettacode.org/wiki/Bubble%20Sort">Bubble Sort</a>.
+    </p>
+    <p>
+      Like the
+      <a href="https://rosettacode.org/wiki/Shell%20sort">Shell sort</a>, the
+      Comb Sort increases the gap used in comparisons and exchanges.
+    </p>
+    <p>
+      Dividing the gap by
+      <span class="math inline"
+        >$(1-e^{-\\varphi})^{-1} \\approx 1.247330950103979$</span
+      >
+      works best, but 1.3 may be more practical.
+    </p>
+    <p>
+      Some implementations use the insertion sort once the gap is less than a
+      certain amount.
+    </p>
+    <p><strong>Also see</strong></p>
+    <ul>
+      <li>
+        the Wikipedia article:
+        <a href="https://en.wikipedia.org/wiki/Comb%20sort">Comb sort</a>.
+      </li>
+    </ul>
+    <p>Variants:</p>
+    <ul>
+      <li>
+        Combsort11 makes sure the gap ends in (11, 8, 6, 4, 3, 2, 1), which is
+        significantly faster than the other two possible endings.
+      </li>
+      <li>
+        Combsort with different endings changes to a more efficient sort when
+        the data is almost sorted (when the gap is small). Comb sort with a low
+        gap isn’t much better than the Bubble Sort.
+      </li>
+    </ul>
+    <p>Pseudocode:</p>
+    <p>
+      <strong>function</strong> combsort(<strong>array</strong> input) gap :=
+      input<strong>.size</strong> <em>//initialize gap size</em>
+      <strong>loop until</strong> gap = 1 <strong>and</strong> swaps = 0
+      <em>//update the gap value for a next comb. Below is an example</em> gap
+      := int(gap / 1.25) <strong>if</strong> gap &lt; 1
+      <em>//minimum gap is 1</em> gap := 1 <strong>end if</strong> i := 0 swaps
+      := 0
+      <em
+        >//see
+        <a href="https://rosettacode.org/wiki/Sorting_algorithms/Bubble_sort"
+          >Bubble Sort</a
+        >
+        for an explanation</em
+      >
+      <em>//a single “comb” over the input list</em>
+      <strong>loop until</strong> i + gap &gt;= input<strong>.size</strong>
+      <em
+        >//see
+        <a href="https://rosettacode.org/wiki/Sorting_algorithms/Shell_sort"
+          >Shell sort</a
+        >
+        for similar idea</em
+      >
+      <strong>if</strong> input[i] &gt; input[i+gap]
+      <strong>swap</strong>(input[i], input[i+gap]) swaps := 1
+      <em>// Flag a swap has occurred, so the</em>
+      <em>// list is not guaranteed sorted</em> <strong>end if</strong> i := i +
+      1 <strong>end loop</strong> <strong>end loop</strong>
+      <strong>end function</strong>
+    </p>
+  </body>
 </html>

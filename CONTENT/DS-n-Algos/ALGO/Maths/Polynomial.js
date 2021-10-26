@@ -10,9 +10,9 @@
  */
 class Polynomial {
   constructor(array) {
-    this.coefficientArray = array // array of coefficients
-    this.polynomial = '' // in terms of x e.g. (2x) + (1)
-    this.construct()
+    this.coefficientArray = array; // array of coefficients
+    this.polynomial = ""; // in terms of x e.g. (2x) + (1)
+    this.construct();
   }
 
   /**
@@ -22,19 +22,19 @@ class Polynomial {
     this.polynomial = this.coefficientArray
       .map((coefficient, exponent) => {
         if (coefficient === 0) {
-          return '0'
+          return "0";
         }
         if (exponent === 0) {
-          return `(${coefficient})`
+          return `(${coefficient})`;
         } else if (exponent === 1) {
-          return `(${coefficient}x)`
+          return `(${coefficient}x)`;
         } else {
-          return `(${coefficient}x^${exponent})`
+          return `(${coefficient}x^${exponent})`;
         }
       })
-      .filter((x) => x !== '0')
+      .filter((x) => x !== "0")
       .reverse()
-      .join(' + ')
+      .join(" + ");
   }
 
   /**
@@ -42,7 +42,7 @@ class Polynomial {
    * @returns {String} of polynomial representation in terms of x
    */
   display() {
-    return this.polynomial
+    return this.polynomial;
   }
 
   /**
@@ -51,9 +51,9 @@ class Polynomial {
    */
   evaluate(value) {
     return this.coefficientArray.reduce((result, coefficient, exponent) => {
-      return result + coefficient * Math.pow(value, exponent)
-    }, 0)
+      return result + coefficient * Math.pow(value, exponent);
+    }, 0);
   }
 }
 
-export { Polynomial }
+export { Polynomial };

@@ -15,7 +15,7 @@ function LinkedList() {
     return head;
   };
 
-  this.add = element => {
+  this.add = (element) => {
     const node = new Node(element);
     if (head === null) {
       head = node;

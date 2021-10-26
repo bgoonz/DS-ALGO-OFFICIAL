@@ -2,32 +2,32 @@
 
 const calcRPN = (expression) => {
   const operators = {
-    '+': (a, b) => a + b,
-    '-': (a, b) => a - b,
-    '*': (a, b) => a * b,
-    '/': (a, b) => b / a
-  }
+    "+": (a, b) => a + b,
+    "-": (a, b) => a - b,
+    "*": (a, b) => a * b,
+    "/": (a, b) => b / a,
+  };
 
-  const tokens = expression.split(' ')
+  const tokens = expression.split(" ");
 
-  const stack = []
+  const stack = [];
 
   tokens.forEach((token) => {
-    const operator = operators[token]
+    const operator = operators[token];
 
-    if (typeof operator === 'function') {
-      const a = stack.pop()
-      const b = stack.pop()
+    if (typeof operator === "function") {
+      const a = stack.pop();
+      const b = stack.pop();
 
-      const result = operator(a, b)
+      const result = operator(a, b);
 
-      stack.push(result)
+      stack.push(result);
     } else {
-      stack.push(parseFloat(token))
+      stack.push(parseFloat(token));
     }
-  })
+  });
 
-  return stack.pop()
-}
+  return stack.pop();
+};
 
-export { calcRPN }
+export { calcRPN };

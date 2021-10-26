@@ -1,30 +1,30 @@
 function intToHex(num) {
   switch (num) {
     case 10:
-      return 'A'
+      return "A";
     case 11:
-      return 'B'
+      return "B";
     case 12:
-      return 'C'
+      return "C";
     case 13:
-      return 'D'
+      return "D";
     case 14:
-      return 'E'
+      return "E";
     case 15:
-      return 'F'
+      return "F";
   }
-  return num
+  return num;
 }
 
 function decimalToHex(num) {
-  const hexOut = []
+  const hexOut = [];
   while (num > 15) {
-    hexOut.unshift(intToHex(num % 16))
-    num = Math.floor(num / 16)
+    hexOut.unshift(intToHex(num % 16));
+    num = Math.floor(num / 16);
   }
-  return intToHex(num) + hexOut.join('')
+  return intToHex(num) + hexOut.join("");
 }
 
 // test cases
-console.log(decimalToHex(999098) === 'F3EBA')
-console.log(decimalToHex(123) === '7B')
+console.log(decimalToHex(999098) === "F3EBA");
+console.log(decimalToHex(123) === "7B");

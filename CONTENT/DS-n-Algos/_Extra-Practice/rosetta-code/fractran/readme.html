@@ -1,33 +1,126 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
-<head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="pandoc" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>readme</title>
-  <style type="text/css">
-      code{white-space: pre-wrap;}
-      span.smallcaps{font-variant: small-caps;}
-      span.underline{text-decoration: underline;}
-      div.column{display: inline-block; vertical-align: top; width: 50%;}
-  </style>
-</head>
-<body>
-<h1 id="fractran">Fractran</h1>
-<p><a href="https://www.freecodecamp.org/learn/coding-interview-prep/rosetta-code/fractran">FCC link</a></p>
-<p><a href="https://en.wikipedia.org/wiki/FRACTRAN" title="wp: FRACTRAN">FRACTRAN</a> is a Turing-complete esoteric programming language invented by the mathematician <a href="https://en.wikipedia.org/wiki/John%20Horton%20Conway" title="wp: John Horton Conway">John Horton Conway</a>.</p>
-<p>A FRACTRAN program is an ordered list of positive fractions <span class="math inline">$P = (f\_1, f\_2, \\ldots, f\_m)$</span>, together with an initial positive integer input <span class="math inline"><em>n</em></span>.</p>
-<p>The program is run by updating the integer <span class="math inline"><em>n</em></span> as follows:</p>
-<ul>
-<li>for the first fraction, <span class="math inline"><em>f</em>_<em>i</em></span>, in the list for which <span class="math inline"><em>n</em><em>f</em>_<em>i</em></span> is an integer, replace <span class="math inline"><em>n</em></span> with <span class="math inline"><em>n</em><em>f</em>_<em>i</em></span> ;</li>
-<li>repeat this rule until no fraction in the list produces an integer when multiplied by <span class="math inline"><em>n</em></span>, then halt.</li>
-</ul>
-<p>Conway gave a program for primes in FRACTRAN:</p>
-<p><span class="math inline">$\\dfrac{17}{91}$</span>, <span class="math inline">$\\dfrac{78}{85}$</span>, <span class="math inline">$\\dfrac{19}{51}$</span>, <span class="math inline">$\\dfrac{23}{38}$</span>, <span class="math inline">$\\dfrac{29}{33}$</span>, <span class="math inline">$\\dfrac{77}{29}$</span>, <span class="math inline">$\\dfrac{95}{23}$</span>, <span class="math inline">$\\dfrac{77}{19}$</span>, <span class="math inline">$\\dfrac{1}{17}$</span>, <span class="math inline">$\\dfrac{11}{13}$</span>, <span class="math inline">$\\dfrac{13}{11}$</span>, <span class="math inline">$\\dfrac{15}{14}$</span>, <span class="math inline">$\\dfrac{15}{2}$</span>, <span class="math inline">$\\dfrac{55}{1}$</span></p>
-<p>Starting with <span class="math inline"><em>n</em> = 2</span>, this FRACTRAN program will change <span class="math inline"><em>n</em></span> to <span class="math inline">$15=2\\times (\\frac{15}{2})$</span>, then <span class="math inline">$825=15\\times (\\frac{55}{1})$</span>, generating the following sequence of integers:</p>
-<p><span class="math inline">2</span>, <span class="math inline">15</span>, <span class="math inline">825</span>, <span class="math inline">725</span>, <span class="math inline">1925</span>, <span class="math inline">2275</span>, <span class="math inline">425</span>, <span class="math inline">390</span>, <span class="math inline">330</span>, <span class="math inline">290</span>, <span class="math inline">770</span>, <span class="math inline">$\\ldots$</span></p>
-<p>After 2, this sequence contains the following powers of 2:</p>
-<p><span class="math inline">2<sup>2</sup> = 4</span>, <span class="math inline">2<sup>3</sup> = 8</span>, <span class="math inline">2<sup>5</sup> = 32</span>, <span class="math inline">2<sup>7</sup> = 128</span>, <span class="math inline">2<sup>11</sup> = 2048</span>, <span class="math inline">2<sup>13</sup> = 8192</span>, <span class="math inline">2<sup>17</sup> = 131072</span>, <span class="math inline">2<sup>19</sup> = 524288</span>, <span class="math inline">$\\ldots$</span></p>
-<p>which are the prime powers of 2.</p>
-</body>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="generator" content="pandoc" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=yes"
+    />
+    <title>readme</title>
+    <style type="text/css">
+      code {
+        white-space: pre-wrap;
+      }
+      span.smallcaps {
+        font-variant: small-caps;
+      }
+      span.underline {
+        text-decoration: underline;
+      }
+      div.column {
+        display: inline-block;
+        vertical-align: top;
+        width: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 id="fractran">Fractran</h1>
+    <p>
+      <a
+        href="https://www.freecodecamp.org/learn/coding-interview-prep/rosetta-code/fractran"
+        >FCC link</a
+      >
+    </p>
+    <p>
+      <a href="https://en.wikipedia.org/wiki/FRACTRAN" title="wp: FRACTRAN"
+        >FRACTRAN</a
+      >
+      is a Turing-complete esoteric programming language invented by the
+      mathematician
+      <a
+        href="https://en.wikipedia.org/wiki/John%20Horton%20Conway"
+        title="wp: John Horton Conway"
+        >John Horton Conway</a
+      >.
+    </p>
+    <p>
+      A FRACTRAN program is an ordered list of positive fractions
+      <span class="math inline">$P = (f\_1, f\_2, \\ldots, f\_m)$</span>,
+      together with an initial positive integer input
+      <span class="math inline"><em>n</em></span
+      >.
+    </p>
+    <p>
+      The program is run by updating the integer
+      <span class="math inline"><em>n</em></span> as follows:
+    </p>
+    <ul>
+      <li>
+        for the first fraction,
+        <span class="math inline"><em>f</em>_<em>i</em></span
+        >, in the list for which
+        <span class="math inline"><em>n</em><em>f</em>_<em>i</em></span> is an
+        integer, replace <span class="math inline"><em>n</em></span> with
+        <span class="math inline"><em>n</em><em>f</em>_<em>i</em></span> ;
+      </li>
+      <li>
+        repeat this rule until no fraction in the list produces an integer when
+        multiplied by <span class="math inline"><em>n</em></span
+        >, then halt.
+      </li>
+    </ul>
+    <p>Conway gave a program for primes in FRACTRAN:</p>
+    <p>
+      <span class="math inline">$\\dfrac{17}{91}$</span>,
+      <span class="math inline">$\\dfrac{78}{85}$</span>,
+      <span class="math inline">$\\dfrac{19}{51}$</span>,
+      <span class="math inline">$\\dfrac{23}{38}$</span>,
+      <span class="math inline">$\\dfrac{29}{33}$</span>,
+      <span class="math inline">$\\dfrac{77}{29}$</span>,
+      <span class="math inline">$\\dfrac{95}{23}$</span>,
+      <span class="math inline">$\\dfrac{77}{19}$</span>,
+      <span class="math inline">$\\dfrac{1}{17}$</span>,
+      <span class="math inline">$\\dfrac{11}{13}$</span>,
+      <span class="math inline">$\\dfrac{13}{11}$</span>,
+      <span class="math inline">$\\dfrac{15}{14}$</span>,
+      <span class="math inline">$\\dfrac{15}{2}$</span>,
+      <span class="math inline">$\\dfrac{55}{1}$</span>
+    </p>
+    <p>
+      Starting with <span class="math inline"><em>n</em> = 2</span>, this
+      FRACTRAN program will change
+      <span class="math inline"><em>n</em></span> to
+      <span class="math inline">$15=2\\times (\\frac{15}{2})$</span>, then
+      <span class="math inline">$825=15\\times (\\frac{55}{1})$</span>,
+      generating the following sequence of integers:
+    </p>
+    <p>
+      <span class="math inline">2</span>, <span class="math inline">15</span>,
+      <span class="math inline">825</span>,
+      <span class="math inline">725</span>,
+      <span class="math inline">1925</span>,
+      <span class="math inline">2275</span>,
+      <span class="math inline">425</span>,
+      <span class="math inline">390</span>,
+      <span class="math inline">330</span>,
+      <span class="math inline">290</span>,
+      <span class="math inline">770</span>,
+      <span class="math inline">$\\ldots$</span>
+    </p>
+    <p>After 2, this sequence contains the following powers of 2:</p>
+    <p>
+      <span class="math inline">2<sup>2</sup> = 4</span>,
+      <span class="math inline">2<sup>3</sup> = 8</span>,
+      <span class="math inline">2<sup>5</sup> = 32</span>,
+      <span class="math inline">2<sup>7</sup> = 128</span>,
+      <span class="math inline">2<sup>11</sup> = 2048</span>,
+      <span class="math inline">2<sup>13</sup> = 8192</span>,
+      <span class="math inline">2<sup>17</sup> = 131072</span>,
+      <span class="math inline">2<sup>19</sup> = 524288</span>,
+      <span class="math inline">$\\ldots$</span>
+    </p>
+    <p>which are the prime powers of 2.</p>
+  </body>
 </html>

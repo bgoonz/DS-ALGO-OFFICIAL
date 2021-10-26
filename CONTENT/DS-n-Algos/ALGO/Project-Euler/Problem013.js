@@ -104,20 +104,20 @@ const numbers = [
   77158542502016545090413245809786882778948721859617,
   72107838435069186155435662884062257473692284509516,
   20849603980134001723930671666823555245252804609722,
-  53503534226472524250874054075591789781264330331690
-]
+  53503534226472524250874054075591789781264330331690,
+];
 
 const findFirstTenDigitsOfSum = () => {
   const sum = numbers.reduce((prev, current) => {
-    current += prev
-    return current
-  }, 0)
+    current += prev;
+    return current;
+  }, 0);
 
   return sum
-    .toLocaleString('fullwide', { useGrouping: false })
-    .split('')
+    .toLocaleString("fullwide", { useGrouping: false })
+    .split("")
     .slice(0, 10)
-    .join('')
-}
+    .join("");
+};
 
-console.log(findFirstTenDigitsOfSum())
+console.log(findFirstTenDigitsOfSum());

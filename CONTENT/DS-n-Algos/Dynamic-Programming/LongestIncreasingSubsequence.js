@@ -5,23 +5,23 @@
 
 // Return the length of the Longest Increasing Subsequence, given array x
 function longestIncreasingSubsequence(x) {
-  const length = x.length
-  const dp = Array(length).fill(1)
+  const length = x.length;
+  const dp = Array(length).fill(1);
 
-  let res = 1
+  let res = 1;
 
   for (let i = 0; i < length; i++) {
     for (let j = 0; j < i; j++) {
       if (x[i] > x[j]) {
-        dp[i] = Math.max(dp[i], 1 + dp[j])
+        dp[i] = Math.max(dp[i], 1 + dp[j]);
         if (dp[i] > res) {
-          res = dp[i]
+          res = dp[i];
         }
       }
     }
   }
 
-  return res
+  return res;
 }
 
-export { longestIncreasingSubsequence }
+export { longestIncreasingSubsequence };

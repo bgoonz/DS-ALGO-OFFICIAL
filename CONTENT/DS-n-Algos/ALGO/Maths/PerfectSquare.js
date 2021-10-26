@@ -4,6 +4,6 @@
  *
  */
 
-const perfectSquare = (num) => Math.sqrt(num) ** 2 === num
+const perfectSquare = (num) => Math.sqrt(num) ** 2 === num;
 
-export { perfectSquare }
+export { perfectSquare };

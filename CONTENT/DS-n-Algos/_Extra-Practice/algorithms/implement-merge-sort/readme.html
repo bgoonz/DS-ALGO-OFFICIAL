@@ -1,25 +1,79 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
-<head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="pandoc" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>readme</title>
-  <style type="text/css">
-      code{white-space: pre-wrap;}
-      span.smallcaps{font-variant: small-caps;}
-      span.underline{text-decoration: underline;}
-      div.column{display: inline-block; vertical-align: top; width: 50%;}
-  </style>
-</head>
-<body>
-<h1 id="implement-merge-sort">Implement Merge Sort</h1>
-<p><a href="https://www.freecodecamp.org/learn/coding-interview-prep/algorithms/implement-merge-sort">FCC link</a></p>
-<p>Another common intermediate sorting algorithm is merge sort. Like quick sort, merge sort also uses a divide-and-conquer, recursive methodology to sort an array. It takes advantage of the fact that it is relatively easy to sort two arrays as long as each is sorted in the first place. But we’ll start with only one array as input, so how do we get to two sorted arrays from that? Well, we can recursively divide the original input in two until we reach the base case of an array with one item. A single-item array is naturally sorted, so then we can start combining. This combination will unwind the recursive calls that split the original array, eventually producing a final sorted array of all the elements. The steps of merge sort, then, are:</p>
-<p><strong>1)</strong> Recursively split the input array in half until a sub-array with only one element is produced.</p>
-<p><strong>2)</strong> Merge each sorted sub-array together to produce the final sorted array.</p>
-<p>Merge sort is an efficient sorting method, with time complexity of <em>O(nlog(n))</em>. This algorithm is popular because it is performant and relatively easy to implement.</p>
-<p>As an aside, this will be the last sorting algorithm we cover here. However, later in the section on tree data structures we will describe heap sort, another efficient sorting method that requires a binary heap in its implementation.</p>
-<p><strong>Instructions:</strong> Write a function <code>mergeSort</code> which takes an array of integers as input and returns an array of these integers in sorted order from least to greatest. A good way to implement this is to write one function, for instance <code>merge</code>, which is responsible for merging two sorted arrays, and another function, for instance <code>mergeSort</code>, which is responsible for the recursion that produces single-item arrays to feed into merge. Good luck!</p>
-</body>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="generator" content="pandoc" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=yes"
+    />
+    <title>readme</title>
+    <style type="text/css">
+      code {
+        white-space: pre-wrap;
+      }
+      span.smallcaps {
+        font-variant: small-caps;
+      }
+      span.underline {
+        text-decoration: underline;
+      }
+      div.column {
+        display: inline-block;
+        vertical-align: top;
+        width: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 id="implement-merge-sort">Implement Merge Sort</h1>
+    <p>
+      <a
+        href="https://www.freecodecamp.org/learn/coding-interview-prep/algorithms/implement-merge-sort"
+        >FCC link</a
+      >
+    </p>
+    <p>
+      Another common intermediate sorting algorithm is merge sort. Like quick
+      sort, merge sort also uses a divide-and-conquer, recursive methodology to
+      sort an array. It takes advantage of the fact that it is relatively easy
+      to sort two arrays as long as each is sorted in the first place. But we’ll
+      start with only one array as input, so how do we get to two sorted arrays
+      from that? Well, we can recursively divide the original input in two until
+      we reach the base case of an array with one item. A single-item array is
+      naturally sorted, so then we can start combining. This combination will
+      unwind the recursive calls that split the original array, eventually
+      producing a final sorted array of all the elements. The steps of merge
+      sort, then, are:
+    </p>
+    <p>
+      <strong>1)</strong> Recursively split the input array in half until a
+      sub-array with only one element is produced.
+    </p>
+    <p>
+      <strong>2)</strong> Merge each sorted sub-array together to produce the
+      final sorted array.
+    </p>
+    <p>
+      Merge sort is an efficient sorting method, with time complexity of
+      <em>O(nlog(n))</em>. This algorithm is popular because it is performant
+      and relatively easy to implement.
+    </p>
+    <p>
+      As an aside, this will be the last sorting algorithm we cover here.
+      However, later in the section on tree data structures we will describe
+      heap sort, another efficient sorting method that requires a binary heap in
+      its implementation.
+    </p>
+    <p>
+      <strong>Instructions:</strong> Write a function
+      <code>mergeSort</code> which takes an array of integers as input and
+      returns an array of these integers in sorted order from least to greatest.
+      A good way to implement this is to write one function, for instance
+      <code>merge</code>, which is responsible for merging two sorted arrays,
+      and another function, for instance <code>mergeSort</code>, which is
+      responsible for the recursion that produces single-item arrays to feed
+      into merge. Good luck!
+    </p>
+  </body>
 </html>

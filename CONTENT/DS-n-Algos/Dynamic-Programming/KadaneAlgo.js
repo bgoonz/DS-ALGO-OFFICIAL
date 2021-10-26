@@ -10,16 +10,16 @@
  */
 
 export function kadaneAlgo(array) {
-  let cummulativeSum = 0
-  let maxSum = Number.NEGATIVE_INFINITY // maxSum has the least posible value
+  let cummulativeSum = 0;
+  let maxSum = Number.NEGATIVE_INFINITY; // maxSum has the least posible value
   for (let i = 0; i < array.length; i++) {
-    cummulativeSum = cummulativeSum + array[i]
+    cummulativeSum = cummulativeSum + array[i];
     if (maxSum < cummulativeSum) {
-      maxSum = cummulativeSum
+      maxSum = cummulativeSum;
     } else if (cummulativeSum < 0) {
-      cummulativeSum = 0
+      cummulativeSum = 0;
     }
   }
-  return maxSum
+  return maxSum;
   // This function returns largest sum contiguous sum in a array
 }

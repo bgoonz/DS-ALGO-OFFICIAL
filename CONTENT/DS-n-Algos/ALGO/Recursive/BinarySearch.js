@@ -7,37 +7,40 @@ const BinarySearch = (intArr, searchQuery) => {
     searchQuery === undefined ||
     intArr.length === 0
   ) {
-    return false
+    return false;
   }
 
-  const middleIndex = intArr.length === 1 ? 0 : Math.ceil(intArr.length / 2)
+  const middleIndex = intArr.length === 1 ? 0 : Math.ceil(intArr.length / 2);
 
   if (intArr[middleIndex] === searchQuery) {
-    return true
+    return true;
   } else if (intArr.length > 1) {
     return intArr[middleIndex] < searchQuery
       ? BinarySearch(intArr.slice(1, middleIndex))
-      : BinarySearch(intArr.slice(middleIndex))
+      : BinarySearch(intArr.slice(middleIndex));
   } else {
-    return false
+    return false;
   }
-}
+};
 
 // testing
-;(() => {
+(() => {
   console.log(
-    'Number Present with odd array length: 5 = ',
+    "Number Present with odd array length: 5 = ",
     BinarySearch([1, 2, 3, 4, 5, 6, 7], 5)
-  )
+  );
   console.log(
-    'Number Present with even array length: 5 = ',
+    "Number Present with even array length: 5 = ",
     BinarySearch([1, 2, 4, 5, 6], 5)
-  )
+  );
   console.log(
-    'Number Present with only single element: 5 = ',
+    "Number Present with only single element: 5 = ",
     BinarySearch([5], 5)
-  )
-  console.log('Number Not Present: 0 = ', BinarySearch([1, 2, 3, 4, 5], 0))
-  console.log('Undefined number search query = ', BinarySearch([1, 2, 3, 4, 5]))
-  console.log('With Empty array = ', BinarySearch([], 1))
-})()
+  );
+  console.log("Number Not Present: 0 = ", BinarySearch([1, 2, 3, 4, 5], 0));
+  console.log(
+    "Undefined number search query = ",
+    BinarySearch([1, 2, 3, 4, 5])
+  );
+  console.log("With Empty array = ", BinarySearch([], 1));
+})();

@@ -1,22 +1,55 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
-<head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="pandoc" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>readme</title>
-  <style type="text/css">
-      code{white-space: pre-wrap;}
-      span.smallcaps{font-variant: small-caps;}
-      span.underline{text-decoration: underline;}
-      div.column{display: inline-block; vertical-align: top; width: 50%;}
-  </style>
-</head>
-<body>
-<h1 id="sorting-algorithmsgnome-sort">Sorting algorithms/Gnome sort</h1>
-<p><a href="https://www.freecodecamp.org/learn/coding-interview-prep/rosetta-code/sorting-algorithmsgnome-sort">FCC link</a></p>
-<p>Gnome sort is a sorting algorithm which is similar to <a href="https://rosettacode.org/wiki/Insertion%20sort">Insertion sort</a>, except that moving an element to its proper place is accomplished by a series of swaps, as in <a href="https://rosettacode.org/wiki/Bubble%20Sort">Bubble Sort</a>.</p>
-<p>The pseudocode for the algorithm is:</p>
-<p><strong>function</strong> <em>gnomeSort</em>(a[0..size-1]) i := 1 j := 2 <strong>while</strong> i &lt; size <strong>do</strong> <strong>if</strong> a[i-1] &lt;= a[i] <strong>then</strong> <em>/// for descending sort, use &gt;= for comparison</em> i := j j := j + 1 <strong>else</strong> <strong>swap</strong> a[i-1] <strong>and</strong> a[i] i := i - 1 <strong>if</strong> i = 0 <strong>then</strong> i := j j := j + 1 <strong>endif</strong> <strong>endif</strong> <strong>done</strong></p>
-</body>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="generator" content="pandoc" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=yes"
+    />
+    <title>readme</title>
+    <style type="text/css">
+      code {
+        white-space: pre-wrap;
+      }
+      span.smallcaps {
+        font-variant: small-caps;
+      }
+      span.underline {
+        text-decoration: underline;
+      }
+      div.column {
+        display: inline-block;
+        vertical-align: top;
+        width: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 id="sorting-algorithmsgnome-sort">Sorting algorithms/Gnome sort</h1>
+    <p>
+      <a
+        href="https://www.freecodecamp.org/learn/coding-interview-prep/rosetta-code/sorting-algorithmsgnome-sort"
+        >FCC link</a
+      >
+    </p>
+    <p>
+      Gnome sort is a sorting algorithm which is similar to
+      <a href="https://rosettacode.org/wiki/Insertion%20sort">Insertion sort</a
+      >, except that moving an element to its proper place is accomplished by a
+      series of swaps, as in
+      <a href="https://rosettacode.org/wiki/Bubble%20Sort">Bubble Sort</a>.
+    </p>
+    <p>The pseudocode for the algorithm is:</p>
+    <p>
+      <strong>function</strong> <em>gnomeSort</em>(a[0..size-1]) i := 1 j := 2
+      <strong>while</strong> i &lt; size <strong>do</strong>
+      <strong>if</strong> a[i-1] &lt;= a[i] <strong>then</strong>
+      <em>/// for descending sort, use &gt;= for comparison</em> i := j j := j +
+      1 <strong>else</strong> <strong>swap</strong> a[i-1]
+      <strong>and</strong> a[i] i := i - 1 <strong>if</strong> i = 0
+      <strong>then</strong> i := j j := j + 1 <strong>endif</strong>
+      <strong>endif</strong> <strong>done</strong>
+    </p>
+  </body>
 </html>

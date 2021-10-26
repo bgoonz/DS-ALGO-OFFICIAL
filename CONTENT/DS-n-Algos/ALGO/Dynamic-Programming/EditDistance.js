@@ -13,9 +13,9 @@ space complexity - O(n*m)
 */
 
 const minimumEditDistance = (word1, word2) => {
-  const n = word1.length
-  const m = word2.length
-  const dp = new Array(m + 1).fill(0).map((item) => [])
+  const n = word1.length;
+  const m = word2.length;
+  const dp = new Array(m + 1).fill(0).map((item) => []);
 
   /*
     fill dp matrix with default values -
@@ -24,11 +24,11 @@ const minimumEditDistance = (word1, word2) => {
     */
 
   for (let i = 0; i < n + 1; i++) {
-    dp[0][i] = i
+    dp[0][i] = i;
   }
 
   for (let i = 0; i < m + 1; i++) {
-    dp[i][0] = i
+    dp[i][0] = i;
   }
 
   /*
@@ -37,25 +37,25 @@ const minimumEditDistance = (word1, word2) => {
 
   for (let i = 1; i < m + 1; i++) {
     for (let j = 1; j < n + 1; j++) {
-      const letter1 = word1[j - 1]
-      const letter2 = word2[i - 1]
+      const letter1 = word1[j - 1];
+      const letter2 = word2[i - 1];
 
       if (letter1 === letter2) {
-        dp[i][j] = dp[i - 1][j - 1]
+        dp[i][j] = dp[i - 1][j - 1];
       } else {
-        dp[i][j] = Math.min(dp[i - 1][j], dp[i - 1][j - 1], dp[i][j - 1]) + 1
+        dp[i][j] = Math.min(dp[i - 1][j], dp[i - 1][j - 1], dp[i][j - 1]) + 1;
       }
     }
   }
 
-  return dp[m][n]
-}
+  return dp[m][n];
+};
 
 const main = () => {
-  console.log(minimumEditDistance('horse', 'ros'))
-  console.log(minimumEditDistance('cat', 'cut'))
-  console.log(minimumEditDistance('', 'abc'))
-  console.log(minimumEditDistance('google', 'glgool'))
-}
+  console.log(minimumEditDistance("horse", "ros"));
+  console.log(minimumEditDistance("cat", "cut"));
+  console.log(minimumEditDistance("", "abc"));
+  console.log(minimumEditDistance("google", "glgool"));
+};
 
-main()
+main();

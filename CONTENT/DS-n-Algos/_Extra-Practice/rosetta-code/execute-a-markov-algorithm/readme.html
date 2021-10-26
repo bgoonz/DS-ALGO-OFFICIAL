@@ -1,75 +1,195 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
-<head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="pandoc" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>readme</title>
-  <style type="text/css">
-      code{white-space: pre-wrap;}
-      span.smallcaps{font-variant: small-caps;}
-      span.underline{text-decoration: underline;}
-      div.column{display: inline-block; vertical-align: top; width: 50%;}
-  </style>
-</head>
-<body>
-<h1 id="execute-a-markov-algorithm">Execute a Markov algorithm</h1>
-<p><a href="https://www.freecodecamp.org/learn/coding-interview-prep/rosetta-code/execute-a-markov-algorithm">FCC link</a></p>
-<p>Create an interpreter for a <a href="https://en.wikipedia.org/wiki/Markov%20algorithm" title="wp: Markov algorithm">Markov Algorithm</a>.</p>
-<p>Rules have the syntax:</p>
-<p>[ruleset] ::= (([comment] | [rule]) [newline]+)* [comment] ::= # {[any character]} [rule] ::= [pattern] [whitespace] -&gt; [whitespace] [.] [replacement] [whitespace] ::= ([tab] | [space]) [[whitespace]]</p>
-<p>There is one rule per line.</p>
-<p>If there is a <code>.</code> (period) present before the [replacement], then this is a terminating rule in which case the interpreter must halt execution.</p>
-<p>A ruleset consists of a sequence of rules, with optional comments.</p>
-<p>Rulesets</p>
-<p>Use the following tests on entries:</p>
-<p><strong>Ruleset 1:</strong></p>
-<p># This rules file is extracted from Wikipedia:</p>
-<h1 id="httpen.wikipedia.orgwikimarkov_algorithm"><code>http://en.wikipedia.org/wiki/Markov_Algorithm</code></h1>
-<p>A -&gt; apple B -&gt; bag S -&gt; shop T -&gt; the the shop -&gt; my brother a never used -&gt; .terminating rule</p>
-<p>Sample text of <code>I bought a B of As from T S.</code> should generate the output <code>I bought a bag of apples from my brother.</code></p>
-<p><strong>Ruleset 2:</strong></p>
-<p>A test of the terminating rule</p>
-<p># Slightly modified from the rules on Wikipedia A -&gt; apple B -&gt; bag S -&gt; .shop T -&gt; the the shop -&gt; my brother a never used -&gt; .terminating rule</p>
-<p>Sample text of <code>I bought a B of As from T S.</code> should generate <code>I bought a bag of apples from T shop.</code></p>
-<p><strong>Ruleset 3:</strong></p>
-<p>This tests for correct substitution order and may trap simple regexp based replacement routines if special regexp characters are not escaped.</p>
-<p># BNF Syntax testing rules A -&gt; apple WWWW -&gt; with Bgage -&gt; -&gt;.* B -&gt; bag -&gt;.* -&gt; money W -&gt; WW S -&gt; .shop T -&gt; the the shop -&gt; my brother a never used -&gt; .terminating rule</p>
-<p>Sample text of <code>I bought a B of As W my Bgage from T S.</code> should generate <code>I bought a bag of apples with my money from T shop.</code></p>
-<p><strong>Ruleset 4:</strong></p>
-<p>This tests for correct order of scanning of rules, and may trap replacement routines that scan in the wrong order. It implements a general unary multiplication engine. (Note that the input expression must be placed within underscores in this implementation.)</p>
-<p>### Unary Multiplication Engine, for testing Markov Algorithm implementations</p>
-<h3 id="by-donal-fellows.">By Donal Fellows.</h3>
-<h1 id="unary-addition-engine">Unary addition engine</h1>
-<p>_+1 -&gt; _1+ 1+1 -&gt; 11+</p>
-<h1 id="pass-for-converting-from-the-splitting-of-multiplication-into-ordinary">Pass for converting from the splitting of multiplication into ordinary</h1>
-<h1 id="addition">addition</h1>
-<p>1! -&gt; !1 ,! -&gt; !+ _! -&gt; _</p>
-<h1 id="unary-multiplication-by-duplicating-left-side-right-side-times">Unary multiplication by duplicating left side, right side times</h1>
-<p>1*1 -&gt; x,<span class="citation" data-cites="y">@y</span> 1x -&gt; xX X, -&gt; 1,1 X1 -&gt; 1X _x -&gt; _X ,x -&gt; ,X y1 -&gt; 1y y_ -&gt; _</p>
-<h1 id="next-phase-of-applying">Next phase of applying</h1>
-<p>1@1 -&gt; x,<span class="citation" data-cites="y">@y</span> 1@_ -&gt; @_ ,@_ -&gt; !_ ++ -&gt; +</p>
-<h1 id="termination-cleanup-for-addition">Termination cleanup for addition</h1>
-<p>_1 -&gt; 1 1+_ -&gt; 1 _+_ -&gt;</p>
-<p>Sample text of <code>_1111*11111_</code> should generate the output <code>11111111111111111111</code></p>
-<p><strong>Ruleset 5:</strong></p>
-<p>A simple <a href="http://en.wikipedia.org/wiki/Turing_machine" title="link: http://en.wikipedia.org/wiki/Turing_machine">Turing machine</a>, implementing a three-state <a href="http://en.wikipedia.org/wiki/Busy_beaver" title="link: http://en.wikipedia.org/wiki/Busy_beaver">busy beaver</a>.</p>
-<p>The tape consists of <code>0</code>s and <code>1</code>s, the states are <code>A</code>, <code>B</code>, <code>C</code> and <code>H</code> (for <code>H</code>alt), and the head position is indicated by writing the state letter before the character where the head is. All parts of the initial tape the machine operates on have to be given in the input.</p>
-<p>Besides demonstrating that the Markov algorithm is Turing-complete, it also made me catch a bug in the C++ implementation which wasn’t caught by the first four rulesets.</p>
-<p># Turing machine: three-state busy beaver</p>
-<h1 id="section"></h1>
-<h1 id="state-a-symbol-0-write-1-move-right-new-state-b">state A, symbol 0 =&gt; write 1, move right, new state B</h1>
-<p>A0 -&gt; 1B</p>
-<h1 id="state-a-symbol-1-write-1-move-left-new-state-c">state A, symbol 1 =&gt; write 1, move left, new state C</h1>
-<p>0A1 -&gt; C01 1A1 -&gt; C11</p>
-<h1 id="state-b-symbol-0-write-1-move-left-new-state-a">state B, symbol 0 =&gt; write 1, move left, new state A</h1>
-<p>0B0 -&gt; A01 1B0 -&gt; A11</p>
-<h1 id="state-b-symbol-1-write-1-move-right-new-state-b">state B, symbol 1 =&gt; write 1, move right, new state B</h1>
-<p>B1 -&gt; 1B</p>
-<h1 id="state-c-symbol-0-write-1-move-left-new-state-b">state C, symbol 0 =&gt; write 1, move left, new state B</h1>
-<p>0C0 -&gt; B01 1C0 -&gt; B11</p>
-<h1 id="state-c-symbol-1-write-1-move-left-halt">state C, symbol 1 =&gt; write 1, move left, halt</h1>
-<p>0C1 -&gt; H01 1C1 -&gt; H11</p>
-<p>This ruleset should turn <code>000000A000000</code> into <code>00011H1111000</code></p>
-</body>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="generator" content="pandoc" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=yes"
+    />
+    <title>readme</title>
+    <style type="text/css">
+      code {
+        white-space: pre-wrap;
+      }
+      span.smallcaps {
+        font-variant: small-caps;
+      }
+      span.underline {
+        text-decoration: underline;
+      }
+      div.column {
+        display: inline-block;
+        vertical-align: top;
+        width: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 id="execute-a-markov-algorithm">Execute a Markov algorithm</h1>
+    <p>
+      <a
+        href="https://www.freecodecamp.org/learn/coding-interview-prep/rosetta-code/execute-a-markov-algorithm"
+        >FCC link</a
+      >
+    </p>
+    <p>
+      Create an interpreter for a
+      <a
+        href="https://en.wikipedia.org/wiki/Markov%20algorithm"
+        title="wp: Markov algorithm"
+        >Markov Algorithm</a
+      >.
+    </p>
+    <p>Rules have the syntax:</p>
+    <p>
+      [ruleset] ::= (([comment] | [rule]) [newline]+)* [comment] ::= # {[any
+      character]} [rule] ::= [pattern] [whitespace] -&gt; [whitespace] [.]
+      [replacement] [whitespace] ::= ([tab] | [space]) [[whitespace]]
+    </p>
+    <p>There is one rule per line.</p>
+    <p>
+      If there is a <code>.</code> (period) present before the [replacement],
+      then this is a terminating rule in which case the interpreter must halt
+      execution.
+    </p>
+    <p>A ruleset consists of a sequence of rules, with optional comments.</p>
+    <p>Rulesets</p>
+    <p>Use the following tests on entries:</p>
+    <p><strong>Ruleset 1:</strong></p>
+    <p># This rules file is extracted from Wikipedia:</p>
+    <h1 id="httpen.wikipedia.orgwikimarkov_algorithm">
+      <code>http://en.wikipedia.org/wiki/Markov_Algorithm</code>
+    </h1>
+    <p>
+      A -&gt; apple B -&gt; bag S -&gt; shop T -&gt; the the shop -&gt; my
+      brother a never used -&gt; .terminating rule
+    </p>
+    <p>
+      Sample text of <code>I bought a B of As from T S.</code> should generate
+      the output <code>I bought a bag of apples from my brother.</code>
+    </p>
+    <p><strong>Ruleset 2:</strong></p>
+    <p>A test of the terminating rule</p>
+    <p>
+      # Slightly modified from the rules on Wikipedia A -&gt; apple B -&gt; bag
+      S -&gt; .shop T -&gt; the the shop -&gt; my brother a never used -&gt;
+      .terminating rule
+    </p>
+    <p>
+      Sample text of <code>I bought a B of As from T S.</code> should generate
+      <code>I bought a bag of apples from T shop.</code>
+    </p>
+    <p><strong>Ruleset 3:</strong></p>
+    <p>
+      This tests for correct substitution order and may trap simple regexp based
+      replacement routines if special regexp characters are not escaped.
+    </p>
+    <p>
+      # BNF Syntax testing rules A -&gt; apple WWWW -&gt; with Bgage -&gt;
+      -&gt;.* B -&gt; bag -&gt;.* -&gt; money W -&gt; WW S -&gt; .shop T -&gt;
+      the the shop -&gt; my brother a never used -&gt; .terminating rule
+    </p>
+    <p>
+      Sample text of <code>I bought a B of As W my Bgage from T S.</code> should
+      generate <code>I bought a bag of apples with my money from T shop.</code>
+    </p>
+    <p><strong>Ruleset 4:</strong></p>
+    <p>
+      This tests for correct order of scanning of rules, and may trap
+      replacement routines that scan in the wrong order. It implements a general
+      unary multiplication engine. (Note that the input expression must be
+      placed within underscores in this implementation.)
+    </p>
+    <p>
+      ### Unary Multiplication Engine, for testing Markov Algorithm
+      implementations
+    </p>
+    <h3 id="by-donal-fellows.">By Donal Fellows.</h3>
+    <h1 id="unary-addition-engine">Unary addition engine</h1>
+    <p>_+1 -&gt; _1+ 1+1 -&gt; 11+</p>
+    <h1
+      id="pass-for-converting-from-the-splitting-of-multiplication-into-ordinary"
+    >
+      Pass for converting from the splitting of multiplication into ordinary
+    </h1>
+    <h1 id="addition">addition</h1>
+    <p>1! -&gt; !1 ,! -&gt; !+ _! -&gt; _</p>
+    <h1 id="unary-multiplication-by-duplicating-left-side-right-side-times">
+      Unary multiplication by duplicating left side, right side times
+    </h1>
+    <p>
+      1*1 -&gt; x,<span class="citation" data-cites="y">@y</span> 1x -&gt; xX X,
+      -&gt; 1,1 X1 -&gt; 1X _x -&gt; _X ,x -&gt; ,X y1 -&gt; 1y y_ -&gt; _
+    </p>
+    <h1 id="next-phase-of-applying">Next phase of applying</h1>
+    <p>
+      1@1 -&gt; x,<span class="citation" data-cites="y">@y</span> 1@_ -&gt; @_
+      ,@_ -&gt; !_ ++ -&gt; +
+    </p>
+    <h1 id="termination-cleanup-for-addition">
+      Termination cleanup for addition
+    </h1>
+    <p>_1 -&gt; 1 1+_ -&gt; 1 _+_ -&gt;</p>
+    <p>
+      Sample text of <code>_1111*11111_</code> should generate the output
+      <code>11111111111111111111</code>
+    </p>
+    <p><strong>Ruleset 5:</strong></p>
+    <p>
+      A simple
+      <a
+        href="http://en.wikipedia.org/wiki/Turing_machine"
+        title="link: http://en.wikipedia.org/wiki/Turing_machine"
+        >Turing machine</a
+      >, implementing a three-state
+      <a
+        href="http://en.wikipedia.org/wiki/Busy_beaver"
+        title="link: http://en.wikipedia.org/wiki/Busy_beaver"
+        >busy beaver</a
+      >.
+    </p>
+    <p>
+      The tape consists of <code>0</code>s and <code>1</code>s, the states are
+      <code>A</code>, <code>B</code>, <code>C</code> and <code>H</code> (for
+      <code>H</code>alt), and the head position is indicated by writing the
+      state letter before the character where the head is. All parts of the
+      initial tape the machine operates on have to be given in the input.
+    </p>
+    <p>
+      Besides demonstrating that the Markov algorithm is Turing-complete, it
+      also made me catch a bug in the C++ implementation which wasn’t caught by
+      the first four rulesets.
+    </p>
+    <p># Turing machine: three-state busy beaver</p>
+    <h1 id="section"></h1>
+    <h1 id="state-a-symbol-0-write-1-move-right-new-state-b">
+      state A, symbol 0 =&gt; write 1, move right, new state B
+    </h1>
+    <p>A0 -&gt; 1B</p>
+    <h1 id="state-a-symbol-1-write-1-move-left-new-state-c">
+      state A, symbol 1 =&gt; write 1, move left, new state C
+    </h1>
+    <p>0A1 -&gt; C01 1A1 -&gt; C11</p>
+    <h1 id="state-b-symbol-0-write-1-move-left-new-state-a">
+      state B, symbol 0 =&gt; write 1, move left, new state A
+    </h1>
+    <p>0B0 -&gt; A01 1B0 -&gt; A11</p>
+    <h1 id="state-b-symbol-1-write-1-move-right-new-state-b">
+      state B, symbol 1 =&gt; write 1, move right, new state B
+    </h1>
+    <p>B1 -&gt; 1B</p>
+    <h1 id="state-c-symbol-0-write-1-move-left-new-state-b">
+      state C, symbol 0 =&gt; write 1, move left, new state B
+    </h1>
+    <p>0C0 -&gt; B01 1C0 -&gt; B11</p>
+    <h1 id="state-c-symbol-1-write-1-move-left-halt">
+      state C, symbol 1 =&gt; write 1, move left, halt
+    </h1>
+    <p>0C1 -&gt; H01 1C1 -&gt; H11</p>
+    <p>
+      This ruleset should turn <code>000000A000000</code> into
+      <code>00011H1111000</code>
+    </p>
+  </body>
 </html>

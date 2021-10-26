@@ -14,14 +14,14 @@ const neighbors = [
   [0, 1],
   [1, -1],
   [1, 0],
-  [1, 1]
-]
+  [1, 1],
+];
 
-const black = [0, 0, 0]
-const green = [0, 255, 0]
-const violet = [255, 0, 255]
-const white = [255, 255, 255]
-const orange = [255, 128, 0] // eslint-disable-line
+const black = [0, 0, 0];
+const green = [0, 255, 0];
+const violet = [255, 0, 255];
+const white = [255, 255, 255];
+const orange = [255, 128, 0]; // eslint-disable-line
 
 /*
 Doctests
@@ -54,14 +54,14 @@ function breadthFirstSearch(rgbData, location, targetColor, replacementColor) {
     location[1] < 0 ||
     location[1] >= rgbData[0].length
   ) {
-    throw new Error('location should point to a pixel within the rgbData')
+    throw new Error("location should point to a pixel within the rgbData");
   }
 
-  const queue = []
-  queue.push(location)
+  const queue = [];
+  queue.push(location);
 
   while (queue.length > 0) {
-    breadthFirstFill(rgbData, location, targetColor, replacementColor, queue)
+    breadthFirstFill(rgbData, location, targetColor, replacementColor, queue);
   }
 }
 
@@ -80,10 +80,10 @@ function depthFirstSearch(rgbData, location, targetColor, replacementColor) {
     location[1] < 0 ||
     location[1] >= rgbData[0].length
   ) {
-    throw new Error('location should point to a pixel within the rgbData')
+    throw new Error("location should point to a pixel within the rgbData");
   }
 
-  depthFirstFill(rgbData, location, targetColor, replacementColor)
+  depthFirstFill(rgbData, location, targetColor, replacementColor);
 }
 
 /**
@@ -102,17 +102,17 @@ function breadthFirstFill(
   replacementColor,
   queue
 ) {
-  const currentLocation = queue[0]
-  queue.shift()
+  const currentLocation = queue[0];
+  queue.shift();
 
   if (rgbData[currentLocation[0]][currentLocation[1]] === targetColor) {
-    rgbData[currentLocation[0]][currentLocation[1]] = replacementColor
+    rgbData[currentLocation[0]][currentLocation[1]] = replacementColor;
 
     for (let i = 0; i < neighbors.length; i++) {
-      const x = currentLocation[0] + neighbors[i][0]
-      const y = currentLocation[1] + neighbors[i][1]
+      const x = currentLocation[0] + neighbors[i][0];
+      const y = currentLocation[1] + neighbors[i][1];
       if (x >= 0 && x < rgbData.length && y >= 0 && y < rgbData[0].length) {
-        queue.push([x, y])
+        queue.push([x, y]);
       }
     }
   }
@@ -128,13 +128,13 @@ function breadthFirstFill(
  */
 function depthFirstFill(rgbData, location, targetColor, replacementColor) {
   if (rgbData[location[0]][location[1]] === targetColor) {
-    rgbData[location[0]][location[1]] = replacementColor
+    rgbData[location[0]][location[1]] = replacementColor;
 
     for (let i = 0; i < neighbors.length; i++) {
-      const x = location[0] + neighbors[i][0]
-      const y = location[1] + neighbors[i][1]
+      const x = location[0] + neighbors[i][0];
+      const y = location[1] + neighbors[i][1];
       if (x >= 0 && x < rgbData.length && y >= 0 && y < rgbData[0].length) {
-        depthFirstFill(rgbData, [x, y], targetColor, replacementColor)
+        depthFirstFill(rgbData, [x, y], targetColor, replacementColor);
       }
     }
   }
@@ -153,19 +153,19 @@ function generateTestRgbData() {
     [black, black, green, black, white, white, green],
     [violet, violet, black, violet, violet, white, white],
     [green, green, green, violet, violet, violet, violet],
-    [violet, violet, violet, violet, violet, violet, violet]
-  ]
+    [violet, violet, violet, violet, violet, violet, violet],
+  ];
 
   // transpose layout-matrix so the x-index comes before the y-index
-  const transposed = []
+  const transposed = [];
   for (let x = 0; x < layout[0].length; x++) {
-    transposed[x] = []
+    transposed[x] = [];
     for (let y = 0; y < layout.length; y++) {
-      transposed[x][y] = layout[y][x]
+      transposed[x][y] = layout[y][x];
     }
   }
 
-  return transposed
+  return transposed;
 }
 
 /**
@@ -184,9 +184,9 @@ function testBreadthFirst(
   testLocation
 ) {
   // eslint-disable-line
-  const rgbData = generateTestRgbData()
-  breadthFirstSearch(rgbData, fillLocation, targetColor, replacementColor)
-  return rgbData[testLocation[0]][testLocation[1]]
+  const rgbData = generateTestRgbData();
+  breadthFirstSearch(rgbData, fillLocation, targetColor, replacementColor);
+  return rgbData[testLocation[0]][testLocation[1]];
 }
 
 /**
@@ -205,7 +205,7 @@ function testDepthFirst(
   testLocation
 ) {
   // eslint-disable-line
-  const rgbData = generateTestRgbData()
-  depthFirstSearch(rgbData, fillLocation, targetColor, replacementColor)
-  return rgbData[testLocation[0]][testLocation[1]]
+  const rgbData = generateTestRgbData();
+  depthFirstSearch(rgbData, fillLocation, targetColor, replacementColor);
+  return rgbData[testLocation[0]][testLocation[1]];
 }

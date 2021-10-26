@@ -71,7 +71,7 @@ class Set {
     return newSet;
   }
 
-  difference({dictionary}) {
+  difference({ dictionary }) {
     const newSet = new Set();
 
     this.values().forEach((value) => {

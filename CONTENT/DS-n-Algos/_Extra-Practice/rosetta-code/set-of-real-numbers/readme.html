@@ -1,40 +1,114 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
-<head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="pandoc" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>readme</title>
-  <style type="text/css">
-      code{white-space: pre-wrap;}
-      span.smallcaps{font-variant: small-caps;}
-      span.underline{text-decoration: underline;}
-      div.column{display: inline-block; vertical-align: top; width: 50%;}
-  </style>
-</head>
-<body>
-<h1 id="set-of-real-numbers">Set of real numbers</h1>
-<p><a href="https://www.freecodecamp.org/learn/coding-interview-prep/rosetta-code/set-of-real-numbers">FCC link</a></p>
-<p>All real numbers form the uncountable set ℝ. Among its subsets, relatively simple are the convex sets, each expressed as a range between two real numbers <em>a</em> and <em>b</em> where <em>a</em> ≤ <em>b</em>. There are actually four cases for the meaning of “between”, depending on open or closed boundary:</p>
-<ul>
-<li>[<em>a</em>, <em>b</em>]: {<em>x</em> | <em>a</em> ≤ <em>x</em> and <em>x</em> ≤ <em>b</em> }</li>
-<li>(<em>a</em>, <em>b</em>): {<em>x</em> | <em>a</em> &lt; <em>x</em> and <em>x</em> &lt; <em>b</em> }</li>
-<li>[<em>a</em>, <em>b</em>): {<em>x</em> | <em>a</em> ≤ <em>x</em> and <em>x</em> &lt; <em>b</em> }</li>
-<li>(<em>a</em>, <em>b</em>]: {<em>x</em> | <em>a</em> &lt; <em>x</em> and <em>x</em> ≤ <em>b</em> }</li>
-</ul>
-<p>Note that if <em>a</em> = <em>b</em>, of the four only [<em>a</em>, <em>a</em>] would be non-empty.</p>
-<p><strong>Task</strong></p>
-<ul>
-<li>Devise a way to represent any set of real numbers, for the definition of “any” in the implementation notes below.</li>
-<li><p>Provide methods for these common set operations (<em>x</em> is a real number; <em>A</em> and <em>B</em> are sets):</p></li>
-<li><p><em>x</em> ∈ <em>A</em>: determine if <em>x</em> is an element of <em>A</em></p>
-<p>example: 1 is in [1, 2), while 2, 3, … are not.</p></li>
-<li><p><em>A</em> ∪ <em>B</em>: union of <em>A</em> and <em>B</em>, i.e. {<em>x</em> | <em>x</em> ∈ <em>A</em> or <em>x</em> ∈ <em>B</em>}</p>
-<p>example: [0, 2) ∪ (1, 3) = [0, 3); [0, 1) ∪ (2, 3] = well, [0, 1) ∪ (2, 3]</p></li>
-<li><p><em>A</em> ∩ <em>B</em>: intersection of <em>A</em> and <em>B</em>, i.e. {<em>x</em> | <em>x</em> ∈ <em>A</em> and <em>x</em> ∈ <em>B</em>}</p>
-<p>example: [0, 2) ∩ (1, 3) = (1, 2); [0, 1) ∩ (2, 3] = empty set</p></li>
-<li><p><em>A</em> - <em>B</em>: difference between <em>A</em> and <em>B</em>, also written as <em>A</em> \ <em>B</em>, i.e. {<em>x</em> | <em>x</em> ∈ <em>A</em> and <em>x</em> ∉ <em>B</em>}</p>
-<p>example: [0, 2) − (1, 3) = [0, 1]</p></li>
-</ul>
-</body>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="generator" content="pandoc" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=yes"
+    />
+    <title>readme</title>
+    <style type="text/css">
+      code {
+        white-space: pre-wrap;
+      }
+      span.smallcaps {
+        font-variant: small-caps;
+      }
+      span.underline {
+        text-decoration: underline;
+      }
+      div.column {
+        display: inline-block;
+        vertical-align: top;
+        width: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 id="set-of-real-numbers">Set of real numbers</h1>
+    <p>
+      <a
+        href="https://www.freecodecamp.org/learn/coding-interview-prep/rosetta-code/set-of-real-numbers"
+        >FCC link</a
+      >
+    </p>
+    <p>
+      All real numbers form the uncountable set ℝ. Among its subsets, relatively
+      simple are the convex sets, each expressed as a range between two real
+      numbers <em>a</em> and <em>b</em> where <em>a</em> ≤ <em>b</em>. There are
+      actually four cases for the meaning of “between”, depending on open or
+      closed boundary:
+    </p>
+    <ul>
+      <li>
+        [<em>a</em>, <em>b</em>]: {<em>x</em> | <em>a</em> ≤ <em>x</em> and
+        <em>x</em> ≤ <em>b</em> }
+      </li>
+      <li>
+        (<em>a</em>, <em>b</em>): {<em>x</em> | <em>a</em> &lt; <em>x</em> and
+        <em>x</em> &lt; <em>b</em> }
+      </li>
+      <li>
+        [<em>a</em>, <em>b</em>): {<em>x</em> | <em>a</em> ≤ <em>x</em> and
+        <em>x</em> &lt; <em>b</em> }
+      </li>
+      <li>
+        (<em>a</em>, <em>b</em>]: {<em>x</em> | <em>a</em> &lt; <em>x</em> and
+        <em>x</em> ≤ <em>b</em> }
+      </li>
+    </ul>
+    <p>
+      Note that if <em>a</em> = <em>b</em>, of the four only [<em>a</em>,
+      <em>a</em>] would be non-empty.
+    </p>
+    <p><strong>Task</strong></p>
+    <ul>
+      <li>
+        Devise a way to represent any set of real numbers, for the definition of
+        “any” in the implementation notes below.
+      </li>
+      <li>
+        <p>
+          Provide methods for these common set operations (<em>x</em> is a real
+          number; <em>A</em> and <em>B</em> are sets):
+        </p>
+      </li>
+      <li>
+        <p>
+          <em>x</em> ∈ <em>A</em>: determine if <em>x</em> is an element of
+          <em>A</em>
+        </p>
+        <p>example: 1 is in [1, 2), while 2, 3, … are not.</p>
+      </li>
+      <li>
+        <p>
+          <em>A</em> ∪ <em>B</em>: union of <em>A</em> and <em>B</em>, i.e. {<em
+            >x</em
+          >
+          | <em>x</em> ∈ <em>A</em> or <em>x</em> ∈ <em>B</em>}
+        </p>
+        <p>
+          example: [0, 2) ∪ (1, 3) = [0, 3); [0, 1) ∪ (2, 3] = well, [0, 1) ∪
+          (2, 3]
+        </p>
+      </li>
+      <li>
+        <p>
+          <em>A</em> ∩ <em>B</em>: intersection of <em>A</em> and <em>B</em>,
+          i.e. {<em>x</em> | <em>x</em> ∈ <em>A</em> and <em>x</em> ∈
+          <em>B</em>}
+        </p>
+        <p>example: [0, 2) ∩ (1, 3) = (1, 2); [0, 1) ∩ (2, 3] = empty set</p>
+      </li>
+      <li>
+        <p>
+          <em>A</em> - <em>B</em>: difference between <em>A</em> and <em>B</em>,
+          also written as <em>A</em> \ <em>B</em>, i.e. {<em>x</em> |
+          <em>x</em> ∈ <em>A</em> and <em>x</em> ∉ <em>B</em>}
+        </p>
+        <p>example: [0, 2) − (1, 3) = [0, 1]</p>
+      </li>
+    </ul>
+  </body>
 </html>

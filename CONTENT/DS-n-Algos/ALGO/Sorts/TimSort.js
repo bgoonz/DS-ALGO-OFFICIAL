@@ -12,20 +12,20 @@
 
 const Timsort = (array) => {
   // Default size of a partition
-  const RUN = 32
-  const n = array.length
+  const RUN = 32;
+  const n = array.length;
   // Sorting the partitions using Insertion Sort
   for (let i = 0; i < n; i += RUN) {
-    InsertionSort(array, i, Math.min(i + RUN - 1, n - 1))
+    InsertionSort(array, i, Math.min(i + RUN - 1, n - 1));
   }
   for (let size = RUN; size < n; size *= 2) {
     for (let left = 0; left < n; left += 2 * size) {
-      const mid = left + size - 1
-      const right = Math.min(left + 2 * size - 1, n - 1)
-      Merge(array, left, mid, right)
+      const mid = left + size - 1;
+      const right = Math.min(left + 2 * size - 1, n - 1);
+      Merge(array, left, mid, right);
     }
   }
-}
+};
 
 /**
  * @function performs insertion sort on the partition
@@ -36,15 +36,15 @@ const Timsort = (array) => {
 
 const InsertionSort = (array, left, right) => {
   for (let i = left + 1; i <= right; i++) {
-    const key = array[i]
-    let j = i - 1
+    const key = array[i];
+    let j = i - 1;
     while (j >= left && array[j] > key) {
-      array[j + 1] = array[j]
-      j--
+      array[j + 1] = array[j];
+      j--;
     }
-    array[j + 1] = key
+    array[j + 1] = key;
   }
-}
+};
 
 /**
  * @function merges two sorted partitions
@@ -55,34 +55,34 @@ const InsertionSort = (array, left, right) => {
  */
 
 const Merge = (array, left, mid, right) => {
-  if (mid >= right) return
-  const len1 = mid - left + 1
-  const len2 = right - mid
-  const larr = Array(len1)
-  const rarr = Array(len2)
+  if (mid >= right) return;
+  const len1 = mid - left + 1;
+  const len2 = right - mid;
+  const larr = Array(len1);
+  const rarr = Array(len2);
   for (let i = 0; i < len1; i++) {
-    larr[i] = array[left + i]
+    larr[i] = array[left + i];
   }
   for (let i = 0; i < len2; i++) {
-    rarr[i] = array[mid + 1 + i]
+    rarr[i] = array[mid + 1 + i];
   }
-  let i = 0
-  let j = 0
-  let k = left
+  let i = 0;
+  let j = 0;
+  let k = left;
   while (i < larr.length && j < rarr.length) {
     if (larr[i] < rarr[j]) {
-      array[k++] = larr[i++]
+      array[k++] = larr[i++];
     } else {
-      array[k++] = rarr[j++]
+      array[k++] = rarr[j++];
     }
   }
   while (i < larr.length) {
-    array[k++] = larr[i++]
+    array[k++] = larr[i++];
   }
   while (j < rarr.length) {
-    array[k++] = rarr[j++]
+    array[k++] = rarr[j++];
   }
-}
+};
 
 /**
  * @example Test of Timsort functions.
@@ -90,23 +90,23 @@ const Merge = (array, left, mid, right) => {
  * Prints "RIGHT" if it works as expected,
  * otherwise "FAULTY"
  */
-;(() => {
-  const size = 1000000
-  const data = Array(size)
+(() => {
+  const size = 1000000;
+  const data = Array(size);
   for (let i = 0; i < size; i++) {
-    data[i] = Math.random() * Number.MAX_SAFE_INTEGER
+    data[i] = Math.random() * Number.MAX_SAFE_INTEGER;
   }
   const isSorted = function (array) {
-    const n = array.length
+    const n = array.length;
     for (let i = 0; i < n - 1; i++) {
-      if (array[i] > array[i + 1]) return false
+      if (array[i] > array[i + 1]) return false;
     }
-    return true
-  }
-  Timsort(data)
+    return true;
+  };
+  Timsort(data);
   if (isSorted(data)) {
-    console.log('RIGHT')
+    console.log("RIGHT");
   } else {
-    console.log('FAULTY')
+    console.log("FAULTY");
   }
-})()
+})();
