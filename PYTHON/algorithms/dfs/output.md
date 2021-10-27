@@ -1,19 +1,17 @@
 """
 Numbers can be regarded as product of its factors. For example,
 8 = 2 x 2 x 2;
-  = 2 x 4.
-
+= 2 x 4.
 
 Write a function that takes an integer n and return all possible combinations
 of its factors.Numbers can be regarded as product of its factors. For example,
 8 = 2 x 2 x 2;
-  = 2 x 4.
+= 2 x 4.
 
 Examples:
 input: 1
 output:
 []
-
 
 input: 37
 output:
@@ -22,19 +20,18 @@ output:
 input: 32
 output:
 [
-  [2, 16],
-  [2, 2, 8],
-  [2, 2, 2, 4],
-  [2, 2, 2, 2, 2],
+[2, 16],
+[2, 2, 8],
+[2, 2, 2, 4],
+[2, 2, 2, 2, 2],
 """
 
-
 def get_factors(n):
-    """[summary]
-    
+"""[summary]
+
     Arguments:
         n {[int]} -- [to analysed number]
-    
+
     Returns:
         [list of lists] -- [all factors of the number n]
     """
@@ -48,7 +45,7 @@ def get_factors(n):
             i {[int]} -- [to tested divisor]
             combi {[list]} -- [catch divisors]
             res {[list]} -- [all factors of the number n]
-        
+
         Returns:
             [list] -- [res]
         """
@@ -62,16 +59,15 @@ def get_factors(n):
 
     return factor(n, 2, [], [])
 
-
 def get_factors_iterative1(n):
-    """[summary]
-    Computes all factors of n.
-    Translated the function get_factors(...) in
-    a call-stack modell.
+"""[summary]
+Computes all factors of n.
+Translated the function get_factors(...) in
+a call-stack modell.
 
     Arguments:
         n {[int]} -- [to analysed number]
-    
+
     Returns:
         [list of lists] -- [all factors]
     """
@@ -86,14 +82,13 @@ def get_factors_iterative1(n):
             i += 1
     return res
 
-
 def get_factors_iterative2(n):
-    """[summary]
-    analog as above
+"""[summary]
+analog as above
 
     Arguments:
         n {[int]} -- [description]
-    
+
     Returns:
         [list of lists] -- [all factors of n]
     """
@@ -137,34 +132,32 @@ Example 2:
 Answer: 3
 """
 
-
 def num_islands(grid):
-    count = 0
-    for i in range(len(grid)):
-        for j, col in enumerate(grid[i]):
-            if col == 1:
-                dfs(grid, i, j)
-                count += 1
-    return count
-
+count = 0
+for i in range(len(grid)):
+for j, col in enumerate(grid[i]):
+if col == 1:
+dfs(grid, i, j)
+count += 1
+return count
 
 def dfs(grid, i, j):
-    if (i < 0 or i >= len(grid)) or (j < 0 or j >= len(grid[0])):
-        return
-    if grid[i][j] != 1:
-        return
-    grid[i][j] = 0
-    dfs(grid, i + 1, j)
-    dfs(grid, i - 1, j)
-    dfs(grid, i, j + 1)
-    dfs(grid, i, j - 1)
+if (i < 0 or i >= len(grid)) or (j < 0 or j >= len(grid[0])):
+return
+if grid[i][j] != 1:
+return
+grid[i][j] = 0
+dfs(grid, i + 1, j)
+dfs(grid, i - 1, j)
+dfs(grid, i, j + 1)
+dfs(grid, i, j - 1)
 
-from .all_factors import *
-from .count_islands import *
-from .pacific_atlantic import *
-from .sudoku_solver import *
-from .walls_and_gates import *
-from .maze_search import *
+from .all_factors import _
+from .count_islands import _
+from .pacific_atlantic import _
+from .sudoku_solver import _
+from .walls_and_gates import _
+from .maze_search import _
 
 """
 Find shortest path from top left column to the right lowest column using DFS.
@@ -188,14 +181,12 @@ If maze is
 the answer is: -1
 """
 
-
 def find_path(maze):
-    cnt = dfs(maze, 0, 0, 0, -1)
-    return cnt
-
+cnt = dfs(maze, 0, 0, 0, -1)
+return cnt
 
 def dfs(maze, i, j, depth, cnt):
-    directions = [(0, -1), (0, 1), (-1, 0), (1, 0)]
+directions = [(0, -1), (0, 1), (-1, 0), (1, 0)]
 
     row = len(maze)
     col = len(maze[0])
@@ -223,74 +214,87 @@ def dfs(maze, i, j, depth, cnt):
     return cnt
 
 # Given an m x n matrix of non-negative integers representing
+
 # the height of each unit cell in a continent,
+
 # the "Pacific ocean" touches the left and top edges of the matrix
+
 # and the "Atlantic ocean" touches the right and bottom edges.
 
 # Water can only flow in four directions (up, down, left, or right)
+
 # from a cell to another one with height equal or lower.
 
 # Find the list of grid coordinates where water can flow to both the
+
 # Pacific and Atlantic ocean.
 
 # Note:
+
 # The order of returned grid coordinates does not matter.
+
 # Both m and n are less than 150.
+
 # Example:
 
 # Given the following 5x5 matrix:
 
-# Pacific ~   ~   ~   ~   ~
-# ~  1   2   2   3  (5) *
-# ~  3   2   3  (4) (4) *
-# ~  2   4  (5)  3   1  *
-# ~ (6) (7)  1   4   5  *
-# ~ (5)  1   1   2   4  *
-# *   *   *   *   * Atlantic
+# Pacific ~ ~ ~ ~ ~
+
+# ~ 1 2 2 3 (5) \*
+
+# ~ 3 2 3 (4) (4) \*
+
+# ~ 2 4 (5) 3 1 \*
+
+# ~ (6) (7) 1 4 5 \*
+
+# ~ (5) 1 1 2 4 \*
+
+# \* \* \* \* \* Atlantic
 
 # Return:
 
 # [[0, 4], [1, 3], [1, 4], [2, 2], [3, 0], [3, 1], [4, 0]]
+
 # (positions with parentheses in above matrix).
 
-
-def pacific_atlantic(matrix):
-    """
-    :type matrix: List[List[int]]
-    :rtype: List[List[int]]
-    """
-    n = len(matrix)
-    if not n:
-        return []
-    m = len(matrix[0])
-    if not m:
-        return []
-    res = []
-    atlantic = [[False for _ in range(n)] for _ in range(m)]
-    pacific = [[False for _ in range(n)] for _ in range(m)]
-    for i in range(n):
-        dfs(pacific, matrix, float("-inf"), i, 0)
-        dfs(atlantic, matrix, float("-inf"), i, m - 1)
-    for i in range(m):
-        dfs(pacific, matrix, float("-inf"), 0, i)
-        dfs(atlantic, matrix, float("-inf"), n - 1, i)
-    for i in range(n):
-        for j in range(m):
-            if pacific[i][j] and atlantic[i][j]:
-                res.append([i, j])
-    return res
-
+def pacific*atlantic(matrix):
+"""
+:type matrix: List[List[int]]
+:rtype: List[List[int]]
+"""
+n = len(matrix)
+if not n:
+return []
+m = len(matrix[0])
+if not m:
+return []
+res = []
+atlantic = [[False for * in range(n)] for _ in range(m)]
+pacific = [[False for _ in range(n)] for \_ in range(m)]
+for i in range(n):
+dfs(pacific, matrix, float("-inf"), i, 0)
+dfs(atlantic, matrix, float("-inf"), i, m - 1)
+for i in range(m):
+dfs(pacific, matrix, float("-inf"), 0, i)
+dfs(atlantic, matrix, float("-inf"), n - 1, i)
+for i in range(n):
+for j in range(m):
+if pacific[i][j] and atlantic[i][j]:
+res.append([i, j])
+return res
 
 def dfs(grid, matrix, height, i, j):
-    if i < 0 or i >= len(matrix) or j < 0 or j >= len(matrix[0]):
-        return
-    if grid[i][j] or matrix[i][j] < height:
-        return
-    grid[i][j] = True
-    dfs(grid, matrix, matrix[i][j], i - 1, j)
-    dfs(grid, matrix, matrix[i][j], i + 1, j)
-    dfs(grid, matrix, matrix[i][j], i, j - 1)
-    dfs(grid, matrix, matrix[i][j], i, j + 1)
+if i < 0 or i >= len(matrix) or j < 0 or j >= len(matrix[0]):
+return
+if grid[i][j] or matrix[i][j] < height:
+return
+grid[i][j] = True
+dfs(grid, matrix, matrix[i][j], i - 1, j)
+dfs(grid, matrix, matrix[i][j], i + 1, j)
+dfs(grid, matrix, matrix[i][j], i, j - 1)
+dfs(grid, matrix, matrix[i][j], i, j + 1)
 
 """
 It's similar to how human solve Sudoku.
@@ -305,23 +309,20 @@ Since we calculated val at the beginning and start filling the board from the
 location with fewest possible values, the amount of calculation and thus the
 runtime can be significantly reduced:
 
-
 The run time is 48-68 ms on LeetCode OJ, which seems to be among the fastest
 python solutions here.
-
 
 The PossibleVals function may be further simplified/optimized, but it works just
 fine for now. (it would look less lengthy if we are allowed to use numpy array
 for the board lol).
 """
 
-
 class Sudoku:
-    def __init__(self, board, row, col):
-        self.board = board
-        self.row = row
-        self.col = col
-        self.val = self.possible_values()
+def **init**(self, board, row, col):
+self.board = board
+self.row = row
+self.col = col
+self.val = self.possible_values()
 
     def possible_values(self):
         a = "123456789"
@@ -398,41 +399,38 @@ class Sudoku:
 
 """
 You are given a m x n 2D grid initialized with these three possible values:
-    -1: A wall or an obstacle.
-    0: A gate.
-    INF: Infinity means an empty room. We use the value 2^31 - 1 = 2147483647 to represent INF 
-         as you may assume that the distance to a gate is less than 2147483647.
+-1: A wall or an obstacle.
+0: A gate.
+INF: Infinity means an empty room. We use the value 2^31 - 1 = 2147483647 to represent INF
+as you may assume that the distance to a gate is less than 2147483647.
 Fill the empty room with distance to its nearest gate.
 If it is impossible to reach a gate, it should be filled with INF.
 
 For example, given the 2D grid:
-    INF -1  0   INF
-    INF INF INF -1
-    INF -1  INF -1
-    0   -1  INF INF
+INF -1 0 INF
+INF INF INF -1
+INF -1 INF -1
+0 -1 INF INF
 After running your function, the 2D grid should be:
-    3   -1  0   1
-    2   2   1   -1
-    1   -1  2   -1
-    0   -1  3   4
+3 -1 0 1
+2 2 1 -1
+1 -1 2 -1
+0 -1 3 4
 """
 
-
 def walls_and_gates(rooms):
-    for i in range(len(rooms)):
-        for j in range(len(rooms[0])):
-            if rooms[i][j] == 0:
-                dfs(rooms, i, j, 0)
-
+for i in range(len(rooms)):
+for j in range(len(rooms[0])):
+if rooms[i][j] == 0:
+dfs(rooms, i, j, 0)
 
 def dfs(rooms, i, j, depth):
-    if (i < 0 or i >= len(rooms)) or (j < 0 or j >= len(rooms[0])):
-        return  # out of bounds
-    if rooms[i][j] < depth:
-        return  # crossed
-    rooms[i][j] = depth
-    dfs(rooms, i + 1, j, depth + 1)
-    dfs(rooms, i - 1, j, depth + 1)
-    dfs(rooms, i, j + 1, depth + 1)
-    dfs(rooms, i, j - 1, depth + 1)
-
+if (i < 0 or i >= len(rooms)) or (j < 0 or j >= len(rooms[0])):
+return # out of bounds
+if rooms[i][j] < depth:
+return # crossed
+rooms[i][j] = depth
+dfs(rooms, i + 1, j, depth + 1)
+dfs(rooms, i - 1, j, depth + 1)
+dfs(rooms, i, j + 1, depth + 1)
+dfs(rooms, i, j - 1, depth + 1)

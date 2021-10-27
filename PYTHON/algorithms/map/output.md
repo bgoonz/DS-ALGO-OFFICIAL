@@ -1,14 +1,14 @@
 class HashTable(object):
-    """
-    HashMap Data Type
-    HashMap() Create a new, empty map. It returns an empty map collection.
-    put(key, val) Add a new key-value pair to the map. If the key is already in the map then replace
-                    the old value with the new value.
-    get(key) Given a key, return the value stored in the map or None otherwise.
-    del_(key) or del map[key] Delete the key-value pair from the map using a statement of the form del map[key].
-    len() Return the number of key-value pairs stored in the map.
-    in Return True for a statement of the form key in map, if the given key is in the map, False otherwise.
-    """
+"""
+HashMap Data Type
+HashMap() Create a new, empty map. It returns an empty map collection.
+put(key, val) Add a new key-value pair to the map. If the key is already in the map then replace
+the old value with the new value.
+get(key) Given a key, return the value stored in the map or None otherwise.
+del\_(key) or del map[key] Delete the key-value pair from the map using a statement of the form del map[key].
+len() Return the number of key-value pairs stored in the map.
+in Return True for a statement of the form key in map, if the given key is in the map, False otherwise.
+"""
 
     _empty = object()
     _deleted = object()
@@ -95,9 +95,8 @@ class HashTable(object):
     def __len__(self):
         return self._len
 
-
 class ResizableHashTable(HashTable):
-    MIN_SIZE = 8
+MIN_SIZE = 8
 
     def __init__(self):
         super().__init__(self.MIN_SIZE)
@@ -118,11 +117,11 @@ class ResizableHashTable(HashTable):
             if key is not self._empty and key is not self._deleted:
                 self.put(key, value)
 
-from .hashtable import *
-from .separate_chaining_hashtable import *
-from .word_pattern import *
-from .is_isomorphic import *
-from .is_anagram import *
+from .hashtable import _
+from .separate_chaining_hashtable import _
+from .word_pattern import _
+from .is_isomorphic import _
+from .is_anagram import \*
 
 """
 Given two strings s and t , write a function to determine if t is an anagram of s.
@@ -141,20 +140,19 @@ You may assume the string contains only lowercase alphabets.
 Reference: https://leetcode.com/problems/valid-anagram/description/
 """
 
-
 def is_anagram(s, t):
-    """
-    :type s: str
-    :type t: str
-    :rtype: bool
-    """
-    maps = {}
-    mapt = {}
-    for i in s:
-        maps[i] = maps.get(i, 0) + 1
-    for i in t:
-        mapt[i] = mapt.get(i, 0) + 1
-    return maps == mapt
+"""
+:type s: str
+:type t: str
+:rtype: bool
+"""
+maps = {}
+mapt = {}
+for i in s:
+maps[i] = maps.get(i, 0) + 1
+for i in t:
+mapt[i] = mapt.get(i, 0) + 1
+return maps == mapt
 
 """
 Given two strings s and t, determine if they are isomorphic.
@@ -177,27 +175,26 @@ Output: true
 Reference: https://leetcode.com/problems/isomorphic-strings/description/
 """
 
-
 def is_isomorphic(s, t):
-    """
-    :type s: str
-    :type t: str
-    :rtype: bool
-    """
-    if len(s) != len(t):
-        return False
-    dict = {}
-    set_value = set()
-    for i in range(len(s)):
-        if s[i] not in dict:
-            if t[i] in set_value:
-                return False
-            dict[s[i]] = t[i]
-            set_value.add(t[i])
-        else:
-            if dict[s[i]] != t[i]:
-                return False
-    return True
+"""
+:type s: str
+:type t: str
+:rtype: bool
+"""
+if len(s) != len(t):
+return False
+dict = {}
+set_value = set()
+for i in range(len(s)):
+if s[i] not in dict:
+if t[i] in set_value:
+return False
+dict[s[i]] = t[i]
+set_value.add(t[i])
+else:
+if dict[s[i]] != t[i]:
+return False
+return True
 
 """
 Given string a and b, with b containing all distinct characters,
@@ -206,30 +203,28 @@ find the longest common sub sequence's length.
 Expected complexity O(n logn).
 """
 
-
-def max_common_sub_string(s1, s2):
-    # Assuming s2 has all unique chars
-    s2dic = {s2[i]: i for i in range(len(s2))}
-    maxr = 0
-    subs = ""
-    i = 0
-    while i < len(s1):
-        if s1[i] in s2dic:
-            j = s2dic[s1[i]]
-            k = i
-            while j < len(s2) and k < len(s1) and s1[k] == s2[j]:
-                k += 1
-                j += 1
-            if k - i > maxr:
-                maxr = k - i
-                subs = s1[i:k]
-            i = k
-        else:
-            i += 1
-    return subs
+def max_common_sub_string(s1, s2): # Assuming s2 has all unique chars
+s2dic = {s2[i]: i for i in range(len(s2))}
+maxr = 0
+subs = ""
+i = 0
+while i < len(s1):
+if s1[i] in s2dic:
+j = s2dic[s1[i]]
+k = i
+while j < len(s2) and k < len(s1) and s1[k] == s2[j]:
+k += 1
+j += 1
+if k - i > maxr:
+maxr = k - i
+subs = s1[i:k]
+i = k
+else:
+i += 1
+return subs
 
 def longest_palindromic_subsequence(str):
-    n = len(str)
+n = len(str)
 
     # Create a table to store results of subproblems
     L = [[0 for x in range(n)] for x in range(n)]
@@ -259,14 +254,12 @@ getRandom: Returns a random element from current set of elements.
 Each element must have the same probability of being returned.
 """
 
-
 import random
 
-
 class RandomizedSet:
-    def __init__(self):
-        self.nums = []
-        self.idxs = {}
+def **init**(self):
+self.nums = []
+self.idxs = {}
 
     def insert(self, val):
         if val not in self.idxs:
@@ -288,35 +281,32 @@ class RandomizedSet:
         idx = random.randint(0, len(self.nums) - 1)
         return self.nums[idx]
 
-
-if __name__ == "__main__":
-    rs = RandomizedSet()
-    print("insert 1: ", rs.insert(1))
-    print("insert 2: ", rs.insert(2))
-    print("insert 3: ", rs.insert(3))
-    print("insert 4: ", rs.insert(4))
-    print("remove 3: ", rs.remove(3))
-    print("remove 3: ", rs.remove(3))
-    print("remove 1: ", rs.remove(1))
-    print("random: ", rs.get_random())
-    print("random: ", rs.get_random())
-    print("random: ", rs.get_random())
-    print("random: ", rs.get_random())
+if **name** == "**main**":
+rs = RandomizedSet()
+print("insert 1: ", rs.insert(1))
+print("insert 2: ", rs.insert(2))
+print("insert 3: ", rs.insert(3))
+print("insert 4: ", rs.insert(4))
+print("remove 3: ", rs.remove(3))
+print("remove 3: ", rs.remove(3))
+print("remove 1: ", rs.remove(1))
+print("random: ", rs.get_random())
+print("random: ", rs.get_random())
+print("random: ", rs.get_random())
+print("random: ", rs.get_random())
 
 import unittest
 
-
 class Node(object):
-    def __init__(self, key=None, value=None, next=None):
-        self.key = key
-        self.value = value
-        self.next = next
-
+def **init**(self, key=None, value=None, next=None):
+self.key = key
+self.value = value
+self.next = next
 
 class SeparateChainingHashTable(object):
-    """
-    HashTable Data Type:
-    By having each bucket contain a linked list of elements that are hashed to that bucket.
+"""
+HashTable Data Type:
+By having each bucket contain a linked list of elements that are hashed to that bucket.
 
     Usage:
     >>> table = SeparateChainingHashTable() # Create a new, empty map.
@@ -396,14 +386,13 @@ The Sudoku board could be partially filled, where empty cells are filled with
 the character '.'.
 """
 
-
 def is_valid_sudoku(self, board):
-    seen = []
-    for i, row in enumerate(board):
-        for j, c in enumerate(row):
-            if c != ".":
-                seen += [(c, j), (i, c), (i / 3, j / 3, c)]
-    return len(seen) == len(set(seen))
+seen = []
+for i, row in enumerate(board):
+for j, c in enumerate(row):
+if c != ".":
+seen += [(c, j), (i, c), (i / 3, j / 3, c)]
+return len(seen) == len(set(seen))
 
 """
 Given a pattern and a string str, find if str follows the same pattern.
@@ -430,21 +419,19 @@ You may assume pattern contains only lowercase letters, and str contains lowerca
 Reference: https://leetcode.com/problems/word-pattern/description/
 """
 
-
 def word_pattern(pattern, str):
-    dict = {}
-    set_value = set()
-    list_str = str.split()
-    if len(list_str) != len(pattern):
-        return False
-    for i in range(len(pattern)):
-        if pattern[i] not in dict:
-            if list_str[i] in set_value:
-                return False
-            dict[pattern[i]] = list_str[i]
-            set_value.add(list_str[i])
-        else:
-            if dict[pattern[i]] != list_str[i]:
-                return False
-    return True
-
+dict = {}
+set_value = set()
+list_str = str.split()
+if len(list_str) != len(pattern):
+return False
+for i in range(len(pattern)):
+if pattern[i] not in dict:
+if list_str[i] in set_value:
+return False
+dict[pattern[i]] = list_str[i]
+set_value.add(list_str[i])
+else:
+if dict[pattern[i]] != list_str[i]:
+return False
+return True

@@ -4,9 +4,10 @@ its children. The root, therefore, is the minimum element in the tree. The min
 heap uses an array to represent the data and operation. For example a min heap:
 
      4
-   /   \
-  50    7
- / \   /
+
+/ \
+ 50 7
+/ \ /
 55 90 87
 
 Heap [0, 4, 50, 7, 55, 90, 87]
@@ -15,25 +16,26 @@ Method in class: insert, remove_min
 For example insert(2) in a min heap:
 
      4                     4                     2
-   /   \                 /   \                 /   \
-  50    7      -->     50     2       -->     50    4
- / \   /  \           /  \   / \             /  \  /  \
-55 90 87   2         55  90 87  7           55  90 87  7
+
+/ \ / \ / \
+ 50 7 --> 50 2 --> 50 4
+/ \ / \ / \ / \ / \ / \
+55 90 87 2 55 90 87 7 55 90 87 7
 
 For example remove_min() in a min heap:
 
      4                     87                    7
-   /   \                 /   \                 /   \
-  50    7      -->     50     7       -->     50    87
- / \   /              /  \                   /  \
-55 90 87             55  90                 55  90
+
+/ \ / \ / \
+ 50 7 --> 50 7 --> 50 87
+/ \ / / \ / \
+55 90 87 55 90 55 90
 
 """
 from abc import ABCMeta, abstractmethod
 
-
 class AbstractHeap(metaclass=ABCMeta):
-    """Abstract Class for Binary Heap."""
+"""Abstract Class for Binary Heap."""
 
     def __init__(self):
         pass
@@ -58,11 +60,10 @@ class AbstractHeap(metaclass=ABCMeta):
     def remove_min(self):
         pass
 
-
 class BinaryHeap(AbstractHeap):
-    def __init__(self):
-        self.currentSize = 0
-        self.heap = [(0)]
+def **init**(self):
+self.currentSize = 0
+self.heap = [(0)]
 
     def perc_up(self, i):
         while i // 2 > 0:
@@ -123,11 +124,11 @@ class BinaryHeap(AbstractHeap):
         self.perc_down(1)
         return ret
 
-from .binary_heap import *
-from .skyline import *
-from .sliding_window_max import *
-from .merge_sorted_k_lists import *
-from .k_closest_points import *
+from .binary_heap import _
+from .skyline import _
+from .sliding_window_max import _
+from .merge_sorted_k_lists import _
+from .k_closest_points import \*
 
 """Given a list of points, find the k closest to the origin.
 
@@ -137,18 +138,14 @@ If a point p has a smaller distance to the origin than the top element of a heap
 After iterating through all points, our heap contains the k closest points to the origin.
 """
 
-
 from heapq import heapify, heappushpop
 
-
-def k_closest(points, k, origin=(0, 0)):
-    # Time: O(k+(n-k)logk)
-    # Space: O(k)
-    """Initialize max heap with first k points.
-    Python does not support a max heap; thus we can use the default min heap where the keys (distance) are negated.
-    """
-    heap = [(-distance(p, origin), p) for p in points[:k]]
-    heapify(heap)
+def k_closest(points, k, origin=(0, 0)): # Time: O(k+(n-k)logk) # Space: O(k)
+"""Initialize max heap with first k points.
+Python does not support a max heap; thus we can use the default min heap where the keys (distance) are negated.
+"""
+heap = [(-distance(p, origin), p) for p in points[:k]]
+heapify(heap)
 
     """
     For every point p in points[k:],
@@ -170,56 +167,51 @@ def k_closest(points, k, origin=(0, 0)):
 
     return [p for nd, p in heap]  # return points in heap
 
-
 def distance(point, origin=(0, 0)):
-    return (point[0] - origin[0]) ** 2 + (point[1] - origin[1]) ** 2
+return (point[0] - origin[0]) ** 2 + (point[1] - origin[1]) ** 2
 
 """
 Merge k sorted linked lists and return it as one sorted list. Analyze and describe its complexity.
 """
 
-
 from heapq import heappop, heapreplace, heapify
 from queue import PriorityQueue
 
-
 # Definition for singly-linked list.
+
 class ListNode(object):
-    def __init__(self, x):
-        self.val = x
-        self.next = None
-
+def **init**(self, x):
+self.val = x
+self.next = None
 
 def merge_k_lists(lists):
-    dummy = node = ListNode(0)
-    h = [(n.val, n) for n in lists if n]
-    heapify(h)
-    while h:
-        v, n = h[0]
-        if n.next is None:
-            heappop(h)  # only change heap size when necessary
-        else:
-            heapreplace(h, (n.next.val, n.next))
-        node.next = n
-        node = node.next
+dummy = node = ListNode(0)
+h = [(n.val, n) for n in lists if n]
+heapify(h)
+while h:
+v, n = h[0]
+if n.next is None:
+heappop(h) # only change heap size when necessary
+else:
+heapreplace(h, (n.next.val, n.next))
+node.next = n
+node = node.next
 
     return dummy.next
 
-
 def merge_k_lists(lists):
-    dummy = ListNode(None)
-    curr = dummy
-    q = PriorityQueue()
-    for node in lists:
-        if node:
-            q.put((node.val, node))
-    while not q.empty():
-        curr.next = q.get()[1]  # These two lines seem to
-        curr = curr.next  # be equivalent to :-   curr = q.get()[1]
-        if curr.next:
-            q.put((curr.next.val, curr.next))
-    return dummy.next
-
+dummy = ListNode(None)
+curr = dummy
+q = PriorityQueue()
+for node in lists:
+if node:
+q.put((node.val, node))
+while not q.empty():
+curr.next = q.get()[1] # These two lines seem to
+curr = curr.next # be equivalent to :- curr = q.get()[1]
+if curr.next:
+q.put((curr.next.val, curr.next))
+return dummy.next
 
 """
 I think my code's complexity is also O(nlogk) and not using heap or priority queue,
@@ -243,7 +235,8 @@ on level 2: x1+x2+x3+x4, x5+x6+x7+x8 sum: n
 on level 1: x1+x2+x3+x4+x5+x6+x7+x8 sum: n
 """
 
-# -*- coding: utf-8 -*-
+# -_- coding: utf-8 -_-
+
 """
 A city's skyline is the outer contour of the silhouette formed by all the buildings
 in that city when viewed from a distance.
@@ -281,29 +274,28 @@ into one in the final output as such: [...[2 3], [4 5], [12 7], ...]
 """
 import heapq
 
-
 def get_skyline(lrh):
-    """
-    Wortst Time Complexity: O(NlogN)
-    :type buildings: List[List[int]]
-    :rtype: List[List[int]]
-    """
-    skyline, live = [], []
-    i, n = 0, len(lrh)
-    while i < n or live:
-        if not live or i < n and lrh[i][0] <= -live[0][1]:
-            x = lrh[i][0]
-            while i < n and lrh[i][0] == x:
-                heapq.heappush(live, (-lrh[i][2], -lrh[i][1]))
-                i += 1
-        else:
-            x = -live[0][1]
-            while live and -live[0][1] <= x:
-                heapq.heappop(live)
-        height = len(live) and -live[0][0]
-        if not skyline or height != skyline[-1][1]:
-            skyline += ([x, height],)
-    return skyline
+"""
+Wortst Time Complexity: O(NlogN)
+:type buildings: List[List[int]]
+:rtype: List[List[int]]
+"""
+skyline, live = [], []
+i, n = 0, len(lrh)
+while i < n or live:
+if not live or i < n and lrh[i][0] <= -live[0][1]:
+x = lrh[i][0]
+while i < n and lrh[i][0] == x:
+heapq.heappush(live, (-lrh[i][2], -lrh[i][1]))
+i += 1
+else:
+x = -live[0][1]
+while live and -live[0][1] <= x:
+heapq.heappop(live)
+height = len(live) and -live[0][0]
+if not skyline or height != skyline[-1][1]:
+skyline += ([x, height],)
+return skyline
 
 """
 Given an array nums, there is a sliding window of size k
@@ -314,36 +306,36 @@ Each time the sliding window moves right by one position.
 For example,
 Given nums = [1,3,-1,-3,5,3,6,7], and k = 3.
 
-Window position                Max
----------------               -----
-[1  3  -1] -3  5  3  6  7       3
- 1 [3  -1  -3] 5  3  6  7       3
- 1  3 [-1  -3  5] 3  6  7       5
- 1  3  -1 [-3  5  3] 6  7       5
- 1  3  -1  -3 [5  3  6] 7       6
- 1  3  -1  -3  5 [3  6  7]      7
+Window position Max
+
+---
+
+[1 3 -1] -3 5 3 6 7 3
+1 [3 -1 -3] 5 3 6 7 3
+1 3 [-1 -3 5] 3 6 7 5
+1 3 -1 [-3 5 3] 6 7 5
+1 3 -1 -3 [5 3 6] 7 6
+1 3 -1 -3 5 [3 6 7] 7
 Therefore, return the max sliding window as [3,3,5,5,6,7].
 """
 import collections
 
-
 def max_sliding_window(nums, k):
-    """
-    :type nums: List[int]
-    :type k: int
-    :rtype: List[int]
-    """
-    if not nums:
-        return nums
-    queue = collections.deque()
-    res = []
-    for num in nums:
-        if len(queue) < k:
-            queue.append(num)
-        else:
-            res.append(max(queue))
-            queue.popleft()
-            queue.append(num)
-    res.append(max(queue))
-    return res
-
+"""
+:type nums: List[int]
+:type k: int
+:rtype: List[int]
+"""
+if not nums:
+return nums
+queue = collections.deque()
+res = []
+for num in nums:
+if len(queue) < k:
+queue.append(num)
+else:
+res.append(max(queue))
+queue.popleft()
+queue.append(num)
+res.append(max(queue))
+return res

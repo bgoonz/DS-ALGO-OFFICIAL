@@ -36,10 +36,9 @@ Example 4:
 Answer: 5
 """
 
-
 def count_islands(grid):
-    row = len(grid)
-    col = len(grid[0])
+row = len(grid)
+col = len(grid[0])
 
     num_islands = 0
     visited = [[0] * col for i in range(row)]
@@ -64,10 +63,10 @@ def count_islands(grid):
 
     return num_islands
 
-from .count_islands import *
-from .maze_search import *
-from .shortest_distance_from_all_buildings import *
-from .word_ladder import *
+from .count_islands import _
+from .maze_search import _
+from .shortest_distance_from_all_buildings import _
+from .word_ladder import _
 
 from collections import deque
 
@@ -86,21 +85,20 @@ If grid is
 [[1,0,1,1,1,1],
  [1,0,1,0,1,0],
  [1,0,1,0,1,1],
- [1,1,1,0,1,1]], 
+ [1,1,1,0,1,1]],
 the answer is: 14
 
 Ex 2)
 If grid is
 [[1,0,0],
  [0,1,1],
- [0,1,1]], 
+ [0,1,1]],
 the answer is: -1
 """
 
-
 def maze_search(maze):
-    BLOCKED, ALLOWED = 0, 1
-    UNVISITED, VISITED = 0, 1
+BLOCKED, ALLOWED = 0, 1
+UNVISITED, VISITED = 0, 1
 
     initial_x, initial_y = 0, 0
 
@@ -145,10 +143,9 @@ when grid[i][j] == -b_nums, it means that grid[i][j] are already visited from al
 and use dist to record distances from b_nums
 """
 
-
 def shortest_distance(grid):
-    if not grid or not grid[0]:
-        return -1
+if not grid or not grid[0]:
+return -1
 
     matrix = [[[0, 0] for i in range(len(grid[0]))] for j in range(len(grid))]
 
@@ -167,22 +164,20 @@ def shortest_distance(grid):
 
     return res if res != float("inf") else -1
 
-
 def bfs(grid, matrix, i, j, count):
-    q = [(i, j, 0)]
-    while q:
-        i, j, step = q.pop(0)
-        for k, l in [(i - 1, j), (i + 1, j), (i, j - 1), (i, j + 1)]:
-            # only the position be visited by count times will append to queue
-            if (
-                0 <= k < len(grid)
-                and 0 <= l < len(grid[0])
-                and matrix[k][l][1] == count
-                and grid[k][l] == 0
-            ):
-                matrix[k][l][0] += step + 1
-                matrix[k][l][1] = count + 1
-                q.append((k, l, step + 1))
+q = [(i, j, 0)]
+while q:
+i, j, step = q.pop(0)
+for k, l in [(i - 1, j), (i + 1, j), (i, j - 1), (i, j + 1)]: # only the position be visited by count times will append to queue
+if (
+0 <= k < len(grid)
+and 0 <= l < len(grid[0])
+and matrix[k][l][1] == count
+and grid[k][l] == 0
+):
+matrix[k][l][0] += step + 1
+matrix[k][l][1] = count + 1
+q.append((k, l, step + 1))
 
 """
 Given two words (begin_word and end_word), and a dictionary's word list,
@@ -206,17 +201,16 @@ All words have the same length.
 All words contain only lowercase alphabetic characters.
 """
 
-
 def ladder_length(begin_word, end_word, word_list):
-    """
-    Bidirectional BFS!!!
-    :type begin_word: str
-    :type end_word: str
-    :type word_list: Set[str]
-    :rtype: int
-    """
-    if len(begin_word) != len(end_word):
-        return -1  # not possible
+"""
+Bidirectional BFS!!!
+:type begin_word: str
+:type end_word: str
+:type word_list: Set[str]
+:rtype: int
+"""
+if len(begin_word) != len(end_word):
+return -1 # not possible
 
     if begin_word == end_word:
         return 0
@@ -249,11 +243,9 @@ def ladder_length(begin_word, end_word, word_list):
         # print(result)
     return -1
 
-
 def word_range(word):
-    for ind in range(len(word)):
-        temp = word[ind]
-        for c in [chr(x) for x in range(ord("a"), ord("z") + 1)]:
-            if c != temp:
-                yield word[:ind] + c + word[ind + 1 :]
-
+for ind in range(len(word)):
+temp = word[ind]
+for c in [chr(x) for x in range(ord("a"), ord("z") + 1)]:
+if c != temp:
+yield word[:ind] + c + word[ind + 1 :]

@@ -1,12 +1,6 @@
 # Python Resources:
 
-
-
 ---
-
-
-
-
 
 - [ajenti](https://github.com/ajenti/ajenti) - The admin panel your servers deserve.
 - [django-grappelli](https://grappelliproject.com/) - A jazzy skin for the Django Admin-Interface.
@@ -1258,10 +1252,4 @@ Where to discover learning resources or new Python libraries.
 - [Test and Code](https://testandcode.com/)
 - [The Real Python Podcast](https://realpython.com/podcasts/rpp/)
 
-
-
-
 ---
-
-
-
