@@ -5,21 +5,21 @@
  * the correct position and expand sorted part one element at a time.
  */
 function insertionSort(unsortedList) {
-  const len = unsortedList.length
+  const len = unsortedList.length;
   for (let i = 1; i < len; i++) {
-    let j
-    const tmp = unsortedList[i] // Copy of the current element.
+    let j;
+    const tmp = unsortedList[i]; // Copy of the current element.
     /* Check through the sorted part and compare with the number in tmp. If large, shift the number */
     for (j = i - 1; j >= 0 && unsortedList[j] > tmp; j--) {
       // Shift the number
-      unsortedList[j + 1] = unsortedList[j]
+      unsortedList[j + 1] = unsortedList[j];
     }
     // Insert the copied number at the correct position
     // in sorted part.
-    unsortedList[j + 1] = tmp
+    unsortedList[j + 1] = tmp;
   }
 }
 
-const arr = [5, 3, 1, 2, 4, 8, 3, 8]
-insertionSort(arr)
-console.log(arr)
+const arr = [5, 3, 1, 2, 4, 8, 3, 8];
+insertionSort(arr);
+console.log(arr);

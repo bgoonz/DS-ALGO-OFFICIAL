@@ -20,5 +20,4 @@ function fuzzBizz(max) {
   return nums;
 }
 
-
 module.exports = fuzzBizz;

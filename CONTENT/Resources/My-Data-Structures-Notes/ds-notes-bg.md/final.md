@@ -164,6 +164,7 @@ count = 7</code></pre>
     C                2              A-&gt;B-&gt;C = -1 + 3
     D                -2             A-&gt;B-&gt;E-&gt;D = -1 + 2 + -3
     E                1              A-&gt;B-&gt;E = -1 + 2</code></pre>
+
 <h4 id="code-implementation-links">Code Implementation Links</h4>
 <ul>
 <li><a href="https://github.com/TheAlgorithms/Java/blob/master/DataStructures/Graphs/BellmanFord.java">Java</a></li>
@@ -208,6 +209,7 @@ Here we find the middle element equal to target element so we return its index i
 
 target = 9
 Binary Search should return -1 as 9 is not present in the array</code></pre>
+
 <h4 id="code-implementation-links-1">Code Implementation Links</h4>
 <ul>
 <li><a href="https://github.com/TheAlgorithms/Java/blob/master/Searches/BinarySearch.java">Java</a></li>
@@ -262,7 +264,7 @@ Indexes: 0   1   2   3
 Repeat the Above Steps again
 
 arr[] = {10, 40, 30, 80}
-Indexes: 0   1   2   3
+Indexes: 0 1 2 3
 
 1. Index = 0, Number = 10
 2. 10 &lt; 40, do nothing and continue
@@ -278,7 +280,7 @@ Indexes: 0   1   2   3
 Repeat the Above Steps again
 
 arr[] = {10, 30, 40, 80}
-Indexes: 0   1   2   3
+Indexes: 0 1 2 3
 
 1. Index = 0, Number = 10
 2. 10 &lt; 30, do nothing and continue
@@ -290,6 +292,7 @@ Indexes: 0   1   2   3
 6. 40 &lt; 80, do nothing
 
 Since there are no swaps in above steps, it means the array is sorted and we can stop here.</code></pre>
+
 <h4 id="code-implementation-links-2">Code Implementation Links</h4>
 <ul>
 <li><a href="https://github.com/TheAlgorithms/Java/blob/master/Sorts/BubbleSort.java">Java</a></li>
@@ -630,6 +633,7 @@ Number of digits = 3
 
 N = 10000 [positive]
 Number of digits = 5</code></pre>
+
 <div data-align="center">
 <h2 align="center">
 1st Solution
@@ -673,6 +677,7 @@ Terminate any further operation.
 Return value of digitsCount.
 
 Therefore, number of digits = 5.</code></pre>
+
 <div data-align="center">
 <h2 align="center">
 2nd Solution
@@ -689,6 +694,7 @@ Therefore, number of digits = 5.</code></pre>
 
 or, K - 1 + 1 &lt;= log10(N) + 1 &lt; K + 1
 or, K &lt;= log10(N) + 1 &lt; K + 1</code></pre>
+
 <p>Therefore,</p>
 <pre><code>K = floor(log10(N) + 1)</code></pre>
 <p><strong>Analysis of the above algorithm:</strong> The above algorithm uses two mathematical functions: the <code>logarithm of a number</code> and the <code>floor function</code>. Therefore, its time complexity depends on the complexity of those two functions. Practically, the <code>floor function</code> is always, or can at least easily be made, constant time - all it has to do is: drop the digits behind the decimal point. For practical purposes, one can <code>assume that the logarithm is constant time</code> as well, as one will usually be working with fixed-width floating-point values. If one uses <code>arbitrary-precision "big number" libraries</code> however, logarithm will not be constant anymore: performance will depend on the logarithm algorithms used.</p>
@@ -791,20 +797,21 @@ The numbers in bracket represent the indices in the array
 representation of data.
 
 Applying heapify procedure to index 1:
-        4(0)
-       /   \
-   10(1)    3(2)
-   /   \
-5(3)    1(4)
+4(0)
+/ \
+ 10(1) 3(2)
+/ \
+5(3) 1(4)
 
 Applying heapify procedure to index 0:
-       10(0)
-       /  \
-    5(1)  3(2)
-   /   \
-4(3)    1(4)
+10(0)
+/ \
+ 5(1) 3(2)
+/ \
+4(3) 1(4)
 The heapify procedure calls itself recursively to build heap
 in top down manner.</code></pre>
+
 <figure>
 <img src="https://upload.wikimedia.org/wikipedia/commons/1/1b/Sorting_heapsort_anim.gif" title="Heap Sort" alt="heap-image" /><figcaption>heap-image</figcaption>
 </figure>
@@ -860,7 +867,8 @@ and all other elements from 11 to 13 will move one position ahead of their curre
 i = 4.
 6 will move to position after 5,
 and elements from 11 to 13 will move one position ahead of their current position.
-5, 6, 11, 12, 13  -- sorted array</code></pre>
+5, 6, 11, 12, 13 -- sorted array</code></pre>
+
 <h4 id="code-implementation-links-8">Code Implementation Links</h4>
 <ul>
 <li><a href="https://github.com/TheAlgorithms/Java/blob/master/Sorts/InsertionSort.java">Java</a></li>
@@ -897,6 +905,7 @@ Linear Search should return index 3 as 5 is on index 3
 
 target = 6
 Linear Search should return -1 as 6 is not present in the array</code></pre>
+
 <h4 id="code-implementation-links-9">Code Implementation Links</h4>
 <ul>
 <li><a href="https://github.com/TheAlgorithms/Java/blob/master/Searches/LinearSearch.java">Java</a></li>
@@ -986,6 +995,7 @@ Recursively call merge sort function for both these halves which will provide so
 =&gt; [1, 3, 9] &amp; [0, 2, 5]
 
 Now merge both these halves to get the sorted array [0, 1, 2, 3, 5, 9]</code></pre>
+
 <h4 id="code-implementation-links-11">Code Implementation Links</h4>
 <ul>
 <li><a href="https://github.com/TheAlgorithms/Java/blob/master/Sorts/MergeSort.java">Java</a></li>
@@ -1060,14 +1070,14 @@ Let&#39;s say k = 4. ie. We have to find 4th smallest element.
 <pre><code>arr[] = {10, 80, 30, 90, 40, 50, 70}
 Indexes:  0   1   2   3   4   5   6
 
-low = 0, high =  6, pivot = arr[h] = 70
+low = 0, high = 6, pivot = arr[h] = 70
 Initialize index of smaller element, i = -1
 
 Traverse elements from j = low to high-1
 j = 0 : Since arr[j] &lt;= pivot, do i++ and swap(arr[i], arr[j])
 i = 0
 arr[] = {10, 80, 30, 90, 40, 50, 70} // No change as i and j
-                                     // are same
+// are same
 
 j = 1 : Since arr[j] &gt; pivot, do nothing
 // No change in i and arr[]
@@ -1094,6 +1104,7 @@ arr[] = {10, 30, 40, 50, 70, 90, 80} // 80 and 70 Swapped
 Now 70 is at its correct place. All elements smaller than
 70 are before it and all elements greater than 70 are after
 it.</code></pre>
+
 <h4 id="code-implementation-links-13">Code Implementation Links</h4>
 <ul>
 <li><a href="https://github.com/TheAlgorithms/Java/blob/master/Sorts/QuickSort.java">Java</a></li>
@@ -1177,6 +1188,7 @@ it.</code></pre>
             swap(arr[i], arr[i+1])
 
     bubbleSort(arr, n-1)</code></pre>
+
 <h2 id="implementations">Implementations</h2>
 <ul>
 <li><a href="https://github.com/TheAlgorithms/Java/blob/master/Sorts/BubbleSortRecursion.java">Java</a></li>
@@ -1207,21 +1219,22 @@ it.</code></pre>
 Indexes: 0   1   2   3
 
 1. Index = 0
-    Select the minimum number from the array (between index 0-3), ie, 10
-2. Swap 10  and 80 (arr[0])
+   Select the minimum number from the array (between index 0-3), ie, 10
+2. Swap 10 and 80 (arr[0])
 3. The array now is {10, 80, 40, 30}
 
 4. Index = 1
-    Select the minimum number from the array (between index 1-3), ie, 30
+   Select the minimum number from the array (between index 1-3), ie, 30
 5. Swap 30 and 80 (arr[1])
 6. The array now is {10, 30, 40, 80}
 
 7. Index = 2
-    Select the minimum number from the array (between index 2-3), ie, 40
+   Select the minimum number from the array (between index 2-3), ie, 40
 8. Swap 40 and 40 (arr[2])
 9. The array now is {10, 30, 40, 80}
 
 The array is now sorted.</code></pre>
+
 <h4 id="code-implementation-links-14">Code Implementation Links</h4>
 <ul>
 <li><a href="https://github.com/TheAlgorithms/Java/blob/master/Sorts/SelectionSort.java">Java</a></li>

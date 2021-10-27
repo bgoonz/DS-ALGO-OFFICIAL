@@ -10,16 +10,16 @@ Find the sum of the digits in the number 100!
 */
 
 const findFactorialDigitSum = (num) => {
-  let result = 0
-  const stringifiedNumber = factorize(num).toLocaleString('fullwide', {
-    useGrouping: false
-  })
-  stringifiedNumber.split('').map((num) => {
-    result += Number(num)
-  })
-  return result
-}
+  let result = 0;
+  const stringifiedNumber = factorize(num).toLocaleString("fullwide", {
+    useGrouping: false,
+  });
+  stringifiedNumber.split("").map((num) => {
+    result += Number(num);
+  });
+  return result;
+};
 
-const factorize = (num) => (num === 0 ? 1 : num * factorize(num - 1))
+const factorize = (num) => (num === 0 ? 1 : num * factorize(num - 1));
 
-console.log(findFactorialDigitSum(100))
+console.log(findFactorialDigitSum(100));

@@ -18,5 +18,4 @@ function oddRange(end) {
   return arr;
 }
 
-
 module.exports = oddRange;

@@ -18,30 +18,30 @@ NOTE: Once the chain starts the terms are allowed to go above one million.
 
 const getCollatzSequenceLength = (num, seqLength) => {
   if (num === 1) {
-    return seqLength
+    return seqLength;
   } else {
-    let newElement
+    let newElement;
     if (num % 2 === 0) {
-      newElement = num / 2
+      newElement = num / 2;
     } else {
-      newElement = 3 * num + 1
+      newElement = 3 * num + 1;
     }
-    seqLength++
-    return getCollatzSequenceLength(newElement, seqLength)
+    seqLength++;
+    return getCollatzSequenceLength(newElement, seqLength);
   }
-}
+};
 
 const findLongestCollatzSequence = () => {
-  let startingPointForLargestSequence = 1
-  let largestSequnceLength = 1
+  let startingPointForLargestSequence = 1;
+  let largestSequnceLength = 1;
   for (let i = 2; i < 1000000; i++) {
-    const currentSequenceLength = getCollatzSequenceLength(i, 1)
+    const currentSequenceLength = getCollatzSequenceLength(i, 1);
     if (currentSequenceLength > largestSequnceLength) {
-      startingPointForLargestSequence = i
-      largestSequnceLength = currentSequenceLength
+      startingPointForLargestSequence = i;
+      largestSequnceLength = currentSequenceLength;
     }
   }
-  return startingPointForLargestSequence
-}
+  return startingPointForLargestSequence;
+};
 
-console.log(findLongestCollatzSequence())
+console.log(findLongestCollatzSequence());

@@ -23,5 +23,4 @@ function intersect(arr1, arr2) {
   return commonEles;
 }
 
-
 module.exports = intersect;

@@ -18,11 +18,11 @@ Volume for Hemisphere
   return width * length * height
 */
 const volCuboid = (width, length, height) => {
-  isNumber(width, 'Width')
-  isNumber(length, 'Length')
-  isNumber(height, 'Height')
-  return width * length * height
-}
+  isNumber(width, "Width");
+  isNumber(length, "Length");
+  isNumber(height, "Height");
+  return width * length * height;
+};
 
 /*
   Calculate the volume for a Cube
@@ -30,9 +30,9 @@ const volCuboid = (width, length, height) => {
   return length * length * length
 */
 const volCube = (length) => {
-  isNumber(length, 'Length')
-  return length ** 3
-}
+  isNumber(length, "Length");
+  return length ** 3;
+};
 
 /*
   Calculate the volume for a Cone
@@ -40,10 +40,10 @@ const volCube = (length) => {
   return PI * radius^2 * height/3
 */
 const volCone = (radius, height) => {
-  isNumber(radius, 'Radius')
-  isNumber(height, 'Height')
-  return (Math.PI * radius ** 2 * height) / 3.0
-}
+  isNumber(radius, "Radius");
+  isNumber(height, "Height");
+  return (Math.PI * radius ** 2 * height) / 3.0;
+};
 
 /*
   Calculate the volume for a Pyramid
@@ -51,11 +51,11 @@ const volCone = (radius, height) => {
   return (baseLength * baseWidth * height) / 3
 */
 const volPyramid = (baseLength, baseWidth, height) => {
-  isNumber(baseLength, 'BaseLength')
-  isNumber(baseWidth, 'BaseWidth')
-  isNumber(height, 'Height')
-  return (baseLength * baseWidth * height) / 3.0
-}
+  isNumber(baseLength, "BaseLength");
+  isNumber(baseWidth, "BaseWidth");
+  isNumber(height, "Height");
+  return (baseLength * baseWidth * height) / 3.0;
+};
 
 /*
   Calculate the volume for a Cylinder
@@ -63,10 +63,10 @@ const volPyramid = (baseLength, baseWidth, height) => {
   return PI * radius^2 * height
 */
 const volCylinder = (radius, height) => {
-  isNumber(radius, 'Radius')
-  isNumber(height, 'Height')
-  return Math.PI * radius ** 2 * height
-}
+  isNumber(radius, "Radius");
+  isNumber(height, "Height");
+  return Math.PI * radius ** 2 * height;
+};
 
 /*
   Calculate the volume for a Triangular Prism
@@ -74,11 +74,11 @@ const volCylinder = (radius, height) => {
   return 1 / 2 * baseLengthTriangle * heightTriangle * height
 */
 const volTriangularPrism = (baseLengthTriangle, heightTriangle, height) => {
-  isNumber(baseLengthTriangle, 'BaseLengthTriangle')
-  isNumber(heightTriangle, 'HeightTriangle')
-  isNumber(height, 'Height')
-  return (1 / 2) * baseLengthTriangle * heightTriangle * height
-}
+  isNumber(baseLengthTriangle, "BaseLengthTriangle");
+  isNumber(heightTriangle, "HeightTriangle");
+  isNumber(height, "Height");
+  return (1 / 2) * baseLengthTriangle * heightTriangle * height;
+};
 
 /*
   Calculate the volume for a Pentagonal Prism
@@ -86,11 +86,11 @@ const volTriangularPrism = (baseLengthTriangle, heightTriangle, height) => {
   return 5/2 * pentagonalLength * pentagonalBaseLength * height
 */
 const volPentagonalPrism = (pentagonalLength, pentagonalBaseLength, height) => {
-  isNumber(pentagonalLength, 'PentagonalLength')
-  isNumber(pentagonalBaseLength, 'PentagonalBaseLength')
-  isNumber(height, 'Height')
-  return (5 / 2) * pentagonalLength * pentagonalBaseLength * height
-}
+  isNumber(pentagonalLength, "PentagonalLength");
+  isNumber(pentagonalBaseLength, "PentagonalBaseLength");
+  isNumber(height, "Height");
+  return (5 / 2) * pentagonalLength * pentagonalBaseLength * height;
+};
 
 /*
   Calculate the volume for a Sphere
@@ -98,9 +98,9 @@ const volPentagonalPrism = (pentagonalLength, pentagonalBaseLength, height) => {
   return 4/3 * PI * radius^3
 */
 const volSphere = (radius) => {
-  isNumber(radius, 'Radius')
-  return (4 / 3) * Math.PI * radius ** 3
-}
+  isNumber(radius, "Radius");
+  return (4 / 3) * Math.PI * radius ** 3;
+};
 
 /*
   Calculate the volume for a Hemisphere
@@ -108,17 +108,17 @@ const volSphere = (radius) => {
   return (2 * PI * radius^3)/3
 */
 const volHemisphere = (radius) => {
-  isNumber(radius, 'Radius')
-  return (2.0 * Math.PI * radius ** 3) / 3.0
-}
+  isNumber(radius, "Radius");
+  return (2.0 * Math.PI * radius ** 3) / 3.0;
+};
 
-const isNumber = (number, noName = 'number') => {
-  if (typeof number !== 'number') {
-    throw new TypeError('The ' + noName + ' should be Number type')
+const isNumber = (number, noName = "number") => {
+  if (typeof number !== "number") {
+    throw new TypeError("The " + noName + " should be Number type");
   } else if (number < 0 || !Number.isFinite(number)) {
-    throw new Error('The ' + noName + ' only accepts positive values')
+    throw new Error("The " + noName + " only accepts positive values");
   }
-}
+};
 
 export {
   volCuboid,
@@ -129,5 +129,5 @@ export {
   volTriangularPrism,
   volPentagonalPrism,
   volSphere,
-  volHemisphere
-}
+  volHemisphere,
+};

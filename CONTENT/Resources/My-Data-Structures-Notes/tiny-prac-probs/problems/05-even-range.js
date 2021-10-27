@@ -21,5 +21,4 @@ function evenRange(start, end) {
   return array;
 }
 
-
 module.exports = evenRange;

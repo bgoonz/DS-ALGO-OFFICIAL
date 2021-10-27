@@ -17,35 +17,35 @@
  */
 
 function quickSort(items) {
-  const length = items.length
+  const length = items.length;
 
   if (length <= 1) {
-    return items
+    return items;
   }
-  const PIVOT = items[0]
-  const GREATER = []
-  const LESSER = []
+  const PIVOT = items[0];
+  const GREATER = [];
+  const LESSER = [];
 
   for (let i = 1; i < length; i++) {
     if (items[i] > PIVOT) {
-      GREATER.push(items[i])
+      GREATER.push(items[i]);
     } else {
-      LESSER.push(items[i])
+      LESSER.push(items[i]);
     }
   }
 
-  let sorted = quickSort(LESSER)
-  sorted.push(PIVOT)
-  sorted = sorted.concat(quickSort(GREATER))
+  let sorted = quickSort(LESSER);
+  sorted.push(PIVOT);
+  sorted = sorted.concat(quickSort(GREATER));
 
-  return sorted
+  return sorted;
 }
 
 // Implementation of quick sort
 
-let ar = [0, 5, 3, 2, 2]
+let ar = [0, 5, 3, 2, 2];
 // Array before Sort
-console.log(ar)
-ar = quickSort(ar)
+console.log(ar);
+ar = quickSort(ar);
 // Array after sort
-console.log(ar)
+console.log(ar);

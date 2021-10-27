@@ -21,5 +21,4 @@ function reverseString(string) {
   return reversedStr;
 }
 
-
 module.exports = reverseString;

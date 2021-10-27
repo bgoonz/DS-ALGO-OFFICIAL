@@ -4,6 +4,6 @@
  *
  */
 
-const perfectCube = (num) => Math.round(num ** (1 / 3)) ** 3 === num
+const perfectCube = (num) => Math.round(num ** (1 / 3)) ** 3 === num;
 
-export { perfectCube }
+export { perfectCube };

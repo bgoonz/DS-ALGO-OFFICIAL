@@ -10,16 +10,16 @@
  */
 
 const secondLargestElement = (array) => {
-  const largestElement = Math.max(...array)
-  let element = 0
+  const largestElement = Math.max(...array);
+  let element = 0;
 
   for (let i = 0; i < array.length; i++) {
     if (element < array[i] && array[i] !== largestElement) {
-      element = array[i]
+      element = array[i];
     }
   }
 
-  return element
-}
+  return element;
+};
 
-export { secondLargestElement }
+export { secondLargestElement };

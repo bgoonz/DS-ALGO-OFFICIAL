@@ -19,37 +19,37 @@ The Game of Life is a cellular automaton devised by the British mathematician Jo
  *  Generates the next generation for a given state of Conway's Game of Life.
  */
 function newGeneration(cells) {
-  const nextGeneration = []
+  const nextGeneration = [];
   for (let i = 0; i < cells.length; i++) {
-    const nextGenerationRow = []
+    const nextGenerationRow = [];
     for (let j = 0; j < cells[i].length; j++) {
       // Get the number of living neighbours
-      let neighbourCount = 0
-      if (i > 0 && j > 0) neighbourCount += cells[i - 1][j - 1]
-      if (i > 0) neighbourCount += cells[i - 1][j]
+      let neighbourCount = 0;
+      if (i > 0 && j > 0) neighbourCount += cells[i - 1][j - 1];
+      if (i > 0) neighbourCount += cells[i - 1][j];
       if (i > 0 && j < cells[i].length - 1)
-        neighbourCount += cells[i - 1][j + 1]
-      if (j > 0) neighbourCount += cells[i][j - 1]
-      if (j < cells[i].length - 1) neighbourCount += cells[i][j + 1]
-      if (i < cells.length - 1 && j > 0) neighbourCount += cells[i + 1][j - 1]
-      if (i < cells.length - 1) neighbourCount += cells[i + 1][j]
+        neighbourCount += cells[i - 1][j + 1];
+      if (j > 0) neighbourCount += cells[i][j - 1];
+      if (j < cells[i].length - 1) neighbourCount += cells[i][j + 1];
+      if (i < cells.length - 1 && j > 0) neighbourCount += cells[i + 1][j - 1];
+      if (i < cells.length - 1) neighbourCount += cells[i + 1][j];
       if (i < cells.length - 1 && j < cells[i].length - 1)
-        neighbourCount += cells[i + 1][j + 1]
+        neighbourCount += cells[i + 1][j + 1];
 
       // Decide whether the cell is alive or dead
-      const alive = cells[i][j] === 1
+      const alive = cells[i][j] === 1;
       if (
         (alive && neighbourCount >= 2 && neighbourCount <= 3) ||
         (!alive && neighbourCount === 3)
       ) {
-        nextGenerationRow.push(1)
+        nextGenerationRow.push(1);
       } else {
-        nextGenerationRow.push(0)
+        nextGenerationRow.push(0);
       }
     }
-    nextGeneration.push(nextGenerationRow)
+    nextGeneration.push(nextGenerationRow);
   }
-  return nextGeneration
+  return nextGeneration;
 }
 
 /*
@@ -60,23 +60,23 @@ async function animate(cells, steps) {
    * utility function to print one frame
    */
   function printCells(cells) {
-    console.clear()
+    console.clear();
     for (let i = 0; i < cells.length; i++) {
-      let line = ''
+      let line = "";
       for (let j = 0; j < cells[i].length; j++) {
-        if (cells[i][j] === 1) line += '\u2022'
-        else line += ' '
+        if (cells[i][j] === 1) line += "\u2022";
+        else line += " ";
       }
-      console.log(line)
+      console.log(line);
     }
   }
 
-  printCells(cells)
+  printCells(cells);
 
   for (let i = 0; i < steps; i++) {
-    await new Promise((resolve) => setTimeout(resolve, 250)) // sleep
-    cells = newGeneration(cells)
-    printCells(cells)
+    await new Promise((resolve) => setTimeout(resolve, 250)); // sleep
+    cells = newGeneration(cells);
+    printCells(cells);
   }
 }
 
@@ -89,7 +89,7 @@ const glider = [
   [0, 0, 0, 0, 0, 0, 0, 0],
   [0, 0, 0, 0, 0, 0, 0, 0],
   [0, 0, 0, 0, 0, 0, 0, 0],
-  [0, 0, 0, 0, 0, 0, 0, 0]
-]
+  [0, 0, 0, 0, 0, 0, 0, 0],
+];
 
-animate(glider, 16)
+animate(glider, 16);

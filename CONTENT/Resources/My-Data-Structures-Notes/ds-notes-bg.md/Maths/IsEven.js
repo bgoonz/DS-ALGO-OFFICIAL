@@ -22,8 +22,8 @@
  */
 
 export const isEven = (number) => {
-  return number % 2 === 0
-}
+  return number % 2 === 0;
+};
 
 /*
  * Checking if number is even using bitwise operator
@@ -52,5 +52,5 @@ export const isEven = (number) => {
  */
 
 export const isEvenBitwise = (number) => {
-  return (number & 1) === 0
-}
+  return (number & 1) === 0;
+};

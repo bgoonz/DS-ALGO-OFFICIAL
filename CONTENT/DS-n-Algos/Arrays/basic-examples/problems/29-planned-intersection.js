@@ -30,5 +30,4 @@ function plannedIntersect(firstArr) {
   };
 }
 
-
 module.exports = plannedIntersect;

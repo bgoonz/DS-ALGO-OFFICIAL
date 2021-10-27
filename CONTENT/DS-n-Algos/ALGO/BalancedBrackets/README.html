@@ -200,57 +200,25 @@
     </style>
   </head>
   <body>
-    <h1 id="min-heap">Min Heap</h1>
+    <h1 id="balanced-brackets">Balanced Brackets</h1>
     <p>
-      A min heap is a binary tree data structure that satisfies the following
-      property: The value of every parent node is less than or equal to the
-      values of their direct children nodes. It follows then that the node at
-      the root of the tree is the element in the heap with the minimal value.
+      Write a function <code>balancedBrackets</code> that receives a string of
+      opening and closing brackets and determines whether or not the string’s
+      openers and closers are properly nested.
     </p>
-    <figure>
-      <img src="min_heap_example.jpg" alt="min heap" />
-      <figcaption>min heap</figcaption>
-    </figure>
     <p>
-      Implement a min heap data structure with at least the following methods:
+      The possible opening brackets are <code>[</code>, <code>{</code>, and
+      <code>(</code>. The corresponding closers are <code>]</code>,
+      <code>}</code>, and <code>)</code>.
     </p>
-    <ul>
-      <li>
-        <code>insert(item)</code> adds the given item to the heap. Upon
-        insertion, the heap property needs to be maintained.
-      </li>
-      <li>
-        <code>delete()</code> removes and returns the root element (the min
-        value) of the heap. Upon deletion, the heap property needs to be
-        maintained.
-      </li>
-      <li>
-        <code>getMin()</code> returns the minimal value of the heap in constant
-        time. This method does not remove the minimal value from the heap.
-      </li>
-    </ul>
     <p>Examples:</p>
     <div class="sourceCode" id="cb1">
       <pre
         class="sourceCode js"
-      ><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">const</span> heap <span class="op">=</span> <span class="kw">new</span> <span class="at">Heap</span>()<span class="op">;</span></a>
-<a class="sourceLine" id="cb1-2" title="2"><span class="va">console</span>.<span class="at">log</span>(<span class="va">heap</span>.<span class="at">getMin</span>())<span class="op">;</span> <span class="co">// should print &#39;undefined&#39;</span></a>
-<a class="sourceLine" id="cb1-3" title="3"></a>
-<a class="sourceLine" id="cb1-4" title="4"><span class="va">heap</span>.<span class="at">insert</span>(<span class="dv">5</span>)<span class="op">;</span></a>
-<a class="sourceLine" id="cb1-5" title="5"><span class="va">console</span>.<span class="at">log</span>(<span class="va">heap</span>.<span class="at">getMin</span>())<span class="op">;</span> <span class="co">// should print 5</span></a>
-<a class="sourceLine" id="cb1-6" title="6"></a>
-<a class="sourceLine" id="cb1-7" title="7"><span class="va">heap</span>.<span class="at">insert</span>(<span class="dv">100</span>)<span class="op">;</span></a>
-<a class="sourceLine" id="cb1-8" title="8"><span class="va">console</span>.<span class="at">log</span>(<span class="va">heap</span>.<span class="at">getMin</span>())<span class="op">;</span> <span class="co">// should print 5</span></a>
-<a class="sourceLine" id="cb1-9" title="9"></a>
-<a class="sourceLine" id="cb1-10" title="10"><span class="va">heap</span>.<span class="at">insert</span>(<span class="dv">2</span>)<span class="op">;</span></a>
-<a class="sourceLine" id="cb1-11" title="11"><span class="va">console</span>.<span class="at">log</span>(<span class="va">heap</span>.<span class="at">getMin</span>())<span class="op">;</span> <span class="co">// should print 2</span></a>
-<a class="sourceLine" id="cb1-12" title="12"></a>
-<a class="sourceLine" id="cb1-13" title="13"><span class="va">console</span>.<span class="at">log</span>(<span class="va">heap</span>.<span class="at">delete</span>())<span class="op">;</span> <span class="co">// should print 2</span></a>
-<a class="sourceLine" id="cb1-14" title="14"><span class="va">console</span>.<span class="at">log</span>(<span class="va">heap</span>.<span class="at">delete</span>())<span class="op">;</span> <span class="co">// should print 5</span></a>
-<a class="sourceLine" id="cb1-15" title="15"><span class="va">console</span>.<span class="at">log</span>(<span class="va">heap</span>.<span class="at">delete</span>())<span class="op">;</span> <span class="co">// should print 100</span></a>
-<a class="sourceLine" id="cb1-16" title="16"></a>
-<a class="sourceLine" id="cb1-17" title="17"><span class="va">console</span>.<span class="at">log</span>(<span class="va">heap</span>.<span class="at">getMin</span>())<span class="op">;</span> <span class="co">// should print &#39;undefined&#39;</span></a></code></pre>
+      ><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="at">balancedBrackets</span>(<span class="st">&quot;[]{}()&quot;</span>)<span class="op">;</span> <span class="co">// should return true</span></a>
+<a class="sourceLine" id="cb1-2" title="2"><span class="at">balancedBrackets</span>(<span class="st">&quot;[{[()]}]&quot;</span>)<span class="op">;</span> <span class="co">// should return true</span></a>
+<a class="sourceLine" id="cb1-3" title="3"><span class="at">balancedBrackets</span>(<span class="st">&quot;[({}}]&quot;</span>)<span class="op">;</span> <span class="co">// should return false</span></a></code></pre>
     </div>
-    <p>Analyze the time and space complexity of your implementation.</p>
+    <p>Analyze the time and space complexity of your solution.</p>
   </body>
 </html>

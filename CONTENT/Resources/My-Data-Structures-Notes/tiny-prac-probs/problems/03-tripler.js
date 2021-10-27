@@ -19,5 +19,4 @@ function tripler(array) {
   return newArray;
 }
 
-
 module.exports = tripler;

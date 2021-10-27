@@ -64,38 +64,38 @@ Some examples:
 // ---------------------------- Examples ------------------------------------------
 
 // creates vectors
-var x = new LinearAlgebra.Vector(5, [1, 2, 3, 4, 5])
-var y = new LinearAlgebra.Vector(5, [1, 2, 3, 4, 5])
+var x = new LinearAlgebra.Vector(5, [1, 2, 3, 4, 5]);
+var y = new LinearAlgebra.Vector(5, [1, 2, 3, 4, 5]);
 
 // prints size of the vector
-console.log(x.size()) // ==> 5
+console.log(x.size()); // ==> 5
 
 // changes the 2-th component with 7
 //x.changeComponent(2,7);
 
 // print the 2-th component.
-console.log(x.component(2)) // ==> 3
+console.log(x.component(2)); // ==> 3
 
 // prints the full vector as string.
-console.log(x.toString()) // ==> (1,2,3,4,5)
+console.log(x.toString()); // ==> (1,2,3,4,5)
 
 // vector addition
-console.log(x.add(y).toString()) // ==> (2,3,6,8,10)
+console.log(x.add(y).toString()); // ==> (2,3,6,8,10)
 
 //console.log(x.createUnitBasis(1).toString());
 
 // computes the dot-product
-console.log(x.dot(y)) // ==> 55
+console.log(x.dot(y)); // ==> 55
 
 // computes and prints the scalar-product
-console.log(x.scalar(5).toString()) // ==> (5,10,15,20,25)
+console.log(x.scalar(5).toString()); // ==> (5,10,15,20,25)
 
 // creates a unit basis vector
-console.log(LinearAlgebra.unitBasisVector(3, 0).toString()) // ==> (1,0,0)
+console.log(LinearAlgebra.unitBasisVector(3, 0).toString()); // ==> (1,0,0)
 
 // creates random vectors
-console.log(LinearAlgebra.randomVectorInt(3, 0, 5).toString())
-console.log(LinearAlgebra.randomVectorFloat(3, 0, 5).toString())
+console.log(LinearAlgebra.randomVectorInt(3, 0, 5).toString());
+console.log(LinearAlgebra.randomVectorFloat(3, 0, 5).toString());
 ```
 
 ---

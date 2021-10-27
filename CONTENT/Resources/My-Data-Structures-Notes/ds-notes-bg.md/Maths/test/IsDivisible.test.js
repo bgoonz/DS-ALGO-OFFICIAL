@@ -1,6 +1,6 @@
-import { isDivisible } from '../IsDivisible'
+import { isDivisible } from "../IsDivisible";
 
-describe('isDivisible', () => {
+describe("isDivisible", () => {
   const testCases = [
     [0, 1, true],
     [0, 2, true],
@@ -14,32 +14,32 @@ describe('isDivisible', () => {
     [4.5, 1.5, true],
     [4.5, 1.2, false],
     [5, 0, false],
-    [5, -0, false]
-  ]
+    [5, -0, false],
+  ];
 
   test.each(testCases)(
-    'if parameters are (%i, %i) it returns %p',
+    "if parameters are (%i, %i) it returns %p",
     (dividend, divisor, expected) => {
-      expect(isDivisible(dividend, divisor)).toBe(expected)
+      expect(isDivisible(dividend, divisor)).toBe(expected);
     }
-  )
+  );
 
   const errorCases = [
     [NaN, NaN],
     [NaN, 1],
     [1, NaN],
-    ['1', 1],
-    [1, '1'],
+    ["1", 1],
+    [1, "1"],
     [1, true],
-    [false, 2]
-  ]
+    [false, 2],
+  ];
 
   test.each(errorCases)(
-    'throws an error if parameters are (%p, %p)',
+    "throws an error if parameters are (%p, %p)",
     (dividend, divisor) => {
       expect(() => {
-        isDivisible(dividend, divisor)
-      }).toThrow()
+        isDivisible(dividend, divisor);
+      }).toThrow();
     }
-  )
-})
+  );
+});

@@ -8,10 +8,10 @@
 */
 
 function BinaryCountSetBits(a) {
-  'use strict'
+  "use strict";
   // convert number into binary representation and return number of set bits in binary representaion
-  return a.toString(2).split('1').length - 1
+  return a.toString(2).split("1").length - 1;
 }
 
 // Run `binary_and` Function to find the binary and operation
-console.log(BinaryCountSetBits(251))
+console.log(BinaryCountSetBits(251));

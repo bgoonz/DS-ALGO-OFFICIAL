@@ -16,39 +16,39 @@ Doctests
 
 function breadthFirstSearch(graph, startingNode) {
   // visited keeps track of all nodes visited
-  const visited = new Set()
+  const visited = new Set();
 
   // queue contains the nodes to be explored in the future
-  const queue = [startingNode]
+  const queue = [startingNode];
 
   while (queue.length > 0) {
     // start with the queue's first node
-    const node = queue.shift()
+    const node = queue.shift();
 
     if (!visited.has(node)) {
       // mark the node as visited
-      visited.add(node)
-      const neighbors = graph[node]
+      visited.add(node);
+      const neighbors = graph[node];
 
       // put all its neighbors into the queue
       for (let i = 0; i < neighbors.length; i++) {
-        queue.push(neighbors[i])
+        queue.push(neighbors[i]);
       }
     }
   }
 
-  return visited
+  return visited;
 }
 
 const graph = {
-  A: ['B', 'D'],
-  B: ['E'],
-  C: ['D'],
-  D: ['A'],
-  E: ['D'],
-  F: ['G'],
-  G: []
-}
+  A: ["B", "D"],
+  B: ["E"],
+  C: ["D"],
+  D: ["A"],
+  E: ["D"],
+  F: ["G"],
+  G: [],
+};
 /*
       A <-> B
       ʌ     |
@@ -59,6 +59,6 @@ C --> D <-- E
 F --> G
 */
 
-console.log(breadthFirstSearch(graph, 'C'))
-console.log(breadthFirstSearch(graph, 'A'))
-console.log(breadthFirstSearch(graph, 'F'))
+console.log(breadthFirstSearch(graph, "C"));
+console.log(breadthFirstSearch(graph, "A"));
+console.log(breadthFirstSearch(graph, "F"));
