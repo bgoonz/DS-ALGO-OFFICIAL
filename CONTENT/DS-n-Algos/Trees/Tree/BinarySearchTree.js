@@ -15,34 +15,34 @@ const Node = (function Node() {
   // Node in the tree
   class Node {
     constructor(val) {
-      this.value = val
-      this.left = null
-      this.right = null
+      this.value = val;
+      this.left = null;
+      this.right = null;
     }
 
     // Search the tree for a value
     search(val) {
       if (this.value === val) {
-        return this
+        return this;
       } else if (val < this.value && this.left !== null) {
-        return this.left.search(val)
+        return this.left.search(val);
       } else if (val > this.value && this.right !== null) {
-        return this.right.search(val)
+        return this.right.search(val);
       }
-      return null
+      return null;
     }
 
     // Visit a node
     visit(output = (value) => console.log(value)) {
       // Recursively go left
       if (this.left !== null) {
-        this.left.visit()
+        this.left.visit();
       }
       // Print out value
-      output(this.value)
+      output(this.value);
       // Recursively go right
       if (this.right !== null) {
-        this.right.visit()
+        this.right.visit();
       }
     }
 
@@ -50,15 +50,15 @@ const Node = (function Node() {
     addNode(n) {
       if (n.value < this.value) {
         if (this.left === null) {
-          this.left = n
+          this.left = n;
         } else {
-          this.left.addNode(n)
+          this.left.addNode(n);
         }
       } else if (n.value > this.value) {
         if (this.right === null) {
-          this.right = n
+          this.right = n;
         } else {
-          this.right.addNode(n)
+          this.right.addNode(n);
         }
       }
     }
@@ -67,92 +67,92 @@ const Node = (function Node() {
     removeNode(val) {
       if (val === this.value) {
         if (!this.left && !this.right) {
-          return null
+          return null;
         } else {
           if (this.left) {
-            const leftMax = maxVal(this.left)
-            this.value = leftMax
-            this.left = this.left.removeNode(leftMax)
+            const leftMax = maxVal(this.left);
+            this.value = leftMax;
+            this.left = this.left.removeNode(leftMax);
           } else {
-            const rightMin = minVal(this.right)
-            this.value = rightMin
-            this.right = this.right.removeNode(rightMin)
+            const rightMin = minVal(this.right);
+            this.value = rightMin;
+            this.right = this.right.removeNode(rightMin);
           }
         }
       } else if (val < this.value) {
-        this.left = this.left && this.left.removeNode(val)
+        this.left = this.left && this.left.removeNode(val);
       } else if (val > this.value) {
-        this.right = this.right && this.right.removeNode(val)
+        this.right = this.right && this.right.removeNode(val);
       }
-      return this
+      return this;
     }
   }
 
   // find maximum value in the tree
   const maxVal = ({ right, value }) => {
     if (!right) {
-      return value
+      return value;
     }
-    return maxVal(right)
-  }
+    return maxVal(right);
+  };
 
   // find minimum value in the tree
   const minVal = ({ left, value }) => {
     if (!left) {
-      return value
+      return value;
     }
-    return minVal(left)
-  }
+    return minVal(left);
+  };
   // returns the constructor
-  return Node
-})()
+  return Node;
+})();
 
 // class Tree
 const Tree = (() => {
   class Tree {
     constructor() {
       // Just store the root
-      this.root = null
+      this.root = null;
     }
 
     // Inorder traversal
     traverse() {
       if (!this.root) {
         // No nodes are there in the tree till now
-        return
+        return;
       }
-      this.root.visit()
+      this.root.visit();
     }
 
     // Start by searching the root
     search(val) {
-      const found = this.root.search(val)
+      const found = this.root.search(val);
       if (found !== null) {
-        return found.value
+        return found.value;
       }
       // not found
-      return null
+      return null;
     }
 
     // Add a new value to the tree
     addValue(val) {
-      const n = new Node(val)
+      const n = new Node(val);
       if (this.root === null) {
-        this.root = n
+        this.root = n;
       } else {
-        this.root.addNode(n)
+        this.root.addNode(n);
       }
     }
 
     // remove a value from the tree
     removeValue(val) {
       // remove something if root exists
-      this.root = this.root && this.root.removeNode(val)
+      this.root = this.root && this.root.removeNode(val);
     }
   }
 
   // returns the constructor
-  return Tree
-})()
+  return Tree;
+})();
 
-export { Tree }
+export { Tree };

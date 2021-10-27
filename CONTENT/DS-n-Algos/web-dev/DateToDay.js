@@ -25,35 +25,35 @@ const calcMonthList = {
   9: 7,
   10: 8,
   11: 9,
-  12: 10
-}
+  12: 10,
+};
 
 // show the week day in a number : Sunday - Saturday => 0 - 6
 const daysNameList = {
   // weeks-day
-  0: 'Sunday',
-  1: 'Monday',
-  2: 'Tuesday',
-  3: 'Wednesday',
-  4: 'Thursday',
-  5: 'Friday',
-  6: 'Saturday'
-}
+  0: "Sunday",
+  1: "Monday",
+  2: "Tuesday",
+  3: "Wednesday",
+  4: "Thursday",
+  5: "Friday",
+  6: "Saturday",
+};
 
 const DateToDay = (date) => {
   // firstly, check that input is a string or not.
-  if (typeof date !== 'string') {
-    return new TypeError('Argument is not a string.')
+  if (typeof date !== "string") {
+    return new TypeError("Argument is not a string.");
   }
   // extract the date
-  const [day, month, year] = date.split('/').map((x) => Number(x))
+  const [day, month, year] = date.split("/").map((x) => Number(x));
   // check the data are valid or not.
   if (day < 0 || day > 31 || month > 12 || month < 0) {
-    return new TypeError('Date is not valid.')
+    return new TypeError("Date is not valid.");
   }
   // divide year to century and yearDigit value.
-  const yearDigit = year % 100
-  const century = Math.floor(year / 100)
+  const yearDigit = year % 100;
+  const century = Math.floor(year / 100);
   // Apply the algorithm shown above
   const weekDay = Math.abs(
     (day +
@@ -63,11 +63,11 @@ const DateToDay = (date) => {
       Math.floor(yearDigit / 4) +
       Math.floor(century / 4)) %
       7
-  )
+  );
   // return the weekDay name.
-  return daysNameList[weekDay]
-}
+  return daysNameList[weekDay];
+};
 
 // Example : DateToDay("18/12/2020") => Friday
 
-export { DateToDay }
+export { DateToDay };

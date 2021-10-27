@@ -8,11 +8,11 @@
 
 // Internal method for make calculations easier
 const isLeap = (year) => {
-  if (year % 400 === 0) return true
-  else if (year % 100 === 0) return false
-  else if (year % 4 === 0) return true
-  else return false
-}
+  if (year % 400 === 0) return true;
+  else if (year % 100 === 0) return false;
+  else if (year % 4 === 0) return true;
+  else return false;
+};
 const DateToDay = (dd, mm, yyyy) => {
   return Math.floor(
     365 * (yyyy - 1) +
@@ -22,22 +22,22 @@ const DateToDay = (dd, mm, yyyy) => {
       dd +
       (367 * mm - 362) / 12 +
       (mm <= 2 ? 0 : isLeap(yyyy) ? -1 : -2)
-  )
-}
+  );
+};
 
 const DateDayDifference = (date1, date2) => {
   // firstly, check that both input are string or not.
-  if (typeof date1 !== 'string' && typeof date2 !== 'string') {
-    return new TypeError('Argument is not a string.')
+  if (typeof date1 !== "string" && typeof date2 !== "string") {
+    return new TypeError("Argument is not a string.");
   }
   // extract the first date
   const [firstDateDay, firstDateMonth, firstDateYear] = date1
-    .split('/')
-    .map((ele) => Number(ele))
+    .split("/")
+    .map((ele) => Number(ele));
   // extract the second date
   const [secondDateDay, secondDateMonth, secondDateYear] = date2
-    .split('/')
-    .map((ele) => Number(ele))
+    .split("/")
+    .map((ele) => Number(ele));
   // check the both data are valid or not.
   if (
     firstDateDay < 0 ||
@@ -49,14 +49,14 @@ const DateDayDifference = (date1, date2) => {
     secondDateMonth > 12 ||
     secondDateMonth < 0
   ) {
-    return new TypeError('Date is not valid.')
+    return new TypeError("Date is not valid.");
   }
   return Math.abs(
     DateToDay(secondDateDay, secondDateMonth, secondDateYear) -
       DateToDay(firstDateDay, firstDateMonth, firstDateYear)
-  )
-}
+  );
+};
 
 // Example : DateDayDifference('17/08/2002', '10/10/2020') => 6630
 
-export { DateDayDifference }
+export { DateDayDifference };

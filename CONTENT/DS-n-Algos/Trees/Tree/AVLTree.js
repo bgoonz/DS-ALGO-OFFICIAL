@@ -3,7 +3,7 @@
  * [Wikipedia](https://en.wikipedia.org/wiki/AVL_tree)
  * [A video lecture](http://www.youtube.com/watch?v=TbvhGcf6UJU)
  */
-'use strict'
+"use strict";
 
 /**
  * A utility class for comparator
@@ -13,21 +13,21 @@
  * RETURN > 0 if a > b
  * MUST RETURN 0 if a == b
  */
-let utils
-;((_utils) => {
+let utils;
+((_utils) => {
   function comparator() {
     return (v1, v2) => {
       if (v1 < v2) {
-        return -1
+        return -1;
       } else if (v2 < v1) {
-        return 1
+        return 1;
       } else {
-        return 0
+        return 0;
       }
-    }
+    };
   }
-  _utils.comparator = comparator
-})(utils || (utils = {}))
+  _utils.comparator = comparator;
+})(utils || (utils = {}));
 
 /**
  * @constructor
@@ -39,16 +39,16 @@ const AVLTree = (() => {
   class _avl {
     constructor(comp) {
       /** @public comparator function */
-      this._comp = undefined
+      this._comp = undefined;
       if (comp !== undefined) {
-        this._comp = comp
+        this._comp = comp;
       } else {
-        this._comp = utils.comparator()
+        this._comp = utils.comparator();
       }
       /** @public root of the AVL Tree */
-      this.root = null
+      this.root = null;
       /** @public number of elements in AVL Tree */
-      this.size = 0
+      this.size = 0;
     }
 
     /* Public Functions */
@@ -60,12 +60,12 @@ const AVLTree = (() => {
      * @returns {Boolean} element added or not
      */
     add(_val) {
-      const prevSize = this.size
-      this.root = insert(this.root, _val, this)
+      const prevSize = this.size;
+      this.root = insert(this.root, _val, this);
       if (this.size === prevSize) {
-        return false
+        return false;
       }
-      return true
+      return true;
     }
 
     /**
@@ -74,11 +74,11 @@ const AVLTree = (() => {
      * @returns {Boolean} exists or not
      */
     find(_val) {
-      const temp = search(this.root, _val, this)
+      const temp = search(this.root, _val, this);
       if (temp != null) {
-        return true
+        return true;
       }
-      return false
+      return false;
     }
 
     /**
@@ -89,160 +89,160 @@ const AVLTree = (() => {
      * @returns {Boolean} if element was found and deleted
      */
     remove(_val) {
-      const prevSize = this.size
-      this.root = del(this.root, _val, this)
+      const prevSize = this.size;
+      this.root = del(this.root, _val, this);
       if (prevSize === this.size) {
-        return false
+        return false;
       }
-      return true
+      return true;
     }
   }
 
   // creates new Node Object
   const Node = function (val) {
-    this._val = val
-    this._left = null
-    this._right = null
-    this._height = 1
-  }
+    this._val = val;
+    this._left = null;
+    this._right = null;
+    this._height = 1;
+  };
   // get height of a node
   const getH = (node) => {
     if (node == null) {
-      return 0
+      return 0;
     }
-    return node._height
-  }
+    return node._height;
+  };
   // height difference or balance factor of a node
   const getHDiff = (node) => {
     if (node == null) {
-      return 0
+      return 0;
     } else {
-      return getH(node._left) - getH(node._right)
+      return getH(node._left) - getH(node._right);
     }
-  }
+  };
   // update height of a node based on children's heights
   const updateH = (node) => {
     if (node == null) {
-      return
+      return;
     }
-    node._height = Math.max(getH(node._left), getH(node._right)) + 1
-  }
+    node._height = Math.max(getH(node._left), getH(node._right)) + 1;
+  };
   // rotations of AVL Tree
   const leftRotate = (node) => {
-    const temp = node._right
-    node._right = temp._left
-    temp._left = node
-    updateH(node)
-    updateH(temp)
-    return temp
-  }
+    const temp = node._right;
+    node._right = temp._left;
+    temp._left = node;
+    updateH(node);
+    updateH(temp);
+    return temp;
+  };
   const rightRotate = (node) => {
-    const temp = node._left
-    node._left = temp._right
-    temp._right = node
-    updateH(node)
-    updateH(temp)
-    return temp
-  }
+    const temp = node._left;
+    node._left = temp._right;
+    temp._right = node;
+    updateH(node);
+    updateH(temp);
+    return temp;
+  };
   // check if tree is balanced else balance it for insertion
   const insertBalance = (node, _val, balanceFactor) => {
     if (balanceFactor > 1 && _val < node._left._val) {
-      return rightRotate(node) // Left Left Case
+      return rightRotate(node); // Left Left Case
     } else if (balanceFactor < 1 && _val > node._right._val) {
-      return leftRotate(node) // Right Right Case
+      return leftRotate(node); // Right Right Case
     } else if (balanceFactor > 1 && _val > node._left._val) {
-      node._left = leftRotate(node._left) // Left Right Case
-      return rightRotate(node)
+      node._left = leftRotate(node._left); // Left Right Case
+      return rightRotate(node);
     }
-    node._right = rightRotate(node._right)
-    return leftRotate(node)
-  }
+    node._right = rightRotate(node._right);
+    return leftRotate(node);
+  };
   // check if tree is balanced after deletion
   const delBalance = (node) => {
-    const balanceFactor1 = getHDiff(node)
+    const balanceFactor1 = getHDiff(node);
     if (balanceFactor1 === 0 || balanceFactor1 === 1 || balanceFactor1 === -1) {
-      return node
+      return node;
     }
     if (balanceFactor1 > 1) {
       if (getHDiff(node._left) >= 0) {
-        return rightRotate(node) // Left Left
+        return rightRotate(node); // Left Left
       }
-      node._left = leftRotate(node._left)
-      return rightRotate(node) // Left Right
+      node._left = leftRotate(node._left);
+      return rightRotate(node); // Left Right
     }
     if (getHDiff(node._right) > 0) {
-      node._right = rightRotate(node._right)
-      return leftRotate(node) // Right Left
+      node._right = rightRotate(node._right);
+      return leftRotate(node); // Right Left
     }
-    return leftRotate(node) // Right Right
-  }
+    return leftRotate(node); // Right Right
+  };
   // implement avl tree insertion
   const insert = (root, val, tree) => {
     if (root == null) {
-      tree.size++
-      return new Node(val)
+      tree.size++;
+      return new Node(val);
     } else if (tree._comp(root._val, val) < 0) {
-      root._right = insert(root._right, val, tree)
+      root._right = insert(root._right, val, tree);
     } else if (tree._comp(root._val, val) > 0) {
-      root._left = insert(root._left, val, tree)
+      root._left = insert(root._left, val, tree);
     } else {
-      return root
+      return root;
     }
-    updateH(root)
-    const balanceFactor = getHDiff(root)
+    updateH(root);
+    const balanceFactor = getHDiff(root);
     if (balanceFactor === 0 || balanceFactor === 1 || balanceFactor === -1) {
-      return root
+      return root;
     }
-    return insertBalance(root, val, balanceFactor)
-  }
+    return insertBalance(root, val, balanceFactor);
+  };
   // delete a element
   const del = (root, _val, tree) => {
     if (root == null) {
-      return root
+      return root;
     } else if (tree._comp(root._val, _val) === 0) {
       // key found case
       if (root._left === null && root._right === null) {
-        root = null
-        tree.size--
+        root = null;
+        tree.size--;
       } else if (root._left === null) {
-        root = root._right
-        tree.size--
+        root = root._right;
+        tree.size--;
       } else if (root._right === null) {
-        root = root._left
-        tree.size--
+        root = root._left;
+        tree.size--;
       } else {
-        let temp = root._right
+        let temp = root._right;
         while (temp._left != null) {
-          temp = temp._left
+          temp = temp._left;
         }
-        root._val = temp._val
-        root._right = del(root._right, temp._val, tree)
+        root._val = temp._val;
+        root._right = del(root._right, temp._val, tree);
       }
     } else {
       if (tree._comp(root._val, _val) < 0) {
-        root._right = del(root._right, _val, tree)
+        root._right = del(root._right, _val, tree);
       } else {
-        root._left = del(root._left, _val, tree)
+        root._left = del(root._left, _val, tree);
       }
     }
-    updateH(root)
-    root = delBalance(root)
-    return root
-  }
+    updateH(root);
+    root = delBalance(root);
+    return root;
+  };
   // search tree for a element
   const search = (root, val, tree) => {
     if (root == null) {
-      return null
+      return null;
     } else if (tree._comp(root._val, val) === 0) {
-      return root
+      return root;
     } else if (tree._comp(root._val, val) < 0) {
-      return search(root._right, val, tree)
+      return search(root._right, val, tree);
     }
-    return search(root._left, val, tree)
-  }
+    return search(root._left, val, tree);
+  };
 
-  return _avl
-})()
+  return _avl;
+})();
 
 /**
  * A Code for Testing the AVLTree
@@ -282,4 +282,4 @@ const AVLTree = (() => {
 //   }
 // })()
 
-export { AVLTree }
+export { AVLTree };

@@ -19,34 +19,34 @@ const values = {
   IX: 9,
   V: 5,
   IV: 4,
-  I: 1
-}
+  I: 1,
+};
 
 const orders = [
-  'M',
-  'CM',
-  'D',
-  'CD',
-  'C',
-  'XC',
-  'L',
-  'XL',
-  'X',
-  'IX',
-  'V',
-  'IV',
-  'I'
-]
+  "M",
+  "CM",
+  "D",
+  "CD",
+  "C",
+  "XC",
+  "L",
+  "XL",
+  "X",
+  "IX",
+  "V",
+  "IV",
+  "I",
+];
 
 function decimalToRoman(num) {
-  let roman = ''
+  let roman = "";
   for (const symbol of orders) {
     while (num >= values[symbol]) {
-      roman += symbol
-      num -= values[symbol]
+      roman += symbol;
+      num -= values[symbol];
     }
   }
-  return roman
+  return roman;
 }
 
-export { decimalToRoman }
+export { decimalToRoman };

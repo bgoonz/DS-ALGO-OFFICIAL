@@ -1,5 +1,5 @@
 // import prompts from "prompts";
-let prompts=require('prompts');
+let prompts = require("prompts");
 const binarySearchRecusionProject = (
   array,
   value,
