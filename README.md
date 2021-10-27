@@ -8522,7 +8522,7 @@ For a bar `b` whose height is `h`, find the closest bar `b1` on the left that is
 Notice that if we just loop the bars from left to right, `b1` and `b2` of each bar may overlap.
 
 | index |    height    |     width     |       area       |
-| :---: | :----------: | :-----------: | :--------------: |
+|:-----:|:------------:|:-------------:|:----------------:|
 |  `i`  | `heights[i]` | `i2 - i1 - 1` | `height * width` |
 |   0   |      2       |  1 - -1 - 1   |        2         |
 |   1   |      1       |  6 - -1 - 1   |        6         |
