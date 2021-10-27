@@ -26,25 +26,25 @@
  */
 
 function fareyApproximation(decimal, repeat = 20) {
-  let a = 0
-  let b = 1
-  let c = 1
-  let d = 1
-  let numerator
-  let denominator
+  let a = 0;
+  let b = 1;
+  let c = 1;
+  let d = 1;
+  let numerator;
+  let denominator;
 
   for (let i = 0; i < repeat; i++) {
-    numerator = a + c
-    denominator = b + d
+    numerator = a + c;
+    denominator = b + d;
 
     if (decimal > numerator / denominator) {
-      ;[a, b] = [numerator, denominator]
+      [a, b] = [numerator, denominator];
     } else {
-      ;[c, d] = [numerator, denominator]
+      [c, d] = [numerator, denominator];
     }
   }
 
-  return { numerator, denominator }
+  return { numerator, denominator };
 }
 
-export { fareyApproximation }
+export { fareyApproximation };

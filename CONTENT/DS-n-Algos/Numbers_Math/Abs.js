@@ -13,12 +13,12 @@
 
 const absVal = (num) => {
   // Find absolute value of `num`.
-  'use strict'
+  "use strict";
   if (num < 0) {
-    return -num
+    return -num;
   }
   // Executes if condition is not met.
-  return num
-}
+  return num;
+};
 
-export { absVal }
+export { absVal };

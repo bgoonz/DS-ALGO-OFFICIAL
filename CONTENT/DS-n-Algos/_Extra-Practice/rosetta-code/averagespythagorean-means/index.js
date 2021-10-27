@@ -1,3 +1,0 @@
-function pythagoreanMeans(rangeArr) {}
-
-// TODO

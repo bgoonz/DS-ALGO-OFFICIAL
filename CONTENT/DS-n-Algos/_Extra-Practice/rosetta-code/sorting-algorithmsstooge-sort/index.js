@@ -1,3 +1,0 @@
-function stoogeSort(arr) {}
-
-// TODO

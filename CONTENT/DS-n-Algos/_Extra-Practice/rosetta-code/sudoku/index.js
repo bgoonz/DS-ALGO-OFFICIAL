@@ -1,3 +1,0 @@
-function solveSudoku(puzzle) {}
-
-// TODO

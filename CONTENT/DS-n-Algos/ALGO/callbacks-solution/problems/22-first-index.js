@@ -1,4 +1,4 @@
-/*******************************************************************************
+/*
 Write a function `firstIndex` that accepts an array and a callback as arguments.
 The function should return the index of the first element of the array that
 results in true when passed into the callback.If no elements of the array

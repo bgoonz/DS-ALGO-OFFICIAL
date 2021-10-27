@@ -1,3 +1,0 @@
-function zeckendorf(n) {}
-
-// TODO

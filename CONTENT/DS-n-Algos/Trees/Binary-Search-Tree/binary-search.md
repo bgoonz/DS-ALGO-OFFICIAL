@@ -1,6 +1,7 @@
-// Recursive Boolean
+#Recursive Boolean
 
 ```js
+// Recursive Boolean
 function recurBSearch(array, target) {
   // Our base case:
   // If our array is empty, we do not have the target

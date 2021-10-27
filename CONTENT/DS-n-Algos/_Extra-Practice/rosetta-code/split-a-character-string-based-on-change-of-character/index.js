@@ -1,3 +1,0 @@
-function split(str) {}
-
-// TODO

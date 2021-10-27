@@ -122,14 +122,14 @@ class Trie {
     return words;
   }
 
-  _getWords(node, words, word) {
-    for (const child in node.children) {
-      if (node.children.hasOwnProperty(child)) {
+  _getWords({ children }, words, word) {
+    for (const child in children) {
+      if (children.hasOwnProperty(child)) {
         word += child;
-        if (node.children[child].isWord) {
+        if (children[child].isWord) {
           words.push(word);
         }
-        this._getWords(node.children[child], words, word);
+        this._getWords(children[child], words, word);
         word = word.substring(0, word.length - 1);
       }
     }

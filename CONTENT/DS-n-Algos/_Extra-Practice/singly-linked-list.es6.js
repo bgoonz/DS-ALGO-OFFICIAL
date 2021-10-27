@@ -120,7 +120,7 @@ singlyLinkedList.traverse((node) => {
   node.data = node.data + 10;
 });
 singlyLinkedList.print(); // => 12 13 14 15 16 17 18
-singlyLinkedList.traverse((node) => {
-  console.log(node.data);
+singlyLinkedList.traverse(({ data }) => {
+  console.log(data);
 }); // => 12 13 14 15 16 17 18
 console.log("length is 7:", singlyLinkedList.length()); // => 7

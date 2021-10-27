@@ -1,3 +1,0 @@
-function LCM(A) {}
-
-// TODO

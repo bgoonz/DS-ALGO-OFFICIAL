@@ -1,4 +1,4 @@
-/*******************************************************************************
+/*
 Write a function `suffixCipher` that accepts a sentence and object as arguments.
 The object contains suffixes as keys and callbacks as values. The `suffixCipher`
 function should
@@ -29,7 +29,7 @@ let cipher1 = {
 };
 console.log(suffixCipher('incremental progress is very instrumental', cipher2));
 // INCREMENTAL progressth isth very INSTRUMENTAL
-*******************************************************************************/
+*/
 
 function suffixCipher(sentence, cipher) {
   let words = sentence.split(" ");

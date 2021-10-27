@@ -1,3 +1,0 @@
-function fibonacci(n) {}
-
-// TODO

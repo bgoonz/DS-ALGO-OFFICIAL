@@ -1,3 +1,0 @@
-function brain(prog) {}
-
-// TODO

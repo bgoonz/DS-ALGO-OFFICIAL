@@ -1,4 +1,4 @@
-/*******************************************************************************
+/*
 Write a function `sentenceMapper` that accepts a sentence and a callback as arguments.
 The function should return a new sentence where every word of the original sentence
 becomes the result of passing the word to the callback.
@@ -23,7 +23,7 @@ let removeVowels = function(word) {
 
 let result2 = sentenceMapper("this is pretty cool right", removeVowels);
 console.log(result2); // 'ths s prtty cl rght'
-*******************************************************************************/
+*/
 
 let sentenceMapper = (sentence, cb) => {
   let words = sentence.split(" ");

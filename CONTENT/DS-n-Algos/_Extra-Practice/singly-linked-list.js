@@ -3,82 +3,89 @@ function Node(data) {
   this.next = null;
 }
 
-function SinglyLinkedList() {
-  this.head = null;
-  this.tail = null;
-  this.numberOfValues = 0;
+class SinglyLinkedList {
+  constructor() {
+    this.head = null;
+    this.tail = null;
+    this.numberOfValues = 0;
+  }
+
+  add(data) {
+    const node = new Node(data);
+    if (!this.head) {
+      this.head = node;
+      this.tail = node;
+    } else {
+      this.tail.next = node;
+      this.tail = node;
+    }
+    this.numberOfValues++;
+  }
+
+  remove(data) {
+    let previous = this.head;
+    let current = this.head;
+    while (current) {
+      if (current.data === data) {
+        if (current === this.head) {
+          this.head = this.head.next;
+        }
+        if (current === this.tail) {
+          this.tail = previous;
+        }
+        previous.next = current.next;
+        this.numberOfValues--;
+      } else {
+        previous = current;
+      }
+      current = current.next;
+    }
+  }
+
+  insertAfter(data, toNodeData) {
+    let current = this.head;
+    while (current) {
+      if (current.data === toNodeData) {
+        const node = new Node(data);
+        if (current === this.tail) {
+          this.tail.next = node;
+          this.tail = node;
+        } else {
+          node.next = current.next;
+          current.next = node;
+        }
+        this.numberOfValues++;
+      }
+      current = current.next;
+    }
+  }
+
+  traverse(fn) {
+    let current = this.head;
+    while (current) {
+      if (fn) {
+        fn(current);
+      }
+      current = current.next;
+    }
+  }
+
+  length() {
+    return this.numberOfValues;
+  }
+
+  print() {
+    let string = "";
+    let current = this.head;
+    while (current) {
+      string += `${current.data} `;
+      current = current.next;
+    }
+    console.log(string.trim());
+  }
 }
 
-SinglyLinkedList.prototype.add = function (data) {
-  var node = new Node(data);
-  if (!this.head) {
-    this.head = node;
-    this.tail = node;
-  } else {
-    this.tail.next = node;
-    this.tail = node;
-  }
-  this.numberOfValues++;
-};
-SinglyLinkedList.prototype.remove = function (data) {
-  var previous = this.head;
-  var current = this.head;
-  while (current) {
-    if (current.data === data) {
-      if (current === this.head) {
-        this.head = this.head.next;
-      }
-      if (current === this.tail) {
-        this.tail = previous;
-      }
-      previous.next = current.next;
-      this.numberOfValues--;
-    } else {
-      previous = current;
-    }
-    current = current.next;
-  }
-};
-SinglyLinkedList.prototype.insertAfter = function (data, toNodeData) {
-  var current = this.head;
-  while (current) {
-    if (current.data === toNodeData) {
-      var node = new Node(data);
-      if (current === this.tail) {
-        this.tail.next = node;
-        this.tail = node;
-      } else {
-        node.next = current.next;
-        current.next = node;
-      }
-      this.numberOfValues++;
-    }
-    current = current.next;
-  }
-};
-SinglyLinkedList.prototype.traverse = function (fn) {
-  var current = this.head;
-  while (current) {
-    if (fn) {
-      fn(current);
-    }
-    current = current.next;
-  }
-};
-SinglyLinkedList.prototype.length = function () {
-  return this.numberOfValues;
-};
-SinglyLinkedList.prototype.print = function () {
-  var string = "";
-  var current = this.head;
-  while (current) {
-    string += current.data + " ";
-    current = current.next;
-  }
-  console.log(string.trim());
-};
-
-var singlyLinkedList = new SinglyLinkedList();
+const singlyLinkedList = new SinglyLinkedList();
 singlyLinkedList.print(); // => ''
 singlyLinkedList.add(1);
 singlyLinkedList.add(2);
@@ -113,7 +120,7 @@ singlyLinkedList.traverse((node) => {
   node.data = node.data + 10;
 });
 singlyLinkedList.print(); // => 12 13 14 15 16 17 18
-singlyLinkedList.traverse((node) => {
-  console.log(node.data);
+singlyLinkedList.traverse(({ data }) => {
+  console.log(data);
 }); // => 12 13 14 15 16 17 18
 console.log("length is 7:", singlyLinkedList.length()); // => 7

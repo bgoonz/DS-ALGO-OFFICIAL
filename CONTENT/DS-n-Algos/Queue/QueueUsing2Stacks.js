@@ -3,50 +3,50 @@
 
 class Queue {
   constructor() {
-    this.inputStack = []
-    this.outputStack = []
+    this.inputStack = [];
+    this.outputStack = [];
   }
 
   // Push item into the inputstack
   enqueue(item) {
-    this.inputStack.push(item)
+    this.inputStack.push(item);
   }
 
   dequeue() {
     // push all items to outputstack
-    this.outputStack = []
+    this.outputStack = [];
     while (this.inputStack.length > 0) {
-      this.outputStack.push(this.inputStack.pop())
+      this.outputStack.push(this.inputStack.pop());
     }
     // return the top element of the outputstack if any
     if (this.outputStack.length > 0) {
-      const top = this.outputStack.pop()
+      const top = this.outputStack.pop();
       // repush all the items to the inputstack
-      this.inputStack = []
+      this.inputStack = [];
       while (this.outputStack.length > 0) {
-        this.inputStack.push(this.outputStack.pop())
+        this.inputStack.push(this.outputStack.pop());
       }
-      return top
+      return top;
     }
   }
 
   // display elements of the inputstack
   listIn(output = (value) => console.log(value)) {
-    let i = 0
+    let i = 0;
     while (i < this.inputStack.length) {
-      output(this.inputStack[i])
-      i++
+      output(this.inputStack[i]);
+      i++;
     }
   }
 
   // display element of the outputstack
   listOut(output = (value) => console.log(value)) {
-    let i = 0
+    let i = 0;
     while (i < this.outputStack.length) {
-      output(this.outputStack[i])
-      i++
+      output(this.outputStack[i]);
+      i++;
     }
   }
 }
 
-export { Queue }
+export { Queue };

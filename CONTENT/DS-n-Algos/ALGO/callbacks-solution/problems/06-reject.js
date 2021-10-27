@@ -1,4 +1,4 @@
-/*******************************************************************************
+/*
 Write a function `reject` that accepts an array and callback as arguments. The
 function should call the callback for each element of the array, passing in the
 element. The function should return a new array
@@ -16,7 +16,7 @@ let hasA = function(s) {
     return s.toLowerCase().includes('a');
 };
 console.log(reject(['breadth', 'GRAPH', 'depth', 'height'], hasA)); // [ 'depth', 'height' ]
-*******************************************************************************/
+*/
 
 function reject(array, cb) {
   let items = [];

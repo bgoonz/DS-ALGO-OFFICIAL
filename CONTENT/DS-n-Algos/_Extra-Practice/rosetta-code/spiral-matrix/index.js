@@ -1,3 +1,0 @@
-function spiralArray(n) {}
-
-// TODO

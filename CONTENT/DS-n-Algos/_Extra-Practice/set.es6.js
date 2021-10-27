@@ -20,12 +20,12 @@ class Set {
   }
 
   contains(value) {
-    return this.values.indexOf(value) !== -1;
+    return this.values.includes(value);
   }
 
-  union(set) {
+  union({ values }) {
     const newSet = new Set();
-    set.values.forEach((value) => {
+    values.forEach((value) => {
       newSet.add(value);
     });
     this.values.forEach((value) => {
@@ -54,8 +54,8 @@ class Set {
     return newSet;
   }
 
-  isSubset(set) {
-    return set.values.every(function (value) {
+  isSubset({ values }) {
+    return values.every(function (value) {
       return this.contains(value);
     }, this);
   }

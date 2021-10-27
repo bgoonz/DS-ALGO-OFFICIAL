@@ -1,3 +1,0 @@
-function mergeLists(lists) {}
-
-// TODO

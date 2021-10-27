@@ -1,3 +1,0 @@
-function letterFrequency(txt) {}
-
-// TODO

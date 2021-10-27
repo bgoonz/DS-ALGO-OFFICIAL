@@ -5,9 +5,9 @@
  Wikipedia reference: https://en.wikipedia.org/wiki/Geographical_distance#Flat-surface_formulae
 */
 const distance2points = (longitude1, latitude1, longitude2, latitude2) => {
-  const width = longitude2 - longitude1
-  const height = latitude2 - latitude1
-  return Math.sqrt(width * width + height * height)
-}
+  const width = longitude2 - longitude1;
+  const height = latitude2 - latitude1;
+  return Math.sqrt(width * width + height * height);
+};
 
-export { distance2points }
+export { distance2points };

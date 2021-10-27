@@ -12,44 +12,44 @@ const Queue = (() => {
   class Queue {
     constructor() {
       // This is the array representation of the queue
-      this.queue = []
+      this.queue = [];
     }
 
     // methods
     // Add a value to the end of the queue
     enqueue(item) {
-      this.queue.push(item)
+      this.queue.push(item);
     }
 
     // Removes the value at the front of the queue
     dequeue() {
       if (this.queue.length === 0) {
-        throw new Error('Queue is Empty')
+        throw new Error("Queue is Empty");
       }
 
-      const result = this.queue[0]
-      this.queue.splice(0, 1) // remove the item at position 0 from the array
+      const result = this.queue[0];
+      this.queue.splice(0, 1); // remove the item at position 0 from the array
 
-      return result
+      return result;
     }
 
     // Return the length of the queue
     length() {
-      return this.queue.length
+      return this.queue.length;
     }
 
     // Return the item at the front of the queue
     peek() {
-      return this.queue[0]
+      return this.queue[0];
     }
 
     // List all the items in the queue
     view(output = (value) => console.log(value)) {
-      output(this.queue)
+      output(this.queue);
     }
   }
 
-  return Queue
-})()
+  return Queue;
+})();
 
-export { Queue }
+export { Queue };

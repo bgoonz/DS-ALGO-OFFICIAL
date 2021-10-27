@@ -1,3 +1,0 @@
-function isSelfDescribing(n) {}
-
-// TODO

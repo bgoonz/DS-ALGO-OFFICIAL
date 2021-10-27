@@ -1,3 +1,0 @@
-function lookAndSay(str) {}
-
-// TODO

@@ -1,3 +1,0 @@
-function strandSort(list) {}
-
-// TODO

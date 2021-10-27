@@ -48,24 +48,24 @@
  * @param {number} modulus
  */
 const modularExponentiation = (base, exponent, modulus) => {
-  if (modulus === 1) return 0 // after all, any x % 1 = 0
+  if (modulus === 1) return 0; // after all, any x % 1 = 0
 
-  let result = 1
-  base %= modulus // make sure that base < modulus
+  let result = 1;
+  base %= modulus; // make sure that base < modulus
 
   while (exponent > 0) {
     // if exponent is odd, multiply the result by the base
     if (exponent % 2 === 1) {
-      result = (result * base) % modulus
-      exponent--
+      result = (result * base) % modulus;
+      exponent--;
     } else {
-      exponent = exponent / 2 // exponent is even for sure
-      base = (base * base) % modulus
+      exponent = exponent / 2; // exponent is even for sure
+      base = (base * base) % modulus;
     }
   }
 
-  return result
-}
+  return result;
+};
 
 /**
  * Test if a given number n is prime or not.
@@ -76,22 +76,22 @@ const modularExponentiation = (base, exponent, modulus) => {
  */
 const fermatPrimeCheck = (n, numberOfIterations = 50) => {
   // first check for edge cases
-  if (n <= 1 || n === 4) return false
-  if (n <= 3) return true // 2 and 3 are included here
+  if (n <= 1 || n === 4) return false;
+  if (n <= 3) return true; // 2 and 3 are included here
 
   for (let i = 0; i < numberOfIterations; i++) {
     // pick a random number a, with 2 <= a < n - 2
-    const randomNumber = Math.floor(Math.random() * (n - 2) + 2)
+    const randomNumber = Math.floor(Math.random() * (n - 2) + 2);
 
     // if a^(n - 1) % n is different than 1, n is composite
     if (modularExponentiation(randomNumber, n - 1, n) !== 1) {
-      return false
+      return false;
     }
   }
 
   // if we arrived here without finding a Fermat Witness, this is almost guaranteed
   // to be a prime number (or a Carmichael number, if you are unlucky)
-  return true
-}
+  return true;
+};
 
-export { modularExponentiation, fermatPrimeCheck }
+export { modularExponentiation, fermatPrimeCheck };

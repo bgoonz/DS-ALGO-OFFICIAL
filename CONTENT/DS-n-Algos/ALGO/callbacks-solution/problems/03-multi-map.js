@@ -1,4 +1,4 @@
-/*******************************************************************************
+/*
 Write a function `multiMap` that accepts a value, a number n, and a callback.
 The function should return the new value that results from running the original value
 through the callback n times.
@@ -19,7 +19,7 @@ let result3 = multiMap("hi", 5, function(s) {
   return s + "!";
 });
 console.log(result3); // hi!!!!!
-*******************************************************************************/
+*/
 
 function multiMap(val, n, cb) {
   for (let i = 0; i < n; i++) {

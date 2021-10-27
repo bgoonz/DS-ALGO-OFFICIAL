@@ -1,3 +1,0 @@
-function sumMults(n) {}
-
-// TODO

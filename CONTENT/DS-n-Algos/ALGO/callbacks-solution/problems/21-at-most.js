@@ -1,4 +1,4 @@
-/*******************************************************************************
+/*
 Write a function `atMost` that accepts an array, a max number, and a callback as
 arguments. The function should return a boolean indicating whether or not there are
 fewer than `max` elements of the array that result in true when passed into the callback.
@@ -19,7 +19,7 @@ console.log(atMost(['boat', 'cat', 'car'], 1, startsWithA));                    
 console.log(atMost(['boat', 'cat', 'car', 'academy'], 1, startsWithA));         // true
 console.log(atMost(['boat', 'arc', 'cat', 'car', 'academy'], 1, startsWithA));  // false
 
-*******************************************************************************/
+*/
 
 function atMost(array, max, cb) {
   let count = 0;

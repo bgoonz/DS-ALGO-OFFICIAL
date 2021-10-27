@@ -1,3 +1,0 @@
-function selfReferential(n) {}
-
-// TODO

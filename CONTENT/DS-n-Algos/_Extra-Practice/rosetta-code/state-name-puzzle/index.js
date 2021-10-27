@@ -1,3 +1,0 @@
-function solve(input) {}
-
-// TODO

@@ -1,3 +1,0 @@
-function rms(arr) {}
-
-// TODO

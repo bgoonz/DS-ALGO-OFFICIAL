@@ -19,5 +19,5 @@
  * @return {number}
  */
 export const degreeToRadian = (degree) => {
-  return degree * (Math.PI / 180)
-}
+  return degree * (Math.PI / 180);
+};

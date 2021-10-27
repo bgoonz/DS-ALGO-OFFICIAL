@@ -1,3 +1,0 @@
-function dotProduct(...vectors) {}
-
-// TODO

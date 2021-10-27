@@ -18,5 +18,5 @@ function sum(arr) {
   return arr[0] + sum(arr.slice(1));
 }
 
-/**************DO NOT MODIFY ANYTHING UNDER THIS LINE*****************/
+
 module.exports = sum;

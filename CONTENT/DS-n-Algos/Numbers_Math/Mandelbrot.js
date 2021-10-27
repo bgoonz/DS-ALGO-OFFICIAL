@@ -37,39 +37,39 @@ export function getRGBData(
   useDistanceColorCoding = true
 ) {
   if (imageWidth <= 0) {
-    throw new Error('imageWidth should be greater than zero')
+    throw new Error("imageWidth should be greater than zero");
   }
 
   if (imageHeight <= 0) {
-    throw new Error('imageHeight should be greater than zero')
+    throw new Error("imageHeight should be greater than zero");
   }
 
   if (maxStep <= 0) {
-    throw new Error('maxStep should be greater than zero')
+    throw new Error("maxStep should be greater than zero");
   }
 
-  const rgbData = []
-  const figureHeight = (figureWidth / imageWidth) * imageHeight
+  const rgbData = [];
+  const figureHeight = (figureWidth / imageWidth) * imageHeight;
 
   // loop through the image-coordinates
   for (let imageX = 0; imageX < imageWidth; imageX++) {
-    rgbData[imageX] = []
+    rgbData[imageX] = [];
     for (let imageY = 0; imageY < imageHeight; imageY++) {
       // determine the figure-coordinates based on the image-coordinates
-      const figureX = figureCenterX + (imageX / imageWidth - 0.5) * figureWidth
+      const figureX = figureCenterX + (imageX / imageWidth - 0.5) * figureWidth;
       const figureY =
-        figureCenterY + (imageY / imageHeight - 0.5) * figureHeight
+        figureCenterY + (imageY / imageHeight - 0.5) * figureHeight;
 
-      const distance = getDistance(figureX, figureY, maxStep)
+      const distance = getDistance(figureX, figureY, maxStep);
 
       // color the corresponding pixel based on the selected coloring-function
       rgbData[imageX][imageY] = useDistanceColorCoding
         ? colorCodedColorMap(distance)
-        : blackAndWhiteColorMap(distance)
+        : blackAndWhiteColorMap(distance);
     }
   }
 
-  return rgbData
+  return rgbData;
 }
 
 /**
@@ -81,7 +81,7 @@ export function getRGBData(
  * @return {object} The RGB-value corresponding to the distance.
  */
 function blackAndWhiteColorMap(distance) {
-  return distance >= 1 ? [0, 0, 0] : [255, 255, 255]
+  return distance >= 1 ? [0, 0, 0] : [255, 255, 255];
 }
 
 /**
@@ -94,34 +94,34 @@ function blackAndWhiteColorMap(distance) {
  */
 function colorCodedColorMap(distance) {
   if (distance >= 1) {
-    return [0, 0, 0]
+    return [0, 0, 0];
   } else {
     // simplified transformation of HSV to RGB
     // distance determines hue
-    const hue = 360 * distance
-    const saturation = 1
-    const val = 255
-    const hi = Math.floor(hue / 60) % 6
-    const f = hue / 60 - Math.floor(hue / 60)
+    const hue = 360 * distance;
+    const saturation = 1;
+    const val = 255;
+    const hi = Math.floor(hue / 60) % 6;
+    const f = hue / 60 - Math.floor(hue / 60);
 
-    const v = val
-    const p = 0
-    const q = Math.floor(val * (1 - f * saturation))
-    const t = Math.floor(val * (1 - (1 - f) * saturation))
+    const v = val;
+    const p = 0;
+    const q = Math.floor(val * (1 - f * saturation));
+    const t = Math.floor(val * (1 - (1 - f) * saturation));
 
     switch (hi) {
       case 0:
-        return [v, t, p]
+        return [v, t, p];
       case 1:
-        return [q, v, p]
+        return [q, v, p];
       case 2:
-        return [p, v, t]
+        return [p, v, t];
       case 3:
-        return [p, q, v]
+        return [p, q, v];
       case 4:
-        return [t, p, v]
+        return [t, p, v];
       default:
-        return [v, p, q]
+        return [v, p, q];
     }
   }
 }
@@ -138,20 +138,20 @@ function colorCodedColorMap(distance) {
  * @return {number} The relative distance as the ratio of steps taken to maxStep.
  */
 function getDistance(figureX, figureY, maxStep) {
-  let a = figureX
-  let b = figureY
-  let currentStep = 0
+  let a = figureX;
+  let b = figureY;
+  let currentStep = 0;
   for (let step = 0; step < maxStep; step++) {
-    currentStep = step
-    const aNew = a * a - b * b + figureX
-    b = 2 * a * b + figureY
-    a = aNew
+    currentStep = step;
+    const aNew = a * a - b * b + figureX;
+    b = 2 * a * b + figureY;
+    a = aNew;
 
     // divergence happens for all complex number with an absolute value
     // greater than 4 (= divergence threshold)
     if (a * a + b * b > 4) {
-      break
+      break;
     }
   }
-  return currentStep / (maxStep - 1)
+  return currentStep / (maxStep - 1);
 }

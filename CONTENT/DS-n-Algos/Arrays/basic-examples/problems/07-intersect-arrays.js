@@ -8,7 +8,7 @@ Examples:
 
 intersect(['a', 'b', 'c', 'd'], ['b', 'd', 'e']) => [ 'b', 'd' ]
 intersect(['a', 'b', 'c'], ['x', 'y', 'z']) => []
-*******************************************************************************/
+*/
 
 function intersect(arr1, arr2) {
   let commonEles = [];
@@ -23,5 +23,5 @@ function intersect(arr1, arr2) {
   return commonEles;
 }
 
-/**************DO NOT MODIFY ANYTHING UNDER THIS  LINE*************************/
+
 module.exports = intersect;

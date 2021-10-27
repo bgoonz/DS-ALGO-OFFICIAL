@@ -1,4 +1,4 @@
-/*******************************************************************************
+/*
 Write a function `mySimpleReduce` that accepts an array and a callback as arguments.
 The function should mimic the behavior of the built in Array#reduce, utilizing the
 first element of the array as the default accumulator.
@@ -28,7 +28,7 @@ let result3 = mySimpleReduce([4, 6, 2, 8, 3], function(max, el) {
     }
 });
 console.log(result3); // 8
-*******************************************************************************/
+*/
 
 function mySimpleReduce(array, cb) {
   let accumulator = array[0];

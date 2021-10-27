@@ -1,25 +1,25 @@
-import { breadthFirstSearch, depthFirstSearch } from './FloodFill'
+import { breadthFirstSearch, depthFirstSearch } from "./FloodFill";
 
 // some constants
-const black = [0, 0, 0]
-const green = [0, 255, 0]
-const violet = [255, 0, 255]
-const white = [255, 255, 255]
-const orange = [255, 128, 0]
+const black = [0, 0, 0];
+const green = [0, 255, 0];
+const violet = [255, 0, 255];
+const white = [255, 255, 255];
+const orange = [255, 128, 0];
 
-describe('FloodFill', () => {
-  it('should calculate the correct colors using breadth-first approach', () => {
-    expect(testBreadthFirst([1, 1], green, orange, [1, 1])).toEqual(orange)
-    expect(testBreadthFirst([1, 1], green, orange, [0, 1])).toEqual(violet)
-    expect(testBreadthFirst([1, 1], green, orange, [6, 4])).toEqual(white)
-  })
+describe("FloodFill", () => {
+  it("should calculate the correct colors using breadth-first approach", () => {
+    expect(testBreadthFirst([1, 1], green, orange, [1, 1])).toEqual(orange);
+    expect(testBreadthFirst([1, 1], green, orange, [0, 1])).toEqual(violet);
+    expect(testBreadthFirst([1, 1], green, orange, [6, 4])).toEqual(white);
+  });
 
-  it('should calculate the correct colors using depth-first approach', () => {
-    expect(testDepthFirst([1, 1], green, orange, [1, 1])).toEqual(orange)
-    expect(testDepthFirst([1, 1], green, orange, [0, 1])).toEqual(violet)
-    expect(testDepthFirst([1, 1], green, orange, [6, 4])).toEqual(white)
-  })
-})
+  it("should calculate the correct colors using depth-first approach", () => {
+    expect(testDepthFirst([1, 1], green, orange, [1, 1])).toEqual(orange);
+    expect(testDepthFirst([1, 1], green, orange, [0, 1])).toEqual(violet);
+    expect(testDepthFirst([1, 1], green, orange, [6, 4])).toEqual(white);
+  });
+});
 
 /**
  * Utility-function to test the function "breadthFirstSearch".
@@ -36,9 +36,9 @@ function testBreadthFirst(
   replacementColor,
   testLocation
 ) {
-  const rgbData = generateTestRgbData()
-  breadthFirstSearch(rgbData, fillLocation, targetColor, replacementColor)
-  return rgbData[testLocation[0]][testLocation[1]]
+  const rgbData = generateTestRgbData();
+  breadthFirstSearch(rgbData, fillLocation, targetColor, replacementColor);
+  return rgbData[testLocation[0]][testLocation[1]];
 }
 
 /**
@@ -57,9 +57,9 @@ function testDepthFirst(
   testLocation
 ) {
   // eslint-disable-line
-  const rgbData = generateTestRgbData()
-  depthFirstSearch(rgbData, fillLocation, targetColor, replacementColor)
-  return rgbData[testLocation[0]][testLocation[1]]
+  const rgbData = generateTestRgbData();
+  depthFirstSearch(rgbData, fillLocation, targetColor, replacementColor);
+  return rgbData[testLocation[0]][testLocation[1]];
 }
 
 /**
@@ -75,17 +75,17 @@ function generateTestRgbData() {
     [black, black, green, black, white, white, green],
     [violet, violet, black, violet, violet, white, white],
     [green, green, green, violet, violet, violet, violet],
-    [violet, violet, violet, violet, violet, violet, violet]
-  ]
+    [violet, violet, violet, violet, violet, violet, violet],
+  ];
 
   // transpose layout-matrix so the x-index comes before the y-index
-  const transposed = []
+  const transposed = [];
   for (let x = 0; x < layout[0].length; x++) {
-    transposed[x] = []
+    transposed[x] = [];
     for (let y = 0; y < layout.length; y++) {
-      transposed[x][y] = layout[y][x]
+      transposed[x][y] = layout[y][x];
     }
   }
 
-  return transposed
+  return transposed;
 }

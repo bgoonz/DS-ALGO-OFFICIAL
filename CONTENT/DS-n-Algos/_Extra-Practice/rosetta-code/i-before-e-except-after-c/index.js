@@ -1,3 +1,0 @@
-function IBeforeExceptC(word) {}
-
-// TODO

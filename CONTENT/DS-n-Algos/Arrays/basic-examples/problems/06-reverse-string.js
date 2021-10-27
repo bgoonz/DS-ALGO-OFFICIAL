@@ -6,7 +6,7 @@ Examples:
 
 reverseString("Go-to-the-store") => "store-the-to-Go"
 reverseString("Jump,-jump-for-joy") => "joy-for-jump-Jump,"
-*******************************************************************************/
+*/
 
 function reverseString(string) {
   let words = string.split("-");
@@ -21,5 +21,5 @@ function reverseString(string) {
   return reversedStr;
 }
 
-/**************DO NOT MODIFY ANYTHING UNDER THIS  LINE*************************/
+
 module.exports = reverseString;

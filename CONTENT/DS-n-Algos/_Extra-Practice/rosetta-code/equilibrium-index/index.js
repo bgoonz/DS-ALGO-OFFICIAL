@@ -1,3 +1,0 @@
-function equilibrium(a) {}
-
-// TODO

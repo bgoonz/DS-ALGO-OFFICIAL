@@ -7,6 +7,6 @@
  *
  */
 
-const numberOfDigit = (n) => Math.abs(n).toString().length
+const numberOfDigit = (n) => Math.abs(n).toString().length;
 
-export { numberOfDigit }
+export { numberOfDigit };

@@ -3,13 +3,13 @@
 
 export function TowerOfHanoi(n, from, to, aux, output = []) {
   if (n === 1) {
-    output.push(`Move disk 1 from rod ${from} to rod ${to}`)
-    return output
+    output.push(`Move disk 1 from rod ${from} to rod ${to}`);
+    return output;
   }
-  TowerOfHanoi(n - 1, from, aux, to, output)
-  output.push(`Move disk ${n} from rod ${from} to rod ${to}`)
-  TowerOfHanoi(n - 1, aux, to, from, output)
-  return output
+  TowerOfHanoi(n - 1, from, aux, to, output);
+  output.push(`Move disk ${n} from rod ${from} to rod ${to}`);
+  TowerOfHanoi(n - 1, aux, to, from, output);
+  return output;
 }
 
 // Driver code (A, C, B are the name of rods)

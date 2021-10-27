@@ -6,7 +6,7 @@ Examples:
 
 oddRange(13); // => [ 1, 3, 5, 7, 9, 11, 13 ]
 oddRange(6); // => [ 1, 3, 5 ]
-*******************************************************************************/
+*/
 
 function oddRange(end) {
   let arr = [];
@@ -18,5 +18,5 @@ function oddRange(end) {
   return arr;
 }
 
-/**************DO NOT MODIFY ANYTHING UNDER THIS  LINE*************************/
+
 module.exports = oddRange;

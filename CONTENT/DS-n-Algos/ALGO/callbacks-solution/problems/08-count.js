@@ -1,4 +1,4 @@
-/*******************************************************************************
+/*
 Write a function `count` that accepts an array and a callback as arguments. The
 function should return the number of elements of the array that return true when
 passed to the callback.
@@ -24,7 +24,7 @@ let result4 = count(['follow', 'the', 'yellow', 'brick', 'road'], function (str)
     return str.includes('x');
 });
 console.log(result4); // 0
-*******************************************************************************/
+*/
 
 function count(array, cb) {
   let numTrue = 0;

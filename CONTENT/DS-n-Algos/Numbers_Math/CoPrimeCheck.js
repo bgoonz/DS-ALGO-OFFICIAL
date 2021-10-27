@@ -11,12 +11,12 @@
 
 // Here we use a GetEuclidGCD method as a utility.
 const GetEuclidGCD = (arg1, arg2) => {
-  let less = arg1 > arg2 ? arg2 : arg1
+  let less = arg1 > arg2 ? arg2 : arg1;
   for (less; less >= 2; less--) {
-    if (arg1 % less === 0 && arg2 % less === 0) return less
+    if (arg1 % less === 0 && arg2 % less === 0) return less;
   }
-  return less
-}
+  return less;
+};
 
 // CoPrimeCheck function return the boolean in respect of the given number is co-prime or not.
 /**
@@ -27,14 +27,14 @@ const GetEuclidGCD = (arg1, arg2) => {
  */
 const CoPrimeCheck = (firstNumber, secondNumber) => {
   // firstly, check that input is a number or not.
-  if (typeof firstNumber !== 'number' || typeof secondNumber !== 'number') {
-    return new TypeError('Argument is not a number.')
+  if (typeof firstNumber !== "number" || typeof secondNumber !== "number") {
+    return new TypeError("Argument is not a number.");
   }
   /*
     This is the most efficient algorithm for checking co-primes
     if the GCD of both the numbers is 1 that means they are co-primes.
     */
-  return GetEuclidGCD(firstNumber, secondNumber) === 1
-}
+  return GetEuclidGCD(firstNumber, secondNumber) === 1;
+};
 
-export { CoPrimeCheck }
+export { CoPrimeCheck };

@@ -1,4 +1,4 @@
-/*******************************************************************************
+/*
 Write a function `exactly` that accepts an array, a number, and a callback as
 arguments. The function should return a boolean indicating whether or not there are
 exactly `number` elements of the array that return true when passed into the callback.
@@ -25,7 +25,7 @@ let result4 = exactly( [ 'follow', 'the', 'yellow', 'brick', 'road' ], 0, functi
 } );
 console.log(result4); // true
 
-*******************************************************************************/
+*/
 
 function exactly(array, num, cb) {
   let count = 0;

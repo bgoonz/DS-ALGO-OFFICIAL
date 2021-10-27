@@ -3,14 +3,14 @@
 // function which would calculate sum and return it
 const digitSum = (num) => {
   // sum will store sum of digits of a number
-  let sum = 0
+  let sum = 0;
   // while will run until num become 0
   while (num) {
-    sum += num % 10
-    num = parseInt(num / 10)
+    sum += num % 10;
+    num = parseInt(num / 10);
   }
 
-  return sum
-}
+  return sum;
+};
 
-export { digitSum }
+export { digitSum };
