@@ -1,25 +1,29 @@
 # DTW API
 
-
 <style>
 r { color: Red }
 o { color: Orange }
 g { color: Green }
 </style>
 
-
-
 ## - <r> DTW([options])
+
 Initializes a new instance of the `DTW`. If no options are provided the squared euclidean distance function is used.
 **Parameters**
 **[options]**: _DTWOptions_, The options to initialize the dynamic time warping instance with.
-##  - <r> class DTWOptions
+
+## - <r> class DTWOptions
+
 **Members**
 **distanceMetric**: _string_, The distance metric to use: `'manhattan' | 'euclidean' | 'squaredEuclidean'`.
 **distanceFunction**: _function_, The distance function to use. The function should accept two numeric arguments and return the numeric distance. e.g. function (a, b) { return a + b; }
-##  - <r> class DTW
+
+## - <r> class DTW
+
 **Methods**
-##  - <r> DTW.compute(firstSequence, secondSequence, \[window])
+
+## - <r> DTW.compute(firstSequence, secondSequence, \[window])
+
 Computes the optimal match between two provided sequences.
 **Parameters**
 **firstSequence**: _number[]_, The first sequence.
@@ -27,28 +31,32 @@ Computes the optimal match between two provided sequences.
 **[window]**: _number_, The window parameter (for the locality constraint) to use.
 **Returns**
 _number_, The similarity between the provided temporal sequences.
-##  - <r> DTW.path()
+
+## - <r> DTW.path()
+
 Retrieves the optimal match between two provided sequences.
 **Returns**
 _number[]_, The array containing the optimal path points.
+
 ---
+
 # DTW.js
 
 ---
+
 ---
 
+### - <g> 1. The DTW class is created with an optional options parameter.
 
-###  - <g> 1. The DTW class is created with an optional options parameter.
-###  - <g> 2. The validateOptions function is used to validate the options parameter.
-###  - <g> 3. The retrieveDistanceFunction function is used to retrieve the distance function to use.
-###  - <g> 4. The computeOptimalPath function is used to compute the optimal path between two sequences.
+### - <g> 2. The validateOptions function is used to validate the options parameter.
+
+### - <g> 3. The retrieveDistanceFunction function is used to retrieve the distance function to use.
+
+### - <g> 4. The computeOptimalPath function is used to compute the optimal path between two sequences.
+
 ### - <g> 5. The retrieveOptimalPath function is used to retrieve the optimal path between two sequences.
 
-
-
-
 ```js
-
 const debug = require("debug")("dtw");
 const validate = require("./validate");
 const matrix = require("./matrix");
@@ -240,7 +248,7 @@ function computeOptimalPathWithWindow(s, t, w, state) {
   const time = end - start;
   debug(`< computeOptimalPathWithWindow (${time} ms)`);
   distanceCostMatrix.shift();
-  distanceCostMatrix = distanceCostMatrix.map(row => {
+  distanceCostMatrix = distanceCostMatrix.map((row) => {
     return row.slice(1, row.length);
   });
   state.distanceCostMatrix = distanceCostMatrix;

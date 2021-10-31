@@ -142,7 +142,8 @@ function computeOptimalPath(s, t, state) {
       var cost = state.distance(s[rowIndex], t[columnIndex]);
       distanceCostMatrix[rowIndex][columnIndex] =
         cost +
-        Math.min( distanceCostMatrix[rowIndex - 1][columnIndex], // Insertion          distanceCostMatrix[rowIndex][columnIndex - 1], // Deletion          distanceCostMatrix[rowIndex - 1][columnIndex - 1]
+        Math.min(
+          distanceCostMatrix[rowIndex - 1][columnIndex] // Insertion          distanceCostMatrix[rowIndex][columnIndex - 1], // Deletion          distanceCostMatrix[rowIndex - 1][columnIndex - 1]
         ); // Match
     }
   }
@@ -175,7 +176,8 @@ function computeOptimalPathWithWindow(s, t, w, state) {
       const cost = state.distance(s[rowIndex - 1], t[columnIndex - 1]);
       distanceCostMatrix[rowIndex][columnIndex] =
         cost +
-        Math.min( distanceCostMatrix[rowIndex - 1][columnIndex], // Insertion          distanceCostMatrix[rowIndex][columnIndex - 1], // Deletion          distanceCostMatrix[rowIndex - 1][columnIndex - 1]
+        Math.min(
+          distanceCostMatrix[rowIndex - 1][columnIndex] // Insertion          distanceCostMatrix[rowIndex][columnIndex - 1], // Deletion          distanceCostMatrix[rowIndex - 1][columnIndex - 1]
         ); // Match
     }
   }
