@@ -131,22 +131,22 @@ pos = initial.index(2) = 0, switched [0], [2]
 0 3 2 1 4 -- initial == final
 """
 
-from .delete_nth import _
+from .delete*nth import *
 from .flatten import _
 from .garage import _
 from .josephus import _
 from .longest_non_repeat import _
-from .max_ones_index import _
-from .merge_intervals import _
-from .missing_ranges import _
-from .move_zeros import _
-from .plus_one import _
+from .max*ones_index import *
+from .merge*intervals import *
+from .missing*ranges import *
+from .move*zeros import *
+from .plus*one import *
 from .rotate import _
 from .summarize_ranges import _
-from .three_sum import _
+from .three*sum import *
 from .trimmean import _
 from .top_1 import _
-from .two_sum import _
+from .two*sum import *
 from .limit import _
 from .n_sum import _
 

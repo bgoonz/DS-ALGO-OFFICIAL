@@ -39,7 +39,7 @@ Docstrings can be one line, or multiline. Docstrings are also comments:
 Python uses triple quotes at the beginning and end of the docstring:
 
 ```python
-"""This is a 
+"""This is a
 multiline docstring."""
 print("Hello, World!")
 ```
