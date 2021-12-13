@@ -5,5 +5,6 @@ def halvingSum(n):
         n //= 2
     return s
 
+
 # s (int) : Sum
 # n (int) : Input number

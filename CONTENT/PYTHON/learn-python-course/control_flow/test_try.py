@@ -29,37 +29,37 @@ def test_try():
 
     # You can define as many exception blocks as you want, e.g. if you want to execute a special
     # block of code for a special kind of error:
-    exception_message = ''
+    exception_message = ""
 
     try:
         # pylint: disable=undefined-variable
         print(not_existing_variable)
     except NameError:
-        exception_message = 'Variable is not defined'
+        exception_message = "Variable is not defined"
 
-    assert exception_message == 'Variable is not defined'
+    assert exception_message == "Variable is not defined"
 
     # You can use the else keyword to define a block of code to be executed
     # if no errors were raised.
-    message = ''
+    message = ""
     # pylint: disable=broad-except
     try:
-        message += 'Success.'
+        message += "Success."
     except NameError:
-        message += 'Something went wrong.'
+        message += "Something went wrong."
     else:
-        message += 'Nothing went wrong.'
+        message += "Nothing went wrong."
 
-    assert message == 'Success.Nothing went wrong.'
+    assert message == "Success.Nothing went wrong."
 
     # The finally block, if specified, will be executed regardless if the try block raises an
     # error or not.
-    message = ''
+    message = ""
     try:
         # pylint: undefined-variable
         print(not_existing_variable)  # noqa: F821
     except NameError:
-        message += 'Something went wrong.'
+        message += "Something went wrong."
     finally:
         message += 'The "try except" is finished.'
 

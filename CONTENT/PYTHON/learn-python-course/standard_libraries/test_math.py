@@ -26,12 +26,14 @@ def test_random():
     """
 
     # Choose from the list randomly.
-    random_options = ['apple', 'pear', 'banana']
+    random_options = ["apple", "pear", "banana"]
     random_choice = random.choice(random_options)  # i.e. 'apple'
     assert random_choice in random_options
 
     # Sampling without replacement.
-    random_sample = random.sample(range(100), 10)  # i.e. [30, 83, 16, 4, 8, 81, 41, 50, 18, 33]
+    random_sample = random.sample(
+        range(100), 10
+    )  # i.e. [30, 83, 16, 4, 8, 81, 41, 50, 18, 33]
     for sample in random_sample:
         assert 0 <= sample <= 100
 

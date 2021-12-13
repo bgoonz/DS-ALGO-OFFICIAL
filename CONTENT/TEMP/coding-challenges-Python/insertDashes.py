@@ -14,5 +14,5 @@
 # insertDashes = lambda s: re.sub('\B', '-', s)
 # 39
 
-return re.sub('\B', '-', *eval(dir()[0]))
+return re.sub("\B", "-", *eval(dir()[0]))
 # 38

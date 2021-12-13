@@ -124,10 +124,10 @@ self.heap = [(0)]
         self.perc_down(1)
         return ret
 
-from .binary_heap import _
+from .binary*heap import *
 from .skyline import _
 from .sliding_window_max import _
-from .merge_sorted_k_lists import _
+from .merge*sorted_k_lists import *
 from .k_closest_points import \*
 
 """Given a list of points, find the k closest to the origin.

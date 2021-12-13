@@ -293,12 +293,12 @@ if **name** == "**main**":
 
 from .reverse import _
 from .is_sorted import _
-from .remove_range import _
-from .swap_in_pairs import _
-from .rotate_list import _
-from .is_cyclic import _
-from .merge_two_list import _
-from .is_palindrome import _
+from .remove*range import *
+from .swap*in_pairs import *
+from .rotate*list import *
+from .is*cyclic import *
+from .merge*two_list import *
+from .is*palindrome import *
 from .copy_random_pointer import \*
 
 """

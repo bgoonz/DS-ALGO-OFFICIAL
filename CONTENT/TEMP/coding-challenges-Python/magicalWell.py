@@ -1,4 +1,4 @@
-def magicalWell(a,b,n):
+def magicalWell(a, b, n):
     s, m = 0, 0
     while m < n:
         s += a * b

@@ -42,31 +42,23 @@ def test_files_open():
     """
 
     # Open files without using 'with' statement.
-    file = open('src/files/multi_line_file.txt', 'r')
+    file = open("src/files/multi_line_file.txt", "r")
 
     assert not file.closed
 
     read_data = file.read()
 
-    assert read_data == (
-        'first line\n'
-        'second line\n'
-        'third line'
-    )
+    assert read_data == ("first line\n" "second line\n" "third line")
 
     file.close()
 
     assert file.closed
 
     # Open file using with.
-    with open('src/files/multi_line_file.txt', 'r') as file:
+    with open("src/files/multi_line_file.txt", "r") as file:
         read_data = file.read()
 
-        assert read_data == (
-            'first line\n'
-            'second line\n'
-            'third line'
-        )
+        assert read_data == ("first line\n" "second line\n" "third line")
 
     assert file.closed
 

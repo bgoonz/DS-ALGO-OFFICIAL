@@ -3,4 +3,4 @@
 
 def wav_read():
     """WAV file reading function mock"""
-    return 'Read from WAV file'
+    return "Read from WAV file"

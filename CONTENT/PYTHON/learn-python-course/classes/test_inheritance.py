@@ -10,6 +10,7 @@ of the same code, inheritance allows a derived class to reuse the same code and 
 # pylint: disable=too-few-public-methods
 class Person:
     """Example of the base class"""
+
     def __init__(self, name):
         self.name = name
 
@@ -37,6 +38,7 @@ class Employee(Person):
     clients as well. (Note that this only works if the base class is accessible as BaseClassName
     in the global scope.)
     """
+
     def __init__(self, name, staff_id):
         Person.__init__(self, name)
         # You may also use super() here in order to avoid explicit using of parent class name:
@@ -45,7 +47,7 @@ class Employee(Person):
 
     def get_full_id(self):
         """Get full employee id"""
-        return self.get_name() + ', ' + self.staff_id
+        return self.get_name() + ", " + self.staff_id
 
 
 def test_inheritance():
@@ -55,12 +57,12 @@ def test_inheritance():
     # new instance of the class. Method references are resolved as follows: the corresponding class
     # attribute is searched, descending down the chain of base classes if necessary, and the method
     # reference is valid if this yields a function object.
-    person = Person('Bill')
-    employee = Employee('John', 'A23')
+    person = Person("Bill")
+    employee = Employee("John", "A23")
 
-    assert person.get_name() == 'Bill'
-    assert employee.get_name() == 'John'
-    assert employee.get_full_id() == 'John, A23'
+    assert person.get_name() == "Bill"
+    assert employee.get_name() == "John"
+    assert employee.get_full_id() == "John, A23"
 
     # Python has two built-in functions that work with inheritance:
     #

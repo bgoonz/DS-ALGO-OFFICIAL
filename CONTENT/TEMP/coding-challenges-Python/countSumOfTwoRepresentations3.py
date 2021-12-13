@@ -8,5 +8,5 @@
 # 66
 
 n, l, r = eval(dir()[0])
-return max(n // 2 - max(l, n-r) + 1, 0)
+return max(n // 2 - max(l, n - r) + 1, 0)
 # 50

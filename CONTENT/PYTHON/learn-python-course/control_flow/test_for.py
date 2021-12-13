@@ -15,7 +15,7 @@ def test_for_statement():
     """FOR statement"""
 
     # Measure some strings:
-    words = ['cat', 'window', 'defenestrate']
+    words = ["cat", "window", "defenestrate"]
     words_length = 0
 
     for word in words:
@@ -37,7 +37,7 @@ def test_for_statement():
     # Otherwise with for w in words:, the example would attempt to create an infinite list,
     # inserting defenestrate over and over again.
 
-    assert words == ['defenestrate', 'cat', 'window', 'defenestrate']
+    assert words == ["defenestrate", "cat", "window", "defenestrate"]
 
     # If you do need to iterate over a sequence of numbers, the built-in function range() comes in
     # handy. It generates arithmetic progressions:
@@ -49,60 +49,60 @@ def test_for_statement():
     assert iterated_numbers == [0, 1, 2, 3, 4]
 
     # To iterate over the indices of a sequence, you can combine range() and len() as follows:
-    words = ['Mary', 'had', 'a', 'little', 'lamb']
-    concatenated_string = ''
+    words = ["Mary", "had", "a", "little", "lamb"]
+    concatenated_string = ""
 
     # pylint: disable=consider-using-enumerate
     for word_index in range(len(words)):
-        concatenated_string += words[word_index] + ' '
+        concatenated_string += words[word_index] + " "
 
-    assert concatenated_string == 'Mary had a little lamb '
+    assert concatenated_string == "Mary had a little lamb "
 
     # Or simply use enumerate().
-    concatenated_string = ''
+    concatenated_string = ""
 
     for word_index, word in enumerate(words):
-        concatenated_string += word + ' '
+        concatenated_string += word + " "
 
-    assert concatenated_string == 'Mary had a little lamb '
+    assert concatenated_string == "Mary had a little lamb "
 
     # When looping through dictionaries, the key and corresponding value can be retrieved at the
     # same time using the items() method.
     knights_names = []
     knights_properties = []
 
-    knights = {'gallahad': 'the pure', 'robin': 'the brave'}
+    knights = {"gallahad": "the pure", "robin": "the brave"}
     for key, value in knights.items():
         knights_names.append(key)
         knights_properties.append(value)
 
-    assert knights_names == ['gallahad', 'robin']
-    assert knights_properties == ['the pure', 'the brave']
+    assert knights_names == ["gallahad", "robin"]
+    assert knights_properties == ["the pure", "the brave"]
 
     # When looping through a sequence, the position index and corresponding value can be retrieved
     # at the same time using the enumerate() function
     indices = []
     values = []
-    for index, value in enumerate(['tic', 'tac', 'toe']):
+    for index, value in enumerate(["tic", "tac", "toe"]):
         indices.append(index)
         values.append(value)
 
     assert indices == [0, 1, 2]
-    assert values == ['tic', 'tac', 'toe']
+    assert values == ["tic", "tac", "toe"]
 
     # To loop over two or more sequences at the same time, the entries can be paired with
     # the zip() function.
-    questions = ['name', 'quest', 'favorite color']
-    answers = ['lancelot', 'the holy grail', 'blue']
+    questions = ["name", "quest", "favorite color"]
+    answers = ["lancelot", "the holy grail", "blue"]
     combinations = []
 
     for question, answer in zip(questions, answers):
-        combinations.append('What is your {0}?  It is {1}.'.format(question, answer))
+        combinations.append("What is your {0}?  It is {1}.".format(question, answer))
 
     assert combinations == [
-        'What is your name?  It is lancelot.',
-        'What is your quest?  It is the holy grail.',
-        'What is your favorite color?  It is blue.',
+        "What is your name?  It is lancelot.",
+        "What is your quest?  It is the holy grail.",
+        "What is your favorite color?  It is blue.",
     ]
 
 

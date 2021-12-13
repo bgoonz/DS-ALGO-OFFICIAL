@@ -37,12 +37,12 @@ def test_tuples():
     assert len(fruits_tuple_via_constructor) == 3
 
     # It is also possible to omit brackets when initializing tuples.
-    another_tuple = 12345, 54321, 'hello!'
-    assert another_tuple == (12345, 54321, 'hello!')
+    another_tuple = 12345, 54321, "hello!"
+    assert another_tuple == (12345, 54321, "hello!")
 
     # Tuples may be nested:
     nested_tuple = another_tuple, (1, 2, 3, 4, 5)
-    assert nested_tuple == ((12345, 54321, 'hello!'), (1, 2, 3, 4, 5))
+    assert nested_tuple == ((12345, 54321, "hello!"), (1, 2, 3, 4, 5))
 
     # As you see, on output tuples are always enclosed in parentheses, so that nested tuples are
     # interpreted correctly; they may be input with or without surrounding parentheses, although
@@ -59,18 +59,18 @@ def test_tuples():
     assert len(empty_tuple) == 0
 
     # pylint: disable=trailing-comma-tuple
-    singleton_tuple = 'hello',  # <-- note trailing comma
+    singleton_tuple = ("hello",)  # <-- note trailing comma
     assert len(singleton_tuple) == 1
-    assert singleton_tuple == ('hello',)
+    assert singleton_tuple == ("hello",)
 
     # The following example is called tuple packing:
-    packed_tuple = 12345, 54321, 'hello!'
+    packed_tuple = 12345, 54321, "hello!"
 
     # The reverse operation is also possible.
     first_tuple_number, second_tuple_number, third_tuple_string = packed_tuple
     assert first_tuple_number == 12345
     assert second_tuple_number == 54321
-    assert third_tuple_string == 'hello!'
+    assert third_tuple_string == "hello!"
 
     # This is called, appropriately enough, sequence unpacking and works for any sequence on the
     # right-hand side. Sequence unpacking requires that there are as many variables on the left

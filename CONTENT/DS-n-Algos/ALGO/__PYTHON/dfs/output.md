@@ -152,12 +152,12 @@ dfs(grid, i - 1, j)
 dfs(grid, i, j + 1)
 dfs(grid, i, j - 1)
 
-from .all_factors import _
-from .count_islands import _
-from .pacific_atlantic import _
-from .sudoku_solver import _
-from .walls_and_gates import _
-from .maze_search import _
+from .all*factors import *
+from .count*islands import *
+from .pacific*atlantic import *
+from .sudoku*solver import *
+from .walls*and_gates import *
+from .maze*search import *
 
 """
 Find shortest path from top left column to the right lowest column using DFS.

@@ -20,6 +20,7 @@ def test_instance_objects():
     # pylint: disable=too-few-public-methods
     class DummyClass:
         """Dummy class"""
+
         pass
 
     dummy_instance = DummyClass()

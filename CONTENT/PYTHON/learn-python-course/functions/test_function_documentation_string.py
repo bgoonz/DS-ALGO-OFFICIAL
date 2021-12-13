@@ -36,7 +36,10 @@ def test_function_documentation_string():
     # if they occur all their leading whitespace should be stripped. Equivalence of whitespace
     # should be tested after expansion of tabs (to 8 spaces, normally).
 
-    assert do_nothing.__doc__ == """Do nothing, but document it.
+    assert (
+        do_nothing.__doc__
+        == """Do nothing, but document it.
 
     No, really, it doesn't do anything.
     """
+    )

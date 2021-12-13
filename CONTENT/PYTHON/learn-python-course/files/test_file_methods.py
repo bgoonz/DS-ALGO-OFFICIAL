@@ -10,8 +10,8 @@ specific locations in the file, much like flipping to a page in a book.
 def test_file_methods():
     """Methods of File Objects"""
 
-    multi_line_file = open('src/files/multi_line_file.txt', 'r')
-    binary_file = open('src/files/binary_file', 'r')
+    multi_line_file = open("src/files/multi_line_file.txt", "r")
+    binary_file = open("src/files/binary_file", "r")
 
     # To read a file’s contents, call f.read(size), which reads some quantity of data and returns
     # it as a string (in text mode) or bytes object (in binary mode). size is an optional numeric
@@ -22,7 +22,7 @@ def test_file_methods():
     read_data = multi_line_file.read()
 
     # pylint: disable=duplicate-code
-    assert read_data == 'first line\nsecond line\nthird line'
+    assert read_data == "first line\nsecond line\nthird line"
 
     # To change the file object’s position, use f.seek(offset, from_what). The position is computed
     # from adding offset to a reference point; the reference point is selected by the from_what
@@ -32,7 +32,7 @@ def test_file_methods():
     assert binary_file.seek(0) == 0  # Go to the 0th byte in the file
     assert binary_file.seek(6) == 6  # Go to the 6th byte in the file
 
-    assert binary_file.read(1) == '6'
+    assert binary_file.read(1) == "6"
 
     # f.readline() reads a single line from the file; a newline character (\n) is left at the end
     # of the string, and is only omitted on the last line of the file if the file doesn’t end in a
@@ -41,10 +41,10 @@ def test_file_methods():
     # containing only a single newline.
     multi_line_file.seek(0)
 
-    assert multi_line_file.readline() == 'first line\n'
-    assert multi_line_file.readline() == 'second line\n'
-    assert multi_line_file.readline() == 'third line'
-    assert multi_line_file.readline() == ''
+    assert multi_line_file.readline() == "first line\n"
+    assert multi_line_file.readline() == "second line\n"
+    assert multi_line_file.readline() == "third line"
+    assert multi_line_file.readline() == ""
 
     multi_line_file.close()
     binary_file.close()

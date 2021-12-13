@@ -71,11 +71,11 @@ def test_float_numbers():
     # Float can also be scientific numbers with an "e" to indicate
     # the power of 10.
     float_with_small_e = 35e3
-    float_with_big_e = 12E4
+    float_with_big_e = 12e4
 
     assert float_with_small_e == 35000
     assert float_with_big_e == 120000
-    assert isinstance(12E4, float)
+    assert isinstance(12e4, float)
     assert isinstance(-87.7e100, float)
 
 

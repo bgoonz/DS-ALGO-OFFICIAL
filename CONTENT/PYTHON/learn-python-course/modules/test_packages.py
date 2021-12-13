@@ -56,6 +56,6 @@ from sound_package.effects.echo import echo_function
 
 def test_packages():
     """Packages."""
-    assert sound_package.effects.echo.echo_function() == 'Do echo effect'
-    assert echo.echo_function() == 'Do echo effect'
-    assert echo_function() == 'Do echo effect'
+    assert sound_package.effects.echo.echo_function() == "Do echo effect"
+    assert echo.echo_function() == "Do echo effect"
+    assert echo_function() == "Do echo effect"

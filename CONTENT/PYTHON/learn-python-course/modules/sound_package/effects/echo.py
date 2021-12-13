@@ -3,4 +3,4 @@
 
 def echo_function():
     """Echo function mock"""
-    return 'Do echo effect'
+    return "Do echo effect"

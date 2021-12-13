@@ -14,7 +14,10 @@ def fibonacci_at_position(position):
     previous_number, current_number = 0, 1
     while current_position < position:
         current_position += 1
-        previous_number, current_number = current_number, previous_number + current_number
+        previous_number, current_number = (
+            current_number,
+            previous_number + current_number,
+        )
     return previous_number
 
 
@@ -24,7 +27,10 @@ def fibonacci_smaller_than(limit):
     previous_number, current_number = 0, 1
     while previous_number < limit:
         result.append(previous_number)
-        previous_number, current_number = current_number, previous_number + current_number
+        previous_number, current_number = (
+            current_number,
+            previous_number + current_number,
+        )
     return result
 
 
@@ -38,6 +44,7 @@ def fibonacci_smaller_than(limit):
 # parses the command line only runs if the module is executed as the “main” file:
 #
 # >>> python fibonacci.py 50
-if __name__ == '__main__':
+if __name__ == "__main__":
     import sys
+
     print(fibonacci_smaller_than(int(sys.argv[1])))

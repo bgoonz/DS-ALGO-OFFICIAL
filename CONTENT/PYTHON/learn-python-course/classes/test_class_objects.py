@@ -37,7 +37,7 @@ def test_class_objects():
     assert ComplexNumber.real == 0
 
     # __doc__ is also a valid attribute, returning the docstring belonging to the class
-    assert ComplexNumber.__doc__ == 'Example of the complex numbers class'
+    assert ComplexNumber.__doc__ == "Example of the complex numbers class"
 
     # Class attributes can also be assigned to, so you can change the value of
     # ComplexNumber.counter by assignment.
@@ -62,6 +62,7 @@ def test_class_objects():
 
     class ComplexNumberWithConstructor:
         """Example of the class with constructor"""
+
         def __init__(self, real_part, imaginary_part):
             self.real = real_part
             self.imaginary = imaginary_part

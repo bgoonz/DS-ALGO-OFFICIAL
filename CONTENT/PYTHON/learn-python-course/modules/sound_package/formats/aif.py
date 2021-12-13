@@ -3,4 +3,4 @@
 
 def aif_read():
     """AIF file reading function mock"""
-    return 'Read from AIF file'
+    return "Read from AIF file"

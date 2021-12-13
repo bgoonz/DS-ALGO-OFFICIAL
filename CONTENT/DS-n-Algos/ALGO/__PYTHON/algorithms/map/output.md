@@ -119,8 +119,8 @@ MIN_SIZE = 8
 
 from .hashtable import _
 from .separate_chaining_hashtable import _
-from .word_pattern import _
-from .is_isomorphic import _
+from .word*pattern import *
+from .is*isomorphic import *
 from .is_anagram import \*
 
 """

@@ -37,7 +37,7 @@ what you're doing.
 """
 
 # pylint: disable=invalid-name
-test_variable = 'initial global value'
+test_variable = "initial global value"
 
 
 def test_function_scopes():
@@ -47,47 +47,47 @@ def test_function_scopes():
     # how global and nonlocal affect variable binding:
 
     # pylint: disable=redefined-outer-name
-    test_variable = 'initial value inside test function'
+    test_variable = "initial value inside test function"
 
     def do_local():
         # Create variable that is only accessible inside current do_local() function.
         # pylint: disable=redefined-outer-name
-        test_variable = 'local value'
+        test_variable = "local value"
         return test_variable
 
     def do_nonlocal():
         # Address the variable from outer scope and try to change it.
         # pylint: disable=redefined-outer-name
         nonlocal test_variable
-        test_variable = 'nonlocal value'
+        test_variable = "nonlocal value"
         return test_variable
 
     def do_global():
         # Address the variable from very global scope and try to change it.
         # pylint: disable=redefined-outer-name,global-statement
         global test_variable
-        test_variable = 'global value'
+        test_variable = "global value"
         return test_variable
 
     # On this level currently we have access to local for test_function_scopes() function variable.
-    assert test_variable == 'initial value inside test function'
+    assert test_variable == "initial value inside test function"
 
     # Do local assignment.
     # It doesn't change global variable and variable from test_function_scopes() scope.
     do_local()
-    assert test_variable == 'initial value inside test function'
+    assert test_variable == "initial value inside test function"
 
     # Do non local assignment.
     # It doesn't change global variable but it does change variable
     # from test_function_scopes() function scope.
     do_nonlocal()
-    assert test_variable == 'nonlocal value'
+    assert test_variable == "nonlocal value"
 
     # Do global assignment.
     # This one changes global variable but doesn't change variable from
     # test_function_scopes() function scope.
     do_global()
-    assert test_variable == 'nonlocal value'
+    assert test_variable == "nonlocal value"
 
 
 def test_global_variable_access():
@@ -97,7 +97,7 @@ def test_global_variable_access():
     # test so let's check that.
     # pylint: disable=global-statement
     global test_variable
-    assert test_variable == 'global value'
+    assert test_variable == "global value"
 
     # On this example you may see how accessing and changing global variables from within inner
     # functions might make debugging more difficult and code to be less predictable. Since you

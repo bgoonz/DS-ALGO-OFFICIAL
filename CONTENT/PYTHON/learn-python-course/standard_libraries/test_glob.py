@@ -15,7 +15,9 @@ def test_glob():
     # In some cases (like on Linux Mint, python3.6) the glob() function returns list
     # in reverse order then  it might be expected. Thus lets sort both lists before comparison
     # using sorted() built-in function.
-    assert sorted(glob.glob('src/standard_libraries/glob_files/*.txt')) == sorted([
-        'src/standard_libraries/glob_files/first_file.txt',
-        'src/standard_libraries/glob_files/second_file.txt'
-    ])
+    assert sorted(glob.glob("src/standard_libraries/glob_files/*.txt")) == sorted(
+        [
+            "src/standard_libraries/glob_files/first_file.txt",
+            "src/standard_libraries/glob_files/second_file.txt",
+        ]
+    )

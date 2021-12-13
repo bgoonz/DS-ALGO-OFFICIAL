@@ -25,14 +25,15 @@ def test_function_decorators():
     def decorate_with_p(func):
         def function_wrapper(name):
             return "<p>{0}</p>".format(func(name))
+
         return function_wrapper
 
     # Now, let's call our decorator and pass the function we want decorate to it.
     my_get_text = decorate_with_p(greeting)
 
     # Here we go, we've just decorated the function output without changing the function itself.
-    assert my_get_text('John') == '<p>Hello, John!</p>'  # With decorator.
-    assert greeting('John') == 'Hello, John!'  # Without decorator.
+    assert my_get_text("John") == "<p>Hello, John!</p>"  # With decorator.
+    assert greeting("John") == "Hello, John!"  # Without decorator.
 
     # Now, Python makes creating and using decorators a bit cleaner and nicer for the programmer
     # through some syntactic sugar  There is a neat shortcut for that, which is to mention the
@@ -43,7 +44,7 @@ def test_function_decorators():
     def greeting_with_p(name):
         return "Hello, {0}!".format(name)
 
-    assert greeting_with_p('John') == '<p>Hello, John!</p>'
+    assert greeting_with_p("John") == "<p>Hello, John!</p>"
 
     # Now let's consider we wanted to decorate our greeting function by one more functions to wrap a
     # div the string output.
@@ -52,6 +53,7 @@ def test_function_decorators():
     def decorate_with_div(func):
         def function_wrapper(text):
             return "<div>{0}</div>".format(func(text))
+
         return function_wrapper
 
     # With the basic approach, decorating get_text would be along the lines of
@@ -63,7 +65,7 @@ def test_function_decorators():
     def greeting_with_div_p(name):
         return "Hello, {0}!".format(name)
 
-    assert greeting_with_div_p('John') == '<div><p>Hello, John!</p></div>'
+    assert greeting_with_div_p("John") == "<div><p>Hello, John!</p></div>"
 
     # One important thing to notice here is that the order of setting our decorators matters.
     # If the order was different in the example above, the output would have been different.
@@ -80,12 +82,14 @@ def test_function_decorators():
         def tags_decorator(func):
             def func_wrapper(name):
                 return "<{0}>{1}</{0}>".format(tag_name, func(name))
+
             return func_wrapper
+
         return tags_decorator
 
-    @tags('div')
-    @tags('p')
+    @tags("div")
+    @tags("p")
     def greeting_with_tags(name):
         return "Hello, {0}!".format(name)
 
-    assert greeting_with_tags('John') == '<div><p>Hello, John!</p></div>'
+    assert greeting_with_tags("John") == "<div><p>Hello, John!</p></div>"

@@ -14,7 +14,7 @@ def test_multiple_inheritance():
     class Clock:
         """Clock class"""
 
-        time = '11:23 PM'
+        time = "11:23 PM"
 
         def get_time(self):
             """Get current time
@@ -27,7 +27,7 @@ def test_multiple_inheritance():
     class Calendar:
         """Calendar class"""
 
-        date = '12/08/2018'
+        date = "12/08/2018"
 
         def get_date(self):
             """Get current date
@@ -64,5 +64,5 @@ def test_multiple_inheritance():
 
     calendar_clock = CalendarClock()
 
-    assert calendar_clock.get_date() == '12/08/2018'
-    assert calendar_clock.get_time() == '11:23 PM'
+    assert calendar_clock.get_date() == "12/08/2018"
+    assert calendar_clock.get_time() == "11:23 PM"

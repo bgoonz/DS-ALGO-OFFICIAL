@@ -25,7 +25,7 @@ def test_type_casting_to_integer():
 
     assert int(1) == 1
     assert int(2.8) == 2
-    assert int('3') == 3
+    assert int("3") == 3
 
 
 def test_type_casting_to_float():
@@ -40,6 +40,6 @@ def test_type_casting_to_float():
 def test_type_casting_to_string():
     """Type casting to string"""
 
-    assert str("s1") == 's1'
-    assert str(2) == '2'
-    assert str(3.0) == '3.0'
+    assert str("s1") == "s1"
+    assert str(2) == "2"
+    assert str(3.0) == "3.0"

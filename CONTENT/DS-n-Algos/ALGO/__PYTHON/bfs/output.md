@@ -63,10 +63,10 @@ col = len(grid[0])
 
     return num_islands
 
-from .count_islands import _
-from .maze_search import _
-from .shortest_distance_from_all_buildings import _
-from .word_ladder import _
+from .count*islands import *
+from .maze*search import *
+from .shortest*distance_from_all_buildings import *
+from .word*ladder import *
 
 from collections import deque
 

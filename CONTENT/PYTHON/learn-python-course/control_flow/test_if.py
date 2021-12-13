@@ -14,15 +14,15 @@ def test_if_statement():
     """IF statement"""
 
     number = 15
-    conclusion = ''
+    conclusion = ""
 
     if number < 0:
-        conclusion = 'Number is less than zero'
+        conclusion = "Number is less than zero"
     elif number == 0:
-        conclusion = 'Number equals to zero'
+        conclusion = "Number equals to zero"
     elif number < 1:
-        conclusion = 'Number is greater than zero but less than one'
+        conclusion = "Number is greater than zero but less than one"
     else:
-        conclusion = 'Number bigger than or equal to one'
+        conclusion = "Number bigger than or equal to one"
 
-    assert conclusion == 'Number bigger than or equal to one'
+    assert conclusion == "Number bigger than or equal to one"

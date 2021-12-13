@@ -24,7 +24,10 @@ def test_function_unpacking_arguments():
 
     # In the same fashion, dictionaries can deliver keyword arguments with the **-operator:
     def function_that_receives_names_arguments(first_word, second_word):
-        return first_word + ', ' + second_word + '!'
+        return first_word + ", " + second_word + "!"
 
-    arguments_dictionary = {'first_word': 'Hello', 'second_word': 'World'}
-    assert function_that_receives_names_arguments(**arguments_dictionary) == 'Hello, World!'
+    arguments_dictionary = {"first_word": "Hello", "second_word": "World"}
+    assert (
+        function_that_receives_names_arguments(**arguments_dictionary)
+        == "Hello, World!"
+    )

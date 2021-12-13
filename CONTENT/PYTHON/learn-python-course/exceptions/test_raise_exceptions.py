@@ -18,7 +18,7 @@ def test_raise_exception():
         # exception instance or an exception class (a class that derives from Exception). If an
         # exception class is passed, it will be implicitly instantiated by calling its constructor
         # with no arguments
-        raise NameError('HiThere')  # shorthand for 'raise ValueError()'
+        raise NameError("HiThere")  # shorthand for 'raise ValueError()'
     except NameError:
         exception_is_caught = True
 
@@ -35,6 +35,7 @@ def test_user_defined_exception():
     # that may occur in functions they define.
     class MyCustomError(Exception):
         """Example of MyCustomError exception."""
+
         def __init__(self, message):
             super().__init__(message)
             self.message = message
@@ -42,7 +43,7 @@ def test_user_defined_exception():
     custom_exception_is_caught = False
 
     try:
-        raise MyCustomError('My custom message')
+        raise MyCustomError("My custom message")
     except MyCustomError:
         custom_exception_is_caught = True
 

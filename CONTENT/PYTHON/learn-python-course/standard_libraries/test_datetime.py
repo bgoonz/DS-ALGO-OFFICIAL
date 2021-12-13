@@ -22,10 +22,11 @@ def test_datetime():
     assert fake_now.day == 29
     assert fake_now.month == 8
     assert fake_now.year == 2018
-    assert fake_now.ctime() == 'Wed Aug 29 00:00:00 2018'
-    assert fake_now.strftime(
-        '%m-%d-%y. %d %b %Y is a %A on the %d day of %B.'
-    ) == '08-29-18. 29 Aug 2018 is a Wednesday on the 29 day of August.'
+    assert fake_now.ctime() == "Wed Aug 29 00:00:00 2018"
+    assert (
+        fake_now.strftime("%m-%d-%y. %d %b %Y is a %A on the %d day of %B.")
+        == "08-29-18. 29 Aug 2018 is a Wednesday on the 29 day of August."
+    )
 
     # Dates support calendar arithmetic.
     birthday = date(1964, 7, 31)

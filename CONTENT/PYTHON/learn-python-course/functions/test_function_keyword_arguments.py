@@ -8,17 +8,17 @@ Functions can be called using keyword arguments of the form kwarg=value.
 import pytest
 
 
-def parrot(voltage, state='a stiff', action='voom', parrot_type='Norwegian Blue'):
+def parrot(voltage, state="a stiff", action="voom", parrot_type="Norwegian Blue"):
     """Example of multi-argument function
 
     This function accepts one required argument (voltage) and three optional arguments
     (state, action, and type).
     """
 
-    message = 'This parrot wouldn\'t ' + action + ' '
-    message += 'if you put ' + str(voltage) + ' volts through it. '
-    message += 'Lovely plumage, the ' + parrot_type + '. '
-    message += 'It\'s ' + state + '!'
+    message = "This parrot wouldn't " + action + " "
+    message += "if you put " + str(voltage) + " volts through it. "
+    message += "Lovely plumage, the " + parrot_type + ". "
+    message += "It's " + state + "!"
 
     return message
 
@@ -45,9 +45,9 @@ def test_function_keyword_arguments():
         "It's a stiff!"
     )
     # 2 keyword arguments
-    assert parrot(voltage=1000000, action='VOOOOOM') == message
+    assert parrot(voltage=1000000, action="VOOOOOM") == message
     # 2 keyword arguments
-    assert parrot(action='VOOOOOM', voltage=1000000) == message
+    assert parrot(action="VOOOOOM", voltage=1000000) == message
 
     # 3 positional arguments
     message = (
@@ -55,7 +55,7 @@ def test_function_keyword_arguments():
         "Lovely plumage, the Norwegian Blue. "
         "It's bereft of life!"
     )
-    assert parrot(1000000, 'bereft of life', 'jump') == message
+    assert parrot(1000000, "bereft of life", "jump") == message
 
     # 1 positional, 1 keyword
     message = (
@@ -63,7 +63,7 @@ def test_function_keyword_arguments():
         "Lovely plumage, the Norwegian Blue. "
         "It's pushing up the daisies!"
     )
-    assert parrot(1000, state='pushing up the daisies') == message
+    assert parrot(1000, state="pushing up the daisies") == message
 
     # But all the following calls would be invalid.
 
@@ -82,7 +82,7 @@ def test_function_keyword_arguments():
     with pytest.raises(Exception):
         # unknown keyword argument
         # pylint: disable=unexpected-keyword-arg,no-value-for-parameter
-        parrot(actor='John Cleese')
+        parrot(actor="John Cleese")
 
     # In a function call, keyword arguments must follow positional arguments. All the keyword
     # arguments passed must match one of the arguments accepted by the function (e.g. actor is not
@@ -103,17 +103,17 @@ def test_function_keyword_arguments():
     # (*name must occur before **name.) For example, if we define a function like this:
     def test_function(first_param, *arguments, **keywords):
         """This function accepts its arguments through "arguments" tuple amd keywords dictionary."""
-        assert first_param == 'first param'
-        assert arguments == ('second param', 'third param')
+        assert first_param == "first param"
+        assert arguments == ("second param", "third param")
         assert keywords == {
-            'fourth_param_name': 'fourth named param',
-            'fifth_param_name': 'fifth named param'
+            "fourth_param_name": "fourth named param",
+            "fifth_param_name": "fifth named param",
         }
 
     test_function(
-        'first param',
-        'second param',
-        'third param',
-        fourth_param_name='fourth named param',
-        fifth_param_name='fifth named param',
+        "first param",
+        "second param",
+        "third param",
+        fourth_param_name="fourth named param",
+        fifth_param_name="fifth named param",
     )

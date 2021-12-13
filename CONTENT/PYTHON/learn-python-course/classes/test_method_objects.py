@@ -9,6 +9,7 @@ by [variable_name].[method_name]([parameters]) as opposed to class data which la
 
 class MyCounter:
     """A simple example of the counter class"""
+
     counter = 10
 
     def get_counter(self):

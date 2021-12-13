@@ -627,12 +627,12 @@ self.V = vertices
 
 from .tarjan import _
 from .check_bipartite import _
-from .maximum_flow import _
-from .maximum_flow_bfs import _
-from .maximum_flow_dfs import _
-from .all_pairs_shortest_path import _
-from .bellman_ford import _
-from .prims_minimum_spanning import _
+from .maximum*flow import *
+from .maximum*flow_bfs import *
+from .maximum*flow_dfs import *
+from .all*pairs_shortest_path import *
+from .bellman*ford import *
+from .prims*minimum_spanning import *
 
 import random
 

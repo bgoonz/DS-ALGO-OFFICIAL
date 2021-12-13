@@ -47,24 +47,24 @@ def test_set_methods():
     assert len(fruits_set) == 3
 
     # Demonstrate set operations on unique letters from two word:
-    first_char_set = set('abracadabra')
-    second_char_set = set('alacazam')
+    first_char_set = set("abracadabra")
+    second_char_set = set("alacazam")
 
-    assert first_char_set == {'a', 'r', 'b', 'c', 'd'}  # unique letters in first word
-    assert second_char_set == {'a', 'l', 'c', 'z', 'm'}  # unique letters in second word
+    assert first_char_set == {"a", "r", "b", "c", "d"}  # unique letters in first word
+    assert second_char_set == {"a", "l", "c", "z", "m"}  # unique letters in second word
 
     # Letters in first word but not in second.
-    assert first_char_set - second_char_set == {'r', 'b', 'd'}
+    assert first_char_set - second_char_set == {"r", "b", "d"}
 
     # Letters in first word or second word or both.
-    assert first_char_set | second_char_set == {'a', 'c', 'r', 'd', 'b', 'm', 'z', 'l'}
+    assert first_char_set | second_char_set == {"a", "c", "r", "d", "b", "m", "z", "l"}
 
     # Common letters in both words.
-    assert first_char_set & second_char_set == {'a', 'c'}
+    assert first_char_set & second_char_set == {"a", "c"}
 
     # Letters in first or second word but not both.
-    assert first_char_set ^ second_char_set == {'r', 'd', 'b', 'm', 'z', 'l'}
+    assert first_char_set ^ second_char_set == {"r", "d", "b", "m", "z", "l"}
 
     # Similarly to list comprehensions, set comprehensions are also supported:
-    word = {char for char in 'abracadabra' if char not in 'abc'}
-    assert word == {'r', 'd'}
+    word = {char for char in "abracadabra" if char not in "abc"}
+    assert word == {"r", "d"}

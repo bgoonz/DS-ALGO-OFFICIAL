@@ -73,7 +73,20 @@ def test_modules():
     assert fibonacci_module_renamed.fibonacci_at_position(7) == 13
     assert fibonacci_at_position_renamed(7) == 13
 
-    assert fibonacci_module.fibonacci_smaller_than(100) == [0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89]
+    assert fibonacci_module.fibonacci_smaller_than(100) == [
+        0,
+        1,
+        1,
+        2,
+        3,
+        5,
+        8,
+        13,
+        21,
+        34,
+        55,
+        89,
+    ]
     assert fibonacci_smaller_than(100) == [0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89]
     assert fibonacci_module_renamed.fibonacci_smaller_than(10) == [0, 1, 1, 2, 3, 5, 8]
 
@@ -84,14 +97,14 @@ def test_modules():
     # The built-in function dir() is used to find out which names a module defines. It returns a
     # sorted list of strings.
     assert dir(fibonacci_module) == [
-        '__builtins__',
-        '__cached__',
-        '__doc__',
-        '__file__',
-        '__loader__',
-        '__name__',
-        '__package__',
-        '__spec__',
-        'fibonacci_at_position',
-        'fibonacci_smaller_than',
+        "__builtins__",
+        "__cached__",
+        "__doc__",
+        "__file__",
+        "__loader__",
+        "__name__",
+        "__package__",
+        "__spec__",
+        "fibonacci_at_position",
+        "fibonacci_smaller_than",
     ]

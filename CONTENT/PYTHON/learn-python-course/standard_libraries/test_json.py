@@ -17,9 +17,9 @@ def test_json():
     # to add, list, search and remove elements from the data-structure. The String format is mainly
     # used to pass the data into another program or load into a data-structure.
 
-    person_dictionary = {'first_name': 'John', 'last_name': 'Smith', 'age': 42}
-    assert person_dictionary['first_name'] == 'John'
-    assert person_dictionary['age'] == 42
+    person_dictionary = {"first_name": "John", "last_name": "Smith", "age": 42}
+    assert person_dictionary["first_name"] == "John"
+    assert person_dictionary["age"] == 42
 
     json_string = '{"first_name": "John", "last_name": "Smith", "age": 42}'
 
@@ -28,8 +28,8 @@ def test_json():
     person_parsed_dictionary = json.loads(json_string)
 
     assert person_parsed_dictionary == person_dictionary
-    assert person_parsed_dictionary['first_name'] == 'John'
-    assert person_parsed_dictionary['age'] == 42
+    assert person_parsed_dictionary["first_name"] == "John"
+    assert person_parsed_dictionary["age"] == 42
 
     # To encode a data structure to JSON, use the "dumps" method. This method takes an object and
     # returns a String:

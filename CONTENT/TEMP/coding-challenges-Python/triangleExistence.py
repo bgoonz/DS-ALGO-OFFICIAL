@@ -8,7 +8,7 @@
 
 # 45
 # t, = eval(dir()[0])
-# 
+#
 # t.sort()
 # return t[0] + t[1] > t[2]
 
@@ -16,6 +16,6 @@
 # t, = eval(dir()[0])
 # return sum(t) - max(t) > max(t)
 
-# 40 
+# 40
 a, b, c = sorted(*eval(dir()[0]))
 return a + b > c
