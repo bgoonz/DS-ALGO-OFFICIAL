@@ -1,0 +1,30 @@
+{
+  "extends": "eslint:recommended",
+  "rules": {
+    "comma-dangle": [2, "never"],
+    "no-cond-assign": 2,
+    "no-debugger": 2,
+    "no-unused-vars": 0,
+    "no-dupe-args": 2,
+    "no-unreachable": 2,
+    "no-unused-vars": 2
+  },
+  "ecmaFeatures": {
+    "arrowFunction": true,
+    "blockBindings": true,
+    "defaultParams": true,
+    "destructuring": true,
+    "modules": true,
+    "prefer-es6-class": true,
+    "templateStrings": true
+  },
+  "globals": {
+    "ko": true
+  },
+  "env": {
+    "browser": true,
+    "node": true,
+    "jasmine": true,
+    "es6": true
+  }
+}

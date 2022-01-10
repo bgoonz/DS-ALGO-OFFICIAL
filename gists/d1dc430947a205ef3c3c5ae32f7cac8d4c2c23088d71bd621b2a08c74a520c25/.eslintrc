@@ -1,0 +1,13 @@
+{
+  "extends": [ "standard", "standard-react" ],
+  "plugins": [
+    "react"
+  ],
+  "rules": {
+    "space-before-function-paren": ["error", {
+      "anonymous": "always",
+      "named": "never",
+      "asyncArrow": "always"
+    }]
+  }
+}

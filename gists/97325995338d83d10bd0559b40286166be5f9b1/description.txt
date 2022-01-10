@@ -1,0 +1,1 @@
+Atom Coffee Lint config

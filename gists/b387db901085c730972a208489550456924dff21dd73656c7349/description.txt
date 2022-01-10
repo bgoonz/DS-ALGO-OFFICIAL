@@ -1,0 +1,1 @@
+Current webpack config with babel (react and ES2015) and sass loaders
