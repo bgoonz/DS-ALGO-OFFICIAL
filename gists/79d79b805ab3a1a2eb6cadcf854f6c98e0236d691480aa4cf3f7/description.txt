@@ -1,0 +1,1 @@
+Get value of last cookie item
