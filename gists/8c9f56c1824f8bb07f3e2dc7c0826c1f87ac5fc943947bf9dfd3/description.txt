@@ -1,1 +1,0 @@
-BASH script to create docker machines
