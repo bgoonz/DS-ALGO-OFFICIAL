@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>output</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+</head>
+<body>
+<p>""" This is a bfs-version of counting-islands problem in dfs section. Given a 2d grid map of ’1’s (land) and ’0’s (water), count the number of islands. An island is surrounded by water and is formed by connecting adjacent lands horizontally or vertically. You may assume all four edges of the grid are all surrounded by water.</p>
+<p>Example 1: 11110 11010 11000 00000 Answer: 1</p>
+<p>Example 2: 11000 11000 00100 00011 Answer: 3</p>
+<p>Example 3: 111000 110000 100001 001101 001100 Answer: 3</p>
+<p>Example 4: 110011 001100 000001 111100 Answer: 5 """</p>
+<p>def count_islands(grid): row = len(grid) col = len(grid[0])</p>
+<pre><code>num_islands = 0
+visited = [[0] * col for i in range(row)]
+directions = [[-1, 0], [1, 0], [0, -1], [0, 1]]
+queue = []
+
+for i in range(row):
+    for j, num in enumerate(grid[i]):
+        if num == 1 and visited[i][j] != 1:
+            visited[i][j] = 1
+            queue.append((i, j))
+            while queue:
+                x, y = queue.pop(0)
+                for k in range(len(directions)):
+                    nx_x = x + directions[k][0]
+                    nx_y = y + directions[k][1]
+                    if nx_x &gt;= 0 and nx_y &gt;= 0 and nx_x &lt; row and nx_y &lt; col:
+                        if visited[nx_x][nx_y] != 1 and grid[nx_x][nx_y] == 1:
+                            queue.append((nx_x, nx_y))
+                            visited[nx_x][nx_y] = 1
+            num_islands += 1
+
+return num_islands</code></pre>
+<p>from .count<em>islands import </em> from .maze<em>search import </em> from .shortest<em>distance_from_all_buildings import </em> from .word<em>ladder import </em></p>
+<p>from collections import deque</p>
+<p>""" BFS time complexity : O(|E| + |V|) BFS space complexity : O(|E| + |V|)</p>
+<p>do BFS from (0,0) of the grid and get the minimum number of steps needed to get to the lower right column</p>
+<p>only step on the columns whose value is 1</p>
+<p>if there is no path, it returns -1</p>
+<p>Ex 1) If grid is [[1,0,1,1,1,1], [1,0,1,0,1,0], [1,0,1,0,1,1], [1,1,1,0,1,1]], the answer is: 14</p>
+<p>Ex 2) If grid is [[1,0,0], [0,1,1], [0,1,1]], the answer is: -1 """</p>
+<p>def maze_search(maze): BLOCKED, ALLOWED = 0, 1 UNVISITED, VISITED = 0, 1</p>
+<pre><code>initial_x, initial_y = 0, 0
+
+if maze[initial_x][initial_y] == BLOCKED:
+    return -1
+
+directions = [(0, -1), (0, 1), (-1, 0), (1, 0)]
+
+height, width = len(maze), len(maze[0])
+
+target_x, target_y = height - 1, width - 1
+
+queue = deque([(initial_x, initial_y, 0)])
+
+is_visited = [[UNVISITED for w in range(width)] for h in range(height)]
+is_visited[initial_x][initial_y] = VISITED
+
+while queue:
+    x, y, steps = queue.popleft()
+
+    if x == target_x and y == target_y:
+        return steps
+
+    for dx, dy in directions:
+        new_x = x + dx
+        new_y = y + dy
+
+        if not (0 &lt;= new_x &lt; height and 0 &lt;= new_y &lt; width):
+            continue
+
+        if maze[new_x][new_y] == ALLOWED and is_visited[new_x][new_y] == UNVISITED:
+            queue.append((new_x, new_y, steps + 1))
+            is_visited[new_x][new_y] = VISITED
+
+return -1</code></pre>
+<p>import collections</p>
+<p>""" do BFS from each building, and decrement all empty place for every building visit when grid[i][j] == -b_nums, it means that grid[i][j] are already visited from all b_nums and use dist to record distances from b_nums """</p>
+<p>def shortest_distance(grid): if not grid or not grid[0]: return -1</p>
+<pre><code>matrix = [[[0, 0] for i in range(len(grid[0]))] for j in range(len(grid))]
+
+count = 0  # count how many building we have visited
+for i in range(len(grid)):
+    for j in range(len(grid[0])):
+        if grid[i][j] == 1:
+            bfs(grid, matrix, i, j, count)
+            count += 1
+
+res = float(&quot;inf&quot;)
+for i in range(len(matrix)):
+    for j in range(len(matrix[0])):
+        if matrix[i][j][1] == count:
+            res = min(res, matrix[i][j][0])
+
+return res if res != float(&quot;inf&quot;) else -1</code></pre>
+<p>def bfs(grid, matrix, i, j, count): q = [(i, j, 0)] while q: i, j, step = q.pop(0) for k, l in [(i - 1, j), (i + 1, j), (i, j - 1), (i, j + 1)]: # only the position be visited by count times will append to queue if ( 0 &lt;= k &lt; len(grid) and 0 &lt;= l &lt; len(grid[0]) and matrix[k][l][1] == count and grid[k][l] == 0 ): matrix[k][l][0] += step + 1 matrix[k][l][1] = count + 1 q.append((k, l, step + 1))</p>
+<p>""" Given two words (begin_word and end_word), and a dictionary’s word list, find the length of shortest transformation sequence from beginWord to endWord, such that:</p>
+<p>Only one letter can be changed at a time Each intermediate word must exist in the word list For example,</p>
+<p>Given: begin_word = “hit” end_word = “cog” word_list = [“hot”,“dot”,“dog”,“lot”,“log”] As one shortest transformation is “hit” -&gt; “hot” -&gt; “dot” -&gt; “dog” -&gt; “cog”, return its length 5.</p>
+<p>Note: Return -1 if there is no such transformation sequence. All words have the same length. All words contain only lowercase alphabetic characters. """</p>
+<p>def ladder_length(begin_word, end_word, word_list): """ Bidirectional BFS!!! :type begin_word: str :type end_word: str :type word_list: Set[str] :rtype: int """ if len(begin_word) != len(end_word): return -1 # not possible</p>
+<pre><code>if begin_word == end_word:
+    return 0
+
+# when only differ by 1 character
+if sum(c1 != c2 for c1, c2 in zip(begin_word, end_word)) == 1:
+    return 1
+
+begin_set = set()
+end_set = set()
+begin_set.add(begin_word)
+end_set.add(end_word)
+result = 2
+while begin_set and end_set:
+
+    if len(begin_set) &gt; len(end_set):
+        begin_set, end_set = end_set, begin_set
+
+    next_begin_set = set()
+    for word in begin_set:
+        for ladder_word in word_range(word):
+            if ladder_word in end_set:
+                return result
+            if ladder_word in word_list:
+                next_begin_set.add(ladder_word)
+                word_list.remove(ladder_word)
+    begin_set = next_begin_set
+    result += 1
+    # print(begin_set)
+    # print(result)
+return -1</code></pre>
+<p>def word_range(word): for ind in range(len(word)): temp = word[ind] for c in [chr(x) for x in range(ord(“a”), ord(“z”) + 1)]: if c != temp: yield word[:ind] + c + word[ind + 1 :]</p>
+</body>
+</html>

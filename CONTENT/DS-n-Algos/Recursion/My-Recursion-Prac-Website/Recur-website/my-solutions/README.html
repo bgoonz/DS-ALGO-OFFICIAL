@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>README</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+</head>
+<body>
+<h1 id="recursion-prompts">Recursion Prompts</h1>
+<h3 id="what-is-this"><strong>What is this?</strong></h3>
+<p>This is a repository of toy problems to be solved using recursion and JavaScript. While the concept of recursion may not be difficult to grasp, the only way to improve at thinking recursively is by practice. If you need practice, then maybe this repo is for you.</p>
+<h3 id="a-few-guidelines"><strong>A few guidelines:</strong></h3>
+<ul>
+<li><p>Please refrain from sharing solutions. As crazy as it sounds, giving someone the answer doesn’t help them. Instead, give them a question that encourages them to think differently.</p>
+<blockquote>
+<p><strong>Q:</strong> Why does my function keep exceeding the call stack?</p>
+</blockquote>
+<blockquote>
+<p><strong>A:</strong> What’s your base case?</p>
+</blockquote></li>
+<li><p>Don’t be afraid to pseudocode your algorithm before writing actual code.</p>
+<blockquote>
+<p>Pseudocode helps you focus on the algorithm instead of getting distracted by syntax.</p>
+</blockquote></li>
+<li><p>This repo requires each function call itself recursively and pays no attention to whether inner recursive functions are defined and called.</p>
+<blockquote>
+<p>While both are valid uses of recursion, there are important lessons to learn by following the method this repo enforces. Defining inner functions and calling them recursively relies on side effects, while following the more pure approach requires an understanding of how values are passed through the call stack.</p>
+</blockquote></li>
+<li><p>This repo restricts expanding the number of parameters a function accepts.</p>
+<blockquote>
+<p>Expanding the number of parameters is a valid approach, but has been restricted here to emphasize certain lessons while learning recursion.</p>
+</blockquote></li>
+<li>An attempt was made to order prompts by difficulty, but they don’t have to be solved in any particular order.</li>
+<li>Feel free to make pull requests or open issues regarding bugs or suggestions.</li>
+<li><p><strong><code>Watch</code></strong>, <strong><code>Star</code></strong>, and <strong><code>Fork</code></strong> this repo. You know you want to.</p></li>
+</ul>
+<h3 id="how-to-use-this-repo"><strong>How to use this repo:</strong></h3>
+<ol type="1">
+<li>Fork this repo and clone it to your local machine</li>
+<li>Open <code>SpecRunner.html</code> in your web browser</li>
+<li>Code your solutions in <code>recursion.js</code></li>
+<li>Review the tests in <code>spec/part1.js</code> and <code>spec/part2.js</code> as necessary</li>
+<li>Save your work and refresh your browser to check for passing/failing tests</li>
+</ol>
+<hr />
+<h3 id="what-is-recursion">What is recursion?</h3>
+<blockquote>
+<p>Recursion is when a function calls itself until it doesn’t. –not helpful person</p>
+</blockquote>
+<p>Is it a true definition? Mostly. Recursion is when a function calls itself. A recursive function can call itself forever, but that’s generally not preferred. It’s often a good idea to include a condition in the function definition that allows it to stop calling itself. This condition is referred to as a <strong><em>base</em></strong> case. As a general rule, recursion shouldn’t be utilized without an accompanying base case unless an infinite operation is desired. This leaves us with two fundamental conditions every recursive function should include:</p>
+<ul>
+<li>A <strong><code>base</code></strong> case</li>
+<li>A <strong><code>recursive</code></strong> case</li>
+</ul>
+<p><em>What does this all mean?</em> Let’s consider a silly example:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">function</span> <span class="at">stepsToZero</span>(n) <span class="op">{</span></a>
+<a class="sourceLine" id="cb1-2" title="2">  <span class="cf">if</span> (n <span class="op">===</span> <span class="dv">0</span>) <span class="op">{</span></a>
+<a class="sourceLine" id="cb1-3" title="3">    <span class="co">/* base case */</span></a>
+<a class="sourceLine" id="cb1-4" title="4">    <span class="cf">return</span> <span class="st">&quot;Reached zero&quot;</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb1-5" title="5">  <span class="op">}</span> <span class="cf">else</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb1-6" title="6">    <span class="co">/* recursive case */</span></a>
+<a class="sourceLine" id="cb1-7" title="7">    <span class="va">console</span>.<span class="at">log</span>(n <span class="op">+</span> <span class="st">&quot; is not zero&quot;</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-8" title="8">    <span class="cf">return</span> <span class="at">stepsToZero</span>(n <span class="op">-</span> <span class="dv">1</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-9" title="9">  <span class="op">}</span></a>
+<a class="sourceLine" id="cb1-10" title="10"><span class="op">}</span></a></code></pre></div>
+<p>This function doesn’t do anything meaningful, but hopefully it demonstrates the fundamental idea behind recursion. Simply put, recursion provides us a looping or repeating mechanism. It repeats an operation until a <code>base</code> condition is met. Let’s step through an invocation of the above function to see how it evaluates.</p>
+<ol type="1">
+<li>Invoke <code>stepsToZero(n)</code> where <code>n</code> is the number <code>2</code></li>
+<li>Is 2 zero?</li>
+<li>No, print message to console that 2 is not zero</li>
+<li><p>Invoke <code>stepsToZero(n-1)</code> where <code>n-1</code> evaluates to <code>1</code></p>
+<blockquote>
+<p>Every recursive call adds a new invocation to the stack on top of the previous invocation</p>
+</blockquote></li>
+<li>Is 1 zero?</li>
+<li>No, print message that 1 is not zero</li>
+<li>Invoke <code>stepsToZero(n-1)</code> where <code>n-1</code> evaluates to <code>0</code></li>
+<li>Is 0 zero?</li>
+<li>Yes, return message that reached zero</li>
+<li>The above return pops the current invocation off the stack</li>
+<li>Resume the invocation from step 4 where it left off (in-between steps 6 and 7)</li>
+<li>Return out of the invocation from step 4</li>
+<li>Resume the initial invocation from step 1 where it left off (in-between steps 3 and 4)</li>
+<li><p>Return out of the initial invocation</p></li>
+</ol>
+<p>Note that the value returned from the base case (step 9) gets returned to the previous invocation (step 4) on the stack. Step 4’s invocation takes that value and returns it to the invocation that preceded it (step 1). Once the initial invocation is reached, it returns the value to whatever invoked it. Through these steps, you can watch the call stack build up and once the base case is reached, the return value is passed back down as each invocation pops off the stack.</p>
+<p>Due to the way the execution stack operates, it’s as if each function invocation pauses in time when a recursive call is made. The function that pauses before a recursive call will resume once the recursive call completes. If you’ve seen the movie <a href="https://en.wikipedia.org/wiki/Inception">Inception</a>, this model may sound reminiscent to when the characters enter a person’s dreams and time slowed. The difference is time doesn’t actually slow with recursive invocations; rather, it’s a matter of order of operations. If a new invocation enters the execution stack, that invocation must complete before the previous can continue and complete.</p>
+<h3 id="why-use-recursion">Why use recursion?</h3>
+<p>Recursion can be elegant, but it can also be dangerous. In some cases, recursion feels like a more natural and readable solution; in others, it ends up being contrived. In most cases, recursion can be avoided entirely and sometimes should in order to minimize the possibility of exceeding the call stack and crashing your app. But keep in mind that code readability is important. If a recursive solution reads more naturally, then it may be the best solution for the given problem.</p>
+<p>Recursion isn’t unique to any one programming language. As a software engineer, you <em>will</em> encounter recursion and it’s important to understand what’s happening and how to work with it. It’s also important to understand why someone might use it. Recursion is often used when the depth of a thing is unknown or every element of a thing needs to be touched. For example, you might use recursion if you want to find all DOM elements with a specific class name. You may not know how deep the DOM goes and need to touch every element so that none are missed. The same can be said for traversing any structure where all possible paths need to be considered and investigated.</p>
+<h3 id="divide-and-conquer">Divide and Conquer</h3>
+<p>Recursion is often used in <em>divide and conquer</em> algorithms where problems can be divided into similar subproblems and conquered individually. Consider traversing a tree structure. Each branch may have its own “children” branches. Every branch is essentially just another tree which means, as long as child trees are found, we can recurse on each child.</p>
+</body>
+</html>

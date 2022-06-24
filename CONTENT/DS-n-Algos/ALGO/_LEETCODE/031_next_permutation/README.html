@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>README</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+</head>
+<body>
+<p>The key to this problem is this fact:</p>
+<p>If the next greater permutation of X starts to differ from X from position i (common prefix from 0-i), then X[i+1:end] must be the greatest permutation for those elements. This means the elements i+1 to end must be in descending order. So to search for i, start from the end and search backwards for the first i where X[i]&lt;X[i+1].</p>
+<ol type="1">
+<li>If i is negative, this means all elements are in descending order, and X is the greatest perm, return X reversed (smallest).</li>
+<li>Else, search for the smallest element in i+1 to end that is larger than X[i], swap X[i] with it. And sort X[i+1:end] in ascending order.</li>
+</ol>
+</body>
+</html>

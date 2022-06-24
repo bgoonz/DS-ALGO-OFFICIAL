@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>output</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+</head>
+<body>
+<p>""" Numbers can be regarded as product of its factors. For example, 8 = 2 x 2 x 2; = 2 x 4.</p>
+<p>Write a function that takes an integer n and return all possible combinations of its factors.Numbers can be regarded as product of its factors. For example, 8 = 2 x 2 x 2; = 2 x 4.</p>
+<p>Examples: input: 1 output: []</p>
+<p>input: 37 output: []</p>
+<p>input: 32 output: [ [2, 16], [2, 2, 8], [2, 2, 2, 4], [2, 2, 2, 2, 2], """</p>
+<p>def get_factors(n): """[summary]</p>
+<pre><code>Arguments:
+    n {[int]} -- [to analysed number]
+
+Returns:
+    [list of lists] -- [all factors of the number n]
+&quot;&quot;&quot;
+
+def factor(n, i, combi, res):
+    &quot;&quot;&quot;[summary]
+    helper function
+
+    Arguments:
+        n {[int]} -- [number]
+        i {[int]} -- [to tested divisor]
+        combi {[list]} -- [catch divisors]
+        res {[list]} -- [all factors of the number n]
+
+    Returns:
+        [list] -- [res]
+    &quot;&quot;&quot;
+
+    while i * i &lt;= n:
+        if n % i == 0:
+            res += (combi + [i, int(n / i)],)
+            factor(n / i, i, combi + [i], res)
+        i += 1
+    return res
+
+return factor(n, 2, [], [])</code></pre>
+<p>def get_factors_iterative1(n): """[summary] Computes all factors of n. Translated the function get_factors(…) in a call-stack modell.</p>
+<pre><code>Arguments:
+    n {[int]} -- [to analysed number]
+
+Returns:
+    [list of lists] -- [all factors]
+&quot;&quot;&quot;
+
+todo, res = [(n, 2, [])], []
+while todo:
+    n, i, combi = todo.pop()
+    while i * i &lt;= n:
+        if n % i == 0:
+            res += (combi + [i, n // i],)
+            todo.append((n // i, i, combi + [i])),
+        i += 1
+return res</code></pre>
+<p>def get_factors_iterative2(n): """[summary] analog as above</p>
+<pre><code>Arguments:
+    n {[int]} -- [description]
+
+Returns:
+    [list of lists] -- [all factors of n]
+&quot;&quot;&quot;
+
+ans, stack, x = [], [], 2
+while True:
+    if x &gt; n // x:
+        if not stack:
+            return ans
+        ans.append(stack + [n])
+        x = stack.pop()
+        n *= x
+        x += 1
+    elif n % x == 0:
+        stack.append(x)
+        n //= x
+    else:
+        x += 1</code></pre>
+<p>""" Given a 2d grid map of ’1’s (land) and ’0’s (water), count the number of islands. An island is surrounded by water and is formed by connecting adjacent lands horizontally or vertically. You may assume all four edges of the grid are all surrounded by water.</p>
+<p>Example 1:</p>
+<p>11110 11010 11000 00000 Answer: 1</p>
+<p>Example 2:</p>
+<p>11000 11000 00100 00011 Answer: 3 """</p>
+<p>def num_islands(grid): count = 0 for i in range(len(grid)): for j, col in enumerate(grid[i]): if col == 1: dfs(grid, i, j) count += 1 return count</p>
+<p>def dfs(grid, i, j): if (i &lt; 0 or i &gt;= len(grid)) or (j &lt; 0 or j &gt;= len(grid[0])): return if grid[i][j] != 1: return grid[i][j] = 0 dfs(grid, i + 1, j) dfs(grid, i - 1, j) dfs(grid, i, j + 1) dfs(grid, i, j - 1)</p>
+<p>from .all<em>factors import </em> from .count<em>islands import </em> from .pacific<em>atlantic import </em> from .sudoku<em>solver import </em> from .walls<em>and_gates import </em> from .maze<em>search import </em></p>
+<p>""" Find shortest path from top left column to the right lowest column using DFS. only step on the columns whose value is 1 if there is no path, it returns -1 (The first column(top left column) is not included in the answer.)</p>
+<p>Ex 1) If maze is [[1,0,1,1,1,1], [1,0,1,0,1,0], [1,0,1,0,1,1], [1,1,1,0,1,1]], the answer is: 14</p>
+<p>Ex 2) If maze is [[1,0,0], [0,1,1], [0,1,1]], the answer is: -1 """</p>
+<p>def find_path(maze): cnt = dfs(maze, 0, 0, 0, -1) return cnt</p>
+<p>def dfs(maze, i, j, depth, cnt): directions = [(0, -1), (0, 1), (-1, 0), (1, 0)]</p>
+<pre><code>row = len(maze)
+col = len(maze[0])
+
+if i == row - 1 and j == col - 1:
+    if cnt == -1:
+        cnt = depth
+    else:
+        if cnt &gt; depth:
+            cnt = depth
+    return cnt
+
+maze[i][j] = 0
+
+for k in range(len(directions)):
+    nx_i = i + directions[k][0]
+    nx_j = j + directions[k][1]
+
+    if nx_i &gt;= 0 and nx_i &lt; row and nx_j &gt;= 0 and nx_j &lt; col:
+        if maze[nx_i][nx_j] == 1:
+            cnt = dfs(maze, nx_i, nx_j, depth + 1, cnt)
+
+maze[i][j] = 1
+
+return cnt</code></pre>
+<h1 id="given-an-m-x-n-matrix-of-non-negative-integers-representing">Given an m x n matrix of non-negative integers representing</h1>
+<h1 id="the-height-of-each-unit-cell-in-a-continent">the height of each unit cell in a continent,</h1>
+<h1 id="the-pacific-ocean-touches-the-left-and-top-edges-of-the-matrix">the “Pacific ocean” touches the left and top edges of the matrix</h1>
+<h1 id="and-the-atlantic-ocean-touches-the-right-and-bottom-edges.">and the “Atlantic ocean” touches the right and bottom edges.</h1>
+<h1 id="water-can-only-flow-in-four-directions-up-down-left-or-right">Water can only flow in four directions (up, down, left, or right)</h1>
+<h1 id="from-a-cell-to-another-one-with-height-equal-or-lower.">from a cell to another one with height equal or lower.</h1>
+<h1 id="find-the-list-of-grid-coordinates-where-water-can-flow-to-both-the">Find the list of grid coordinates where water can flow to both the</h1>
+<h1 id="pacific-and-atlantic-ocean.">Pacific and Atlantic ocean.</h1>
+<h1 id="note">Note:</h1>
+<h1 id="the-order-of-returned-grid-coordinates-does-not-matter.">The order of returned grid coordinates does not matter.</h1>
+<h1 id="both-m-and-n-are-less-than-150.">Both m and n are less than 150.</h1>
+<h1 id="example">Example:</h1>
+<h1 id="given-the-following-5x5-matrix">Given the following 5x5 matrix:</h1>
+<h1 id="pacific">Pacific ~ ~ ~ ~ ~</h1>
+<h1 id="section">~ 1 2 2 3 (5) *</h1>
+<h1 id="section-1">~ 3 2 3 (4) (4) *</h1>
+<h1 id="section-2">~ 2 4 (5) 3 1 *</h1>
+<h1 id="section-3">~ (6) (7) 1 4 5 *</h1>
+<h1 id="section-4">~ (5) 1 1 2 4 *</h1>
+<h1 id="atlantic">* * * * * Atlantic</h1>
+<h1 id="return">Return:</h1>
+<h1 id="section-5">[[0, 4], [1, 3], [1, 4], [2, 2], [3, 0], [3, 1], [4, 0]]</h1>
+<h1 id="positions-with-parentheses-in-above-matrix.">(positions with parentheses in above matrix).</h1>
+<p>def pacific*atlantic(matrix): """ :type matrix: List[List[int]] :rtype: List[List[int]] """ n = len(matrix) if not n: return [] m = len(matrix[0]) if not m: return [] res = [] atlantic = [[False for * in range(n)] for _ in range(m)] pacific = [[False for _ in range(n)] for _ in range(m)] for i in range(n): dfs(pacific, matrix, float(“-inf”), i, 0) dfs(atlantic, matrix, float(“-inf”), i, m - 1) for i in range(m): dfs(pacific, matrix, float(“-inf”), 0, i) dfs(atlantic, matrix, float(“-inf”), n - 1, i) for i in range(n): for j in range(m): if pacific[i][j] and atlantic[i][j]: res.append([i, j]) return res</p>
+<p>def dfs(grid, matrix, height, i, j): if i &lt; 0 or i &gt;= len(matrix) or j &lt; 0 or j &gt;= len(matrix[0]): return if grid[i][j] or matrix[i][j] &lt; height: return grid[i][j] = True dfs(grid, matrix, matrix[i][j], i - 1, j) dfs(grid, matrix, matrix[i][j], i + 1, j) dfs(grid, matrix, matrix[i][j], i, j - 1) dfs(grid, matrix, matrix[i][j], i, j + 1)</p>
+<p>""" It’s similar to how human solve Sudoku.</p>
+<p>create a hash table (dictionary) val to store possible values in every location. Each time, start from the location with fewest possible values, choose one value from it and then update the board and possible values at other locations. If this update is valid, keep solving (DFS). If this update is invalid (leaving zero possible values at some locations) or this value doesn’t lead to the solution, undo the updates and then choose the next value. Since we calculated val at the beginning and start filling the board from the location with fewest possible values, the amount of calculation and thus the runtime can be significantly reduced:</p>
+<p>The run time is 48-68 ms on LeetCode OJ, which seems to be among the fastest python solutions here.</p>
+<p>The PossibleVals function may be further simplified/optimized, but it works just fine for now. (it would look less lengthy if we are allowed to use numpy array for the board lol). """</p>
+<p>class Sudoku: def <strong>init</strong>(self, board, row, col): self.board = board self.row = row self.col = col self.val = self.possible_values()</p>
+<pre><code>def possible_values(self):
+    a = &quot;123456789&quot;
+    d, val = {}, {}
+    for i in range(self.row):
+        for j in range(self.col):
+            ele = self.board[i][j]
+            if ele != &quot;.&quot;:
+                d[(&quot;r&quot;, i)] = d.get((&quot;r&quot;, i), []) + [ele]
+                d[(&quot;c&quot;, j)] = d.get((&quot;c&quot;, j), []) + [ele]
+                d[(i // 3, j // 3)] = d.get((i // 3, j // 3), []) + [ele]
+            else:
+                val[(i, j)] = []
+    for (i, j) in val.keys():
+        inval = (
+            d.get((&quot;r&quot;, i), []) + d.get((&quot;c&quot;, j), []) + d.get((i / 3, j / 3), [])
+        )
+        val[(i, j)] = [n for n in a if n not in inval]
+    return val
+
+def solve(self):
+    if len(self.val) == 0:
+        return True
+    kee = min(self.val.keys(), key=lambda x: len(self.val[x]))
+    nums = self.val[kee]
+    for n in nums:
+        update = {kee: self.val[kee]}
+        if self.valid_one(n, kee, update):  # valid choice
+            if self.solve():  # keep solving
+                return True
+        self.undo(kee, update)  # invalid choice or didn&#39;t solve it =&gt; undo
+    return False
+
+def valid_one(self, n, kee, update):
+    self.board[kee[0]][kee[1]] = n
+    del self.val[kee]
+    i, j = kee
+    for ind in self.val.keys():
+        if n in self.val[ind]:
+            if (
+                ind[0] == i
+                or ind[1] == j
+                or (ind[0] / 3, ind[1] / 3) == (i / 3, j / 3)
+            ):
+                update[ind] = n
+                self.val[ind].remove(n)
+                if len(self.val[ind]) == 0:
+                    return False
+    return True
+
+def undo(self, kee, update):
+    self.board[kee[0]][kee[1]] = &quot;.&quot;
+    for k in update:
+        if k not in self.val:
+            self.val[k] = update[k]
+        else:
+            self.val[k].append(update[k])
+    return None
+
+def __str__(self):
+    &quot;&quot;&quot;[summary]
+    Generates a board representation as string.
+
+    Returns:
+        [str] -- [board representation]
+    &quot;&quot;&quot;
+
+    resp = &quot;&quot;
+    for i in range(self.row):
+        for j in range(self.col):
+            resp += &quot; {0} &quot;.format(self.board[i][j])
+        resp += &quot;\n&quot;
+    return resp</code></pre>
+<p>""" You are given a m x n 2D grid initialized with these three possible values: -1: A wall or an obstacle. 0: A gate. INF: Infinity means an empty room. We use the value 2^31 - 1 = 2147483647 to represent INF as you may assume that the distance to a gate is less than 2147483647. Fill the empty room with distance to its nearest gate. If it is impossible to reach a gate, it should be filled with INF.</p>
+<p>For example, given the 2D grid: INF -1 0 INF INF INF INF -1 INF -1 INF -1 0 -1 INF INF After running your function, the 2D grid should be: 3 -1 0 1 2 2 1 -1 1 -1 2 -1 0 -1 3 4 """</p>
+<p>def walls_and_gates(rooms): for i in range(len(rooms)): for j in range(len(rooms[0])): if rooms[i][j] == 0: dfs(rooms, i, j, 0)</p>
+<p>def dfs(rooms, i, j, depth): if (i &lt; 0 or i &gt;= len(rooms)) or (j &lt; 0 or j &gt;= len(rooms[0])): return # out of bounds if rooms[i][j] &lt; depth: return # crossed rooms[i][j] = depth dfs(rooms, i + 1, j, depth + 1) dfs(rooms, i - 1, j, depth + 1) dfs(rooms, i, j + 1, depth + 1) dfs(rooms, i, j - 1, depth + 1)</p>
+</body>
+</html>

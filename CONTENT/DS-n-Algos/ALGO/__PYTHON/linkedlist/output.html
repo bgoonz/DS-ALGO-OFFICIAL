@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>output</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+</head>
+<body>
+<p>""" You are given two non-empty linked lists representing two non-negative integers. The digits are stored in reverse order and each of their nodes contain a single digit. Add the two numbers and return it as a linked list.</p>
+<p>You may assume the two numbers do not contain any leading zero, except the number 0 itself.</p>
+<p>Input: (2 -&gt; 4 -&gt; 3) + (5 -&gt; 6 -&gt; 4) Output: 7 -&gt; 0 -&gt; 8 """</p>
+<p>import unittest</p>
+<p>class Node: def <strong>init</strong>(self, x): self.val = x self.next = None</p>
+<p>def add_two_numbers(left: Node, right: Node) -&gt; Node: head = Node(0) current = head sum = 0 while left or right: print(“adding:”, left.val, right.val) sum //= 10 if left: sum += left.val left = left.next if right: sum += right.val right = right.next current.next = Node(sum % 10) current = current.next if sum // 10 == 1: current.next = Node(1) return head.next</p>
+<p>def convert_to_list(number: int) -&gt; Node: """ converts a positive integer into a (reversed) linked list. for example: give 112 result 2 -&gt; 1 -&gt; 1 """ if number &gt;= 0: head = Node(0) current = head remainder = number % 10 quotient = number // 10</p>
+<pre><code>    while quotient != 0:
+        current.next = Node(remainder)
+        current = current.next
+        remainder = quotient % 10
+        quotient //= 10
+    current.next = Node(remainder)
+    return head.next
+else:
+    print(&quot;number must be positive!&quot;)</code></pre>
+<p>def convert_to_str(l: Node) -&gt; str: """ converts the non-negative number list into a string. """ result = "" while l: result += str(l.val) l = l.next return result</p>
+<p>class TestSuite(unittest.TestCase): """ testsuite for the linked list structure and the adding function, above. """</p>
+<pre><code>def test_convert_to_str(self):
+    number1 = Node(2)
+    number1.next = Node(4)
+    number1.next.next = Node(3)
+    self.assertEqual(&quot;243&quot;, convert_to_str(number1))
+
+def test_add_two_numbers(self):
+    # 1. test case
+    number1 = Node(2)
+    number1.next = Node(4)
+    number1.next.next = Node(3)
+    number2 = Node(5)
+    number2.next = Node(6)
+    number2.next.next = Node(4)
+    result = convert_to_str(add_two_numbers(number1, number2))
+    self.assertEqual(&quot;708&quot;, result)
+
+    # 2. test case
+    number3 = Node(1)
+    number3.next = Node(1)
+    number3.next.next = Node(9)
+    number4 = Node(1)
+    number4.next = Node(0)
+    number4.next.next = Node(1)
+    result = convert_to_str(add_two_numbers(number3, number4))
+    self.assertEqual(&quot;2101&quot;, result)
+
+    # 3. test case
+    number5 = Node(1)
+    number6 = Node(0)
+    result = convert_to_str(add_two_numbers(number5, number6))
+    self.assertEqual(&quot;1&quot;, result)
+
+    # 4. test case
+    number7 = Node(9)
+    number7.next = Node(1)
+    number7.next.next = Node(1)
+    number8 = Node(1)
+    number8.next = Node(0)
+    number8.next.next = Node(1)
+    result = convert_to_str(add_two_numbers(number7, number8))
+    self.assertEqual(&quot;022&quot;, result)
+
+def test_convert_to_list(self):
+    result = convert_to_str(convert_to_list(112))
+    self.assertEqual(&quot;211&quot;, result)</code></pre>
+<p>if <strong>name</strong> == “<strong>main</strong>”: unittest.main()</p>
+<p>""" A linked list is given such that each node contains an additional random pointer which could point to any node in the list or null.</p>
+<p>Return a deep copy of the list. """ from collections import defaultdict</p>
+<p>class RandomListNode(object): def <strong>init</strong>(self, label): self.label = label self.next = None self.random = None</p>
+<p>def copy_random_pointer_v1(head): """ :type head: RandomListNode :rtype: RandomListNode """ dic = dict() m = n = head while m: dic[m] = RandomListNode(m.label) m = m.next while n: dic[n].next = dic.get(n.next) dic[n].random = dic.get(n.random) n = n.next return dic.get(head)</p>
+<h1 id="on">O(n)</h1>
+<p>def copy_random_pointer_v2(head): """ :type head: RandomListNode :rtype: RandomListNode """ copy = defaultdict(lambda: RandomListNode(0)) copy[None] = None node = head while node: copy[node].label = node.label copy[node].next = copy[node.next] copy[node].random = copy[node.random] node = node.next return copy[head]</p>
+<p>""" Write a function to delete a node (except the tail) in a singly linked list, given only access to that node.</p>
+<p>Supposed the linked list is 1 -&gt; 2 -&gt; 3 -&gt; 4 and you are given the third node with value 3, the linked list should become 1 -&gt; 2 -&gt; 4 after calling your function. """ import unittest</p>
+<p>class Node: def <strong>init</strong>(self, x): self.val = x self.next = None</p>
+<p>def delete_node(node): if node is None or node.next is None: raise ValueError node.val = node.next.val node.next = node.next.next</p>
+<p>class TestSuite(unittest.TestCase): def test_delete_node(self):</p>
+<pre><code>    # make linkedlist 1 -&gt; 2 -&gt; 3 -&gt; 4
+    head = Node(1)
+    curr = head
+    for i in range(2, 6):
+        curr.next = Node(i)
+        curr = curr.next
+
+    # node3 = 3
+    node3 = head.next.next
+
+    # after delete_node =&gt; 1 -&gt; 2 -&gt; 4
+    delete_node(node3)
+
+    curr = head
+    self.assertEqual(1, curr.val)
+
+    curr = curr.next
+    self.assertEqual(2, curr.val)
+
+    curr = curr.next
+    self.assertEqual(4, curr.val)
+
+    curr = curr.next
+    self.assertEqual(5, curr.val)
+
+    tail = curr
+    self.assertIsNone(tail.next)
+
+    self.assertRaises(ValueError, delete_node, tail)
+    self.assertRaises(ValueError, delete_node, tail.next)</code></pre>
+<p>if <strong>name</strong> == “<strong>main</strong>”:</p>
+<pre><code>unittest.main()</code></pre>
+<p>""" Given a linked list, find the first node of a cycle in it. 1 -&gt; 2 -&gt; 3 -&gt; 4 -&gt; 5 -&gt; 1 =&gt; 1 A -&gt; B -&gt; C -&gt; D -&gt; E -&gt; C =&gt; C</p>
+<pre><code>Note: The solution is a direct implementation
+      Floyd&#39;s cycle-finding algorithm (Floyd&#39;s Tortoise and Hare).</code></pre>
+<p>""" import unittest</p>
+<p>class Node: def <strong>init</strong>(self, x): self.val = x self.next = None</p>
+<p>def first_cyclic_node(head): """ :type head: Node :rtype: Node """ runner = walker = head while runner and runner.next: runner = runner.next.next walker = walker.next if runner is walker: break</p>
+<pre><code>if runner is None or runner.next is None:
+    return None
+
+walker = head
+while runner is not walker:
+    runner, walker = runner.next, walker.next
+return runner</code></pre>
+<p>class TestSuite(unittest.TestCase): def test_first_cyclic_node(self):</p>
+<pre><code>    # create linked list =&gt; A -&gt; B -&gt; C -&gt; D -&gt; E -&gt; C
+    head = Node(&quot;A&quot;)
+    head.next = Node(&quot;B&quot;)
+    curr = head.next
+
+    cyclic_node = Node(&quot;C&quot;)
+    curr.next = cyclic_node
+
+    curr = curr.next
+    curr.next = Node(&quot;D&quot;)
+    curr = curr.next
+    curr.next = Node(&quot;E&quot;)
+    curr = curr.next
+    curr.next = cyclic_node
+
+    self.assertEqual(&quot;C&quot;, first_cyclic_node(head).val)</code></pre>
+<p>if <strong>name</strong> == “<strong>main</strong>”:</p>
+<pre><code>unittest.main()</code></pre>
+<p>from .reverse import <em> from .is_sorted import </em> from .remove<em>range import </em> from .swap<em>in_pairs import </em> from .rotate<em>list import </em> from .is<em>cyclic import </em> from .merge<em>two_list import </em> from .is<em>palindrome import </em> from .copy_random_pointer import *</p>
+<p>""" This function takes two lists and returns the node they have in common, if any. In this example: 1 -&gt; 3 -&gt; 5<br />
+7 -&gt; 9 -&gt; 11 / 2 -&gt; 4 -&gt; 6 …we would return 7. Note that the node itself is the unique identifier, not the value of the node. """ import unittest</p>
+<p>class Node(object): def <strong>init</strong>(self, val=None): self.val = val self.next = None</p>
+<p>def intersection(h1, h2):</p>
+<pre><code>count = 0
+flag = None
+h1_orig = h1
+h2_orig = h2
+
+while h1 or h2:
+    count += 1
+
+    if not flag and (h1.next is None or h2.next is None):
+        # We hit the end of one of the lists, set a flag for this
+        flag = (count, h1.next, h2.next)
+
+    if h1:
+        h1 = h1.next
+    if h2:
+        h2 = h2.next
+
+long_len = count  # Mark the length of the longer of the two lists
+short_len = flag[0]
+
+if flag[1] is None:
+    shorter = h1_orig
+    longer = h2_orig
+elif flag[2] is None:
+    shorter = h2_orig
+    longer = h1_orig
+
+while longer and shorter:
+
+    while long_len &gt; short_len:
+        # force the longer of the two lists to &quot;catch up&quot;
+        longer = longer.next
+        long_len -= 1
+
+    if longer == shorter:
+        # The nodes match, return the node
+        return longer
+    else:
+        longer = longer.next
+        shorter = shorter.next
+
+return None</code></pre>
+<p>class TestSuite(unittest.TestCase): def test_intersection(self):</p>
+<pre><code>    # create linked list as:
+    # 1 -&gt; 3 -&gt; 5
+    #            \
+    #             7 -&gt; 9 -&gt; 11
+    #            /
+    # 2 -&gt; 4 -&gt; 6
+    a1 = Node(1)
+    b1 = Node(3)
+    c1 = Node(5)
+    d = Node(7)
+    a2 = Node(2)
+    b2 = Node(4)
+    c2 = Node(6)
+    e = Node(9)
+    f = Node(11)
+
+    a1.next = b1
+    b1.next = c1
+    c1.next = d
+    a2.next = b2
+    b2.next = c2
+    c2.next = d
+    d.next = e
+    e.next = f
+
+    self.assertEqual(7, intersection(a1, a2).val)</code></pre>
+<p>if <strong>name</strong> == “<strong>main</strong>”:</p>
+<pre><code>unittest.main()</code></pre>
+<p>""" Given a linked list, determine if it has a cycle in it.</p>
+<p>Follow up: Can you solve it without using extra space? """</p>
+<p>class Node: def <strong>init</strong>(self, x): self.val = x self.next = None</p>
+<p>def is_cyclic(head): """ :type head: Node :rtype: bool """ if not head: return False runner = head walker = head while runner.next and runner.next.next: runner = runner.next.next walker = walker.next if runner == walker: return True return False</p>
+<p>def is_palindrome(head): if not head: return True # split the list to two parts fast, slow = head.next, head while fast and fast.next: fast = fast.next.next slow = slow.next second = slow.next slow.next = None # Don’t forget here! But forget still works! # reverse the second part node = None while second: nxt = second.next second.next = node node = second second = nxt # compare two parts # second part has the same or one less node while node: if node.val != head.val: return False node = node.next head = head.next return True</p>
+<p>def is_palindrome_stack(head): if not head or not head.next: return True</p>
+<pre><code># 1. Get the midpoint (slow)
+slow = fast = cur = head
+while fast and fast.next:
+    fast, slow = fast.next.next, slow.next
+
+# 2. Push the second half into the stack
+stack = [slow.val]
+while slow.next:
+    slow = slow.next
+    stack.append(slow.val)
+
+# 3. Comparison
+while stack:
+    if stack.pop() != cur.val:
+        return False
+    cur = cur.next
+
+return True</code></pre>
+<p>def is_palindrome_dict(head): """ This function builds up a dictionary where the keys are the values of the list, and the values are the positions at which these values occur in the list. We then iterate over the dict and if there is more than one key with an odd number of occurrences, bail out and return False. Otherwise, we want to ensure that the positions of occurrence sum to the value of the length of the list - 1, working from the outside of the list inward. For example: Input: 1 -&gt; 1 -&gt; 2 -&gt; 3 -&gt; 2 -&gt; 1 -&gt; 1 d = {1: [0,1,5,6], 2: [2,4], 3: [3]} ‘3’ is the middle outlier, 2+4=6, 0+6=6 and 5+1=6 so we have a palindrome. """ if not head or not head.next: return True d = {} pos = 0 while head: if head.val in d.keys(): d[head.val].append(pos) else: d[head.val] = [pos] head = head.next pos += 1 checksum = pos - 1 middle = 0 for v in d.values(): if len(v) % 2 != 0: middle += 1 else: step = 0 for i in range(0, len(v)): if v[i] + v[len(v) - 1 - step] != checksum: return False step += 1 if middle &gt; 1: return False return True</p>
+<p>""" Given a linked list, is_sort function returns true if the list is in sorted (increasing) order and return false otherwise. An empty list is considered to be sorted.</p>
+<p>For example: Null :List is sorted 1 2 3 4 :List is sorted 1 2 -1 3 :List is not sorted """</p>
+<p>def is_sorted(head): if not head: return True current = head while current.next: if current.val &gt; current.next.val: return False current = current.next return True</p>
+<p>class Node: def <strong>init</strong>(self, val=None): self.val = val self.next = None</p>
+<p>def kth_to_last_eval(head, k): """ This is a suboptimal, hacky method using eval(), which is not safe for user input. We guard against danger by ensuring k in an int """ if not isinstance(k, int) or not head.val: return False</p>
+<pre><code>nexts = &quot;.&quot;.join([&quot;next&quot; for n in range(1, k + 1)])
+seeker = str(&quot;.&quot;.join([&quot;head&quot;, nexts]))
+
+while head:
+    if eval(seeker) is None:
+        return head
+    else:
+        head = head.next
+
+return False</code></pre>
+<p>def kth_to_last_dict(head, k): """ This is a brute force method where we keep a dict the size of the list Then we check it for the value we need. If the key is not in the dict, our and statement will short circuit and return False """ if not (head and k &gt; -1): return False d = dict() count = 0 while head: d[count] = head head = head.next count += 1 return len(d) - k in d and d[len(d) - k]</p>
+<p>def kth_to_last(head, k): """ This is an optimal method using iteration. We move p1 k steps ahead into the list. Then we move p1 and p2 together until p1 hits the end. """ if not (head or k &gt; -1): return False p1 = head p2 = head for i in range(1, k + 1): if p1 is None: # Went too far, k is not valid raise IndexError p1 = p1.next while p1: p1 = p1.next p2 = p2.next return p2</p>
+<p>def print_linked_list(head): string = "" while head.next: string += head.val + " -&gt; " head = head.next string += head.val print(string)</p>
+<p>def test(): # def make_test_li # A A B C D C F G a1 = Node(“A”) a2 = Node(“A”) b = Node(“B”) c1 = Node(“C”) d = Node(“D”) c2 = Node(“C”) f = Node(“F”) g = Node(“G”) a1.next = a2 a2.next = b b.next = c1 c1.next = d d.next = c2 c2.next = f f.next = g print_linked_list(a1)</p>
+<pre><code># test kth_to_last_eval
+kth = kth_to_last_eval(a1, 4)
+try:
+    assert kth.val == &quot;D&quot;
+except AssertionError as e:
+    e.args += (&quot;Expecting D, got %s&quot; % kth.val,)
+    raise
+
+# test kth_to_last_dict
+kth = kth_to_last_dict(a1, 4)
+try:
+    assert kth.val == &quot;D&quot;
+except AssertionError as e:
+    e.args += (&quot;Expecting D, got %s&quot; % kth.val,)
+    raise
+
+# test kth_to_last
+kth = kth_to_last(a1, 4)
+try:
+    assert kth.val == &quot;D&quot;
+except AssertionError as e:
+    e.args += (&quot;Expecting D, got %s&quot; % kth.val,)
+    raise
+print(&quot;all passed.&quot;)</code></pre>
+<p>if <strong>name</strong> == “<strong>main</strong>”: test()</p>
+<h1 id="pros">Pros</h1>
+<h1 id="linked-lists-have-constant-time-insertions-and-deletions-in-any-position">Linked Lists have constant-time insertions and deletions in any position,</h1>
+<h1 id="in-comparison-arrays-require-on-time-to-do-the-same-thing.">in comparison, arrays require O(n) time to do the same thing.</h1>
+<h1 id="linked-lists-can-continue-to-expand-without-having-to-specify">Linked lists can continue to expand without having to specify</h1>
+<h1 id="their-size-ahead-of-time-remember-our-lectures-on-array-sizing">their size ahead of time (remember our lectures on Array sizing</h1>
+<h1 id="from-the-array-sequence-section-of-the-course">from the Array Sequence section of the course!)</h1>
+<h1 id="cons">Cons</h1>
+<h1 id="to-access-an-element-in-a-linked-list-you-need-to-take-ok-time">To access an element in a linked list, you need to take O(k) time</h1>
+<h1 id="to-go-from-the-head-of-the-list-to-the-kth-element.">to go from the head of the list to the kth element.</h1>
+<h1 id="in-contrast-arrays-have-constant-time-operations-to-access">In contrast, arrays have constant time operations to access</h1>
+<h1 id="elements-in-an-array.">elements in an array.</h1>
+<p>class DoublyLinkedListNode(object): def <strong>init</strong>(self, value): self.value = value self.next = None self.prev = None</p>
+<p>class SinglyLinkedListNode(object): def <strong>init</strong>(self, value): self.value = value self.next = None</p>
+<p>""" Merge two sorted linked lists and return it as a new list. The new list should be made by splicing together the nodes of the first two lists.</p>
+<p>For example: Input: 1-&gt;2-&gt;4, 1-&gt;3-&gt;4 Output: 1-&gt;1-&gt;2-&gt;3-&gt;4-&gt;4 """</p>
+<p>class Node: def <strong>init</strong>(self, x): self.val = x self.next = None</p>
+<p>def merge_two_list(l1, l2): ret = cur = Node(0) while l1 and l2: if l1.val &lt; l2.val: cur.next = l1 l1 = l1.next else: cur.next = l2 l2 = l2.next cur = cur.next cur.next = l1 or l2 return ret.next</p>
+<h1 id="recursively">recursively</h1>
+<p>def merge_two_list_recur(l1, l2): if not l1 or not l2: return l1 or l2 if l1.val &lt; l2.val: l1.next = merge_two_list_recur(l1.next, l2) return l1 else: l2.next = merge_two_list_recur(l1, l2.next) return l2</p>
+<p>""" Write code to partition a linked list around a value x, such that all nodes less than x come before all nodes greater than or equal to x. If x is contained within the list, the values of x only need to be after the elements less than x. The partition element x can appear anywhere in the “right partition”; it does not need to appear between the left and right partitions.</p>
+<p>3 -&gt; 5 -&gt; 8 -&gt; 5 -&gt; 10 -&gt; 2 -&gt; 1 [partition=5] 3 -&gt; 1 -&gt; 2 -&gt; 10 -&gt; 5 -&gt; 5 -&gt; 8</p>
+<p>We assume the values of all linked list nodes are int and that x in an int. """</p>
+<p>class Node: def <strong>init</strong>(self, val=None): self.val = int(val) self.next = None</p>
+<p>def print_linked_list(head): string = "" while head.next: string += str(head.val) + " -&gt; " head = head.next string += str(head.val) print(string)</p>
+<p>def partition(head, x): left = None right = None prev = None current = head while current: if int(current.val) &gt;= x: if not right: right = current else: if not left: left = current else: prev.next = current.next left.next = current left = current left.next = right if prev and prev.next is None: break # cache previous value in case it needs to be pointed elsewhere prev = current current = current.next</p>
+<p>def test(): a = Node(“3”) b = Node(“5”) c = Node(“8”) d = Node(“5”) e = Node(“10”) f = Node(“2”) g = Node(“1”)</p>
+<pre><code>a.next = b
+b.next = c
+c.next = d
+d.next = e
+e.next = f
+f.next = g
+
+print_linked_list(a)
+partition(a, 5)
+print_linked_list(a)</code></pre>
+<p>if <strong>name</strong> == “<strong>main</strong>”: test()</p>
+<p>class Node: def <strong>init</strong>(self, val=None): self.val = val self.next = None</p>
+<p>def remove_dups(head): """ Time Complexity: O(N) Space Complexity: O(N) """ hashset = set() prev = Node() while head: if head.val in hashset: prev.next = head.next else: hashset.add(head.val) prev = head head = head.next</p>
+<p>def remove_dups_wothout_set(head): """ Time Complexity: O(N^2) Space Complexity: O(1) """ current = head while current: runner = current while runner.next: if runner.next.val == current.val: runner.next = runner.next.next else: runner = runner.next current = current.next</p>
+<p>def print_linked_list(head): string = "" while head.next: string += head.val + " -&gt; " head = head.next string += head.val print(string)</p>
+<h1 id="a-a-b-c-d-c-f-g">A A B C D C F G</h1>
+<p>a1 = Node(“A”) a2 = Node(“A”) b = Node(“B”) c1 = Node(“C”) d = Node(“D”) c2 = Node(“C”) f = Node(“F”) g = Node(“G”)</p>
+<p>a1.next = a2 a2.next = b b.next = c1 c1.next = d d.next = c2 c2.next = f f.next = g</p>
+<p>remove_dups(a1) print_linked_list(a1) remove_dups_wothout_set(a1) print_linked_list(a1)</p>
+<p>""" Given a linked list, remove_range function accepts a starting and ending index as parameters and removes the elements at those indexes (inclusive) from the list</p>
+<p>For example: List: [8, 13, 17, 4, 9, 12, 98, 41, 7, 23, 0, 92] remove_range(list, 3, 8); List becomes: [8, 13, 17, 23, 0, 92]</p>
+<p>legal range of the list (0 &lt; start index &lt; end index &lt; size of list). """</p>
+<p>def remove_range(head, start, end): assert start &lt;= end # Case: remove node at head if start == 0: for i in range(0, end + 1): if head != None: head = head.next else: current = head # Move pointer to start position for i in range(0, start - 1): current = current.next # Remove data until the end for i in range(0, end - start + 1): if current != None and current.next != None: current.next = current.next.next return head</p>
+<p>""" Reverse a singly linked list. For example:</p>
+<p>1 –&gt; 2 –&gt; 3 –&gt; 4 After reverse: 4 –&gt; 3 –&gt; 2 –&gt; 1 """</p>
+<h1 id="section"></h1>
+<h1 id="iterative-solution">Iterative solution</h1>
+<h1 id="tn--on">T(n)- O(n)</h1>
+<h1 id="section-1"></h1>
+<p>def reverse_list(head): """ :type head: ListNode :rtype: ListNode """ if not head or not head.next: return head prev = None while head: current = head head = head.next current.next = prev prev = current return prev</p>
+<h1 id="section-2"></h1>
+<h1 id="recursive-solution">Recursive solution</h1>
+<h1 id="tn--on-1">T(n)- O(n)</h1>
+<h1 id="section-3"></h1>
+<p>def reverse_list_recursive(head): """ :type head: ListNode :rtype: ListNode """ if head is None or head.next is None: return head p = head.next head.next = None revrest = reverse_list_recursive(p) p.next = head return revrest</p>
+<p>""" Given a list, rotate the list to the right by k places, where k is non-negative.</p>
+<p>For example: Given 1-&gt;2-&gt;3-&gt;4-&gt;5-&gt;NULL and k = 2, return 4-&gt;5-&gt;1-&gt;2-&gt;3-&gt;NULL. """</p>
+<h1 id="definition-for-singly-linked-list.">Definition for singly-linked list.</h1>
+<h1 id="class-listnodeobject">class ListNode(object):</h1>
+<h1 id="def-initself-x">def <strong>init</strong>(self, x):</h1>
+<h1 id="self.val-x">self.val = x</h1>
+<h1 id="self.next-none">self.next = None</h1>
+<p>def rotate_right(head, k): """ :type head: ListNode :type k: int :rtype: ListNode """ if not head or not head.next: return head current = head length = 1 # count length of the list while current.next: current = current.next length += 1 # make it circular current.next = head k = k % length # rotate until length-k for i in range(length - k): current = current.next head = current.next current.next = None return head</p>
+<p>""" Given a linked list, swap every two adjacent nodes and return its head.</p>
+<p>For example, Given 1-&gt;2-&gt;3-&gt;4, you should return the list as 2-&gt;1-&gt;4-&gt;3.</p>
+<p>Your algorithm should use only constant space. You may not modify the values in the list, only nodes itself can be changed. """</p>
+<p>class Node(object): def <strong>init</strong>(self, x): self.val = x self.next = None</p>
+<p>def swap_pairs(head): if not head: return head start = Node(0) start.next = head current = start while current.next and current.next.next: first = current.next second = current.next.next first.next = second.next current.next = second current.next.next = first current = current.next.next return start.next</p>
+</body>
+</html>

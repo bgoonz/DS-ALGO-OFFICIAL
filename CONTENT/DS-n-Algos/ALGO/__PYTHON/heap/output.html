@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>output</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+</head>
+<body>
+<p>""" Binary Heap. A min heap is a complete binary tree where each node is smaller than its children. The root, therefore, is the minimum element in the tree. The min heap uses an array to represent the data and operation. For example a min heap:</p>
+<pre><code> 4</code></pre>
+<p>/<br />
+50 7 /  / 55 90 87</p>
+<p>Heap [0, 4, 50, 7, 55, 90, 87]</p>
+<p>Method in class: insert, remove_min For example insert(2) in a min heap:</p>
+<pre><code> 4                     4                     2</code></pre>
+<p>/  /  /<br />
+50 7 –&gt; 50 2 –&gt; 50 4 /  /  /  /  /  /<br />
+55 90 87 2 55 90 87 7 55 90 87 7</p>
+<p>For example remove_min() in a min heap:</p>
+<pre><code> 4                     87                    7</code></pre>
+<p>/  /  /<br />
+50 7 –&gt; 50 7 –&gt; 50 87 /  / /  /<br />
+55 90 87 55 90 55 90</p>
+<p>""" from abc import ABCMeta, abstractmethod</p>
+<p>class AbstractHeap(metaclass=ABCMeta): ""“Abstract Class for Binary Heap.”""</p>
+<pre><code>def __init__(self):
+    pass
+
+@abstractmethod
+def perc_up(self, i):
+    pass
+
+@abstractmethod
+def insert(self, val):
+    pass
+
+@abstractmethod
+def perc_down(self, i):
+    pass
+
+@abstractmethod
+def min_child(self, i):
+    pass
+
+@abstractmethod
+def remove_min(self):
+    pass</code></pre>
+<p>class BinaryHeap(AbstractHeap): def <strong>init</strong>(self): self.currentSize = 0 self.heap = [(0)]</p>
+<pre><code>def perc_up(self, i):
+    while i // 2 &gt; 0:
+        if self.heap[i] &lt; self.heap[i // 2]:
+            # Swap value of child with value of its parent
+            self.heap[i], self.heap[i // 2] = self.heap[i // 2], self.heap[i]
+        i = i // 2
+
+&quot;&quot;&quot;
+    Method insert always start by inserting the element at the bottom.
+    It inserts rightmost spot so as to maintain the complete tree property.
+    Then, it fixes the tree by swapping the new element with its parent,
+    until it finds an appropriate spot for the element. It essentially
+    perc_up the minimum element
+    Complexity: O(logN)
+&quot;&quot;&quot;
+
+def insert(self, val):
+    self.heap.append(val)
+    self.currentSize = self.currentSize + 1
+    self.perc_up(self.currentSize)
+
+&quot;&quot;&quot;
+    Method min_child returns the index of smaller of 2 children of parent at index i
+&quot;&quot;&quot;
+
+def min_child(self, i):
+    if 2 * i + 1 &gt; self.currentSize:  # No right child
+        return 2 * i
+    else:
+        # left child &gt; right child
+        if self.heap[2 * i] &gt; self.heap[2 * i + 1]:
+            return 2 * i + 1
+        else:
+            return 2 * i
+
+def perc_down(self, i):
+    while 2 * i &lt; self.currentSize:
+        min_child = self.min_child(i)
+        if self.heap[min_child] &lt; self.heap[i]:
+            # Swap min child with parent
+            self.heap[min_child], self.heap[i] = self.heap[i], self.heap[min_child]
+        i = min_child
+
+&quot;&quot;&quot;
+    Remove Min method removes the minimum element and swap it with the last
+    element in the heap( the bottommost, rightmost element). Then, it
+    perc_down this element, swapping it with one of its children until the
+    min heap property is restored
+    Complexity: O(logN)
+&quot;&quot;&quot;
+
+def remove_min(self):
+    ret = self.heap[1]  # the smallest value at beginning
+    self.heap[1] = self.heap[self.currentSize]  # Replace it by the last value
+    self.currentSize = self.currentSize - 1
+    self.heap.pop()
+    self.perc_down(1)
+    return ret</code></pre>
+<p>from .binary<em>heap import </em> from .skyline import <em> from .sliding_window_max import </em> from .merge<em>sorted_k_lists import </em> from .k_closest_points import *</p>
+<p>"""Given a list of points, find the k closest to the origin.</p>
+<p>Idea: Maintain a max heap of k elements. We can iterate through all points. If a point p has a smaller distance to the origin than the top element of a heap, we add point p to the heap and remove the top element. After iterating through all points, our heap contains the k closest points to the origin. """</p>
+<p>from heapq import heapify, heappushpop</p>
+<p>def k_closest(points, k, origin=(0, 0)): # Time: O(k+(n-k)logk) # Space: O(k) ""“Initialize max heap with first k points. Python does not support a max heap; thus we can use the default min heap where the keys (distance) are negated.”"" heap = [(-distance(p, origin), p) for p in points[:k]] heapify(heap)</p>
+<pre><code>&quot;&quot;&quot;
+For every point p in points[k:],
+check if p is smaller than the root of the max heap;
+if it is, add p to heap and remove root. Reheapify.
+&quot;&quot;&quot;
+for p in points[k:]:
+    d = distance(p, origin)
+
+    heappushpop(heap, (-d, p))  # heappushpop does conditional check
+    &quot;&quot;&quot;Same as:
+        if d &lt; -heap[0][0]:
+            heappush(heap, (-d,p))
+            heappop(heap)
+
+    Note: heappushpop is more efficient than separate push and pop calls.
+    Each heappushpop call takes O(logk) time.
+    &quot;&quot;&quot;
+
+return [p for nd, p in heap]  # return points in heap</code></pre>
+<p>def distance(point, origin=(0, 0)): return (point[0] - origin[0]) ** 2 + (point[1] - origin[1]) ** 2</p>
+<p>""" Merge k sorted linked lists and return it as one sorted list. Analyze and describe its complexity. """</p>
+<p>from heapq import heappop, heapreplace, heapify from queue import PriorityQueue</p>
+<h1 id="definition-for-singly-linked-list.">Definition for singly-linked list.</h1>
+<p>class ListNode(object): def <strong>init</strong>(self, x): self.val = x self.next = None</p>
+<p>def merge_k_lists(lists): dummy = node = ListNode(0) h = [(n.val, n) for n in lists if n] heapify(h) while h: v, n = h[0] if n.next is None: heappop(h) # only change heap size when necessary else: heapreplace(h, (n.next.val, n.next)) node.next = n node = node.next</p>
+<pre><code>return dummy.next</code></pre>
+<p>def merge_k_lists(lists): dummy = ListNode(None) curr = dummy q = PriorityQueue() for node in lists: if node: q.put((node.val, node)) while not q.empty(): curr.next = q.get()[1] # These two lines seem to curr = curr.next # be equivalent to :- curr = q.get()[1] if curr.next: q.put((curr.next.val, curr.next)) return dummy.next</p>
+<p>""" I think my code’s complexity is also O(nlogk) and not using heap or priority queue, n means the total elements and k means the size of list.</p>
+<p>The mergeTwoLists function in my code comes from the problem Merge Two Sorted Lists whose complexity obviously is O(n), n is the sum of length of l1 and l2.</p>
+<p>To put it simpler, assume the k is 2^x, So the progress of combination is like a full binary tree, from bottom to top. So on every level of tree, the combination complexity is n, because every level have all n numbers without repetition. The level of tree is x, ie log k. So the complexity is O(n log k).</p>
+<p>for example, 8 ListNode, and the length of every ListNode is x1, x2, x3, x4, x5, x6, x7, x8, total is n.</p>
+<p>on level 3: x1+x2, x3+x4, x5+x6, x7+x8 sum: n</p>
+<p>on level 2: x1+x2+x3+x4, x5+x6+x7+x8 sum: n</p>
+<p>on level 1: x1+x2+x3+x4+x5+x6+x7+x8 sum: n """</p>
+<h1 id="coding-utf-8---">-<em>- coding: utf-8 -</em>-</h1>
+<p>""" A city’s skyline is the outer contour of the silhouette formed by all the buildings in that city when viewed from a distance. Now suppose you are given the locations and height of all the buildings as shown on a cityscape photo (Figure A), write a program to output the skyline formed by these buildings collectively (Figure B).</p>
+<p>The geometric information of each building is represented by a triplet of integers [Li, Ri, Hi], where Li and Ri are the x coordinates of the left and right edge of the ith building, respectively, and Hi is its height. It is guaranteed that 0 ≤ Li, Ri ≤ INT_MAX, 0 &lt; Hi ≤ INT_MAX, and Ri - Li &gt; 0. You may assume all buildings are perfect rectangles grounded on an absolutely flat surface at height 0.</p>
+<p>For instance, the dimensions of all buildings in Figure A are recorded as: [ [2 9 10], [3 7 15], [5 12 12], [15 20 10], [19 24 8] ] .</p>
+<p>The output is a list of “key points” (red dots in Figure B) in the format of [ [x1,y1], [x2, y2], [x3, y3], … ] that uniquely defines a skyline. A key point is the left endpoint of a horizontal line segment. Note that the last key point, where the rightmost building ends, is merely used to mark the termination of the skyline, and always has zero height. Also, the ground in between any two adjacent buildings should be considered part of the skyline contour.</p>
+<p>For instance, the skyline in Figure B should be represented as:[ [2 10], [3 15], [7 12], [12 0], [15 10], [20 8], [24, 0] ].</p>
+<p>Notes:</p>
+<p>The number of buildings in any input list is guaranteed to be in the range [0, 10000]. The input list is already sorted in ascending order by the left x position Li. The output list must be sorted by the x position. There must be no consecutive horizontal lines of equal height in the output skyline. For instance, […[2 3], [4 5], [7 5], [11 5], [12 7]…] is not acceptable; the three lines of height 5 should be merged into one in the final output as such: […[2 3], [4 5], [12 7], …]</p>
+<p>""" import heapq</p>
+<p>def get_skyline(lrh): """ Wortst Time Complexity: O(NlogN) :type buildings: List[List[int]] :rtype: List[List[int]] """ skyline, live = [], [] i, n = 0, len(lrh) while i &lt; n or live: if not live or i &lt; n and lrh[i][0] &lt;= -live[0][1]: x = lrh[i][0] while i &lt; n and lrh[i][0] == x: heapq.heappush(live, (-lrh[i][2], -lrh[i][1])) i += 1 else: x = -live[0][1] while live and -live[0][1] &lt;= x: heapq.heappop(live) height = len(live) and -live[0][0] if not skyline or height != skyline[-1][1]: skyline += ([x, height],) return skyline</p>
+<p>""" Given an array nums, there is a sliding window of size k which is moving from the very left of the array to the very right. You can only see the k numbers in the window. Each time the sliding window moves right by one position.</p>
+<p>For example, Given nums = [1,3,-1,-3,5,3,6,7], and k = 3.</p>
+<p>Window position Max</p>
+<hr />
+<p>[1 3 -1] -3 5 3 6 7 3 1 [3 -1 -3] 5 3 6 7 3 1 3 [-1 -3 5] 3 6 7 5 1 3 -1 [-3 5 3] 6 7 5 1 3 -1 -3 [5 3 6] 7 6 1 3 -1 -3 5 [3 6 7] 7 Therefore, return the max sliding window as [3,3,5,5,6,7]. """ import collections</p>
+<p>def max_sliding_window(nums, k): """ :type nums: List[int] :type k: int :rtype: List[int] """ if not nums: return nums queue = collections.deque() res = [] for num in nums: if len(queue) &lt; k: queue.append(num) else: res.append(max(queue)) queue.popleft() queue.append(num) res.append(max(queue)) return res</p>
+</body>
+</html>

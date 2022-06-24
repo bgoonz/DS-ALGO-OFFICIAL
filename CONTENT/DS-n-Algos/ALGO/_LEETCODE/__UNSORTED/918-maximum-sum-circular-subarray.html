@@ -1,40 +1,22 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="generator" content="pandoc" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0, user-scalable=yes"
-    />
-    <title>918-maximum-sum-circular-subarray</title>
-    <style type="text/css">
-      code {
-        white-space: pre-wrap;
-      }
-      span.smallcaps {
-        font-variant: small-caps;
-      }
-      span.underline {
-        text-decoration: underline;
-      }
-      div.column {
-        display: inline-block;
-        vertical-align: top;
-        width: 50%;
-      }
-    </style>
-  </head>
-  <body>
-    <figure>
-      <img
-        src="https://github.com/everthis/leetcode-js/blob/master/images/maximum-sum-circular-subarray.png"
-        title="maximum-sum-circular-subarray"
-        alt="alt text"
-      />
-      <figcaption>alt text</figcaption>
-    </figure>
-    <pre><code>/**
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>918-maximum-sum-circular-subarray</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+</head>
+<body>
+<figure>
+<img src="https://github.com/everthis/leetcode-js/blob/master/images/maximum-sum-circular-subarray.png" title="maximum-sum-circular-subarray" alt="alt text" /><figcaption>alt text</figcaption>
+</figure>
+<pre><code>/**
  * @param {number[]} A
  * @return {number}
  */
@@ -49,5 +31,5 @@ const maxSubarraySumCircular = function(A) {
   }
   return  maxSum &gt; 0 ? Math.max(maxSum, sum - minSum) : maxSum;
 };</code></pre>
-  </body>
+</body>
 </html>

@@ -1,252 +1,247 @@
 <!DOCTYPE html>
-<html lang="en">
-
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="A description of the page and its contents" />
-    <link rel="stylesheet" href="styles.css" />
-    <title>Page Title</title>
-    <link rel="stylesheet" href="./../../../../assets/style.css" />
-    <link rel="stylesheet" href="./../../../../assets/prism.css" />
-    <script async src="./../../../../assets/prism.js"></script>
-  </head>
-
-  <body>
-
-
-    <a href="https://github.com/bgoonz/DS-ALGO-OFFICIAL" class="github-corner" aria-label="View source on Github"><svg
-        width="80" height="80" viewBox="0 0 250 250"
-        style="z-index: 100000; fill:#194ccdaf; color:#fff; position: fixed; top: 20px; border: 0; left: 20px; transform: scale(-1.5, 1.5);"
-        aria-hidden="true">
-        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
-        <path
-          d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
-          fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm">
-        </path>
-        <path
-          d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
-          fill="currentColor" class="octo-body"></path>
-      </svg></a>
-
-
-
-
-
-    <div id=">pre data-role=" codeBlock" data-info="js" class="language-javascript"><code><a
-          title="1"><span>/*</span></a>
-        <a title="2"><span> View the full problem and run the test cases at:</span></a>
-        <a title="3"><span>
-            https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/</span></a>
-        <a title="4"><span>Given preorder and inorder traversal of a tree, construct the binary tree.</span></a>
-        <a title="5"><span>Note:</span></a>
-        <a id=-6" title="6"><span>You may assume that duplicates do not exist in the tree.</span></a>
-        <a title="7"><span>For example, given</span></a>
-        <a title="8"><span>preorder = [3,9,20,15,7]</span></a>
-        <a title="9"><span>inorder = [9,3,15,20,7]</span></a>
-        <a id=-10" title="10"><span>Return the following binary tree:</span></a>
-        <a title="11"><span> 3</span></a>
-        <a id=-12" title="12"><span> / \</span></a>
-        <a id=-13" title="13"><span> 9 20</span></a>
-        <a id=-14" title="14"><span> / \</span></a>
-        <a id=-15" title="15"><span> 15 7</span></a>
-        <a id=-16" title="16"><span>/**</span></a>
-        <a id=-17" title="17"><span> * Definition for a binary tree node.</span></a>
-        <a id=-18" title="18"><span> * function TreeNode(val, left, right) {</span></a>
-        <a id=-19" title="19"><span> * this.val = (val===undefined ? 0 : val)</span></a>
-        <a id=-20" title="20"><span> * this.left = (left===undefined ? null : left)</span></a>
-        <a id=-21" title="21"><span> * this.right = (right===undefined ? null : right)</span></a>
-        <a id=-22" title="22"><span> * }</span></a>
-        <a id=-23" title="23"><span> */</span></a>
-        <a id=-24" title="24"><span>/**</span></a>
-        <a id=-25" title="25"><span> * </span><span>@param </span><span>{number[]} preorder</span></a>
-        <a id=-26" title="26"><span> * </span><span>@param </span><span>{number[]} inorder</span></a>
-        <a id=-27" title="27"><span> * </span><span>@return {TreeNode}</span></a>
-        <a id=-28" title="28"><span>var buildTree = function(preorder, inorder) {</span></a>
-        <a id=-29" title="29"><span>};</span></a>
-        <a id=-30" title="30"><span>*/</span></a>
-        <a id=-31" title="31"><span>class</span> TreeNode <span>{</span></a>
-        <a id=-32" title="32"> <span>constructor</span>(val) <span>{</span></a>
-        <a id=-33" title="33"> <span>this</span>.<span>val</span> <span>=</span> val<span>;</span></a>
-        <a id=-34" title="34"> <span>this</span>.<span>left</span> <span>=</span> <span>null;</span></a>
-        <a id=-35" title="35"> <span>this</span>.<span>right</span> <span>=</span> <span>null;</span></a>
-        <a id=-36" title="36"> <span>}</span></a>
-        <a id=-37" title="37"><span>}</span></a>
-        <a id=-38" title="38"><span>let</span> a <span>=</span> <span>new</span>
-          <span>TreeNode</span>(<span>&quot;a&quot;</span>)<span>;</span></a>
-        <a id=-39" title="39"><span>let</span> b <span>=</span> <span>new</span>
-          <span>TreeNode</span>(<span>&quot;b&quot;</span>)<span>;</span></a>
-        <a id=-40" title="40"><span>let</span> c <span>=</span> <span>new</span>
-          <span>TreeNode</span>(<span>&quot;c&quot;</span>)<span>;</span></a>
-        <a id=-41" title="41"><span>let</span> d <span>=</span> <span>new</span>
-          <span>TreeNode</span>(<span>&quot;d&quot;</span>)<span>;</span></a>
-        <a id=-42" title="42"><span>let</span> e <span>=</span> <span>new</span>
-          <span>TreeNode</span>(<span>&quot;e&quot;</span>)<span>;</span></a>
-        <a id=-43" title="43"><span>let</span> f <span>=</span> <span>new</span>
-          <span>TreeNode</span>(<span>&quot;f&quot;</span>)<span>;</span></a>
-        <a id=-44" title="44"><span>let</span> g <span>=</span> <span>new</span>
-          <span>TreeNode</span>(<span>&quot;g&quot;</span>)<span>;</span></a>
-        <a id=-45" title="45"><span>let</span> h <span>=</span> <span>new</span>
-          <span>TreeNode</span>(<span>&quot;h&quot;</span>)<span>;</span></a>
-        <a id=-46" title="46"><span>let</span> i <span>=</span> <span>new</span>
-          <span>TreeNode</span>(<span>&quot;i&quot;</span>)<span>;</span></a>
-        <a id=-47" title="47"><span>let</span> j <span>=</span> <span>new</span>
-          <span>TreeNode</span>(<span>&quot;j&quot;</span>)<span>;</span></a>
-        <a id=-48" title="48"><span>let</span> k <span>=</span> <span>new</span>
-          <span>TreeNode</span>(<span>&quot;k&quot;</span>)<span>;</span></a>
-        <a id=-49" title="49"><span>let</span> l <span>=</span> <span>new</span>
-          <span>TreeNode</span>(<span>&quot;l&quot;</span>)<span>;</span></a>
-        <a id=-50" title="50"><span>let</span> m <span>=</span> <span>new</span>
-          <span>TreeNode</span>(<span>&quot;m&quot;</span>)<span>;</span></a>
-        <a id=-51" title="51"><span>a</span>.<span>left</span> <span>=</span> b<span>;</span></a>
-        <a id=-52" title="52"><span>a</span>.<span>right</span> <span>=</span> c<span>;</span></a>
-        <a id=-53" title="53"><span>b</span>.<span>left</span> <span>=</span> d<span>;</span></a>
-        <a id=-54" title="54"><span>b</span>.<span>right</span> <span>=</span> e<span>;</span></a>
-        <a id=-55" title="55"><span>c</span>.<span>left</span> <span>=</span> f<span>;</span></a>
-        <a id=-56" title="56"><span>c</span>.<span>right</span> <span>=</span> g<span>;</span></a>
-        <a id=-57" title="57"><span>h</span>.<span>left</span> <span>=</span> i<span>;</span></a>
-        <a id=-58" title="58"><span>h</span>.<span>right</span> <span>=</span> k<span>;</span></a>
-        <a id=-59" title="59"><span>i</span>.<span>right</span> <span>=</span> j<span>;</span></a>
-        <a id=-60" title="60"><span>k</span>.<span>left</span> <span>=</span> l<span>;</span></a>
-        <a id=-61" title="61"><span>l</span>.<span>right</span> <span>=</span> m<span>;</span></a>
-        <a id=-62" title="62"><span>//--------------------------------------\\</span></a>
-        <a id=-63" title="63"><span>console</span>.<span>log</span>( a )<span>;</span></a>
-        <a id=-64" title="64"><span>console</span>.<span>log</span>(h)</a>
-        <a id=-65" title="65"><span>console</span>.<span>log</span>(<span>&#39;a.val: &#39;,</span>
-          <span>a</span>.<span>val</span>)<span>;</span></a>
-        <a id=-66" title="66"><span>console</span>.<span>log</span>(<span>&#39;b.val: &#39;,</span>
-          <span>b</span>.<span>val</span>)<span>;</span></a>
-        <a id=-67" title="67"><span>console</span>.<span>log</span>(<span>&#39;a.left: &#39;,</span>
-          <span>a</span>.<span>left</span>)<span>;</span></a>
-        <a id=-68" title="68"><span>console</span>.<span>log</span>( <span>&#39;a.right: &#39;,</span>
-          <span>a</span>.<span>right</span> )<span>;</span></a>
-        <a id=-69" title="69"><span>console</span>.<span>log</span>(<span>&quot;h.left: &quot;,</span>
-          <span>h</span>.<span>left</span>)<span>;</span></a>
-        <a id=-70"
-          title="70"><span>//--------------------------------------------------------------------------------------\\</span></a>
-        <a id=-71" title="71"><span>console</span>.<span>log</span>(</a>
-        <a id=-72" title="72">
-          <span>&quot;//--------------------------------------------------------------------------------------</span><span>\\&quot;</span></a>
-        <a id=-73" title="73">)<span>;</span></a>
-        <a id=-74" title="74"><span>const</span> preO <span>=</span> [<span>3,</span> <span>9,</span> <span>20,</span>
-          <span>15,</span> <span>7</span>]<span>;</span></a>
-        <a id=-75" title="75"><span>const</span> inO <span>=</span> [<span>9,</span> <span>3,</span> <span>15,</span>
-          <span>20,</span> <span>7</span>]<span>;</span></a>
-        <a id=-76" title="76"><span>function</span> <span>buildTree</span>(preorder<span>,</span> inorder)
-          <span>{</span></a>
-        <a id=-77" title="77"> <span>if</span> (<span>!preorder</span>.<span>length</span> <span>&amp;&amp;</span>
-          <span>!inorder</span>.<span>length</span>) <span>return</span> <span>null;</span></a>
-        <a id=-78" title="78"> <span>// the first element in the preorder array is the root</span></a>
-        <a id=-79" title="79"> <span>let</span> root <span>=</span> <span>new</span>
-          <span>TreeNode</span>(preorder[<span>0</span>])<span>;</span></a>
-        <a id=-80" title="80"> <span>let</span> rootIdx <span>=</span>
-          <span>inorder</span>.<span>indexOf</span>(preorder[<span>0</span>])<span>;</span></a>
-        <a id=-81" title="81"> <span>// the left subtree is everything in the inorder array to the left of the
-            root</span></a>
-        <a id=-82" title="82"> <span>let</span> leftInorder <span>=</span>
-          <span>inorder</span>.<span>slice</span>(<span>0,</span> rootIdx)<span>;</span></a>
-        <a id=-83" title="83"> <span>// the right subtree is everything in the inorder array to the right of the
-            root</span></a>
-        <a id=-84" title="84"> <span>let</span> rightInorder <span>=</span>
-          <span>inorder</span>.<span>slice</span>(rootIdx <span>+</span> <span>1</span>)<span>;</span></a>
-        <a id=-85" title="85"> <span>// to build the left subtree, the values in the leftPreorder array have to be the
-            same as the ones in the leftInorder array</span></a>
-        <a id=-86" title="86"> <span>let</span> leftPreorder <span>=</span>
-          <span>preorder</span>.<span>filter</span>((val) <span>=&gt;</span>
-          <span>leftInorder</span>.<span>includes</span>(val))<span>;</span></a>
-        <a id=-87" title="87"> <span>// to build the left subtree, the values in the leftPreorder array have to be the
-            same as the ones in the leftInorder array</span></a>
-        <a id=-88" title="88"> <span>let</span> rightPreorder <span>=</span>
-          <span>preorder</span>.<span>filter</span>((val) <span>=&gt;</span>
-          <span>rightInorder</span>.<span>includes</span>(val))<span>;</span></a>
-        <a id=-89" title="89"> <span>root</span>.<span>left</span> <span>=</span>
-          <span>buildTree</span>(leftPreorder<span>,</span> leftInorder)<span>;</span></a>
-        <a id=-90" title="90"> <span>root</span>.<span>right</span> <span>=</span>
-          <span>buildTree</span>(rightPreorder<span>,</span> rightInorder)<span>;</span></a>
-        <a id=-91" title="91"> <span>return</span> root<span>;</span></a>
-        <a id=-92" title="92"><span>}</span></a>
-        <a id=-93" title="93"><span>console</span>.<span>log</span>(</a>
-        <a id=-94" title="94">
-          <span>&quot;//--------------------------------------------------------------------------------------</span><span>\\&quot;</span></a>
-        <a id=-95" title="95">)<span>;</span></a>
-        <a id=-96" title="96"><span>buildTree</span>( preO<span>,</span> inO )<span>;</span></a>
-        <a id=-97" title="97"><span>console</span>.<span>log</span>(<span>&#39;buildTree( preO, inO ): &#39;,</span>
-          <span>buildTree</span>( preO<span>,</span> inO ))<span>;</span></a>
-        <a id=-98" title="98"><span>//--------------------------results
-            below--------------------------------------------</span></a>
-        <a id=-99" title="99"><span>/*</span></a>
-        <a id=-100" title="100"><span>node 105-Construct\ Binary\ Tree\ from\ Preorder\ and\ Inorder\
-            Traversal.js</span></a>
-        <a id=-101" title="101"><span>TreeNode {</span></a>
-        <a id=-102" title="102"><span> val: &#39;a&#39;,</span></a>
-        <a id=-103" title="103"><span> left: TreeNode {</span></a>
-        <a id=-104" title="104"><span> val: &#39;b&#39;,</span></a>
-        <a id=-105" title="105"><span> left: TreeNode { val: &#39;d&#39;, left: null, right: null },</span></a>
-        <a id=-106" title="106"><span> right: TreeNode { val: &#39;e&#39;, left: null, right: null }</span></a>
-        <a id=-107" title="107"><span> },</span></a>
-        <a id=-108" title="108"><span> right: TreeNode {</span></a>
-        <a id=-109" title="109"><span> val: &#39;c&#39;,</span></a>
-        <a id=-110" title="110"><span> left: TreeNode { val: &#39;f&#39;, left: null, right: null },</span></a>
-        <a id=-111" title="111"><span> right: TreeNode { val: &#39;g&#39;, left: null, right: null }</span></a>
-        <a id=-112" title="112"><span> }</span></a>
-        <a id=-113" title="113"><span>}</span></a>
-        <a id=-114" title="114"><span>TreeNode {</span></a>
-        <a id=-115" title="115"><span> val: &#39;h&#39;,</span></a>
-        <a id=-116" title="116"><span> left: TreeNode {</span></a>
-        <a id=-117" title="117"><span> val: &#39;i&#39;,</span></a>
-        <a id=-118" title="118"><span> left: null,</span></a>
-        <a id=-119" title="119"><span> right: TreeNode { val: &#39;j&#39;, left: null, right: null }</span></a>
-        <a id=-120" title="120"><span> },</span></a>
-        <a id=-121" title="121"><span> right: TreeNode {</span></a>
-        <a id=-122" title="122"><span> val: &#39;k&#39;,</span></a>
-        <a id=-123" title="123"><span> left: TreeNode { val: &#39;l&#39;, left: null, right: [TreeNode] },</span></a>
-        <a id=-124" title="124"><span> right: null</span></a>
-        <a id=-125" title="125"><span> }</span></a>
-        <a id=-126" title="126"><span>}</span></a>
-        <a id=-127" title="127"><span>a.val: a</span></a>
-        <a id=-128" title="128"><span>b.val: b</span></a>
-        <a id=-129" title="129"><span>a.left: TreeNode {</span></a>
-        <a id=-130" title="130"><span> val: &#39;b&#39;,</span></a>
-        <a id=-131" title="131"><span> left: TreeNode { val: &#39;d&#39;, left: null, right: null },</span></a>
-        <a id=-132" title="132"><span> right: TreeNode { val: &#39;e&#39;, left: null, right: null }</span></a>
-        <a id=-133" title="133"><span>}</span></a>
-        <a id=-134" title="134"><span>a.right: TreeNode {</span></a>
-        <a id=-135" title="135"><span> val: &#39;c&#39;,</span></a>
-        <a id=-136" title="136"><span> left: TreeNode { val: &#39;f&#39;, left: null, right: null },</span></a>
-        <a id=-137" title="137"><span> right: TreeNode { val: &#39;g&#39;, left: null, right: null }</span></a>
-        <a id=-138" title="138"><span>}</span></a>
-        <a id=-139" title="139"><span>h.left: TreeNode {</span></a>
-        <a id=-140" title="140"><span> val: &#39;i&#39;,</span></a>
-        <a id=-141" title="141"><span> left: null,</span></a>
-        <a id=-142" title="142"><span> right: TreeNode { val: &#39;j&#39;, left: null, right: null }</span></a>
-        <a id=-143" title="143"><span>}</span></a>
-        <a id=-144"
-          title="144"><span>//--------------------------------------------------------------------------------------\</span></a>
-        <a id=-145"
-          title="145"><span>//--------------------------------------------------------------------------------------\</span></a>
-        <a id=-146" title="146"><span>buildTree( preO, inO ): TreeNode {</span></a>
-        <a id=-147" title="147"><span> val: 3,</span></a>
-        <a id=-148" title="148"><span> left: TreeNode { val: 9, left: null, right: null },</span></a>
-        <a id=-149" title="149"><span> right: TreeNode {</span></a>
-        <a id=-150" title="150"><span> val: 20,</span></a>
-        <a id=-151" title="151"><span> left: TreeNode { val: 15, left: null, right: null },</span></a>
-        <a id=-152" title="152"><span> right: TreeNode { val: 7, left: null, right: null }</span></a>
-        <a id=-153" title="153"><span> }</span></a>
-        <a id=-154" title="154"><span>}</span></a>
-        <a id=-155" title="155"><span>\___________________________________________________</span></a>
-        <a id=-156" title="156"><span>bryan_dir:105-construct-b-tree_exitstatus:0 ====&gt;</span></a>
-        <a id=-157" title="157"><span>&lt;---------------------------------------------------&gt;</span></a>
-        <a id=-158" title="158"><span>/*************************************</span></a>
-        <a id=-159" title="159"><span> * PREORDER = [3,9,20,15,7] *</span></a>
-        <a id=-160" title="160"><span> * INORDER = [9,3,15,20,7] *</span></a>
-        <a id=-161" title="161"><span> * RETURN THE FOLLOWING BINARY TREE: *</span></a>
-        <a id=-162" title="162"><span> * 3 *</span></a>
-        <a id=-163" title="163"><span> * / \ *</span></a>
-        <a id=-164" title="164"><span> * 9 20 *</span></a>
-        <a id=-165" title="165"><span> * / \ *</span></a>
-        <a id=-166" title="166"><span> * 15 7 *</span></a>
-        <a id=-167" title="167"><span> *************************************/</span></a></code></pre>
-    </div>
-  </body>
-
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>105-with comments</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+</head>
+<body>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="co">/*</span></a>
+<a class="sourceLine" id="cb1-2" title="2"><span class="co"> View the full problem and run the test cases at:</span></a>
+<a class="sourceLine" id="cb1-3" title="3"><span class="co">  https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/</span></a>
+<a class="sourceLine" id="cb1-4" title="4"><span class="co">Given preorder and inorder traversal of a tree, construct the binary tree.</span></a>
+<a class="sourceLine" id="cb1-5" title="5"><span class="co">Note:</span></a>
+<a class="sourceLine" id="cb1-6" title="6"><span class="co">You may assume that duplicates do not exist in the tree.</span></a>
+<a class="sourceLine" id="cb1-7" title="7"><span class="co">For example, given</span></a>
+<a class="sourceLine" id="cb1-8" title="8"><span class="co">preorder = [3,9,20,15,7]</span></a>
+<a class="sourceLine" id="cb1-9" title="9"><span class="co">inorder = [9,3,15,20,7]</span></a>
+<a class="sourceLine" id="cb1-10" title="10"><span class="co">Return the following binary tree:</span></a>
+<a class="sourceLine" id="cb1-11" title="11"><span class="co">    3</span></a>
+<a class="sourceLine" id="cb1-12" title="12"><span class="co">   / \</span></a>
+<a class="sourceLine" id="cb1-13" title="13"><span class="co">  9  20</span></a>
+<a class="sourceLine" id="cb1-14" title="14"><span class="co">    /  \</span></a>
+<a class="sourceLine" id="cb1-15" title="15"><span class="co">   15   7</span></a>
+<a class="sourceLine" id="cb1-16" title="16"><span class="co">/**</span></a>
+<a class="sourceLine" id="cb1-17" title="17"><span class="co"> * Definition for a binary tree node.</span></a>
+<a class="sourceLine" id="cb1-18" title="18"><span class="co"> * function TreeNode(val, left, right) {</span></a>
+<a class="sourceLine" id="cb1-19" title="19"><span class="co"> *     this.val = (val===undefined ? 0 : val)</span></a>
+<a class="sourceLine" id="cb1-20" title="20"><span class="co"> *     this.left = (left===undefined ? null : left)</span></a>
+<a class="sourceLine" id="cb1-21" title="21"><span class="co"> *     this.right = (right===undefined ? null : right)</span></a>
+<a class="sourceLine" id="cb1-22" title="22"><span class="co"> * }</span></a>
+<a class="sourceLine" id="cb1-23" title="23"><span class="co"> */</span></a>
+<a class="sourceLine" id="cb1-24" title="24"><span class="co">/**</span></a>
+<a class="sourceLine" id="cb1-25" title="25"><span class="co"> * </span><span class="an">@param</span><span class="co"> </span><span class="cv">{number</span><span class="co">[]} preorder</span></a>
+<a class="sourceLine" id="cb1-26" title="26"><span class="co"> * </span><span class="an">@param</span><span class="co"> </span><span class="cv">{number</span><span class="co">[]} inorder</span></a>
+<a class="sourceLine" id="cb1-27" title="27"><span class="co"> * </span><span class="an">@return</span><span class="co"> {TreeNode}</span></a>
+<a class="sourceLine" id="cb1-28" title="28"><span class="co">var buildTree = function(preorder, inorder) {</span></a>
+<a class="sourceLine" id="cb1-29" title="29"><span class="co">};</span></a>
+<a class="sourceLine" id="cb1-30" title="30"><span class="co">*/</span></a>
+<a class="sourceLine" id="cb1-31" title="31"><span class="kw">class</span> TreeNode <span class="op">{</span></a>
+<a class="sourceLine" id="cb1-32" title="32">  <span class="at">constructor</span>(val) <span class="op">{</span></a>
+<a class="sourceLine" id="cb1-33" title="33">    <span class="kw">this</span>.<span class="at">val</span> <span class="op">=</span> val<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-34" title="34">    <span class="kw">this</span>.<span class="at">left</span> <span class="op">=</span> <span class="kw">null</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb1-35" title="35">    <span class="kw">this</span>.<span class="at">right</span> <span class="op">=</span> <span class="kw">null</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb1-36" title="36">  <span class="op">}</span></a>
+<a class="sourceLine" id="cb1-37" title="37"><span class="op">}</span></a>
+<a class="sourceLine" id="cb1-38" title="38"><span class="kw">let</span> a <span class="op">=</span> <span class="kw">new</span> <span class="at">TreeNode</span>(<span class="st">&quot;a&quot;</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-39" title="39"><span class="kw">let</span> b <span class="op">=</span> <span class="kw">new</span> <span class="at">TreeNode</span>(<span class="st">&quot;b&quot;</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-40" title="40"><span class="kw">let</span> c <span class="op">=</span> <span class="kw">new</span> <span class="at">TreeNode</span>(<span class="st">&quot;c&quot;</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-41" title="41"><span class="kw">let</span> d <span class="op">=</span> <span class="kw">new</span> <span class="at">TreeNode</span>(<span class="st">&quot;d&quot;</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-42" title="42"><span class="kw">let</span> e <span class="op">=</span> <span class="kw">new</span> <span class="at">TreeNode</span>(<span class="st">&quot;e&quot;</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-43" title="43"><span class="kw">let</span> f <span class="op">=</span> <span class="kw">new</span> <span class="at">TreeNode</span>(<span class="st">&quot;f&quot;</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-44" title="44"><span class="kw">let</span> g <span class="op">=</span> <span class="kw">new</span> <span class="at">TreeNode</span>(<span class="st">&quot;g&quot;</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-45" title="45"><span class="kw">let</span> h <span class="op">=</span> <span class="kw">new</span> <span class="at">TreeNode</span>(<span class="st">&quot;h&quot;</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-46" title="46"><span class="kw">let</span> i <span class="op">=</span> <span class="kw">new</span> <span class="at">TreeNode</span>(<span class="st">&quot;i&quot;</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-47" title="47"><span class="kw">let</span> j <span class="op">=</span> <span class="kw">new</span> <span class="at">TreeNode</span>(<span class="st">&quot;j&quot;</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-48" title="48"><span class="kw">let</span> k <span class="op">=</span> <span class="kw">new</span> <span class="at">TreeNode</span>(<span class="st">&quot;k&quot;</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-49" title="49"><span class="kw">let</span> l <span class="op">=</span> <span class="kw">new</span> <span class="at">TreeNode</span>(<span class="st">&quot;l&quot;</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-50" title="50"><span class="kw">let</span> m <span class="op">=</span> <span class="kw">new</span> <span class="at">TreeNode</span>(<span class="st">&quot;m&quot;</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-51" title="51"><span class="va">a</span>.<span class="at">left</span> <span class="op">=</span> b<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-52" title="52"><span class="va">a</span>.<span class="at">right</span> <span class="op">=</span> c<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-53" title="53"><span class="va">b</span>.<span class="at">left</span> <span class="op">=</span> d<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-54" title="54"><span class="va">b</span>.<span class="at">right</span> <span class="op">=</span> e<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-55" title="55"><span class="va">c</span>.<span class="at">left</span> <span class="op">=</span> f<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-56" title="56"><span class="va">c</span>.<span class="at">right</span> <span class="op">=</span> g<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-57" title="57"><span class="va">h</span>.<span class="at">left</span> <span class="op">=</span> i<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-58" title="58"><span class="va">h</span>.<span class="at">right</span> <span class="op">=</span> k<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-59" title="59"><span class="va">i</span>.<span class="at">right</span> <span class="op">=</span> j<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-60" title="60"><span class="va">k</span>.<span class="at">left</span> <span class="op">=</span> l<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-61" title="61"><span class="va">l</span>.<span class="at">right</span> <span class="op">=</span> m<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-62" title="62"><span class="co">//--------------------------------------\\</span></a>
+<a class="sourceLine" id="cb1-63" title="63"><span class="va">console</span>.<span class="at">log</span>(a)<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-64" title="64"><span class="va">console</span>.<span class="at">log</span>(h)<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-65" title="65"><span class="va">console</span>.<span class="at">log</span>(<span class="st">&quot;a.val: &quot;</span><span class="op">,</span> <span class="va">a</span>.<span class="at">val</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-66" title="66"><span class="va">console</span>.<span class="at">log</span>(<span class="st">&quot;b.val: &quot;</span><span class="op">,</span> <span class="va">b</span>.<span class="at">val</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-67" title="67"><span class="va">console</span>.<span class="at">log</span>(<span class="st">&quot;a.left: &quot;</span><span class="op">,</span> <span class="va">a</span>.<span class="at">left</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-68" title="68"><span class="va">console</span>.<span class="at">log</span>(<span class="st">&quot;a.right: &quot;</span><span class="op">,</span> <span class="va">a</span>.<span class="at">right</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-69" title="69"><span class="va">console</span>.<span class="at">log</span>(<span class="st">&quot;h.left: &quot;</span><span class="op">,</span> <span class="va">h</span>.<span class="at">left</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-70" title="70"><span class="co">//--------------------------------------------------------------------------------------\\</span></a>
+<a class="sourceLine" id="cb1-71" title="71"><span class="va">console</span>.<span class="at">log</span>(</a>
+<a class="sourceLine" id="cb1-72" title="72">  <span class="st">&quot;//--------------------------------------------------------------------------------------</span><span class="sc">\\</span><span class="st">&quot;</span></a>
+<a class="sourceLine" id="cb1-73" title="73">)<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-74" title="74"><span class="kw">const</span> preO <span class="op">=</span> [<span class="dv">3</span><span class="op">,</span> <span class="dv">9</span><span class="op">,</span> <span class="dv">20</span><span class="op">,</span> <span class="dv">15</span><span class="op">,</span> <span class="dv">7</span>]<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-75" title="75"><span class="kw">const</span> inO <span class="op">=</span> [<span class="dv">9</span><span class="op">,</span> <span class="dv">3</span><span class="op">,</span> <span class="dv">15</span><span class="op">,</span> <span class="dv">20</span><span class="op">,</span> <span class="dv">7</span>]<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-76" title="76"><span class="kw">function</span> <span class="at">buildTree</span>(preorder<span class="op">,</span> inorder) <span class="op">{</span></a>
+<a class="sourceLine" id="cb1-77" title="77">  <span class="cf">if</span> (<span class="op">!</span><span class="va">preorder</span>.<span class="at">length</span> <span class="op">&amp;&amp;</span> <span class="op">!</span><span class="va">inorder</span>.<span class="at">length</span>) <span class="cf">return</span> <span class="kw">null</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb1-78" title="78">  <span class="co">// the first element in the preorder array is the root</span></a>
+<a class="sourceLine" id="cb1-79" title="79">  <span class="kw">let</span> root <span class="op">=</span> <span class="kw">new</span> <span class="at">TreeNode</span>(preorder[<span class="dv">0</span>])<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-80" title="80">  <span class="kw">let</span> rootIdx <span class="op">=</span> <span class="va">inorder</span>.<span class="at">indexOf</span>(preorder[<span class="dv">0</span>])<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-81" title="81">  <span class="co">// the left subtree is everything in the inorder array to the left of the root</span></a>
+<a class="sourceLine" id="cb1-82" title="82">  <span class="kw">let</span> leftInorder <span class="op">=</span> <span class="va">inorder</span>.<span class="at">slice</span>(<span class="dv">0</span><span class="op">,</span> rootIdx)<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-83" title="83">  <span class="co">// the right subtree is everything in the inorder array to the right of the root</span></a>
+<a class="sourceLine" id="cb1-84" title="84">  <span class="kw">let</span> rightInorder <span class="op">=</span> <span class="va">inorder</span>.<span class="at">slice</span>(rootIdx <span class="op">+</span> <span class="dv">1</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-85" title="85">  <span class="co">// to build the left subtree, the values in the leftPreorder array have to be the same as the ones in the leftInorder array</span></a>
+<a class="sourceLine" id="cb1-86" title="86">  <span class="kw">let</span> leftPreorder <span class="op">=</span> <span class="va">preorder</span>.<span class="at">filter</span>((val) <span class="kw">=&gt;</span> <span class="va">leftInorder</span>.<span class="at">includes</span>(val))<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-87" title="87">  <span class="co">// to build the left subtree, the values in the leftPreorder array have to be the same as the ones in the leftInorder array</span></a>
+<a class="sourceLine" id="cb1-88" title="88">  <span class="kw">let</span> rightPreorder <span class="op">=</span> <span class="va">preorder</span>.<span class="at">filter</span>((val) <span class="kw">=&gt;</span> <span class="va">rightInorder</span>.<span class="at">includes</span>(val))<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-89" title="89">  <span class="va">root</span>.<span class="at">left</span> <span class="op">=</span> <span class="at">buildTree</span>(leftPreorder<span class="op">,</span> leftInorder)<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-90" title="90">  <span class="va">root</span>.<span class="at">right</span> <span class="op">=</span> <span class="at">buildTree</span>(rightPreorder<span class="op">,</span> rightInorder)<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-91" title="91">  <span class="cf">return</span> root<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-92" title="92"><span class="op">}</span></a>
+<a class="sourceLine" id="cb1-93" title="93"><span class="va">console</span>.<span class="at">log</span>(</a>
+<a class="sourceLine" id="cb1-94" title="94">  <span class="st">&quot;//--------------------------------------------------------------------------------------</span><span class="sc">\\</span><span class="st">&quot;</span></a>
+<a class="sourceLine" id="cb1-95" title="95">)<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-96" title="96"><span class="at">buildTree</span>(preO<span class="op">,</span> inO)<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-97" title="97"><span class="va">console</span>.<span class="at">log</span>(<span class="st">&quot;buildTree( preO, inO ): &quot;</span><span class="op">,</span> <span class="at">buildTree</span>(preO<span class="op">,</span> inO))<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-98" title="98"><span class="co">//--------------------------results below--------------------------------------------</span></a>
+<a class="sourceLine" id="cb1-99" title="99"><span class="co">/*</span></a>
+<a class="sourceLine" id="cb1-100" title="100"><span class="co">node 105-Construct\ Binary\ Tree\ from\ Preorder\ and\ Inorder\ Traversal.js</span></a>
+<a class="sourceLine" id="cb1-101" title="101"><span class="co">TreeNode {</span></a>
+<a class="sourceLine" id="cb1-102" title="102"><span class="co">  val: &#39;a&#39;,</span></a>
+<a class="sourceLine" id="cb1-103" title="103"><span class="co">  left: TreeNode {</span></a>
+<a class="sourceLine" id="cb1-104" title="104"><span class="co">    val: &#39;b&#39;,</span></a>
+<a class="sourceLine" id="cb1-105" title="105"><span class="co">    left: TreeNode { val: &#39;d&#39;, left: null, right: null },</span></a>
+<a class="sourceLine" id="cb1-106" title="106"><span class="co">    right: TreeNode { val: &#39;e&#39;, left: null, right: null }</span></a>
+<a class="sourceLine" id="cb1-107" title="107"><span class="co">  },</span></a>
+<a class="sourceLine" id="cb1-108" title="108"><span class="co">  right: TreeNode {</span></a>
+<a class="sourceLine" id="cb1-109" title="109"><span class="co">    val: &#39;c&#39;,</span></a>
+<a class="sourceLine" id="cb1-110" title="110"><span class="co">    left: TreeNode { val: &#39;f&#39;, left: null, right: null },</span></a>
+<a class="sourceLine" id="cb1-111" title="111"><span class="co">    right: TreeNode { val: &#39;g&#39;, left: null, right: null }</span></a>
+<a class="sourceLine" id="cb1-112" title="112"><span class="co">  }</span></a>
+<a class="sourceLine" id="cb1-113" title="113"><span class="co">}</span></a>
+<a class="sourceLine" id="cb1-114" title="114"><span class="co">TreeNode {</span></a>
+<a class="sourceLine" id="cb1-115" title="115"><span class="co">  val: &#39;h&#39;,</span></a>
+<a class="sourceLine" id="cb1-116" title="116"><span class="co">  left: TreeNode {</span></a>
+<a class="sourceLine" id="cb1-117" title="117"><span class="co">    val: &#39;i&#39;,</span></a>
+<a class="sourceLine" id="cb1-118" title="118"><span class="co">    left: null,</span></a>
+<a class="sourceLine" id="cb1-119" title="119"><span class="co">    right: TreeNode { val: &#39;j&#39;, left: null, right: null }</span></a>
+<a class="sourceLine" id="cb1-120" title="120"><span class="co">  },</span></a>
+<a class="sourceLine" id="cb1-121" title="121"><span class="co">  right: TreeNode {</span></a>
+<a class="sourceLine" id="cb1-122" title="122"><span class="co">    val: &#39;k&#39;,</span></a>
+<a class="sourceLine" id="cb1-123" title="123"><span class="co">    left: TreeNode { val: &#39;l&#39;, left: null, right: [TreeNode] },</span></a>
+<a class="sourceLine" id="cb1-124" title="124"><span class="co">    right: null</span></a>
+<a class="sourceLine" id="cb1-125" title="125"><span class="co">  }</span></a>
+<a class="sourceLine" id="cb1-126" title="126"><span class="co">}</span></a>
+<a class="sourceLine" id="cb1-127" title="127"><span class="co">a.val:  a</span></a>
+<a class="sourceLine" id="cb1-128" title="128"><span class="co">b.val:  b</span></a>
+<a class="sourceLine" id="cb1-129" title="129"><span class="co">a.left:  TreeNode {</span></a>
+<a class="sourceLine" id="cb1-130" title="130"><span class="co">  val: &#39;b&#39;,</span></a>
+<a class="sourceLine" id="cb1-131" title="131"><span class="co">  left: TreeNode { val: &#39;d&#39;, left: null, right: null },</span></a>
+<a class="sourceLine" id="cb1-132" title="132"><span class="co">  right: TreeNode { val: &#39;e&#39;, left: null, right: null }</span></a>
+<a class="sourceLine" id="cb1-133" title="133"><span class="co">}</span></a>
+<a class="sourceLine" id="cb1-134" title="134"><span class="co">a.right:  TreeNode {</span></a>
+<a class="sourceLine" id="cb1-135" title="135"><span class="co">  val: &#39;c&#39;,</span></a>
+<a class="sourceLine" id="cb1-136" title="136"><span class="co">  left: TreeNode { val: &#39;f&#39;, left: null, right: null },</span></a>
+<a class="sourceLine" id="cb1-137" title="137"><span class="co">  right: TreeNode { val: &#39;g&#39;, left: null, right: null }</span></a>
+<a class="sourceLine" id="cb1-138" title="138"><span class="co">}</span></a>
+<a class="sourceLine" id="cb1-139" title="139"><span class="co">h.left:  TreeNode {</span></a>
+<a class="sourceLine" id="cb1-140" title="140"><span class="co">  val: &#39;i&#39;,</span></a>
+<a class="sourceLine" id="cb1-141" title="141"><span class="co">  left: null,</span></a>
+<a class="sourceLine" id="cb1-142" title="142"><span class="co">  right: TreeNode { val: &#39;j&#39;, left: null, right: null }</span></a>
+<a class="sourceLine" id="cb1-143" title="143"><span class="co">}</span></a>
+<a class="sourceLine" id="cb1-144" title="144"><span class="co">//--------------------------------------------------------------------------------------\</span></a>
+<a class="sourceLine" id="cb1-145" title="145"><span class="co">//--------------------------------------------------------------------------------------\</span></a>
+<a class="sourceLine" id="cb1-146" title="146"><span class="co">buildTree( preO, inO ):  TreeNode {</span></a>
+<a class="sourceLine" id="cb1-147" title="147"><span class="co">  val: 3,</span></a>
+<a class="sourceLine" id="cb1-148" title="148"><span class="co">  left: TreeNode { val: 9, left: null, right: null },</span></a>
+<a class="sourceLine" id="cb1-149" title="149"><span class="co">  right: TreeNode {</span></a>
+<a class="sourceLine" id="cb1-150" title="150"><span class="co">    val: 20,</span></a>
+<a class="sourceLine" id="cb1-151" title="151"><span class="co">    left: TreeNode { val: 15, left: null, right: null },</span></a>
+<a class="sourceLine" id="cb1-152" title="152"><span class="co">    right: TreeNode { val: 7, left: null, right: null }</span></a>
+<a class="sourceLine" id="cb1-153" title="153"><span class="co">  }</span></a>
+<a class="sourceLine" id="cb1-154" title="154"><span class="co">}</span></a>
+<a class="sourceLine" id="cb1-155" title="155"><span class="co">\___________________________________________________</span></a>
+<a class="sourceLine" id="cb1-156" title="156"><span class="co">bryan_dir:105-construct-b-tree_exitstatus:0 ====&gt;</span></a>
+<a class="sourceLine" id="cb1-157" title="157"><span class="co">&lt;---------------------------------------------------&gt;</span></a>
+<a class="sourceLine" id="cb1-158" title="158"><span class="co">/*************************************</span></a>
+<a class="sourceLine" id="cb1-159" title="159"><span class="co"> *     PREORDER = [3,9,20,15,7]      *</span></a>
+<a class="sourceLine" id="cb1-160" title="160"><span class="co"> *      INORDER = [9,3,15,20,7]      *</span></a>
+<a class="sourceLine" id="cb1-161" title="161"><span class="co"> * RETURN THE FOLLOWING BINARY TREE: *</span></a>
+<a class="sourceLine" id="cb1-162" title="162"><span class="co"> *                 3                 *</span></a>
+<a class="sourceLine" id="cb1-163" title="163"><span class="co"> *                / \                *</span></a>
+<a class="sourceLine" id="cb1-164" title="164"><span class="co"> *               9  20               *</span></a>
+<a class="sourceLine" id="cb1-165" title="165"><span class="co"> *                 /  \              *</span></a>
+<a class="sourceLine" id="cb1-166" title="166"><span class="co"> *               15    7             *</span></a>
+<a class="sourceLine" id="cb1-167" title="167"><span class="co"> *************************************/</span></a></code></pre></div>
+</body>
 </html>

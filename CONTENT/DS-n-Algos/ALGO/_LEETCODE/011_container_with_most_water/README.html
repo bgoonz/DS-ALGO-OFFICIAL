@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>README</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+</head>
+<body>
+<p>It looks like the solution requires O(N*N) complexity, by selecting every pair of indices and computing the amount of water hold by the corresponding container.</p>
+<p>But, similiar to the 2-sum problem, this can be solved with 2 pointers moving towards each other. The rule to update the pointers are:</p>
+<ol type="1">
+<li>Advance the pointer with the smaller height. In other words, if height[lo]&lt;=height[hi], lo++; else, hi++. The rationale is: if we advance the pointer with larger height, we reduce the distance, but don’t increase the height used for product (water = distance * height).</li>
+<li>When advancing the pointer, we skip the indices with smaller height than current index. The rationale: that reduce both height and distance, producing a smaller product.</li>
+</ol>
+<p>Of course, by using the 2 pointer algorithm, we skip some pairs of indices, we need to prove that those pairs can never produce the maximum product. A proof of contradiction is quite obvious.</p>
+</body>
+</html>
