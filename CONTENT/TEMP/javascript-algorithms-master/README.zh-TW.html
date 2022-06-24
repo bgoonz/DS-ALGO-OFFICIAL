@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>README.zh-TW</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+</head>
+<body>
+<h1 id="javascript-演算法與資料結構">JavaScript 演算法與資料結構</h1>
+<p><a href="https://github.com/trekhleb/javascript-algorithms/actions?query=workflow%3ACI+branch%3Amaster"><img src="https://github.com/trekhleb/javascript-algorithms/workflows/CI/badge.svg" alt="CI" /></a> <a href="https://codecov.io/gh/trekhleb/javascript-algorithms"><img src="https://codecov.io/gh/trekhleb/javascript-algorithms/branch/master/graph/badge.svg" alt="codecov" /></a></p>
+<p>這個知識庫包含許多 JavaScript 的資料結構與演算法的基礎範例。 每個演算法和資料結構都有其個別的文件，內有相關的解釋以及更多相關的文章或Youtube影片連結。</p>
+<p><em>Read this in other languages:</em> <a href="https://github.com/trekhleb/javascript-algorithms/"><em>English</em></a>, <a href="README.zh-CN.md"><em>简体中文</em></a>, <a href="README.ko-KR.md"><em>한국어</em></a>, <a href="README.ja-JP.md"><em>日本語</em></a>, <a href="README.pl-PL.md"><em>Polski</em></a>, <a href="README.fr-FR.md"><em>Français</em></a>, <a href="README.es-ES.md"><em>Español</em></a>, <a href="README.pt-BR.md"><em>Português</em></a>, <a href="README.ru-RU.md"><em>Русский</em></a>, <a href="README.tr-TR.md"><em>Türk</em></a>, <a href="README.it-IT.md"><em>Italiana</em></a>, <a href="README.id-ID.md"><em>Bahasa Indonesia</em></a>, <a href="README.uk-UA.md"><em>Українська</em></a>, <a href="README.ar-AR.md"><em>Arabic</em></a>, <a href="README.de-DE.md"><em>Deutsch</em></a></p>
+<h2 id="資料結構">資料結構</h2>
+<p>資料結構是一個電腦用來組織和排序資料的特定方式，透過這樣的方式資料可以有效率地被讀取以及修改。更精確地說，一個資料結構是一個資料值的集合、彼此間的關係，函數或者運作可以應用於資料上。</p>
+<ul>
+<li><a href="src/data-structures/linked-list">鏈結串列</a></li>
+<li><a href="src/data-structures/queue">貯列</a></li>
+<li><a href="src/data-structures/stack">堆疊</a></li>
+<li><a href="src/data-structures/hash-table">雜湊表</a></li>
+<li><a href="src/data-structures/heap">堆</a></li>
+<li><a href="src/data-structures/priority-queue">優先貯列</a></li>
+<li><a href="src/data-structures/trie">字典樹</a></li>
+<li><a href="src/data-structures/tree">樹</a>
+<ul>
+<li><a href="src/data-structures/tree/binary-search-tree">二元搜尋樹</a></li>
+<li><a href="src/data-structures/tree/avl-tree">AVL樹</a></li>
+<li><a href="src/data-structures/tree/red-black-tree">紅黑樹</a></li>
+</ul></li>
+<li><a href="src/data-structures/graph">圖</a> (有向跟無向皆包含)</li>
+<li><a href="src/data-structures/disjoint-set">互斥集</a></li>
+</ul>
+<h2 id="演算法">演算法</h2>
+<p>演算法是一個如何解決一類問題的非模糊規格。演算法是一個具有精確地定義了一系列運作的規則的集合</p>
+<h3 id="演算法議題分類">演算法議題分類</h3>
+<ul>
+<li><strong>數學類</strong>
+<ul>
+<li><a href="src/algorithms/math/factorial">階層</a></li>
+<li><a href="src/algorithms/math/fibonacci">費伯納西數列</a></li>
+<li><a href="src/algorithms/math/primality-test">Primality Test</a> (排除法)</li>
+<li><a href="src/algorithms/math/euclidean-algorithm">歐幾里得算法</a> - 計算最大公因數 (GCD)</li>
+<li><a href="src/algorithms/math/least-common-multiple">最小公倍數</a> (LCM)</li>
+<li><a href="src/algorithms/math/integer-partition">整數拆分</a></li>
+</ul></li>
+<li><strong>集合</strong>
+<ul>
+<li><a href="src/algorithms/sets/cartesian-product">笛卡爾積</a> - 多個集合的乘積</li>
+<li><a href="src/algorithms/sets/power-set">冪集合</a> - 所有集合的子集合</li>
+<li><a href="src/algorithms/sets/permutations">排列</a> (有/無重複)</li>
+<li><a href="src/algorithms/sets/combinations">组合</a> (有/無重複)</li>
+<li><a href="src/algorithms/sets/fisher-yates">洗牌算法</a> - 隨機置換一有限序列</li>
+<li><a href="src/algorithms/sets/longest-common-subsequence">最長共同子序列</a> (LCS)</li>
+<li><a href="src/algorithms/sets/longest-increasing-subsequence">最長遞增子序列</a></li>
+<li><a href="src/algorithms/sets/shortest-common-supersequence">Shortest Common Supersequence</a> (SCS)</li>
+<li><a href="src/algorithms/sets/knapsack-problem">背包問題</a> - “0/1” and “Unbound” ones</li>
+<li><a href="src/algorithms/sets/maximum-subarray">最大子序列問題</a> - 暴力法以及動態編程的(Kadane’s)版本</li>
+</ul></li>
+<li><strong>字串</strong>
+<ul>
+<li><a href="src/algorithms/string/levenshtein-distance">萊文斯坦距離</a> - 兩序列間的最小編輯距離</li>
+<li><a href="src/algorithms/string/hamming-distance">漢明距離</a> - number of positions at which the symbols are different</li>
+<li><a href="src/algorithms/string/knuth-morris-pratt">KMP 演算法</a> - 子字串搜尋</li>
+<li><a href="src/algorithms/string/rabin-karp">Rabin Karp 演算法</a> - 子字串搜尋</li>
+<li><a href="src/algorithms/string/longest-common-substring">最長共通子序列</a></li>
+</ul></li>
+<li><strong>搜尋</strong>
+<ul>
+<li><a href="src/algorithms/search/binary-search">二元搜尋</a></li>
+</ul></li>
+<li><strong>排序</strong>
+<ul>
+<li><a href="src/algorithms/sorting/bubble-sort">氣泡排序</a></li>
+<li><a href="src/algorithms/sorting/selection-sort">選擇排序</a></li>
+<li><a href="src/algorithms/sorting/insertion-sort">插入排序</a></li>
+<li><a href="src/algorithms/sorting/heap-sort">堆排序</a></li>
+<li><a href="src/algorithms/sorting/merge-sort">合併排序</a></li>
+<li><a href="src/algorithms/sorting/quick-sort">快速排序</a></li>
+<li><a href="src/algorithms/sorting/shell-sort">希爾排序</a></li>
+</ul></li>
+<li><strong>樹</strong>
+<ul>
+<li><a href="src/algorithms/tree/depth-first-search">深度優先搜尋</a> (DFS)</li>
+<li><a href="src/algorithms/tree/breadth-first-search">廣度優先搜尋</a> (BFS)</li>
+</ul></li>
+<li><strong>圖</strong>
+<ul>
+<li><a href="src/algorithms/graph/depth-first-search">深度優先搜尋</a> (DFS)</li>
+<li><a href="src/algorithms/graph/breadth-first-search">廣度優先搜尋</a> (BFS)</li>
+<li><a href="src/algorithms/graph/dijkstra">Dijkstra 演算法</a> - 找到所有圖頂點的最短路徑</li>
+<li><a href="src/algorithms/graph/bellman-ford">Bellman-Ford 演算法</a> - 找到所有圖頂點的最短路徑</li>
+<li><a href="src/algorithms/graph/detect-cycle">Detect Cycle</a> - for both directed and undirected graphs (DFS and Disjoint Set based versions)</li>
+<li><a href="src/algorithms/graph/prim">Prim’s 演算法</a> - finding Minimum Spanning Tree (MST) for weighted undirected graph</li>
+<li><a href="src/algorithms/graph/kruskal">Kruskal’s 演算法</a> - finding Minimum Spanning Tree (MST) for weighted undirected graph</li>
+<li><a href="src/algorithms/graph/topological-sorting">拓撲排序</a> - DFS method</li>
+<li><a href="src/algorithms/graph/articulation-points">關節點</a> - Tarjan’s algorithm (DFS based)</li>
+<li><a href="src/algorithms/graph/bridges">橋</a> - DFS based algorithm</li>
+<li><a href="src/algorithms/graph/eulerian-path">尤拉路徑及尤拉環</a> - Fleury’s algorithm - Visit every edge exactly once</li>
+<li><a href="src/algorithms/graph/hamiltonian-cycle">漢彌爾頓環</a> - Visit every vertex exactly once</li>
+<li><a href="src/algorithms/graph/strongly-connected-components">強連通組件</a> - Kosaraju’s algorithm</li>
+<li><a href="src/algorithms/graph/travelling-salesman">旅行推銷員問題</a> - shortest possible route that visits each city and returns to the origin city</li>
+<li><a href="src/algorithms/graph/floyd-warshall">Floyd-Warshall algorithm</a> - 一次循环可以找出所有頂點之间的最短路徑</li>
+</ul></li>
+<li><strong>未分類</strong>
+<ul>
+<li><a href="src/algorithms/uncategorized/hanoi-tower">河內塔</a></li>
+<li><a href="src/algorithms/uncategorized/n-queens">N-皇后問題</a></li>
+<li><a href="src/algorithms/uncategorized/knight-tour">騎士走棋盤</a></li>
+</ul></li>
+</ul>
+<h3 id="演算法範型">演算法範型</h3>
+<p>演算法的範型是一個泛用方法或設計一類底層演算法的方式。它是一個比演算法的概念更高階的抽象化，就像是演算法是比電腦程式更高階的抽象化。</p>
+<ul>
+<li><strong>暴力法</strong> - 尋遍所有的可能解然後選取最好的解
+<ul>
+<li><a href="src/algorithms/sets/maximum-subarray">最大子序列</a></li>
+<li><a href="src/algorithms/graph/travelling-salesman">旅行推銷員問題</a> - shortest possible route that visits each city and returns to the origin city</li>
+</ul></li>
+<li><strong>貪婪法</strong> - choose the best option at the current time, without any consideration for the future
+<ul>
+<li><a href="src/algorithms/sets/knapsack-problem">未定背包問題</a></li>
+<li><a href="src/algorithms/graph/dijkstra">Dijkstra 演算法</a> - 找到所有圖頂點的最短路徑</li>
+<li><a href="src/algorithms/graph/prim">Prim’s 演算法</a> - finding Minimum Spanning Tree (MST) for weighted undirected graph</li>
+<li><a href="src/algorithms/graph/kruskal">Kruskal’s 演算法</a> - finding Minimum Spanning Tree (MST) for weighted undirected graph</li>
+</ul></li>
+<li><strong>分治法</strong> - divide the problem into smaller parts and then solve those parts
+<ul>
+<li><a href="src/algorithms/search/binary-search">二元搜尋</a></li>
+<li><a href="src/algorithms/uncategorized/hanoi-tower">河內塔</a></li>
+<li><a href="src/algorithms/math/euclidean-algorithm">歐幾里得演算法</a> - calculate the Greatest Common Divisor (GCD)</li>
+<li><a href="src/algorithms/sets/permutations">排列</a> (有/無重複)</li>
+<li><a href="src/algorithms/sets/combinations">组合</a> (有/無重複)</li>
+<li><a href="src/algorithms/sorting/merge-sort">合併排序</a></li>
+<li><a href="src/algorithms/sorting/quick-sort">快速排序</a></li>
+<li><a href="src/algorithms/tree/depth-first-search">樹深度優先搜尋</a> (DFS)</li>
+<li><a href="src/algorithms/graph/depth-first-search">圖深度優先搜尋</a> (DFS)</li>
+</ul></li>
+<li><strong>動態編程</strong> - build up to a solution using previously found sub-solutions
+<ul>
+<li><a href="src/algorithms/math/fibonacci">費伯納西數列</a></li>
+<li><a href="src/algorithms/string/levenshtein-distance">萊溫斯坦距離</a> - minimum edit distance between two sequences</li>
+<li><a href="src/algorithms/sets/longest-common-subsequence">最長共同子序列</a> (LCS)</li>
+<li><a href="src/algorithms/string/longest-common-substring">最長共同子字串</a></li>
+<li><a href="src/algorithms/sets/longest-increasing-subsequence">最長遞增子序列</a></li>
+<li><a href="src/algorithms/sets/shortest-common-supersequence">最短共同子序列</a></li>
+<li><a href="src/algorithms/sets/knapsack-problem">0/1背包問題</a></li>
+<li><a href="src/algorithms/math/integer-partition">整數拆分</a></li>
+<li><a href="src/algorithms/sets/maximum-subarray">最大子序列</a></li>
+<li><a href="src/algorithms/graph/bellman-ford">Bellman-Ford 演算法</a> - finding shortest path to all graph vertices</li>
+</ul></li>
+<li><strong>回溯法</strong> - 用類似暴力法來嘗試產生所有可能解，但每次只在能滿足所有測試條件，且只有繼續產生子序列方案來產生的解決方案。否則回溯並尋找不同路徑的解決方案。
+<ul>
+<li><a href="src/algorithms/graph/hamiltonian-cycle">漢彌爾頓迴路</a> - Visit every vertex exactly once</li>
+<li><a href="src/algorithms/uncategorized/n-queens">N-皇后問題</a></li>
+<li><a href="src/algorithms/uncategorized/knight-tour">騎士走棋盤</a></li>
+</ul></li>
+<li><strong>Branch &amp; Bound</strong></li>
+</ul>
+<h2 id="如何使用本知識庫">如何使用本知識庫</h2>
+<p><strong>安裝所有必須套件</strong></p>
+<pre><code>npm install</code></pre>
+<p><strong>執行所有測試</strong></p>
+<pre><code>npm test</code></pre>
+<p><strong>以名稱執行該測試</strong></p>
+<pre><code>npm test -- &#39;LinkedList&#39;</code></pre>
+<p><strong>練習場</strong></p>
+<p>你可以透過在<code>./src/playground/playground.js</code>裡面的檔案練習資料結構以及演算法，並且撰寫在<code>./src/playground/__test__/playground.test.js</code>裡面的測試程式。</p>
+<p>接著直接執行下列的指令來測試你練習的 code 是否如預期運作：</p>
+<pre><code>npm test -- &#39;playground&#39;</code></pre>
+<h2 id="有用的資訊">有用的資訊</h2>
+<h3 id="參考">參考</h3>
+<p><a href="https://www.youtube.com/playlist?list=PLLXdhg_r2hKA7DPDsunoDZ-Z769jWn4R8">▶ Data Structures and Algorithms on YouTube</a></p>
+<h3 id="大-o-標記">大 O 標記</h3>
+<p>特別用大 O 標記演算法增長度的排序。</p>
+<figure>
+<img src="./assets/big-o-graph.png" alt="Big O 表" /><figcaption>Big O 表</figcaption>
+</figure>
+<p>資料來源: <a href="http://bigocheatsheet.com/">Big O Cheat Sheet</a>.</p>
+<p>下列列出幾個常用的 Big O 標記以及其不同大小資料量輸入後的運算效能比較。</p>
+<table>
+<thead>
+<tr class="header">
+<th>Big O 標記</th>
+<th>10個資料量需花費的時間</th>
+<th>100個資料量需花費的時間</th>
+<th>1000個資料量需花費的時間</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>O(1)</strong></td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td><strong>O(log N)</strong></td>
+<td>3</td>
+<td>6</td>
+<td>9</td>
+</tr>
+<tr class="odd">
+<td><strong>O(N)</strong></td>
+<td>10</td>
+<td>100</td>
+<td>1000</td>
+</tr>
+<tr class="even">
+<td><strong>O(N log N)</strong></td>
+<td>30</td>
+<td>600</td>
+<td>9000</td>
+</tr>
+<tr class="odd">
+<td><strong>O(N^2)</strong></td>
+<td>100</td>
+<td>10000</td>
+<td>1000000</td>
+</tr>
+<tr class="even">
+<td><strong>O(2^N)</strong></td>
+<td>1024</td>
+<td>1.26e+29</td>
+<td>1.07e+301</td>
+</tr>
+<tr class="odd">
+<td><strong>O(N!)</strong></td>
+<td>3628800</td>
+<td>9.3e+157</td>
+<td>4.02e+2567</td>
+</tr>
+</tbody>
+</table>
+<h3 id="資料結構運作複雜度">資料結構運作複雜度</h3>
+<table>
+<thead>
+<tr class="header">
+<th>資料結構</th>
+<th style="text-align: center;">存取</th>
+<th style="text-align: center;">搜尋</th>
+<th style="text-align: center;">插入</th>
+<th style="text-align: center;">刪除</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>陣列</strong></td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">n</td>
+<td style="text-align: center;">n</td>
+<td style="text-align: center;">n</td>
+</tr>
+<tr class="even">
+<td><strong>堆疊</strong></td>
+<td style="text-align: center;">n</td>
+<td style="text-align: center;">n</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr class="odd">
+<td><strong>貯列</strong></td>
+<td style="text-align: center;">n</td>
+<td style="text-align: center;">n</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr class="even">
+<td><strong>鏈結串列</strong></td>
+<td style="text-align: center;">n</td>
+<td style="text-align: center;">n</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr class="odd">
+<td><strong>雜湊表</strong></td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">n</td>
+<td style="text-align: center;">n</td>
+<td style="text-align: center;">n</td>
+</tr>
+<tr class="even">
+<td><strong>二元搜尋樹</strong></td>
+<td style="text-align: center;">n</td>
+<td style="text-align: center;">n</td>
+<td style="text-align: center;">n</td>
+<td style="text-align: center;">n</td>
+</tr>
+<tr class="odd">
+<td><strong>B-Tree</strong></td>
+<td style="text-align: center;">log(n)</td>
+<td style="text-align: center;">log(n)</td>
+<td style="text-align: center;">log(n)</td>
+<td style="text-align: center;">log(n)</td>
+</tr>
+<tr class="even">
+<td><strong>紅黑樹</strong></td>
+<td style="text-align: center;">log(n)</td>
+<td style="text-align: center;">log(n)</td>
+<td style="text-align: center;">log(n)</td>
+<td style="text-align: center;">log(n)</td>
+</tr>
+<tr class="odd">
+<td><strong>AVL Tree</strong></td>
+<td style="text-align: center;">log(n)</td>
+<td style="text-align: center;">log(n)</td>
+<td style="text-align: center;">log(n)</td>
+<td style="text-align: center;">log(n)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="陣列排序演算法複雜度">陣列排序演算法複雜度</h3>
+<table>
+<thead>
+<tr class="header">
+<th>名稱</th>
+<th style="text-align: center;">最佳</th>
+<th style="text-align: center;">平均</th>
+<th style="text-align: center;">最差</th>
+<th style="text-align: center;">記憶體</th>
+<th style="text-align: center;">穩定</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>氣泡排序</strong></td>
+<td style="text-align: center;">n</td>
+<td style="text-align: center;">n^2</td>
+<td style="text-align: center;">n^2</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">Yes</td>
+</tr>
+<tr class="even">
+<td><strong>插入排序</strong></td>
+<td style="text-align: center;">n</td>
+<td style="text-align: center;">n^2</td>
+<td style="text-align: center;">n^2</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">Yes</td>
+</tr>
+<tr class="odd">
+<td><strong>選擇排序</strong></td>
+<td style="text-align: center;">n^2</td>
+<td style="text-align: center;">n^2</td>
+<td style="text-align: center;">n^2</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">No</td>
+</tr>
+<tr class="even">
+<td><strong>Heap 排序</strong></td>
+<td style="text-align: center;">n log(n)</td>
+<td style="text-align: center;">n log(n)</td>
+<td style="text-align: center;">n log(n)</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">No</td>
+</tr>
+<tr class="odd">
+<td><strong>合併排序</strong></td>
+<td style="text-align: center;">n log(n)</td>
+<td style="text-align: center;">n log(n)</td>
+<td style="text-align: center;">n log(n)</td>
+<td style="text-align: center;">n</td>
+<td style="text-align: center;">Yes</td>
+</tr>
+<tr class="even">
+<td><strong>快速排序</strong></td>
+<td style="text-align: center;">n log(n)</td>
+<td style="text-align: center;">n log(n)</td>
+<td style="text-align: center;">n^2</td>
+<td style="text-align: center;">log(n)</td>
+<td style="text-align: center;">No</td>
+</tr>
+<tr class="odd">
+<td><strong>希爾排序</strong></td>
+<td style="text-align: center;">n log(n)</td>
+<td style="text-align: center;">由gap sequence決定</td>
+<td style="text-align: center;">n (log(n))^2</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">No</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>ℹ️ A few more <a href="https://trekhleb.dev/projects/">projects</a> and <a href="https://trekhleb.dev/blog/">articles</a> about JavaScript and algorithms on <a href="https://trekhleb.dev">trekhleb.dev</a></p>
+</blockquote>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>README</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+</head>
+<body>
+<h1 id="max-path-maze">Max Path Maze</h1>
+<h2 id="aim">Aim</h2>
+<p>Demonstrate a Recursion backtracking technique to keep a count.</p>
+<h2 id="purpose">Purpose</h2>
+<p>Run through all possible paths from any given spot to the end of a maze (bottem left corner of a 2D array)</p>
+<h2 id="short-description-of-packagescript">Short description of package/script</h2>
+<p>The script sets up a 2D matrix acting as a maze, it then sets a counter to 0 and sets the coordinates to the first cell of the matrix in this case (0, 0), then calls upon the recursive function with these parameters to find available paths to the end of the maze.</p>
+<h2 id="workflow-of-the-project">Workflow of the Project</h2>
+<ul>
+<li>Descriptions of functions used in the code: valid_cell(x, y) –&gt; check if current cell is out of bounds or if one of the coordinates is illegal (less than 0)</li>
+</ul>
+<p>count_valid_paths(maze, x, y, checked, paths) –&gt; Recursion function, for each cell it will check the cell is valid and try to find a path to the end of the maze from it. The maze is the 2D array, x and y are the coordinates, checked is a 2D matrix to keep track of visited cells and paths is the counter for the number of paths</p>
+<h2 id="compilation-steps">Compilation Steps</h2>
+<p>Run the script in order to see available paths at a given maze, feel free to edit the maze or the starting point to get diffrent results</p>
+<h2 id="output">Output</h2>
+<p><img width = 300 height = 100 src="../Max Path Maze/Images/terminal_output.PNG"></p>
+<h2 id="authors">Author(s)</h2>
+<p>Yarden Galon</p>
+</body>
+</html>

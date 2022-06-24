@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>README.pt-BR</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+</head>
+<body>
+<h1 id="árvore-de-pesquisa-binária-binary-search-tree">Árvore de Pesquisa Binária (Binary Search Tree)</h1>
+<p>Na ciência da computação <strong>binary search trees</strong> (BST), algumas vezes chamadas de árvores binárias ordenadas (<em>ordered or sorted binary trees</em>), é um tipo particular de container: estruturas de dados que armazenam “itens” (como números, nomes, etc.) na memória. Permite pesquisa rápida, adição e remoção de itens além de poder ser utilizado para implementar tanto conjuntos dinâmicos de itens ou, consultar tabelas que permitem encontrar um item por seu valor chave. E.g. encontrar o número de telefone de uma pessoa pelo seu nome.</p>
+<p>Árvore de Pesquisa Binária mantem seus valores chaves ordenados, para que uma pesquisa e outras operações possam usar o princípio da pesquisa binária: quando pesquisando por um valor chave na árvore (ou um lugar para inserir uma nova chave), eles atravessam a árvore da raiz para a folha, fazendo comparações com chaves armazenadas nos nós da árvore e decidindo então, com base nas comparações, continuar pesquisando nas sub-árvores a direita ou a esquerda. Em média isto significa que cara comparação permite as operações pular metade da árvore, para que então, cada pesquisa, inserção ou remoção consuma tempo proporcional ao logaritmo do número de itens armazenados na árvore. Isto é muito melhor do que um tempo linear necessário para encontrar itens por seu valor chave em um array (desorndenado - <em>unsorted</em>), mas muito mais lento do que operações similares em tableas de hash (<em>hash tables</em>).</p>
+<p>Uma pesquisa de árvore binária de tamanho 9 e profundidade 3, com valor 8 na raíz. As folhas não foram desenhadas.</p>
+<figure>
+<img src="https://upload.wikimedia.org/wikipedia/commons/d/da/Binary_search_tree.svg" alt="Binary Search Tree" /><figcaption>Binary Search Tree</figcaption>
+</figure>
+<h2 id="pseudocódigo-para-operações-básicas">Pseudocódigo para Operações Básicas</h2>
+<h3 id="inserção">Inserção</h3>
+<pre class="text"><code>insert(value)
+  Pre: value has passed custom type checks for type T
+  Post: value has been placed in the correct location in the tree
+  if root = ø
+    root ← node(value)
+  else
+    insertNode(root, value)
+  end if
+end insert</code></pre>
+<pre class="text"><code>insertNode(current, value)
+  Pre: current is the node to start from
+  Post: value has been placed in the correct location in the tree
+  if value &lt; current.value
+    if current.left = ø
+      current.left ← node(value)
+    else
+      InsertNode(current.left, value)
+    end if
+  else
+    if current.right = ø
+      current.right ← node(value)
+    else
+      InsertNode(current.right, value)
+    end if
+  end if
+end insertNode</code></pre>
+<h3 id="pesquisa">Pesquisa</h3>
+<pre class="text"><code>contains(root, value)
+  Pre: root is the root node of the tree, value is what we would like to locate
+  Post: value is either located or not
+  if root = ø
+    return false
+  end if
+  if root.value = value
+    return true
+  else if value &lt; root.value
+    return contains(root.left, value)
+  else
+    return contains(root.right, value)
+  end if
+end contains</code></pre>
+<h3 id="remoção">Remoção</h3>
+<pre class="text"><code>remove(value)
+  Pre: value is the value of the node to remove, root is the node of the BST
+      count is the number of items in the BST
+  Post: node with value is removed if found in which case yields true, otherwise false
+  nodeToRemove ← findNode(value)
+  if nodeToRemove = ø
+    return false
+  end if
+  parent ← findParent(value)
+  if count = 1
+    root ← ø
+  else if nodeToRemove.left = ø and nodeToRemove.right = ø
+    if nodeToRemove.value &lt; parent.value
+      parent.left ←  nodeToRemove.right
+    else
+      parent.right ← nodeToRemove.right
+    end if
+  else if nodeToRemove.left != ø and nodeToRemove.right != ø
+    next ← nodeToRemove.right
+    while next.left != ø
+      next ← next.left
+    end while
+    if next != nodeToRemove.right
+      remove(next.value)
+      nodeToRemove.value ← next.value
+    else
+      nodeToRemove.value ← next.value
+      nodeToRemove.right ← nodeToRemove.right.right
+    end if
+  else
+    if nodeToRemove.left = ø
+      next ← nodeToRemove.right
+    else
+      next ← nodeToRemove.left
+    end if
+    if root = nodeToRemove
+      root = next
+    else if parent.left = nodeToRemove
+      parent.left = next
+    else if parent.right = nodeToRemove
+      parent.right = next
+    end if
+  end if
+  count ← count - 1
+  return true
+end remove</code></pre>
+<h3 id="encontrar-o-nó-pai">Encontrar o Nó Pai</h3>
+<pre class="text"><code>findParent(value, root)
+  Pre: value is the value of the node we want to find the parent of
+       root is the root node of the BST and is != ø
+  Post: a reference to the prent node of value if found; otherwise ø
+  if value = root.value
+    return ø
+  end if
+  if value &lt; root.value
+    if root.left = ø
+      return ø
+    else if root.left.value = value
+      return root
+    else
+      return findParent(value, root.left)
+    end if
+  else
+    if root.right = ø
+      return ø
+    else if root.right.value = value
+      return root
+    else
+      return findParent(value, root.right)
+    end if
+  end if
+end findParent</code></pre>
+<h3 id="encontrar-um-nó">Encontrar um Nó</h3>
+<pre class="text"><code>findNode(root, value)
+  Pre: value is the value of the node we want to find the parent of
+       root is the root node of the BST
+  Post: a reference to the node of value if found; otherwise ø
+  if root = ø
+    return ø
+  end if
+  if root.value = value
+    return root
+  else if value &lt; root.value
+    return findNode(root.left, value)
+  else
+    return findNode(root.right, value)
+  end if
+end findNode</code></pre>
+<h3 id="encontrar-mínimo">Encontrar Mínimo</h3>
+<pre class="text"><code>findMin(root)
+  Pre: root is the root node of the BST
+    root = ø
+  Post: the smallest value in the BST is located
+  if root.left = ø
+    return root.value
+  end if
+  findMin(root.left)
+end findMin</code></pre>
+<h3 id="encontrar-máximo">Encontrar Máximo</h3>
+<pre class="text"><code>findMax(root)
+  Pre: root is the root node of the BST
+    root = ø
+  Post: the largest value in the BST is located
+  if root.right = ø
+    return root.value
+  end if
+  findMax(root.right)
+end findMax</code></pre>
+<h3 id="traversal">Traversal</h3>
+<h4 id="na-ordem-traversal-inorder-traversal">Na Ordem Traversal (InOrder Traversal)</h4>
+<pre class="text"><code>inorder(root)
+  Pre: root is the root node of the BST
+  Post: the nodes in the BST have been visited in inorder
+  if root = ø
+    inorder(root.left)
+    yield root.value
+    inorder(root.right)
+  end if
+end inorder</code></pre>
+<h4 id="pré-ordem-traversal-preorder-traversal">Pré Ordem Traversal (PreOrder Traversal)</h4>
+<pre class="text"><code>preorder(root)
+  Pre: root is the root node of the BST
+  Post: the nodes in the BST have been visited in preorder
+  if root = ø
+    yield root.value
+    preorder(root.left)
+    preorder(root.right)
+  end if
+end preorder</code></pre>
+<h4 id="pós-ordem-traversal-postorder-traversal">Pós Ordem Traversal (PostOrder Traversal)</h4>
+<pre class="text"><code>postorder(root)
+  Pre: root is the root node of the BST
+  Post: the nodes in the BST have been visited in postorder
+  if root = ø
+    postorder(root.left)
+    postorder(root.right)
+    yield root.value
+  end if
+end postorder</code></pre>
+<h2 id="complexidades">Complexidades</h2>
+<h3 id="complexidade-de-tempo">Complexidade de Tempo</h3>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;">Access</th>
+<th style="text-align: center;">Search</th>
+<th style="text-align: center;">Insertion</th>
+<th style="text-align: center;">Deletion</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">O(log(n))</td>
+<td style="text-align: center;">O(log(n))</td>
+<td style="text-align: center;">O(log(n))</td>
+<td style="text-align: center;">O(log(n))</td>
+</tr>
+</tbody>
+</table>
+<h3 id="complexidade-de-espaço">Complexidade de Espaço</h3>
+<p>O(n)</p>
+<h2 id="referências">Referências</h2>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Binary_search_tree">Wikipedia</a></li>
+<li><a href="https://www.youtube.com/watch?v=wcIRPqTR3Kc&amp;list=PLLXdhg_r2hKA7DPDsunoDZ-Z769jWn4R8&amp;index=9&amp;t=0s">Inserting to BST on YouTube</a></li>
+<li><a href="https://www.cs.usfca.edu/~galles/visualization/BST.html">BST Interactive Visualisations</a></li>
+</ul>
+</body>
+</html>

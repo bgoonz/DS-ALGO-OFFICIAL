@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>README.tr-TR</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+</head>
+<body>
+<h1 id="javascript-algoritmalar-ve-veri-yapıları">JavaScript Algoritmalar ve Veri Yapıları</h1>
+<p><a href="https://github.com/trekhleb/javascript-algorithms/actions?query=workflow%3ACI+branch%3Amaster"><img src="https://github.com/trekhleb/javascript-algorithms/workflows/CI/badge.svg" alt="CI" /></a> <a href="https://codecov.io/gh/trekhleb/javascript-algorithms"><img src="https://codecov.io/gh/trekhleb/javascript-algorithms/branch/master/graph/badge.svg" alt="codecov" /></a></p>
+<p>Bu repository JavaScript’e ait popüler algoritma ve veri yapılarını içermektedir.</p>
+<p>Her bir algoritma ve veri yapısı kendine ait açıklama ve videoya sahip README dosyası içerir.</p>
+<p><em>Read this in other languages:</em> <a href="README.zh-CN.md"><em>简体中文</em></a>, <a href="README.zh-TW.md"><em>繁體中文</em></a>, <a href="README.ko-KR.md"><em>한국어</em></a>, <a href="README.ja-JP.md"><em>日本語</em></a>, <a href="README.pl-PL.md"><em>Polski</em></a>, <a href="README.fr-FR.md"><em>Français</em></a>, <a href="README.es-ES.md"><em>Español</em></a>, <a href="README.pt-BR.md"><em>Português</em></a>, <a href="README.ru-RU.md"><em>Русский</em></a>, <a href="README.it-IT.md"><em>Italiana</em></a>, <a href="README.id-ID.md"><em>Bahasa Indonesia</em></a>, <a href="README.uk-UA.md"><em>Українська</em></a>, <a href="README.ar-AR.md"><em>Arabic</em></a>, <a href="README.de-DE.md"><em>Deutsch</em></a></p>
+<p><em>☝ Not, bu proje araştırma ve öğrenme amacı ile yapılmış olup üretim için <strong>yaplılmamıştır</strong>.</em></p>
+<h2 id="veri-yapıları">Veri Yapıları</h2>
+<p>Bir veri yapısı, verileri bir bilgisayarda organize etmenin ve depolamanın belirli bir yoludur, böylece verimli bir şekilde erişilebilir ve değiştirilebilir. Daha doğrusu, bir veri yapısı bir veri koleksiyonudur, aralarındaki ilişkiler, ve işlevler veya işlemler veriye uygulanabilir.</p>
+<p><code>B</code> - Başlangıç, <code>A</code> - İleri Seviye</p>
+<ul>
+<li><code>B</code> <a href="src/data-structures/linked-list">Bağlantılı Veri Yapısı</a></li>
+<li><code>B</code> <a href="src/data-structures/doubly-linked-list">Çift Yönlü Bağlı Liste</a></li>
+<li><code>B</code> <a href="src/data-structures/queue">Kuyruk</a></li>
+<li><code>B</code> <a href="src/data-structures/stack">Yığın</a></li>
+<li><code>B</code> <a href="src/data-structures/hash-table">Hash Table</a></li>
+<li><code>B</code> <a href="src/data-structures/heap">Heap</a> - max and min heap versions</li>
+<li><code>B</code> <a href="src/data-structures/priority-queue">Öncelikli Kuyruk</a></li>
+<li><code>A</code> <a href="src/data-structures/trie">Trie</a></li>
+<li><code>A</code> <a href="src/data-structures/tree">Ağaç</a>
+<ul>
+<li><code>A</code> <a href="src/data-structures/tree/binary-search-tree">İkili Arama Ağaçları</a></li>
+<li><code>A</code> <a href="src/data-structures/tree/avl-tree">AVL Tree</a></li>
+<li><code>A</code> <a href="src/data-structures/tree/red-black-tree">Red-Black Tree</a></li>
+<li><code>A</code> <a href="src/data-structures/tree/segment-tree">Segment Tree</a> - with min/max/sum range queries examples</li>
+<li><code>A</code> <a href="src/data-structures/tree/fenwick-tree">Fenwick Tree</a> (Binary Indexed Tree)</li>
+</ul></li>
+<li><code>A</code> <a href="src/data-structures/graph">Graph</a> (both directed and undirected)</li>
+<li><code>A</code> <a href="src/data-structures/disjoint-set">Disjoint Set</a></li>
+<li><code>A</code> <a href="src/data-structures/bloom-filter">Bloom Filter</a></li>
+</ul>
+<h2 id="algoritmalar">Algoritmalar</h2>
+<p>Bir algoritma, bir problem sınıfının nasıl çözüleceğine dair kesin bir tanımlamadır. Bu bir işlem dizisini kesin olarak tanımlayan bir dizi kural.</p>
+<p><code>B</code> - Başlangıç, <code>A</code> - İleri Seviye</p>
+<h3 id="konusuna-göre-algoritma">Konusuna göre Algoritma</h3>
+<ul>
+<li><strong>Matematik</strong>
+<ul>
+<li><code>B</code> <a href="src/algorithms/math/bits">Bit Manipülasyonu</a> - set/get/update/clear bits, multiplication/division by two, make negative etc.</li>
+<li><code>B</code> <a href="src/algorithms/math/factorial">Faktöriyel</a></li>
+<li><code>B</code> <a href="src/algorithms/math/fibonacci">Fibonacci Sayısı</a> - klasik ve kapalı-form versiyonları</li>
+<li><code>B</code> <a href="src/algorithms/math/primality-test">Asallık Testi</a> (trial division method)</li>
+<li><code>B</code> <a href="src/algorithms/math/euclidean-algorithm">Öklid Algoritması</a> - En büyük ortak bölen hesaplama (EBOB)</li>
+<li><code>B</code> <a href="src/algorithms/math/least-common-multiple">En küçük Ortak Kat</a> (EKOK)</li>
+<li><code>B</code> <a href="src/algorithms/math/sieve-of-eratosthenes">Sieve of Eratosthenes</a> - belirli bir sayıya kadarki asal sayıları bulma</li>
+<li><code>B</code> <a href="src/algorithms/math/is-power-of-two">Is Power of Two</a> - sayı ikinin katı mı sorgusu (naive ve bitwise algoritmaları)</li>
+<li><code>B</code> <a href="src/algorithms/math/pascal-triangle">Paskal Üçgeni</a></li>
+<li><code>B</code> <a href="src/algorithms/math/complex-number">Karmaşık Sayılar</a> - karmaşık sayılar ve bunlarla temel işlemler</li>
+<li><code>B</code> <a href="src/algorithms/math/radian">Radyan &amp; Derece</a> - radyandan dereceye çeviri ve tersi</li>
+<li><code>B</code> <a href="src/algorithms/math/fast-powering">Fast Powering</a></li>
+<li><code>A</code> <a href="src/algorithms/math/integer-partition">Tamsayı Bölümü</a></li>
+<li><code>A</code> <a href="src/algorithms/math/square-root">Karekök</a> - Newton yöntemi</li>
+<li><code>A</code> <a href="src/algorithms/math/liu-hui">Liu Hui π Algoritması</a> - N-gons’a göre yaklaşık π hesabı</li>
+<li><code>A</code> <a href="src/algorithms/math/fourier-transform">Ayrık Fourier Dönüşümü</a> - bir zaman fonksiyonunu (bir sinyal) onu oluşturan frekanslara ayırır</li>
+</ul></li>
+<li><strong>Setler</strong>
+<ul>
+<li><code>B</code> <a href="src/algorithms/sets/cartesian-product">Kartezyen Ürün</a> - product of multiple sets</li>
+<li><code>B</code> <a href="src/algorithms/sets/fisher-yates">Fisher–Yates Shuffle</a> - sonlu bir dizinin rastgele permütasyonu</li>
+<li><code>A</code> <a href="src/algorithms/sets/power-set">Power Set</a> - all subsets of a set (bitwise and backtracking solutions)</li>
+<li><code>A</code> <a href="src/algorithms/sets/permutations">Permütasyonlar</a>(tekrarlı ve tekrarsız)</li>
+<li><code>A</code> <a href="src/algorithms/sets/combinations">Kombinasyonlar</a> (tekrarlı ve tekrarsız)</li>
+<li><code>A</code> <a href="src/algorithms/sets/longest-common-subsequence">En Uzun Ortak Altdizi</a> (LCS)</li>
+<li><code>A</code> <a href="src/algorithms/sets/longest-increasing-subsequence">En Uzun Artan Altdizi</a></li>
+<li><code>A</code> <a href="src/algorithms/sets/shortest-common-supersequence">En Kısa Ortak Üst Sıra</a> (SCS)</li>
+<li><code>A</code> <a href="src/algorithms/sets/knapsack-problem">Knapsack Problem</a> - “0/1” and “Unbound” ones</li>
+<li><code>A</code> <a href="src/algorithms/sets/maximum-subarray">Maksimum Altdizi</a> - “Brute Force” ve “Dinamik Programlara” (Kadane’nin) versiyonu</li>
+<li><code>A</code> <a href="src/algorithms/sets/combination-sum">Kombinasyon Toplamı</a> - belirli toplamı oluşturan tüm kombinasyonları bulun</li>
+</ul></li>
+<li><strong>Metin</strong>
+<ul>
+<li><code>B</code> <a href="src/algorithms/string/hamming-distance">Hamming Mesafesi</a> - sembollerin farklı olduğu konumların sayısı</li>
+<li><code>A</code> <a href="src/algorithms/string/levenshtein-distance">Levenshtein Mesafesi</a> - iki sekans arasındaki minimum düzenleme mesafesi</li>
+<li><code>A</code> <a href="src/algorithms/string/knuth-morris-pratt">Knuth–Morris–Pratt Algoritması</a> (KMP Algorithm) - substring search (pattern matching)</li>
+<li><code>A</code> <a href="src/algorithms/string/z-algorithm">Z Algoritması</a> - altmetin araması (desen eşleştirme)</li>
+<li><code>A</code> <a href="src/algorithms/string/rabin-karp">Rabin Karp Algoritması</a> - altmetin araması</li>
+<li><code>A</code> <a href="src/algorithms/string/longest-common-substring">En Uzun Ortak Alt Metin</a></li>
+<li><code>A</code> <a href="src/algorithms/string/regular-expression-matching">Regular Expression Eşleme</a></li>
+</ul></li>
+<li><strong>Aramalar</strong>
+<ul>
+<li><code>B</code> <a href="src/algorithms/search/linear-search">Doğrusal Arama</a></li>
+<li><code>B</code> <a href="src/algorithms/search/jump-search">Jump Search</a> (ya da Block Search) - sıralı dizide ara</li>
+<li><code>B</code> <a href="src/algorithms/search/binary-search">İkili Arama</a> - sıralı dizide ara</li>
+<li><code>B</code> <a href="src/algorithms/search/interpolation-search">Interpolation Search</a> - tekdüze dağıtılmış sıralı dizide arama</li>
+</ul></li>
+<li><strong>Sıralama</strong>
+<ul>
+<li><code>B</code> <a href="src/algorithms/sorting/bubble-sort">Bubble Sort</a></li>
+<li><code>B</code> <a href="src/algorithms/sorting/selection-sort">Selection Sort</a></li>
+<li><code>B</code> <a href="src/algorithms/sorting/insertion-sort">Insertion Sort</a></li>
+<li><code>B</code> <a href="src/algorithms/sorting/heap-sort">Heap Sort</a></li>
+<li><code>B</code> <a href="src/algorithms/sorting/merge-sort">Merge Sort</a></li>
+<li><code>B</code> <a href="src/algorithms/sorting/quick-sort">Quicksort</a> - in-place and non-in-place implementations</li>
+<li><code>B</code> <a href="src/algorithms/sorting/shell-sort">Shellsort</a></li>
+<li><code>B</code> <a href="src/algorithms/sorting/counting-sort">Counting Sort</a></li>
+<li><code>B</code> <a href="src/algorithms/sorting/radix-sort">Radix Sort</a></li>
+</ul></li>
+<li><strong>Bağlantılı Liste</strong>
+<ul>
+<li><code>B</code> <a href="src/algorithms/linked-list/traversal">Straight Traversal</a></li>
+<li><code>B</code> <a href="src/algorithms/linked-list/reverse-traversal">Reverse Traversal</a></li>
+</ul></li>
+<li><strong>Ağaçlar</strong>
+<ul>
+<li><code>B</code> <a href="src/algorithms/tree/depth-first-search">Depth-First Search</a> (DFS)</li>
+<li><code>B</code> <a href="src/algorithms/tree/breadth-first-search">Breadth-First Search</a> (BFS)</li>
+</ul></li>
+<li><strong>Graphs</strong>
+<ul>
+<li><code>B</code> <a href="src/algorithms/graph/depth-first-search">Depth-First Search</a> (DFS)</li>
+<li><code>B</code> <a href="src/algorithms/graph/breadth-first-search">Breadth-First Search</a> (BFS)</li>
+<li><code>B</code> <a href="src/algorithms/graph/kruskal">Kruskal’s Algorithm</a> - ağırlıklı yönlendirilmemiş grafik için Minimum Yayılma Ağacı’nı (MST) bulma</li>
+<li><code>A</code> <a href="src/algorithms/graph/dijkstra">Dijkstra Algorithm</a> - tek tepe noktasından tüm grafik köşelerine en kısa yolları bulmak</li>
+<li><code>A</code> <a href="src/algorithms/graph/bellman-ford">Bellman-Ford Algorithm</a> - tek tepe noktasından tüm grafik köşelerine en kısa yolları bulmak</li>
+<li><code>A</code> <a href="src/algorithms/graph/floyd-warshall">Floyd-Warshall Algorithm</a> - tüm köşe çiftleri arasındaki en kısa yolları bulun</li>
+<li><code>A</code> <a href="src/algorithms/graph/detect-cycle">Detect Cycle</a> - hem yönlendirilmiş hem de yönlendirilmemiş grafikler için (DFS ve Ayrık Küme tabanlı sürümler)</li>
+<li><code>A</code> <a href="src/algorithms/graph/prim">Prim’s Algorithm</a> - ağırlıklı yönlendirilmemiş grafik için Minimum Yayılma Ağacı’nı (MST) bulma</li>
+<li><code>A</code> <a href="src/algorithms/graph/topological-sorting">Topological Sorting</a> - DFS metodu</li>
+<li><code>A</code> <a href="src/algorithms/graph/articulation-points">Articulation Points</a> - Tarjan’s algoritması (DFS based)</li>
+<li><code>A</code> <a href="src/algorithms/graph/bridges">Bridges</a> - DFS yöntemi ile algoritma</li>
+<li><code>A</code> <a href="src/algorithms/graph/eulerian-path">Eulerian Path and Eulerian Circuit</a> - Fleury’nin algoritması - Her kenara tam olarak bir kez ulaş</li>
+<li><code>A</code> <a href="src/algorithms/graph/hamiltonian-cycle">Hamiltonian Cycle</a> - Her köşeyi tam olarak bir kez ziyaret et</li>
+<li><code>A</code> <a href="src/algorithms/graph/strongly-connected-components">Strongly Connected Components</a> - Kosaraju’s algorithm</li>
+<li><code>A</code> <a href="src/algorithms/graph/travelling-salesman">Travelling Salesman Problem</a> - her şehri ziyaret eden ve başlangıç ​​şehrine geri dönen mümkün olan en kısa rota</li>
+</ul></li>
+<li><strong>Kriptografi</strong>
+<ul>
+<li><code>B</code> <a href="src/algorithms/cryptography/polynomial-hash">Polynomial Hash</a> - polinom temelinde dönen hash işlevi</li>
+<li><code>B</code> <a href="src/algorithms/cryptography/caesar-cipher">Caesar Cipher</a> - simple substitution cipher</li>
+</ul></li>
+<li><strong>Makine Öğrenmesi</strong>
+<ul>
+<li><code>B</code> <a href="https://github.com/trekhleb/nano-neuron">NanoNeuron</a> - 7 simple JS functions that illustrate how machines can actually learn (forward/backward propagation)</li>
+</ul></li>
+<li><strong>Kategoriye Ayrılmayanlar</strong>
+<ul>
+<li><code>B</code> <a href="src/algorithms/uncategorized/hanoi-tower">Tower of Hanoi</a></li>
+<li><code>B</code> <a href="src/algorithms/uncategorized/square-matrix-rotation">Square Matrix Rotation</a> - in-place algorithm</li>
+<li><code>B</code> <a href="src/algorithms/uncategorized/jump-game">Jump Game</a> - backtracking, dynamic programming (top-down + bottom-up) and greedy examples</li>
+<li><code>B</code> <a href="src/algorithms/uncategorized/unique-paths">Unique Paths</a> - backtracking, dynamic programming and Pascal’s Triangle based examples</li>
+<li><code>B</code> <a href="src/algorithms/uncategorized/rain-terraces">Rain Terraces</a> - trapping rain water problem (dynamic programming and brute force versions)</li>
+<li><code>B</code> <a href="src/algorithms/uncategorized/recursive-staircase">Recursive Staircase</a> - tepeye ulaşmanın yollarını sayma (4 çözüm)</li>
+<li><code>A</code> <a href="src/algorithms/uncategorized/n-queens">N-Queens Problem</a></li>
+<li><code>A</code> <a href="src/algorithms/uncategorized/knight-tour">Knight’s Tour</a></li>
+</ul></li>
+</ul>
+<h3 id="algoritmik-paradigma">Algoritmik Paradigma</h3>
+<p>Algoritmik paradigma, bir sınıfın tasarımının altında yatan genel bir yöntem veya yaklaşımdır. Algoritma dizayn tekniği olarak düşünülebilir. Her bir altproblemi (subproblem) asıl problemle benzerlik gösteren problemlere uygulanabilir.</p>
+<ul>
+<li><strong>Brute Force</strong> - mümkün olan tüm çözümleri tara ve en iyisini seç
+<ul>
+<li><code>B</code> <a href="src/algorithms/search/linear-search">Doğrusal Arama</a></li>
+<li><code>B</code> <a href="src/algorithms/uncategorized/rain-terraces">Rain Terraces</a> - trapping rain water problem</li>
+<li><code>B</code> <a href="src/algorithms/uncategorized/recursive-staircase">Recursive Staircase</a> - tepeye çıkmanın yollarını hesapla</li>
+<li><code>A</code> <a href="src/algorithms/sets/maximum-subarray">Maximum Subarray</a></li>
+<li><code>A</code> <a href="src/algorithms/graph/travelling-salesman">Travelling Salesman Problem</a> - her şehri ziyaret eden ve başlangıç şehrine geri dönen mümkün olan en kısa rota</li>
+<li><code>A</code> <a href="src/algorithms/math/fourier-transform">Discrete Fourier Transform</a> - bir zaman fonksiyonunu (bir sinyal) onu oluşturan frekanslara ayırır</li>
+</ul></li>
+<li><strong>Açgözlü</strong> - geleceği düşünmeden şu an için en iyi seçeneği seçin
+<ul>
+<li><code>B</code> <a href="src/algorithms/uncategorized/jump-game">Jump Game</a></li>
+<li><code>A</code> <a href="src/algorithms/sets/knapsack-problem">Unbound Knapsack Problem</a></li>
+<li><code>A</code> <a href="src/algorithms/graph/dijkstra">Dijkstra Algorithm</a> - tüm grafik köşelerine giden en kısa yolu bulmak</li>
+<li><code>A</code> <a href="src/algorithms/graph/prim">Prim’s Algorithm</a> - ağırlıklı yönlendirilmemiş grafik için Minimum Yayılma Ağacı’nı (MST) bulma</li>
+<li><code>A</code> <a href="src/algorithms/graph/kruskal">Kruskal’s Algorithm</a> - ağırlıklı yönlendirilmemiş grafik için Minimum Yayılma Ağacı’nı (MST) bulma</li>
+</ul></li>
+<li><strong>Böl ve Fethet</strong> - sorunu daha küçük parçalara bölün ve sonra bu parçaları çözün
+<ul>
+<li><code>B</code> <a href="src/algorithms/search/binary-search">Binary Search</a></li>
+<li><code>B</code> <a href="src/algorithms/uncategorized/hanoi-tower">Tower of Hanoi</a></li>
+<li><code>B</code> <a href="src/algorithms/math/pascal-triangle">Pascal’s Triangle</a></li>
+<li><code>B</code> <a href="src/algorithms/math/euclidean-algorithm">Euclidean Algorithm</a> - calculate the Greatest Common Divisor (GCD)</li>
+<li><code>B</code> <a href="src/algorithms/sorting/merge-sort">Merge Sort</a></li>
+<li><code>B</code> <a href="src/algorithms/sorting/quick-sort">Quicksort</a></li>
+<li><code>B</code> <a href="src/algorithms/tree/depth-first-search">Tree Depth-First Search</a> (DFS)</li>
+<li><code>B</code> <a href="src/algorithms/graph/depth-first-search">Graph Depth-First Search</a> (DFS)</li>
+<li><code>B</code> <a href="src/algorithms/uncategorized/jump-game">Jump Game</a></li>
+<li><code>B</code> <a href="src/algorithms/math/fast-powering">Fast Powering</a></li>
+<li><code>A</code> <a href="src/algorithms/sets/permutations">Permutations</a> (tekrarlı ve tekrarsız)</li>
+<li><code>A</code> <a href="src/algorithms/sets/combinations">Combinations</a> (tekrarlı ve tekrarsız)</li>
+</ul></li>
+<li><strong>Dinamik Programlama</strong> - önceden bulunan alt çözümleri kullanarak bir çözüm oluşturmak
+<ul>
+<li><code>B</code> <a href="src/algorithms/math/fibonacci">Fibonacci Sayısı</a></li>
+<li><code>B</code> <a href="src/algorithms/uncategorized/jump-game">Jump Game</a></li>
+<li><code>B</code> <a href="src/algorithms/uncategorized/unique-paths">Eşsiz Yol</a></li>
+<li><code>B</code> <a href="src/algorithms/uncategorized/rain-terraces">Rain Terraces</a> - trapping rain water problem</li>
+<li><code>B</code> <a href="src/algorithms/uncategorized/recursive-staircase">Recursive Staircase</a> - zirveye ulaşmanın yollarının sayısını sayın</li>
+<li><code>A</code> <a href="src/algorithms/string/levenshtein-distance">Levenshtein Distance</a> - iki sekans arasındaki minimum düzenleme mesafesi</li>
+<li><code>A</code> <a href="src/algorithms/sets/longest-common-subsequence">Longest Common Subsequence</a> (LCS)</li>
+<li><code>A</code> <a href="src/algorithms/string/longest-common-substring">Longest Common Substring</a></li>
+<li><code>A</code> <a href="src/algorithms/sets/longest-increasing-subsequence">Longest Increasing Subsequence</a></li>
+<li><code>A</code> <a href="src/algorithms/sets/shortest-common-supersequence">Shortest Common Supersequence</a></li>
+<li><code>A</code> <a href="src/algorithms/sets/knapsack-problem">0/1 Knapsack Problem</a></li>
+<li><code>A</code> <a href="src/algorithms/math/integer-partition">Integer Partition</a></li>
+<li><code>A</code> <a href="src/algorithms/sets/maximum-subarray">Maximum Subarray</a></li>
+<li><code>A</code> <a href="src/algorithms/graph/bellman-ford">Bellman-Ford Algorithm</a> - tüm grafik köşelerine giden en kısa yolu bulmak</li>
+<li><code>A</code> <a href="src/algorithms/graph/floyd-warshall">Floyd-Warshall Algorithm</a> - tüm köşe çiftleri arasındaki en kısa yolları bulun</li>
+<li><code>A</code> <a href="src/algorithms/string/regular-expression-matching">Regular Expression Matching</a></li>
+</ul></li>
+<li><strong>Backtracking</strong> - brute forceye benzer, mümkün tüm sonuçları tara, ancak bir sonraki çözümü her ürettiğinizde test edersiniz tüm koşulları karşılıyorsa ve ancak o zaman sonraki çözümleri üretmeye devam edin. Aksi takdirde, geri dönün ve farklı bir çözüm arayın(?). Normally the DFS traversal of state-space is being used.
+<ul>
+<li><code>B</code> <a href="src/algorithms/uncategorized/jump-game">Jump Game</a></li>
+<li><code>B</code> <a href="src/algorithms/uncategorized/unique-paths">Unique Paths</a></li>
+<li><code>B</code> <a href="src/algorithms/sets/power-set">Power Set</a> - all subsets of a set</li>
+<li><code>A</code> <a href="src/algorithms/graph/hamiltonian-cycle">Hamiltonian Cycle</a> - Her köşeyi tam olarak bir kez ziyaret edin</li>
+<li><code>A</code> <a href="src/algorithms/uncategorized/n-queens">N-Queens Problem</a></li>
+<li><code>A</code> <a href="src/algorithms/uncategorized/knight-tour">Knight’s Tour</a></li>
+<li><code>A</code> <a href="src/algorithms/sets/combination-sum">Combination Sum</a> - belirli toplamı oluşturan tüm kombinasyonları bulun</li>
+</ul></li>
+<li><strong>Branch &amp; Bound</strong> - remember the lowest-cost solution found at each stage of the backtracking search, and use the cost of the lowest-cost solution found so far as a lower bound on the cost of a least-cost solution to the problem, in order to discard partial solutions with costs larger than the lowest-cost solution found so far. Normally BFS traversal in combination with DFS traversal of state-space tree is being used.</li>
+</ul>
+<h2 id="repositoryin-kullanımı">Repository’in Kullanımı</h2>
+<p><strong>Bütün dependencyleri kurun</strong></p>
+<pre><code>npm install</code></pre>
+<p><strong>ESLint’i başlatın</strong></p>
+<p>Bunu kodun kalitesini kontrol etmek amacı ile çalıştırabilirsin.</p>
+<pre><code>npm run lint</code></pre>
+<p><strong>Bütün testleri çalıştır</strong></p>
+<pre><code>npm test</code></pre>
+<p><strong>Testleri ismine göre çalıştır</strong></p>
+<pre><code>npm test -- &#39;LinkedList&#39;</code></pre>
+<p><strong>Deneme Alanı</strong></p>
+<p>data-structures ve algorithms içerisinde <code>./src/playground/playground.js</code> yazarak <code>./src/playground/__test__/playground.test.js</code> için test edebilirsin.</p>
+<p>Ardından basitçe alttaki komutu girerek kodunun beklendiği gibi çalışıp çalışmadığını test edebilirsin:</p>
+<pre><code>npm test -- &#39;playground&#39;</code></pre>
+<h2 id="yararlı-bilgiler">Yararlı Bilgiler</h2>
+<h3 id="referanslar">Referanslar</h3>
+<p><a href="https://www.youtube.com/playlist?list=PLLXdhg_r2hKA7DPDsunoDZ-Z769jWn4R8">▶ Data Structures and Algorithms on YouTube</a></p>
+<h3 id="big-o-notation">Big O Notation</h3>
+<ul>
+<li>Big O notation *, algoritmaları, giriş boyutu büyüdükçe çalışma süresi veya alan gereksinimlerinin nasıl arttığına göre sınıflandırmak için kullanılır. Aşağıdaki grafikte, Big O gösteriminde belirtilen algoritmaların en yaygın büyüme sıralarını bulabilirsiniz.</li>
+</ul>
+<figure>
+<img src="./assets/big-o-graph.png" alt="Big O graphs" /><figcaption>Big O graphs</figcaption>
+</figure>
+<p>Kaynak: <a href="http://bigocheatsheet.com/">Big O Cheat Sheet</a>.</p>
+<p>Altta Big O notations ve farklı input boyutlarına karşın yapılmış performans karşılaştırması listelenmektedir.</p>
+<table>
+<colgroup>
+<col style="width: 13%" />
+<col style="width: 27%" />
+<col style="width: 28%" />
+<col style="width: 30%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Big O Notation</th>
+<th>10 Element için hesaplama</th>
+<th>100 Element için hesaplama</th>
+<th>1000 Element için hesaplama</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>O(1)</strong></td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td><strong>O(log N)</strong></td>
+<td>3</td>
+<td>6</td>
+<td>9</td>
+</tr>
+<tr class="odd">
+<td><strong>O(N)</strong></td>
+<td>10</td>
+<td>100</td>
+<td>1000</td>
+</tr>
+<tr class="even">
+<td><strong>O(N log N)</strong></td>
+<td>30</td>
+<td>600</td>
+<td>9000</td>
+</tr>
+<tr class="odd">
+<td><strong>O(N^2)</strong></td>
+<td>100</td>
+<td>10000</td>
+<td>1000000</td>
+</tr>
+<tr class="even">
+<td><strong>O(2^N)</strong></td>
+<td>1024</td>
+<td>1.26e+29</td>
+<td>1.07e+301</td>
+</tr>
+<tr class="odd">
+<td><strong>O(N!)</strong></td>
+<td>3628800</td>
+<td>9.3e+157</td>
+<td>4.02e+2567</td>
+</tr>
+</tbody>
+</table>
+<h3 id="veri-yapısı-işlem-karmaşıklığı">Veri Yapısı İşlem Karmaşıklığı</h3>
+<table>
+<thead>
+<tr class="header">
+<th>Veri Yapısı</th>
+<th style="text-align: center;">Access</th>
+<th style="text-align: center;">Search</th>
+<th style="text-align: center;">Insertion</th>
+<th style="text-align: center;">Deletion</th>
+<th style="text-align: left;">Comments</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Dizi</strong></td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">n</td>
+<td style="text-align: center;">n</td>
+<td style="text-align: center;">n</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td><strong>Yığın</strong></td>
+<td style="text-align: center;">n</td>
+<td style="text-align: center;">n</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td><strong>Sıralı</strong></td>
+<td style="text-align: center;">n</td>
+<td style="text-align: center;">n</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td><strong>Bağlantılı Liste</strong></td>
+<td style="text-align: center;">n</td>
+<td style="text-align: center;">n</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">n</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td><strong>Yığın Tablo</strong></td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">n</td>
+<td style="text-align: center;">n</td>
+<td style="text-align: center;">n</td>
+<td style="text-align: left;">Kusursuz hash fonksiyonu durumunda sonuç O(1)</td>
+</tr>
+<tr class="even">
+<td><strong>İkili Arama Ağacı</strong></td>
+<td style="text-align: center;">n</td>
+<td style="text-align: center;">n</td>
+<td style="text-align: center;">n</td>
+<td style="text-align: center;">n</td>
+<td style="text-align: left;">In case of balanced tree costs would be O(log(n))</td>
+</tr>
+<tr class="odd">
+<td><strong>B-Tree</strong></td>
+<td style="text-align: center;">log(n)</td>
+<td style="text-align: center;">log(n)</td>
+<td style="text-align: center;">log(n)</td>
+<td style="text-align: center;">log(n)</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td><strong>Red-Black Tree</strong></td>
+<td style="text-align: center;">log(n)</td>
+<td style="text-align: center;">log(n)</td>
+<td style="text-align: center;">log(n)</td>
+<td style="text-align: center;">log(n)</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td><strong>AVL Tree</strong></td>
+<td style="text-align: center;">log(n)</td>
+<td style="text-align: center;">log(n)</td>
+<td style="text-align: center;">log(n)</td>
+<td style="text-align: center;">log(n)</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td><strong>Bloom Filter</strong></td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: left;">Arama esnasında yanlış sonuçlar çıkabilir</td>
+</tr>
+</tbody>
+</table>
+<h3 id="dizi-sıralama-algoritmaları-karmaşıklığı">Dizi Sıralama Algoritmaları Karmaşıklığı</h3>
+<table style="width:100%;">
+<colgroup>
+<col style="width: 20%" />
+<col style="width: 14%" />
+<col style="width: 18%" />
+<col style="width: 18%" />
+<col style="width: 8%" />
+<col style="width: 8%" />
+<col style="width: 8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>İsim</th>
+<th style="text-align: center;">En İyi</th>
+<th style="text-align: center;">Ortalama</th>
+<th style="text-align: center;">En Kötü</th>
+<th style="text-align: center;">Hafıza</th>
+<th style="text-align: center;">Kararlı</th>
+<th style="text-align: left;">Yorumlar</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Bubble sort</strong></td>
+<td style="text-align: center;">n</td>
+<td style="text-align: center;">n<sup>2</sup></td>
+<td style="text-align: center;">n<sup>2</sup></td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">Evet</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td><strong>Insertion sort</strong></td>
+<td style="text-align: center;">n</td>
+<td style="text-align: center;">n<sup>2</sup></td>
+<td style="text-align: center;">n<sup>2</sup></td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">Evet</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td><strong>Selection sort</strong></td>
+<td style="text-align: center;">n<sup>2</sup></td>
+<td style="text-align: center;">n<sup>2</sup></td>
+<td style="text-align: center;">n<sup>2</sup></td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">Hayır</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td><strong>Heap sort</strong></td>
+<td style="text-align: center;">n log(n)</td>
+<td style="text-align: center;">n log(n)</td>
+<td style="text-align: center;">n log(n)</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">Hayır</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td><strong>Merge sort</strong></td>
+<td style="text-align: center;">n log(n)</td>
+<td style="text-align: center;">n log(n)</td>
+<td style="text-align: center;">n log(n)</td>
+<td style="text-align: center;">n</td>
+<td style="text-align: center;">Evet</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td><strong>Quick sort</strong></td>
+<td style="text-align: center;">n log(n)</td>
+<td style="text-align: center;">n log(n)</td>
+<td style="text-align: center;">n<sup>2</sup></td>
+<td style="text-align: center;">log(n)</td>
+<td style="text-align: center;">Hayır</td>
+<td style="text-align: left;">Hızlı sıralama genellikle O(log(n)) yığın alanıyla yapılır</td>
+</tr>
+<tr class="odd">
+<td><strong>Shell sort</strong></td>
+<td style="text-align: center;">n log(n)</td>
+<td style="text-align: center;">depends on gap sequence</td>
+<td style="text-align: center;">n (log(n))<sup>2</sup></td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">Hayır</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td><strong>Counting sort</strong></td>
+<td style="text-align: center;">n + r</td>
+<td style="text-align: center;">n + r</td>
+<td style="text-align: center;">n + r</td>
+<td style="text-align: center;">n + r</td>
+<td style="text-align: center;">Evet</td>
+<td style="text-align: left;">r - dizideki en büyük sayı</td>
+</tr>
+<tr class="odd">
+<td><strong>Radix sort</strong></td>
+<td style="text-align: center;">n * k</td>
+<td style="text-align: center;">n * k</td>
+<td style="text-align: center;">n * k</td>
+<td style="text-align: center;">n + k</td>
+<td style="text-align: center;">Evet</td>
+<td style="text-align: left;">k - en uzun key’in uzunluğu</td>
+</tr>
+</tbody>
+</table>
+<h2 id="projeyi-destekleme">Projeyi Destekleme</h2>
+<p>Bu projeyi buradan destekleyebilirsiniz ❤️️ <a href="https://github.com/sponsors/trekhleb">GitHub</a> veya ❤️️ <a href="https://www.patreon.com/trekhleb">Patreon</a>.</p>
+<blockquote>
+<p>ℹ️ A few more <a href="https://trekhleb.dev/projects/">projects</a> and <a href="https://trekhleb.dev/blog/">articles</a> about JavaScript and algorithms on <a href="https://trekhleb.dev">trekhleb.dev</a></p>
+</blockquote>
+</body>
+</html>

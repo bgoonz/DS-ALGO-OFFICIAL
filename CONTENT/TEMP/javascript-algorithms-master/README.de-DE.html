@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>README.de-DE</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+</head>
+<body>
+<h1 id="javascript-algorithmen-und-datenstrukturen">JavaScript-Algorithmen und Datenstrukturen</h1>
+<p><a href="https://github.com/trekhleb/javascript-algorithms/actions?query=workflow%3ACI+branch%3Amaster"><img src="https://github.com/trekhleb/javascript-algorithms/workflows/CI/badge.svg" alt="CI" /></a> <a href="https://codecov.io/gh/trekhleb/javascript-algorithms"><img src="https://codecov.io/gh/trekhleb/javascript-algorithms/branch/master/graph/badge.svg" alt="codecov" /></a></p>
+<p>Dieses Repository enthält JavaScript Beispiele für viele gängige Algorithmen und Datenstrukturen.</p>
+<p>Jeder Algorithmus und jede Datenstruktur hat eine eigene README mit zugehörigen Erklärungen und weiterführenden Links (einschließlich zu YouTube-Videos).</p>
+<p><em>Lies dies in anderen Sprachen:</em> <a href="https://github.com/trekhleb/javascript-algorithms/"><em>English</em></a> <a href="README.zh-CN.md"><em>简体中文</em></a>, <a href="README.zh-TW.md"><em>繁體中文</em></a>, <a href="README.ko-KR.md"><em>한국어</em></a>, <a href="README.ja-JP.md"><em>日本語</em></a>, <a href="README.pl-PL.md"><em>Polski</em></a>, <a href="README.fr-FR.md"><em>Français</em></a>, <a href="README.es-ES.md"><em>Español</em></a>, <a href="README.pt-BR.md"><em>Português</em></a>, <a href="README.ru-RU.md"><em>Русский</em></a>, <a href="README.tr-TR.md"><em>Türk</em></a>, <a href="README.it-IT.md"><em>Italiana</em></a>, <a href="README.id-ID.md"><em>Bahasa Indonesia</em></a>, <a href="README.uk-UA.md"><em>Українська</em></a>, <a href="README.ar-AR.md"><em>Arabic</em></a></p>
+<p><em>☝ Beachte, dass dieses Projekt nur für Lern- und Forschungszwecke gedacht ist und <strong>nicht</strong> für den produktiven Einsatz verwendet werden soll</em></p>
+<h2 id="datenstrukturen">Datenstrukturen</h2>
+<p>Eine Datenstruktur ist eine bestimmte Art und Weise, Daten in einem Computer so zu organisieren und zu speichern, dass sie effizient erreicht und verändert werden können. Genauer gesagt, ist eine Datenstruktur eine Sammlung von Werten, den Beziehungen zwischen ihnen und den Funktionen oder Operationen, die auf die Daten angewendet werden können.</p>
+<p><code>B</code> - Anfänger:innen, <code>A</code> - Fortgeschrittene</p>
+<ul>
+<li><code>B</code> <a href="src/data-structures/linked-list">Verkettete Liste (Linked List)</a></li>
+<li><code>B</code> <a href="src/data-structures/doubly-linked-list">Doppelt verkettete Liste (Doubly Linked List)</a></li>
+<li><code>B</code> <a href="src/data-structures/queue">Warteschlange (Queue)</a></li>
+<li><code>B</code> <a href="src/data-structures/stack">Stapelspeicher (Stack)</a></li>
+<li><code>B</code> <a href="src/data-structures/hash-table">Hashtabelle (Hash Table)</a></li>
+<li><code>B</code> <a href="src/data-structures/heap">Heap-Algorithmus (Heap)</a> - max und min Heap-Versionen</li>
+<li><code>B</code> <a href="src/data-structures/priority-queue">Vorrangwarteschlange (Priority Queue)</a></li>
+<li><code>A</code> <a href="src/data-structures/trie">Trie (Trie)</a></li>
+<li><code>A</code> <a href="src/data-structures/tree">Baum (Tree)</a>
+<ul>
+<li><code>A</code> <a href="src/data-structures/tree/binary-search-tree">Binärer Suchbaum (Binary Search Tree)</a></li>
+<li><code>A</code> <a href="src/data-structures/tree/avl-tree">AVL-Baum (AVL Tree)</a></li>
+<li><code>A</code> <a href="src/data-structures/tree/red-black-tree">Rot-Schwarz-Baum (Red-Black Tree)</a></li>
+<li><code>A</code> <a href="src/data-structures/tree/segment-tree">Segment-Baum (Segment Tree)</a> - mit Min/Max/Summenbereich-Abfrage Beispiel</li>
+<li><code>A</code> <a href="src/data-structures/tree/fenwick-tree">Fenwick Baum (Fenwick Tree)</a> (Binär indizierter Baum / Binary Indexed Tree)</li>
+</ul></li>
+<li><code>A</code> <a href="src/data-structures/graph">Graph (Graph)</a> (sowohl gerichtet als auch ungerichtet)</li>
+<li><code>A</code> <a href="src/data-structures/disjoint-set">Union-Find-Struktur (Disjoint Set)</a></li>
+<li><code>A</code> <a href="src/data-structures/bloom-filter">Bloomfilter (Bloom Filter)</a></li>
+</ul>
+<h2 id="algorithmen">Algorithmen</h2>
+<p>Ein Algorithmus ist eine eindeutige Spezifikation, wie eine Klasse von Problemen zu lösen ist. Er besteht aus einem Satz von Regeln, die eine Abfolge von Operationen genau definieren.</p>
+<p><code>B</code> - Anfänger:innen, <code>A</code> - Fortgeschrittene</p>
+<h3 id="algorithmen-nach-thema">Algorithmen nach Thema</h3>
+<ul>
+<li><strong>Mathe</strong>
+<ul>
+<li><code>B</code> <a href="src/algorithms/math/bits">Bitmanipulation (Bit Manipulation)</a> - Bits setzen/lesen/aktualisieren/löschen, Multiplikation/Division durch zwei negieren usw..</li>
+<li><code>B</code> <a href="src/algorithms/math/factorial">Faktoriell (Factorial)</a></li>
+<li><code>B</code> <a href="src/algorithms/math/fibonacci">Fibonacci-Zahl (Fibonacci Number)</a> - Klassische und geschlossene Version</li>
+<li><code>B</code> <a href="src/algorithms/math/prime-factors">Primfaktoren (Prime Factors)</a> - Auffinden von Primfaktoren und deren Zählung mit Hilfe des Satz von Hardy-Ramanujan (Hardy-Ramanujan’s theorem)</li>
+<li><code>B</code> <a href="src/algorithms/math/primality-test">Primzahl-Test (Primality Test)</a> (Probedivision / trial division method)</li>
+<li><code>B</code> <a href="src/algorithms/math/euclidean-algorithm">Euklidischer Algorithmus (Euclidean Algorithm)</a> - Berechnen des größten gemeinsamen Teilers (ggT)</li>
+<li><code>B</code> <a href="src/algorithms/math/least-common-multiple">Kleinstes gemeinsames Vielfaches (Least Common Multiple)</a> (kgV)</li>
+<li><code>B</code> <a href="src/algorithms/math/sieve-of-eratosthenes">Sieb des Eratosthenes (Sieve of Eratosthenes)</a> - Finden aller Primzahlen bis zu einer bestimmten Grenze</li>
+<li><code>B</code> <a href="src/algorithms/math/is-power-of-two">Power of two (Is Power of Two)</a> - Prüft, ob die Zahl eine Zweierpotenz ist (naive und bitweise Algorithmen)</li>
+<li><code>B</code> <a href="src/algorithms/math/pascal-triangle">Pascalsches Dreieck (Pascal’s Triangle)</a></li>
+<li><code>B</code> <a href="src/algorithms/math/complex-number">Komplexe Zahlen (Complex Number)</a> - Komplexe Zahlen und Grundoperationen mit ihnen</li>
+<li><code>B</code> <a href="src/algorithms/math/radian">Bogenmaß &amp; Grad (Radian &amp; Degree)</a> - Umrechnung von Bogenmaß in Grad und zurück</li>
+<li><code>B</code> <a href="src/algorithms/math/fast-powering">Fast Powering Algorithmus (Fast Powering)</a></li>
+<li><code>B</code> <a href="src/algorithms/math/horner-method">Horner-Schema (Horner’s method)</a> - Polynomauswertung</li>
+<li><code>B</code> <a href="src/algorithms/math/matrix">Matrizen (Matrices)</a> - Matrizen und grundlegende Matrixoperationen (Multiplikation, Transposition usw.)</li>
+<li><code>B</code> <a href="src/algorithms/math/euclidean-distance">Euklidischer Abstand (Euclidean Distance)</a> - Abstand zwischen zwei Punkten/Vektoren/Matrizen</li>
+<li><code>A</code> <a href="src/algorithms/math/integer-partition">Ganzzahlige Partitionierung (Integer Partition)</a></li>
+<li><code>A</code> <a href="src/algorithms/math/square-root">Quadratwurzel (Square Root)</a> - Newtonverfahren (Newton’s method)</li>
+<li><code>A</code> <a href="src/algorithms/math/liu-hui">Liu Hui π Algorithmus (Liu Hui π Algorithm)</a> - Näherungsweise π-Berechnungen auf Basis von N-gons</li>
+<li><code>A</code> <a href="src/algorithms/math/fourier-transform">Diskrete Fourier-Transformation (Discrete Fourier Transform)</a> - Eine Funktion der Zeit (ein Signal) in die Frequenzen zerlegen, aus denen sie sich zusammensetzt</li>
+</ul></li>
+<li><strong>Sets</strong>
+<ul>
+<li><code>B</code> <a href="src/algorithms/sets/cartesian-product">Kartesisches Produkt (Cartesian Product)</a> - Produkt aus mehreren Mengen</li>
+<li><code>B</code> <a href="src/algorithms/sets/fisher-yates">Fisher-Yates-Verfahren (Fisher–Yates Shuffle)</a> - Zufällige Permutation einer endlichen Folge</li>
+<li><code>A</code> <a href="src/algorithms/sets/power-set">Potenzmenge (Power Set)</a> - Alle Teilmengen einer Menge (Bitweise und Rücksetzverfahren Lösungen(backtracking solutions))</li>
+<li><code>A</code> <a href="src/algorithms/sets/permutations">Permutation (Permutations)</a> (mit und ohne Wiederholungen)</li>
+<li><code>A</code> <a href="src/algorithms/sets/combinations">Kombination (Combinations)</a> (mit und ohne Wiederholungen)</li>
+<li><code>A</code> <a href="src/algorithms/sets/longest-common-subsequence">Problem der längsten gemeinsamen Teilsequenz (Longest Common Subsequence)</a> (LCS)</li>
+<li><code>A</code> <a href="src/algorithms/sets/longest-increasing-subsequence">Längste gemeinsame Teilsequenz (Longest Increasing Subsequence)</a></li>
+<li><code>A</code> <a href="src/algorithms/sets/shortest-common-supersequence">Der kürzeste gemeinsame String (Shortest Common Supersequence)</a> (SCS)</li>
+<li><code>A</code> <a href="src/algorithms/sets/knapsack-problem">Rucksackproblem (Knapsack Problem)</a> - “0/1” und “Ungebunden”</li>
+<li><code>A</code> <a href="src/algorithms/sets/maximum-subarray">Das Maximum-Subarray Problem (Maximum Subarray)</a> - “Brute-Force-Methode” und “Dynamische Programmierung” (Kadane’ Algorithmus)</li>
+<li><code>A</code> <a href="src/algorithms/sets/combination-sum">Kombinationssumme (Combination Sum)</a> - Alle Kombinationen finden, die eine bestimmte Summe bilden</li>
+</ul></li>
+<li><strong>Zeichenketten (Strings)</strong>
+<ul>
+<li><code>B</code> <a href="src/algorithms/string/hamming-distance">Hamming-Abstand (Hamming Distance)</a> - Anzahl der Positionen, an denen die Symbole unterschiedlich sind</li>
+<li><code>A</code> <a href="src/algorithms/string/levenshtein-distance">Levenshtein-Distanz (Levenshtein Distance)</a> - Minimaler Editierabstand zwischen zwei Sequenzen</li>
+<li><code>A</code> <a href="src/algorithms/string/knuth-morris-pratt">Knuth-Morris-Pratt-Algorithmus (Knuth–Morris–Pratt Algorithm)</a> (KMP Algorithmus) - Teilstringsuche (Mustervergleich / Pattern Matching)</li>
+<li><code>A</code> <a href="src/algorithms/string/z-algorithm">Z-Algorithmus (Z Algorithm)</a> - Teilstringsuche (Mustervergleich / Pattern Matching)</li>
+<li><code>A</code> <a href="src/algorithms/string/rabin-karp">Rabin-Karp-Algorithmus (Rabin Karp Algorithm)</a> - Teilstringsuche</li>
+<li><code>A</code> <a href="src/algorithms/string/longest-common-substring">Längstes häufiges Teilzeichenfolgenproblem (Longest Common Substring)</a></li>
+<li><code>A</code> <a href="src/algorithms/string/regular-expression-matching">Regulärer Ausdruck (Regular Expression Matching)</a></li>
+</ul></li>
+<li><strong>Suchen</strong>
+<ul>
+<li><code>B</code> <a href="src/algorithms/search/linear-search">Lineare Suche (Linear Search)</a></li>
+<li><code>B</code> <a href="src/algorithms/search/jump-search">Sprungsuche (Jump Search)</a> (oder Blocksuche) - Suche im sortierten Array</li>
+<li><code>B</code> <a href="src/algorithms/search/binary-search">Binäre Suche (Binary Search)</a> - Suche in einem sortierten Array</li>
+<li><code>B</code> <a href="src/algorithms/search/interpolation-search">Interpolationssuche (Interpolation Search)</a> - Suche in gleichmäßig verteilt sortiertem Array</li>
+</ul></li>
+<li><strong>Sortieren</strong>
+<ul>
+<li><code>B</code> <a href="src/algorithms/sorting/bubble-sort">Bubblesort (Bubble Sort)</a></li>
+<li><code>B</code> <a href="src/algorithms/sorting/selection-sort">Selectionsort (Selection Sort)</a></li>
+<li><code>B</code> <a href="src/algorithms/sorting/insertion-sort">Einfügesortierenmethode (Insertion Sort)</a></li>
+<li><code>B</code> <a href="src/algorithms/sorting/heap-sort">Haldensortierung (Heap Sort)</a></li>
+<li><code>B</code> <a href="src/algorithms/sorting/merge-sort">Mergesort (Merge Sort)</a></li>
+<li><code>B</code> <a href="src/algorithms/sorting/quick-sort">Quicksort (Quicksort)</a> - in-place und non-in-place Implementierungen</li>
+<li><code>B</code> <a href="src/algorithms/sorting/shell-sort">Shellsort (Shellsort)</a></li>
+<li><code>B</code> <a href="src/algorithms/sorting/counting-sort">Countingsort (Counting Sort)</a></li>
+<li><code>B</code> <a href="src/algorithms/sorting/radix-sort">Fachverteilen (Radix Sort)</a></li>
+</ul></li>
+<li><strong>Verkettete Liste (Linked List)</strong>
+<ul>
+<li><code>B</code> <a href="src/algorithms/linked-list/traversal">Gerade Traversierung (Straight Traversal)</a></li>
+<li><code>B</code> <a href="src/algorithms/linked-list/reverse-traversal">Umgekehrte Traversierung (Reverse Traversal)</a></li>
+</ul></li>
+<li><strong>Bäume</strong>
+<ul>
+<li><code>B</code> <a href="src/algorithms/tree/depth-first-search">Tiefensuche (Depth-First Search)</a> (DFS)</li>
+<li><code>B</code> <a href="src/algorithms/tree/breadth-first-search">Breitensuche (Breadth-First Search)</a> (BFS)</li>
+</ul></li>
+<li><strong>Graphen</strong>
+<ul>
+<li><code>B</code> <a href="src/algorithms/graph/depth-first-search">Tiefensuche (Depth-First Search)</a> (DFS)</li>
+<li><code>B</code> <a href="src/algorithms/graph/breadth-first-search">Breitensuche (Breadth-First Search)</a> (BFS)</li>
+<li><code>B</code> <a href="src/algorithms/graph/kruskal">Algorithmus von Kruskal (Kruskal’s Algorithm)</a> - Finden des Spannbaum (Minimum Spanning Tree / MST) für einen gewichteten ungerichteten Graphen</li>
+<li><code>A</code> <a href="src/algorithms/graph/dijkstra">Dijkstra-Algorithmus (Dijkstra Algorithm)</a> - Finden der kürzesten Wege zu allen Knoten des Graphen von einem einzelnen Knotenpunkt aus</li>
+<li><code>A</code> <a href="src/algorithms/graph/bellman-ford">Bellman-Ford-Algorithmus (Bellman-Ford Algorithm)</a> - Finden der kürzesten Wege zu allen Knoten des Graphen von einem einzelnen Knotenpunkt aus</li>
+<li><code>A</code> <a href="src/algorithms/graph/floyd-warshall">Algorithmus von Floyd und Warshall (Floyd-Warshall Algorithm)</a> - Die kürzesten Wege zwischen allen Knotenpaaren finden</li>
+<li><code>A</code> <a href="src/algorithms/graph/detect-cycle">Zykluserkennung (Detect Cycle)</a> - Sowohl für gerichtete als auch für ungerichtete Graphen (DFS- und Disjoint-Set-basierte Versionen)</li>
+<li><code>A</code> <a href="src/algorithms/graph/prim">Algorithmus von Prim (Prim’s Algorithm)</a> - Finden des Spannbaums (Minimum Spanning Tree / MST) für einen gewichteten ungerichteten Graphen</li>
+<li><code>A</code> <a href="src/algorithms/graph/topological-sorting">Topologische Sortierung (Topological Sorting)</a> - DFS-Verfahren</li>
+<li><code>A</code> <a href="src/algorithms/graph/articulation-points">Artikulationspunkte (Articulation Points)</a> - Algorithmus von Tarjan (Tarjan’s algorithm) (DFS basiert)</li>
+<li><code>A</code> <a href="src/algorithms/graph/bridges">Brücke (Bridges)</a> - DFS-basierter Algorithmus</li>
+<li><code>A</code> <a href="src/algorithms/graph/eulerian-path">Eulerkreisproblem (Eulerian Path and Eulerian Circuit)</a> - Algorithmus von Fleury (Fleury’s algorithm) - Jede Kante genau einmal durchlaufen.</li>
+<li><code>A</code> <a href="src/algorithms/graph/hamiltonian-cycle">Hamiltonkreisproblem (Hamiltonian Cycle)</a> - Jeden Eckpunkt genau einmal durchlaufen.</li>
+<li><code>A</code> <a href="src/algorithms/graph/strongly-connected-components">Starke Zusammenhangskomponente (Strongly Connected Components)</a> - Kosarajus Algorithmus</li>
+<li><code>A</code> <a href="src/algorithms/graph/travelling-salesman">Problem des Handlungsreisenden (Travelling Salesman Problem)</a> - Kürzestmögliche Route, die jede Stadt besucht und zur Ausgangsstadt zurückkehrt</li>
+</ul></li>
+<li><strong>Kryptographie</strong>
+<ul>
+<li><code>B</code> <a href="src/algorithms/cryptography/polynomial-hash">Polynomiale Streuwertfunktion(Polynomial Hash)</a> - Rollierende Streuwert-Funktion basierend auf Polynom</li>
+<li><code>B</code> <a href="src/algorithms/cryptography/rail-fence-cipher">Schienenzaun Chiffre (Rail Fence Cipher)</a> - Ein Transpositionsalgorithmus zur Verschlüsselung von Nachrichten</li>
+<li><code>B</code> <a href="src/algorithms/cryptography/caesar-cipher">Caesar-Verschlüsselung (Caesar Cipher)</a> - Einfache Substitutions-Chiffre</li>
+<li><code>B</code> <a href="src/algorithms/cryptography/hill-cipher">Hill-Chiffre (Hill Cipher)</a> - Substitutionschiffre basierend auf linearer Algebra</li>
+</ul></li>
+<li><strong>Maschinelles Lernen</strong>
+<ul>
+<li><code>B</code> <a href="https://github.com/trekhleb/nano-neuron">Künstliches Neuron (NanoNeuron)</a> - 7 einfache JS-Funktionen, die veranschaulichen, wie Maschinen tatsächlich lernen können (Vorwärts-/Rückwärtspropagation)</li>
+<li><code>B</code> <a href="src/algorithms/ml/knn">Nächste-Nachbarn-Klassifikation (k-NN)</a> - k-nächste-Nachbarn-Algorithmus</li>
+<li><code>B</code> <a href="src/algorithms/ml/k-means">k-Means (k-Means)</a> - k-Means-Algorithmus</li>
+</ul></li>
+<li><strong>Image Processing</strong>
+<ul>
+<li><code>B</code> <a href="src/algorithms/image-processing/seam-carving">Inhaltsabhängige Bildverzerrung (Seam Carving)</a> - Algorithmus zur inhaltsabhängigen Bildgrößenänderung</li>
+</ul></li>
+<li><strong>Unkategorisiert</strong>
+<ul>
+<li><code>B</code> <a href="src/algorithms/uncategorized/hanoi-tower">Türme von Hanoi (Tower of Hanoi)</a></li>
+<li><code>B</code> <a href="src/algorithms/uncategorized/square-matrix-rotation">Rotationsmatrix (Square Matrix Rotation)</a> - In-Place-Algorithmus</li>
+<li><code>B</code> <a href="src/algorithms/uncategorized/jump-game">Jump Game (Jump Game)</a> - Backtracking, dynamische Programmierung (Top-down + Bottom-up) und gierige Beispiele</li>
+<li><code>B</code> <a href="src/algorithms/uncategorized/unique-paths">Eindeutige Pfade (Unique Paths)</a> - Backtracking, dynamische Programmierung und Pascalsches Dreieck basierte Beispiele</li>
+<li><code>B</code> <a href="src/algorithms/uncategorized/rain-terraces">Regenterrassen (Rain Terraces)</a> - Auffangproblem für Regenwasser (trapping rain water problem) (dynamische Programmierung und Brute-Force-Versionen)</li>
+<li><code>B</code> <a href="src/algorithms/uncategorized/recursive-staircase">Rekursive Treppe (Recursive Staircase)</a> - Zählen der Anzahl der Wege, die nach oben führen (4 Lösungen)</li>
+<li><code>B</code> <a href="src/algorithms/uncategorized/best-time-to-buy-sell-stocks">Beste Zeit zum Kaufen/Verkaufen von Aktien (Best Time To Buy Sell Stocks)</a> - Beispiele für “Teile und Herrsche” und Beispiele für den One-Pass-Algorithmus</li>
+<li><code>A</code> <a href="src/algorithms/uncategorized/n-queens">Damenproblem (N-Queens Problem)</a></li>
+<li><code>A</code> <a href="src/algorithms/uncategorized/knight-tour">Springerproblem (Knight’s Tour)</a></li>
+</ul></li>
+</ul>
+<h3 id="algorithmen-nach-paradigma">Algorithmen nach Paradigma</h3>
+<p>Ein algorithmisches Paradigma ist eine generische Methode oder ein Ansatz, der dem Entwurf einer Klasse von Algorithmen zugrunde liegt. Es ist eine Abstraktion, die höher ist als der Begriff des Algorithmus. Genauso wie ein Algorithmus eine Abstraktion ist, die höher ist als ein Computerprogramm.</p>
+<ul>
+<li><strong>Brachiale Gewalt (Brute Force)</strong> - schaut sich alle Möglichkeiten an und wählt die beste Lösung aus
+<ul>
+<li><code>B</code> <a href="src/algorithms/search/linear-search">Lineare Suche (Linear Search)</a></li>
+<li><code>B</code> <a href="src/algorithms/uncategorized/rain-terraces">Regenterrassen (Rain Terraces)</a> - Auffangproblem für Regenwasser (trapping rain water problem) (dynamische Programmierung und Brute-Force-Versionen)</li>
+<li><code>B</code> <a href="src/algorithms/uncategorized/recursive-staircase">Rekursive Treppe (Recursive Staircase)</a> - Zählen der Anzahl der Wege, die nach oben führen (4 Lösungen)</li>
+<li><code>A</code> <a href="src/algorithms/sets/maximum-subarray">Das Maximum-Subarray Problem (Maximum Subarray)</a></li>
+<li><code>A</code> <a href="src/algorithms/graph/travelling-salesman">Problem des Handlungsreisenden (Travelling Salesman Problem)</a> - Kürzestmögliche Route, die jede Stadt besucht und zur Ausgangsstadt zurückkehrt</li>
+<li><code>A</code> <a href="src/algorithms/math/fourier-transform">Diskrete Fourier-Transformation (Discrete Fourier Transform)</a> - Eine Funktion der Zeit (ein Signal) in die Frequenzen zerlegen, aus denen sie sich zusammensetzt</li>
+</ul></li>
+<li><strong>Gierig (Greedy)</strong> - Wählt die beste Option zum aktuellen Zeitpunkt, ohne Rücksicht auf die Zukunft
+<ul>
+<li><code>B</code> <a href="src/algorithms/uncategorized/jump-game">Jump Game (Jump Game)</a></li>
+<li><code>A</code> <a href="src/algorithms/sets/knapsack-problem">Rucksackproblem (Unbound Knapsack Problem)</a></li>
+<li><code>A</code> <a href="src/algorithms/graph/dijkstra">Dijkstra-Algorithmus (Dijkstra Algorithm)</a> - Finden der kürzesten Wege zu allen Knoten des Graphen von einem einzelnen Knotenpunkt aus</li>
+<li><code>A</code> <a href="src/algorithms/graph/prim">Algorithmus von Prim (Prim’s Algorithm)</a> - Finden des Spannbaums (Minimum Spanning Tree / MST) für einen gewichteten ungerichteten Graphen</li>
+<li><code>B</code> <a href="src/algorithms/graph/kruskal">Algorithmus von Kruskal (Kruskal’s Algorithm)</a> - Finden des Spannbaum (Minimum Spanning Tree / MST) für einen gewichteten ungerichteten Graphen</li>
+</ul></li>
+<li><strong>Teile und herrsche</strong> - Das Problem in kleinere Teile aufteilen und diese Teile dann lösen
+<ul>
+<li><code>B</code> <a href="src/algorithms/search/binary-search">Binäre Suche (Binary Search)</a></li>
+<li><code>B</code> <a href="src/algorithms/uncategorized/hanoi-tower">Türme von Hanoi (Tower of Hanoi)</a></li>
+<li><code>B</code> <a href="src/algorithms/math/pascal-triangle">Pascalsches Dreieck (Pascal’s Triangle)</a></li>
+<li><code>B</code> <a href="src/algorithms/math/euclidean-algorithm">Euklidischer Algorithmus (Euclidean Algorithm)</a> - calculate the Greatest Common Divisor (GCD)</li>
+<li><code>B</code> <a href="src/algorithms/sorting/merge-sort">Mergesort (Merge Sort)</a></li>
+<li><code>B</code> <a href="src/algorithms/sorting/quick-sort">Quicksort (Quicksort)</a></li>
+<li><code>B</code> <a href="src/algorithms/tree/depth-first-search">Tiefensuche (Depth-First Search)</a> (DFS)</li>
+<li><code>B</code> <a href="src/algorithms/graph/depth-first-search">Breitensuche (Breadth-First Search)</a> (DFS)</li>
+<li><code>B</code> <a href="src/algorithms/math/matrix">Matrizen (Matrices)</a> - Matrizen und grundlegende Matrixoperationen (Multiplikation, Transposition usw.)</li>
+<li><code>B</code> <a href="src/algorithms/uncategorized/jump-game">Jump Game (Jump Game)</a></li>
+<li><code>B</code> <a href="src/algorithms/math/fast-powering">Fast Powering Algorithmus (Fast Powering)</a></li>
+<li><code>B</code> <a href="src/algorithms/uncategorized/best-time-to-buy-sell-stocks">Beste Zeit zum Kaufen/Verkaufen von Aktien (Best Time To Buy Sell Stocks)</a> - Beispiele für “Teile und Herrsche” und Beispiele für den One-Pass-Algorithmus</li>
+<li><code>A</code> <a href="src/algorithms/sets/permutations">Permutation (Permutations)</a> (mit und ohne Wiederholungen)</li>
+<li><code>A</code> <a href="src/algorithms/sets/combinations">Kombination (Combinations)</a> (mit und ohne Wiederholungen)</li>
+</ul></li>
+<li><strong>Dynamische Programmierung</strong> - Eine Lösung aus zuvor gefundenen Teillösungen aufbauen
+<ul>
+<li><code>B</code> <a href="src/algorithms/math/fibonacci">Fibonacci-Zahl (Fibonacci Number)</a></li>
+<li><code>B</code> <a href="src/algorithms/uncategorized/jump-game">Jump Game (Jump Game)</a></li>
+<li><code>B</code> <a href="src/algorithms/uncategorized/unique-paths">Eindeutige Pfade (Unique Paths)</a></li>
+<li><code>B</code> <a href="src/algorithms/uncategorized/rain-terraces">Regenterrassen (Rain Terraces)</a> - Auffangproblem für Regenwasser (trapping rain water problem) (dynamische Programmierung und Brute-Force-Versionen)</li>
+<li><code>B</code> <a href="src/algorithms/uncategorized/recursive-staircase">Rekursive Treppe (Recursive Staircase)</a> - Zählen der Anzahl der Wege, die nach oben führen (4 Lösungen)</li>
+<li><code>B</code> <a href="src/algorithms/image-processing/seam-carving">Inhaltsabhängige Bildverzerrung (Seam Carving)</a> - Algorithmus zur inhaltsabhängigen Bildgrößenänderung</li>
+<li><code>A</code> <a href="src/algorithms/string/levenshtein-distance">Levenshtein-Distanz (Levenshtein Distance)</a> - Minimaler Editierabstand zwischen zwei Sequenzen</li>
+<li><code>A</code> <a href="src/algorithms/sets/longest-common-subsequence">Problem der längsten gemeinsamen Teilsequenz (Longest Common Subsequence)</a> (LCS)</li>
+<li><code>A</code> <a href="src/algorithms/string/longest-common-substring">Längstes häufiges Teilzeichenfolgenproblem (Longest Common Substring)</a></li>
+<li><code>A</code> <a href="src/algorithms/sets/longest-increasing-subsequence">Längste gemeinsame Teilsequenz (Longest Increasing Subsequence)</a></li>
+<li><code>A</code> <a href="src/algorithms/sets/shortest-common-supersequence">Der kürzeste gemeinsame String (Shortest Common Supersequence)</a></li>
+<li><code>A</code> <a href="src/algorithms/sets/knapsack-problem">Rucksackproblem (0/1 Knapsack Problem)</a></li>
+<li><code>A</code> <a href="src/algorithms/math/integer-partition">Ganzzahlige Partitionierung (Integer Partition)</a></li>
+<li><code>A</code> <a href="src/algorithms/sets/maximum-subarray">Das Maximum-Subarray Problem (Maximum Subarray)</a></li>
+<li><code>A</code> <a href="src/algorithms/graph/bellman-ford">Bellman-Ford-Algorithmus (Bellman-Ford Algorithm)</a> - Finden der kürzesten Wege zu allen Knoten des Graphen von einem einzelnen Knotenpunkt aus</li>
+<li><code>A</code> <a href="src/algorithms/graph/floyd-warshall">Algorithmus von Floyd und Warshall (Floyd-Warshall Algorithm)</a> - Die kürzesten Wege zwischen allen Knotenpaaren finden</li>
+<li><code>A</code> <a href="src/algorithms/string/regular-expression-matching">Regulärer Ausdruck (Regular Expression Matching)</a></li>
+</ul></li>
+<li><strong>Zurückverfolgung</strong> - Ähnlich wie bei Brute-Force versuchen Sie, alle möglichen Lösungen zu generieren, aber jedes Mal, wenn Sie die nächste Lösung generieren, testen Sie, ob sie alle Bedingungen erfüllt, und fahren erst dann mit der Generierung weiterer Lösungen fort. Andernfalls gehen Sie zurück und nehmen einen anderen Weg, um eine Lösung zu finden. Normalerweise wird das DFS-Traversal des Zustandsraums verwendet.
+<ul>
+<li><code>B</code> <a href="src/algorithms/uncategorized/jump-game">Jump Game (Jump Game)</a></li>
+<li><code>B</code> <a href="src/algorithms/uncategorized/unique-paths">Eindeutige Pfade (Unique Paths)</a></li>
+<li><code>A</code> <a href="src/algorithms/sets/power-set">Potenzmenge (Power Set)</a> - Alle Teilmengen einer Menge</li>
+<li><code>A</code> <a href="src/algorithms/graph/hamiltonian-cycle">Hamiltonkreisproblem (Hamiltonian Cycle)</a> - Jeden Eckpunkt genau einmal durchlaufen.</li>
+<li><code>A</code> <a href="src/algorithms/uncategorized/n-queens">Damenproblem (N-Queens Problem)</a></li>
+<li><code>A</code> <a href="src/algorithms/uncategorized/knight-tour">Springerproblem (Knight’s Tour)</a></li>
+<li><code>A</code> <a href="src/algorithms/sets/combination-sum">Kombinationssumme (Combination Sum)</a> - Alle Kombinationen finden, die eine bestimmte Summe bilden</li>
+</ul></li>
+<li><strong>Verzweigung &amp; Bindung</strong> - Merkt sich die Lösung mit den niedrigsten Kosten, die in jeder Phase der Backtracking-Suche gefunden wurde, und verwendet die Kosten der bisher gefundenen Lösung mit den niedrigsten Kosten als untere Schranke für die Kosten einer Lösung des Problems mit den geringsten Kosten, um Teillösungen zu verwerfen, deren Kosten größer sind als die der bisher gefundenen Lösung mit den niedrigsten Kosten. Normalerweise wird das BFS-Traversal in Kombination mit dem DFS-Traversal des Zustandsraumbaums verwendet.</li>
+</ul>
+<h2 id="so-verwendest-du-dieses-repository">So verwendest du dieses Repository</h2>
+<p><strong>Alle Abhängigkeiten installieren</strong></p>
+<pre><code>npm install</code></pre>
+<p><strong>ESLint ausführen</strong></p>
+<p>You may want to run it to check code quality.</p>
+<pre><code>npm run lint</code></pre>
+<p><strong>Alle Tests ausführen</strong></p>
+<pre><code>npm test</code></pre>
+<p><strong>Tests nach Namen ausführen</strong></p>
+<pre><code>npm test -- &#39;LinkedList&#39;</code></pre>
+<p><strong>Fehlerbehebung</strong></p>
+<p>Falls das Linting oder Testen fehlschlägt, versuche, den Ordner “node_modules” zu löschen und die npm-Pakete neu zu installieren:</p>
+<pre><code>rm -rf ./node_modules
+npm i</code></pre>
+<p><strong>Spielwiese</strong></p>
+<p>Du kannst mit Datenstrukturen und Algorithmen in der Datei <code>./src/playground/playground.js</code> herumspielen und dir in dieser Datei Tests schreiben <code>./src/playground/__test__/playground.test.js</code>.</p>
+<p>Dann führe einfach folgenden Befehl aus, um zu testen, ob dein Spielwiesencode wie erwartet funktioniert:</p>
+<pre><code>npm test -- &#39;playground&#39;</code></pre>
+<h2 id="nützliche-informationen">Nützliche Informationen</h2>
+<h3 id="referenzen">Referenzen</h3>
+<p><a href="https://www.youtube.com/playlist?list=PLLXdhg_r2hKA7DPDsunoDZ-Z769jWn4R8">▶ Datenstrukturen und Algorithmen auf YouTube(Englisch)</a></p>
+<h3 id="o-notation-big-o-notation">O-Notation (<em>Big O Notation</em>)</h3>
+<p>Die O-Notation wird verwendet, um Algorithmen danach zu klassifizieren, wie ihre Laufzeit oder ihr Platzbedarf mit zunehmender Eingabegröße wächst. In der folgenden Tabelle finden Sie die häufigsten Wachstumsordnungen von Algorithmen, die in Big-O-Notation angegeben sind.</p>
+<figure>
+<img src="./assets/big-o-graph.png" alt="O-Notation Graphen" /><figcaption>O-Notation Graphen</figcaption>
+</figure>
+<p>Quelle: <a href="http://bigocheatsheet.com/">Big O Cheat Sheet</a>.</p>
+<p>Nachfolgend finden Sie eine Liste einiger der am häufigsten verwendeten Big O-Notationen und deren Leistungsvergleiche für unterschiedliche Größen der Eingabedaten.</p>
+<table>
+<colgroup>
+<col style="width: 13%" />
+<col style="width: 27%" />
+<col style="width: 28%" />
+<col style="width: 29%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Big O Notation</th>
+<th>Berechnungen für 10 Elemente</th>
+<th>Berechnungen für 100 Elemente</th>
+<th>Berechnungen für 1000 Elemente</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>O(1)</strong></td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td><strong>O(log N)</strong></td>
+<td>3</td>
+<td>6</td>
+<td>9</td>
+</tr>
+<tr class="odd">
+<td><strong>O(N)</strong></td>
+<td>10</td>
+<td>100</td>
+<td>1000</td>
+</tr>
+<tr class="even">
+<td><strong>O(N log N)</strong></td>
+<td>30</td>
+<td>600</td>
+<td>9000</td>
+</tr>
+<tr class="odd">
+<td><strong>O(N^2)</strong></td>
+<td>100</td>
+<td>10000</td>
+<td>1000000</td>
+</tr>
+<tr class="even">
+<td><strong>O(2^N)</strong></td>
+<td>1024</td>
+<td>1.26e+29</td>
+<td>1.07e+301</td>
+</tr>
+<tr class="odd">
+<td><strong>O(N!)</strong></td>
+<td>3628800</td>
+<td>9.3e+157</td>
+<td>4.02e+2567</td>
+</tr>
+</tbody>
+</table>
+<h3 id="komplexität-von-datenstrukturoperationen">Komplexität von Datenstrukturoperationen</h3>
+<table>
+<colgroup>
+<col style="width: 18%" />
+<col style="width: 9%" />
+<col style="width: 5%" />
+<col style="width: 6%" />
+<col style="width: 6%" />
+<col style="width: 53%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Datenstruktur</th>
+<th style="text-align: center;">Zugriff auf</th>
+<th style="text-align: center;">Suche</th>
+<th style="text-align: center;">Einfügen</th>
+<th style="text-align: center;">Löschung</th>
+<th style="text-align: left;">Kommentare</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Array</strong></td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">n</td>
+<td style="text-align: center;">n</td>
+<td style="text-align: center;">n</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td><strong>Stack</strong></td>
+<td style="text-align: center;">n</td>
+<td style="text-align: center;">n</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td><strong>Queue</strong></td>
+<td style="text-align: center;">n</td>
+<td style="text-align: center;">n</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td><strong>Linked List</strong></td>
+<td style="text-align: center;">n</td>
+<td style="text-align: center;">n</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">n</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td><strong>Hash Table</strong></td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">n</td>
+<td style="text-align: center;">n</td>
+<td style="text-align: center;">n</td>
+<td style="text-align: left;">Im Falle einer perfekten Hash-Funktion wären die Kosten O(1)</td>
+</tr>
+<tr class="even">
+<td><strong>Binary Search Tree</strong></td>
+<td style="text-align: center;">n</td>
+<td style="text-align: center;">n</td>
+<td style="text-align: center;">n</td>
+<td style="text-align: center;">n</td>
+<td style="text-align: left;">Im Falle eines ausgeglichenen Baumes wären die Kosten O(log(n))</td>
+</tr>
+<tr class="odd">
+<td><strong>B-Tree</strong></td>
+<td style="text-align: center;">log(n)</td>
+<td style="text-align: center;">log(n)</td>
+<td style="text-align: center;">log(n)</td>
+<td style="text-align: center;">log(n)</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td><strong>Red-Black Tree</strong></td>
+<td style="text-align: center;">log(n)</td>
+<td style="text-align: center;">log(n)</td>
+<td style="text-align: center;">log(n)</td>
+<td style="text-align: center;">log(n)</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td><strong>AVL Tree</strong></td>
+<td style="text-align: center;">log(n)</td>
+<td style="text-align: center;">log(n)</td>
+<td style="text-align: center;">log(n)</td>
+<td style="text-align: center;">log(n)</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td><strong>Bloom Filter</strong></td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: left;">Falschpostive sind bei der Suche möglichen</td>
+</tr>
+</tbody>
+</table>
+<h3 id="komplexität-von-array-sortieralgorithmen">Komplexität von Array-Sortieralgorithmen</h3>
+<table>
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 7%" />
+<col style="width: 13%" />
+<col style="width: 15%" />
+<col style="width: 4%" />
+<col style="width: 3%" />
+<col style="width: 43%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Name</th>
+<th style="text-align: center;">Bester</th>
+<th style="text-align: center;">Durchschnitt</th>
+<th style="text-align: center;">Schlechtester</th>
+<th style="text-align: center;">Speicher</th>
+<th style="text-align: center;">Stabil</th>
+<th style="text-align: left;">Kommentar</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Bubble sort</strong></td>
+<td style="text-align: center;">n</td>
+<td style="text-align: center;">n<sup>2</sup></td>
+<td style="text-align: center;">n<sup>2</sup></td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">JA</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td><strong>Insertion sort</strong></td>
+<td style="text-align: center;">n</td>
+<td style="text-align: center;">n<sup>2</sup></td>
+<td style="text-align: center;">n<sup>2</sup></td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">Ja</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td><strong>Selection sort</strong></td>
+<td style="text-align: center;">n<sup>2</sup></td>
+<td style="text-align: center;">n<sup>2</sup></td>
+<td style="text-align: center;">n<sup>2</sup></td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">Nein</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td><strong>Heap sort</strong></td>
+<td style="text-align: center;">n log(n)</td>
+<td style="text-align: center;">n log(n)</td>
+<td style="text-align: center;">n log(n)</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">Nein</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td><strong>Merge sort</strong></td>
+<td style="text-align: center;">n log(n)</td>
+<td style="text-align: center;">n log(n)</td>
+<td style="text-align: center;">n log(n)</td>
+<td style="text-align: center;">n</td>
+<td style="text-align: center;">Ja</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td><strong>Quick sort</strong></td>
+<td style="text-align: center;">n log(n)</td>
+<td style="text-align: center;">n log(n)</td>
+<td style="text-align: center;">n<sup>2</sup></td>
+<td style="text-align: center;">log(n)</td>
+<td style="text-align: center;">Nein</td>
+<td style="text-align: left;">Quicksort wird normalerweise in-place mit O(log(n)) Stapelplatz ausgeführt</td>
+</tr>
+<tr class="odd">
+<td><strong>Shell sort</strong></td>
+<td style="text-align: center;">n log(n)</td>
+<td style="text-align: center;">abhängig von Spaltfolge</td>
+<td style="text-align: center;">n (log(n))<sup>2</sup></td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">Nein</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td><strong>Counting sort</strong></td>
+<td style="text-align: center;">n + r</td>
+<td style="text-align: center;">n + r</td>
+<td style="text-align: center;">n + r</td>
+<td style="text-align: center;">n + r</td>
+<td style="text-align: center;">Ja</td>
+<td style="text-align: left;">r - größte Zahl im Array</td>
+</tr>
+<tr class="odd">
+<td><strong>Radix sort</strong></td>
+<td style="text-align: center;">n * k</td>
+<td style="text-align: center;">n * k</td>
+<td style="text-align: center;">n * k</td>
+<td style="text-align: center;">n + k</td>
+<td style="text-align: center;">Ja</td>
+<td style="text-align: left;">k - Länge des längsten Schlüssels</td>
+</tr>
+</tbody>
+</table>
+<h2 id="projekt-unterstützer">Projekt-Unterstützer</h2>
+<blockquote>
+<p>Du kannst dieses Projekt unterstützen über ❤️️ <a href="https://github.com/sponsors/trekhleb">GitHub</a> or ❤️️ <a href="https://www.patreon.com/trekhleb">Patreon</a>.</p>
+</blockquote>
+<p><a href="https://github.com/trekhleb/javascript-algorithms/blob/master/BACKERS.md">Leute, die dieses Projekt unterstützen</a> <code>∑ = 0</code></p>
+<blockquote>
+<p>ℹ️ A few more <a href="https://trekhleb.dev/projects/">projects</a> and <a href="https://trekhleb.dev/blog/">articles</a> about JavaScript and algorithms on <a href="https://trekhleb.dev">trekhleb.dev</a></p>
+</blockquote>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>README</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+</head>
+<body>
+<p>Circular Linked List Aim To implement Circular Linked List data structure in Python.</p>
+<p>Purpose The purpose is to create an alternative data structure to array.</p>
+<p>Short description of script A circular linked list is a sequence of individual data elements called Nodes, which are connected via links. Each data element contains a connection to another data element in the form of a pointer A circular linked lists differs from a singly linked list because instead of the last node pointing to a null value, it instead points back to the head node.</p>
+<p>Data Structure Average Insert Average Delete Average Search Worst Insert Worst Delete Worst Search Circular Linked List O(1) O(1) O(n) O(1) O(1) O(n)</p>
+<p>Workflow of the Project This script contains a class named Circular linked list. The Circular Linked List class contains, Class, _Node: Used to store data. Methods, traverse(), insert_end(), insert_beg(), insert_mid(), delete_beg(), delete_end(), delete_mid(), list_size(), get_prev_node(), reverse(), split_list(), split_list_2().</p>
+<p>Setup instructions Import the script by,</p>
+<p>from circular_linked_list import * OR</p>
+<p>import circular_linked_list After import create an instance of Circular Linked List.</p>
+<p>var = CircularLinkedList() OR</p>
+<p>var = circular_linked_list.CircularLinkedList()</p>
+<p>Sample Output After Insertion</p>
+<hr />
+<p>100 90 50 60 70 After Mid Insertion</p>
+<hr />
+<p>100 90 50 60 70 20 Before Reversal, and after deletion</p>
+<hr />
+<p>90 50 60 70 After Reversal</p>
+<hr />
+<p>70 60 50 90 After Mid Deletion</p>
+<hr />
+<p>70 60 90 List One</p>
+<hr />
+<p>70 List Two</p>
+<hr />
+<p>90 60</p>
+<p>Author Vishva Rana</p>
+</body>
+</html>

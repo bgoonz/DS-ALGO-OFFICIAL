@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>dtw-w-comments</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+</head>
+<body>
+<h1 id="dtw.js">DTW.js</h1>
+<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">var</span> debug <span class="op">=</span> <span class="at">require</span>(<span class="st">&quot;debug&quot;</span>)(<span class="st">&quot;dtw&quot;</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-2" title="2"><span class="kw">var</span> validate <span class="op">=</span> <span class="at">require</span>(<span class="st">&quot;./validate&quot;</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-3" title="3"><span class="kw">var</span> matrix <span class="op">=</span> <span class="at">require</span>(<span class="st">&quot;./matrix&quot;</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-4" title="4"><span class="kw">var</span> comparison <span class="op">=</span> <span class="at">require</span>(<span class="st">&quot;./comparison&quot;</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-5" title="5"></a>
+<a class="sourceLine" id="cb1-6" title="6"><span class="kw">function</span> <span class="at">validateOptions</span>(options) <span class="op">{</span></a>
+<a class="sourceLine" id="cb1-7" title="7">  <span class="cf">if</span> (<span class="kw">typeof</span> options <span class="op">!==</span> <span class="st">&quot;object&quot;</span>) <span class="op">{</span></a>
+<a class="sourceLine" id="cb1-8" title="8">    <span class="cf">throw</span> <span class="kw">new</span> <span class="at">TypeError</span>(<span class="st">&quot;Invalid options type: expected an object&quot;</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-9" title="9">  <span class="op">}</span> <span class="cf">else</span> <span class="cf">if</span> (</a>
+<a class="sourceLine" id="cb1-10" title="10">    <span class="kw">typeof</span> <span class="va">options</span>.<span class="at">distanceMetric</span> <span class="op">!==</span> <span class="st">&quot;string&quot;</span> <span class="op">&amp;&amp;</span></a>
+<a class="sourceLine" id="cb1-11" title="11">    <span class="kw">typeof</span> <span class="va">options</span>.<span class="at">distanceFunction</span> <span class="op">!==</span> <span class="st">&quot;function&quot;</span></a>
+<a class="sourceLine" id="cb1-12" title="12">  ) <span class="op">{</span></a>
+<a class="sourceLine" id="cb1-13" title="13">    <span class="cf">throw</span> <span class="kw">new</span> <span class="at">TypeError</span>(</a>
+<a class="sourceLine" id="cb1-14" title="14">      <span class="st">&quot;Invalid distance types: expected a string distance type or a distance function&quot;</span></a>
+<a class="sourceLine" id="cb1-15" title="15">    )<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-16" title="16">  <span class="op">}</span> <span class="cf">else</span> <span class="cf">if</span> (</a>
+<a class="sourceLine" id="cb1-17" title="17">    <span class="kw">typeof</span> <span class="va">options</span>.<span class="at">distanceMetric</span> <span class="op">===</span> <span class="st">&quot;string&quot;</span> <span class="op">&amp;&amp;</span></a>
+<a class="sourceLine" id="cb1-18" title="18">    <span class="kw">typeof</span> <span class="va">options</span>.<span class="at">distanceFunction</span> <span class="op">===</span> <span class="st">&quot;function&quot;</span></a>
+<a class="sourceLine" id="cb1-19" title="19">  ) <span class="op">{</span></a>
+<a class="sourceLine" id="cb1-20" title="20">    <span class="cf">throw</span> <span class="kw">new</span> <span class="at">Error</span>(</a>
+<a class="sourceLine" id="cb1-21" title="21">      <span class="st">&quot;Invalid parameters: provide either a distance metric or function but not both&quot;</span></a>
+<a class="sourceLine" id="cb1-22" title="22">    )<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-23" title="23">  <span class="op">}</span></a>
+<a class="sourceLine" id="cb1-24" title="24"></a>
+<a class="sourceLine" id="cb1-25" title="25">  <span class="cf">if</span> (<span class="kw">typeof</span> <span class="va">options</span>.<span class="at">distanceMetric</span> <span class="op">===</span> <span class="st">&quot;string&quot;</span>) <span class="op">{</span></a>
+<a class="sourceLine" id="cb1-26" title="26">    <span class="kw">var</span> normalizedDistanceMetric <span class="op">=</span> <span class="va">options</span>.<span class="va">distanceMetric</span>.<span class="at">toLowerCase</span>()<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-27" title="27">    <span class="cf">if</span> (</a>
+<a class="sourceLine" id="cb1-28" title="28">      normalizedDistanceMetric <span class="op">!==</span> <span class="st">&quot;manhattan&quot;</span> <span class="op">&amp;&amp;</span></a>
+<a class="sourceLine" id="cb1-29" title="29">      normalizedDistanceMetric <span class="op">!==</span> <span class="st">&quot;euclidean&quot;</span> <span class="op">&amp;&amp;</span></a>
+<a class="sourceLine" id="cb1-30" title="30">      normalizedDistanceMetric <span class="op">!==</span> <span class="st">&quot;squaredeuclidean&quot;</span></a>
+<a class="sourceLine" id="cb1-31" title="31">    ) <span class="op">{</span></a>
+<a class="sourceLine" id="cb1-32" title="32">      <span class="cf">throw</span> <span class="kw">new</span> <span class="at">Error</span>(</a>
+<a class="sourceLine" id="cb1-33" title="33">        <span class="st">&quot;Invalid parameter value: Unknown distance metric &#39;&quot;</span> <span class="op">+</span></a>
+<a class="sourceLine" id="cb1-34" title="34">          <span class="va">options</span>.<span class="at">distanceMetric</span> <span class="op">+</span></a>
+<a class="sourceLine" id="cb1-35" title="35">          <span class="st">&quot;&#39;&quot;</span></a>
+<a class="sourceLine" id="cb1-36" title="36">      )<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-37" title="37">    <span class="op">}</span></a>
+<a class="sourceLine" id="cb1-38" title="38">  <span class="op">}</span></a>
+<a class="sourceLine" id="cb1-39" title="39"><span class="op">}</span></a>
+<a class="sourceLine" id="cb1-40" title="40"></a>
+<a class="sourceLine" id="cb1-41" title="41"><span class="kw">function</span> <span class="at">retrieveDistanceFunction</span>(distanceMetric) <span class="op">{</span></a>
+<a class="sourceLine" id="cb1-42" title="42">  <span class="kw">var</span> normalizedDistanceMetric <span class="op">=</span> <span class="va">distanceMetric</span>.<span class="at">toLowerCase</span>()<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-43" title="43">  <span class="kw">var</span> distanceFunction <span class="op">=</span> <span class="kw">null</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb1-44" title="44">  <span class="cf">if</span> (normalizedDistanceMetric <span class="op">===</span> <span class="st">&quot;manhattan&quot;</span>) <span class="op">{</span></a>
+<a class="sourceLine" id="cb1-45" title="45">    distanceFunction <span class="op">=</span> <span class="at">require</span>(<span class="st">&quot;./distanceFunctions/manhattan&quot;</span>).<span class="at">distance</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb1-46" title="46">  <span class="op">}</span> <span class="cf">else</span> <span class="cf">if</span> (normalizedDistanceMetric <span class="op">===</span> <span class="st">&quot;euclidean&quot;</span>) <span class="op">{</span></a>
+<a class="sourceLine" id="cb1-47" title="47">    distanceFunction <span class="op">=</span> <span class="at">require</span>(<span class="st">&quot;./distanceFunctions/euclidean&quot;</span>).<span class="at">distance</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb1-48" title="48">  <span class="op">}</span> <span class="cf">else</span> <span class="cf">if</span> (normalizedDistanceMetric <span class="op">===</span> <span class="st">&quot;squaredeuclidean&quot;</span>) <span class="op">{</span></a>
+<a class="sourceLine" id="cb1-49" title="49">    distanceFunction <span class="op">=</span> <span class="at">require</span>(<span class="st">&quot;./distanceFunctions/squaredEuclidean&quot;</span>).<span class="at">distance</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb1-50" title="50">  <span class="op">}</span></a>
+<a class="sourceLine" id="cb1-51" title="51"></a>
+<a class="sourceLine" id="cb1-52" title="52">  <span class="cf">return</span> distanceFunction<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-53" title="53"><span class="op">}</span></a>
+<a class="sourceLine" id="cb1-54" title="54"></a>
+<a class="sourceLine" id="cb1-55" title="55"><span class="co">/**</span></a>
+<a class="sourceLine" id="cb1-56" title="56"><span class="co"> * Create a DTWOptions object</span></a>
+<a class="sourceLine" id="cb1-57" title="57"><span class="co"> * </span><span class="an">@class</span><span class="co"> </span><span class="cv">DTWOptions</span></a>
+<a class="sourceLine" id="cb1-58" title="58"><span class="co"> * </span><span class="an">@member</span><span class="co"> {string} distanceMetric The distance metric to use: `&#39;manhattan&#39; | &#39;euclidean&#39; | &#39;squaredEuclidean&#39;`.</span></a>
+<a class="sourceLine" id="cb1-59" title="59"><span class="co"> * </span><span class="an">@member</span><span class="co"> {function} distanceFunction The distance function to use. The function should accept two numeric arguments and return the numeric distance. e.g. function (a, b) { return a + b; }</span></a>
+<a class="sourceLine" id="cb1-60" title="60"><span class="co"> */</span></a>
+<a class="sourceLine" id="cb1-61" title="61"></a>
+<a class="sourceLine" id="cb1-62" title="62"><span class="co">/**</span></a>
+<a class="sourceLine" id="cb1-63" title="63"><span class="co"> * Create a DTW object</span></a>
+<a class="sourceLine" id="cb1-64" title="64"><span class="co"> * </span><span class="an">@class</span><span class="co"> </span><span class="cv">DTW</span></a>
+<a class="sourceLine" id="cb1-65" title="65"><span class="co"> */</span></a>
+<a class="sourceLine" id="cb1-66" title="66"><span class="co">/**</span></a>
+<a class="sourceLine" id="cb1-67" title="67"><span class="co"> * Initializes a new instance of the `DTW`. If no options are provided the squared euclidean distance function is used.</span></a>
+<a class="sourceLine" id="cb1-68" title="68"><span class="co"> * </span><span class="an">@function</span><span class="co"> DTW</span></a>
+<a class="sourceLine" id="cb1-69" title="69"><span class="co"> * </span><span class="an">@param</span><span class="co"> </span><span class="cv">{DTWOptions}</span><span class="co"> [options] The options to initialize the dynamic time warping instance with.</span></a>
+<a class="sourceLine" id="cb1-70" title="70"><span class="co"> */</span></a>
+<a class="sourceLine" id="cb1-71" title="71"><span class="co">/**</span></a>
+<a class="sourceLine" id="cb1-72" title="72"><span class="co"> * Computes the optimal match between two provided sequences.</span></a>
+<a class="sourceLine" id="cb1-73" title="73"><span class="co"> * </span><span class="an">@method</span><span class="co"> compute</span></a>
+<a class="sourceLine" id="cb1-74" title="74"><span class="co"> * </span><span class="an">@param</span><span class="co"> </span><span class="cv">{number</span><span class="co">[]} firstSequence The first sequence.</span></a>
+<a class="sourceLine" id="cb1-75" title="75"><span class="co"> * </span><span class="an">@param</span><span class="co"> </span><span class="cv">{number</span><span class="co">[]} secondSequence The second sequence.</span></a>
+<a class="sourceLine" id="cb1-76" title="76"><span class="co"> * </span><span class="an">@param</span><span class="co"> </span><span class="cv">{number}</span><span class="co"> [window] The window parameter (for the locality constraint) to use.</span></a>
+<a class="sourceLine" id="cb1-77" title="77"><span class="co"> * </span><span class="an">@returns</span><span class="co"> {number} The similarity between the provided temporal sequences.</span></a>
+<a class="sourceLine" id="cb1-78" title="78"><span class="co"> */</span></a>
+<a class="sourceLine" id="cb1-79" title="79"><span class="co">/**</span></a>
+<a class="sourceLine" id="cb1-80" title="80"><span class="co"> * Retrieves the optimal match between two provided sequences.</span></a>
+<a class="sourceLine" id="cb1-81" title="81"><span class="co"> * </span><span class="an">@method</span><span class="co"> path</span></a>
+<a class="sourceLine" id="cb1-82" title="82"><span class="co"> * </span><span class="an">@returns</span><span class="co"> {number[]} The array containing the optimal path points.</span></a>
+<a class="sourceLine" id="cb1-83" title="83"><span class="co"> */</span></a>
+<a class="sourceLine" id="cb1-84" title="84"><span class="kw">var</span> DTW <span class="op">=</span> <span class="kw">function</span> (options) <span class="op">{</span></a>
+<a class="sourceLine" id="cb1-85" title="85">  <span class="kw">var</span> state <span class="op">=</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb1-86" title="86">    <span class="dt">distanceCostMatrix</span><span class="op">:</span> <span class="kw">null</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb1-87" title="87">  <span class="op">};</span></a>
+<a class="sourceLine" id="cb1-88" title="88">  <span class="cf">if</span> (<span class="kw">typeof</span> options <span class="op">===</span> <span class="st">&quot;undefined&quot;</span>) <span class="op">{</span></a>
+<a class="sourceLine" id="cb1-89" title="89">    <span class="va">state</span>.<span class="at">distance</span> <span class="op">=</span> <span class="at">require</span>(<span class="st">&quot;./distanceFunctions/squaredEuclidean&quot;</span>).<span class="at">distance</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb1-90" title="90">  <span class="op">}</span> <span class="cf">else</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb1-91" title="91">    <span class="at">validateOptions</span>(options)<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-92" title="92">    <span class="cf">if</span> (<span class="kw">typeof</span> <span class="va">options</span>.<span class="at">distanceMetric</span> <span class="op">===</span> <span class="st">&quot;string&quot;</span>) <span class="op">{</span></a>
+<a class="sourceLine" id="cb1-93" title="93">      <span class="va">state</span>.<span class="at">distance</span> <span class="op">=</span> <span class="at">retrieveDistanceFunction</span>(<span class="va">options</span>.<span class="at">distanceMetric</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-94" title="94">    <span class="op">}</span> <span class="cf">else</span> <span class="cf">if</span> (<span class="kw">typeof</span> <span class="va">options</span>.<span class="at">distanceFunction</span> <span class="op">===</span> <span class="st">&quot;function&quot;</span>) <span class="op">{</span></a>
+<a class="sourceLine" id="cb1-95" title="95">      <span class="va">state</span>.<span class="at">distance</span> <span class="op">=</span> <span class="va">options</span>.<span class="at">distanceFunction</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb1-96" title="96">    <span class="op">}</span></a>
+<a class="sourceLine" id="cb1-97" title="97">  <span class="op">}</span></a>
+<a class="sourceLine" id="cb1-98" title="98"></a>
+<a class="sourceLine" id="cb1-99" title="99">  <span class="kw">this</span>.<span class="at">compute</span> <span class="op">=</span> <span class="kw">function</span> (firstSequence<span class="op">,</span> secondSequence<span class="op">,</span> window) <span class="op">{</span></a>
+<a class="sourceLine" id="cb1-100" title="100">    <span class="kw">var</span> cost <span class="op">=</span> <span class="va">Number</span>.<span class="at">POSITIVE_INFINITY</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb1-101" title="101">    <span class="cf">if</span> (<span class="kw">typeof</span> window <span class="op">===</span> <span class="st">&quot;undefined&quot;</span>) <span class="op">{</span></a>
+<a class="sourceLine" id="cb1-102" title="102">      cost <span class="op">=</span> <span class="at">computeOptimalPath</span>(firstSequence<span class="op">,</span> secondSequence<span class="op">,</span> state)<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-103" title="103">    <span class="op">}</span> <span class="cf">else</span> <span class="cf">if</span> (<span class="kw">typeof</span> window <span class="op">===</span> <span class="st">&quot;number&quot;</span>) <span class="op">{</span></a>
+<a class="sourceLine" id="cb1-104" title="104">      cost <span class="op">=</span> <span class="at">computeOptimalPathWithWindow</span>(</a>
+<a class="sourceLine" id="cb1-105" title="105">        firstSequence<span class="op">,</span></a>
+<a class="sourceLine" id="cb1-106" title="106">        secondSequence<span class="op">,</span></a>
+<a class="sourceLine" id="cb1-107" title="107">        window<span class="op">,</span></a>
+<a class="sourceLine" id="cb1-108" title="108">        state</a>
+<a class="sourceLine" id="cb1-109" title="109">      )<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-110" title="110">    <span class="op">}</span> <span class="cf">else</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb1-111" title="111">      <span class="cf">throw</span> <span class="kw">new</span> <span class="at">TypeError</span>(<span class="st">&quot;Invalid window parameter type: expected a number&quot;</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-112" title="112">    <span class="op">}</span></a>
+<a class="sourceLine" id="cb1-113" title="113"></a>
+<a class="sourceLine" id="cb1-114" title="114">    <span class="cf">return</span> cost<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-115" title="115">  <span class="op">};</span></a>
+<a class="sourceLine" id="cb1-116" title="116"></a>
+<a class="sourceLine" id="cb1-117" title="117">  <span class="kw">this</span>.<span class="at">path</span> <span class="op">=</span> <span class="kw">function</span> () <span class="op">{</span></a>
+<a class="sourceLine" id="cb1-118" title="118">    <span class="kw">var</span> path <span class="op">=</span> <span class="kw">null</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb1-119" title="119">    <span class="cf">if</span> (<span class="va">state</span>.<span class="at">distanceCostMatrix</span> <span class="kw">instanceof</span> Array) <span class="op">{</span></a>
+<a class="sourceLine" id="cb1-120" title="120">      path <span class="op">=</span> <span class="at">retrieveOptimalPath</span>(state)<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-121" title="121">    <span class="op">}</span></a>
+<a class="sourceLine" id="cb1-122" title="122"></a>
+<a class="sourceLine" id="cb1-123" title="123">    <span class="cf">return</span> path<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-124" title="124">  <span class="op">};</span></a>
+<a class="sourceLine" id="cb1-125" title="125"><span class="op">};</span></a>
+<a class="sourceLine" id="cb1-126" title="126"></a>
+<a class="sourceLine" id="cb1-127" title="127"><span class="kw">function</span> <span class="at">validateComputeParameters</span>(s<span class="op">,</span> t) <span class="op">{</span></a>
+<a class="sourceLine" id="cb1-128" title="128">  <span class="va">validate</span>.<span class="at">sequence</span>(s<span class="op">,</span> <span class="st">&quot;firstSequence&quot;</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-129" title="129">  <span class="va">validate</span>.<span class="at">sequence</span>(t<span class="op">,</span> <span class="st">&quot;secondSequence&quot;</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-130" title="130"><span class="op">}</span></a>
+<a class="sourceLine" id="cb1-131" title="131"></a>
+<a class="sourceLine" id="cb1-132" title="132"><span class="kw">function</span> <span class="at">computeOptimalPath</span>(s<span class="op">,</span> t<span class="op">,</span> state) <span class="op">{</span></a>
+<a class="sourceLine" id="cb1-133" title="133">  <span class="at">debug</span>(<span class="st">&quot;&gt; computeOptimalPath&quot;</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-134" title="134">  <span class="at">validateComputeParameters</span>(s<span class="op">,</span> t)<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-135" title="135">  <span class="kw">var</span> start <span class="op">=</span> <span class="kw">new</span> <span class="at">Date</span>().<span class="at">getTime</span>()<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-136" title="136">  <span class="va">state</span>.<span class="at">m</span> <span class="op">=</span> <span class="va">s</span>.<span class="at">length</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb1-137" title="137">  <span class="va">state</span>.<span class="at">n</span> <span class="op">=</span> <span class="va">t</span>.<span class="at">length</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb1-138" title="138">  <span class="kw">var</span> distanceCostMatrix <span class="op">=</span> <span class="va">matrix</span>.<span class="at">create</span>(</a>
+<a class="sourceLine" id="cb1-139" title="139">    <span class="va">state</span>.<span class="at">m</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb1-140" title="140">    <span class="va">state</span>.<span class="at">n</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb1-141" title="141">    <span class="va">Number</span>.<span class="at">POSITIVE_INFINITY</span></a>
+<a class="sourceLine" id="cb1-142" title="142">  )<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-143" title="143"></a>
+<a class="sourceLine" id="cb1-144" title="144">  distanceCostMatrix[<span class="dv">0</span>][<span class="dv">0</span>] <span class="op">=</span> <span class="va">state</span>.<span class="at">distance</span>(s[<span class="dv">0</span>]<span class="op">,</span> t[<span class="dv">0</span>])<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-145" title="145"></a>
+<a class="sourceLine" id="cb1-146" title="146">  <span class="cf">for</span> (<span class="kw">var</span> rowIndex <span class="op">=</span> <span class="dv">1</span><span class="op">;</span> rowIndex <span class="op">&lt;</span> <span class="va">state</span>.<span class="at">m</span><span class="op">;</span> rowIndex<span class="op">++</span>) <span class="op">{</span></a>
+<a class="sourceLine" id="cb1-147" title="147">    <span class="kw">var</span> cost <span class="op">=</span> <span class="va">state</span>.<span class="at">distance</span>(s[rowIndex]<span class="op">,</span> t[<span class="dv">0</span>])<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-148" title="148">    distanceCostMatrix[rowIndex][<span class="dv">0</span>] <span class="op">=</span></a>
+<a class="sourceLine" id="cb1-149" title="149">      cost <span class="op">+</span> distanceCostMatrix[rowIndex <span class="op">-</span> <span class="dv">1</span>][<span class="dv">0</span>]<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-150" title="150">  <span class="op">}</span></a>
+<a class="sourceLine" id="cb1-151" title="151"></a>
+<a class="sourceLine" id="cb1-152" title="152">  <span class="cf">for</span> (<span class="kw">var</span> columnIndex <span class="op">=</span> <span class="dv">1</span><span class="op">;</span> columnIndex <span class="op">&lt;</span> <span class="va">state</span>.<span class="at">n</span><span class="op">;</span> columnIndex<span class="op">++</span>) <span class="op">{</span></a>
+<a class="sourceLine" id="cb1-153" title="153">    <span class="kw">var</span> cost <span class="op">=</span> <span class="va">state</span>.<span class="at">distance</span>(s[<span class="dv">0</span>]<span class="op">,</span> t[columnIndex])<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-154" title="154">    distanceCostMatrix[<span class="dv">0</span>][columnIndex] <span class="op">=</span></a>
+<a class="sourceLine" id="cb1-155" title="155">      cost <span class="op">+</span> distanceCostMatrix[<span class="dv">0</span>][columnIndex <span class="op">-</span> <span class="dv">1</span>]<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-156" title="156">  <span class="op">}</span></a>
+<a class="sourceLine" id="cb1-157" title="157"></a>
+<a class="sourceLine" id="cb1-158" title="158">  <span class="cf">for</span> (<span class="kw">var</span> rowIndex <span class="op">=</span> <span class="dv">1</span><span class="op">;</span> rowIndex <span class="op">&lt;</span> <span class="va">state</span>.<span class="at">m</span><span class="op">;</span> rowIndex<span class="op">++</span>) <span class="op">{</span></a>
+<a class="sourceLine" id="cb1-159" title="159">    <span class="cf">for</span> (<span class="kw">var</span> columnIndex <span class="op">=</span> <span class="dv">1</span><span class="op">;</span> columnIndex <span class="op">&lt;</span> <span class="va">state</span>.<span class="at">n</span><span class="op">;</span> columnIndex<span class="op">++</span>) <span class="op">{</span></a>
+<a class="sourceLine" id="cb1-160" title="160">      <span class="kw">var</span> cost <span class="op">=</span> <span class="va">state</span>.<span class="at">distance</span>(s[rowIndex]<span class="op">,</span> t[columnIndex])<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-161" title="161">      distanceCostMatrix[rowIndex][columnIndex] <span class="op">=</span></a>
+<a class="sourceLine" id="cb1-162" title="162">        cost <span class="op">+</span></a>
+<a class="sourceLine" id="cb1-163" title="163">        <span class="va">Math</span>.<span class="at">min</span>(</a>
+<a class="sourceLine" id="cb1-164" title="164">          distanceCostMatrix[rowIndex <span class="op">-</span> <span class="dv">1</span>][columnIndex]<span class="op">,</span> <span class="co">// Insertion</span></a>
+<a class="sourceLine" id="cb1-165" title="165">          distanceCostMatrix[rowIndex][columnIndex <span class="op">-</span> <span class="dv">1</span>]<span class="op">,</span> <span class="co">// Deletion</span></a>
+<a class="sourceLine" id="cb1-166" title="166">          distanceCostMatrix[rowIndex <span class="op">-</span> <span class="dv">1</span>][columnIndex <span class="op">-</span> <span class="dv">1</span>]</a>
+<a class="sourceLine" id="cb1-167" title="167">        )<span class="op">;</span> <span class="co">// Match</span></a>
+<a class="sourceLine" id="cb1-168" title="168">    <span class="op">}</span></a>
+<a class="sourceLine" id="cb1-169" title="169">  <span class="op">}</span></a>
+<a class="sourceLine" id="cb1-170" title="170"></a>
+<a class="sourceLine" id="cb1-171" title="171">  <span class="kw">var</span> end <span class="op">=</span> <span class="kw">new</span> <span class="at">Date</span>().<span class="at">getTime</span>()<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-172" title="172">  <span class="kw">var</span> time <span class="op">=</span> end <span class="op">-</span> start<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-173" title="173">  <span class="at">debug</span>(<span class="st">&quot;&lt; computeOptimalPath (&quot;</span> <span class="op">+</span> time <span class="op">+</span> <span class="st">&quot; ms)&quot;</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-174" title="174">  <span class="va">state</span>.<span class="at">distanceCostMatrix</span> <span class="op">=</span> distanceCostMatrix<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-175" title="175">  <span class="va">state</span>.<span class="at">similarity</span> <span class="op">=</span> distanceCostMatrix[<span class="va">state</span>.<span class="at">m</span> <span class="op">-</span> <span class="dv">1</span>][<span class="va">state</span>.<span class="at">n</span> <span class="op">-</span> <span class="dv">1</span>]<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-176" title="176">  <span class="cf">return</span> <span class="va">state</span>.<span class="at">similarity</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb1-177" title="177"><span class="op">}</span></a>
+<a class="sourceLine" id="cb1-178" title="178"></a>
+<a class="sourceLine" id="cb1-179" title="179"><span class="kw">function</span> <span class="at">computeOptimalPathWithWindow</span>(s<span class="op">,</span> t<span class="op">,</span> w<span class="op">,</span> state) <span class="op">{</span></a>
+<a class="sourceLine" id="cb1-180" title="180">  <span class="at">debug</span>(<span class="st">&quot;&gt; computeOptimalPathWithWindow&quot;</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-181" title="181">  <span class="at">validateComputeParameters</span>(s<span class="op">,</span> t)<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-182" title="182">  <span class="kw">var</span> start <span class="op">=</span> <span class="kw">new</span> <span class="at">Date</span>().<span class="at">getTime</span>()<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-183" title="183">  <span class="va">state</span>.<span class="at">m</span> <span class="op">=</span> <span class="va">s</span>.<span class="at">length</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb1-184" title="184">  <span class="va">state</span>.<span class="at">n</span> <span class="op">=</span> <span class="va">t</span>.<span class="at">length</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb1-185" title="185">  <span class="kw">var</span> window <span class="op">=</span> <span class="va">Math</span>.<span class="at">max</span>(w<span class="op">,</span> <span class="va">Math</span>.<span class="at">abs</span>(<span class="va">s</span>.<span class="at">length</span> <span class="op">-</span> <span class="va">t</span>.<span class="at">length</span>))<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-186" title="186">  <span class="kw">var</span> distanceCostMatrix <span class="op">=</span> <span class="va">matrix</span>.<span class="at">create</span>(</a>
+<a class="sourceLine" id="cb1-187" title="187">    <span class="va">state</span>.<span class="at">m</span> <span class="op">+</span> <span class="dv">1</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb1-188" title="188">    <span class="va">state</span>.<span class="at">n</span> <span class="op">+</span> <span class="dv">1</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb1-189" title="189">    <span class="va">Number</span>.<span class="at">POSITIVE_INFINITY</span></a>
+<a class="sourceLine" id="cb1-190" title="190">  )<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-191" title="191">  distanceCostMatrix[<span class="dv">0</span>][<span class="dv">0</span>] <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb1-192" title="192"></a>
+<a class="sourceLine" id="cb1-193" title="193">  <span class="cf">for</span> (<span class="kw">var</span> rowIndex <span class="op">=</span> <span class="dv">1</span><span class="op">;</span> rowIndex <span class="op">&lt;=</span> <span class="va">state</span>.<span class="at">m</span><span class="op">;</span> rowIndex<span class="op">++</span>) <span class="op">{</span></a>
+<a class="sourceLine" id="cb1-194" title="194">    <span class="cf">for</span> (</a>
+<a class="sourceLine" id="cb1-195" title="195">      <span class="kw">var</span> columnIndex <span class="op">=</span> <span class="va">Math</span>.<span class="at">max</span>(<span class="dv">1</span><span class="op">,</span> rowIndex <span class="op">-</span> window)<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-196" title="196">      columnIndex <span class="op">&lt;=</span> <span class="va">Math</span>.<span class="at">min</span>(<span class="va">state</span>.<span class="at">n</span><span class="op">,</span> rowIndex <span class="op">+</span> window)<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-197" title="197">      columnIndex<span class="op">++</span></a>
+<a class="sourceLine" id="cb1-198" title="198">    ) <span class="op">{</span></a>
+<a class="sourceLine" id="cb1-199" title="199">      <span class="kw">var</span> cost <span class="op">=</span> <span class="va">state</span>.<span class="at">distance</span>(s[rowIndex <span class="op">-</span> <span class="dv">1</span>]<span class="op">,</span> t[columnIndex <span class="op">-</span> <span class="dv">1</span>])<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-200" title="200">      distanceCostMatrix[rowIndex][columnIndex] <span class="op">=</span></a>
+<a class="sourceLine" id="cb1-201" title="201">        cost <span class="op">+</span></a>
+<a class="sourceLine" id="cb1-202" title="202">        <span class="va">Math</span>.<span class="at">min</span>(</a>
+<a class="sourceLine" id="cb1-203" title="203">          distanceCostMatrix[rowIndex <span class="op">-</span> <span class="dv">1</span>][columnIndex]<span class="op">,</span> <span class="co">// Insertion</span></a>
+<a class="sourceLine" id="cb1-204" title="204">          distanceCostMatrix[rowIndex][columnIndex <span class="op">-</span> <span class="dv">1</span>]<span class="op">,</span> <span class="co">// Deletion</span></a>
+<a class="sourceLine" id="cb1-205" title="205">          distanceCostMatrix[rowIndex <span class="op">-</span> <span class="dv">1</span>][columnIndex <span class="op">-</span> <span class="dv">1</span>]</a>
+<a class="sourceLine" id="cb1-206" title="206">        )<span class="op">;</span> <span class="co">// Match</span></a>
+<a class="sourceLine" id="cb1-207" title="207">    <span class="op">}</span></a>
+<a class="sourceLine" id="cb1-208" title="208">  <span class="op">}</span></a>
+<a class="sourceLine" id="cb1-209" title="209"></a>
+<a class="sourceLine" id="cb1-210" title="210">  <span class="kw">var</span> end <span class="op">=</span> <span class="kw">new</span> <span class="at">Date</span>().<span class="at">getTime</span>()<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-211" title="211">  <span class="kw">var</span> time <span class="op">=</span> end <span class="op">-</span> start<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-212" title="212">  <span class="at">debug</span>(<span class="st">&quot;&lt; computeOptimalPathWithWindow (&quot;</span> <span class="op">+</span> time <span class="op">+</span> <span class="st">&quot; ms)&quot;</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-213" title="213">  <span class="va">distanceCostMatrix</span>.<span class="at">shift</span>()<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-214" title="214">  distanceCostMatrix <span class="op">=</span> <span class="va">distanceCostMatrix</span>.<span class="at">map</span>(<span class="kw">function</span> (row) <span class="op">{</span></a>
+<a class="sourceLine" id="cb1-215" title="215">    <span class="cf">return</span> <span class="va">row</span>.<span class="at">slice</span>(<span class="dv">1</span><span class="op">,</span> <span class="va">row</span>.<span class="at">length</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-216" title="216">  <span class="op">}</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-217" title="217">  <span class="va">state</span>.<span class="at">distanceCostMatrix</span> <span class="op">=</span> distanceCostMatrix<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-218" title="218">  <span class="va">state</span>.<span class="at">similarity</span> <span class="op">=</span> distanceCostMatrix[<span class="va">state</span>.<span class="at">m</span> <span class="op">-</span> <span class="dv">1</span>][<span class="va">state</span>.<span class="at">n</span> <span class="op">-</span> <span class="dv">1</span>]<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-219" title="219">  <span class="cf">return</span> <span class="va">state</span>.<span class="at">similarity</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb1-220" title="220"><span class="op">}</span></a>
+<a class="sourceLine" id="cb1-221" title="221"></a>
+<a class="sourceLine" id="cb1-222" title="222"><span class="kw">function</span> <span class="at">retrieveOptimalPath</span>(state) <span class="op">{</span></a>
+<a class="sourceLine" id="cb1-223" title="223">  <span class="at">debug</span>(<span class="st">&quot;&gt; retrieveOptimalPath&quot;</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-224" title="224">  <span class="kw">var</span> start <span class="op">=</span> <span class="kw">new</span> <span class="at">Date</span>().<span class="at">getTime</span>()<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-225" title="225"></a>
+<a class="sourceLine" id="cb1-226" title="226">  <span class="kw">var</span> rowIndex <span class="op">=</span> <span class="va">state</span>.<span class="at">m</span> <span class="op">-</span> <span class="dv">1</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb1-227" title="227">  <span class="kw">var</span> columnIndex <span class="op">=</span> <span class="va">state</span>.<span class="at">n</span> <span class="op">-</span> <span class="dv">1</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb1-228" title="228">  <span class="kw">var</span> path <span class="op">=</span> [[rowIndex<span class="op">,</span> columnIndex]]<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-229" title="229">  <span class="kw">var</span> epsilon <span class="op">=</span> <span class="fl">1e-14</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb1-230" title="230">  <span class="cf">while</span> (rowIndex <span class="op">&gt;</span> <span class="dv">0</span> <span class="op">||</span> columnIndex <span class="op">&gt;</span> <span class="dv">0</span>) <span class="op">{</span></a>
+<a class="sourceLine" id="cb1-231" title="231">    <span class="cf">if</span> (rowIndex <span class="op">&gt;</span> <span class="dv">0</span> <span class="op">&amp;&amp;</span> columnIndex <span class="op">&gt;</span> <span class="dv">0</span>) <span class="op">{</span></a>
+<a class="sourceLine" id="cb1-232" title="232">      <span class="kw">var</span> min <span class="op">=</span> <span class="va">Math</span>.<span class="at">min</span>(</a>
+<a class="sourceLine" id="cb1-233" title="233">        <span class="va">state</span>.<span class="at">distanceCostMatrix</span>[rowIndex <span class="op">-</span> <span class="dv">1</span>][columnIndex]<span class="op">,</span> <span class="co">// Insertion</span></a>
+<a class="sourceLine" id="cb1-234" title="234">        <span class="va">state</span>.<span class="at">distanceCostMatrix</span>[rowIndex][columnIndex <span class="op">-</span> <span class="dv">1</span>]<span class="op">,</span> <span class="co">// Deletion</span></a>
+<a class="sourceLine" id="cb1-235" title="235">        <span class="va">state</span>.<span class="at">distanceCostMatrix</span>[rowIndex <span class="op">-</span> <span class="dv">1</span>][columnIndex <span class="op">-</span> <span class="dv">1</span>]</a>
+<a class="sourceLine" id="cb1-236" title="236">      )<span class="op">;</span> <span class="co">// Match</span></a>
+<a class="sourceLine" id="cb1-237" title="237">      <span class="cf">if</span> (</a>
+<a class="sourceLine" id="cb1-238" title="238">        <span class="va">comparison</span>.<span class="at">nearlyEqual</span>(</a>
+<a class="sourceLine" id="cb1-239" title="239">          min<span class="op">,</span></a>
+<a class="sourceLine" id="cb1-240" title="240">          <span class="va">state</span>.<span class="at">distanceCostMatrix</span>[rowIndex <span class="op">-</span> <span class="dv">1</span>][columnIndex <span class="op">-</span> <span class="dv">1</span>]<span class="op">,</span></a>
+<a class="sourceLine" id="cb1-241" title="241">          epsilon</a>
+<a class="sourceLine" id="cb1-242" title="242">        )</a>
+<a class="sourceLine" id="cb1-243" title="243">      ) <span class="op">{</span></a>
+<a class="sourceLine" id="cb1-244" title="244">        rowIndex<span class="op">--;</span></a>
+<a class="sourceLine" id="cb1-245" title="245">        columnIndex<span class="op">--;</span></a>
+<a class="sourceLine" id="cb1-246" title="246">      <span class="op">}</span> <span class="cf">else</span> <span class="cf">if</span> (</a>
+<a class="sourceLine" id="cb1-247" title="247">        <span class="va">comparison</span>.<span class="at">nearlyEqual</span>(</a>
+<a class="sourceLine" id="cb1-248" title="248">          min<span class="op">,</span></a>
+<a class="sourceLine" id="cb1-249" title="249">          <span class="va">state</span>.<span class="at">distanceCostMatrix</span>[rowIndex <span class="op">-</span> <span class="dv">1</span>][columnIndex]<span class="op">,</span></a>
+<a class="sourceLine" id="cb1-250" title="250">          epsilon</a>
+<a class="sourceLine" id="cb1-251" title="251">        )</a>
+<a class="sourceLine" id="cb1-252" title="252">      ) <span class="op">{</span></a>
+<a class="sourceLine" id="cb1-253" title="253">        rowIndex<span class="op">--;</span></a>
+<a class="sourceLine" id="cb1-254" title="254">      <span class="op">}</span> <span class="cf">else</span> <span class="cf">if</span> (</a>
+<a class="sourceLine" id="cb1-255" title="255">        <span class="va">comparison</span>.<span class="at">nearlyEqual</span>(</a>
+<a class="sourceLine" id="cb1-256" title="256">          min<span class="op">,</span></a>
+<a class="sourceLine" id="cb1-257" title="257">          <span class="va">state</span>.<span class="at">distanceCostMatrix</span>[rowIndex][columnIndex <span class="op">-</span> <span class="dv">1</span>]<span class="op">,</span></a>
+<a class="sourceLine" id="cb1-258" title="258">          epsilon</a>
+<a class="sourceLine" id="cb1-259" title="259">        )</a>
+<a class="sourceLine" id="cb1-260" title="260">      ) <span class="op">{</span></a>
+<a class="sourceLine" id="cb1-261" title="261">        columnIndex<span class="op">--;</span></a>
+<a class="sourceLine" id="cb1-262" title="262">      <span class="op">}</span></a>
+<a class="sourceLine" id="cb1-263" title="263">    <span class="op">}</span> <span class="cf">else</span> <span class="cf">if</span> (rowIndex <span class="op">&gt;</span> <span class="dv">0</span> <span class="op">&amp;&amp;</span> columnIndex <span class="op">===</span> <span class="dv">0</span>) <span class="op">{</span></a>
+<a class="sourceLine" id="cb1-264" title="264">      rowIndex<span class="op">--;</span></a>
+<a class="sourceLine" id="cb1-265" title="265">    <span class="op">}</span> <span class="cf">else</span> <span class="cf">if</span> (rowIndex <span class="op">===</span> <span class="dv">0</span> <span class="op">&amp;&amp;</span> columnIndex <span class="op">&gt;</span> <span class="dv">0</span>) <span class="op">{</span></a>
+<a class="sourceLine" id="cb1-266" title="266">      columnIndex<span class="op">--;</span></a>
+<a class="sourceLine" id="cb1-267" title="267">    <span class="op">}</span></a>
+<a class="sourceLine" id="cb1-268" title="268"></a>
+<a class="sourceLine" id="cb1-269" title="269">    <span class="va">path</span>.<span class="at">push</span>([rowIndex<span class="op">,</span> columnIndex])<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-270" title="270">  <span class="op">}</span></a>
+<a class="sourceLine" id="cb1-271" title="271"></a>
+<a class="sourceLine" id="cb1-272" title="272">  <span class="kw">var</span> end <span class="op">=</span> <span class="kw">new</span> <span class="at">Date</span>().<span class="at">getTime</span>()<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-273" title="273">  <span class="kw">var</span> time <span class="op">=</span> end <span class="op">-</span> start<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-274" title="274">  <span class="at">debug</span>(<span class="st">&quot;&lt; retrieveOptimalPath (&quot;</span> <span class="op">+</span> time <span class="op">+</span> <span class="st">&quot; ms)&quot;</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-275" title="275">  <span class="cf">return</span> <span class="va">path</span>.<span class="at">reverse</span>()<span class="op">;</span></a>
+<a class="sourceLine" id="cb1-276" title="276"><span class="op">}</span></a>
+<a class="sourceLine" id="cb1-277" title="277"></a>
+<a class="sourceLine" id="cb1-278" title="278"><span class="va">module</span>.<span class="at">exports</span> <span class="op">=</span> DTW<span class="op">;</span></a></code></pre></div>
+</body>
+</html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Bellman-Ford</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+</head>
+<body>
+<h1 id="bellman-ford">Bellman-Ford</h1>
+<h4 id="problem-statement">Problem Statement</h4>
+<p>Given a weighted directed graph G(V,E) and a source vertex s ∈ V, determine for each vertex v ∈ V the shortest path between s and v.</p>
+<h4 id="approach">Approach</h4>
+<ul>
+<li>Initialize the distance from the source to all vertices as infinite.</li>
+<li>Initialize the distance to itself as 0.</li>
+<li>Create an array dist[] of size |V| with all values as infinite except dist[s].</li>
+<li>Repeat the following |V| - 1 times. Where |V| is number of vertices.</li>
+<li>Create another loop to go through each edge (u, v) in E and do the following:
+<ol type="1">
+<li>dist[v] = minimum(dist[v], dist[u] + weight of edge).</li>
+</ol></li>
+<li>Lastly iterate through all edges on last time to make sure there are no negatively weighted cycles.</li>
+</ul>
+<h4 id="time-complexity">Time Complexity</h4>
+<p>O(VE)</p>
+<h4 id="space-complexity">Space Complexity</h4>
+<p>O(V^2)</p>
+<h4 id="founders-name">Founder’s Name</h4>
+<ul>
+<li>Richard Bellman &amp; Lester Ford, Jr.</li>
+</ul>
+<h4 id="example">Example</h4>
+<pre><code>    # of vertices in graph = 5 [A, B, C, D, E]
+    # of edges in graph = 8
+
+    edges  [A-&gt;B, A-&gt;C, B-&gt;C, B-&gt;D, B-&gt;E, D-&gt;C, D-&gt;B, E-&gt;D]
+    weight [ -1,    4,    3,    2,    2,    5,    1,   -4 ]
+    source [  A,    A,    B,    B,    B,    D,    D,    E ]
+
+
+
+    // edge A-&gt;B
+    graph-&gt;edge[0].src = A
+    graph-&gt;edge[0].dest = B
+    graph-&gt;edge[0].weight = -1
+
+    // edge A-&gt;C
+    graph-&gt;edge[1].src = A
+    graph-&gt;edge[1].dest = C
+    graph-&gt;edge[1].weight = 4
+
+    // edge B-&gt;C
+    graph-&gt;edge[2].src = B
+    graph-&gt;edge[2].dest = C
+    graph-&gt;edge[2].weight = 3
+
+    // edge B-&gt;D
+    graph-&gt;edge[3].src = B
+    graph-&gt;edge[3].dest = D
+    graph-&gt;edge[3].weight = 2
+
+    // edge B-&gt;E
+    graph-&gt;edge[4].src = B
+    graph-&gt;edge[4].dest = E
+    graph-&gt;edge[4].weight = 2
+
+    // edge D-&gt;C
+    graph-&gt;edge[5].src = D
+    graph-&gt;edge[5].dest = C
+    graph-&gt;edge[5].weight = 5
+
+    // edge D-&gt;B
+    graph-&gt;edge[6].src = D
+    graph-&gt;edge[6].dest = B
+    graph-&gt;edge[6].weight = 1
+
+    // edge E-&gt;D
+    graph-&gt;edge[7].src = E
+    graph-&gt;edge[7].dest = D
+    graph-&gt;edge[7].weight = -3
+
+    for source = A
+
+    Vertex   Distance from Source
+    A                0              A-&gt;A
+    B                -1             A-&gt;B
+    C                2              A-&gt;B-&gt;C = -1 + 3
+    D                -2             A-&gt;B-&gt;E-&gt;D = -1 + 2 + -3
+    E                1              A-&gt;B-&gt;E = -1 + 2</code></pre>
+<h4 id="code-implementation-links">Code Implementation Links</h4>
+<ul>
+<li><a href="https://github.com/TheAlgorithms/Java/blob/master/DataStructures/Graphs/BellmanFord.java">Java</a></li>
+<li><a href="https://github.com/TheAlgorithms/C-Plus-Plus/blob/master/Dynamic%20Programming/Bellman-Ford.cpp">C++</a></li>
+<li><a href="https://github.com/TheAlgorithms/Python/blob/master/data_structures/graph/bellman_ford.py">Python</a></li>
+<li><a href="https://github.com/TheAlgorithms/C/blob/master/data_structures/graphs/Bellman-Ford.c">C</a></li>
+</ul>
+<h4 id="video-explanation">Video Explanation</h4>
+<p><a href="https://www.youtube.com/watch?v=hxMWBBCpR6A">A video explaining the Bellman-Ford Algorithm</a></p>
+<h4 id="others">Others</h4>
+<p>Sources Used:</p>
+<ul>
+<li>https://www.geeksforgeeks.org/bellman-ford-algorithm-dp-23/</li>
+<li>https://en.wikipedia.org/wiki/Bellman%E2%80%93Ford_algorithm</li>
+</ul>
+</body>
+</html>

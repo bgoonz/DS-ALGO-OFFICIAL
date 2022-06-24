@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>README</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+</head>
+<body>
+<h1 id="depth-first-search-dfs">Depth First Search (DFS)</h1>
+<h2 id="objective">Objective</h2>
+<ul>
+<li>Learn about one of the more famous graph algorithms</li>
+<li>Learn uses of DFS</li>
+</ul>
+<h2 id="overview">Overview</h2>
+<p>When searching a graph, one of the approaches is called <em>depth first search</em>. This “dives” “down” the graph as far as it can before needing to backtrack and explore another branch.</p>
+<p>The algorithm never attempts to explore a vert that it either has explored or is exploring.</p>
+<p>For example, when starting from the upper left, the numbers on this graph show a vertex visitation order in a DFS:</p>
+<figure>
+<img src="img/dfs-visit-order.png" alt="DFS visit order" /><figcaption>DFS visit order</figcaption>
+</figure>
+<p>The bold lines show with edges were followed. (The thin edges were not followed since their destination nodes had already been visited.)</p>
+<p>(Of course, the exact order will vary depending on which branches get taken first and which vertex is the starting vertex.)</p>
+<h2 id="applications-of-dfs">Applications of DFS</h2>
+<ul>
+<li>Finding <a href="https://en.wikipedia.org/wiki/Minimum_spanning_tree">Minimum Spanning Trees</a> of weighted graphs</li>
+<li>Path finding</li>
+<li>Detecting cycles in graphs</li>
+<li><a href="https://en.wikipedia.org/wiki/Topological_sorting">Topological sorting</a>, useful for scheduling sequences of dependent jobs</li>
+<li>Solving and generating mazes</li>
+</ul>
+<h2 id="coloring-vertexes">Coloring Vertexes</h2>
+<p>As the graph is explored, it’s useful to color verts as you arrive at them and as you leave them behind as “already searched”.</p>
+<p>Commonly, unvisited verts are white, verts whose neighbors are being explored are gray, and verts with no unexplored neighbors are black.</p>
+<h2 id="recursion">Recursion</h2>
+<p>Since we want to pursue leads in the graph as far as we can, and then “back up” to an earlier branch point to explore that way, recursion is a good approach to help “remember” where we left off.</p>
+<p>Looking at it with pseudocode to make the recursion more apparent:</p>
+<pre class="pseudocode"><code>explore(graph) {
+    visit(this_vert);
+    explore(remaining_graph);
+}</code></pre>
+<h2 id="pseudocode-for-dfs">Pseudocode for DFS</h2>
+<pre class="pseudocode"><code>DFS(graph):
+    for v of graph.verts:
+        v.color = white
+        v.parent = null
+
+    for v of graph.verts:
+        if v.color == white:
+            DFS_visit(v)
+
+DFS_visit(v):
+    v.color = gray
+
+    for neighbor of v.adjacent_nodes:
+        if neighbor.color == white:
+            neighbor.parent = v
+            DFS_visit(neighbor)
+
+    v.color = black
+</code></pre>
+<h2 id="exercises">Exercises</h2>
+<ul>
+<li><p>Build a random graph and show a vertex visitation order for DFS.</p></li>
+<li><p>One more for good measure.</p></li>
+</ul>
+</body>
+</html>

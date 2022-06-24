@@ -72,8 +72,11 @@ var hasPathSum = function(root, sum) {
   if (root.left === null &amp;&amp; root.right === null) { return root.val === sum }
   return hasPathSum(root.left, sum - root.val) || hasPathSum(root.right, sum - root.val)
 };</code></pre>
-    <br />
-    <hr />
-    <br />
+    <p>
+      <em
+        >Template generated via
+        <a href="https://github.com/crimx/crx-leetmark">Leetmark</a>.</em
+      >
+    </p>
   </body>
 </html>

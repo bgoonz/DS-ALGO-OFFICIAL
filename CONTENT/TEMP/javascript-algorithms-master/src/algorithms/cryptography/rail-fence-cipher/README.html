@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>README</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+</head>
+<body>
+<h1 id="rail-fence-cipher">Rail Fence Cipher</h1>
+<p>The <strong>rail fence cipher</strong> (also called a <strong>zigzag cipher</strong>) is a <a href="https://en.wikipedia.org/wiki/Transposition_cipher">transposition cipher</a> in which the message is split across a set of rails on a fence for encoding. The fence is populated with the message’s characters, starting at the top left and adding a character on each position, traversing them diagonally to the bottom. Upon reaching the last rail, the direction should then turn diagonal and upwards up to the very first rail in a zig-zag motion. Rinse and repeat until the message is fully disposed across the fence. The encoded message is the result of concatenating the text in each rail, from top to bottom.</p>
+<p>From <a href="https://en.wikipedia.org/wiki/Rail_fence_cipher">wikipedia</a>, this is what the message <code>WE ARE DISCOVERED. FLEE AT ONCE</code> looks like on a <code>3</code>-rail fence:</p>
+<pre><code>W . . . E . . . C . . . R . . . L . . . T . . . E
+. E . R . D . S . O . E . E . F . E . A . O . C .
+. . A . . . I . . . V . . . D . . . E . . . N . .
+-------------------------------------------------
+             WECRLTEERDSOEEFEAOCAIVDEN</code></pre>
+<p>The message can then be decoded by re-creating the encoded fence, with the same traversal pattern, except characters should only be added on one rail at a time. To illustrate that, a dash can be added on the rails that are not supposed to be populated yet. This is what the fence would look like after populating the first rail, the dashes represent positions that were visited but not populated.</p>
+<pre><code>W . . . E . . . C . . . R . . . L . . . T . . . E
+. - . - . - . - . - . - . - . - . - . - . - . - .
+. . - . . . - . . . - . . . - . . . - . . . - . .</code></pre>
+<p>It’s time to start populating the next rail once the number of visited fence positions is equal to the number of characters in the message.</p>
+<h2 id="references">References</h2>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Rail_fence_cipher">Rail Fence Cipher on Wikipedia</a></li>
+<li><a href="https://crypto.interactive-maths.com/rail-fence-cipher.html">Rail Fence Cipher Calculator</a></li>
+</ul>
+</body>
+</html>

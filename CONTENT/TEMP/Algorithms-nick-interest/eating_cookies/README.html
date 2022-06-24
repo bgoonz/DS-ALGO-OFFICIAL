@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>README</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+</head>
+<body>
+<h1 id="eating-cookies">Eating Cookies</h1>
+<p>Cookie Monster can eat either 0, 1, 2, or 3 cookies at a time. If he were given a jar of cookies with <code>n</code> cookies inside of it, how many ways could he eat all <code>n</code> cookies in the cookie jar? Implement a function <code>eating_cookies</code> that counts the number of possible ways Cookie Monster can eat all of the cookies in the jar.</p>
+<p>For example, for a jar of cookies with <code>n = 3</code> (the jar has 3 cookies inside it), there are 4 possible ways for Cookie Monster to eat all the cookies inside it:</p>
+<ol type="1">
+<li>He can eat 1 cookie at a time 3 times</li>
+<li>He can eat 1 cookie, then 2 cookies</li>
+<li>He can eat 2 cookies, then 1 cookie</li>
+<li>He can eat 3 cookies all at once.</li>
+</ol>
+<p>Thus, <code>eating_cookies(3)</code> should return an answer of 4.</p>
+<h2 id="testing">Testing</h2>
+<p>For this problem, there’s a test that tests your implementation with small inputs (n &lt;= 10). There’s also a separate test that tests your implementation with large inputs (n &gt;= 50).</p>
+<p>You’ll find that without implementing performance optimizations into your solution, your solution will likely hang on the large input test.</p>
+<p>To run the tests separately, run <code>python test_eating_cookies.py -k small</code> in order to run just the small input test. Run <code>python test_eating_cookies.py -k large</code> to execute just the large input test. If you want to run both tests, just run <code>python test_eating_cookies.py</code>.</p>
+<p>You can also test your implementation manually by executing <code>python eating_cookies.py [n]</code>.</p>
+<h2 id="hints">Hints</h2>
+<ul>
+<li>Since this question is asking you to generate a bunch of possible permutations, you’ll probably want to use recursion for this.</li>
+<li>Think about base cases that we would want our recursive function to stop recursing on. How many ways are there to eat 0 cookies? What about a negative number of cookies?</li>
+<li>Once we’ve established some base cases, how can we recursively call our function such that we move towards one or more of these base cases?</li>
+<li>As far as performance optimizations go, caching/memoization might be one avenue we could go down? How should we make a cache available to our recursive function through multiple recursive calls?</li>
+</ul>
+</body>
+</html>

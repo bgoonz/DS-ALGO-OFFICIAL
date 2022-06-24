@@ -230,11 +230,11 @@
     <div class="sourceCode" id="cb2">
       <pre
         class="sourceCode javascript"
-      ><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="kw">let</span> a <span class="op">=</span> <span class="kw">new</span> <span class="at">Array</span>()<span class="op">;</span>       <span class="co">// a is [], no problem</span></a>
+      ><code class="sourceCode javascript"><a class="sourceLine" id="cb2-1" title="1"><span class="kw">let</span> a <span class="op">=</span> <span class="kw">new</span> <span class="at">Array</span>()<span class="op">;</span> <span class="co">// a is [], no problem</span></a>
 <a class="sourceLine" id="cb2-2" title="2"></a>
-<a class="sourceLine" id="cb2-3" title="3"><span class="va">a</span>.<span class="at">hasOwnProperty</span>(<span class="st">&#39;slice&#39;</span>)<span class="op">;</span> <span class="co">// FALSE! (why?)</span></a>
+<a class="sourceLine" id="cb2-3" title="3"><span class="va">a</span>.<span class="at">hasOwnProperty</span>(<span class="st">&quot;slice&quot;</span>)<span class="op">;</span> <span class="co">// FALSE! (why?)</span></a>
 <a class="sourceLine" id="cb2-4" title="4"></a>
-<a class="sourceLine" id="cb2-5" title="5"><span class="va">a</span>.<span class="at">slice</span><span class="op">;</span>                   <span class="co">// is [Function: slice]--what? I thought it didn&#39;t have that property!</span></a></code></pre>
+<a class="sourceLine" id="cb2-5" title="5"><span class="va">a</span>.<span class="at">slice</span><span class="op">;</span> <span class="co">// is [Function: slice]--what? I thought it didn&#39;t have that property!</span></a></code></pre>
     </div>
     <p>
       What gives? I asked if it had the property, it said no, and then I asked
@@ -270,9 +270,9 @@
     <div class="sourceCode" id="cb3">
       <pre
         class="sourceCode javascript"
-      ><code class="sourceCode javascript"><a class="sourceLine" id="cb3-1" title="1"><span class="va">Array</span>.<span class="va">prototype</span>.<span class="at">hasOwnProperty</span>(<span class="st">&#39;slice&#39;</span>)<span class="op">;</span>  <span class="co">// TRUE</span></a>
+      ><code class="sourceCode javascript"><a class="sourceLine" id="cb3-1" title="1"><span class="va">Array</span>.<span class="va">prototype</span>.<span class="at">hasOwnProperty</span>(<span class="st">&quot;slice&quot;</span>)<span class="op">;</span> <span class="co">// TRUE</span></a>
 <a class="sourceLine" id="cb3-2" title="2"></a>
-<a class="sourceLine" id="cb3-3" title="3"><span class="va">Array</span>.<span class="va">prototype</span>.<span class="at">slice</span><span class="op">;</span>  <span class="co">// it&#39;s a function: [Function: slice]</span></a></code></pre>
+<a class="sourceLine" id="cb3-3" title="3"><span class="va">Array</span>.<span class="va">prototype</span>.<span class="at">slice</span><span class="op">;</span> <span class="co">// it&#39;s a function: [Function: slice]</span></a></code></pre>
     </div>
     <p>Bingo.</p>
     <p>
@@ -347,7 +347,7 @@
     <div class="sourceCode" id="cb5">
       <pre
         class="sourceCode javascript"
-      ><code class="sourceCode javascript"><a class="sourceLine" id="cb5-1" title="1"><span class="kw">let</span> myObj <span class="op">=</span> <span class="op">{</span><span class="st">&quot;name&quot;</span><span class="op">:</span> <span class="st">&quot;myobject&quot;</span><span class="op">};</span></a>
+      ><code class="sourceCode javascript"><a class="sourceLine" id="cb5-1" title="1"><span class="kw">let</span> myObj <span class="op">=</span> <span class="op">{</span> <span class="dt">name</span><span class="op">:</span> <span class="st">&quot;myobject&quot;</span> <span class="op">};</span></a>
 <a class="sourceLine" id="cb5-2" title="2"></a>
 <a class="sourceLine" id="cb5-3" title="3"><span class="va">myFunction</span>.<span class="at">call</span>(myObj)<span class="op">;</span> <span class="co">// Inside myFunction, this == myObj</span></a></code></pre>
     </div>
@@ -363,21 +363,21 @@
 <a class="sourceLine" id="cb6-6" title="6"></a>
 <a class="sourceLine" id="cb6-7" title="7"><span class="kw">let</span> f <span class="op">=</span> <span class="kw">new</span> <span class="at">Foo</span>()<span class="op">;</span></a>
 <a class="sourceLine" id="cb6-8" title="8"></a>
-<a class="sourceLine" id="cb6-9" title="9"><span class="va">f</span>.<span class="at">printThis</span>()<span class="op">;</span>  <span class="co">// Prints &quot;Foo {}&quot; since f is a Foo object</span></a>
+<a class="sourceLine" id="cb6-9" title="9"><span class="va">f</span>.<span class="at">printThis</span>()<span class="op">;</span> <span class="co">// Prints &quot;Foo {}&quot; since f is a Foo object</span></a>
 <a class="sourceLine" id="cb6-10" title="10"></a>
-<a class="sourceLine" id="cb6-11" title="11"><span class="va">f</span>.<span class="at">hasOwnProperty</span>(<span class="st">&#39;printThis&#39;</span>)<span class="op">;</span> <span class="co">// FALSE--it&#39;s on Foo.prototype</span></a>
+<a class="sourceLine" id="cb6-11" title="11"><span class="va">f</span>.<span class="at">hasOwnProperty</span>(<span class="st">&quot;printThis&quot;</span>)<span class="op">;</span> <span class="co">// FALSE--it&#39;s on Foo.prototype</span></a>
 <a class="sourceLine" id="cb6-12" title="12"></a>
-<a class="sourceLine" id="cb6-13" title="13"><span class="va">Foo</span>.<span class="at">hasOwnProperty</span>(<span class="st">&#39;printThis&#39;</span>)<span class="op">;</span> <span class="co">// FALSE--it&#39;s on Foo.prototype</span></a>
+<a class="sourceLine" id="cb6-13" title="13"><span class="va">Foo</span>.<span class="at">hasOwnProperty</span>(<span class="st">&quot;printThis&quot;</span>)<span class="op">;</span> <span class="co">// FALSE--it&#39;s on Foo.prototype</span></a>
 <a class="sourceLine" id="cb6-14" title="14"></a>
-<a class="sourceLine" id="cb6-15" title="15"><span class="va">Foo</span>.<span class="va">prototype</span>.<span class="at">hasOwnProperty</span>(<span class="st">&#39;printThis&#39;</span>)<span class="op">;</span> <span class="co">// TRUE, there it is</span></a>
+<a class="sourceLine" id="cb6-15" title="15"><span class="va">Foo</span>.<span class="va">prototype</span>.<span class="at">hasOwnProperty</span>(<span class="st">&quot;printThis&quot;</span>)<span class="op">;</span> <span class="co">// TRUE, there it is</span></a>
 <a class="sourceLine" id="cb6-16" title="16"></a>
-<a class="sourceLine" id="cb6-17" title="17"><span class="va">Foo</span>.<span class="va">prototype</span>.<span class="va">printThis</span>.<span class="at">call</span>()<span class="op">;</span>  <span class="co">// Prints &quot;undefined&quot;</span></a>
+<a class="sourceLine" id="cb6-17" title="17"><span class="va">Foo</span>.<span class="va">prototype</span>.<span class="va">printThis</span>.<span class="at">call</span>()<span class="op">;</span> <span class="co">// Prints &quot;undefined&quot;</span></a>
 <a class="sourceLine" id="cb6-18" title="18"></a>
 <a class="sourceLine" id="cb6-19" title="19"><span class="va">Foo</span>.<span class="va">prototype</span>.<span class="va">printThis</span>.<span class="at">call</span>(f)<span class="op">;</span> <span class="co">// Prints &quot;Foo {}&quot; since f is a Foo object</span></a>
 <a class="sourceLine" id="cb6-20" title="20"></a>
 <a class="sourceLine" id="cb6-21" title="21"><span class="co">// that last line is equivalent to:</span></a>
 <a class="sourceLine" id="cb6-22" title="22"></a>
-<a class="sourceLine" id="cb6-23" title="23"><span class="va">f</span>.<span class="at">printThis</span>()<span class="op">;</span>  <span class="co">// Prints &quot;Foo {}&quot; since f is a Foo object</span></a></code></pre>
+<a class="sourceLine" id="cb6-23" title="23"><span class="va">f</span>.<span class="at">printThis</span>()<span class="op">;</span> <span class="co">// Prints &quot;Foo {}&quot; since f is a Foo object</span></a></code></pre>
     </div>
     <p>
       See how <code>printThis</code> is on <code>Foo</code>’s
@@ -400,11 +400,11 @@
       <pre
         class="sourceCode javascript"
       ><code class="sourceCode javascript"><a class="sourceLine" id="cb7-1" title="1"><span class="kw">function</span> <span class="at">Bar</span>() <span class="op">{</span></a>
-<a class="sourceLine" id="cb7-2" title="2">  <span class="va">console</span>.<span class="at">log</span>(<span class="kw">arguments</span>.<span class="at">hasOwnProperty</span>(<span class="st">&#39;slice&#39;</span>))<span class="op">;</span></a>
+<a class="sourceLine" id="cb7-2" title="2">  <span class="va">console</span>.<span class="at">log</span>(<span class="kw">arguments</span>.<span class="at">hasOwnProperty</span>(<span class="st">&quot;slice&quot;</span>))<span class="op">;</span></a>
 <a class="sourceLine" id="cb7-3" title="3">  <span class="va">console</span>.<span class="at">log</span>(<span class="kw">arguments</span>.<span class="at">slice</span>)<span class="op">;</span></a>
 <a class="sourceLine" id="cb7-4" title="4"><span class="op">}</span></a>
 <a class="sourceLine" id="cb7-5" title="5"></a>
-<a class="sourceLine" id="cb7-6" title="6"><span class="at">Bar</span>()<span class="op">;</span>  <span class="co">// Prints &quot;false&quot;, &quot;undefined&quot;. There is no slice.</span></a></code></pre>
+<a class="sourceLine" id="cb7-6" title="6"><span class="at">Bar</span>()<span class="op">;</span> <span class="co">// Prints &quot;false&quot;, &quot;undefined&quot;. There is no slice.</span></a></code></pre>
     </div>
     <p>
       When you call <code>Array.prototype.slice(arguments)</code>, then

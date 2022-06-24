@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>README.ko-KR</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+</head>
+<body>
+<h1 id="링크드-리스트">링크드 리스트</h1>
+<p><em>Read this in other languages:</em> <a href="README.zh-CN.md"><em>简体中文</em></a>, <a href="README.ru-RU.md"><em>Русский</em></a>, <a href="README.ja-JP.md"><em>日本語</em></a>, <a href="README.pt-BR.md"><em>Português</em></a></p>
+<p>컴퓨터과학에서, <strong>링크드 리스트</strong>는 데이터 요소의 선형 집합이며, 이 집합에서 논리적 저장 순서는 메모리의 물리적 저장 순서와 일치하지 않습니다. 그 대신, 각각의 원소들은 자기 자신 다음의 원소를 가리킵니다. <strong>링크드 리스트</strong>는 순서를 표현하는 노드들의 집합으로 이루어져 있습니다. 간단하게, 각각의 노드들은 데이터와 다음 순서의 노드를 가리키는 레퍼런스로 이루어져 있습니다. (링크라고 부릅니다.) 이 자료구조는 순회하는 동안 순서에 상관없이 효율적인 삽입이나 삭제가 가능합니다. 더 복잡한 변형은 추가적인 링크를 더해, 임의의 원소 참조로부터 효율적인 삽입과 삭제를 가능하게 합니다. 링크드 리스트의 단점은 접근 시간이 선형이라는 것이고, 병렬처리도 하지 못합니다. 임의 접근처럼 빠른 접근은 불가능합니다. 링크드 리스트에 비해 배열이 더 나은 캐시 지역성을 가지고 있습니다.</p>
+<figure>
+<img src="https://upload.wikimedia.org/wikipedia/commons/6/6d/Singly-linked-list.svg" alt="링크드 리스트" /><figcaption>링크드 리스트</figcaption>
+</figure>
+<h2 id="기본-연산에-대한-수도코드">기본 연산에 대한 수도코드</h2>
+<h3 id="삽입">삽입</h3>
+<pre class="text"><code>Add(value)
+  Pre: 리스트에 추가할 값
+  Post: 리스트의 맨 마지막에 있는 값
+  n ← node(value)
+  if head = ø
+    head ← n
+    tail ← n
+  else
+    tail.next ← n
+    tail ← n
+  end if
+end Add</code></pre>
+<pre class="text"><code>Prepend(value)
+ Pre: 리스트에 추가할 값
+ Post: 리스트의 맨 앞에 있는 값
+ n ← node(value)
+ n.next ← head
+ head ← n
+ if tail = ø
+   tail ← n
+ end
+end Prepend</code></pre>
+<h3 id="탐색">탐색</h3>
+<pre class="text"><code>Contains(head, value)
+  Pre: head는 리스트에서 맨 앞 노드
+       value는 찾고자 하는 값
+  Post: 항목이 링크드 리스트에 있으면 true;
+        없으면 false
+  n ← head
+  while n != ø and n.value != value
+    n ← n.next
+  end while
+  if n = ø
+    return false
+  end if
+  return true
+end Contains</code></pre>
+<h3 id="삭제">삭제</h3>
+<pre class="text"><code>Remove(head, value)
+  Pre: head는 리스트에서 맨 앞 노드
+       value는 삭제하고자 하는 값
+  Post: 항목이 링크드 리스트에서 삭제되면 true;
+        없으면 false
+  if head = ø
+    return false
+  end if
+  n ← head
+  if n.value = value
+    if head = tail
+      head ← ø
+      tail ← ø
+    else
+      head ← head.next
+    end if
+    return true
+  end if
+  while n.next != ø and n.next.value != value
+    n ← n.next
+  end while
+  if n.next != ø
+    if n.next = tail
+      tail ← n
+    end if
+    n.next ← n.next.next
+    return true
+  end if
+  return false
+end Remove</code></pre>
+<h3 id="순회">순회</h3>
+<pre class="text"><code>Traverse(head)
+  Pre: head는 리스트에서 맨 앞 노드
+  Post: 순회된 항목들
+  n ← head
+  while n != ø
+    yield n.value
+    n ← n.next
+  end while
+end Traverse</code></pre>
+<h3 id="역순회">역순회</h3>
+<pre class="text"><code>ReverseTraversal(head, tail)
+  Pre: 같은 리스트에 들어 있는 맨 앞, 맨 뒤 노드
+  Post: 역순회된 항목들
+  if tail != ø
+    curr ← tail
+    while curr != head
+      prev ← head
+      while prev.next != curr
+        prev ← prev.next
+      end while
+      yield curr.value
+      curr ← prev
+    end while
+   yield curr.value
+  end if
+end ReverseTraversal</code></pre>
+<h2 id="복잡도">복잡도</h2>
+<h3 id="시간-복잡도">시간 복잡도</h3>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;">접근</th>
+<th style="text-align: center;">탐색</th>
+<th style="text-align: center;">삽입</th>
+<th style="text-align: center;">삭제</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">O(n)</td>
+<td style="text-align: center;">O(n)</td>
+<td style="text-align: center;">O(1)</td>
+<td style="text-align: center;">O(1)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="공간-복잡도">공간 복잡도</h3>
+<p>O(n)</p>
+<h2 id="참조">참조</h2>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Linked_list">Wikipedia</a></li>
+<li><a href="https://www.youtube.com/watch?v=njTh_OwMljA&amp;index=2&amp;t=1s&amp;list=PLLXdhg_r2hKA7DPDsunoDZ-Z769jWn4R8">YouTube</a></li>
+</ul>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>README</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+</head>
+<body>
+<h1 id="caesar-cipher-algorithm">Caesar Cipher Algorithm</h1>
+<p>In cryptography, a <strong>Caesar cipher</strong>, also known as <strong>Caesar’s cipher</strong>, the <strong>shift cipher</strong>, <strong>Caesar’s code</strong> or <strong>Caesar shift</strong>, is one of the simplest and most widely known encryption techniques. It is a type of substitution cipher in which each letter in the plaintext is replaced by a letter some fixed number of positions down the alphabet. For example, with a left shift of <code>3</code>, <code>D</code> would be replaced by <code>A</code>, <code>E</code> would become <code>B</code>, and so on. The method is named after Julius Caesar, who used it in his private correspondence.</p>
+<figure>
+<img src="https://upload.wikimedia.org/wikipedia/commons/4/4a/Caesar_cipher_left_shift_of_3.svg" alt="Caesar Cipher Algorithm" /><figcaption>Caesar Cipher Algorithm</figcaption>
+</figure>
+<h2 id="example">Example</h2>
+<p>The transformation can be represented by aligning two alphabets; the cipher alphabet is the plain alphabet rotated left or right by some number of positions. For instance, here is a Caesar cipher using a left rotation of three places, equivalent to a right shift of 23 (the shift parameter is used as the key):</p>
+<pre class="text"><code>Plain:    ABCDEFGHIJKLMNOPQRSTUVWXYZ
+Cipher:   XYZABCDEFGHIJKLMNOPQRSTUVW</code></pre>
+<p>When encrypting, a person looks up each letter of the message in the “plain” line and writes down the corresponding letter in the “cipher” line.</p>
+<pre class="text"><code>Plaintext:  THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG
+Ciphertext: QEB NRFZH YOLTK CLU GRJMP LSBO QEB IXWV ALD</code></pre>
+<h2 id="complexity">Complexity</h2>
+<ul>
+<li>Time: <code>O(|n|)</code></li>
+<li>Space: <code>O(|n|)</code></li>
+</ul>
+<h2 id="references">References</h2>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Caesar_cipher">Caesar cipher on Wikipedia</a></li>
+</ul>
+</body>
+</html>

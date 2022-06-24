@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>README.fr-FR</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+</head>
+<body>
+<h1 id="algorithme-deuclide">Algorithme d’Euclide</h1>
+<p><em>Read this in other languages:</em> <a href="README.md">english</a>.</p>
+<p>En mathématiques, l’algorithme d’Euclide est un algorithme qui calcule le plus grand commun diviseur (PGCD) de deux entiers, c’est-à-dire le plus grand entier qui divise les deux entiers, en laissant un reste nul. L’algorithme ne connaît pas la factorisation de ces deux nombres.</p>
+<p>Le PGCD de deux entiers relatifs est égal au PGCD de leurs valeurs absolues : de ce fait, on se restreint dans cette section aux entiers positifs. L’algorithme part du constat suivant : le PGCD de deux nombres n’est pas changé si on remplace le plus grand d’entre eux par leur différence. Autrement dit, <code>pgcd(a, b) = pgcd(b, a - b)</code>. Par exemple, le PGCD de <code>252</code> et <code>105</code> vaut <code>21</code> (en effet, <code>252 = 21 × 12</code> and <code>105 = 21 × 5</code>), mais c’est aussi le PGCD de <code>252 - 105 = 147</code> et <code>105</code>. Ainsi, comme le remplacement de ces nombres diminue strictement le plus grand d’entre eux, on peut continuer le processus, jusqu’à obtenir deux nombres égaux.</p>
+<p>En inversant les étapes, le PGCD peut être exprimé comme une somme de les deux nombres originaux, chacun étant multiplié par un entier positif ou négatif, par exemple <code>21 = 5 × 105 + (-2) × 252</code>. Le fait que le PGCD puisse toujours être exprimé de cette manière est connue sous le nom de Théorème de Bachet-Bézout.</p>
+<figure>
+<img src="https://upload.wikimedia.org/wikipedia/commons/3/37/Euclid%27s_algorithm_Book_VII_Proposition_2_3.png" alt="GCD" /><figcaption>GCD</figcaption>
+</figure>
+<p>La Méthode d’Euclide pour trouver le plus grand diviseur commun (PGCD) de deux longueurs de départ<code>BA</code> et <code>DC</code>, toutes deux définies comme étant multiples d’une longueur commune. La longueur <code>DC</code> étant plus courte, elle est utilisée pour « mesurer » <code>BA</code>, mais une seule fois car le reste <code>EA</code> est inférieur à <code>DC</code>. <code>EA</code> mesure maintenant (deux fois) la longueur la plus courte <code>DC</code>, le reste <code>FC</code> étant plus court que <code>EA</code>. Alors <code>FC</code> mesure (trois fois) la longueur <code>EA</code>. Parce qu’il y a pas de reste, le processus se termine par <code>FC</code> étant le « PGCD ». À droite, l’exemple de Nicomaque de Gérase avec les nombres <code>49</code> et <code>21</code> ayan un PGCD de <code>7</code> (dérivé de Heath 1908: 300).</p>
+<figure>
+<img src="https://upload.wikimedia.org/wikipedia/commons/7/74/24x60.svg" alt="GCD" /><figcaption>GCD</figcaption>
+</figure>
+<p>Un de rectangle de dimensions <code>24 par 60</code> peux se carreler en carrés de <code>12 par 12</code>, puisque <code>12</code> est le PGCD ed <code>24</code> et <code>60</code>. De façon générale, un rectangle de dimension <code>a par b</code> peut se carreler en carrés de côté <code>c</code>, seulement si <code>c</code> est un diviseur commun de <code>a</code> et <code>b</code>.</p>
+<figure>
+<img src="https://upload.wikimedia.org/wikipedia/commons/1/1c/Euclidean_algorithm_1071_462.gif" alt="GCD" /><figcaption>GCD</figcaption>
+</figure>
+<p>Animation basée sur la soustraction via l’algorithme euclidien. Le rectangle initial a les dimensions <code>a = 1071</code> et <code>b = 462</code>. Des carrés de taille <code>462 × 462</code> y sont placés en laissant un rectangle de <code>462 × 147</code>. Ce rectangle est carrelé avec des carrés de <code>147 × 147</code> jusqu’à ce qu’un rectangle de <code>21 × 147</code> soit laissé, qui à son tour estcarrelé avec des carrés <code>21 × 21</code>, ne laissant aucune zone non couverte. La plus petite taille carrée, <code>21</code>, est le PGCD de <code>1071</code> et <code>462</code>.</p>
+<h2 id="references">References</h2>
+<p><a href="https://fr.wikipedia.org/wiki/Algorithme_d%27Euclide">Wikipedia</a></p>
+</body>
+</html>
