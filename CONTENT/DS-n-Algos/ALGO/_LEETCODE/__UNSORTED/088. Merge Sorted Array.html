@@ -1,66 +1,35 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="generator" content="pandoc" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0, user-scalable=yes"
-    />
-    <title>088. Merge Sorted Array</title>
-    <style type="text/css">
-      code {
-        white-space: pre-wrap;
-      }
-      span.smallcaps {
-        font-variant: small-caps;
-      }
-      span.underline {
-        text-decoration: underline;
-      }
-      div.column {
-        display: inline-block;
-        vertical-align: top;
-        width: 50%;
-      }
-    </style>
-  </head>
-  <body>
-    <h2 id="merge-sorted-array">
-      <a href="https://leetcode.com/problems/merge-sorted-array/description/"
-        >88. Merge Sorted Array</a
-      >
-    </h2>
-    <h3 id="problem">Problem:</h3>
-    <p>
-      Given two sorted integer arrays <em>nums1</em> and <em>nums2</em>, merge
-      <em>nums2</em> into <em>nums1</em> as one sorted array.
-    </p>
-    <p><strong>Note:</strong></p>
-    <ul>
-      <li>
-        The number of elements initialized in <em>nums1</em> and
-        <em>nums2</em> are <em>m</em> and <em>n</em> respectively.
-      </li>
-      <li>
-        You may assume that <em>nums1</em> has enough space (size that is
-        greater or equal to <em>m</em> + <em>n</em>) to hold additional elements
-        from <em>nums2</em>.
-      </li>
-    </ul>
-    <p><strong>Example:</strong></p>
-    <pre><code>Input:
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>088. Merge Sorted Array</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+</head>
+<body>
+<h2 id="merge-sorted-array"><a href="https://leetcode.com/problems/merge-sorted-array/description/">88. Merge Sorted Array</a></h2>
+<h3 id="problem">Problem:</h3>
+<p>Given two sorted integer arrays <em>nums1</em> and <em>nums2</em>, merge <em>nums2</em> into <em>nums1</em> as one sorted array.</p>
+<p><strong>Note:</strong></p>
+<ul>
+<li>The number of elements initialized in <em>nums1</em> and <em>nums2</em> are <em>m</em> and <em>n</em> respectively.</li>
+<li>You may assume that <em>nums1</em> has enough space (size that is greater or equal to <em>m</em> + <em>n</em>) to hold additional elements from <em>nums2</em>.</li>
+</ul>
+<p><strong>Example:</strong></p>
+<pre><code>Input:
 nums1 = [1,2,3,0,0,0], m = 3
 nums2 = [2,5,6],       n = 3
 
 Output: [1,2,2,3,5,6]</code></pre>
-    <h3 id="solution">Solution:</h3>
-    <p>
-      Loop backward and keep picking the larger one. <code>nums1</code> is
-      guaranteed longer than <code>nums2</code> so just use <code>n</code> as
-      boundary.
-    </p>
-    <pre><code>/**
+<h3 id="solution">Solution:</h3>
+<p>Loop backward and keep picking the larger one. <code>nums1</code> is guaranteed longer than <code>nums2</code> so just use <code>n</code> as boundary.</p>
+<pre><code>/**
  * @param {number[]} nums1
  * @param {number} m
  * @param {number[]} nums2
@@ -73,8 +42,6 @@ var merge = function(nums1, m, nums2, n) {
     nums1[--len] = nums1[m] &gt;= nums2[n] ? nums1[m--] : nums2[n--]
   }
 };</code></pre>
-    <br />
-    <hr />
-    <br />
-  </body>
+<p><em>Template generated via <a href="https://github.com/crimx/crx-leetmark">Leetmark</a>.</em></p>
+</body>
 </html>

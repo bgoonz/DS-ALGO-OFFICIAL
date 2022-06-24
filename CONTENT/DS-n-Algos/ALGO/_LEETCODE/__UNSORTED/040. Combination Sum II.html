@@ -1,56 +1,29 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="generator" content="pandoc" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0, user-scalable=yes"
-    />
-    <title>040. Combination Sum II</title>
-    <style type="text/css">
-      code {
-        white-space: pre-wrap;
-      }
-      span.smallcaps {
-        font-variant: small-caps;
-      }
-      span.underline {
-        text-decoration: underline;
-      }
-      div.column {
-        display: inline-block;
-        vertical-align: top;
-        width: 50%;
-      }
-    </style>
-  </head>
-  <body>
-    <h2 id="combination-sum-ii">
-      <a href="https://leetcode.com/problems/combination-sum-ii/description/"
-        >40. Combination Sum II</a
-      >
-    </h2>
-    <h3 id="problem">Problem:</h3>
-    <p>
-      Given a collection of candidate numbers (<code>candidates</code>) and a
-      target number (<code>target</code>), find all unique combinations in
-      <code>candidates</code> where the candidate numbers sums to
-      <code>target</code>.
-    </p>
-    <p>
-      Each number in <code>candidates</code> may only be used
-      <strong>once</strong> in the combination.
-    </p>
-    <p><strong>Note:</strong></p>
-    <ul>
-      <li>
-        All numbers (including <code>target</code>) will be positive integers.
-      </li>
-      <li>The solution set must not contain duplicate combinations.</li>
-    </ul>
-    <p><strong>Example 1:</strong></p>
-    <pre><code>Input: candidates = [10,1,2,7,6,1,5], target = 8,
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>040. Combination Sum II</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+</head>
+<body>
+<h2 id="combination-sum-ii"><a href="https://leetcode.com/problems/combination-sum-ii/description/">40. Combination Sum II</a></h2>
+<h3 id="problem">Problem:</h3>
+<p>Given a collection of candidate numbers (<code>candidates</code>) and a target number (<code>target</code>), find all unique combinations in <code>candidates</code> where the candidate numbers sums to <code>target</code>.</p>
+<p>Each number in <code>candidates</code> may only be used <strong>once</strong> in the combination.</p>
+<p><strong>Note:</strong></p>
+<ul>
+<li>All numbers (including <code>target</code>) will be positive integers.</li>
+<li>The solution set must not contain duplicate combinations.</li>
+</ul>
+<p><strong>Example 1:</strong></p>
+<pre><code>Input: candidates = [10,1,2,7,6,1,5], target = 8,
 A solution set is:
 [
   [1, 7],
@@ -58,31 +31,20 @@ A solution set is:
   [2, 6],
   [1, 1, 6]
 ]</code></pre>
-    <p><strong>Example 2:</strong></p>
-    <pre><code>Input: candidates = [2,5,2,1,2], target = 5,
+<p><strong>Example 2:</strong></p>
+<pre><code>Input: candidates = [2,5,2,1,2], target = 5,
 A solution set is:
 [
   [1,2,2],
   [5]
 ]</code></pre>
-    <h3 id="solution">Solution:</h3>
-    <p>
-      Mostly the same as
-      <a href="./039.%20Combination%20Sum.md">39. Combination Sum</a>.
-    </p>
-    <p>
-      Now the candidates might have duplicate numbers, so we need to sort it.
-    </p>
-    <p>We can also safely return when number is larger than the target.</p>
-    <p>
-      To prvent duplicate results, stop searching if the current number is same
-      as the last.
-    </p>
-    <p>
-      Notice the number at <code>start</code> is immune by the rule because we
-      assume that the current group of candidates begins at <code>start</code>.
-    </p>
-    <pre><code>/**
+<h3 id="solution">Solution:</h3>
+<p>Mostly the same as <a href="./039.%20Combination%20Sum.md">39. Combination Sum</a>.</p>
+<p>Now the candidates might have duplicate numbers, so we need to sort it.</p>
+<p>We can also safely return when number is larger than the target.</p>
+<p>To prvent duplicate results, stop searching if the current number is same as the last.</p>
+<p>Notice the number at <code>start</code> is immune by the rule because we assume that the current group of candidates begins at <code>start</code>.</p>
+<pre><code>/**
  * @param {number[]} candidates
  * @param {number} target
  * @return {number[][]}
@@ -114,8 +76,6 @@ function dfs (candidates, target, result, path, start) {
 
   return result
 };</code></pre>
-    <br />
-    <hr />
-    <br />
-  </body>
+<p><em>Template generated via <a href="https://github.com/crimx/crx-leetmark">Leetmark</a>.</em></p>
+</body>
 </html>

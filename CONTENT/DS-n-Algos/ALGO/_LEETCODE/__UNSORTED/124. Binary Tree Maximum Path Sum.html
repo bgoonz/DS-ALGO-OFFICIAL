@@ -1,57 +1,32 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="generator" content="pandoc" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0, user-scalable=yes"
-    />
-    <title>124. Binary Tree Maximum Path Sum</title>
-    <style type="text/css">
-      code {
-        white-space: pre-wrap;
-      }
-      span.smallcaps {
-        font-variant: small-caps;
-      }
-      span.underline {
-        text-decoration: underline;
-      }
-      div.column {
-        display: inline-block;
-        vertical-align: top;
-        width: 50%;
-      }
-    </style>
-  </head>
-  <body>
-    <h2 id="binary-tree-maximum-path-sum">
-      <a
-        href="https://leetcode.com/problems/binary-tree-maximum-path-sum/description/"
-        >124. Binary Tree Maximum Path Sum</a
-      >
-    </h2>
-    <h3 id="problem">Problem:</h3>
-    <p>
-      Given a <strong>non-empty</strong> binary tree, find the maximum path sum.
-    </p>
-    <p>
-      For this problem, a path is defined as any sequence of nodes from some
-      starting node to any node in the tree along the parent-child connections.
-      The path must contain <strong>at least one node</strong> and does not need
-      to go through the root.
-    </p>
-    <p><strong>Example 1:</strong></p>
-    <pre><code>Input: [1,2,3]
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>124. Binary Tree Maximum Path Sum</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+</head>
+<body>
+<h2 id="binary-tree-maximum-path-sum"><a href="https://leetcode.com/problems/binary-tree-maximum-path-sum/description/">124. Binary Tree Maximum Path Sum</a></h2>
+<h3 id="problem">Problem:</h3>
+<p>Given a <strong>non-empty</strong> binary tree, find the maximum path sum.</p>
+<p>For this problem, a path is defined as any sequence of nodes from some starting node to any node in the tree along the parent-child connections. The path must contain <strong>at least one node</strong> and does not need to go through the root.</p>
+<p><strong>Example 1:</strong></p>
+<pre><code>Input: [1,2,3]
 
        1
       / \
      2   3
 
 Output: 6</code></pre>
-    <p><strong>Example 2:</strong></p>
-    <pre><code>Input: [-10,9,20,null,null,15,7]
+<p><strong>Example 2:</strong></p>
+<pre><code>Input: [-10,9,20,null,null,15,7]
 
    -10
    / \
@@ -60,51 +35,26 @@ Output: 6</code></pre>
    15   7
 
 Output: 42</code></pre>
-    <h3 id="solution">Solution:</h3>
-    <p>
-      For every <code>node</code>, there are six possible ways to get the max
-      path sum:
-    </p>
-    <ul>
-      <li>
-        With <code>node.val</code>
-        <ol type="1">
-          <li>
-            <code>node.val</code> plus the max sum of a path that ends with
-            <code>node.left</code>.
-          </li>
-          <li>
-            <code>node.val</code> plus the max sum of a path that starts with
-            <code>node.right</code>.
-          </li>
-          <li><code>node.val</code> plus the max sum of both paths.</li>
-          <li>
-            Just <code>node.val</code> (the max sum of both paths are negative).
-          </li>
-        </ol>
-      </li>
-      <li>
-        Without<code>node.val</code> (disconnected)
-        <ol type="1">
-          <li>
-            The max-sum path is somewhere under the
-            <code>node.left</code> subtree.
-          </li>
-          <li>
-            The max-sum path is somewhere under the
-            <code>node.right</code> subtree.
-          </li>
-        </ol>
-      </li>
-    </ul>
-    <p>There are two ways to implement this.</p>
-    <h4 id="one">ONE</h4>
-    <p>
-      Define a function that returns two values. The max sum of a path that may
-      or may not end with <code>root</code> node, and the max sum of the path
-      that ends with <code>root</code> node.
-    </p>
-    <pre><code>/**
+<h3 id="solution">Solution:</h3>
+<p>For every <code>node</code>, there are six possible ways to get the max path sum:</p>
+<ul>
+<li>With <code>node.val</code>
+<ol type="1">
+<li><code>node.val</code> plus the max sum of a path that ends with <code>node.left</code>.</li>
+<li><code>node.val</code> plus the max sum of a path that starts with <code>node.right</code>.</li>
+<li><code>node.val</code> plus the max sum of both paths.</li>
+<li>Just <code>node.val</code> (the max sum of both paths are negative).</li>
+</ol></li>
+<li>Without<code>node.val</code> (disconnected)
+<ol type="1">
+<li>The max-sum path is somewhere under the <code>node.left</code> subtree.</li>
+<li>The max-sum path is somewhere under the <code>node.right</code> subtree.</li>
+</ol></li>
+</ul>
+<p>There are two ways to implement this.</p>
+<h4 id="one">ONE</h4>
+<p>Define a function that returns two values. The max sum of a path that may or may not end with <code>root</code> node, and the max sum of the path that ends with <code>root</code> node.</p>
+<pre><code>/**
  * Definition for a binary tree node.
  * function TreeNode(val) {
  *     this.val = val;
@@ -125,7 +75,7 @@ var maxPathSum = function(root) {
  */
 function _maxPathSum (root) {
   if (!root) { return [-Infinity, -Infinity] }
-  
+
   const left = _maxPathSum(root.left)
   const right = _maxPathSum(root.right)
   return [
@@ -133,13 +83,9 @@ function _maxPathSum (root) {
     Math.max(left[1], right[1], 0) + root.val
   ]
 }</code></pre>
-    <h4 id="two">TWO</h4>
-    <p>
-      Just return the later (max sum of a path that ends with
-      <code>root</code>). Maintain a global variable to store the disconnected
-      max sum.
-    </p>
-    <pre><code>/**
+<h4 id="two">TWO</h4>
+<p>Just return the later (max sum of a path that ends with <code>root</code>). Maintain a global variable to store the disconnected max sum.</p>
+<pre><code>/**
  * Definition for a binary tree node.
  * function TreeNode(val) {
  *     this.val = val;
@@ -160,20 +106,18 @@ var maxPathSum = function(root) {
 /**
  * @param {TreeNode} root
  * @param {object} global
- * @param {number} global.max 
+ * @param {number} global.max
  * @return {number[]}
  */
 function _maxPathSum (root, global) {
   if (!root) { return -Infinity }
-  
+
   const left = _maxPathSum(root.left, global)
   const right = _maxPathSum(root.right, global)
   const localMax = Math.max(left, right, 0) + root.val
   global.max = Math.max(global.max, localMax, root.val + left + right)
   return localMax
 }</code></pre>
-    <br />
-    <hr />
-    <br />
-  </body>
+<p><em>Template generated via <a href="https://github.com/crimx/crx-leetmark">Leetmark</a>.</em></p>
+</body>
 </html>

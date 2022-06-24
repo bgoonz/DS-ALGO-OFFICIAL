@@ -1,43 +1,23 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="generator" content="pandoc" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0, user-scalable=yes"
-    />
-    <title>085. Maximal Rectangle</title>
-    <style type="text/css">
-      code {
-        white-space: pre-wrap;
-      }
-      span.smallcaps {
-        font-variant: small-caps;
-      }
-      span.underline {
-        text-decoration: underline;
-      }
-      div.column {
-        display: inline-block;
-        vertical-align: top;
-        width: 50%;
-      }
-    </style>
-  </head>
-  <body>
-    <h2 id="maximal-rectangle">
-      <a href="https://leetcode.com/problems/maximal-rectangle/description/"
-        >85. Maximal Rectangle</a
-      >
-    </h2>
-    <h3 id="problem">Problem:</h3>
-    <p>
-      Given a 2D binary matrix filled with 0’s and 1’s, find the largest
-      rectangle containing only 1’s and return its area.
-    </p>
-    <p><strong>Example:</strong></p>
-    <pre><code>Input:
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>085. Maximal Rectangle</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+</head>
+<body>
+<h2 id="maximal-rectangle"><a href="https://leetcode.com/problems/maximal-rectangle/description/">85. Maximal Rectangle</a></h2>
+<h3 id="problem">Problem:</h3>
+<p>Given a 2D binary matrix filled with 0’s and 1’s, find the largest rectangle containing only 1’s and return its area.</p>
+<p><strong>Example:</strong></p>
+<pre><code>Input:
 [
   [&quot;1&quot;,&quot;0&quot;,&quot;1&quot;,&quot;0&quot;,&quot;0&quot;],
   [&quot;1&quot;,&quot;0&quot;,&quot;1&quot;,&quot;1&quot;,&quot;1&quot;],
@@ -45,16 +25,10 @@
   [&quot;1&quot;,&quot;0&quot;,&quot;0&quot;,&quot;1&quot;,&quot;0&quot;]
 ]
 Output: 6</code></pre>
-    <h3 id="solution">Solution:</h3>
-    <h4 id="one">ONE</h4>
-    <p>
-      View every row as a base line then we just have to solve
-      <code>height(matrix)</code> times the problem of
-      <a href="084.%20Largest%20Rectangle%20in%20Histogram.md"
-        >84. Largest Rectangle in Histogram</a
-      >.
-    </p>
-    <pre><code>/**
+<h3 id="solution">Solution:</h3>
+<h4 id="one">ONE</h4>
+<p>View every row as a base line then we just have to solve <code>height(matrix)</code> times the problem of <a href="084.%20Largest%20Rectangle%20in%20Histogram.md">84. Largest Rectangle in Histogram</a>.</p>
+<pre><code>/**
  * @param {character[][]} matrix
  * @return {number}
  */
@@ -93,52 +67,29 @@ function largestRectangleArea (heights) {
   }
   return max
 };</code></pre>
-    <h4 id="two">TWO</h4>
-    <p>Same idea as above. Use DP to cache accumulated states.</p>
-    <p>
-      Pick a pivot point <code>(row, col)</code> and assume it is on the base
-      line. The adjoining <code>1</code>s above <code>(row, col)</code> makes up
-      the height of the rectangle. The width of the rectangle is determined by
-      how many ajoining bars are taller than the pivot bar.
-    </p>
-    <p>So for the rectangle whose bottom pivot is <code>(row, col)</code>:</p>
-    <ul>
-      <li>Define <code>area(row, col)</code> to be the area.</li>
-      <li>Define <code>height(row, col)</code> to be the height.</li>
-      <li>
-        Define <code>left(row, col)</code> to be the <code>col</code> value of
-        the bottom-left corner.
-      </li>
-      <li>
-        Define <code>right(row, col)</code> to be the <code>col</code> value of
-        the bottom-right corner.
-      </li>
-    </ul>
-    <p>Also:</p>
-    <ul>
-      <li>
-        Define <code>conLeft(row, col)</code> to be the <code>col</code> value
-        of the leftmost cell of the consecutive <code>1</code>s on the left of
-        <code>(row, col)</code>.
-      </li>
-      <li>
-        Define <code>conRight(row, col)</code> to be the <code>col</code> value
-        of the rightmost cell of the consecutive <code>1</code>s on the right of
-        <code>(row, col)</code>.
-      </li>
-    </ul>
-    <p>
-      With <code>conLeft</code> and <code>conRight</code> we can know if the
-      rectangle on <code>(row, col)</code> shrinks comparing to
-      <code>(row-1, col)</code>.
-    </p>
-    <pre><code>if matrix[row][col] == 1
+<h4 id="two">TWO</h4>
+<p>Same idea as above. Use DP to cache accumulated states.</p>
+<p>Pick a pivot point <code>(row, col)</code> and assume it is on the base line. The adjoining <code>1</code>s above <code>(row, col)</code> makes up the height of the rectangle. The width of the rectangle is determined by how many ajoining bars are taller than the pivot bar.</p>
+<p>So for the rectangle whose bottom pivot is <code>(row, col)</code>:</p>
+<ul>
+<li>Define <code>area(row, col)</code> to be the area.</li>
+<li>Define <code>height(row, col)</code> to be the height.</li>
+<li>Define <code>left(row, col)</code> to be the <code>col</code> value of the bottom-left corner.</li>
+<li>Define <code>right(row, col)</code> to be the <code>col</code> value of the bottom-right corner.</li>
+</ul>
+<p>Also:</p>
+<ul>
+<li>Define <code>conLeft(row, col)</code> to be the <code>col</code> value of the leftmost cell of the consecutive <code>1</code>s on the left of <code>(row, col)</code>.</li>
+<li>Define <code>conRight(row, col)</code> to be the <code>col</code> value of the rightmost cell of the consecutive <code>1</code>s on the right of <code>(row, col)</code>.</li>
+</ul>
+<p>With <code>conLeft</code> and <code>conRight</code> we can know if the rectangle on <code>(row, col)</code> shrinks comparing to <code>(row-1, col)</code>.</p>
+<pre><code>if matrix[row][col] == 1
   height(row, col) = height(row-1, col) + 1
-  
+
   // see how long this horizontal line can get
   conLeft(row, col) = conLeft(row, col-1)
   conRight(row, col) = conRight(row, col+1)
-  
+
   // width can only be shorter
   left(row, col) = max( left(row-1, col), conLeft(row, col) )
   right(row, col) = min( right(row-1, col), conRight(row, col) )
@@ -151,11 +102,8 @@ if matrix[row][col] == 0
   right(row, col) = matrix.width // back to rightmost position
 
 area(row, col) = (right(row, col) - left(row, col) + 1) * height(row, col)</code></pre>
-    <p>
-      We only need to keep the last state. Use dynamic arrays to reduce space
-      complexity.
-    </p>
-    <pre><code>/**
+<p>We only need to keep the last state. Use dynamic arrays to reduce space complexity.</p>
+<pre><code>/**
  * @param {character[][]} matrix
  * @return {number}
  */
@@ -201,8 +149,6 @@ var maximalRectangle = function(matrix) {
 
   return max
 };</code></pre>
-    <br />
-    <hr />
-    <br />
-  </body>
+<p><em>Template generated via <a href="https://github.com/crimx/crx-leetmark">Leetmark</a>.</em></p>
+</body>
 </html>

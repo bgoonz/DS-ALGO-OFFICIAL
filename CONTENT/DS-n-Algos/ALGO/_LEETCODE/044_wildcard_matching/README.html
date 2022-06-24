@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>README</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+</head>
+<body>
+<p>It is easy to come up with the recursive backtracking solution (for each * in the pattern, the wildcard can match many char sequences). But the time complexity is exponential.</p>
+<p>Here is my observation:</p>
+<ol type="1">
+<li>If p starts with something other than *, s has to start with a matching substr.</li>
+<li>If p ends with something other than *, s has to end with a matching substr.</li>
+<li>If p starts and ends with <em>, I can split p by </em> into subpatterns, these subpatterns have to match sequentially in s.</li>
+</ol>
+<p>So the algorithm is to consume the head and tail of p first, until p starts and ends with * (or p is empty). Then split p into subpatterns, find each subpattern sequentially in s, if all of them can be found, return True, else, return False.</p>
+</body>
+</html>
