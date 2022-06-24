@@ -1,66 +1,117 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
-<head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="pandoc" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>Average_Mean</title>
-  <style type="text/css">
-      code{white-space: pre-wrap;}
-      span.smallcaps{font-variant: small-caps;}
-      span.underline{text-decoration: underline;}
-      div.column{display: inline-block; vertical-align: top; width: 50%;}
-  </style>
-</head>
-<body>
-<h1 id="average-mean">Average (Mean)</h1>
-<p>Calculate the average of a list of numbers using mean.</p>
-<h2 id="applications">Applications</h2>
-<p>Calculating the mean of a list of numbers is one of the most common ways to determine the average of those numbers.</p>
-<p>Calculating a mean would be useful in these situations:</p>
-<ul>
-<li>Determining the average score for all players of a video game level.</li>
-<li>Finding the average grade for tests that a student took this semester.</li>
-<li>Determining the average size of all files in a directory/folder.</li>
-</ul>
-<h2 id="steps">Steps</h2>
-<ol type="1">
-<li>Input a list of numbers.</li>
-<li>Calculate the sum of all numbers in the list.</li>
-<li>Count the numbers in the list.</li>
-<li>Divide the sum by the total count of numbers in the list.</li>
-<li>Return mean.</li>
-</ol>
-<h2 id="example">Example</h2>
-<p>Given the list <code>[2, 4, 6, 8, 20, 50, 70]</code>, let’s calculate the average.</p>
-<h3 id="step-1">Step 1</h3>
-<p>Send <code>[2, 4, 6, 8, 20, 50, 70]</code> as input for a method/function.</p>
-<h3 id="step-2">Step 2</h3>
-<p>Add all the numbers together.</p>
-<p><code>2 + 4 + 6 + 8 + 20 + 50 + 70 = 160</code>, so <code>sum = 160</code>.</p>
-<h3 id="step-3">Step 3</h3>
-<p>Count the numbers in the list.</p>
-<p>The list has seven numbers, so <code>count = 7</code>.</p>
-<h3 id="step-4">Step 4</h3>
-<p>Divide the sum of all the numbers by the count of the numbers.</p>
-<pre><code>sum = 160
+  <head>
+    <meta charset="utf-8" />
+    <meta name="generator" content="pandoc" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=yes"
+    />
+    <title>Average_Mean</title>
+    <style type="text/css">
+      code {
+        white-space: pre-wrap;
+      }
+      span.smallcaps {
+        font-variant: small-caps;
+      }
+      span.underline {
+        text-decoration: underline;
+      }
+      div.column {
+        display: inline-block;
+        vertical-align: top;
+        width: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 id="average-mean">Average (Mean)</h1>
+    <p>Calculate the average of a list of numbers using mean.</p>
+    <h2 id="applications">Applications</h2>
+    <p>
+      Calculating the mean of a list of numbers is one of the most common ways
+      to determine the average of those numbers.
+    </p>
+    <p>Calculating a mean would be useful in these situations:</p>
+    <ul>
+      <li>
+        Determining the average score for all players of a video game level.
+      </li>
+      <li>
+        Finding the average grade for tests that a student took this semester.
+      </li>
+      <li>Determining the average size of all files in a directory/folder.</li>
+    </ul>
+    <h2 id="steps">Steps</h2>
+    <ol type="1">
+      <li>Input a list of numbers.</li>
+      <li>Calculate the sum of all numbers in the list.</li>
+      <li>Count the numbers in the list.</li>
+      <li>Divide the sum by the total count of numbers in the list.</li>
+      <li>Return mean.</li>
+    </ol>
+    <h2 id="example">Example</h2>
+    <p>
+      Given the list <code>[2, 4, 6, 8, 20, 50, 70]</code>, let’s calculate the
+      average.
+    </p>
+    <h3 id="step-1">Step 1</h3>
+    <p>
+      Send <code>[2, 4, 6, 8, 20, 50, 70]</code> as input for a method/function.
+    </p>
+    <h3 id="step-2">Step 2</h3>
+    <p>Add all the numbers together.</p>
+    <p>
+      <code>2 + 4 + 6 + 8 + 20 + 50 + 70 = 160</code>, so
+      <code>sum = 160</code>.
+    </p>
+    <h3 id="step-3">Step 3</h3>
+    <p>Count the numbers in the list.</p>
+    <p>The list has seven numbers, so <code>count = 7</code>.</p>
+    <h3 id="step-4">Step 4</h3>
+    <p>Divide the sum of all the numbers by the count of the numbers.</p>
+    <pre><code>sum = 160
 count = 7</code></pre>
-<p>If we ignore significant digits: <code>sum / count =</code>22.<u>857142</u></p>
-<p>If we properly consider significant digits: <code>sum / count = 23</code></p>
-<h3 id="step-5">Step 5</h3>
-<p>Return the value of 22.<u>857142</u> or <code>23</code>.</p>
-<h2 id="implementation">Implementation</h2>
-<ul>
-<li><a href="https://github.com/TheAlgorithms/Python/blob/master/maths/average_mean.py">Python</a></li>
-<li><a href="https://github.com/TheAlgorithms/Ruby/blob/master/maths/average_mean.rb">Ruby</a></li>
-</ul>
-<h2 id="video-url">Video URL</h2>
-<ul>
-<li><a href="https://www.khanacademy.org/math/ap-statistics/summarizing-quantitative-data-ap/measuring-center-quantitative/v/mean-median-and-mode">Mean on Khan Academy</a></li>
-</ul>
-<h2 id="others">Others</h2>
-<ul>
-<li><a href="https://en.wikipedia.org/wiki/Mean">Mean on Wikipedia</a></li>
-</ul>
-</body>
+    <p>
+      If we ignore significant digits: <code>sum / count =</code>22.<u
+        >857142</u
+      >
+    </p>
+    <p>
+      If we properly consider significant digits: <code>sum / count = 23</code>
+    </p>
+    <h3 id="step-5">Step 5</h3>
+    <p>Return the value of 22.<u>857142</u> or <code>23</code>.</p>
+    <h2 id="implementation">Implementation</h2>
+    <ul>
+      <li>
+        <a
+          href="https://github.com/TheAlgorithms/Python/blob/master/maths/average_mean.py"
+          >Python</a
+        >
+      </li>
+      <li>
+        <a
+          href="https://github.com/TheAlgorithms/Ruby/blob/master/maths/average_mean.rb"
+          >Ruby</a
+        >
+      </li>
+    </ul>
+    <h2 id="video-url">Video URL</h2>
+    <ul>
+      <li>
+        <a
+          href="https://www.khanacademy.org/math/ap-statistics/summarizing-quantitative-data-ap/measuring-center-quantitative/v/mean-median-and-mode"
+          >Mean on Khan Academy</a
+        >
+      </li>
+    </ul>
+    <h2 id="others">Others</h2>
+    <ul>
+      <li>
+        <a href="https://en.wikipedia.org/wiki/Mean">Mean on Wikipedia</a>
+      </li>
+    </ul>
+  </body>
 </html>

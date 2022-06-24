@@ -1,113 +1,214 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
-<head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="pandoc" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>README</title>
-  <style type="text/css">
-      code{white-space: pre-wrap;}
-      span.smallcaps{font-variant: small-caps;}
-      span.underline{text-decoration: underline;}
-      div.column{display: inline-block; vertical-align: top; width: 50%;}
-  </style>
-</head>
-<body>
-<h1 id="find-angle-mbc">Find Angle MBC</h1>
-<h2 id="aim">Aim</h2>
-<p><img src="https://github.com/abhisheks008/PyAlgo-Tree/blob/patch-3/Geometry/Find%20Angle%20MBC/Images/mbc6.png" /></p>
-<p><code>ABC</code> is a right triangle with <code>90°</code> at <code>B</code> Therefore <code>∠ABC = 90°</code> Point <code>M</code> is the midpoint of hypotenuse . You are given the lengths <code>AB</code> and <code>BC</code>. The task is to find <code>∠MBC</code> (angle <code>θ°</code>, as shown in the figure) in degrees.</p>
-<p>The problem is taken from the HackerRank website, you can check out the problem <a href="https://www.hackerrank.com/challenges/find-angle/problem">here</a></p>
-<hr />
-<h2 id="purpose">Purpose</h2>
-<p>Understanding how we can implement classic geometry questions using the Python 3.7 language or, programming!</p>
-<hr />
-<h2 id="short-description-of-the-script">Short Description of the script</h2>
-<ul>
-<li>This script will help you how can we use Python programming to solve the typical geometry questions.</li>
-<li>This script will also provide you the basic idea of <code>math</code> package in the code.</li>
-<li>Implementation of <code>cosine</code> function is also shown in the code but using Python here.</li>
-<li>To implement this whole script the codebase needs to have an in built package is called <code>math</code>.</li>
-</ul>
-<hr />
-<h2 id="workflow-of-the-codebase">Workflow of the codebase</h2>
-<ul>
-<li>Firstly, import all the packages, as mentioned earlier.</li>
-<li>Take inputs from the user. User given input is more acceptable because it provides the interaction between the learner and developer.</li>
-<li>Process the user given data through some operations before implementing the final function.</li>
-<li>Set the functions to find out the desired the angle.</li>
-<li>Make the output as print ready before the final declaration.</li>
-</ul>
-<hr />
-<h2 id="detailed-explanation-of-the-script">Detailed Explanation of the script</h2>
-<p><strong>Input Format</strong></p>
-<p>The first line contains the length of side <code>AB</code>. The second line contains the length of side <code>BC</code>.</p>
-<p><strong>Output Format</strong></p>
-<p>Output <code>∠MBC</code> in degrees.</p>
-<p><em>Note</em>: Round the angle to the nearest integer.</p>
-<h3 id="explanation">Explanation</h3>
-<p>Let’s find out the detailed explanation of this script here!</p>
-<p>User Input :</p>
-<pre><code>Enter the value of AB :
+  <head>
+    <meta charset="utf-8" />
+    <meta name="generator" content="pandoc" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=yes"
+    />
+    <title>README</title>
+    <style type="text/css">
+      code {
+        white-space: pre-wrap;
+      }
+      span.smallcaps {
+        font-variant: small-caps;
+      }
+      span.underline {
+        text-decoration: underline;
+      }
+      div.column {
+        display: inline-block;
+        vertical-align: top;
+        width: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 id="find-angle-mbc">Find Angle MBC</h1>
+    <h2 id="aim">Aim</h2>
+    <p>
+      <img
+        src="https://github.com/abhisheks008/PyAlgo-Tree/blob/patch-3/Geometry/Find%20Angle%20MBC/Images/mbc6.png"
+      />
+    </p>
+    <p>
+      <code>ABC</code> is a right triangle with <code>90°</code> at
+      <code>B</code> Therefore <code>∠ABC = 90°</code> Point <code>M</code> is
+      the midpoint of hypotenuse . You are given the lengths <code>AB</code> and
+      <code>BC</code>. The task is to find <code>∠MBC</code> (angle
+      <code>θ°</code>, as shown in the figure) in degrees.
+    </p>
+    <p>
+      The problem is taken from the HackerRank website, you can check out the
+      problem
+      <a href="https://www.hackerrank.com/challenges/find-angle/problem"
+        >here</a
+      >
+    </p>
+    <hr />
+    <h2 id="purpose">Purpose</h2>
+    <p>
+      Understanding how we can implement classic geometry questions using the
+      Python 3.7 language or, programming!
+    </p>
+    <hr />
+    <h2 id="short-description-of-the-script">
+      Short Description of the script
+    </h2>
+    <ul>
+      <li>
+        This script will help you how can we use Python programming to solve the
+        typical geometry questions.
+      </li>
+      <li>
+        This script will also provide you the basic idea of
+        <code>math</code> package in the code.
+      </li>
+      <li>
+        Implementation of <code>cosine</code> function is also shown in the code
+        but using Python here.
+      </li>
+      <li>
+        To implement this whole script the codebase needs to have an in built
+        package is called <code>math</code>.
+      </li>
+    </ul>
+    <hr />
+    <h2 id="workflow-of-the-codebase">Workflow of the codebase</h2>
+    <ul>
+      <li>Firstly, import all the packages, as mentioned earlier.</li>
+      <li>
+        Take inputs from the user. User given input is more acceptable because
+        it provides the interaction between the learner and developer.
+      </li>
+      <li>
+        Process the user given data through some operations before implementing
+        the final function.
+      </li>
+      <li>Set the functions to find out the desired the angle.</li>
+      <li>Make the output as print ready before the final declaration.</li>
+    </ul>
+    <hr />
+    <h2 id="detailed-explanation-of-the-script">
+      Detailed Explanation of the script
+    </h2>
+    <p><strong>Input Format</strong></p>
+    <p>
+      The first line contains the length of side <code>AB</code>. The second
+      line contains the length of side <code>BC</code>.
+    </p>
+    <p><strong>Output Format</strong></p>
+    <p>Output <code>∠MBC</code> in degrees.</p>
+    <p><em>Note</em>: Round the angle to the nearest integer.</p>
+    <h3 id="explanation">Explanation</h3>
+    <p>Let’s find out the detailed explanation of this script here!</p>
+    <p>User Input :</p>
+    <pre><code>Enter the value of AB :
 35
 Enter the value of BC :
 45</code></pre>
-<p>Steps for the model -</p>
-<ol type="1">
-<li>Firstly the model imported the <code>math</code> package, which will provide the luxury to do the following steps without any hesitation.</li>
-<li>Taking all the required inputs, here we are taking the lengths of the two sides as <code>AB</code> and <code>BC</code>.</li>
-<li>After that, find out the hypotenuse by the theorm of Pythagorus.</li>
-<li>As the hypotenuse is calculated the two sides of the desired angle is exposed.</li>
-<li>Using the cosine function find out the desired angle in <code>radian</code>.</li>
-<li>After that, changing that angle’s unit into <code>degree</code>.</li>
-<li>Tada! The problem is solved and we get our desired output!</li>
-</ol>
-<hr />
-<h2 id="setup-instructions">Setup Instructions</h2>
-<ul>
-<li>Open any Python editor, I have used Jupyter Notebook here.</li>
-<li>Python version 3.7 must be installed in your device.</li>
-<li>Your system must have the Python package called <code>math</code>, without that this script will not be run!</li>
-</ul>
-<hr />
-<h2 id="compilation-steps">Compilation Steps</h2>
-<ul>
-<li>Importing the packages and libraries.</li>
-<li>Take all the user given data.
-<ol type="1">
-<li>Enter the length of AB.</li>
-<li>Enter the length of BC.</li>
-</ol></li>
-<li>Processing the data collected from the user.</li>
-<li>Find out the hypotenuse.</li>
-<li>Finding out the desired angle in radian using cosine function.</li>
-<li>Change the unit into degree.</li>
-<li>Print the output!</li>
-</ul>
-<hr />
-<h2 id="output">Output</h2>
-<ul>
-<li>Test Case #1</li>
-</ul>
-<p><img src="https://github.com/abhisheks008/PyAlgo-Tree/blob/patch-3/Geometry/Find%20Angle%20MBC/Images/mbc1.png" /></p>
-<ul>
-<li>Test Case #2</li>
-</ul>
-<p><img src="https://github.com/abhisheks008/PyAlgo-Tree/blob/patch-3/Geometry/Find%20Angle%20MBC/Images/mbc2.png" /></p>
-<ul>
-<li>Test Case #3</li>
-</ul>
-<p><img src="https://github.com/abhisheks008/PyAlgo-Tree/blob/patch-3/Geometry/Find%20Angle%20MBC/Images/mbc3.png" /></p>
-<ul>
-<li>Test Case #4</li>
-</ul>
-<p><img src="https://github.com/abhisheks008/PyAlgo-Tree/blob/patch-3/Geometry/Find%20Angle%20MBC/Images/mbc4.png" /></p>
-<ul>
-<li>Test Case #5</li>
-</ul>
-<p><img src="https://github.com/abhisheks008/PyAlgo-Tree/blob/patch-3/Geometry/Find%20Angle%20MBC/Images/mbc5.png" /></p>
-<hr />
-<h2 id="author">Author</h2>
-<p>Code Contributed by, Abhishek Sharma, DCP21, <a href="https://github.com/abhisheks008">abhisheks008</a> <img alt="Python" src="https://img.shields.io/badge/python%20-%2314354C.svg?&style=for-the-badge&logo=python&logoColor=white"/></p>
-</body>
+    <p>Steps for the model -</p>
+    <ol type="1">
+      <li>
+        Firstly the model imported the <code>math</code> package, which will
+        provide the luxury to do the following steps without any hesitation.
+      </li>
+      <li>
+        Taking all the required inputs, here we are taking the lengths of the
+        two sides as <code>AB</code> and <code>BC</code>.
+      </li>
+      <li>After that, find out the hypotenuse by the theorm of Pythagorus.</li>
+      <li>
+        As the hypotenuse is calculated the two sides of the desired angle is
+        exposed.
+      </li>
+      <li>
+        Using the cosine function find out the desired angle in
+        <code>radian</code>.
+      </li>
+      <li>After that, changing that angle’s unit into <code>degree</code>.</li>
+      <li>Tada! The problem is solved and we get our desired output!</li>
+    </ol>
+    <hr />
+    <h2 id="setup-instructions">Setup Instructions</h2>
+    <ul>
+      <li>Open any Python editor, I have used Jupyter Notebook here.</li>
+      <li>Python version 3.7 must be installed in your device.</li>
+      <li>
+        Your system must have the Python package called <code>math</code>,
+        without that this script will not be run!
+      </li>
+    </ul>
+    <hr />
+    <h2 id="compilation-steps">Compilation Steps</h2>
+    <ul>
+      <li>Importing the packages and libraries.</li>
+      <li>
+        Take all the user given data.
+        <ol type="1">
+          <li>Enter the length of AB.</li>
+          <li>Enter the length of BC.</li>
+        </ol>
+      </li>
+      <li>Processing the data collected from the user.</li>
+      <li>Find out the hypotenuse.</li>
+      <li>Finding out the desired angle in radian using cosine function.</li>
+      <li>Change the unit into degree.</li>
+      <li>Print the output!</li>
+    </ul>
+    <hr />
+    <h2 id="output">Output</h2>
+    <ul>
+      <li>Test Case #1</li>
+    </ul>
+    <p>
+      <img
+        src="https://github.com/abhisheks008/PyAlgo-Tree/blob/patch-3/Geometry/Find%20Angle%20MBC/Images/mbc1.png"
+      />
+    </p>
+    <ul>
+      <li>Test Case #2</li>
+    </ul>
+    <p>
+      <img
+        src="https://github.com/abhisheks008/PyAlgo-Tree/blob/patch-3/Geometry/Find%20Angle%20MBC/Images/mbc2.png"
+      />
+    </p>
+    <ul>
+      <li>Test Case #3</li>
+    </ul>
+    <p>
+      <img
+        src="https://github.com/abhisheks008/PyAlgo-Tree/blob/patch-3/Geometry/Find%20Angle%20MBC/Images/mbc3.png"
+      />
+    </p>
+    <ul>
+      <li>Test Case #4</li>
+    </ul>
+    <p>
+      <img
+        src="https://github.com/abhisheks008/PyAlgo-Tree/blob/patch-3/Geometry/Find%20Angle%20MBC/Images/mbc4.png"
+      />
+    </p>
+    <ul>
+      <li>Test Case #5</li>
+    </ul>
+    <p>
+      <img
+        src="https://github.com/abhisheks008/PyAlgo-Tree/blob/patch-3/Geometry/Find%20Angle%20MBC/Images/mbc5.png"
+      />
+    </p>
+    <hr />
+    <h2 id="author">Author</h2>
+    <p>
+      Code Contributed by, Abhishek Sharma, DCP21,
+      <a href="https://github.com/abhisheks008">abhisheks008</a>
+      <img
+        alt="Python"
+        src="https://img.shields.io/badge/python%20-%2314354C.svg?&style=for-the-badge&logo=python&logoColor=white"
+      />
+    </p>
+  </body>
 </html>

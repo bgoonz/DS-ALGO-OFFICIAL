@@ -22,5 +22,5 @@
 // cannot use (\d*\.?\d*)\d+
 
 var isNumber = function (s) {
-  return !!s.match(/^\s*[+-]?(\d+\.\d+|\d+\.|\.\d+|\d+)(\e[+-]?\d+)?\s*$/);
+    return !!s.match(/^\s*[+-]?(\d+\.\d+|\d+\.|\.\d+|\d+)(\e[+-]?\d+)?\s*$/);
 };

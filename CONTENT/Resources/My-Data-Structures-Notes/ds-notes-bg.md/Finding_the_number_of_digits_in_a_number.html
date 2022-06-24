@@ -1,22 +1,41 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
-<head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="pandoc" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>Finding the number of digits in a number</title>
-  <style type="text/css">
-      code{white-space: pre-wrap;}
-      span.smallcaps{font-variant: small-caps;}
-      span.underline{text-decoration: underline;}
-      div.column{display: inline-block; vertical-align: top; width: 50%;}
-  </style>
-</head>
-<body>
-<h1 id="finding-the-number-of-digits-in-a-number">Finding the number of digits in a number</h1>
-<p>Let’s say <code>N = 2019</code>. The number of digits in N here is 4 and the digits are: <code>2</code>, <code>0</code>, <code>1</code>, and <code>9</code>.</p>
-<p>Some more Examples:</p>
-<pre><code>N = 00  [zero]
+  <head>
+    <meta charset="utf-8" />
+    <meta name="generator" content="pandoc" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=yes"
+    />
+    <title>Finding the number of digits in a number</title>
+    <style type="text/css">
+      code {
+        white-space: pre-wrap;
+      }
+      span.smallcaps {
+        font-variant: small-caps;
+      }
+      span.underline {
+        text-decoration: underline;
+      }
+      div.column {
+        display: inline-block;
+        vertical-align: top;
+        width: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 id="finding-the-number-of-digits-in-a-number">
+      Finding the number of digits in a number
+    </h1>
+    <p>
+      Let’s say <code>N = 2019</code>. The number of digits in N here is 4 and
+      the digits are: <code>2</code>, <code>0</code>, <code>1</code>, and
+      <code>9</code>.
+    </p>
+    <p>Some more Examples:</p>
+    <pre><code>N = 00  [zero]
 Number of digits = 0
 
 N = -123 [negative]
@@ -24,20 +43,28 @@ Number of digits = 3
 
 N = 10000 [positive]
 Number of digits = 5</code></pre>
-<div data-align="center">
-<h2 align="center">
-1st Solution
-</h2>
-</div>
-<h3 id="simple-solution">Simple Solution</h3>
-<p>The first solution that comes to mind is quite simple:</p>
-<pre><code>1. Check whether the number N is equal to zero.
+    <div data-align="center">
+      <h2 align="center">1st Solution</h2>
+    </div>
+    <h3 id="simple-solution">Simple Solution</h3>
+    <p>The first solution that comes to mind is quite simple:</p>
+    <pre><code>1. Check whether the number N is equal to zero.
 2. Increase the count of digits by 1 if N is not zero.
 3. Reduce the number by dividing it by 10.
 4. Repeat the above steps until the number is reduced to zero.</code></pre>
-<p><strong>Analysis of the above algorithm:</strong> You can clearly see that the number of operations performed in the above solution is equal to the count of digits present in the number. So, the time complexity of the solution is O(digitsCount).</p>
-<p><strong>Dry-run of the above algorithm:</strong> Consider an example, N = 58964. Initialize a variable digitsCount to zero which will store the count of digits. Keep incrementing digitsCount until N is not zero, and reduce it by dividing by 10 at each step.</p>
-<pre><code>Iteration 1: N not equals to 0
+    <p>
+      <strong>Analysis of the above algorithm:</strong> You can clearly see that
+      the number of operations performed in the above solution is equal to the
+      count of digits present in the number. So, the time complexity of the
+      solution is O(digitsCount).
+    </p>
+    <p>
+      <strong>Dry-run of the above algorithm:</strong> Consider an example, N =
+      58964. Initialize a variable digitsCount to zero which will store the
+      count of digits. Keep incrementing digitsCount until N is not zero, and
+      reduce it by dividing by 10 at each step.
+    </p>
+    <pre><code>Iteration 1: N not equals to 0
 Increment digitsCount, digitsCount = digitsCount + 1.
 digitsCount = 0 + 1 = 1.
 N = N/10 = 58964/10 = 5896.
@@ -67,32 +94,59 @@ Terminate any further operation.
 Return value of digitsCount.
 
 Therefore, number of digits = 5.</code></pre>
-<div data-align="center">
-<h2 align="center">
-2nd Solution
-</h2>
-</div>
-<h3 id="better-solution">Better Solution</h3>
-<p>A better solution is to use mathematics to solve this problem. The number of digits in a number say N can be easily obtained by using the following formula:</p>
-<pre><code>number of digits in N = log10(N) + 1.</code></pre>
-<p><strong>Derivation:</strong> Suppose the number of digits in the number <strong>N</strong> is <strong>K</strong>.</p>
-<p>Therefore, we can say that:</p>
-<pre><code>10^(K-1) &lt;= N &lt; 10K</code></pre>
-<p>Applying base-10 logarithm to both sides in the above equation, we get:</p>
-<pre><code>K-1 &lt;= log10(N) &lt; K.
+    <div data-align="center">
+      <h2 align="center">2nd Solution</h2>
+    </div>
+    <h3 id="better-solution">Better Solution</h3>
+    <p>
+      A better solution is to use mathematics to solve this problem. The number
+      of digits in a number say N can be easily obtained by using the following
+      formula:
+    </p>
+    <pre><code>number of digits in N = log10(N) + 1.</code></pre>
+    <p>
+      <strong>Derivation:</strong> Suppose the number of digits in the number
+      <strong>N</strong> is <strong>K</strong>.
+    </p>
+    <p>Therefore, we can say that:</p>
+    <pre><code>10^(K-1) &lt;= N &lt; 10K</code></pre>
+    <p>
+      Applying base-10 logarithm to both sides in the above equation, we get:
+    </p>
+    <pre><code>K-1 &lt;= log10(N) &lt; K.
 
 or, K - 1 + 1 &lt;= log10(N) + 1 &lt; K + 1
 or, K &lt;= log10(N) + 1 &lt; K + 1</code></pre>
-<p>Therefore,</p>
-<pre><code>K = floor(log10(N) + 1)</code></pre>
-<p><strong>Analysis of the above algorithm:</strong> The above algorithm uses two mathematical functions: the <code>logarithm of a number</code> and the <code>floor function</code>. Therefore, its time complexity depends on the complexity of those two functions. Practically, the <code>floor function</code> is always, or can at least easily be made, constant time - all it has to do is: drop the digits behind the decimal point. For practical purposes, one can <code>assume that the logarithm is constant time</code> as well, as one will usually be working with fixed-width floating-point values. If one uses <code>arbitrary-precision "big number" libraries</code> however, logarithm will not be constant anymore: performance will depend on the logarithm algorithms used.</p>
-<h1 id="source">Source</h1>
-<ul>
-<li><a href="https://www.geeksforgeeks.org/program-count-digits-integer-3-different-methods/">Proof in GeeksForGeeks</a></li>
-</ul>
-<h1 id="youtube">YouTube</h1>
-<ul>
-<li><a href="https://www.youtube.com/watch?v=ngWnvWR8NkE">Video URL</a></li>
-</ul>
-</body>
+    <p>Therefore,</p>
+    <pre><code>K = floor(log10(N) + 1)</code></pre>
+    <p>
+      <strong>Analysis of the above algorithm:</strong> The above algorithm uses
+      two mathematical functions: the <code>logarithm of a number</code> and the
+      <code>floor function</code>. Therefore, its time complexity depends on the
+      complexity of those two functions. Practically, the
+      <code>floor function</code> is always, or can at least easily be made,
+      constant time - all it has to do is: drop the digits behind the decimal
+      point. For practical purposes, one can
+      <code>assume that the logarithm is constant time</code> as well, as one
+      will usually be working with fixed-width floating-point values. If one
+      uses <code>arbitrary-precision "big number" libraries</code> however,
+      logarithm will not be constant anymore: performance will depend on the
+      logarithm algorithms used.
+    </p>
+    <h1 id="source">Source</h1>
+    <ul>
+      <li>
+        <a
+          href="https://www.geeksforgeeks.org/program-count-digits-integer-3-different-methods/"
+          >Proof in GeeksForGeeks</a
+        >
+      </li>
+    </ul>
+    <h1 id="youtube">YouTube</h1>
+    <ul>
+      <li>
+        <a href="https://www.youtube.com/watch?v=ngWnvWR8NkE">Video URL</a>
+      </li>
+    </ul>
+  </body>
 </html>

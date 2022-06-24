@@ -1,37 +1,104 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
-<head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="pandoc" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>Radix Sort</title>
-  <style type="text/css">
-      code{white-space: pre-wrap;}
-      span.smallcaps{font-variant: small-caps;}
-      span.underline{text-decoration: underline;}
-      div.column{display: inline-block; vertical-align: top; width: 50%;}
-  </style>
-</head>
-<body>
-<h1 id="radix-sort">Radix Sort</h1>
-<p>The lower bound for Comparison based sorting algorithm (Merge Sort, Heap Sort, Quick-Sort .. etc) is <code>Ω(nlogn)</code>, i.e., they cannot do better than <code>nlogn</code>.</p>
-<p>Counting sort is a linear time sorting algorithm that sort in <code>O(n+k)</code> time when elements are in the range from 1 to k.</p>
-<p>What if the elements are in the range from 1 to n2? We can’t use counting sort because counting sort will take <code>O(n2)</code> which is worse than comparison-based sorting algorithms. Can we sort such an array in linear time?</p>
-<p>Radix Sort is the answer. The idea of Radix Sort is to do digit by digit sort starting from least significant digit to most significant digit. Radix sort uses counting sort as a subroutine to sort.</p>
-<h2 id="the-radix-sort-algorithm">The Radix Sort Algorithm</h2>
-<p>Do following for each digit i where i varies from least significant digit to the most significant digit. Sort input array using counting sort (or any stable sort) according to the i’th digit.</p>
-<p>Example:</p>
-<p>Original, unsorted list: <code>170, 45, 75, 90, 802, 24, 2, 66</code></p>
-<p>Sorting by least significant digit (1s place) gives:</p>
-<p>[*Notice that we keep 802 before 2, because 802 occurred before 2 in the original list, and similarly for pairs 170 &amp; 90 and 45 &amp; 75.]</p>
-<p>Sorting by next digit (10s place) gives:</p>
-<p>[*Notice that 802 again comes before 2 as 802 comes before 2 in the previous list.]</p>
-<p><code>802, 2, 24, 45, 66, 170, 75, 90</code></p>
-<p>Sorting by the most significant digit (100s place) gives: <code>2, 24, 45, 66, 75, 90, 170, 802</code></p>
-<h2 id="what-is-the-running-time-of-radix-sort">What is the running time of Radix Sort?</h2>
-<p>Let there be d digits in input integers. Radix Sort takes <code>O(d*(n+b))</code> time where b is the base for representing numbers, for example, for the decimal system, b is 10. What is the value of d? If <code>k</code> is the maximum possible value, then d would be <code>O(logb(k))</code>. So overall time complexity is <code>O((n+b) * logb(k))</code>. Which looks more than the time complexity of comparison-based sorting algorithms for a large k. Let us first limit k. Let k &lt;= nc where c is a constant. In that case, the complexity becomes <code>O(n logb(n))</code>. But it still doesn’t beat comparison-based sorting algorithms.</p>
-<h2 id="is-radix-sort-preferable-to-comparison-based-sorting-algorithms-like-quick-sort">Is Radix Sort preferable to Comparison based sorting algorithms like Quick-Sort?</h2>
-<p>If we have <code>log2n</code> bits for every digit, the running time of Radix appears to be better than Quick Sort for a wide range of input numbers. The constant factors hidden in asymptotic notation are higher for Radix Sort and Quick-Sort uses hardware caches more effectively. Also, Radix sort uses counting sort as a subroutine and counting sort takes extra space to sort numbers.</p>
-<p>Video reference: https://youtu.be/nu4gDuFabIM</p>
-</body>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="generator" content="pandoc" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=yes"
+    />
+    <title>Radix Sort</title>
+    <style type="text/css">
+      code {
+        white-space: pre-wrap;
+      }
+      span.smallcaps {
+        font-variant: small-caps;
+      }
+      span.underline {
+        text-decoration: underline;
+      }
+      div.column {
+        display: inline-block;
+        vertical-align: top;
+        width: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 id="radix-sort">Radix Sort</h1>
+    <p>
+      The lower bound for Comparison based sorting algorithm (Merge Sort, Heap
+      Sort, Quick-Sort .. etc) is <code>Ω(nlogn)</code>, i.e., they cannot do
+      better than <code>nlogn</code>.
+    </p>
+    <p>
+      Counting sort is a linear time sorting algorithm that sort in
+      <code>O(n+k)</code> time when elements are in the range from 1 to k.
+    </p>
+    <p>
+      What if the elements are in the range from 1 to n2? We can’t use counting
+      sort because counting sort will take <code>O(n2)</code> which is worse
+      than comparison-based sorting algorithms. Can we sort such an array in
+      linear time?
+    </p>
+    <p>
+      Radix Sort is the answer. The idea of Radix Sort is to do digit by digit
+      sort starting from least significant digit to most significant digit.
+      Radix sort uses counting sort as a subroutine to sort.
+    </p>
+    <h2 id="the-radix-sort-algorithm">The Radix Sort Algorithm</h2>
+    <p>
+      Do following for each digit i where i varies from least significant digit
+      to the most significant digit. Sort input array using counting sort (or
+      any stable sort) according to the i’th digit.
+    </p>
+    <p>Example:</p>
+    <p>Original, unsorted list: <code>170, 45, 75, 90, 802, 24, 2, 66</code></p>
+    <p>Sorting by least significant digit (1s place) gives:</p>
+    <p>
+      [*Notice that we keep 802 before 2, because 802 occurred before 2 in the
+      original list, and similarly for pairs 170 &amp; 90 and 45 &amp; 75.]
+    </p>
+    <p>Sorting by next digit (10s place) gives:</p>
+    <p>
+      [*Notice that 802 again comes before 2 as 802 comes before 2 in the
+      previous list.]
+    </p>
+    <p><code>802, 2, 24, 45, 66, 170, 75, 90</code></p>
+    <p>
+      Sorting by the most significant digit (100s place) gives:
+      <code>2, 24, 45, 66, 75, 90, 170, 802</code>
+    </p>
+    <h2 id="what-is-the-running-time-of-radix-sort">
+      What is the running time of Radix Sort?
+    </h2>
+    <p>
+      Let there be d digits in input integers. Radix Sort takes
+      <code>O(d*(n+b))</code> time where b is the base for representing numbers,
+      for example, for the decimal system, b is 10. What is the value of d? If
+      <code>k</code> is the maximum possible value, then d would be
+      <code>O(logb(k))</code>. So overall time complexity is
+      <code>O((n+b) * logb(k))</code>. Which looks more than the time complexity
+      of comparison-based sorting algorithms for a large k. Let us first limit
+      k. Let k &lt;= nc where c is a constant. In that case, the complexity
+      becomes <code>O(n logb(n))</code>. But it still doesn’t beat
+      comparison-based sorting algorithms.
+    </p>
+    <h2
+      id="is-radix-sort-preferable-to-comparison-based-sorting-algorithms-like-quick-sort"
+    >
+      Is Radix Sort preferable to Comparison based sorting algorithms like
+      Quick-Sort?
+    </h2>
+    <p>
+      If we have <code>log2n</code> bits for every digit, the running time of
+      Radix appears to be better than Quick Sort for a wide range of input
+      numbers. The constant factors hidden in asymptotic notation are higher for
+      Radix Sort and Quick-Sort uses hardware caches more effectively. Also,
+      Radix sort uses counting sort as a subroutine and counting sort takes
+      extra space to sort numbers.
+    </p>
+    <p>Video reference: https://youtu.be/nu4gDuFabIM</p>
+  </body>
 </html>

@@ -11,29 +11,29 @@
  */
 
 var inorderTraversal = function (root) {
-  var result = [];
+    var result = [];
 
-  if (root === null) {
+    if (root === null) {
+        return result;
+    }
+
+    var stack = [];
+    var cur = root;
+
+    while (true) {
+        while (cur !== null) {
+            stack.push(cur);
+            cur = cur.left;
+        }
+
+        if (stack.length === 0) {
+            break;
+        }
+
+        cur = stack.pop();
+        result.push(cur.val);
+        cur = cur.right;
+    }
+
     return result;
-  }
-
-  var stack = [];
-  var cur = root;
-
-  while (true) {
-    while (cur !== null) {
-      stack.push(cur);
-      cur = cur.left;
-    }
-
-    if (stack.length === 0) {
-      break;
-    }
-
-    cur = stack.pop();
-    result.push(cur.val);
-    cur = cur.right;
-  }
-
-  return result;
 };

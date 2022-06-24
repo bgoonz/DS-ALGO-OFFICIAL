@@ -1,55 +1,93 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
-<head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="pandoc" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>test</title>
-  <style type="text/css">
-      code{white-space: pre-wrap;}
-      span.smallcaps{font-variant: small-caps;}
-      span.underline{text-decoration: underline;}
-      div.column{display: inline-block; vertical-align: top; width: 50%;}
-  </style>
-</head>
-<body>
-<p>FORMAT: 1A HOST: https://futr.bridgeconx.com</p>
-<h1 id="futr">Futr</h1>
-<p>A simple API for scheduling API Calls in the Future.</p>
-<h2 id="api-details">API Details [/]</h2>
-<p>If an API Endpoint returns an <code>eager</code> key in the JSON Payload, you can provide a comma-separated list of strings from the <code>eager.available</code> array to eager load the specified relations into the response.</p>
-<h3 id="get-api-details-get">Get API Details [GET]</h3>
-<ul>
-<li><p>Request</p>
-<ul>
-<li><p>Headers</p>
-<pre><code>  Accept: application/json</code></pre></li>
-</ul></li>
-<li><p>Response 200 (application/json)</p>
-<ul>
-<li><p>Headers</p>
-<pre><code>  Transfer-Encoding: chunked
-  Cache-Control: no-cache</code></pre></li>
-<li><p>Body</p>
-<pre><code>  {&quot;name&quot;:&quot;Futr&quot;,&quot;description&quot;:&quot;A REST API for scheduling Guzzle Requests in the future.&quot;,&quot;version&quot;:&quot;0.0.1&quot;}</code></pre></li>
-</ul></li>
-</ul>
-<h3 id="routes-routes">Routes [/routes]</h3>
-<h3 id="get-api-routes-get">Get API Routes [GET]</h3>
-<ul>
-<li><p>Request</p>
-<ul>
-<li><p>Headers</p>
-<pre><code>  Accept: application/json</code></pre></li>
-</ul></li>
-<li><p>Response 200 (application/json)</p>
-<ul>
-<li><p>Headers</p>
-<pre><code>  Transfer-Encoding: chunked
-  Cache-Control: no-cache</code></pre></li>
-<li><p>Body</p>
-<pre><code>  {&quot;GET\/&quot;:{&quot;method&quot;:&quot;GET&quot;,&quot;uri&quot;:&quot;\/&quot;,&quot;action&quot;:{&quot;as&quot;:&quot;home&quot;,&quot;description&quot;:&quot;Get API Details&quot;,&quot;0&quot;:{}}},&quot;GET\/routes&quot;:{&quot;method&quot;:&quot;GET&quot;,&quot;uri&quot;:&quot;\/routes&quot;,&quot;action&quot;:{&quot;as&quot;:&quot;routes&quot;,&quot;description&quot;:&quot;List API Routes&quot;,&quot;0&quot;:{}}},&quot;GET\/jobs&quot;:{&quot;method&quot;:&quot;GET&quot;,&quot;uri&quot;:&quot;\/jobs&quot;,&quot;action&quot;:{&quot;as&quot;:&quot;jobs.index&quot;,&quot;uses&quot;:&quot;App\\Http\\Controllers\\JobsController@index&quot;,&quot;description&quot;:&quot;List all jobs&quot;}},&quot;GET\/jobs\/{jobs}&quot;:{&quot;method&quot;:&quot;GET&quot;,&quot;uri&quot;:&quot;\/jobs\/{jobs}&quot;,&quot;action&quot;:{&quot;as&quot;:&quot;jobs.show&quot;,&quot;uses&quot;:&quot;App\\Http\\Controllers\\JobsController@show&quot;,&quot;description&quot;:&quot;Show a Job&quot;}},&quot;POST\/jobs&quot;:{&quot;method&quot;:&quot;POST&quot;,&quot;uri&quot;:&quot;\/jobs&quot;,&quot;action&quot;:{&quot;as&quot;:&quot;jobs.store&quot;,&quot;uses&quot;:&quot;App\\Http\\Controllers\\JobsController@store&quot;,&quot;description&quot;:&quot;Create a Job&quot;}},&quot;DELETE\/jobs\/{jobs}&quot;:{&quot;method&quot;:&quot;DELETE&quot;,&quot;uri&quot;:&quot;\/jobs\/{jobs}&quot;,&quot;action&quot;:{&quot;as&quot;:&quot;jobs.destroy&quot;,&quot;uses&quot;:&quot;App\\Http\\Controllers\\JobsController@destroy&quot;,&quot;description&quot;:&quot;Cancells Job and all future Attempts&quot;}},&quot;GET\/jobs\/{jobs}\/attempts&quot;:{&quot;method&quot;:&quot;GET&quot;,&quot;uri&quot;:&quot;\/jobs\/{jobs}\/attempts&quot;,&quot;action&quot;:{&quot;as&quot;:&quot;jobs.attempts.index&quot;,&quot;uses&quot;:&quot;App\\Http\\Controllers\\AttemptsController@index&quot;,&quot;description&quot;:&quot;Show a Job&#39;s Attempts&quot;}},&quot;GET\/jobs\/{jobs}\/attempts\/{attempts}&quot;:{&quot;method&quot;:&quot;GET&quot;,&quot;uri&quot;:&quot;\/jobs\/{jobs}\/attempts\/{attempts}&quot;,&quot;action&quot;:{&quot;as&quot;:&quot;jobs.attempts.show&quot;,&quot;uses&quot;:&quot;App\\Http\\Controllers\\AttemptsController@show&quot;,&quot;description&quot;:&quot;Show an Attempt&quot;}},&quot;POST\/jobs\/{jobs}\/attempts\/{attempts}\/try&quot;:{&quot;method&quot;:&quot;POST&quot;,&quot;uri&quot;:&quot;\/jobs\/{jobs}\/attempts\/{attempts}\/try&quot;,&quot;action&quot;:{&quot;as&quot;:&quot;jobs.attempts.try&quot;,&quot;uses&quot;:&quot;App\\Http\\Controllers\\AttemptsController@tryAttempt&quot;,&quot;description&quot;:&quot;Execute attempt, only if it has not yet been attempted&quot;}},&quot;POST\/jobs\/{jobs}\/attempts\/{attempts}\/retry&quot;:{&quot;method&quot;:&quot;POST&quot;,&quot;uri&quot;:&quot;\/jobs\/{jobs}\/attempts\/{attempts}\/retry&quot;,&quot;action&quot;:{&quot;as&quot;:&quot;jobs.attempts.retry&quot;,&quot;uses&quot;:&quot;App\\Http\\Controllers\\AttemptsController@retryAttempt&quot;,&quot;description&quot;:&quot;Execute attempt, whether or not it has already been attempted&quot;}}}</code></pre></li>
-</ul></li>
-</ul>
-</body>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="generator" content="pandoc" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1.0, user-scalable=yes"
+        />
+        <title>test</title>
+        <style type="text/css">
+            code {
+                white-space: pre-wrap;
+            }
+            span.smallcaps {
+                font-variant: small-caps;
+            }
+            span.underline {
+                text-decoration: underline;
+            }
+            div.column {
+                display: inline-block;
+                vertical-align: top;
+                width: 50%;
+            }
+        </style>
+    </head>
+    <body>
+        <p>FORMAT: 1A HOST: https://futr.bridgeconx.com</p>
+        <h1 id="futr">Futr</h1>
+        <p>A simple API for scheduling API Calls in the Future.</p>
+        <h2 id="api-details">API Details [/]</h2>
+        <p>
+            If an API Endpoint returns an <code>eager</code> key in the JSON
+            Payload, you can provide a comma-separated list of strings from the
+            <code>eager.available</code> array to eager load the specified
+            relations into the response.
+        </p>
+        <h3 id="get-api-details-get">Get API Details [GET]</h3>
+        <ul>
+            <li>
+                <p>Request</p>
+                <ul>
+                    <li>
+                        <p>Headers</p>
+                        <pre><code>  Accept: application/json</code></pre>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <p>Response 200 (application/json)</p>
+                <ul>
+                    <li>
+                        <p>Headers</p>
+                        <pre><code>  Transfer-Encoding: chunked
+  Cache-Control: no-cache</code></pre>
+                    </li>
+                    <li>
+                        <p>Body</p>
+                        <pre><code>  {&quot;name&quot;:&quot;Futr&quot;,&quot;description&quot;:&quot;A REST API for scheduling Guzzle Requests in the future.&quot;,&quot;version&quot;:&quot;0.0.1&quot;}</code></pre>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+        <h3 id="routes-routes">Routes [/routes]</h3>
+        <h3 id="get-api-routes-get">Get API Routes [GET]</h3>
+        <ul>
+            <li>
+                <p>Request</p>
+                <ul>
+                    <li>
+                        <p>Headers</p>
+                        <pre><code>  Accept: application/json</code></pre>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <p>Response 200 (application/json)</p>
+                <ul>
+                    <li>
+                        <p>Headers</p>
+                        <pre><code>  Transfer-Encoding: chunked
+  Cache-Control: no-cache</code></pre>
+                    </li>
+                    <li>
+                        <p>Body</p>
+                        <pre><code>  {&quot;GET\/&quot;:{&quot;method&quot;:&quot;GET&quot;,&quot;uri&quot;:&quot;\/&quot;,&quot;action&quot;:{&quot;as&quot;:&quot;home&quot;,&quot;description&quot;:&quot;Get API Details&quot;,&quot;0&quot;:{}}},&quot;GET\/routes&quot;:{&quot;method&quot;:&quot;GET&quot;,&quot;uri&quot;:&quot;\/routes&quot;,&quot;action&quot;:{&quot;as&quot;:&quot;routes&quot;,&quot;description&quot;:&quot;List API Routes&quot;,&quot;0&quot;:{}}},&quot;GET\/jobs&quot;:{&quot;method&quot;:&quot;GET&quot;,&quot;uri&quot;:&quot;\/jobs&quot;,&quot;action&quot;:{&quot;as&quot;:&quot;jobs.index&quot;,&quot;uses&quot;:&quot;App\\Http\\Controllers\\JobsController@index&quot;,&quot;description&quot;:&quot;List all jobs&quot;}},&quot;GET\/jobs\/{jobs}&quot;:{&quot;method&quot;:&quot;GET&quot;,&quot;uri&quot;:&quot;\/jobs\/{jobs}&quot;,&quot;action&quot;:{&quot;as&quot;:&quot;jobs.show&quot;,&quot;uses&quot;:&quot;App\\Http\\Controllers\\JobsController@show&quot;,&quot;description&quot;:&quot;Show a Job&quot;}},&quot;POST\/jobs&quot;:{&quot;method&quot;:&quot;POST&quot;,&quot;uri&quot;:&quot;\/jobs&quot;,&quot;action&quot;:{&quot;as&quot;:&quot;jobs.store&quot;,&quot;uses&quot;:&quot;App\\Http\\Controllers\\JobsController@store&quot;,&quot;description&quot;:&quot;Create a Job&quot;}},&quot;DELETE\/jobs\/{jobs}&quot;:{&quot;method&quot;:&quot;DELETE&quot;,&quot;uri&quot;:&quot;\/jobs\/{jobs}&quot;,&quot;action&quot;:{&quot;as&quot;:&quot;jobs.destroy&quot;,&quot;uses&quot;:&quot;App\\Http\\Controllers\\JobsController@destroy&quot;,&quot;description&quot;:&quot;Cancells Job and all future Attempts&quot;}},&quot;GET\/jobs\/{jobs}\/attempts&quot;:{&quot;method&quot;:&quot;GET&quot;,&quot;uri&quot;:&quot;\/jobs\/{jobs}\/attempts&quot;,&quot;action&quot;:{&quot;as&quot;:&quot;jobs.attempts.index&quot;,&quot;uses&quot;:&quot;App\\Http\\Controllers\\AttemptsController@index&quot;,&quot;description&quot;:&quot;Show a Job&#39;s Attempts&quot;}},&quot;GET\/jobs\/{jobs}\/attempts\/{attempts}&quot;:{&quot;method&quot;:&quot;GET&quot;,&quot;uri&quot;:&quot;\/jobs\/{jobs}\/attempts\/{attempts}&quot;,&quot;action&quot;:{&quot;as&quot;:&quot;jobs.attempts.show&quot;,&quot;uses&quot;:&quot;App\\Http\\Controllers\\AttemptsController@show&quot;,&quot;description&quot;:&quot;Show an Attempt&quot;}},&quot;POST\/jobs\/{jobs}\/attempts\/{attempts}\/try&quot;:{&quot;method&quot;:&quot;POST&quot;,&quot;uri&quot;:&quot;\/jobs\/{jobs}\/attempts\/{attempts}\/try&quot;,&quot;action&quot;:{&quot;as&quot;:&quot;jobs.attempts.try&quot;,&quot;uses&quot;:&quot;App\\Http\\Controllers\\AttemptsController@tryAttempt&quot;,&quot;description&quot;:&quot;Execute attempt, only if it has not yet been attempted&quot;}},&quot;POST\/jobs\/{jobs}\/attempts\/{attempts}\/retry&quot;:{&quot;method&quot;:&quot;POST&quot;,&quot;uri&quot;:&quot;\/jobs\/{jobs}\/attempts\/{attempts}\/retry&quot;,&quot;action&quot;:{&quot;as&quot;:&quot;jobs.attempts.retry&quot;,&quot;uses&quot;:&quot;App\\Http\\Controllers\\AttemptsController@retryAttempt&quot;,&quot;description&quot;:&quot;Execute attempt, whether or not it has already been attempted&quot;}}}</code></pre>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </body>
 </html>

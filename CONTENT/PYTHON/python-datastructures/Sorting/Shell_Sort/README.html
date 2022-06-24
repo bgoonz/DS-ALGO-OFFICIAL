@@ -1,53 +1,116 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
-<head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="pandoc" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>README</title>
-  <style type="text/css">
-      code{white-space: pre-wrap;}
-      span.smallcaps{font-variant: small-caps;}
-      span.underline{text-decoration: underline;}
-      div.column{display: inline-block; vertical-align: top; width: 50%;}
-  </style>
-</head>
-<body>
-<h3 id="script-name">Script Name</h3>
-<p>Shell Sort</p>
-<h3 id="aim">Aim</h3>
-<p>To write a program for Shell Sort</p>
-<h3 id="purpose">Purpose</h3>
-<p>To get a understanding about the algorithm of Shell Sort</p>
-<h3 id="short-description-of-packagescript">Short description of package/script</h3>
-<p>Shell sort is a highly efficient sorting algorithm and is based on insertion sort algorithm. Shell sort is the generalization of insertion sort which overcomes the drawbacks of insertion sort by comparing elements separated by a gap of several positions.</p>
-<h3 id="workflow-of-the-project">Workflow of the Project</h3>
-<ul>
-<li>Divide the array in the form of N/2 (where N is the length of array).</li>
-<li>Compare the elements and swap like 0th element with 4th,1st and 5th and so on.</li>
-<li>Now again divide the array in the form of N/4 (where N is the length of array).</li>
-<li>Compare the elements and swap.</li>
-<li>Continue the steps of dividing till the elements are compared with interval of 1.</li>
-</ul>
-<h3 id="detailed-explanation-of-script-if-needed">Detailed explanation of script, if needed</h3>
-<p>Shell sort divides the array in the form of N/2 , N/4 , …, 1 (where N is the length of array) and then sorting is done. This breaking of sequence and sorting takes place until the entire array is sorted.</p>
-<p>Let’s take an example to understand.</p>
-<p>12 15 50 10 35 19 11 44 <strong>Stage 1: Divide</strong> In this stage the unsorted array is divided in the form of N/2. Here N/2 is 8/2 = 4, which means the 0th and 4th elements, 1st and 5th and so on are compared and swapped if necessary.</p>
-<p>Now after first stage the array is in this form:</p>
-<p>12 15 11 10 35 19 50 44 <strong>Stage 2: Again Divide</strong> In this stage the unsorted array is again divided in the form of N/4. Here N/4 is 8/4 = 2, which means the 0th and 2th elements, 1st and 3th and so on are compared and swapped if necessary.</p>
-<p>Now after second stage the array is in this form:</p>
-<p>11 10 12 15 35 19 50 44 <strong>Stage 3: Again Divide when the interval 1</strong> In this stage the unsorted array is again divided in the form of N/8. Here N/8 is 8/8 = 1, which means the 0th and 1th elements, 1st and 2th and so on are compared and swapped if necessary.</p>
-<p>Now after final stage the array is in this form:</p>
-<p>10 11 12 15 19 35 44 50 After the final process the unsorted array is sorted.</p>
-<h3 id="sample-test-case">Sample Test Case</h3>
-<p>Enter size: 6 Enter elements: 5 4 3 2 1 0</p>
-<p>Sorted Array: 0 1 2 3 4 5</p>
-<h3 id="setup-instructions">Setup instructions</h3>
-<p>Just clone the repository .</p>
-<h3 id="output">Output</h3>
-<p><img src="https://github.com/prathimacode-hub/PyAlgo-Tree/blob/3e08153a796610d5cc7579c352d74c9993e47bc3/Sorting/Shell%20Sort/Images/Output1.png"></p>
-<p>&lt;img src=“https://github.com/prathimacode-hub/PyAlgo-Tree/blob/e1bff3b00ee020a088bf942a98a90b311f53484a/Sorting/Shell%20Sort/Images/Output2.png”</p>
-<h3 id="authors">Author(s)</h3>
-<p>Neha Jha</p>
-</body>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="generator" content="pandoc" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=yes"
+    />
+    <title>README</title>
+    <style type="text/css">
+      code {
+        white-space: pre-wrap;
+      }
+      span.smallcaps {
+        font-variant: small-caps;
+      }
+      span.underline {
+        text-decoration: underline;
+      }
+      div.column {
+        display: inline-block;
+        vertical-align: top;
+        width: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <h3 id="script-name">Script Name</h3>
+    <p>Shell Sort</p>
+    <h3 id="aim">Aim</h3>
+    <p>To write a program for Shell Sort</p>
+    <h3 id="purpose">Purpose</h3>
+    <p>To get a understanding about the algorithm of Shell Sort</p>
+    <h3 id="short-description-of-packagescript">
+      Short description of package/script
+    </h3>
+    <p>
+      Shell sort is a highly efficient sorting algorithm and is based on
+      insertion sort algorithm. Shell sort is the generalization of insertion
+      sort which overcomes the drawbacks of insertion sort by comparing elements
+      separated by a gap of several positions.
+    </p>
+    <h3 id="workflow-of-the-project">Workflow of the Project</h3>
+    <ul>
+      <li>
+        Divide the array in the form of N/2 (where N is the length of array).
+      </li>
+      <li>
+        Compare the elements and swap like 0th element with 4th,1st and 5th and
+        so on.
+      </li>
+      <li>
+        Now again divide the array in the form of N/4 (where N is the length of
+        array).
+      </li>
+      <li>Compare the elements and swap.</li>
+      <li>
+        Continue the steps of dividing till the elements are compared with
+        interval of 1.
+      </li>
+    </ul>
+    <h3 id="detailed-explanation-of-script-if-needed">
+      Detailed explanation of script, if needed
+    </h3>
+    <p>
+      Shell sort divides the array in the form of N/2 , N/4 , …, 1 (where N is
+      the length of array) and then sorting is done. This breaking of sequence
+      and sorting takes place until the entire array is sorted.
+    </p>
+    <p>Let’s take an example to understand.</p>
+    <p>
+      12 15 50 10 35 19 11 44 <strong>Stage 1: Divide</strong> In this stage the
+      unsorted array is divided in the form of N/2. Here N/2 is 8/2 = 4, which
+      means the 0th and 4th elements, 1st and 5th and so on are compared and
+      swapped if necessary.
+    </p>
+    <p>Now after first stage the array is in this form:</p>
+    <p>
+      12 15 11 10 35 19 50 44 <strong>Stage 2: Again Divide</strong> In this
+      stage the unsorted array is again divided in the form of N/4. Here N/4 is
+      8/4 = 2, which means the 0th and 2th elements, 1st and 3th and so on are
+      compared and swapped if necessary.
+    </p>
+    <p>Now after second stage the array is in this form:</p>
+    <p>
+      11 10 12 15 35 19 50 44
+      <strong>Stage 3: Again Divide when the interval 1</strong> In this stage
+      the unsorted array is again divided in the form of N/8. Here N/8 is 8/8 =
+      1, which means the 0th and 1th elements, 1st and 2th and so on are
+      compared and swapped if necessary.
+    </p>
+    <p>Now after final stage the array is in this form:</p>
+    <p>
+      10 11 12 15 19 35 44 50 After the final process the unsorted array is
+      sorted.
+    </p>
+    <h3 id="sample-test-case">Sample Test Case</h3>
+    <p>Enter size: 6 Enter elements: 5 4 3 2 1 0</p>
+    <p>Sorted Array: 0 1 2 3 4 5</p>
+    <h3 id="setup-instructions">Setup instructions</h3>
+    <p>Just clone the repository .</p>
+    <h3 id="output">Output</h3>
+    <p>
+      <img
+        src="https://github.com/prathimacode-hub/PyAlgo-Tree/blob/3e08153a796610d5cc7579c352d74c9993e47bc3/Sorting/Shell%20Sort/Images/Output1.png"
+      />
+    </p>
+    <p>
+      &lt;img
+      src=“https://github.com/prathimacode-hub/PyAlgo-Tree/blob/e1bff3b00ee020a088bf942a98a90b311f53484a/Sorting/Shell%20Sort/Images/Output2.png”
+    </p>
+    <h3 id="authors">Author(s)</h3>
+    <p>Neha Jha</p>
+  </body>
 </html>

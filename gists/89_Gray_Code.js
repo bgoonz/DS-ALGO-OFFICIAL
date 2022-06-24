@@ -30,17 +30,17 @@
  * @return {number[]}
  */
 var grayCode = function (n) {
-  if (n === 0) {
-    return [0];
-  }
+    if (n === 0) {
+        return [0];
+    }
 
-  var result = grayCode(n - 1);
-  var addNumber = 1 << (n - 1);
-  var len = result.length;
+    var result = grayCode(n - 1);
+    var addNumber = 1 << (n - 1);
+    var len = result.length;
 
-  for (var i = len; i--; ) {
-    result.push(result[i] + addNumber);
-  }
+    for (var i = len; i--; ) {
+        result.push(result[i] + addNumber);
+    }
 
-  return result;
+    return result;
 };

@@ -1,23 +1,40 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
-<head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="pandoc" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>README</title>
-  <style type="text/css">
-      code{white-space: pre-wrap;}
-      span.smallcaps{font-variant: small-caps;}
-      span.underline{text-decoration: underline;}
-      div.column{display: inline-block; vertical-align: top; width: 50%;}
-  </style>
-</head>
-<body>
-<p>To reach the end of the jump game, 2 conditions have to be satisfied:</p>
-<ol type="1">
-<li>for some i, i+a[i]&gt;=len(a)-1</li>
-<li>This i has to be reachable, meaning for some j: j+a[j]&gt;=i</li>
-</ol>
-<p>So the algorithm loops over the array, maintaining the furthest index reachable. If current index&gt;reachable, return False, because the end is not reachable. Otherwise, when reachable &gt;= end, return True.</p>
-</body>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="generator" content="pandoc" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=yes"
+    />
+    <title>README</title>
+    <style type="text/css">
+      code {
+        white-space: pre-wrap;
+      }
+      span.smallcaps {
+        font-variant: small-caps;
+      }
+      span.underline {
+        text-decoration: underline;
+      }
+      div.column {
+        display: inline-block;
+        vertical-align: top;
+        width: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <p>To reach the end of the jump game, 2 conditions have to be satisfied:</p>
+    <ol type="1">
+      <li>for some i, i+a[i]&gt;=len(a)-1</li>
+      <li>This i has to be reachable, meaning for some j: j+a[j]&gt;=i</li>
+    </ol>
+    <p>
+      So the algorithm loops over the array, maintaining the furthest index
+      reachable. If current index&gt;reachable, return False, because the end is
+      not reachable. Otherwise, when reachable &gt;= end, return True.
+    </p>
+  </body>
 </html>

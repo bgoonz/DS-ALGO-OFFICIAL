@@ -1,91 +1,165 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
-<head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="pandoc" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>README</title>
-  <style type="text/css">
-      code{white-space: pre-wrap;}
-      span.smallcaps{font-variant: small-caps;}
-      span.underline{text-decoration: underline;}
-      div.column{display: inline-block; vertical-align: top; width: 50%;}
-  </style>
-</head>
-<body>
-<h1 id="rsa-el-gamal-cryptography">RSA &amp; El-GAMAL CRYPTOGRAPHY</h1>
-<h2 id="aim">Aim</h2>
-<p>Cryptography is associated with the process of converting ordinary plain text into unintelligible text and vice-versa. It is a method of storing and transmitting data in a particular form so that only those for whom it is intended can read and process it. A simple algorithm which will convert a plaintext into cipher text and vice-versa using encryption and decryption respectively.</p>
-<h2 id="purpose">Purpose</h2>
-<p>To create a Encryption/Decryption program using RSA &amp; El-Gamal cyptosystems</p>
-<h2 id="short-description-of-packagescript">Short description of package/script</h2>
-<ul>
-<li>The problem is solved using RSA &amp; El-Gamal cyptography</li>
-<li>We use Python to solve this</li>
-</ul>
-<h2 id="workflow-of-the-project">Workflow of the Project</h2>
-<p><em>Explaination of RSA</em></p>
-<p>Algorithm of RSA:-</p>
-<ol type="1">
-<li>Select two Prime numbers p &amp; q where p ≠ q</li>
-<li>Calculate n =p*q</li>
-<li>Calculate ø(n) = (p-1)*(q-1)</li>
-<li>Select e such that , e is relatively prime to ø(n) i.e. gcd (e, ø(n)) = 1 and 1&lt;e&lt; ø(n)</li>
-<li>Calculate d= e^(-1) mod ø(n) or ed mod ø(n)=1</li>
-<li>Public key = {e , n} , Private key ={d , n}</li>
-<li>Find out Cipher text using C= P^(e) mod n where P&lt;n, C= Cipher text, P=plaintext , e= Encryption Key and n= Block size.</li>
-<li>P= C^(d) mod n plaintext can be obtained using given formula where d= Decryption Key</li>
-</ol>
-<p><em>Explaination of El-Gamal</em></p>
-<p>Algorithm of El-Gamal:-</p>
-<ol type="1">
-<li>Key generation
-<ol type="a">
-<li>Select large prime number (P)</li>
-<li>Select decryption key /private key (D)</li>
-<li>Select second part of encryption key or public key (E1)</li>
-<li>Third part of encryption key or public key (E2) E2=E1^(D) mod p</li>
-<li>Public key =(E1,E2,p),Private key =D</li>
-</ol></li>
-<li>Encryption
-<ol type="a">
-<li>Select random integer R</li>
-<li>C1= E1^(R) mod p</li>
-<li>C2=(PT X E2^(R)) mod p</li>
-<li>CT=(C1,C2), CT=ciphertext</li>
-</ol></li>
-<li>Decryption
-<ol type="a">
-<li>PT =(C2 X (C1<sup>(D))</sup>(-1)) mod p</li>
-</ol></li>
-</ol>
-<h2 id="compilation-steps">Compilation Steps</h2>
-<p>To run the file, type <strong>python rsa_elgamal.py</strong> in the command prompt After the script is run, enter:</p>
-<p>Choose what you want to do rsa or el-gamal or quit:</p>
-<ol type="1">
-<li><p>If you proceed with rsa then follow the steps provided below:-</p>
-<ul>
-<li>Decide 2 large prime numbers and enter them</li>
-<li>Enter the public key[e] number (Public key is known to everybody which can be used to encrypt messages)</li>
-<li>After that, a private key is generated according to the algorithm of step 5</li>
-<li>Then you need to provide the value of plaintext which will then convert to ciphertext according to step 7</li>
-<li>And finally the ciphertext would be decrypted to plaintext according to step 8</li>
-</ul></li>
-<li>If you proceed with el-gamal then follow the steps provided below:-
-<ul>
-<li>Decide a large prime number and enter it (P)</li>
-<li>Enter the decryption key(D)</li>
-<li>Enter 1st public key (E1)</li>
-<li>Then E2 is generated according to step 1 d) of el-gamal algorithm</li>
-<li>Therefore we get the public key i.e (E1,E2,P)</li>
-<li>For encryption, enter a random number which will then be used to calculate C1 [from step 2 b)]</li>
-<li>Then provide in the value of plaintext to calculate C2 and hence we will get ciphertext</li>
-<li>For decryption, we will get plaintext according to step 3 a)</li>
-</ul></li>
-</ol>
-<h2 id="output">Output</h2>
-<p><img src="../RSA_ElGamal_cryptography/Images/rsa.PNG"> <img src="../RSA_ElGamal_cryptography/Images/rsa1.PNG"> <img src="../RSA_ElGamal_cryptography/Images/elgamal.PNG"> <img src="../RSA_ElGamal_cryptography/Images/elgamal1.PNG"></p>
-<h2 id="author">Author</h2>
-<p><a href="https://github.com/dilroseR/">Dilrose Reji</a></p>
-</body>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="generator" content="pandoc" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=yes"
+    />
+    <title>README</title>
+    <style type="text/css">
+      code {
+        white-space: pre-wrap;
+      }
+      span.smallcaps {
+        font-variant: small-caps;
+      }
+      span.underline {
+        text-decoration: underline;
+      }
+      div.column {
+        display: inline-block;
+        vertical-align: top;
+        width: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 id="rsa-el-gamal-cryptography">RSA &amp; El-GAMAL CRYPTOGRAPHY</h1>
+    <h2 id="aim">Aim</h2>
+    <p>
+      Cryptography is associated with the process of converting ordinary plain
+      text into unintelligible text and vice-versa. It is a method of storing
+      and transmitting data in a particular form so that only those for whom it
+      is intended can read and process it. A simple algorithm which will convert
+      a plaintext into cipher text and vice-versa using encryption and
+      decryption respectively.
+    </p>
+    <h2 id="purpose">Purpose</h2>
+    <p>
+      To create a Encryption/Decryption program using RSA &amp; El-Gamal
+      cyptosystems
+    </p>
+    <h2 id="short-description-of-packagescript">
+      Short description of package/script
+    </h2>
+    <ul>
+      <li>The problem is solved using RSA &amp; El-Gamal cyptography</li>
+      <li>We use Python to solve this</li>
+    </ul>
+    <h2 id="workflow-of-the-project">Workflow of the Project</h2>
+    <p><em>Explaination of RSA</em></p>
+    <p>Algorithm of RSA:-</p>
+    <ol type="1">
+      <li>Select two Prime numbers p &amp; q where p ≠ q</li>
+      <li>Calculate n =p*q</li>
+      <li>Calculate ø(n) = (p-1)*(q-1)</li>
+      <li>
+        Select e such that , e is relatively prime to ø(n) i.e. gcd (e, ø(n)) =
+        1 and 1&lt;e&lt; ø(n)
+      </li>
+      <li>Calculate d= e^(-1) mod ø(n) or ed mod ø(n)=1</li>
+      <li>Public key = {e , n} , Private key ={d , n}</li>
+      <li>
+        Find out Cipher text using C= P^(e) mod n where P&lt;n, C= Cipher text,
+        P=plaintext , e= Encryption Key and n= Block size.
+      </li>
+      <li>
+        P= C^(d) mod n plaintext can be obtained using given formula where d=
+        Decryption Key
+      </li>
+    </ol>
+    <p><em>Explaination of El-Gamal</em></p>
+    <p>Algorithm of El-Gamal:-</p>
+    <ol type="1">
+      <li>
+        Key generation
+        <ol type="a">
+          <li>Select large prime number (P)</li>
+          <li>Select decryption key /private key (D)</li>
+          <li>Select second part of encryption key or public key (E1)</li>
+          <li>
+            Third part of encryption key or public key (E2) E2=E1^(D) mod p
+          </li>
+          <li>Public key =(E1,E2,p),Private key =D</li>
+        </ol>
+      </li>
+      <li>
+        Encryption
+        <ol type="a">
+          <li>Select random integer R</li>
+          <li>C1= E1^(R) mod p</li>
+          <li>C2=(PT X E2^(R)) mod p</li>
+          <li>CT=(C1,C2), CT=ciphertext</li>
+        </ol>
+      </li>
+      <li>
+        Decryption
+        <ol type="a">
+          <li>PT =(C2 X (C1<sup>(D))</sup>(-1)) mod p</li>
+        </ol>
+      </li>
+    </ol>
+    <h2 id="compilation-steps">Compilation Steps</h2>
+    <p>
+      To run the file, type <strong>python rsa_elgamal.py</strong> in the
+      command prompt After the script is run, enter:
+    </p>
+    <p>Choose what you want to do rsa or el-gamal or quit:</p>
+    <ol type="1">
+      <li>
+        <p>If you proceed with rsa then follow the steps provided below:-</p>
+        <ul>
+          <li>Decide 2 large prime numbers and enter them</li>
+          <li>
+            Enter the public key[e] number (Public key is known to everybody
+            which can be used to encrypt messages)
+          </li>
+          <li>
+            After that, a private key is generated according to the algorithm of
+            step 5
+          </li>
+          <li>
+            Then you need to provide the value of plaintext which will then
+            convert to ciphertext according to step 7
+          </li>
+          <li>
+            And finally the ciphertext would be decrypted to plaintext according
+            to step 8
+          </li>
+        </ul>
+      </li>
+      <li>
+        If you proceed with el-gamal then follow the steps provided below:-
+        <ul>
+          <li>Decide a large prime number and enter it (P)</li>
+          <li>Enter the decryption key(D)</li>
+          <li>Enter 1st public key (E1)</li>
+          <li>
+            Then E2 is generated according to step 1 d) of el-gamal algorithm
+          </li>
+          <li>Therefore we get the public key i.e (E1,E2,P)</li>
+          <li>
+            For encryption, enter a random number which will then be used to
+            calculate C1 [from step 2 b)]
+          </li>
+          <li>
+            Then provide in the value of plaintext to calculate C2 and hence we
+            will get ciphertext
+          </li>
+          <li>For decryption, we will get plaintext according to step 3 a)</li>
+        </ul>
+      </li>
+    </ol>
+    <h2 id="output">Output</h2>
+    <p>
+      <img src="../RSA_ElGamal_cryptography/Images/rsa.PNG" />
+      <img src="../RSA_ElGamal_cryptography/Images/rsa1.PNG" />
+      <img src="../RSA_ElGamal_cryptography/Images/elgamal.PNG" />
+      <img src="../RSA_ElGamal_cryptography/Images/elgamal1.PNG" />
+    </p>
+    <h2 id="author">Author</h2>
+    <p><a href="https://github.com/dilroseR/">Dilrose Reji</a></p>
+  </body>
 </html>

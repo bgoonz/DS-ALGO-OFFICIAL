@@ -1,19 +1,42 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
-<head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="pandoc" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>README</title>
-  <style type="text/css">
-      code{white-space: pre-wrap;}
-      span.smallcaps{font-variant: small-caps;}
-      span.underline{text-decoration: underline;}
-      div.column{display: inline-block; vertical-align: top; width: 50%;}
-  </style>
-</head>
-<body>
-<p>The problem can be represented by a graph, with the nodes representing the words, and edges between words that differ by only 1 character, then we only need to find the shortest distance from a start node to an end node. Obviously, this is a problem solvable by BFS.</p>
-<p>But a naive BFS solution will exceed time limit. Because calculating the difference between every pair of words is O(N^2) time, to reduce the time, observe that for a word with length N, trying to replace every char with a different char in alphabet only requires N*26.</p>
-</body>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="generator" content="pandoc" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=yes"
+    />
+    <title>README</title>
+    <style type="text/css">
+      code {
+        white-space: pre-wrap;
+      }
+      span.smallcaps {
+        font-variant: small-caps;
+      }
+      span.underline {
+        text-decoration: underline;
+      }
+      div.column {
+        display: inline-block;
+        vertical-align: top;
+        width: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <p>
+      The problem can be represented by a graph, with the nodes representing the
+      words, and edges between words that differ by only 1 character, then we
+      only need to find the shortest distance from a start node to an end node.
+      Obviously, this is a problem solvable by BFS.
+    </p>
+    <p>
+      But a naive BFS solution will exceed time limit. Because calculating the
+      difference between every pair of words is O(N^2) time, to reduce the time,
+      observe that for a word with length N, trying to replace every char with a
+      different char in alphabet only requires N*26.
+    </p>
+  </body>
 </html>

@@ -1,80 +1,165 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
-<head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="pandoc" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>README</title>
-  <style type="text/css">
-      code{white-space: pre-wrap;}
-      span.smallcaps{font-variant: small-caps;}
-      span.underline{text-decoration: underline;}
-      div.column{display: inline-block; vertical-align: top; width: 50%;}
-  </style>
-</head>
-<body>
-<h3 id="script-name">Script Name</h3>
-<p>Binary Search Tree.</p>
-<h3 id="aim">Aim</h3>
-<p>To write a program for Binary Search Tree.</p>
-<h3 id="purpose">Purpose</h3>
-<p>To get a understanding about different operations performed in Binary Search Tree. This program contains the menu-based implementation of the basic operations on a BST:</p>
-<ol type="1">
-<li>Insert Node into BST</li>
-<li>Search Node in BST</li>
-<li>Delete Node in BST</li>
-<li>Print BST (inorder way)</li>
-</ol>
-<h3 id="short-description-of-packagescript">Short description of package/script</h3>
-<p>It is a python program of Binary Search Tree. It is written in a way that it takes user input.</p>
-<h3 id="workflow-of-the-project">Workflow of the Project</h3>
-<p>First the function are written to perform different operations in Binary Search Tree. Then outside the function user input is taken.</p>
-<h3 id="detailed-explanation-of-script-if-needed">Detailed explanation of script, if needed</h3>
-<p>IMPLEMENTATION OF BINARY SEARCH TREE (BST) Binary Search Tree is a special type of binary tree where:</p>
-<ol type="1">
-<li>The value of all the nodes in the left sub-tree is less than or equal to the value of the root.</li>
-<li>The value of all the nodes in the right sub-tree is greater than value of the root.</li>
-<li>This rule will be recursively applied to all the left and right sub-trees of the root.</li>
-</ol>
-<p>Illustration to insert in below tree:</p>
-<ol type="1">
-<li>Start from the root.</li>
-<li>Compare the inserting element with root, if less than root, then recurse for left, else recurse for right.</li>
-<li><p>After reaching the end, just insert that node at left(if less than current) else right.</p>
-<pre><code> 100                               100
+  <head>
+    <meta charset="utf-8" />
+    <meta name="generator" content="pandoc" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=yes"
+    />
+    <title>README</title>
+    <style type="text/css">
+      code {
+        white-space: pre-wrap;
+      }
+      span.smallcaps {
+        font-variant: small-caps;
+      }
+      span.underline {
+        text-decoration: underline;
+      }
+      div.column {
+        display: inline-block;
+        vertical-align: top;
+        width: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <h3 id="script-name">Script Name</h3>
+    <p>Binary Search Tree.</p>
+    <h3 id="aim">Aim</h3>
+    <p>To write a program for Binary Search Tree.</p>
+    <h3 id="purpose">Purpose</h3>
+    <p>
+      To get a understanding about different operations performed in Binary
+      Search Tree. This program contains the menu-based implementation of the
+      basic operations on a BST:
+    </p>
+    <ol type="1">
+      <li>Insert Node into BST</li>
+      <li>Search Node in BST</li>
+      <li>Delete Node in BST</li>
+      <li>Print BST (inorder way)</li>
+    </ol>
+    <h3 id="short-description-of-packagescript">
+      Short description of package/script
+    </h3>
+    <p>
+      It is a python program of Binary Search Tree. It is written in a way that
+      it takes user input.
+    </p>
+    <h3 id="workflow-of-the-project">Workflow of the Project</h3>
+    <p>
+      First the function are written to perform different operations in Binary
+      Search Tree. Then outside the function user input is taken.
+    </p>
+    <h3 id="detailed-explanation-of-script-if-needed">
+      Detailed explanation of script, if needed
+    </h3>
+    <p>
+      IMPLEMENTATION OF BINARY SEARCH TREE (BST) Binary Search Tree is a special
+      type of binary tree where:
+    </p>
+    <ol type="1">
+      <li>
+        The value of all the nodes in the left sub-tree is less than or equal to
+        the value of the root.
+      </li>
+      <li>
+        The value of all the nodes in the right sub-tree is greater than value
+        of the root.
+      </li>
+      <li>
+        This rule will be recursively applied to all the left and right
+        sub-trees of the root.
+      </li>
+    </ol>
+    <p>Illustration to insert in below tree:</p>
+    <ol type="1">
+      <li>Start from the root.</li>
+      <li>
+        Compare the inserting element with root, if less than root, then recurse
+        for left, else recurse for right.
+      </li>
+      <li>
+        <p>
+          After reaching the end, just insert that node at left(if less than
+          current) else right.
+        </p>
+        <pre><code> 100                               100
 /   \        Insert 40            /    \</code></pre>
-<p>20 500 ———&gt; 20 500 /  /   10 30 10 30   40</p></li>
-</ol>
-<p>llustration to search in tree:</p>
-<ol type="1">
-<li>Start from the root.</li>
-<li>Compare the searching element with root, if less than root, then recurse for left, else recurse for right.</li>
-<li><p>If the element to search is found anywhere, retun the element else print element not found.</p>
-<pre><code> 100
+        <p>20 500 ———&gt; 20 500 /  /   10 30 10 30   40</p>
+      </li>
+    </ol>
+    <p>llustration to search in tree:</p>
+    <ol type="1">
+      <li>Start from the root.</li>
+      <li>
+        Compare the searching element with root, if less than root, then recurse
+        for left, else recurse for right.
+      </li>
+      <li>
+        <p>
+          If the element to search is found anywhere, retun the element else
+          print element not found.
+        </p>
+        <pre><code> 100
 /   \        search 20</code></pre>
-<p>20 500 ———&gt; Found 20<br />
-/   10 30</p></li>
-</ol>
-<p>llustration to delete in below tree:</p>
-<ol type="1">
-<li>Start from the root.</li>
-<li>Compare the deleting element with root, if less than root, then recurse for left, else recurse for right.</li>
-<li><p>If the element to delete is found anywhere, delete the element else print element not found.</p>
-<pre><code>      50                            60
+        <p>
+          20 500 ———&gt; Found 20<br />
+          /   10 30
+        </p>
+      </li>
+    </ol>
+    <p>llustration to delete in below tree:</p>
+    <ol type="1">
+      <li>Start from the root.</li>
+      <li>
+        Compare the deleting element with root, if less than root, then recurse
+        for left, else recurse for right.
+      </li>
+      <li>
+        <p>
+          If the element to delete is found anywhere, delete the element else
+          print element not found.
+        </p>
+        <pre><code>      50                            60
    /     \         delete(50)      /   \
   40      70       ---------&gt;    40    70
          /  \                            \
-        60   80                           80</code></pre></li>
-</ol>
-<h3 id="setup-instructions">Setup instructions</h3>
-<p>Just clone the repository .</p>
-<h3 id="output">Output</h3>
-<p><img src="https://github.com/prathimacode-hub/PyAlgo-Tree/blob/9606669f3d21028f99850fd311850341526ecec3/Trees/Binary%20Search%20Tree/Images/output1.png"></p>
-<p><img src="https://github.com/prathimacode-hub/PyAlgo-Tree/blob/9606669f3d21028f99850fd311850341526ecec3/Trees/Binary%20Search%20Tree/Images/output2.png"></p>
-<p><img src="https://github.com/prathimacode-hub/PyAlgo-Tree/blob/9606669f3d21028f99850fd311850341526ecec3/Trees/Binary%20Search%20Tree/Images/output3.png"></p>
-<p><img src="https://github.com/prathimacode-hub/PyAlgo-Tree/blob/9606669f3d21028f99850fd311850341526ecec3/Trees/Binary%20Search%20Tree/Images/output4.png"></p>
-<p><img src="https://github.com/prathimacode-hub/PyAlgo-Tree/blob/9606669f3d21028f99850fd311850341526ecec3/Trees/Binary%20Search%20Tree/Images/output5.png"></p>
-<h3 id="authors">Author(s)</h3>
-<p>Neha Jha</p>
-</body>
+        60   80                           80</code></pre>
+      </li>
+    </ol>
+    <h3 id="setup-instructions">Setup instructions</h3>
+    <p>Just clone the repository .</p>
+    <h3 id="output">Output</h3>
+    <p>
+      <img
+        src="https://github.com/prathimacode-hub/PyAlgo-Tree/blob/9606669f3d21028f99850fd311850341526ecec3/Trees/Binary%20Search%20Tree/Images/output1.png"
+      />
+    </p>
+    <p>
+      <img
+        src="https://github.com/prathimacode-hub/PyAlgo-Tree/blob/9606669f3d21028f99850fd311850341526ecec3/Trees/Binary%20Search%20Tree/Images/output2.png"
+      />
+    </p>
+    <p>
+      <img
+        src="https://github.com/prathimacode-hub/PyAlgo-Tree/blob/9606669f3d21028f99850fd311850341526ecec3/Trees/Binary%20Search%20Tree/Images/output3.png"
+      />
+    </p>
+    <p>
+      <img
+        src="https://github.com/prathimacode-hub/PyAlgo-Tree/blob/9606669f3d21028f99850fd311850341526ecec3/Trees/Binary%20Search%20Tree/Images/output4.png"
+      />
+    </p>
+    <p>
+      <img
+        src="https://github.com/prathimacode-hub/PyAlgo-Tree/blob/9606669f3d21028f99850fd311850341526ecec3/Trees/Binary%20Search%20Tree/Images/output5.png"
+      />
+    </p>
+    <h3 id="authors">Author(s)</h3>
+    <p>Neha Jha</p>
+  </body>
 </html>

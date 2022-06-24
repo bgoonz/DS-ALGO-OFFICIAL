@@ -1,39 +1,73 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
-<head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="pandoc" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>Binary Search</title>
-  <style type="text/css">
-      code{white-space: pre-wrap;}
-      span.smallcaps{font-variant: small-caps;}
-      span.underline{text-decoration: underline;}
-      div.column{display: inline-block; vertical-align: top; width: 50%;}
-  </style>
-</head>
-<body>
-<h1 id="binary-search-a-divide-and-conquer-algorithm">Binary Search (A divide and conquer algorithm)</h1>
-<h4 id="problem-statement">Problem Statement</h4>
-<p>Given a sorted array of n elements, write a function to search for the index of a given element (target)</p>
-<h4 id="approach">Approach</h4>
-<ul>
-<li>Search for the array by dividing the array in half repeatedly.</li>
-<li>Initially consider the actual array and pick the element at the middle index</li>
-<li>Keep a lower index i.e. 0 and higher index i.e. length of array</li>
-<li>If it is equal to the target element then return the index</li>
-<li>Else if it is greater than the target element then consider only the left half of array. (lower index = 0, higher = middle - 1)</li>
-<li>Else if it is less than the target element then consider only the right half of array. (lower index = middle + 1, higher = length of array)</li>
-<li>Return -1 if target element is not found in the array (Base Case: If lower index is greater than or equal to higher index)</li>
-</ul>
-<h4 id="time-complexity">Time Complexity</h4>
-<p>O(log n) Worse Case<br />
-O(1) Best Case (If middle element of initial array is the target element)</p>
-<h4 id="space-complexity">Space Complexity</h4>
-<p>O(1) For iterative approach<br />
-O(log n) For recursive approach due to recursion call stack</p>
-<h4 id="example">Example</h4>
-<pre><code>arr = [1,2,3,4,5,6,7]
+  <head>
+    <meta charset="utf-8" />
+    <meta name="generator" content="pandoc" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=yes"
+    />
+    <title>Binary Search</title>
+    <style type="text/css">
+      code {
+        white-space: pre-wrap;
+      }
+      span.smallcaps {
+        font-variant: small-caps;
+      }
+      span.underline {
+        text-decoration: underline;
+      }
+      div.column {
+        display: inline-block;
+        vertical-align: top;
+        width: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 id="binary-search-a-divide-and-conquer-algorithm">
+      Binary Search (A divide and conquer algorithm)
+    </h1>
+    <h4 id="problem-statement">Problem Statement</h4>
+    <p>
+      Given a sorted array of n elements, write a function to search for the
+      index of a given element (target)
+    </p>
+    <h4 id="approach">Approach</h4>
+    <ul>
+      <li>Search for the array by dividing the array in half repeatedly.</li>
+      <li>
+        Initially consider the actual array and pick the element at the middle
+        index
+      </li>
+      <li>Keep a lower index i.e. 0 and higher index i.e. length of array</li>
+      <li>If it is equal to the target element then return the index</li>
+      <li>
+        Else if it is greater than the target element then consider only the
+        left half of array. (lower index = 0, higher = middle - 1)
+      </li>
+      <li>
+        Else if it is less than the target element then consider only the right
+        half of array. (lower index = middle + 1, higher = length of array)
+      </li>
+      <li>
+        Return -1 if target element is not found in the array (Base Case: If
+        lower index is greater than or equal to higher index)
+      </li>
+    </ul>
+    <h4 id="time-complexity">Time Complexity</h4>
+    <p>
+      O(log n) Worse Case<br />
+      O(1) Best Case (If middle element of initial array is the target element)
+    </p>
+    <h4 id="space-complexity">Space Complexity</h4>
+    <p>
+      O(1) For iterative approach<br />
+      O(log n) For recursive approach due to recursion call stack
+    </p>
+    <h4 id="example">Example</h4>
+    <pre><code>arr = [1,2,3,4,5,6,7]
 
 target = 2
 Initially the element at middle index is 4 which is greater than 2. Therefore we search the left half of the
@@ -42,19 +76,52 @@ Here we find the middle element equal to target element so we return its index i
 
 target = 9
 Binary Search should return -1 as 9 is not present in the array</code></pre>
-<h4 id="code-implementation-links">Code Implementation Links</h4>
-<ul>
-<li><a href="https://github.com/TheAlgorithms/Java/blob/master/Searches/BinarySearch.java">Java</a></li>
-<li><a href="https://github.com/TheAlgorithms/C-Plus-Plus/blob/master/Search/Binary%20Search.cpp">C++</a></li>
-<li><a href="https://github.com/TheAlgorithms/Python/blob/master/searches/binary_search.py">Python</a></li>
-<li><a href="https://github.com/TheAlgorithms/C-Sharp/blob/master/searches/binary_search.cs">C-Sharp</a></li>
-<li><a href="https://github.com/TheAlgorithms/C/blob/master/searching/Binary_Search.c">C</a></li>
-</ul>
-<h4 id="video-explanation">Video Explanation</h4>
-<p><a href="https://www.youtube.com/watch?v=5xlIPT1FRcA">A CS50 video explaining the Binary Search Algorithm</a></p>
-<h4 id="animation-explanation">Animation Explanation</h4>
-<ul>
-<li><a href="https://boardhub.github.io/tute/?wd=binarySearchAlgo2">Tute Board</a></li>
-</ul>
-</body>
+    <h4 id="code-implementation-links">Code Implementation Links</h4>
+    <ul>
+      <li>
+        <a
+          href="https://github.com/TheAlgorithms/Java/blob/master/Searches/BinarySearch.java"
+          >Java</a
+        >
+      </li>
+      <li>
+        <a
+          href="https://github.com/TheAlgorithms/C-Plus-Plus/blob/master/Search/Binary%20Search.cpp"
+          >C++</a
+        >
+      </li>
+      <li>
+        <a
+          href="https://github.com/TheAlgorithms/Python/blob/master/searches/binary_search.py"
+          >Python</a
+        >
+      </li>
+      <li>
+        <a
+          href="https://github.com/TheAlgorithms/C-Sharp/blob/master/searches/binary_search.cs"
+          >C-Sharp</a
+        >
+      </li>
+      <li>
+        <a
+          href="https://github.com/TheAlgorithms/C/blob/master/searching/Binary_Search.c"
+          >C</a
+        >
+      </li>
+    </ul>
+    <h4 id="video-explanation">Video Explanation</h4>
+    <p>
+      <a href="https://www.youtube.com/watch?v=5xlIPT1FRcA"
+        >A CS50 video explaining the Binary Search Algorithm</a
+      >
+    </p>
+    <h4 id="animation-explanation">Animation Explanation</h4>
+    <ul>
+      <li>
+        <a href="https://boardhub.github.io/tute/?wd=binarySearchAlgo2"
+          >Tute Board</a
+        >
+      </li>
+    </ul>
+  </body>
 </html>

@@ -10,18 +10,19 @@
  * @return {boolean}
  */
 var isValidBST = function (root) {
-  return validate(root, -Infinity, Infinity);
+    return validate(root, -Infinity, Infinity);
 };
 
 var validate = function (node, min, max) {
-  if (node === null) {
-    return true;
-  }
+    if (node === null) {
+        return true;
+    }
 
-  if (node.val <= min || node.val >= max) {
-    return false;
-  }
-  return (
-    validate(node.left, min, node.val) && validate(node.right, node.val, max)
-  );
+    if (node.val <= min || node.val >= max) {
+        return false;
+    }
+    return (
+        validate(node.left, min, node.val) &&
+        validate(node.right, node.val, max)
+    );
 };

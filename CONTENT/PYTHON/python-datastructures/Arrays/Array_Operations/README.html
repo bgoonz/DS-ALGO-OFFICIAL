@@ -1,76 +1,173 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
-<head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="pandoc" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>README</title>
-  <style type="text/css">
-      code{white-space: pre-wrap;}
-      span.smallcaps{font-variant: small-caps;}
-      span.underline{text-decoration: underline;}
-      div.column{display: inline-block; vertical-align: top; width: 50%;}
-  </style>
-</head>
-<body>
-<h1 id="array">Array</h1>
-<ul>
-<li>An array is a collection of similar type items stored at contiguous memory locations. This makes it easier to calculate the position of each element by simply adding an offset to a base value, i.e., the memory location of the first element of the array. The base value is index 0 and the difference between the two indexes is the offset.</li>
-<li>In python array is implemented using list data structure.</li>
-</ul>
-<h2 id="aim">Aim</h2>
-<p>To implement Array data structure in Python.</p>
-<h2 id="purpose">Purpose</h2>
-<p>The purpose is to create an data structure to array and demonstrate the operations.</p>
-<h2 id="short-description">Short Description</h2>
-<p>Array:</p>
-<ul>
-<li>An array is a collection of items stored at contiguous memory locations. The idea is to store multiple items of the same type together.</li>
-<li>In the code I have used array module to create arrays and performed operations on then.</li>
-</ul>
-<h2 id="workflow-of-the-project">Workflow of the Project</h2>
-<ul>
-<li>Under Array Operations –&gt; Array_operations.py python script file is present. This file is the main python program file which contails the code.</li>
-<li><p>I have initially created a array of integer type and performed operations on the same. The operation are creating, adding element and deleting element using the built in methods.</p></li>
-<li><p>The Array Operations,</p>
-<ul>
-<li><p>Operations,</p>
-<ul>
-<li>append(),
-<ul>
-<li>Method used to input element to the end of array.</li>
-</ul></li>
-<li>insert(),
-<ul>
-<li>Method used to input element in to a specific location of the array.</li>
-</ul></li>
-<li><p>pop(),</p>
-<ul>
-<li>Method used to pop element at a particular location of the array.</li>
-</ul></li>
-<li>remove(),
-<ul>
-<li>Method used to remove a particular element in an array.</li>
-</ul></li>
-</ul></li>
-</ul></li>
-</ul>
-<h2 id="output">Output:</h2>
-<p>Test case 1:</p>
-<ul>
-<li><p>Lets create an array of size 3 <img src="../Array Operations/Images/Output1_part1.png"></p></li>
-<li><p>Operation 1 printing the array created<br />
-<img src="../Array Operations/Images/Output1_part2.png"></p></li>
-<li><p>Operation 2 Adding Integer element to array using append</p>
-<ul>
-<li>We are adding 4 to array <img src="../Array Operations/Images/Output1_part3.png"></li>
-</ul></li>
-<li><p>Operation 3 Adding Integer element to array using insert - We are adding 5 to index 2 of array <img src="../Array Operations/Images/Output1_part4.png"></p></li>
-<li><p>Operation 4 removing Integer element from array using pop - We are removing the element at index 2 <img src="../Array Operations/Images/Output1_part5.png"></p></li>
-<li><p>Operation 5 removing Integer element from array using remove - We are removing the element 2 <img src="../Array Operations/Images/Output1_part6.png"></p></li>
-<li><p>Operation 6 exit <img src="../Array Operations/Images/Output1_part7.png"></p></li>
-</ul>
-<h2 id="author">Author</h2>
-<p><a href="https://github.com/sanjay-nt">Sanjay N T</a> :Date: 2021-07-22</p>
-</body>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="generator" content="pandoc" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=yes"
+    />
+    <title>README</title>
+    <style type="text/css">
+      code {
+        white-space: pre-wrap;
+      }
+      span.smallcaps {
+        font-variant: small-caps;
+      }
+      span.underline {
+        text-decoration: underline;
+      }
+      div.column {
+        display: inline-block;
+        vertical-align: top;
+        width: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 id="array">Array</h1>
+    <ul>
+      <li>
+        An array is a collection of similar type items stored at contiguous
+        memory locations. This makes it easier to calculate the position of each
+        element by simply adding an offset to a base value, i.e., the memory
+        location of the first element of the array. The base value is index 0
+        and the difference between the two indexes is the offset.
+      </li>
+      <li>In python array is implemented using list data structure.</li>
+    </ul>
+    <h2 id="aim">Aim</h2>
+    <p>To implement Array data structure in Python.</p>
+    <h2 id="purpose">Purpose</h2>
+    <p>
+      The purpose is to create an data structure to array and demonstrate the
+      operations.
+    </p>
+    <h2 id="short-description">Short Description</h2>
+    <p>Array:</p>
+    <ul>
+      <li>
+        An array is a collection of items stored at contiguous memory locations.
+        The idea is to store multiple items of the same type together.
+      </li>
+      <li>
+        In the code I have used array module to create arrays and performed
+        operations on then.
+      </li>
+    </ul>
+    <h2 id="workflow-of-the-project">Workflow of the Project</h2>
+    <ul>
+      <li>
+        Under Array Operations –&gt; Array_operations.py python script file is
+        present. This file is the main python program file which contails the
+        code.
+      </li>
+      <li>
+        <p>
+          I have initially created a array of integer type and performed
+          operations on the same. The operation are creating, adding element and
+          deleting element using the built in methods.
+        </p>
+      </li>
+      <li>
+        <p>The Array Operations,</p>
+        <ul>
+          <li>
+            <p>Operations,</p>
+            <ul>
+              <li>
+                append(),
+                <ul>
+                  <li>Method used to input element to the end of array.</li>
+                </ul>
+              </li>
+              <li>
+                insert(),
+                <ul>
+                  <li>
+                    Method used to input element in to a specific location of
+                    the array.
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <p>pop(),</p>
+                <ul>
+                  <li>
+                    Method used to pop element at a particular location of the
+                    array.
+                  </li>
+                </ul>
+              </li>
+              <li>
+                remove(),
+                <ul>
+                  <li>
+                    Method used to remove a particular element in an array.
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+    <h2 id="output">Output:</h2>
+    <p>Test case 1:</p>
+    <ul>
+      <li>
+        <p>
+          Lets create an array of size 3
+          <img src="../Array Operations/Images/Output1_part1.png" />
+        </p>
+      </li>
+      <li>
+        <p>
+          Operation 1 printing the array created<br />
+          <img src="../Array Operations/Images/Output1_part2.png" />
+        </p>
+      </li>
+      <li>
+        <p>Operation 2 Adding Integer element to array using append</p>
+        <ul>
+          <li>
+            We are adding 4 to array
+            <img src="../Array Operations/Images/Output1_part3.png" />
+          </li>
+        </ul>
+      </li>
+      <li>
+        <p>
+          Operation 3 Adding Integer element to array using insert - We are
+          adding 5 to index 2 of array
+          <img src="../Array Operations/Images/Output1_part4.png" />
+        </p>
+      </li>
+      <li>
+        <p>
+          Operation 4 removing Integer element from array using pop - We are
+          removing the element at index 2
+          <img src="../Array Operations/Images/Output1_part5.png" />
+        </p>
+      </li>
+      <li>
+        <p>
+          Operation 5 removing Integer element from array using remove - We are
+          removing the element 2
+          <img src="../Array Operations/Images/Output1_part6.png" />
+        </p>
+      </li>
+      <li>
+        <p>
+          Operation 6 exit
+          <img src="../Array Operations/Images/Output1_part7.png" />
+        </p>
+      </li>
+    </ul>
+    <h2 id="author">Author</h2>
+    <p>
+      <a href="https://github.com/sanjay-nt">Sanjay N T</a> :Date: 2021-07-22
+    </p>
+  </body>
 </html>
