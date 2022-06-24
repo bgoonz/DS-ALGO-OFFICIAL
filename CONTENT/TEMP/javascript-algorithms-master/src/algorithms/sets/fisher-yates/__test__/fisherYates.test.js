@@ -1,14 +1,14 @@
-import fisherYates from '../fisherYates';
-import { sortedArr } from '../../../sorting/SortTester';
-import QuickSort from '../../../sorting/quick-sort/QuickSort';
+import fisherYates from "../fisherYates";
+import { sortedArr } from "../../../sorting/SortTester";
+import QuickSort from "../../../sorting/quick-sort/QuickSort";
 
-describe('fisherYates', () => {
-  it('should shuffle small arrays', () => {
+describe("fisherYates", () => {
+  it("should shuffle small arrays", () => {
     expect(fisherYates([])).toEqual([]);
     expect(fisherYates([1])).toEqual([1]);
   });
 
-  it('should shuffle array randomly', () => {
+  it("should shuffle array randomly", () => {
     const shuffledArray = fisherYates(sortedArr);
     const sorter = new QuickSort();
 

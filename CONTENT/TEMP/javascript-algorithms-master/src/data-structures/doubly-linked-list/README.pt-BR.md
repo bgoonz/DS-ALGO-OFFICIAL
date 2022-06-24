@@ -41,7 +41,7 @@ Add(value)
   end if
 end Add
 ```
-    
+
 ### Deletar
 
 ```text
@@ -78,7 +78,7 @@ Remove(head, value)
   return false
 end Remove
 ```
-    
+
 ### Travessia reversa
 
 ```text
@@ -92,14 +92,14 @@ ReverseTraversal(tail)
   end while
 end Reverse Traversal
 ```
-    
+
 ## Complexidades
 
 ## Complexidade de Tempo
 
-| Acesso    | Pesquisa    | Inserção | Remoção  |
-| :-------: | :---------: | :------: | :------: |
-| O(n)      | O(n)        | O(1)     | O(n)     |
+| Acesso | Pesquisa | Inserção | Remoção |
+| :----: | :------: | :------: | :-----: |
+|  O(n)  |   O(n)   |   O(1)   |  O(n)   |
 
 ### Complexidade de Espaço
 

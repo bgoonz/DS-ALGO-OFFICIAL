@@ -1,25 +1,25 @@
 module.exports = {
-    entry: './src/js/App.js',
-    output: { path: './public', filename: 'bundle.js' },
+    entry: "./src/js/App.js",
+    output: { path: "./public", filename: "bundle.js" },
     devServer: {
-        contentBase: './public',
-        port: 3001
+        contentBase: "./public",
+        port: 3001,
     },
-    devtools: 'inline',
+    devtools: "inline",
     module: {
         loaders: [
             {
                 test: /.jsx?$/,
-                loader: 'babel-loader',
+                loader: "babel-loader",
                 exclude: /node_modules/,
                 query: {
-                    presets: ['react', 'es2015']
-                }
+                    presets: ["react", "es2015"],
+                },
             },
             {
                 test: /\.scss$/,
-                loaders: ["style", "css", "sass"]
-            }
-        ]
-    }
+                loaders: ["style", "css", "sass"],
+            },
+        ],
+    },
 };

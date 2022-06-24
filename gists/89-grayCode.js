@@ -11,14 +11,14 @@
  * @return {number[]}
  */
 let grayCode = function (n) {
-  let results = [0];
-  for (let i = 0; i < n; i++) {
-    let size = results.length;
-    for (let j = size - 1; j >= 0; j--) {
-      let val = results[j];
-      results.push(val | (1 << i));
+    let results = [0];
+    for (let i = 0; i < n; i++) {
+        let size = results.length;
+        for (let j = size - 1; j >= 0; j--) {
+            let val = results[j];
+            results.push(val | (1 << i));
+        }
     }
-  }
 
-  return results;
+    return results;
 };

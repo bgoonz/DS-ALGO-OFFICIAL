@@ -15,11 +15,11 @@
 /* eslint-disable consistent-return */
 export default function weightedRandom(items, weights) {
   if (items.length !== weights.length) {
-    throw new Error('Items and weights must be of the same size');
+    throw new Error("Items and weights must be of the same size");
   }
 
   if (!items.length) {
-    throw new Error('Items must not be empty');
+    throw new Error("Items must not be empty");
   }
 
   // Preparing the cumulative weights array.

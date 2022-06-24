@@ -16,23 +16,23 @@
  * @return {number}
  */
 let removeDuplicates = function (nums) {
-  let oc = 1;
-  let sorted = 0;
+    let oc = 1;
+    let sorted = 0;
 
-  for (let i = 1; i < nums.length; i++) {
-    if (nums[i] === nums[sorted]) {
-      if (oc === 2) {
-        continue;
-      }
+    for (let i = 1; i < nums.length; i++) {
+        if (nums[i] === nums[sorted]) {
+            if (oc === 2) {
+                continue;
+            }
 
-      oc++;
-    } else {
-      oc = 1;
+            oc++;
+        } else {
+            oc = 1;
+        }
+
+        sorted++;
+        nums[sorted] = nums[i];
     }
 
-    sorted++;
-    nums[sorted] = nums[i];
-  }
-
-  return sorted + 1;
+    return sorted + 1;
 };

@@ -1,7 +1,7 @@
-import pascalTriangleRecursive from '../pascalTriangleRecursive';
+import pascalTriangleRecursive from "../pascalTriangleRecursive";
 
-describe('pascalTriangleRecursive', () => {
-  it('should calculate Pascal Triangle coefficients for specific line number', () => {
+describe("pascalTriangleRecursive", () => {
+  it("should calculate Pascal Triangle coefficients for specific line number", () => {
     expect(pascalTriangleRecursive(0)).toEqual([1]);
     expect(pascalTriangleRecursive(1)).toEqual([1, 1]);
     expect(pascalTriangleRecursive(2)).toEqual([1, 2, 1]);

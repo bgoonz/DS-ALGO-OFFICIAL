@@ -1,7 +1,7 @@
 # Árvore Vermelha-Preta (Red-Black Tree)
 
 Uma **árvore vermelha-preta** é um tipo de árvore de pesquisa
-binária auto balanceada na ciência da computação. Cada nó da 
+binária auto balanceada na ciência da computação. Cada nó da
 árvore binária possui um _bit_ extra, e este _bit_ é frequentemente
 interpretado com a cor (vermelho ou preto) do nó. Estas cores de _bits_
 são utilizadas para garantir que a árvore permanece aproximadamente
@@ -18,7 +18,7 @@ esta reorganização e nova pintura podem ser realizadas eficientemente.
 O balanceamento de uma árvore não é perfeito, mas é suficientemente bom
 para permitir e garantir uma pesquisa no tempo `O(log n)`, aonde `n` é o
 número total de elementos na árvore.
-Operações de inserções e remoções, juntamente com a reorganização e 
+Operações de inserções e remoções, juntamente com a reorganização e
 repintura da árvore, também são executados no tempo `O (log n)`.
 
 Um exemplo de uma árvore vermalha-preta:
@@ -32,12 +32,12 @@ as seguintes condições devem ser satisfeitas pela árvore vermelha-preta:
 
 - Cada nó é tanto vermelho ou preto.
 - O nó raíz é preto. Esta regra algumas vezes é omitida.
-Tendo em vista que a raíz pode sempre ser alterada de vermelho para preto,
-mas não de preto para vermelho, esta regra tem pouco efeito na análise.
+  Tendo em vista que a raíz pode sempre ser alterada de vermelho para preto,
+  mas não de preto para vermelho, esta regra tem pouco efeito na análise.
 - Todas as folhas (Nulo/NIL) são pretas.
 - Caso um nó é vermelho, então seus filhos serão pretos.
 - Cada caminho de um determinado nó para qualquer um dos seus nós nulos (NIL)
-descendentes contém o mesmo número de nós pretos.
+  descendentes contém o mesmo número de nós pretos.
 
 Algumas definições: o número de nós pretos da raiz até um nó é a
 **profundidade preta**(_black depth_) do nó; o número uniforme de nós pretos
@@ -58,6 +58,7 @@ comuns.
 ## Balanceamento durante a inserção
 
 ### Se o tio é VERMELHO
+
 ![Red Black Tree Balancing](https://www.geeksforgeeks.org/wp-content/uploads/redBlackCase2.png)
 
 ### Se o tio é PRETO

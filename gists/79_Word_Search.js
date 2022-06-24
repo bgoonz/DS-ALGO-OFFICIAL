@@ -18,46 +18,46 @@
 // Hide Similar Problems (H) Word Search II
 
 let exist = function (board, word) {
-  let hash = {};
+    let hash = {};
 
-  for (let i = 0; i < board.length; i++) {
-    for (let j = 0; j < board[0].length; j++) {
-      if (dfs(board, word, 0, i, j)) {
-        return true;
-      }
-    }
-  }
-
-  function dfs(board, word, w, i, j) {
-    let key = i + "," + j;
-    if (hash[key]) {
-      return false;
+    for (let i = 0; i < board.length; i++) {
+        for (let j = 0; j < board[0].length; j++) {
+            if (dfs(board, word, 0, i, j)) {
+                return true;
+            }
+        }
     }
 
-    if (w === word.length) {
-      return true;
+    function dfs(board, word, w, i, j) {
+        let key = i + "," + j;
+        if (hash[key]) {
+            return false;
+        }
+
+        if (w === word.length) {
+            return true;
+        }
+
+        if (i < 0 || i >= board.length || j < 0 || j >= board[0].length) {
+            return false;
+        }
+
+        let result = false;
+
+        if (word[w] === board[i][j]) {
+            hash[key] = true;
+
+            result =
+                dfs(board, word, w + 1, i + 1, j) ||
+                dfs(board, word, w + 1, i - 1, j) ||
+                dfs(board, word, w + 1, i, j + 1) ||
+                dfs(board, word, w + 1, i, j - 1);
+
+            hash[key] = false;
+        }
+
+        return result;
     }
 
-    if (i < 0 || i >= board.length || j < 0 || j >= board[0].length) {
-      return false;
-    }
-
-    let result = false;
-
-    if (word[w] === board[i][j]) {
-      hash[key] = true;
-
-      result =
-        dfs(board, word, w + 1, i + 1, j) ||
-        dfs(board, word, w + 1, i - 1, j) ||
-        dfs(board, word, w + 1, i, j + 1) ||
-        dfs(board, word, w + 1, i, j - 1);
-
-      hash[key] = false;
-    }
-
-    return result;
-  }
-
-  return false;
+    return false;
 };

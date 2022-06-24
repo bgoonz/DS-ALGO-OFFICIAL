@@ -16,23 +16,23 @@
  * @return {number}
  */
 var removeDuplicates = function (nums) {
-  var oc = 1;
-  var sorted = 0;
+    var oc = 1;
+    var sorted = 0;
 
-  for (var i = 1; i < nums.length; i++) {
-    if (nums[i] === nums[sorted]) {
-      if (oc === 2) {
-        continue;
-      }
+    for (var i = 1; i < nums.length; i++) {
+        if (nums[i] === nums[sorted]) {
+            if (oc === 2) {
+                continue;
+            }
 
-      oc++;
-    } else {
-      oc = 1;
+            oc++;
+        } else {
+            oc = 1;
+        }
+
+        sorted++;
+        nums[sorted] = nums[i];
     }
 
-    sorted++;
-    nums[sorted] = nums[i];
-  }
-
-  return sorted + 1;
+    return sorted + 1;
 };

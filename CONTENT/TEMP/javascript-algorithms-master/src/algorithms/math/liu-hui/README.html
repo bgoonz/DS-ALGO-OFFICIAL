@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>README</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+</head>
+<body>
+<h1 id="liu-huis-π-algorithm">Liu Hui’s π Algorithm</h1>
+<p>Liu Hui remarked in his commentary to The Nine Chapters on the Mathematical Art, that the ratio of the circumference of an inscribed hexagon to the diameter of the circle was <code>three</code>, hence <code>π</code> must be greater than three. He went on to provide a detailed step-by-step description of an iterative algorithm to calculate <code>π</code> to any required accuracy based on bisecting polygons; he calculated <code>π</code> to between <code>3.141024</code> and <code>3.142708</code> with a 96-gon; he suggested that <code>3.14</code> was a good enough approximation, and expressed <code>π</code> as <code>157/50</code>; he admitted that this number was a bit small. Later he invented an ingenious quick method to improve on it, and obtained <code>π ≈ 3.1416</code> with only a 96-gon, with an accuracy comparable to that from a 1536-gon. His most important contribution in this area was his simple iterative <code>π</code> algorithm.</p>
+<h2 id="area-of-a-circle">Area of a circle</h2>
+<p>Liu Hui argued:</p>
+<blockquote>
+<p>Multiply one side of a hexagon by the radius (of its circumcircle), then multiply this by three, to yield the area of a dodecagon; if we cut a hexagon into a dodecagon, multiply its side by its radius, then again multiply by six, we get the area of a 24-gon; the finer we cut, the smaller the loss with respect to the area of circle, thus with further cut after cut, the area of the resulting polygon will coincide and become one with the circle; there will be no loss</p>
+</blockquote>
+<figure>
+<img src="https://upload.wikimedia.org/wikipedia/commons/6/69/Cutcircle2.svg" alt="Liu Hui" /><figcaption>Liu Hui</figcaption>
+</figure>
+<p>Liu Hui’s method of calculating the area of a circle.</p>
+<p>Further, Liu Hui proved that the area of a circle is half of its circumference multiplied by its radius. He said:</p>
+<blockquote>
+<p>Between a polygon and a circle, there is excess radius. Multiply the excess radius by a side of the polygon. The resulting area exceeds the boundary of the circle</p>
+</blockquote>
+<p>In the diagram <code>d = excess radius</code>. Multiplying <code>d</code> by one side results in oblong <code>ABCD</code> which exceeds the boundary of the circle. If a side of the polygon is small (i.e. there is a very large number of sides), then the excess radius will be small, hence excess area will be small.</p>
+<blockquote>
+<p>Multiply the side of a polygon by its radius, and the area doubles; hence multiply half the circumference by the radius to yield the area of circle.</p>
+</blockquote>
+<figure>
+<img src="https://upload.wikimedia.org/wikipedia/commons/9/95/Cutcircle.svg" alt="Liu Hui" /><figcaption>Liu Hui</figcaption>
+</figure>
+<p>The area within a circle is equal to the radius multiplied by half the circumference, or <code>A = r x C/2 = r x r x π</code>.</p>
+<h2 id="iterative-algorithm">Iterative algorithm</h2>
+<p>Liu Hui began with an inscribed hexagon. Let <code>M</code> be the length of one side <code>AB</code> of hexagon, <code>r</code> is the radius of circle.</p>
+<figure>
+<img src="https://upload.wikimedia.org/wikipedia/commons/4/46/Liuhui_geyuanshu.svg" alt="Liu Hui" /><figcaption>Liu Hui</figcaption>
+</figure>
+<p>Bisect <code>AB</code> with line <code>OPC</code>, <code>AC</code> becomes one side of dodecagon (12-gon), let its length be <code>m</code>. Let the length of <code>PC</code> be <code>j</code> and the length of <code>OP</code> be <code>G</code>.</p>
+<p><code>AOP</code>, <code>APC</code> are two right angle triangles. Liu Hui used the <a href="https://en.wikipedia.org/wiki/Pythagorean_theorem">Gou Gu</a> (Pythagorean theorem) theorem repetitively:</p>
+<p><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/dbfc192c78539c3901c7bad470302ededb76f813" /></p>
+<p><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/ccd12a402367c2d6614c88e75006d50bfc3a9929" /></p>
+<p><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/65d77869fc02c302d2d46d45f75ad7e79ae524fb" /></p>
+<p><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/a7a0d0d7f505a0f434e5dd80c2fef6d2b30d6100" /></p>
+<p><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/c31b9acf38f9d1a248d4023c3bf286bd03007f37" /></p>
+<p><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/0dee798efb0b1e3e64d6b3542106cb3ecaa4a383" /></p>
+<p><img src="https://wikimedia.org/api/rest_v1/media/math/render/svg/3ffeafe88d2983b364ad3442746063e3207fe842" /></p>
+<p>From here, there is now a technique to determine <code>m</code> from <code>M</code>, which gives the side length for a polygon with twice the number of edges. Starting with a hexagon, Liu Hui could determine the side length of a dodecagon using this formula. Then continue repetitively to determine the side length of a 24-gon given the side length of a dodecagon. He could do this recursively as many times as necessary. Knowing how to determine the area of these polygons, Liu Hui could then approximate <code>π</code>.</p>
+<h2 id="references">References</h2>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Liu_Hui%27s_%CF%80_algorithm">Wikipedia</a></li>
+</ul>
+</body>
+</html>

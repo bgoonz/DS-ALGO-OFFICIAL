@@ -7,26 +7,26 @@
  * @return {ListNode}
  */
 let rotateRight = function (head, k) {
-  if (!head || !head.next) return head;
-  let headCopy = head;
-  let first = head;
-  let second = head;
-  let i = 1;
-  while (first.next) {
-    first = first.next;
-    i++;
-  }
-  let j = i - (k % i);
-  // if the steps eqauls to i (the length) return original list.
-  if (j === i) return head;
+    if (!head || !head.next) return head;
+    let headCopy = head;
+    let first = head;
+    let second = head;
+    let i = 1;
+    while (first.next) {
+        first = first.next;
+        i++;
+    }
+    let j = i - (k % i);
+    // if the steps eqauls to i (the length) return original list.
+    if (j === i) return head;
 
-  while (j > 1) {
-    second = second.next;
-    j--;
-  }
-  head = second.next;
-  second.next = first.next;
-  first.next = headCopy;
+    while (j > 1) {
+        second = second.next;
+        j--;
+    }
+    head = second.next;
+    second.next = first.next;
+    first.next = headCopy;
 
-  return head;
+    return head;
 };

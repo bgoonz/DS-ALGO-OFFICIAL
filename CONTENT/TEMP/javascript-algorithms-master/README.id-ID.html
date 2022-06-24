@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>README.id-ID</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+</head>
+<body>
+<h1 id="algoritme-dan-struktur-data-javascript">Algoritme dan Struktur Data Javascript</h1>
+<p><a href="https://github.com/trekhleb/javascript-algorithms/actions?query=workflow%3ACI+branch%3Amaster"><img src="https://github.com/trekhleb/javascript-algorithms/workflows/CI/badge.svg" alt="CI" /></a> <a href="https://codecov.io/gh/trekhleb/javascript-algorithms"><img src="https://codecov.io/gh/trekhleb/javascript-algorithms/branch/master/graph/badge.svg" alt="codecov" /></a></p>
+<p>Repositori ini berisi contoh-contoh algoritme dan struktur data yang populer menggunakan JavaScript.</p>
+<p>Setiap algoritme dan struktur data memiliki README-nya tersendiri dengan penjelasan yang berkaitan dan tautan untuk bacaan lebih lanjut (termasuk tautan menuju video YouTube).</p>
+<p><em>Baca ini dalam bahasa yang lain:</em> <a href="https://github.com/trekhleb/javascript-algorithms/"><em>English</em></a>, <a href="README.zh-CN.md"><em>简体中文</em></a>, <a href="README.zh-TW.md"><em>繁體中文</em></a>, <a href="README.ko-KR.md"><em>한국어</em></a>, <a href="README.ja-JP.md"><em>日本語</em></a>, <a href="README.pl-PL.md"><em>Polski</em></a>, <a href="README.fr-FR.md"><em>Français</em></a>, <a href="README.es-ES.md"><em>Español</em></a>, <a href="README.pt-BR.md"><em>Português</em></a>, <a href="README.ru-RU.md"><em>Русский</em></a>, <a href="README.tr-TR.md"><em>Türk</em></a>, <a href="README.it-IT.md"><em>Italiana</em></a>, <a href="README.uk-UA.md"><em>Українська</em></a>, <a href="README.ar-AR.md"><em>Arabic</em></a>, <a href="README.de-DE.md"><em>Deutsch</em></a></p>
+<p><em>☝ Perhatikan bahwa proyek ini hanya dimaksudkan untuk tujuan pembelajaran dan riset, dan <strong>tidak</strong> dimaksudkan untuk digunakan sebagai produksi.</em></p>
+<h2 id="struktur-data">Struktur Data</h2>
+<p>Struktur data adalah cara tertentu untuk mengatur dan menyimpan data dalam komputer sehingga dapat diakses dan diubah secara efisien. Lebih tepatnya, struktur data adalah kumpulan dari nilai data, relasi di antara data-data, dan fungsi atau operasi yang dapat diterapkan pada data.</p>
+<p><code>P</code> - Pemula, <code>L</code> - Lanjutan</p>
+<ul>
+<li><code>P</code> <a href="src/data-structures/linked-list">Senarai Berantai</a></li>
+<li><code>P</code> <a href="src/data-structures/doubly-linked-list">Senarai Berantai Ganda</a></li>
+<li><code>P</code> <a href="src/data-structures/queue">Antrean</a></li>
+<li><code>P</code> <a href="src/data-structures/stack">Tumpukan</a></li>
+<li><code>P</code> <a href="src/data-structures/hash-table">Tabel Hash</a></li>
+<li><code>P</code> <a href="src/data-structures/heap"><em>Heap</em></a> - versi <em>heap</em> maksimum dan minimum</li>
+<li><code>P</code> <a href="src/data-structures/priority-queue">Antrean Prioritas</a></li>
+<li><code>L</code> <a href="src/data-structures/trie"><em>Trie</em></a></li>
+<li><code>L</code> <a href="src/data-structures/tree">Pohon</a>
+<ul>
+<li><code>L</code> <a href="src/data-structures/tree/binary-search-tree">Pohon Telusur Biner</a></li>
+<li><code>L</code> <a href="src/data-structures/tree/avl-tree"><em>AVL Tree</em></a></li>
+<li><code>L</code> <a href="src/data-structures/tree/red-black-tree">Pohon Merah Hitam</a></li>
+<li><code>L</code> <a href="src/data-structures/tree/segment-tree"><em>Segment Tree</em></a> - dengan contoh min/max/sum range query</li>
+<li><code>L</code> <a href="src/data-structures/tree/fenwick-tree">Pohon Fenwick</a> (Binary Indexed Tree)</li>
+</ul></li>
+<li><code>L</code> <a href="src/data-structures/graph">Graf</a> (directed dan undirected)</li>
+<li><code>L</code> <a href="src/data-structures/disjoint-set"><em>Disjoint Set</em></a></li>
+<li><code>L</code> <a href="src/data-structures/bloom-filter"><em>Bloom Filter</em></a></li>
+</ul>
+<h2 id="algoritme">Algoritme</h2>
+<p>Algoritme adalah sebuah perincian yang jelas tentang cara untuk memecahkan suatu masalah. Ia adalah sekumpulan aturan yang menjelaskan secara tepat urutan-urutan dari sebuah operasi.</p>
+<p><code>P</code> - Pemula, <code>L</code> - Lanjutan</p>
+<h3 id="algoritme-berdasarkanan-topik">Algoritme Berdasarkanan Topik</h3>
+<ul>
+<li><strong>Matematika</strong>
+<ul>
+<li><code>P</code> <a href="src/algorithms/math/bits">Manipulasi Bit</a> - menetapkan/mendapatkan/memperbarui/mengahpus bit, perkalian/pembagian dengan angka 2, membuat bilangan negatif etc.</li>
+<li><code>P</code> <a href="src/algorithms/math/Faktorial">Faktorial</a></li>
+<li><code>P</code> <a href="src/algorithms/math/fibonacci">Bilangan Fibonacci</a> - versi klasik dan bentuk tertutup</li>
+<li><code>P</code> <a href="src/algorithms/math/prime-factors">Faktor Prima</a> - menemukan faktor prima dan menghitungnya menggunakan teorema Hardy-Ramanujan</li>
+<li><code>P</code> <a href="src/algorithms/math/primality-test">Pengujian Bilangan Prima</a> (metode <em>trial division</em>)</li>
+<li><code>P</code> <a href="src/algorithms/math/euclidean-algorithm">Algoritme Euclidean</a> - menghitung Faktor Persekutuan Terbesar (FPB)</li>
+<li><code>P</code> <a href="src/algorithms/math/least-common-multiple"><em>Least Common Multiple</em></a> (LCM)</li>
+<li><code>P</code> <a href="src/algorithms/math/sieve-of-eratosthenes"><em>Sieve of Eratosthenes</em></a> - menemukan semua bilangan prima hingga batas yang ditentukan</li>
+<li><code>P</code> <a href="src/algorithms/math/is-power-of-two"><em>Is Power of Two</em></a> - mengecek apakah sebuah bilangan adalah hasil dari pangkat dua (algoritme <em>naive</em> dan <em>bitwise</em>)</li>
+<li><code>P</code> <a href="src/algorithms/math/pascal-triangle">Segitiga Pascal</a></li>
+<li><code>P</code> <a href="src/algorithms/math/complex-number">Bilangan Kompleks</a> - bilangan kompleks dengan operasi dasarnya</li>
+<li><code>P</code> <a href="src/algorithms/math/radian">Radian &amp; Derajat</a> - konversi radian ke derajat dan sebaliknya</li>
+<li><code>P</code> <a href="src/algorithms/math/fast-powering"><em>Fast Powering</em></a></li>
+<li><code>P</code> <a href="src/algorithms/math/horner-method">Metode Horner</a> - evaluasi polinomial</li>
+<li><code>L</code> <a href="src/algorithms/math/integer-partition">Partisi Bilangan Bulat</a></li>
+<li><code>L</code> <a href="src/algorithms/math/square-root">Akar Pangkat Dua</a> - metode Newton</li>
+<li><code>L</code> <a href="src/algorithms/math/liu-hui">Algoritme π Liu Hui</a> - perkiraan perhitungan π berdasarkan segibanyak</li>
+<li><code>L</code> <a href="src/algorithms/math/fourier-transform">Transformasi Diskrit Fourier</a> - menguraikan fungsi waktu (sinyal) menjadi frekuensi yang menyusunnya</li>
+</ul></li>
+<li><strong>Himpunan</strong>
+<ul>
+<li><code>P</code> <a href="src/algorithms/sets/cartesian-product">Produk Kartesian</a> - hasil dari beberapa himpunan</li>
+<li><code>P</code> <a href="src/algorithms/sets/fisher-yates">Pengocokan Fisher–Yates</a> - permutasi acak dari sebuah urutan terhingga</li>
+<li><code>L</code> <a href="src/algorithms/sets/power-set">Himpunan Kuasa</a> - semua himpunan bagian dari sebuah himpunan</li>
+<li><code>L</code> <a href="src/algorithms/sets/permutations">Permutasi</a> (dengan dan tanpa pengulangan)</li>
+<li><code>L</code> <a href="src/algorithms/sets/combinations">Kombinasi</a> (dengan dan tanpa pengulangan)</li>
+<li><code>L</code> <a href="src/algorithms/sets/longest-common-subsequence"><em>Longest Common Subsequence</em></a> (LCS)</li>
+<li><code>L</code> <a href="src/algorithms/sets/longest-increasing-subsequence"><em>Longest Increasing Subsequence</em></a></li>
+<li><code>L</code> <a href="src/algorithms/sets/shortest-common-supersequence"><em>Shortest Common Supersequence</em></a> (SCS)</li>
+<li><code>L</code> <a href="src/algorithms/sets/knapsack-problem">Permasalahan Knapsack</a> - “0/1” dan yang tidak “dibatasi”</li>
+<li><code>L</code> <a href="src/algorithms/sets/maximum-subarray">Upalarik Maksimum</a> - “<em>Brute Force</em>” dan “Pemrograman Dinamis” versi Kadane</li>
+<li><code>L</code> <a href="src/algorithms/sets/combination-sum"><em>Combination Sum</em></a> - menemukan semua kombinasi yang membentuk jumlah tertentu</li>
+</ul></li>
+<li><strong>String</strong>
+<ul>
+<li><code>P</code> <a href="src/algorithms/string/hamming-distance">Jarak Hamming</a> - jumlah posisi di mana ditemukan simbol-simbol yang berbeda</li>
+<li><code>L</code> <a href="src/algorithms/string/levenshtein-distance">Algoritme Jarak Levenshtein</a> - <em>edit distance</em> minimum antara dua urutan</li>
+<li><code>L</code> <a href="src/algorithms/string/knuth-morris-pratt">Algoritme Knuth–Morris–Pratt</a> (Algoritme KMP) - pencarian substring (pencocokan pola)</li>
+<li><code>L</code> <a href="src/algorithms/string/z-algorithm">AlgoritmeZ</a> - pencarian substring (pencocokan pola)</li>
+<li><code>L</code> <a href="src/algorithms/string/rabin-karp">Algoritme Rabin Karp</a> - pencarian substring</li>
+<li><code>L</code> <a href="src/algorithms/string/longest-common-substring"><em>Longest Common Substring</em></a></li>
+<li><code>L</code> <a href="src/algorithms/string/regular-expression-matching">Pencocokan Ekspresi Reguler</a></li>
+</ul></li>
+<li><strong>Pencarian</strong>
+<ul>
+<li><code>P</code> <a href="src/algorithms/search/linear-search">Pencarian Linier</a></li>
+<li><code>P</code> <a href="src/algorithms/search/jump-search">Pencarian Lompat</a> (atau Block Search) - pencarian di larik tersortir</li>
+<li><code>P</code> <a href="src/algorithms/search/binary-search">Pencarian Biner</a> - pencarian di larik tersortir</li>
+<li><code>P</code> <a href="src/algorithms/search/interpolation-search">Pencarian Interpolasi</a> - pencarian di larik tersortir yang terdistribusi seragam</li>
+</ul></li>
+<li><strong>Penyortiran</strong>
+<ul>
+<li><code>P</code> <a href="src/algorithms/sorting/bubble-sort">Sortir Gelembung</a></li>
+<li><code>P</code> <a href="src/algorithms/sorting/selection-sort">Sortir Seleksi</a></li>
+<li><code>P</code> <a href="src/algorithms/sorting/insertion-sort">Sortir Sisipan</a></li>
+<li><code>P</code> <a href="src/algorithms/sorting/heap-sort">Sortir <em>Heap</em></a></li>
+<li><code>P</code> <a href="src/algorithms/sorting/merge-sort">Sortir Gabungan</a></li>
+<li><code>P</code> <a href="src/algorithms/sorting/quick-sort">Sortir Cepat</a> - implementasi <em>in-place</em> dan <em>non-in-place</em></li>
+<li><code>P</code> <a href="src/algorithms/sorting/shell-sort">Sortir Shell</a></li>
+<li><code>P</code> <a href="src/algorithms/sorting/counting-sort">Sortir Perhitungan</a></li>
+<li><code>P</code> <a href="src/algorithms/sorting/radix-sort">Sortir Akar</a></li>
+</ul></li>
+<li><strong>Senarai Berantai</strong>
+<ul>
+<li><code>P</code> <a href="src/algorithms/linked-list/traversal">Lintas Lurus</a></li>
+<li><code>P</code> <a href="src/algorithms/linked-list/reverse-traversal">Lintas Terbalik</a></li>
+</ul></li>
+<li><strong>Pohon</strong>
+<ul>
+<li><code>P</code> <a href="src/algorithms/tree/depth-first-search">Pencarian Kedalaman Pertama</a> (DFS)</li>
+<li><code>P</code> <a href="src/algorithms/tree/breadth-first-search">Pencarian Luas Pertama</a> (BFS)</li>
+</ul></li>
+<li><strong>Graf</strong>
+<ul>
+<li><code>P</code> <a href="src/algorithms/graph/depth-first-search">Pencarian Kedalaman Pertama</a> (DFS)</li>
+<li><code>P</code> <a href="src/algorithms/graph/breadth-first-search">Pencarian Luas Pertama</a> (BFS)</li>
+<li><code>P</code> <a href="src/algorithms/graph/kruskal">Algoritme Kruskal</a> - mencari rentang pohon minimum untuk graf tidak berarah berbobot</li>
+<li><code>L</code> <a href="src/algorithms/graph/dijkstra">Algoritme Dijkstra</a> - menemukan jalur terpendek ke semua sudut graf dari sudut tunggal</li>
+<li><code>L</code> <a href="src/algorithms/graph/bellman-ford">Algoritme Bellman-Ford</a> - menemukan jalur terpendek ke semua sudut graf dari sudut tunggal</li>
+<li><code>L</code> <a href="src/algorithms/graph/floyd-warshall">Algoritme Floyd-Warshall</a> - menemukan jalur terpendek antara semua pasangan sudut</li>
+<li><code>L</code> <a href="src/algorithms/graph/detect-cycle">Mendeteksi Siklus</a> - untuk graf berarah dan tidak berarah (berdasarkan versi DFS dan <em>Disjoint Set</em>)</li>
+<li><code>L</code> <a href="src/algorithms/graph/prim">ALgoritme Prim</a> - mencari rentang pohon minimum untuk graf tidak berarah berbobot</li>
+<li><code>L</code> <a href="src/algorithms/graph/topological-sorting">Sortir Topologi</a> - metode DFS</li>
+<li><code>L</code> <a href="src/algorithms/graph/articulation-points">Poin Artikulasi</a> - Algoritme Tarjan (berdasarkan DFS)</li>
+<li><code>L</code> <a href="src/algorithms/graph/bridges">Jembatan</a> - Algoritme berdasarkan DFS</li>
+<li><code>L</code> <a href="src/algorithms/graph/eulerian-path">Jalur dan Sirkuit Eulerian</a> - Algoritme Fleury - Mengunjungi setiap tepinya tepat satu kali</li>
+<li><code>L</code> <a href="src/algorithms/graph/hamiltonian-cycle">Siklus Hamiltonian</a> - mengunjungi setiap sudutnya tepat satu kali</li>
+<li><code>L</code> <a href="src/algorithms/graph/strongly-connected-components">Komponen yang Terkoneksi dengan Kuat</a> - Algoritme Kosaraju</li>
+<li><code>L</code> <a href="src/algorithms/graph/travelling-salesman">Permasalahan Penjual Keliling</a> - kemungkinan rute terpendek untuk mengunjungi setiap kota dan kembali lagi ke kota asal</li>
+</ul></li>
+<li><strong>Kriptografi</strong>
+<ul>
+<li><code>P</code> <a href="src/algorithms/cryptography/polynomial-hash">Polinomial Hash</a> - fungsi rolling hash berdasarkan polinomial</li>
+<li><code>P</code> <a href="src/algorithms/cryptography/caesar-cipher">Sandi Caesar</a> - sandi pengganti sederhana</li>
+</ul></li>
+<li><strong>Pembelajaran Mesin</strong>
+<ul>
+<li><code>P</code> <a href="https://github.com/trekhleb/nano-neuron">NanoNeuron</a> - 7 fungsi JS sederhana yang mengilustrasikan bagaimana mesin-mesin dapat benar-benar belajar (perambatan maju/mundur)</li>
+</ul></li>
+<li><strong>Tidak Dikategorikan</strong>
+<ul>
+<li><code>P</code> <a href="src/algorithms/uncategorized/hanoi-tower">Menara Hanoi</a></li>
+<li><code>P</code> <a href="src/algorithms/uncategorized/square-matrix-rotation">Perputaran Matriks Persegi</a> - algoritme <em>in-place</em></li>
+<li><code>P</code> <a href="src/algorithms/uncategorized/jump-game">Permainan Melompat</a> - runut-balik, pemrograman dinamis (atas ke bawah + bawah ke atas) and contoh-contoh <em>greedy</em></li>
+<li><code>P</code> <a href="src/algorithms/uncategorized/unique-paths"><em>Unique Paths</em></a> - runut-balik, pemrograman dinamis and contoh-contoh beradsarkan Segitiga Pascal</li>
+<li><code>P</code> <a href="src/algorithms/uncategorized/rain-terraces"><em>Rain Terraces</em></a> - permasalahan <em>trapping rain water</em> (versi pemrograman dinamis and <em>brute force</em>)</li>
+<li><code>P</code> <a href="src/algorithms/uncategorized/recursive-staircase">Tangga Rekursif</a> - menghitung jumlah cara untuk mencapai ke atas tangga (4 solusi)</li>
+<li><code>L</code> <a href="src/algorithms/uncategorized/n-queens">Permainan N-Queen</a></li>
+<li><code>L</code> <a href="src/algorithms/uncategorized/knight-tour">Permainan Knight’s Tour</a></li>
+</ul></li>
+</ul>
+<h3 id="algoritme-berdasarkan-paradigma">Algoritme Berdasarkan Paradigma</h3>
+<p>Paradigma algoritmik adalah sebuah metode atau pendekatan umum yang mendasari desain sebuah tingkatan algoritme. Paradigma algoritmik merupakan abstraksi yang lebih tinggi dari gagasan sebuah algoritme, seperti halnya sebuah algoritme merupakan abstraksi yang lebih tinggi dari sebuah program komputer.</p>
+<ul>
+<li><strong><em>Brute Force</em></strong> - melihat ke semua kemungkinan dan memilih solusi yang terbaik
+<ul>
+<li><code>P</code> <a href="src/algorithms/search/linear-search">Pencarian Linier</a></li>
+<li><code>P</code> <a href="src/algorithms/uncategorized/rain-terraces"><em>Rain Terraces</em></a> - permasalahan <em>trapping rain water</em></li>
+<li><code>P</code> <a href="src/algorithms/uncategorized/recursive-staircase">Tangga Rekursif</a> - menghitung jumlah cara untuk mencapai ke atas tangga</li>
+<li><code>L</code> <a href="src/algorithms/sets/maximum-subarray">Upalarik Maksimum</a></li>
+<li><code>L</code> <a href="src/algorithms/graph/travelling-salesman">Permasalahan Penjual Keliling</a> - kemungkinan rute terpendek untuk mengunjungi setiap kota dan kembali lagi ke kota asal</li>
+<li><code>L</code> <a href="src/algorithms/math/fourier-transform">Transformasi Diskrit Fourier</a> - menguraikan fungsi waktu (sinyal) menjadi frekuensi yang menyusunnya</li>
+</ul></li>
+<li><strong><em>Greedy</em></strong> - memilih pilihan terbaik pada saat ini tanpa mempertimbangkan masa yang akan datang
+<ul>
+<li><code>P</code> <a href="src/algorithms/uncategorized/jump-game">Permainan Melompat</a></li>
+<li><code>L</code> <a href="src/algorithms/sets/knapsack-problem">Permasalahan Knapsack yang Tidak Dibatasi</a></li>
+<li><code>L</code> <a href="src/algorithms/graph/dijkstra">Algoritme Dijkstra</a> - menemukan jalur terpendek ke semua sudut graf dari sudut tunggal</li>
+<li><code>L</code> <a href="src/algorithms/graph/prim">Algoritme Prim</a> - mencari rentang pohon minimum untuk graf tidak berarah berbobot</li>
+<li><code>L</code> <a href="src/algorithms/graph/kruskal">Algoritme Kruskal</a> - mencari rentang pohon minimum untuk graf tidak berarah berbobot</li>
+</ul></li>
+<li><strong>Memecah dan Menaklukkan</strong> - membagi masalah menjadi bagian-bagian yang kecil, lalu memcahkan bagian-bagian tersebut
+<ul>
+<li><code>P</code> <a href="src/algorithms/search/binary-search">Pencarian Biner</a></li>
+<li><code>P</code> <a href="src/algorithms/uncategorized/hanoi-tower">Menara Hanoi</a></li>
+<li><code>P</code> <a href="src/algorithms/math/pascal-triangle">Segitiga Pascal</a></li>
+<li><code>P</code> <a href="src/algorithms/math/euclidean-algorithm">Algoritme Euclidean</a> - menghitung Faktor Persekutuan Terbesar (FPB)</li>
+<li><code>P</code> <a href="src/algorithms/sorting/merge-sort">Sortir Gabungan</a></li>
+<li><code>P</code> <a href="src/algorithms/sorting/quick-sort">Sortir Cepat</a></li>
+<li><code>P</code> <a href="src/algorithms/tree/depth-first-search">Pencarian Kedalaman Pertama untuk Pohon</a> (DFS)</li>
+<li><code>P</code> <a href="src/algorithms/graph/depth-first-search">Pencarian Kedalaman Pertama untuk Graf</a> (DFS)</li>
+<li><code>P</code> <a href="src/algorithms/uncategorized/jump-game">Permainan Melompat</a></li>
+<li><code>P</code> <a href="src/algorithms/math/fast-powering"><em>Fast Powering</em></a></li>
+<li><code>L</code> <a href="src/algorithms/sets/permutations">Permutasi</a> (dengan dan tanpa pengulangan)</li>
+<li><code>L</code> <a href="src/algorithms/sets/combinations">Kombinasi</a> (dengan dan tanpa pengulangan)</li>
+</ul></li>
+<li><strong>Pemrograman Dinamis</strong> - membangun sebuah solusi menggunakan upasolusi yang ditemukan sebelumnya
+<ul>
+<li><code>P</code> <a href="src/algorithms/math/fibonacci">Bilangan Fibonacci</a></li>
+<li><code>P</code> <a href="src/algorithms/uncategorized/jump-game">Permainan Melompat</a></li>
+<li><code>P</code> <a href="src/algorithms/uncategorized/unique-paths"><em>Unique Paths</em></a></li>
+<li><code>P</code> <a href="src/algorithms/uncategorized/rain-terraces"><em>Rain Terraces</em></a> - permasalahan <em>trapping rain water</em></li>
+<li><code>P</code> <a href="src/algorithms/uncategorized/recursive-staircase">Tangga Rekursif</a> - menghitung jumlah cara untuk mencapai ke atas tangga</li>
+<li><code>L</code> <a href="src/algorithms/string/levenshtein-distance">Algoritme Jarak Levenshtein</a> - <em>edit distance</em> minimum antara dua urutan</li>
+<li><code>L</code> <a href="src/algorithms/sets/longest-common-subsequence"><em>Longest Common Subsquence</em></a> (LCS)</li>
+<li><code>L</code> <a href="src/algorithms/string/longest-common-substring"><em>Longest Common Substring</em></a></li>
+<li><code>L</code> <a href="src/algorithms/sets/longest-increasing-subsequence"><em>Longest Increasing Subsequence</em></a></li>
+<li><code>L</code> <a href="src/algorithms/sets/shortest-common-supersequence"><em>Shortest Common Supersequence</em></a></li>
+<li><code>L</code> <a href="src/algorithms/sets/knapsack-problem">Permasalahan Knapsack 0/1</a></li>
+<li><code>L</code> <a href="src/algorithms/math/integer-partition">Partisi Bilangan Bulat</a></li>
+<li><code>L</code> <a href="src/algorithms/sets/maximum-subarray">Upalarik Maksimum</a></li>
+<li><code>L</code> <a href="src/algorithms/graph/bellman-ford">Algoritme Bellman-Ford</a> - menemukan jalur terpendek ke semua sudut graf dari sudut tunggal</li>
+<li><code>L</code> <a href="src/algorithms/graph/floyd-warshall">Algoritme Floyd-Warshall</a> - menemukan jalur terpendek antara semua pasangan sudut</li>
+<li><code>L</code> <a href="src/algorithms/string/regular-expression-matching">Pencocokan Ekspresi Reguler</a></li>
+</ul></li>
+<li><strong>Runut-balik</strong> - sama halnya dengan <em>brute force</em>, algoritme ini mencoba untuk menghasilkan segala kemungkinan solusi, tetapi setiap kali anda menghasilkan solusi selanjutnya, anda akan menguji apakah solusi tersebut memenuhi semua kondisi dan setelah itu baru akan menghasilkan solusi berikutnya. Apabila tidak, maka akan merunut-balik dan mencari solusi di jalur yang berbeda. Biasanya menggunakan lintas DFS dari ruang keadaan.
+<ul>
+<li><code>P</code> <a href="src/algorithms/uncategorized/jump-game">Permainan Melompat</a></li>
+<li><code>P</code> <a href="src/algorithms/uncategorized/unique-paths"><em>Unique Paths</em></a></li>
+<li><code>P</code> <a href="src/algorithms/sets/power-set">Himpunan Kuasa</a> - semua himpunan bagian dari sebuah himpunan</li>
+<li><code>L</code> <a href="src/algorithms/graph/hamiltonian-cycle">Siklus Hamiltonian</a> - mengunjungi setiap sudutnya tepat satu kali</li>
+<li><code>L</code> <a href="src/algorithms/uncategorized/n-queens">Permainan N-Queen</a></li>
+<li><code>L</code> <a href="src/algorithms/uncategorized/knight-tour">Permainan Knight’s Tour</a></li>
+<li><code>L</code> <a href="src/algorithms/sets/combination-sum"><em>Combination Sum</em></a> - menemukan semua kombinasi yang membentuk jumlah tertentu</li>
+</ul></li>
+<li><strong><em>Mencabang dan Membatasi</em></strong> - digunakan untuk membuang solusi parsial dengan biaya yang lebih besar dari solusi dengan biaya yang terendah yang ditemukan sejauh ini dengan cara mengingat solusi dengan biaya terendah yang ditemukan pada setiap tahap dari pencarian runut-balik dan menggunakan biaya dari solusi dengan biaya terendah sejauh ini sebagai batas bawah pada biaya dari solusi dengan biaya yang paling sedikit untuk permasalahannya. Biasanya menggunakan lintas BFS yang berkombinasi dengan lintas DFS dari pohon ruang keadaan.</li>
+</ul>
+<h2 id="cara-menggunakan-repositori-ini">Cara menggunakan repositori ini</h2>
+<p><strong>Meng-<em>install</em> semua dependensi</strong></p>
+<pre><code>npm install</code></pre>
+<p><strong>Menjalankan ESLint</strong></p>
+<p>Anda dapat menjalankannya untuk memeriksa kualitas kode.</p>
+<pre><code>npm run lint</code></pre>
+<p><strong>Menjalankan semua tes</strong></p>
+<pre><code>npm test</code></pre>
+<p><strong>Menjalankan tes berdasarkan nama</strong></p>
+<pre><code>npm test -- &#39;LinkedList&#39;</code></pre>
+<p><strong><em>Playground</em></strong></p>
+<p>Anda dapat bermain dengan algoritme dan struktur data di <em>file</em> <code>./src/playground/playground.js</code> dan menuliskan tesnya di <code>./src/playground/__test__/playground.test.js</code>.</p>
+<p>Lalu, hanya tinggal menjalankan perintah berikut untuk mengetes apakah kode <em>playground</em> anda bekerja sesuai dengan keinginan:</p>
+<pre><code>npm test -- &#39;playground&#39;</code></pre>
+<h2 id="informasi-bermanfaat">Informasi Bermanfaat</h2>
+<h3 id="referensi">Referensi</h3>
+<p><a href="https://www.youtube.com/playlist?list=PLLXdhg_r2hKA7DPDsunoDZ-Z769jWn4R8">▶ Algoritme dan Struktur Data di YouTube</a></p>
+<h3 id="notasi-big-o">Notasi <em>Big O</em></h3>
+<p>Notasi <em>Big O</em> digunakan untuk mengklasifikasikan algoritme berdasarkan durasi atau ruang yang dibutuhkan seiring bertambahnya <em>input</em>. Pada grafik dibawah, anda dapat menemukan urutan pertumbuhan yang paling umum dari algoritme yang ditentukan dalam notasi <em>Big O</em>.</p>
+<figure>
+<img src="./assets/big-o-graph.png" alt="Big O graphs" /><figcaption>Big O graphs</figcaption>
+</figure>
+<p>Sumber: <a href="http://bigocheatsheet.com/">Big O Cheat Sheet</a>.</p>
+<p>Di bawah ini adalah daftar dari beberapa notasi <em>Bog O</em> yang sering digunakan dan perbandingan kinerjanya terhadap berbagai ukuran <em>input data</em>.</p>
+<table>
+<colgroup>
+<col style="width: 15%" />
+<col style="width: 27%" />
+<col style="width: 28%" />
+<col style="width: 29%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Notasi <em>Big O</em></th>
+<th>Komputasi untuk 10 elemen</th>
+<th>Komputasi untuk 100 elemen</th>
+<th>Komputasi untuk 1000 elemen</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>O(1)</strong></td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td><strong>O(log N)</strong></td>
+<td>3</td>
+<td>6</td>
+<td>9</td>
+</tr>
+<tr class="odd">
+<td><strong>O(N)</strong></td>
+<td>10</td>
+<td>100</td>
+<td>1000</td>
+</tr>
+<tr class="even">
+<td><strong>O(N log N)</strong></td>
+<td>30</td>
+<td>600</td>
+<td>9000</td>
+</tr>
+<tr class="odd">
+<td><strong>O(N^2)</strong></td>
+<td>100</td>
+<td>10000</td>
+<td>1000000</td>
+</tr>
+<tr class="even">
+<td><strong>O(2^N)</strong></td>
+<td>1024</td>
+<td>1.26e+29</td>
+<td>1.07e+301</td>
+</tr>
+<tr class="odd">
+<td><strong>O(N!)</strong></td>
+<td>3628800</td>
+<td>9.3e+157</td>
+<td>4.02e+2567</td>
+</tr>
+</tbody>
+</table>
+<h3 id="kompleksitas-operasi-struktur-data">Kompleksitas Operasi Struktur Data</h3>
+<table>
+<colgroup>
+<col style="width: 32%" />
+<col style="width: 4%" />
+<col style="width: 6%" />
+<col style="width: 7%" />
+<col style="width: 8%" />
+<col style="width: 41%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Struktur Data</th>
+<th style="text-align: center;">Akses</th>
+<th style="text-align: center;">Pencarian</th>
+<th style="text-align: center;">Penyisipan</th>
+<th style="text-align: center;">Penghapusan</th>
+<th style="text-align: left;">Keterangan</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Array (Larik)</strong></td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">n</td>
+<td style="text-align: center;">n</td>
+<td style="text-align: center;">n</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td><strong>Stack (Tumpukan)</strong></td>
+<td style="text-align: center;">n</td>
+<td style="text-align: center;">n</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td><strong>Queue (Antrean)</strong></td>
+<td style="text-align: center;">n</td>
+<td style="text-align: center;">n</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td><strong>Linked List (Senarai Berantai)</strong></td>
+<td style="text-align: center;">n</td>
+<td style="text-align: center;">n</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">n</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td><strong>Hash Table</strong></td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">n</td>
+<td style="text-align: center;">n</td>
+<td style="text-align: center;">n</td>
+<td style="text-align: left;">Apabila fungsi hash sempurna, biayanya akan menjadi O(1)</td>
+</tr>
+<tr class="even">
+<td><strong>Binary Search Tree (Pohon Telusur Biner)</strong></td>
+<td style="text-align: center;">n</td>
+<td style="text-align: center;">n</td>
+<td style="text-align: center;">n</td>
+<td style="text-align: center;">n</td>
+<td style="text-align: left;">Apabila pohon seimbang, biayanya akan menjadi O(log(n))</td>
+</tr>
+<tr class="odd">
+<td><strong>B-Tree</strong></td>
+<td style="text-align: center;">log(n)</td>
+<td style="text-align: center;">log(n)</td>
+<td style="text-align: center;">log(n)</td>
+<td style="text-align: center;">log(n)</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td><strong>Red-Black Tree (Pohon Merah-Hitam)</strong></td>
+<td style="text-align: center;">log(n)</td>
+<td style="text-align: center;">log(n)</td>
+<td style="text-align: center;">log(n)</td>
+<td style="text-align: center;">log(n)</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td><strong>AVL Tree</strong></td>
+<td style="text-align: center;">log(n)</td>
+<td style="text-align: center;">log(n)</td>
+<td style="text-align: center;">log(n)</td>
+<td style="text-align: center;">log(n)</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td><strong>Bloom Filter</strong></td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: left;">Positif palsu dimungkinkan saat pencarian</td>
+</tr>
+</tbody>
+</table>
+<h3 id="kompleksitas-algoritme-sortir-larik">Kompleksitas Algoritme Sortir Larik</h3>
+<table>
+<colgroup>
+<col style="width: 19%" />
+<col style="width: 6%" />
+<col style="width: 14%" />
+<col style="width: 13%" />
+<col style="width: 3%" />
+<col style="width: 3%" />
+<col style="width: 40%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Nama</th>
+<th style="text-align: center;">Terbaik</th>
+<th style="text-align: center;">Rata-rata</th>
+<th style="text-align: center;">Terburuk</th>
+<th style="text-align: center;">Memori</th>
+<th style="text-align: center;">Stabil</th>
+<th style="text-align: left;">Keterangan</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Bubble sort (Sortir Gelembung)</strong></td>
+<td style="text-align: center;">n</td>
+<td style="text-align: center;">n<sup>2</sup></td>
+<td style="text-align: center;">n<sup>2</sup></td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">Ya</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td><strong>Insertion sort (Sortir Sisipan)</strong></td>
+<td style="text-align: center;">n</td>
+<td style="text-align: center;">n<sup>2</sup></td>
+<td style="text-align: center;">n<sup>2</sup></td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">Ya</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td><strong>Selection sort (Sortir Seleksi)</strong></td>
+<td style="text-align: center;">n<sup>2</sup></td>
+<td style="text-align: center;">n<sup>2</sup></td>
+<td style="text-align: center;">n<sup>2</sup></td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">Tidak</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td><strong>Heap sort (Sortir <em>Heap</em>)</strong></td>
+<td style="text-align: center;">n log(n)</td>
+<td style="text-align: center;">n log(n)</td>
+<td style="text-align: center;">n log(n)</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">Tidak</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td><strong>Merge Sort (Sortir Gabungan)</strong></td>
+<td style="text-align: center;">n log(n)</td>
+<td style="text-align: center;">n log(n)</td>
+<td style="text-align: center;">n log(n)</td>
+<td style="text-align: center;">n</td>
+<td style="text-align: center;">Ya</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td><strong>Quick sort (Sortir Cepat)</strong></td>
+<td style="text-align: center;">n log(n)</td>
+<td style="text-align: center;">n log(n)</td>
+<td style="text-align: center;">n<sup>2</sup></td>
+<td style="text-align: center;">log(n)</td>
+<td style="text-align: center;">Tidak</td>
+<td style="text-align: left;">Sortir Cepat biasanya dilakukan secara <em>in-place</em> dengan O(log(n)) ruang tumpukan</td>
+</tr>
+<tr class="odd">
+<td><strong>Shell sort (Sortir Shell)</strong></td>
+<td style="text-align: center;">n log(n)</td>
+<td style="text-align: center;">tergantung pada jarak urutan</td>
+<td style="text-align: center;">n (log(n))<sup>2</sup></td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">Tidak</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td><strong>Counting sort (Sortir Perhitungan)</strong></td>
+<td style="text-align: center;">n + r</td>
+<td style="text-align: center;">n + r</td>
+<td style="text-align: center;">n + r</td>
+<td style="text-align: center;">n + r</td>
+<td style="text-align: center;">Ya</td>
+<td style="text-align: left;">r - angka terbesar dalam larik</td>
+</tr>
+<tr class="odd">
+<td><strong>Radix sort (Sortir Akar)</strong></td>
+<td style="text-align: center;">n * k</td>
+<td style="text-align: center;">n * k</td>
+<td style="text-align: center;">n * k</td>
+<td style="text-align: center;">n + k</td>
+<td style="text-align: center;">Ya</td>
+<td style="text-align: left;">k - panjang dari kunci terpanjang</td>
+</tr>
+</tbody>
+</table>
+<h2 id="pendukung-proyek">Pendukung Proyek</h2>
+<blockquote>
+<p>Anda dapat mendukung proyek ini via ❤️️ <a href="https://github.com/sponsors/trekhleb">GitHub</a> atau ❤️️ <a href="https://www.patreon.com/trekhleb">Patreon</a>.</p>
+</blockquote>
+<p><a href="https://github.com/trekhleb/javascript-algorithms/blob/master/BACKERS.md">Orang-orang yang mendukung proyek ini</a> <code>∑ = 1</code></p>
+<blockquote>
+<p>ℹ️ A few more <a href="https://trekhleb.dev/projects/">projects</a> and <a href="https://trekhleb.dev/blog/">articles</a> about JavaScript and algorithms on <a href="https://trekhleb.dev">trekhleb.dev</a></p>
+</blockquote>
+</body>
+</html>

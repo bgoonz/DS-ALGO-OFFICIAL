@@ -32,7 +32,11 @@ function findAllPaths(startVertex, paths = [], path = []) {
   }
 
   // Go through all the neighbors.
-  for (let neighborIndex = 0; neighborIndex < unvisitedNeighbors.length; neighborIndex += 1) {
+  for (
+    let neighborIndex = 0;
+    neighborIndex < unvisitedNeighbors.length;
+    neighborIndex += 1
+  ) {
     const currentUnvisitedNeighbor = unvisitedNeighbors[neighborIndex];
     findAllPaths(currentUnvisitedNeighbor, paths, currentPath);
   }
@@ -88,12 +92,23 @@ export default function bfTravellingSalesman(graph) {
   const verticesIndices = graph.getVerticesIndices();
   let salesmanPath = [];
   let salesmanPathWeight = null;
-  for (let cycleIndex = 0; cycleIndex < allPossibleCycles.length; cycleIndex += 1) {
+  for (
+    let cycleIndex = 0;
+    cycleIndex < allPossibleCycles.length;
+    cycleIndex += 1
+  ) {
     const currentCycle = allPossibleCycles[cycleIndex];
-    const currentCycleWeight = getCycleWeight(adjacencyMatrix, verticesIndices, currentCycle);
+    const currentCycleWeight = getCycleWeight(
+      adjacencyMatrix,
+      verticesIndices,
+      currentCycle
+    );
 
     // If current cycle weight is smaller then previous ones treat current cycle as most optimal.
-    if (salesmanPathWeight === null || currentCycleWeight < salesmanPathWeight) {
+    if (
+      salesmanPathWeight === null ||
+      currentCycleWeight < salesmanPathWeight
+    ) {
       salesmanPath = currentCycle;
       salesmanPathWeight = currentCycleWeight;
     }

@@ -1,4 +1,4 @@
-import Comparator from '../../../utils/comparator/Comparator';
+import Comparator from "../../../utils/comparator/Comparator";
 
 /**
  * Jump (block) search implementation.
@@ -8,7 +8,11 @@ import Comparator from '../../../utils/comparator/Comparator';
  * @param {function(a, b)} [comparatorCallback]
  * @return {number}
  */
-export default function jumpSearch(sortedArray, seekElement, comparatorCallback) {
+export default function jumpSearch(
+  sortedArray,
+  seekElement,
+  comparatorCallback
+) {
   const comparator = new Comparator(comparatorCallback);
   const arraySize = sortedArray.length;
 
@@ -26,7 +30,12 @@ export default function jumpSearch(sortedArray, seekElement, comparatorCallback)
   // Find the block where the seekElement belong to.
   let blockStart = 0;
   let blockEnd = jumpSize;
-  while (comparator.greaterThan(seekElement, sortedArray[Math.min(blockEnd, arraySize) - 1])) {
+  while (
+    comparator.greaterThan(
+      seekElement,
+      sortedArray[Math.min(blockEnd, arraySize) - 1]
+    )
+  ) {
     // Jump to the next block.
     blockStart = blockEnd;
     blockEnd += jumpSize;

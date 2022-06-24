@@ -43,23 +43,23 @@
 // }
 
 let sortColors = function (nums) {
-  let redIdx = 0;
-  let blueIdx = nums.length - 1;
-  let i = 0;
+    let redIdx = 0;
+    let blueIdx = nums.length - 1;
+    let i = 0;
 
-  while (i <= blueIdx) {
-    if (nums[i] === 0) {
-      swap(nums, i++, redIdx++);
-    } else if (nums[i] === 2) {
-      swap(nums, i, blueIdx--);
-    } else {
-      i++;
+    while (i <= blueIdx) {
+        if (nums[i] === 0) {
+            swap(nums, i++, redIdx++);
+        } else if (nums[i] === 2) {
+            swap(nums, i, blueIdx--);
+        } else {
+            i++;
+        }
     }
-  }
 
-  function swap(nums, i, j) {
-    let tmp = nums[i];
-    nums[i] = nums[j];
-    nums[j] = tmp;
-  }
+    function swap(nums, i, j) {
+        let tmp = nums[i];
+        nums[i] = nums[j];
+        nums[j] = tmp;
+    }
 };

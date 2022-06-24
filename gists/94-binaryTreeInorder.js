@@ -10,20 +10,20 @@
  * @return {number[]}
  */
 let inorderTraversal = function (root) {
-  let stack = [];
-  let order = [];
-  while (stack.length > 0 || root) {
-    if (root) {
-      stack.push(root);
-      root = root.left;
-    } else {
-      let node = stack.pop();
-      order.push(node.val);
-      if (node.right) root = node.right;
+    let stack = [];
+    let order = [];
+    while (stack.length > 0 || root) {
+        if (root) {
+            stack.push(root);
+            root = root.left;
+        } else {
+            let node = stack.pop();
+            order.push(node.val);
+            if (node.right) root = node.right;
+        }
     }
-  }
 
-  return order;
+    return order;
 };
 
 // more concise and efficient
@@ -31,17 +31,17 @@ let inorderTraversal = function (root) {
 // once left child reaches to the end (leaf), pop the last left, and visit,
 // then assign its right node to be root, and repeat the process on current root (the right child)
 let inorderTraversal = function (root) {
-  let stack = [];
-  let order = [];
+    let stack = [];
+    let order = [];
 
-  while (root || stack.length > 0) {
-    while (root) {
-      stack.push(root);
-      root = root.left;
+    while (root || stack.length > 0) {
+        while (root) {
+            stack.push(root);
+            root = root.left;
+        }
+        let node = stack.pop();
+        order.push(node.val);
+        root = node.right;
     }
-    let node = stack.pop();
-    order.push(node.val);
-    root = node.right;
-  }
-  return order;
+    return order;
 };

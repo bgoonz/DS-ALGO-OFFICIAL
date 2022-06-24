@@ -1,5 +1,5 @@
-import Sort from '../Sort';
-import MinHeap from '../../../data-structures/heap/MinHeap';
+import Sort from "../Sort";
+import MinHeap from "../../../data-structures/heap/MinHeap";
 
 export default class HeapSort extends Sort {
   sort(originalArray) {

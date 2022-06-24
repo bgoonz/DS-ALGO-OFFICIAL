@@ -2,9 +2,9 @@
 
 I hereby claim:
 
-  * I am yakovkhalinsky on github.
-  * I am russianator (https://keybase.io/russianator) on keybase.
-  * I have a public key whose fingerprint is 7D47 0BE8 A0AA 821F 8FF4  77D2 E6DF 3A87 7D6C 5959
+-   I am yakovkhalinsky on github.
+-   I am russianator (https://keybase.io/russianator) on keybase.
+-   I have a public key whose fingerprint is 7D47 0BE8 A0AA 821F 8FF4 77D2 E6DF 3A87 7D6C 5959
 
 To claim this, I am signing this object:
 
@@ -35,7 +35,7 @@ To claim this, I am signing this object:
 }
 ```
 
-with the key [7D47 0BE8 A0AA 821F 8FF4  77D2 E6DF 3A87 7D6C 5959](https://keybase.io/russianator), yielding the signature:
+with the key [7D47 0BE8 A0AA 821F 8FF4 77D2 E6DF 3A87 7D6C 5959](https://keybase.io/russianator), yielding the signature:
 
 ```
 -----BEGIN PGP MESSAGE-----

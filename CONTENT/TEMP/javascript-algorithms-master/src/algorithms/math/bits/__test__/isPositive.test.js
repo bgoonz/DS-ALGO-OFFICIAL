@@ -1,7 +1,7 @@
-import isPositive from '../isPositive';
+import isPositive from "../isPositive";
 
-describe('isPositive', () => {
-  it('should detect if a number is positive', () => {
+describe("isPositive", () => {
+  it("should detect if a number is positive", () => {
     expect(isPositive(1)).toBe(true);
     expect(isPositive(2)).toBe(true);
     expect(isPositive(3)).toBe(true);

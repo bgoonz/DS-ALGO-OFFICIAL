@@ -7,20 +7,20 @@ estrutura de dados de union–find ou merge–find) é uma estrutura de dados
 que rastreia um conjunto de elementos particionados em um número de
 subconjuntos separados (sem sobreposição).
 Ele fornece operações de tempo quase constante (limitadas pela função
-inversa de Ackermann) para *adicionar novos conjuntos*, para 
-*mesclar/fundir conjuntos existentes* e para *determinar se os elementos
-estão no mesmo conjunto*.
+inversa de Ackermann) para _adicionar novos conjuntos_, para
+_mesclar/fundir conjuntos existentes_ e para _determinar se os elementos
+estão no mesmo conjunto_.
 Além de muitos outros usos (veja a seção Applications), conjunto disjuntor
 desempenham um papel fundamental no algoritmo de Kruskal para encontrar a
 árvore geradora mínima de um gráfico (graph).
 
 ![disjoint set](https://upload.wikimedia.org/wikipedia/commons/6/67/Dsu_disjoint_sets_init.svg)
 
-*MakeSet* cria 8 singletons.
+_MakeSet_ cria 8 singletons.
 
 ![disjoint set](https://upload.wikimedia.org/wikipedia/commons/a/ac/Dsu_disjoint_sets_final.svg)
 
-Depois de algumas operações de *Uniões*, alguns conjuntos são agrupados juntos.
+Depois de algumas operações de _Uniões_, alguns conjuntos são agrupados juntos.
 
 ## Referências
 

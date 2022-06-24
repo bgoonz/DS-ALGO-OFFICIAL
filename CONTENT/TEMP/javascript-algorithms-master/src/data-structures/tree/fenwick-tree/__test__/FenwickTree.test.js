@@ -1,7 +1,7 @@
-import FenwickTree from '../FenwickTree';
+import FenwickTree from "../FenwickTree";
 
-describe('FenwickTree', () => {
-  it('should create empty fenwick tree of correct size', () => {
+describe("FenwickTree", () => {
+  it("should create empty fenwick tree of correct size", () => {
     const tree1 = new FenwickTree(5);
     expect(tree1.treeArray.length).toBe(5 + 1);
 
@@ -13,7 +13,7 @@ describe('FenwickTree', () => {
     expect(tree2.treeArray.length).toBe(50 + 1);
   });
 
-  it('should create correct fenwick tree', () => {
+  it("should create correct fenwick tree", () => {
     const inputArray = [3, 2, -1, 6, 5, 4, -3, 3, 7, 2, 3];
 
     const tree = new FenwickTree(inputArray.length);
@@ -62,7 +62,7 @@ describe('FenwickTree', () => {
     expect(tree.queryRange(6, 9)).toBe(11);
   });
 
-  it('should correctly execute queries', () => {
+  it("should correctly execute queries", () => {
     const tree = new FenwickTree(5);
 
     tree.increase(1, 4);
@@ -82,7 +82,7 @@ describe('FenwickTree', () => {
     expect(tree.queryRange(1, 5)).toBe(19);
   });
 
-  it('should throw exceptions', () => {
+  it("should throw exceptions", () => {
     const tree = new FenwickTree(5);
 
     const increaseAtInvalidLowIndex = () => {

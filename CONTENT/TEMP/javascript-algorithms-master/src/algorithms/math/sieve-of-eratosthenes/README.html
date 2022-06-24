@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>README</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+</head>
+<body>
+<h1 id="sieve-of-eratosthenes">Sieve of Eratosthenes</h1>
+<p>The Sieve of Eratosthenes is an algorithm for finding all prime numbers up to some limit <code>n</code>.</p>
+<p>It is attributed to Eratosthenes of Cyrene, an ancient Greek mathematician.</p>
+<h2 id="how-it-works">How it works</h2>
+<ol type="1">
+<li>Create a boolean array of <code>n + 1</code> positions (to represent the numbers <code>0</code> through <code>n</code>)</li>
+<li>Set positions <code>0</code> and <code>1</code> to <code>false</code>, and the rest to <code>true</code></li>
+<li>Start at position <code>p = 2</code> (the first prime number)</li>
+<li>Mark as <code>false</code> all the multiples of <code>p</code> (that is, positions <code>2 * p</code>, <code>3 * p</code>, <code>4 * p</code>… until you reach the end of the array)</li>
+<li>Find the first position greater than <code>p</code> that is <code>true</code> in the array. If there is no such position, stop. Otherwise, let <code>p</code> equal this new number (which is the next prime), and repeat from step 4</li>
+</ol>
+<p>When the algorithm terminates, the numbers remaining <code>true</code> in the array are all the primes below <code>n</code>.</p>
+<p>An improvement of this algorithm is, in step 4, start marking multiples of <code>p</code> from <code>p * p</code>, and not from <code>2 * p</code>. The reason why this works is because, at that point, smaller multiples of <code>p</code> will have already been marked <code>false</code>.</p>
+<h2 id="example">Example</h2>
+<figure>
+<img src="https://upload.wikimedia.org/wikipedia/commons/b/b9/Sieve_of_Eratosthenes_animation.gif" alt="Sieve" /><figcaption>Sieve</figcaption>
+</figure>
+<h2 id="complexity">Complexity</h2>
+<p>The algorithm has a complexity of <code>O(n log(log n))</code>.</p>
+<h2 id="references">References</h2>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes">Wikipedia</a></li>
+</ul>
+</body>
+</html>

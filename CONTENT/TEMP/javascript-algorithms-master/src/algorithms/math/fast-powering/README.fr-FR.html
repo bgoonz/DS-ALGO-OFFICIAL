@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>README.fr-FR</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+</head>
+<body>
+<h1 id="algorithme-dexponentiation-rapide">Algorithme d’exponentiation rapide</h1>
+<p><em>Read this in other languages:</em> <a href="README.md">english</a>.</p>
+<p>En algèbre, une <strong>puissance</strong> d’un nombre est le résultat de la multiplication répétée de ce nombre avec lui-même.</p>
+<p>Elle est souvent notée en assortissant le nombre d’un entier, typographié en exposant, qui indique le nombre de fois qu’apparaît le nombre comme facteur dans cette multiplication.</p>
+<figure>
+<img src="https://www.mathsisfun.com/algebra/images/exponent-8-2.svg" alt="Power" /><figcaption>Power</figcaption>
+</figure>
+<h2 id="implémentation-naïve">Implémentation « naïve »</h2>
+<p>Comment trouver <code>a</code> élevé à la puissance <code>b</code> ?</p>
+<p>On multiplie <code>a</code> avec lui-même, <code>b</code> nombre de fois. Ainsi, <code>a^b = a * a * a * ... * a</code> (<code>b</code> occurrences de <code>a</code>).</p>
+<p>Cette opération aura un complexité linéaire, notée <code>O(n)</code>, car la multiplication aura lieu exactement <code>n</code> fois.</p>
+<h2 id="algorithme-dexponentiation-rapide-1">Algorithme d’exponentiation rapide</h2>
+<p>Peut-on faire mieux que cette implémentation naïve? Oui, on peut réduire le nombre de puissance à un complexité de <code>O(log(n))</code>.</p>
+<p>Cet algorithme utilise l’approche « diviser pour mieux régner » pour calculer cette puissance. En l’état, cet algorithme fonctionne pour deux entiers positifs <code>X</code> et <code>Y</code>.</p>
+<p>L’idée derrière cet algorithme est basée sur l’observation suivante.</p>
+<p>Lorsque <code>Y</code> est <strong>pair</strong>:</p>
+<pre class="text"><code>X^Y = X^(Y/2) * X^(Y/2)</code></pre>
+<p>Lorsque <code>Y</code> est <strong>impair</strong>:</p>
+<pre class="text"><code>X^Y = X^(Y//2) * X^(Y//2) * X
+où Y//2 est le résultat de la division entière de Y par 2.</code></pre>
+<p><strong>Par exemple</strong></p>
+<pre class="text"><code>2^4 = (2 * 2) * (2 * 2) = (2^2) * (2^2)</code></pre>
+<pre class="text"><code>2^5 = (2 * 2) * (2 * 2) * 2 = (2^2) * (2^2) * (2)</code></pre>
+<p>Ainsi, puisqu’à chaque étape on doits calculer deux fois la même puissance <code>X ^ (Y / 2)</code>, on peut optimiser en l’enregistrant dans une variable intermédiaire pour éviter son calcul en double.</p>
+<p><strong>Complexité en temps</strong></p>
+<p>Comme à chaque itération nous réduisons la puissance de moitié, nous appelons récursivement la fonction <code>log(n)</code> fois. Le complexité de temps de cet algorithme est donc réduite à:</p>
+<pre class="text"><code>O(log(n))</code></pre>
+<h2 id="références">Références</h2>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=LUWavfN9zEo&amp;index=80&amp;list=PLLXdhg_r2hKA7DPDsunoDZ-Z769jWn4R8&amp;t=0s">YouTube</a></li>
+<li><a href="https://fr.wikipedia.org/wiki/Exponentiation_rapide">Wikipedia</a></li>
+</ul>
+</body>
+</html>

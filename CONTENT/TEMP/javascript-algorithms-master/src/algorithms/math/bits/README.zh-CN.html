@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>README.zh-CN</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+</head>
+<body>
+<h1 id="位运算">位运算</h1>
+<p><em>Read this in other languages:</em> <a href="README.fr-FR.md">français</a>, <a href="README.md">english</a></p>
+<h4 id="get-bit">Get Bit</h4>
+<p>该方法向右移动目标位到最右边，即位数组的第0个位置上。然后在该数上与形如 <code>0001</code>的二进制形式的数进行<code>ADD</code>操作。这会清理掉除了目标位的所有其它位的数据。如果目标位是1，那么结果就是<code>1</code>，反之，结果是<code>0</code>;</p>
+<blockquote>
+<p>查看<a href="getBit.js">getBit.js</a>了解更多细节。</p>
+</blockquote>
+<h4 id="set-bit">Set Bit</h4>
+<p>该方法把<code>1</code>向左移动了<code>bitPosition</code>位，生成了一个二进制形如<code>00100</code>的值。然后我们拿该值与目标数字进行<code>OR</code>操作，就能把目标位设置位<code>1</code>而不影响其它位。</p>
+<blockquote>
+<p>查看<a href="setBit.js">setBit.js</a>了解更多细节。</p>
+</blockquote>
+<h4 id="clear-bit">Clear Bit</h4>
+<p>该方法把<code>1</code>向左移动了<code>bitPosition</code>位，生成了一个二进制形如<code>00100</code>的值。然后反转每一位的数字，得到一个二进制形如<code>11011</code>的值。接着与目标值进行<code>ADD</code>操作，就能清除掉目标位的值。</p>
+<blockquote>
+<p>查看<a href="clearBit.js">clearBit.js</a>了解更多细节。</p>
+</blockquote>
+<h4 id="update-bit">Update Bit</h4>
+<p>该方法组合了“Clear Bit”和“Set Bit”</p>
+<blockquote>
+<p>查看<a href="updateBit.js">updateBit.js</a>了解更多细节。</p>
+</blockquote>
+<h4 id="iseven">isEven</h4>
+<p>该方法检测传入的number是否是偶数。它的实现基于奇数的最右边的位永远是<code>1</code>这个事实。</p>
+<pre class="text"><code>Number: 5 = 0b0101
+isEven: false
+
+Number: 4 = 0b0100
+isEven: true</code></pre>
+<blockquote>
+<p>查看<a href="isEven.js">isEven.js</a>了解更多细节。</p>
+</blockquote>
+<h4 id="ispositive">isPositive</h4>
+<p>该方法检测传入的number是否是正数。它的实现基于正数最左边的位永远是<code>0</code>这个事实。然而如果传入的number是0或者-0，它也应该返回false。</p>
+<pre class="text"><code>Number: 1 = 0b0001
+isPositive: true
+
+Number: -1 = -0b0001
+isPositive: false</code></pre>
+<blockquote>
+<p>查看<a href="isPositive.js">isPositive.js</a>了解更多细节。</p>
+</blockquote>
+<h4 id="multiply-by-two">Multiply By Two</h4>
+<p>该方法将原始数字向左移动一位。因此所有位都将乘以2，因此数字本身也将乘以2。</p>
+<pre><code>Before the shift
+Number: 0b0101 = 5
+Powers of two: 0 + 2^2 + 0 + 2^0
+
+After the shift
+Number: 0b1010 = 10
+Powers of two: 2^3 + 0 + 2^1 + 0</code></pre>
+<blockquote>
+<p>查看<a href="multiplyByTwo.js">multiplyByTwo.js</a>了解更多细节。</p>
+</blockquote>
+<h4 id="divide-by-two">Divide By Two</h4>
+<p>该方法将原始数字向右移动一位。因此所有位都将除以2，因此数字本身也将除以2,且不会产生余数。</p>
+<pre><code>Before the shift
+Number: 0b0101 = 5
+Powers of two: 0 + 2^2 + 0 + 2^0
+
+After the shift
+Number: 0b0010 = 2
+Powers of two: 0 + 0 + 2^1 + 0</code></pre>
+<blockquote>
+<p>查看<a href="divideByTwo.js">divideByTwo.js</a>了解更多细节。</p>
+</blockquote>
+<h4 id="switch-sign">Switch Sign</h4>
+<p>该方法将正数变成负数，反之亦然。为了做到这一点，它使用了“二进制补码”的方法，即取反所有位然后加1.</p>
+<pre><code>1101 -3
+1110 -2
+1111 -1
+0000  0
+0001  1
+0010  2
+0011  3</code></pre>
+<blockquote>
+<p>查看<a href="switchSign.js">switchSign.js</a>了解更多细节。</p>
+</blockquote>
+<h4 id="multiply-two-signed-numbers">Multiply Two Signed Numbers</h4>
+<p>该方法使用位运算符计算两个有符号数的乘积。实现基于以下事实：</p>
+<pre class="text"><code>a * b 可以被改写成如下形式:
+  0                     a为0，b为0，或者a，b都为0
+  2a * (b/2)            b是偶数
+  2a * (b - 1)/2 + a    b是奇数，正数
+  2a * (b + 1)/2 - a    b是奇数，负数</code></pre>
+<p>这样转换的优势在于，递归的每一步，递归的操作数的值都减少了一半。因此，运行时的时间复杂度为<code>O(log(b))</code>,其中b是在每个递归步骤上减少为一半的操作数。</p>
+<blockquote>
+<p>查看<a href="multiply.js">multiply.js</a>了解更多细节。</p>
+</blockquote>
+<h4 id="multiply-two-unsigned-numbers">Multiply Two Unsigned Numbers</h4>
+<p>该方法使用位运算符计算两个无符号数的乘积。实现基于“每个数字都可以表示为一系列2的幂的和”。</p>
+<p>逐位乘法的主要思想是，每个数字都可以拆分为两个乘方的和：</p>
+<p>比如：</p>
+<pre class="text"><code>19 = 2^4 + 2^1 + 2^0</code></pre>
+<p>然后<code>19</code>乘<code>x</code>就等价于：</p>
+<pre class="text"><code>x * 19 = x * 2^4 + x * 2^1 + x * 2^0</code></pre>
+<p>接着我们应该意识到<code>x*2^4</code>是等价于<code>x</code>向左移动<code>4</code>位（<code>x &lt;&lt; 4</code>）的;</p>
+<blockquote>
+<p>查看<a href="multiplyUnsigned.js">multiplyUnsigned.js</a>了解更多细节。</p>
+</blockquote>
+<h4 id="count-set-bits">Count Set Bits</h4>
+<p>该方法使用位运算符对一个数字里设置为<code>1</code>的位进行记数。主要方法是，把数字每次向右移动1位，然后使用<code>&amp;</code>操作符取出最右边一位的值，<code>1</code>则记数加1，<code>0</code>则不计。</p>
+<pre class="text"><code>Number: 5 = 0b0101
+Count of set bits = 2</code></pre>
+<blockquote>
+<p>查看<a href="countSetBits.js">countSetBits.js</a>了解更多细节。</p>
+</blockquote>
+<h4 id="count-bits-to-flip-one-number-to-another">Count Bits to Flip One Number to Another</h4>
+<p>该方法输出把一个数字转换为另一个数字所需要转换的位数。这利用了以下特性：当数字进行<code>XOR</code>异或运算时，结果将是不同位数的数量(即异或的结果中所有被设置为1的位的数量)。</p>
+<pre><code>5 = 0b0101
+1 = 0b0001
+Count of Bits to be Flipped: 1</code></pre>
+<blockquote>
+<p>查看<a href="bitsDiff.js">bitsDiff.js</a>了解更多细节。</p>
+</blockquote>
+<h4 id="count-bits-of-a-number">Count Bits of a Number</h4>
+<p>为了计算数字的有效位数，我们需要把<code>1</code>每次向左移动一位，然后检查产生的值是否大于输入的数字。</p>
+<pre><code>5 = 0b0101
+有效位数: 3
+当我们把1向左移动4位的时候，会大于5.</code></pre>
+<blockquote>
+<p>查看<a href="bitLength.js">bitLength.js</a>了解更多细节。</p>
+</blockquote>
+<h4 id="is-power-of-two">Is Power of Two</h4>
+<p>该方法检测数字是否可以表示为2的幂。它使用了以下特性，我们定义<code>powerNumber</code>是可以写成2的幂的形式的数(2,4,8,16 etc.)。然后我们会把<code>powerNumber</code>和<code>powerNumber - 1</code>进行<code>&amp;</code>操作，它会返回<code>0</code>(如果该数字可以表示为2的幂)。</p>
+<pre><code>Number: 4 = 0b0100
+Number: 3 = (4 - 1) = 0b0011
+4 &amp; 3 = 0b0100 &amp; 0b0011 = 0b0000 &lt;-- Equal to zero, is power of two.
+
+Number: 10 = 0b01010
+Number: 9 = (10 - 1) = 0b01001
+10 &amp; 9 = 0b01010 &amp; 0b01001 = 0b01000 &lt;-- Not equal to zero, not a power of two.</code></pre>
+<blockquote>
+<p>查看<a href="isPowerOfTwo.js">isPowerOfTwo.js</a>了解更多细节。</p>
+</blockquote>
+<h4 id="full-adder">Full Adder</h4>
+<p>该方法使用位运算符计算两个数的和。</p>
+<p>它实现了<a href="https://en.wikipedia.org/wiki/Adder_(electronics)">完整的加法器</a>电子电路逻辑，以补码的形式计算两个32位数字的和。它使用布尔逻辑来覆盖了两个位相加的所有情况：从前一位相加的时候，产没产生进位“carry bit”。</p>
+<p>Legend:</p>
+<ul>
+<li><code>A</code>: 数字 <code>A</code></li>
+<li><code>B</code>: 数字 <code>B</code></li>
+<li><code>ai</code>: 数字<code>A</code>以二进制表示时的位下标</li>
+<li><code>bi</code>: 数字<code>B</code>以二进制表示时的位下标</li>
+<li><code>carryIn</code>: 本次计算产生的进位</li>
+<li><code>carryOut</code>: 带入此次计算的进位</li>
+<li><code>bitSum</code>: <code>ai</code>, <code>bi</code>, 和 <code>carryIn</code> 的和</li>
+<li><code>resultBin</code>: 当前计算的结果（二进制形式）</li>
+<li><code>resultDec</code>: 当前计算的结果（十进制形式）</li>
+</ul>
+<pre><code>A = 3: 011
+B = 6: 110
+┌──────┬────┬────┬─────────┬──────────┬─────────┬───────────┬───────────┐
+│  bit │ ai │ bi │ carryIn │ carryOut │  bitSum │ resultBin │ resultDec │
+├──────┼────┼────┼─────────┼──────────┼─────────┼───────────┼───────────┤
+│   0  │ 1  │ 0  │    0    │    0     │     1   │       1   │     1     │
+│   1  │ 1  │ 1  │    0    │    1     │     0   │      01   │     1     │
+│   2  │ 0  │ 1  │    1    │    1     │     0   │     001   │     1     │
+│   3  │ 0  │ 0  │    1    │    0     │     1   │    1001   │     9     │
+└──────┴────┴────┴─────────┴──────────┴─────────┴───────────┴───────────┘</code></pre>
+<blockquote>
+<p>查看<a href="fullAdder.js">fullAdder.js</a>了解更多细节。<br />
+查看<a href="https://www.youtube.com/watch?v=wvJc9CZcvBc&amp;list=PLLXdhg_r2hKA7DPDsunoDZ-Z769jWn4R8">Full Adder on YouTube</a>.</p>
+</blockquote>
+<h2 id="references">References</h2>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=NLKQEOgBAnw&amp;t=0s&amp;index=28&amp;list=PLLXdhg_r2hKA7DPDsunoDZ-Z769jWn4R8">Bit Manipulation on YouTube</a></li>
+<li><a href="https://www.youtube.com/watch?v=4qH4unVtJkE&amp;t=0s&amp;index=30&amp;list=PLLXdhg_r2hKA7DPDsunoDZ-Z769jWn4R8">Negative Numbers in binary on YouTube</a></li>
+<li><a href="https://graphics.stanford.edu/~seander/bithacks.html">Bit Hacks on stanford.edu</a></li>
+</ul>
+</body>
+</html>

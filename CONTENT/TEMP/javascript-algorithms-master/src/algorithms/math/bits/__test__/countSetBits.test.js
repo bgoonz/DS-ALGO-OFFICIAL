@@ -1,7 +1,7 @@
-import countSetBits from '../countSetBits';
+import countSetBits from "../countSetBits";
 
-describe('countSetBits', () => {
-  it('should return number of set bits', () => {
+describe("countSetBits", () => {
+  it("should return number of set bits", () => {
     expect(countSetBits(0)).toBe(0);
     expect(countSetBits(1)).toBe(1);
     expect(countSetBits(2)).toBe(1);

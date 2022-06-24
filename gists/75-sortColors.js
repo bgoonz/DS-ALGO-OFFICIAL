@@ -7,22 +7,22 @@
  * @return {void} Do not return anything, modify nums in-place instead.
  */
 let sortColors = function (nums) {
-  let start = 0;
-  let end = nums.length - 1;
-  for (let i = 0; i <= end; i++) {
-    while (nums[i] === 2 && i < end) {
-      swap(nums, i, end);
-      end--;
+    let start = 0;
+    let end = nums.length - 1;
+    for (let i = 0; i <= end; i++) {
+        while (nums[i] === 2 && i < end) {
+            swap(nums, i, end);
+            end--;
+        }
+        while (nums[i] === 0 && i > start) {
+            swap(nums, i, start);
+            start++;
+        }
     }
-    while (nums[i] === 0 && i > start) {
-      swap(nums, i, start);
-      start++;
-    }
-  }
 };
 
 let swap = function (nums, i, j) {
-  let tmp = nums[i];
-  nums[i] = nums[j];
-  nums[j] = tmp;
+    let tmp = nums[i];
+    nums[i] = nums[j];
+    nums[j] = tmp;
 };
