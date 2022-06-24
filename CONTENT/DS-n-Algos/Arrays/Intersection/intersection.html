@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>intersection</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+</head>
+<body>
+<p>Write a function named intersection(firstArr) that takes in an array and returns a function. When the function returned by intersection is invoked passing in an array (secondArr) it returns a new array containing the elements common to both firstArr and secondArr.</p>
+<p>Example 1: let abc = intersection([“a”, “b”, “c”]); // returns a function console.log(abc([“b”, “d”, “c”])); // returns [ ‘b’, ‘c’ ]</p>
+<p>Example 2: let fame = intersection([“f”, “a”, “m”, “e”]); // returns a function console.log(fame([“a”, “f”, “z”, “b”])); // returns [ ‘f’, ‘a’ ]</p>
+<p><strong>****</strong>**<strong>****</strong>**<strong>****</strong>**<strong>****</strong>***<strong>****</strong>**<strong>****</strong>**<strong>****</strong>**<strong>****</strong>/</p>
+<p>function intersection(firstArr) { return (secondArr) =&gt; {</p>
+<pre><code>let common = [];
+
+for (let i = 0; i &lt; firstArr.length; i++) {
+  let el = firstArr[i];
+  if (secondArr.indexOf(el) &gt; -1) {
+    common.push(el);
+  }
+}
+
+return common;</code></pre>
+<p>}; }</p>
+</body>
+</html>
