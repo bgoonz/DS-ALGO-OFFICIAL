@@ -1,102 +1,312 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
-<head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="pandoc" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>Dynamic Time Warping</title>
-  <style type="text/css">
-      code{white-space: pre-wrap;}
-      span.smallcaps{font-variant: small-caps;}
-      span.underline{text-decoration: underline;}
-      div.column{display: inline-block; vertical-align: top; width: 50%;}
-  </style>
-</head>
-<body>
-<h1 id="dynamic-time-warping">Dynamic Time Warping</h1>
-<blockquote>
-<p>Explanation and Code Implementation</p>
-</blockquote>
-<h2 id="explanation-and-code-implementation">Explanation and Code Implementation</h2>
-<p><a href="https://meatba11.medium.com/?source=post_page-----3933f25fcdd--------------------------------"><img src="https://miro.medium.com/fit/c/56/56/0*OHP4EDyFQhdpx4uk." alt="Jeremy Zhang" /></a></p>
-<p>Sounds like time traveling or some kind of future technic, however, it is not. Dynamic Time Warping is used to compare the similarity or calculate the distance between two arrays or time series with different length.</p>
-<p>Suppose we want to calculate the distance of two equal-length arrays:</p>
-<p>a = [1, 2, 3]<br />
-b = [3, 2, 2]</p>
-<p>How to do that? One obvious way is to match up <code>a</code> and <code>b</code> in 1-to-1 fashion and sum up the total distance of each component. This sounds easy, but what if <code>a</code> and <code>b</code> have different lengths?</p>
-<p>a = [1, 2, 3]<br />
-b = [2, 2, 2, 3, 4]</p>
-<p>How to match them up? Which should map to which? To solve the problem, there comes dynamic time warping. Just as its name indicates, to warp the series so that they can match up.</p>
-<p>Before digging into the algorithm, you might have the question that is it useful? Do we really need to compare the distance between two unequal-length time series?</p>
-<p>Yes, in a lot of scenarios DTW is playing a key role.</p>
-<h2 id="sound-pattern-recognition">Sound Pattern Recognition</h2>
-<p>One use case is to detect the sound pattern of the same kind. Suppose we want to recognise the voice of a person by analysing his sound track, and we are able to collect his sound track of saying <code>Hello</code> in one scenario. However, people speak in the same word in different ways, what if he speaks hello in a much slower pace like <code>Heeeeeeelloooooo</code> , we will need an algorithm to match up the sound track of different lengths and be able to identify they come from the same person.</p>
-<figure>
-<img src="https://miro.medium.com/max/60/1*gi1TtOqFCsb2M_U7iAUAag.png?q=20" alt="Image for post" /><figcaption>Image for post</figcaption>
-</figure>
-<figure>
-<img src="https://miro.medium.com/max/2352/1*gi1TtOqFCsb2M_U7iAUAag.png" alt="Image for post" /><figcaption>Image for post</figcaption>
-</figure>
-<h2 id="stock-market">Stock Market</h2>
-<p>In a stock market, people always hope to be able to predict the future, however using general machine learning algorithms can be exhaustive, as most prediction task requires test and training set to have the same dimension of features. However, if you ever speculate in the stock market, you will know that even the same pattern of a stock can have very different length reflection on klines and indicators.</p>
-<figure>
-<img src="https://miro.medium.com/max/3832/1*4QUO4Tqm_z-8ydMBGgqmPg.png" alt="Image for post" /><figcaption>Image for post</figcaption>
-</figure>
-<p>A concise explanation of DTW from wiki,</p>
-<blockquote>
-<p>In time series analysis, dynamic time warping (DTW) is one of the algorithms for measuring similarity between two temporal sequences, which may vary in speed. DTW has been applied to temporal sequences of video, audio, and graphics data — indeed, any data that can be turned into a linear sequence can be analysed with DTW.</p>
-</blockquote>
-<p><em>The idea to compare arrays with different length is to build one-to-many and many-to-one matches so that the total distance can be minimised between the two.</em></p>
-<p>Suppose we have two different arrays red and blue with different length:</p>
-<figure>
-<img src="https://miro.medium.com/max/1360/1*uFicSZjqkNBfsyrsJw7J9g.jpeg" alt="Image for post" /><figcaption>Image for post</figcaption>
-</figure>
-<p>Clearly these two series follow the same pattern, but the blue curve is longer than the red. If we apply the one-to-one match, shown in the top, the mapping is not perfectly synced up and the tail of the blue curve is being left out.</p>
-<p>DTW overcomes the issue by developing a one-to-many match so that the troughs and peaks with the same pattern are perfectly matched, and there is no left out for both curves(shown in the bottom top).</p>
-<p>In general, DTW is a method that calculates an optimal match between two given sequences (e.g. time series) with certain restriction and rules(comes from wiki):</p>
-<ul>
-<li>Every index from the first sequence must be matched with one or more indices from the other sequence and vice versa</li>
-<li>The first index from the first sequence must be matched with the first index from the other sequence (but it does not have to be its only match)</li>
-<li>The last index from the first sequence must be matched with the last index from the other sequence (but it does not have to be its only match)</li>
-<li>The mapping of the indices from the first sequence to indices from the other sequence must be monotonically increasing, and vice versa, i.e. if <code>j &gt; i</code> are indices from the first sequence, then there must not be two indices <code>l &gt; k</code> in the other sequence, such that index <code>i</code> is matched with index <code>l</code> and index <code>j</code> is matched with index <code>k</code> , and vice versa</li>
-</ul>
-<p>The optimal match is denoted by the match that satisfies all the restrictions and the rules and that has the minimal cost, where the cost is computed as the sum of absolute differences, for each matched pair of indices, between their values.</p>
-<p>To summarise is that <em>head and tail must be positionally matched, no cross-match and no left out.</em></p>
-<p>The implementation of the algorithm looks extremely concise:</p>
-<figure>
-<img src="https://miro.medium.com/max/2704/1*fGr2Mj7fEB7tEyqAzcp2LA.png" alt="Image for post" /><figcaption>Image for post</figcaption>
-</figure>
-<p>where <code>DTW[i, j]</code> is the distance between <code>s[1:i]</code> and <code>t[1:j]</code> with the best alignment.</p>
-<p>The key lies in:</p>
-<p>DTW[i, j] := cost + minimum(DTW[i-1, j ],<br />
-DTW[i , j-1],<br />
-DTW[i-1, j-1])</p>
-<p>Which is saying that the cost of between two arrays with length <code>i and j</code> equals <em>the distance between the tails + the minimum of cost in arrays with length</em> <code>_i-1, j_</code> <em>,</em> <code>_i, j-1_</code> <em>, and</em> <code>_i-1, j-1_</code> <em>.</em></p>
-<p>Put it in python would be:</p>
-<p>Example:</p>
-<figure>
-<img src="https://miro.medium.com/max/1964/1*eogOkXkOUzi6Cq7U9BgiLg.png" alt="Image for post" /><figcaption>Image for post</figcaption>
-</figure>
-<p>The distance between <code>a and b</code> would be the last element of the matrix, which is 2.</p>
-<h2 id="add-window-constraint">Add Window Constraint</h2>
-<p>One issue of the above algorithm is that we allow one element in an array to match an unlimited number of elements in the other array(as long as the tail can match in the end), this would cause the mapping to bent over a lot, for example, the following array:</p>
-<p>a = [1, 2, 3]<br />
-b = [1, 2, 2, 2, 2, 2, 2, 2, …, 5]</p>
-<p>To minimise the distance, the element 2 in array <code>a</code> would match all the 2 in array <code>b</code> , which causes an array <code>b</code> to bent severely. To avoid this, we can add a window constraint to limit the number of elements one can match:</p>
-<figure>
-<img src="https://miro.medium.com/max/2680/1*0_xypte7FHDWJuuBexEvHg.png" alt="Image for post" /><figcaption>Image for post</figcaption>
-</figure>
-<p>The key difference is that now each element is confined to match elements in range <code>i — w</code> and <code>i + w</code> . The <code>w := max(w, abs(n-m))</code> guarantees all indices can be matched up.</p>
-<p>The implementation and example would be:</p>
-<figure>
-<img src="https://miro.medium.com/max/2236/1*2K6C-3QrRmbbhpe-jt9UQA.png" alt="Image for post" /><figcaption>Image for post</figcaption>
-</figure>
-<p>There is also contributed packages available on Pypi to use directly. Here I demonstrate an example using <a href="https://pypi.org/project/fastdtw/">fastdtw</a>:</p>
-<p>It gives you the distance of two lists and index mapping(the example can extend to a multi-dimension array).</p>
-<p>Lastly, you can check out the implementation <a href="https://github.com/MJeremy2017/Machine-Learning-Models/tree/master/Dynamic-Time-Warping">here</a>.</p>
-<p><strong>Reference</strong>:</p>
-<p>[1] <a href="https://databricks.com/blog/2019/04/30/understanding-dynamic-time-warping.html">https://databricks.com/blog/2019/04/30/understanding-dynamic-time-warping.html</a></p>
-<p>[2] <a href="https://en.wikipedia.org/wiki/Dynamic_time_warping">https://en.wikipedia.org/wiki/Dynamic_time_warping</a></p>
-<p><a href="https://towardsdatascience.com/dynamic-time-warping-3933f25fcdd">Source</a></p>
-</body>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="generator" content="pandoc" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=yes"
+    />
+    <title>Dynamic Time Warping</title>
+    <style type="text/css">
+      code {
+        white-space: pre-wrap;
+      }
+      span.smallcaps {
+        font-variant: small-caps;
+      }
+      span.underline {
+        text-decoration: underline;
+      }
+      div.column {
+        display: inline-block;
+        vertical-align: top;
+        width: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 id="dynamic-time-warping">Dynamic Time Warping</h1>
+    <blockquote>
+      <p>Explanation and Code Implementation</p>
+    </blockquote>
+    <h2 id="explanation-and-code-implementation">
+      Explanation and Code Implementation
+    </h2>
+    <p>
+      <a
+        href="https://meatba11.medium.com/?source=post_page-----3933f25fcdd--------------------------------"
+        ><img
+          src="https://miro.medium.com/fit/c/56/56/0*OHP4EDyFQhdpx4uk."
+          alt="Jeremy Zhang"
+      /></a>
+    </p>
+    <p>
+      Sounds like time traveling or some kind of future technic, however, it is
+      not. Dynamic Time Warping is used to compare the similarity or calculate
+      the distance between two arrays or time series with different length.
+    </p>
+    <p>Suppose we want to calculate the distance of two equal-length arrays:</p>
+    <p>
+      a = [1, 2, 3]<br />
+      b = [3, 2, 2]
+    </p>
+    <p>
+      How to do that? One obvious way is to match up <code>a</code> and
+      <code>b</code> in 1-to-1 fashion and sum up the total distance of each
+      component. This sounds easy, but what if <code>a</code> and
+      <code>b</code> have different lengths?
+    </p>
+    <p>
+      a = [1, 2, 3]<br />
+      b = [2, 2, 2, 3, 4]
+    </p>
+    <p>
+      How to match them up? Which should map to which? To solve the problem,
+      there comes dynamic time warping. Just as its name indicates, to warp the
+      series so that they can match up.
+    </p>
+    <p>
+      Before digging into the algorithm, you might have the question that is it
+      useful? Do we really need to compare the distance between two
+      unequal-length time series?
+    </p>
+    <p>Yes, in a lot of scenarios DTW is playing a key role.</p>
+    <h2 id="sound-pattern-recognition">Sound Pattern Recognition</h2>
+    <p>
+      One use case is to detect the sound pattern of the same kind. Suppose we
+      want to recognise the voice of a person by analysing his sound track, and
+      we are able to collect his sound track of saying <code>Hello</code> in one
+      scenario. However, people speak in the same word in different ways, what
+      if he speaks hello in a much slower pace like
+      <code>Heeeeeeelloooooo</code> , we will need an algorithm to match up the
+      sound track of different lengths and be able to identify they come from
+      the same person.
+    </p>
+    <figure>
+      <img
+        src="https://miro.medium.com/max/60/1*gi1TtOqFCsb2M_U7iAUAag.png?q=20"
+        alt="Image for post"
+      />
+      <figcaption>Image for post</figcaption>
+    </figure>
+    <figure>
+      <img
+        src="https://miro.medium.com/max/2352/1*gi1TtOqFCsb2M_U7iAUAag.png"
+        alt="Image for post"
+      />
+      <figcaption>Image for post</figcaption>
+    </figure>
+    <h2 id="stock-market">Stock Market</h2>
+    <p>
+      In a stock market, people always hope to be able to predict the future,
+      however using general machine learning algorithms can be exhaustive, as
+      most prediction task requires test and training set to have the same
+      dimension of features. However, if you ever speculate in the stock market,
+      you will know that even the same pattern of a stock can have very
+      different length reflection on klines and indicators.
+    </p>
+    <figure>
+      <img
+        src="https://miro.medium.com/max/3832/1*4QUO4Tqm_z-8ydMBGgqmPg.png"
+        alt="Image for post"
+      />
+      <figcaption>Image for post</figcaption>
+    </figure>
+    <p>A concise explanation of DTW from wiki,</p>
+    <blockquote>
+      <p>
+        In time series analysis, dynamic time warping (DTW) is one of the
+        algorithms for measuring similarity between two temporal sequences,
+        which may vary in speed. DTW has been applied to temporal sequences of
+        video, audio, and graphics data — indeed, any data that can be turned
+        into a linear sequence can be analysed with DTW.
+      </p>
+    </blockquote>
+    <p>
+      <em
+        >The idea to compare arrays with different length is to build
+        one-to-many and many-to-one matches so that the total distance can be
+        minimised between the two.</em
+      >
+    </p>
+    <p>
+      Suppose we have two different arrays red and blue with different length:
+    </p>
+    <figure>
+      <img
+        src="https://miro.medium.com/max/1360/1*uFicSZjqkNBfsyrsJw7J9g.jpeg"
+        alt="Image for post"
+      />
+      <figcaption>Image for post</figcaption>
+    </figure>
+    <p>
+      Clearly these two series follow the same pattern, but the blue curve is
+      longer than the red. If we apply the one-to-one match, shown in the top,
+      the mapping is not perfectly synced up and the tail of the blue curve is
+      being left out.
+    </p>
+    <p>
+      DTW overcomes the issue by developing a one-to-many match so that the
+      troughs and peaks with the same pattern are perfectly matched, and there
+      is no left out for both curves(shown in the bottom top).
+    </p>
+    <p>
+      In general, DTW is a method that calculates an optimal match between two
+      given sequences (e.g. time series) with certain restriction and
+      rules(comes from wiki):
+    </p>
+    <ul>
+      <li>
+        Every index from the first sequence must be matched with one or more
+        indices from the other sequence and vice versa
+      </li>
+      <li>
+        The first index from the first sequence must be matched with the first
+        index from the other sequence (but it does not have to be its only
+        match)
+      </li>
+      <li>
+        The last index from the first sequence must be matched with the last
+        index from the other sequence (but it does not have to be its only
+        match)
+      </li>
+      <li>
+        The mapping of the indices from the first sequence to indices from the
+        other sequence must be monotonically increasing, and vice versa, i.e. if
+        <code>j &gt; i</code> are indices from the first sequence, then there
+        must not be two indices <code>l &gt; k</code> in the other sequence,
+        such that index <code>i</code> is matched with index <code>l</code> and
+        index <code>j</code> is matched with index <code>k</code> , and vice
+        versa
+      </li>
+    </ul>
+    <p>
+      The optimal match is denoted by the match that satisfies all the
+      restrictions and the rules and that has the minimal cost, where the cost
+      is computed as the sum of absolute differences, for each matched pair of
+      indices, between their values.
+    </p>
+    <p>
+      To summarise is that
+      <em
+        >head and tail must be positionally matched, no cross-match and no left
+        out.</em
+      >
+    </p>
+    <p>The implementation of the algorithm looks extremely concise:</p>
+    <figure>
+      <img
+        src="https://miro.medium.com/max/2704/1*fGr2Mj7fEB7tEyqAzcp2LA.png"
+        alt="Image for post"
+      />
+      <figcaption>Image for post</figcaption>
+    </figure>
+    <p>
+      where <code>DTW[i, j]</code> is the distance between
+      <code>s[1:i]</code> and <code>t[1:j]</code> with the best alignment.
+    </p>
+    <p>The key lies in:</p>
+    <p>
+      DTW[i, j] := cost + minimum(DTW[i-1, j ],<br />
+      DTW[i , j-1],<br />
+      DTW[i-1, j-1])
+    </p>
+    <p>
+      Which is saying that the cost of between two arrays with length
+      <code>i and j</code> equals
+      <em
+        >the distance between the tails + the minimum of cost in arrays with
+        length</em
+      >
+      <code>_i-1, j_</code> <em>,</em> <code>_i, j-1_</code> <em>, and</em>
+      <code>_i-1, j-1_</code> <em>.</em>
+    </p>
+    <p>Put it in python would be:</p>
+    <p>Example:</p>
+    <figure>
+      <img
+        src="https://miro.medium.com/max/1964/1*eogOkXkOUzi6Cq7U9BgiLg.png"
+        alt="Image for post"
+      />
+      <figcaption>Image for post</figcaption>
+    </figure>
+    <p>
+      The distance between <code>a and b</code> would be the last element of the
+      matrix, which is 2.
+    </p>
+    <h2 id="add-window-constraint">Add Window Constraint</h2>
+    <p>
+      One issue of the above algorithm is that we allow one element in an array
+      to match an unlimited number of elements in the other array(as long as the
+      tail can match in the end), this would cause the mapping to bent over a
+      lot, for example, the following array:
+    </p>
+    <p>
+      a = [1, 2, 3]<br />
+      b = [1, 2, 2, 2, 2, 2, 2, 2, …, 5]
+    </p>
+    <p>
+      To minimise the distance, the element 2 in array <code>a</code> would
+      match all the 2 in array <code>b</code> , which causes an array
+      <code>b</code> to bent severely. To avoid this, we can add a window
+      constraint to limit the number of elements one can match:
+    </p>
+    <figure>
+      <img
+        src="https://miro.medium.com/max/2680/1*0_xypte7FHDWJuuBexEvHg.png"
+        alt="Image for post"
+      />
+      <figcaption>Image for post</figcaption>
+    </figure>
+    <p>
+      The key difference is that now each element is confined to match elements
+      in range <code>i — w</code> and <code>i + w</code> . The
+      <code>w := max(w, abs(n-m))</code> guarantees all indices can be matched
+      up.
+    </p>
+    <p>The implementation and example would be:</p>
+    <figure>
+      <img
+        src="https://miro.medium.com/max/2236/1*2K6C-3QrRmbbhpe-jt9UQA.png"
+        alt="Image for post"
+      />
+      <figcaption>Image for post</figcaption>
+    </figure>
+    <p>
+      There is also contributed packages available on Pypi to use directly. Here
+      I demonstrate an example using
+      <a href="https://pypi.org/project/fastdtw/">fastdtw</a>:
+    </p>
+    <p>
+      It gives you the distance of two lists and index mapping(the example can
+      extend to a multi-dimension array).
+    </p>
+    <p>
+      Lastly, you can check out the implementation
+      <a
+        href="https://github.com/MJeremy2017/Machine-Learning-Models/tree/master/Dynamic-Time-Warping"
+        >here</a
+      >.
+    </p>
+    <p><strong>Reference</strong>:</p>
+    <p>
+      [1]
+      <a
+        href="https://databricks.com/blog/2019/04/30/understanding-dynamic-time-warping.html"
+        >https://databricks.com/blog/2019/04/30/understanding-dynamic-time-warping.html</a
+      >
+    </p>
+    <p>
+      [2]
+      <a href="https://en.wikipedia.org/wiki/Dynamic_time_warping"
+        >https://en.wikipedia.org/wiki/Dynamic_time_warping</a
+      >
+    </p>
+    <p>
+      <a href="https://towardsdatascience.com/dynamic-time-warping-3933f25fcdd"
+        >Source</a
+      >
+    </p>
+  </body>
 </html>

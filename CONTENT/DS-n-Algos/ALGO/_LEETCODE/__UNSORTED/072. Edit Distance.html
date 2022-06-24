@@ -1,36 +1,56 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
-<head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="pandoc" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>072. Edit Distance</title>
-  <style type="text/css">
-      code{white-space: pre-wrap;}
-      span.smallcaps{font-variant: small-caps;}
-      span.underline{text-decoration: underline;}
-      div.column{display: inline-block; vertical-align: top; width: 50%;}
-  </style>
-</head>
-<body>
-<h2 id="edit-distance"><a href="https://leetcode.com/problems/edit-distance/description/">72. Edit Distance</a></h2>
-<h3 id="problem">Problem:</h3>
-<p>Given two words <em>word1</em> and <em>word2</em>, find the minimum number of operations required to convert <em>word1</em> to <em>word2</em>.</p>
-<p>You have the following 3 operations permitted on a word:</p>
-<ol type="1">
-<li>Insert a character</li>
-<li>Delete a character</li>
-<li>Replace a character</li>
-</ol>
-<p><strong>Example 1:</strong></p>
-<pre><code>Input: word1 = &quot;horse&quot;, word2 = &quot;ros&quot;
+  <head>
+    <meta charset="utf-8" />
+    <meta name="generator" content="pandoc" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=yes"
+    />
+    <title>072. Edit Distance</title>
+    <style type="text/css">
+      code {
+        white-space: pre-wrap;
+      }
+      span.smallcaps {
+        font-variant: small-caps;
+      }
+      span.underline {
+        text-decoration: underline;
+      }
+      div.column {
+        display: inline-block;
+        vertical-align: top;
+        width: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <h2 id="edit-distance">
+      <a href="https://leetcode.com/problems/edit-distance/description/"
+        >72. Edit Distance</a
+      >
+    </h2>
+    <h3 id="problem">Problem:</h3>
+    <p>
+      Given two words <em>word1</em> and <em>word2</em>, find the minimum number
+      of operations required to convert <em>word1</em> to <em>word2</em>.
+    </p>
+    <p>You have the following 3 operations permitted on a word:</p>
+    <ol type="1">
+      <li>Insert a character</li>
+      <li>Delete a character</li>
+      <li>Replace a character</li>
+    </ol>
+    <p><strong>Example 1:</strong></p>
+    <pre><code>Input: word1 = &quot;horse&quot;, word2 = &quot;ros&quot;
 Output: 3
 Explanation:
 horse -&gt; rorse (replace &#39;h&#39; with &#39;r&#39;)
 rorse -&gt; rose (remove &#39;r&#39;)
 rose -&gt; ros (remove &#39;e&#39;)</code></pre>
-<p><strong>Example 2:</strong></p>
-<pre><code>Input: word1 = &quot;intention&quot;, word2 = &quot;execution&quot;
+    <p><strong>Example 2:</strong></p>
+    <pre><code>Input: word1 = &quot;intention&quot;, word2 = &quot;execution&quot;
 Output: 5
 Explanation:
 intention -&gt; inention (remove &#39;t&#39;)
@@ -38,10 +58,13 @@ inention -&gt; enention (replace &#39;i&#39; with &#39;e&#39;)
 enention -&gt; exention (replace &#39;n&#39; with &#39;x&#39;)
 exention -&gt; exection (replace &#39;n&#39; with &#39;c&#39;)
 exection -&gt; execution (insert &#39;u&#39;)</code></pre>
-<h3 id="solution">Solution:</h3>
-<p>DP.</p>
-<p>Define <code>f(i, j)</code> to be the min edit distance from <code>word1[0...i)</code> to <code>word2[0...j)</code>.</p>
-<pre><code>f(0, 0) = 0
+    <h3 id="solution">Solution:</h3>
+    <p>DP.</p>
+    <p>
+      Define <code>f(i, j)</code> to be the min edit distance from
+      <code>word1[0...i)</code> to <code>word2[0...j)</code>.
+    </p>
+    <pre><code>f(0, 0) = 0
 f(0, j) = f(0, j-1) + 1 // can only insert
 f(i, 0) = f(i-1, 0) + 1 // can only delete
 f(i, j) = min(
@@ -85,6 +108,11 @@ var minDistance = function(word1, word2) {
 
   return dp[len1][len2]
 };</code></pre>
-<p><em>Template generated via <a href="https://github.com/crimx/crx-leetmark">Leetmark</a>.</em></p>
-</body>
+    <p>
+      <em
+        >Template generated via
+        <a href="https://github.com/crimx/crx-leetmark">Leetmark</a>.</em
+      >
+    </p>
+  </body>
 </html>

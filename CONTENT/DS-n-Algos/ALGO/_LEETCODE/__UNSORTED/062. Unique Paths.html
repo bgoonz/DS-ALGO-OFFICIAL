@@ -1,47 +1,81 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
-<head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="pandoc" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>062. Unique Paths</title>
-  <style type="text/css">
-      code{white-space: pre-wrap;}
-      span.smallcaps{font-variant: small-caps;}
-      span.underline{text-decoration: underline;}
-      div.column{display: inline-block; vertical-align: top; width: 50%;}
-  </style>
-</head>
-<body>
-<h2 id="unique-paths"><a href="https://leetcode.com/problems/unique-paths/description/">62. Unique Paths</a></h2>
-<h3 id="problem">Problem:</h3>
-<p>A robot is located at the top-left corner of a <em>m</em> x <em>n</em> grid (marked ‘Start’ in the diagram below).</p>
-<p>The robot can only move either down or right at any point in time. The robot is trying to reach the bottom-right corner of the grid (marked ‘Finish’ in the diagram below).</p>
-<p>How many possible unique paths are there?</p>
-<figure>
-<img src="https://leetcode.com/static/images/problemset/robot_maze.png" alt="robot_maze.png" /><figcaption>robot_maze.png</figcaption>
-</figure>
-<p>Above is a 7 x 3 grid. How many possible unique paths are there?</p>
-<p><strong>Note:</strong> <em>m</em> and <em>n</em> will be at most 100.</p>
-<p><strong>Example 1:</strong></p>
-<pre><code>Input: m = 3, n = 2
+  <head>
+    <meta charset="utf-8" />
+    <meta name="generator" content="pandoc" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=yes"
+    />
+    <title>062. Unique Paths</title>
+    <style type="text/css">
+      code {
+        white-space: pre-wrap;
+      }
+      span.smallcaps {
+        font-variant: small-caps;
+      }
+      span.underline {
+        text-decoration: underline;
+      }
+      div.column {
+        display: inline-block;
+        vertical-align: top;
+        width: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <h2 id="unique-paths">
+      <a href="https://leetcode.com/problems/unique-paths/description/"
+        >62. Unique Paths</a
+      >
+    </h2>
+    <h3 id="problem">Problem:</h3>
+    <p>
+      A robot is located at the top-left corner of a <em>m</em> x
+      <em>n</em> grid (marked ‘Start’ in the diagram below).
+    </p>
+    <p>
+      The robot can only move either down or right at any point in time. The
+      robot is trying to reach the bottom-right corner of the grid (marked
+      ‘Finish’ in the diagram below).
+    </p>
+    <p>How many possible unique paths are there?</p>
+    <figure>
+      <img
+        src="https://leetcode.com/static/images/problemset/robot_maze.png"
+        alt="robot_maze.png"
+      />
+      <figcaption>robot_maze.png</figcaption>
+    </figure>
+    <p>Above is a 7 x 3 grid. How many possible unique paths are there?</p>
+    <p><strong>Note:</strong> <em>m</em> and <em>n</em> will be at most 100.</p>
+    <p><strong>Example 1:</strong></p>
+    <pre><code>Input: m = 3, n = 2
 Output: 3
 Explanation:
 From the top-left corner, there are a total of 3 ways to reach the bottom-right corner:
 1. Right -&gt; Right -&gt; Down
 2. Right -&gt; Down -&gt; Right
 3. Down -&gt; Right -&gt; Right</code></pre>
-<p><strong>Example 2:</strong></p>
-<pre><code>Input: m = 7, n = 3
+    <p><strong>Example 2:</strong></p>
+    <pre><code>Input: m = 7, n = 3
 Output: 28</code></pre>
-<h3 id="solution">Solution:</h3>
-<p>DP.</p>
-<p>Define <code>f(i, j)</code> to be the number of total unique paths from <code>(0, 0)</code> to <code>(i, j)</code>.</p>
-<pre><code>f(i, 0) = 1
+    <h3 id="solution">Solution:</h3>
+    <p>DP.</p>
+    <p>
+      Define <code>f(i, j)</code> to be the number of total unique paths from
+      <code>(0, 0)</code> to <code>(i, j)</code>.
+    </p>
+    <pre><code>f(i, 0) = 1
 f(0, j) = 1
 f(i, j) = f(i-1, j) + f(i, j-1)</code></pre>
-<p>Only two previous states are dependant. Use dynamic array to reduce memory allocation.</p>
-<pre><code>/**
+    <p>
+      Only two previous states are dependant. Use dynamic array to reduce memory
+      allocation.
+    </p>
+    <pre><code>/**
  * @param {number} m
  * @param {number} n
  * @return {number}
@@ -55,6 +89,11 @@ var uniquePaths = function(m, n) {
   }
   return dp[m-1] || 1
 };</code></pre>
-<p><em>Template generated via <a href="https://github.com/crimx/crx-leetmark">Leetmark</a>.</em></p>
-</body>
+    <p>
+      <em
+        >Template generated via
+        <a href="https://github.com/crimx/crx-leetmark">Leetmark</a>.</em
+      >
+    </p>
+  </body>
 </html>

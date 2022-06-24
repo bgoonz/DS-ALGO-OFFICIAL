@@ -1,91 +1,240 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
-<head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="pandoc" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>coinchange</title>
-  <style type="text/css">
-      code{white-space: pre-wrap;}
-      span.smallcaps{font-variant: small-caps;}
-      span.underline{text-decoration: underline;}
-      div.column{display: inline-block; vertical-align: top; width: 50%;}
-  </style>
-  <style type="text/css">
-a.sourceLine { display: inline-block; line-height: 1.25; }
-a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-code.sourceCode { white-space: pre-wrap; }
-a.sourceLine { text-indent: -1em; padding-left: 1em; }
-}
-pre.numberSource a.sourceLine
-  { position: relative; left: -4em; }
-pre.numberSource a.sourceLine::before
-  { content: attr(title);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-    color: #aaaaaa;
-  }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-div.sourceCode
-  {  }
-@media screen {
-a.sourceLine::before { text-decoration: underline; }
-}
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-  </style>
-</head>
-<body>
-<p>There are only two ways to make change for 6 cents, but f(6) = 3. f gives the number of ways of making 5 cents and adding a penny, plus the number of ways of making 1 cent and adding a nickel. When changing money, we would like “1 penny, l nickel” and “l nickel, l penny” to be considered as just one way of making change for 6 cents. We can fix this by adding each type of coin in turn; we will not be able to count different orderings twice if there are no different orderings. By increasing the dimension of the recurrence relation. we keep track of enough information to actually solve the problem.</p>
-<hr />
-<blockquote>
-<p>The boundary cases assert that there is exactly one way to make change for 0 cents using a positive number of coins. but there are no ways to make change for negative amounts, or using no coins.</p>
-</blockquote>
-<hr />
-<p>In the non-boundary case. the number of ways of making change using the first k types of coin is the number of ways that don’t use that coin, together with the number of ways that do.</p>
-<p>First. the number of ways of making change using only the first type of coin. (which is always assumed to be I in this sort of problem so that change can be made for any integral amount). is always exactly 1.</p>
-<hr />
-<div class="sourceCode" id="cb1"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">function</span> <span class="at">waysToReturnChange</span>(denominations<span class="op">,</span> numOfCoins<span class="op">,</span> amount) <span class="op">{</span></a>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="generator" content="pandoc" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=yes"
+    />
+    <title>coinchange</title>
+    <style type="text/css">
+      code {
+        white-space: pre-wrap;
+      }
+      span.smallcaps {
+        font-variant: small-caps;
+      }
+      span.underline {
+        text-decoration: underline;
+      }
+      div.column {
+        display: inline-block;
+        vertical-align: top;
+        width: 50%;
+      }
+    </style>
+    <style type="text/css">
+      a.sourceLine {
+        display: inline-block;
+        line-height: 1.25;
+      }
+      a.sourceLine {
+        pointer-events: none;
+        color: inherit;
+        text-decoration: inherit;
+      }
+      a.sourceLine:empty {
+        height: 1.2em;
+      }
+      .sourceCode {
+        overflow: visible;
+      }
+      code.sourceCode {
+        white-space: pre;
+        position: relative;
+      }
+      div.sourceCode {
+        margin: 1em 0;
+      }
+      pre.sourceCode {
+        margin: 0;
+      }
+      @media screen {
+        div.sourceCode {
+          overflow: auto;
+        }
+      }
+      @media print {
+        code.sourceCode {
+          white-space: pre-wrap;
+        }
+        a.sourceLine {
+          text-indent: -1em;
+          padding-left: 1em;
+        }
+      }
+      pre.numberSource a.sourceLine {
+        position: relative;
+        left: -4em;
+      }
+      pre.numberSource a.sourceLine::before {
+        content: attr(title);
+        position: relative;
+        left: -1em;
+        text-align: right;
+        vertical-align: baseline;
+        border: none;
+        pointer-events: all;
+        display: inline-block;
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        padding: 0 4px;
+        width: 4em;
+        color: #aaaaaa;
+      }
+      pre.numberSource {
+        margin-left: 3em;
+        border-left: 1px solid #aaaaaa;
+        padding-left: 4px;
+      }
+      div.sourceCode {
+      }
+      @media screen {
+        a.sourceLine::before {
+          text-decoration: underline;
+        }
+      }
+      code span.al {
+        color: #ff0000;
+        font-weight: bold;
+      } /* Alert */
+      code span.an {
+        color: #60a0b0;
+        font-weight: bold;
+        font-style: italic;
+      } /* Annotation */
+      code span.at {
+        color: #7d9029;
+      } /* Attribute */
+      code span.bn {
+        color: #40a070;
+      } /* BaseN */
+      code span.bu {
+      } /* BuiltIn */
+      code span.cf {
+        color: #007020;
+        font-weight: bold;
+      } /* ControlFlow */
+      code span.ch {
+        color: #4070a0;
+      } /* Char */
+      code span.cn {
+        color: #880000;
+      } /* Constant */
+      code span.co {
+        color: #60a0b0;
+        font-style: italic;
+      } /* Comment */
+      code span.cv {
+        color: #60a0b0;
+        font-weight: bold;
+        font-style: italic;
+      } /* CommentVar */
+      code span.do {
+        color: #ba2121;
+        font-style: italic;
+      } /* Documentation */
+      code span.dt {
+        color: #902000;
+      } /* DataType */
+      code span.dv {
+        color: #40a070;
+      } /* DecVal */
+      code span.er {
+        color: #ff0000;
+        font-weight: bold;
+      } /* Error */
+      code span.ex {
+      } /* Extension */
+      code span.fl {
+        color: #40a070;
+      } /* Float */
+      code span.fu {
+        color: #06287e;
+      } /* Function */
+      code span.im {
+      } /* Import */
+      code span.in {
+        color: #60a0b0;
+        font-weight: bold;
+        font-style: italic;
+      } /* Information */
+      code span.kw {
+        color: #007020;
+        font-weight: bold;
+      } /* Keyword */
+      code span.op {
+        color: #666666;
+      } /* Operator */
+      code span.ot {
+        color: #007020;
+      } /* Other */
+      code span.pp {
+        color: #bc7a00;
+      } /* Preprocessor */
+      code span.sc {
+        color: #4070a0;
+      } /* SpecialChar */
+      code span.ss {
+        color: #bb6688;
+      } /* SpecialString */
+      code span.st {
+        color: #4070a0;
+      } /* String */
+      code span.va {
+        color: #19177c;
+      } /* Variable */
+      code span.vs {
+        color: #4070a0;
+      } /* VerbatimString */
+      code span.wa {
+        color: #60a0b0;
+        font-weight: bold;
+        font-style: italic;
+      } /* Warning */
+    </style>
+  </head>
+  <body>
+    <p>
+      There are only two ways to make change for 6 cents, but f(6) = 3. f gives
+      the number of ways of making 5 cents and adding a penny, plus the number
+      of ways of making 1 cent and adding a nickel. When changing money, we
+      would like “1 penny, l nickel” and “l nickel, l penny” to be considered as
+      just one way of making change for 6 cents. We can fix this by adding each
+      type of coin in turn; we will not be able to count different orderings
+      twice if there are no different orderings. By increasing the dimension of
+      the recurrence relation. we keep track of enough information to actually
+      solve the problem.
+    </p>
+    <hr />
+    <blockquote>
+      <p>
+        The boundary cases assert that there is exactly one way to make change
+        for 0 cents using a positive number of coins. but there are no ways to
+        make change for negative amounts, or using no coins.
+      </p>
+    </blockquote>
+    <hr />
+    <p>
+      In the non-boundary case. the number of ways of making change using the
+      first k types of coin is the number of ways that don’t use that coin,
+      together with the number of ways that do.
+    </p>
+    <p>
+      First. the number of ways of making change using only the first type of
+      coin. (which is always assumed to be I in this sort of problem so that
+      change can be made for any integral amount). is always exactly 1.
+    </p>
+    <hr />
+    <div class="sourceCode" id="cb1">
+      <pre
+        class="sourceCode js"
+      ><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">function</span> <span class="at">waysToReturnChange</span>(denominations<span class="op">,</span> numOfCoins<span class="op">,</span> amount) <span class="op">{</span></a>
 <a class="sourceLine" id="cb1-2" title="2">  <span class="cf">if</span> (amount <span class="op">===</span> <span class="dv">0</span>) <span class="cf">return</span> <span class="dv">1</span><span class="op">;</span> <span class="co">// Perfect!</span></a>
 <a class="sourceLine" id="cb1-3" title="3">  <span class="cf">if</span> (amount <span class="op">&lt;</span> <span class="dv">0</span>) <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span> <span class="co">// No solution exists for negative amount</span></a>
 <a class="sourceLine" id="cb1-4" title="4">  <span class="cf">if</span> (numOfCoins <span class="op">&lt;</span> <span class="dv">0</span> <span class="op">&amp;&amp;</span> amount <span class="op">&gt;</span> <span class="dv">0</span>) <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span> <span class="co">// We don&#39;t have coins left!</span></a>
@@ -171,6 +320,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb1-84" title="84"><span class="co">answer time1: 0.386ms</span></a>
 <a class="sourceLine" id="cb1-85" title="85"><span class="co">\___________________________________________________</span></a>
 <a class="sourceLine" id="cb1-86" title="86"><span class="co">bryan_dir:coinchange-memoized_exitstatus:0 ====&gt;</span></a>
-<a class="sourceLine" id="cb1-87" title="87"><span class="co">*/</span></a></code></pre></div>
-</body>
+<a class="sourceLine" id="cb1-87" title="87"><span class="co">*/</span></a></code></pre>
+    </div>
+  </body>
 </html>

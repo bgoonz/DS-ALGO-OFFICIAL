@@ -1,41 +1,84 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
-<head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="pandoc" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>041. First Missing Positive</title>
-  <style type="text/css">
-      code{white-space: pre-wrap;}
-      span.smallcaps{font-variant: small-caps;}
-      span.underline{text-decoration: underline;}
-      div.column{display: inline-block; vertical-align: top; width: 50%;}
-  </style>
-</head>
-<body>
-<h2 id="first-missing-positive"><a href="https://leetcode.com/problems/first-missing-positive/description/">41. First Missing Positive</a></h2>
-<h3 id="problem">Problem:</h3>
-<p>Given an unsorted integer array, find the smallest missing positive integer.</p>
-<p><strong>Example 1:</strong></p>
-<pre><code>Input: [1,2,0]
+  <head>
+    <meta charset="utf-8" />
+    <meta name="generator" content="pandoc" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=yes"
+    />
+    <title>041. First Missing Positive</title>
+    <style type="text/css">
+      code {
+        white-space: pre-wrap;
+      }
+      span.smallcaps {
+        font-variant: small-caps;
+      }
+      span.underline {
+        text-decoration: underline;
+      }
+      div.column {
+        display: inline-block;
+        vertical-align: top;
+        width: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <h2 id="first-missing-positive">
+      <a
+        href="https://leetcode.com/problems/first-missing-positive/description/"
+        >41. First Missing Positive</a
+      >
+    </h2>
+    <h3 id="problem">Problem:</h3>
+    <p>
+      Given an unsorted integer array, find the smallest missing positive
+      integer.
+    </p>
+    <p><strong>Example 1:</strong></p>
+    <pre><code>Input: [1,2,0]
 Output: 3</code></pre>
-<p><strong>Example 2:</strong></p>
-<pre><code>Input: [3,4,-1,1]
+    <p><strong>Example 2:</strong></p>
+    <pre><code>Input: [3,4,-1,1]
 Output: 2</code></pre>
-<p><strong>Example 3:</strong></p>
-<pre><code>Input: [7,8,9,11,12]
+    <p><strong>Example 3:</strong></p>
+    <pre><code>Input: [7,8,9,11,12]
 Output: 1</code></pre>
-<p><strong>Note:</strong></p>
-<p>Your algorithm should run in <em>O</em>(<em>n</em>) time and uses constant extra space.</p>
-<h3 id="solution">Solution:</h3>
-<p>The last requirement is why this problem is marked “hard”. Though the solution feels like cheating: it modifies the array to mark numbers.</p>
-<p>So the algorithm still requires <em>O</em>(<em>n</em>) space but <em>O</em>(<em>1</em>) <strong>extra</strong> space.</p>
-<p>The core idea of the solution is, if the length of the array is n, then the smallest missing positive integer must be within [1, n+1].</p>
-<p>Consider an edge-case scenario where the array is <code>[1,2,...,n]</code>. The smallest missing positive integer is <code>n+1</code>.</p>
-<p>Now if one of these integers is missing in the array, that integer <strong>is</strong> the smallest missing positive integer.</p>
-<p>If more than one are missing, pick the smallest.</p>
-<p>So here we reuse the array and keep trying to put integer <code>k</code> into the slot indexed <code>k-1</code> (via swapping).</p>
-<pre><code>/**
+    <p><strong>Note:</strong></p>
+    <p>
+      Your algorithm should run in <em>O</em>(<em>n</em>) time and uses constant
+      extra space.
+    </p>
+    <h3 id="solution">Solution:</h3>
+    <p>
+      The last requirement is why this problem is marked “hard”. Though the
+      solution feels like cheating: it modifies the array to mark numbers.
+    </p>
+    <p>
+      So the algorithm still requires <em>O</em>(<em>n</em>) space but
+      <em>O</em>(<em>1</em>) <strong>extra</strong> space.
+    </p>
+    <p>
+      The core idea of the solution is, if the length of the array is n, then
+      the smallest missing positive integer must be within [1, n+1].
+    </p>
+    <p>
+      Consider an edge-case scenario where the array is
+      <code>[1,2,...,n]</code>. The smallest missing positive integer is
+      <code>n+1</code>.
+    </p>
+    <p>
+      Now if one of these integers is missing in the array, that integer
+      <strong>is</strong> the smallest missing positive integer.
+    </p>
+    <p>If more than one are missing, pick the smallest.</p>
+    <p>
+      So here we reuse the array and keep trying to put integer
+      <code>k</code> into the slot indexed <code>k-1</code> (via swapping).
+    </p>
+    <pre><code>/**
  * @param {number[]} nums
  * @return {number}
  */
@@ -58,6 +101,11 @@ let firstMissingPositive = function(nums) {
 
   return n + 1
 };</code></pre>
-<p><em>Template generated via <a href="https://github.com/crimx/crx-leetmark">Leetmark</a>.</em></p>
-</body>
+    <p>
+      <em
+        >Template generated via
+        <a href="https://github.com/crimx/crx-leetmark">Leetmark</a>.</em
+      >
+    </p>
+  </body>
 </html>

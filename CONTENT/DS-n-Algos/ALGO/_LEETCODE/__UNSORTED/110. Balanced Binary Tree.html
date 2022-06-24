@@ -1,44 +1,67 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
-<head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="pandoc" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>110. Balanced Binary Tree</title>
-  <style type="text/css">
-      code{white-space: pre-wrap;}
-      span.smallcaps{font-variant: small-caps;}
-      span.underline{text-decoration: underline;}
-      div.column{display: inline-block; vertical-align: top; width: 50%;}
-  </style>
-</head>
-<body>
-<h2 id="balanced-binary-tree"><a href="https://leetcode.com/problems/balanced-binary-tree/description/">110. Balanced Binary Tree</a></h2>
-<h3 id="problem">Problem:</h3>
-<p>Given a binary tree, determine if it is height-balanced.</p>
-<p>For this problem, a height-balanced binary tree is defined as:</p>
-<p>a binary tree in which the depth of the two subtrees of <em>every</em> node never differ by more than 1.</p>
-<p><strong>Example 1:</strong></p>
-<p>Given the following tree <code>[3,9,20,null,null,15,7]</code>:</p>
-<pre><code>    3
+  <head>
+    <meta charset="utf-8" />
+    <meta name="generator" content="pandoc" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=yes"
+    />
+    <title>110. Balanced Binary Tree</title>
+    <style type="text/css">
+      code {
+        white-space: pre-wrap;
+      }
+      span.smallcaps {
+        font-variant: small-caps;
+      }
+      span.underline {
+        text-decoration: underline;
+      }
+      div.column {
+        display: inline-block;
+        vertical-align: top;
+        width: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <h2 id="balanced-binary-tree">
+      <a href="https://leetcode.com/problems/balanced-binary-tree/description/"
+        >110. Balanced Binary Tree</a
+      >
+    </h2>
+    <h3 id="problem">Problem:</h3>
+    <p>Given a binary tree, determine if it is height-balanced.</p>
+    <p>For this problem, a height-balanced binary tree is defined as:</p>
+    <p>
+      a binary tree in which the depth of the two subtrees of
+      <em>every</em> node never differ by more than 1.
+    </p>
+    <p><strong>Example 1:</strong></p>
+    <p>Given the following tree <code>[3,9,20,null,null,15,7]</code>:</p>
+    <pre><code>    3
    / \
   9  20
     /  \
    15   7</code></pre>
-<p>Return true.</p>
-<p><strong>Example 2:</strong></p>
-<p>Given the following tree <code>[1,2,2,3,3,null,null,4,4]</code>:</p>
-<pre><code>       1
+    <p>Return true.</p>
+    <p><strong>Example 2:</strong></p>
+    <p>Given the following tree <code>[1,2,2,3,3,null,null,4,4]</code>:</p>
+    <pre><code>       1
       / \
      2   2
     / \
    3   3
   / \
  4   4</code></pre>
-<p>Return false.</p>
-<h3 id="solution">Solution:</h3>
-<p>Get the depth of subtrees and compare. Prune the DFS tree by returning <code>-1</code>.</p>
-<pre><code>/**
+    <p>Return false.</p>
+    <h3 id="solution">Solution:</h3>
+    <p>
+      Get the depth of subtrees and compare. Prune the DFS tree by returning
+      <code>-1</code>.
+    </p>
+    <pre><code>/**
  * Definition for a binary tree node.
  * function TreeNode(val) {
  *     this.val = val;
@@ -61,6 +84,11 @@ function getDepth (root) {
   if (rightDepth &lt; 0) { return -1 }
   return Math.abs(leftDepth - rightDepth) &lt;= 1 ? Math.max(leftDepth, rightDepth) + 1 : -1
 }</code></pre>
-<p><em>Template generated via <a href="https://github.com/crimx/crx-leetmark">Leetmark</a>.</em></p>
-</body>
+    <p>
+      <em
+        >Template generated via
+        <a href="https://github.com/crimx/crx-leetmark">Leetmark</a>.</em
+      >
+    </p>
+  </body>
 </html>

@@ -1,36 +1,76 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
-<head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="pandoc" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>075. Sort Colors</title>
-  <style type="text/css">
-      code{white-space: pre-wrap;}
-      span.smallcaps{font-variant: small-caps;}
-      span.underline{text-decoration: underline;}
-      div.column{display: inline-block; vertical-align: top; width: 50%;}
-  </style>
-</head>
-<body>
-<h2 id="sort-colors"><a href="https://leetcode.com/problems/sort-colors/description/">75. Sort Colors</a></h2>
-<h3 id="problem">Problem:</h3>
-<p>Given an array with <em>n</em> objects colored red, white or blue, sort them <strong>in-place</strong>so that objects of the same color are adjacent, with the colors in the order red, white and blue.</p>
-<p>Here, we will use the integers 0, 1, and 2 to represent the color red, white, and blue respectively.</p>
-<p><strong>Note:</strong> You are not suppose to use the library’s sort function for this problem.</p>
-<p><strong>Example:</strong></p>
-<pre><code>Input: [2,0,2,1,1,0]
+  <head>
+    <meta charset="utf-8" />
+    <meta name="generator" content="pandoc" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=yes"
+    />
+    <title>075. Sort Colors</title>
+    <style type="text/css">
+      code {
+        white-space: pre-wrap;
+      }
+      span.smallcaps {
+        font-variant: small-caps;
+      }
+      span.underline {
+        text-decoration: underline;
+      }
+      div.column {
+        display: inline-block;
+        vertical-align: top;
+        width: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <h2 id="sort-colors">
+      <a href="https://leetcode.com/problems/sort-colors/description/"
+        >75. Sort Colors</a
+      >
+    </h2>
+    <h3 id="problem">Problem:</h3>
+    <p>
+      Given an array with <em>n</em> objects colored red, white or blue, sort
+      them <strong>in-place</strong>so that objects of the same color are
+      adjacent, with the colors in the order red, white and blue.
+    </p>
+    <p>
+      Here, we will use the integers 0, 1, and 2 to represent the color red,
+      white, and blue respectively.
+    </p>
+    <p>
+      <strong>Note:</strong> You are not suppose to use the library’s sort
+      function for this problem.
+    </p>
+    <p><strong>Example:</strong></p>
+    <pre><code>Input: [2,0,2,1,1,0]
 Output: [0,0,1,1,2,2]</code></pre>
-<p><strong>Follow up:</strong></p>
-<ul>
-<li>A rather straight forward solution is a two-pass algorithm using counting sort. First, iterate the array counting number of 0’s, 1’s, and 2’s, then overwrite array with total number of 0’s, then 1’s and followed by 2’s.</li>
-<li>Could you come up with a one-pass algorithm using only constant space?</li>
-</ul>
-<h3 id="solution">Solution:</h3>
-<p>One-pass algorithm.</p>
-<p>Take the idea of the partition algorithm from quick sort. Use <code>1</code> as pivot.</p>
-<p>Count the number of sorted <code>0</code>s and <code>2</code>s so that we know where to swap.</p>
-<pre><code>/**
+    <p><strong>Follow up:</strong></p>
+    <ul>
+      <li>
+        A rather straight forward solution is a two-pass algorithm using
+        counting sort. First, iterate the array counting number of 0’s, 1’s, and
+        2’s, then overwrite array with total number of 0’s, then 1’s and
+        followed by 2’s.
+      </li>
+      <li>
+        Could you come up with a one-pass algorithm using only constant space?
+      </li>
+    </ul>
+    <h3 id="solution">Solution:</h3>
+    <p>One-pass algorithm.</p>
+    <p>
+      Take the idea of the partition algorithm from quick sort. Use
+      <code>1</code> as pivot.
+    </p>
+    <p>
+      Count the number of sorted <code>0</code>s and <code>2</code>s so that we
+      know where to swap.
+    </p>
+    <pre><code>/**
  * @param {number[]} nums
  * @return {void} Do not return anything, modify nums in-place instead.
  */
@@ -55,6 +95,11 @@ var sortColors = function(nums) {
     }
   }
 };</code></pre>
-<p><em>Template generated via <a href="https://github.com/crimx/crx-leetmark">Leetmark</a>.</em></p>
-</body>
+    <p>
+      <em
+        >Template generated via
+        <a href="https://github.com/crimx/crx-leetmark">Leetmark</a>.</em
+      >
+    </p>
+  </body>
 </html>

@@ -1,35 +1,61 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
-<head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="pandoc" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>112. Path Sum</title>
-  <style type="text/css">
-      code{white-space: pre-wrap;}
-      span.smallcaps{font-variant: small-caps;}
-      span.underline{text-decoration: underline;}
-      div.column{display: inline-block; vertical-align: top; width: 50%;}
-  </style>
-</head>
-<body>
-<h2 id="path-sum"><a href="https://leetcode.com/problems/path-sum/description/">112. Path Sum</a></h2>
-<h3 id="problem">Problem:</h3>
-<p>Given a binary tree and a sum, determine if the tree has a root-to-leaf path such that adding up all the values along the path equals the given sum.</p>
-<p><strong>Note:</strong> A leaf is a node with no children.</p>
-<p><strong>Example:</strong></p>
-<p>Given the below binary tree and <code>sum = 22</code>,</p>
-<pre><code>      5
+  <head>
+    <meta charset="utf-8" />
+    <meta name="generator" content="pandoc" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=yes"
+    />
+    <title>112. Path Sum</title>
+    <style type="text/css">
+      code {
+        white-space: pre-wrap;
+      }
+      span.smallcaps {
+        font-variant: small-caps;
+      }
+      span.underline {
+        text-decoration: underline;
+      }
+      div.column {
+        display: inline-block;
+        vertical-align: top;
+        width: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <h2 id="path-sum">
+      <a href="https://leetcode.com/problems/path-sum/description/"
+        >112. Path Sum</a
+      >
+    </h2>
+    <h3 id="problem">Problem:</h3>
+    <p>
+      Given a binary tree and a sum, determine if the tree has a root-to-leaf
+      path such that adding up all the values along the path equals the given
+      sum.
+    </p>
+    <p><strong>Note:</strong> A leaf is a node with no children.</p>
+    <p><strong>Example:</strong></p>
+    <p>Given the below binary tree and <code>sum = 22</code>,</p>
+    <pre><code>      5
      / \
     4   8
    /   / \
   11  13  4
  /  \      \
 7    2      1</code></pre>
-<p>return true, as there exist a root-to-leaf path <code>5-&gt;4-&gt;11-&gt;2</code> which sum is 22.</p>
-<h3 id="solution">Solution:</h3>
-<p>Note that node value could be negative so pruning can not be performed.</p>
-<pre><code>/**
+    <p>
+      return true, as there exist a root-to-leaf path
+      <code>5-&gt;4-&gt;11-&gt;2</code> which sum is 22.
+    </p>
+    <h3 id="solution">Solution:</h3>
+    <p>
+      Note that node value could be negative so pruning can not be performed.
+    </p>
+    <pre><code>/**
  * Definition for a binary tree node.
  * function TreeNode(val) {
  *     this.val = val;
@@ -46,6 +72,11 @@ var hasPathSum = function(root, sum) {
   if (root.left === null &amp;&amp; root.right === null) { return root.val === sum }
   return hasPathSum(root.left, sum - root.val) || hasPathSum(root.right, sum - root.val)
 };</code></pre>
-<p><em>Template generated via <a href="https://github.com/crimx/crx-leetmark">Leetmark</a>.</em></p>
-</body>
+    <p>
+      <em
+        >Template generated via
+        <a href="https://github.com/crimx/crx-leetmark">Leetmark</a>.</em
+      >
+    </p>
+  </body>
 </html>

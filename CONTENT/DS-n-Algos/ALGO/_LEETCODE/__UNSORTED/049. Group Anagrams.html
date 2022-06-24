@@ -1,39 +1,56 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
-<head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="pandoc" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>049. Group Anagrams</title>
-  <style type="text/css">
-      code{white-space: pre-wrap;}
-      span.smallcaps{font-variant: small-caps;}
-      span.underline{text-decoration: underline;}
-      div.column{display: inline-block; vertical-align: top; width: 50%;}
-  </style>
-</head>
-<body>
-<h2 id="group-anagrams"><a href="https://leetcode.com/problems/group-anagrams/description/">49. Group Anagrams</a></h2>
-<h3 id="problem">Problem:</h3>
-<p>Given an array of strings, group anagrams together.</p>
-<p><strong>Example:</strong></p>
-<pre><code>Input: [&quot;eat&quot;, &quot;tea&quot;, &quot;tan&quot;, &quot;ate&quot;, &quot;nat&quot;, &quot;bat&quot;],
+  <head>
+    <meta charset="utf-8" />
+    <meta name="generator" content="pandoc" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=yes"
+    />
+    <title>049. Group Anagrams</title>
+    <style type="text/css">
+      code {
+        white-space: pre-wrap;
+      }
+      span.smallcaps {
+        font-variant: small-caps;
+      }
+      span.underline {
+        text-decoration: underline;
+      }
+      div.column {
+        display: inline-block;
+        vertical-align: top;
+        width: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <h2 id="group-anagrams">
+      <a href="https://leetcode.com/problems/group-anagrams/description/"
+        >49. Group Anagrams</a
+      >
+    </h2>
+    <h3 id="problem">Problem:</h3>
+    <p>Given an array of strings, group anagrams together.</p>
+    <p><strong>Example:</strong></p>
+    <pre><code>Input: [&quot;eat&quot;, &quot;tea&quot;, &quot;tan&quot;, &quot;ate&quot;, &quot;nat&quot;, &quot;bat&quot;],
 Output:
 [
   [&quot;ate&quot;,&quot;eat&quot;,&quot;tea&quot;],
   [&quot;nat&quot;,&quot;tan&quot;],
   [&quot;bat&quot;]
 ]</code></pre>
-<p><strong>Note:</strong></p>
-<ul>
-<li>All inputs will be in lowercase.</li>
-<li>The order of your output does not matter.</li>
-</ul>
-<h3 id="solution">Solution:</h3>
-<p>It’s all about hashing the words.</p>
-<h4 id="one">ONE</h4>
-<p>Sort each word to get the key.</p>
-<pre><code>/**
+    <p><strong>Note:</strong></p>
+    <ul>
+      <li>All inputs will be in lowercase.</li>
+      <li>The order of your output does not matter.</li>
+    </ul>
+    <h3 id="solution">Solution:</h3>
+    <p>It’s all about hashing the words.</p>
+    <h4 id="one">ONE</h4>
+    <p>Sort each word to get the key.</p>
+    <pre><code>/**
  * @param {string[]} strs
  * @return {string[][]}
  */
@@ -46,9 +63,9 @@ let groupAnagrams = function(strs) {
   }
   return Object.values(result)
 };</code></pre>
-<h4 id="two">TWO</h4>
-<p>Use the product of prime numbers to generate unique keys.</p>
-<pre><code>const prime = [2,3,5,7,11,13,17,19,23,29,31,37,41,43,47,53,59,61,67,71,73,79,83,89,97,101]
+    <h4 id="two">TWO</h4>
+    <p>Use the product of prime numbers to generate unique keys.</p>
+    <pre><code>const prime = [2,3,5,7,11,13,17,19,23,29,31,37,41,43,47,53,59,61,67,71,73,79,83,89,97,101]
 
 /**
  * @param {string[]} strs
@@ -67,6 +84,11 @@ let groupAnagrams = function(strs) {
   }
   return Object.values(result)
 };</code></pre>
-<p><em>Template generated via <a href="https://github.com/crimx/crx-leetmark">Leetmark</a>.</em></p>
-</body>
+    <p>
+      <em
+        >Template generated via
+        <a href="https://github.com/crimx/crx-leetmark">Leetmark</a>.</em
+      >
+    </p>
+  </body>
 </html>

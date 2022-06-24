@@ -1,35 +1,62 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
-<head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="pandoc" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>126. Word Ladder II</title>
-  <style type="text/css">
-      code{white-space: pre-wrap;}
-      span.smallcaps{font-variant: small-caps;}
-      span.underline{text-decoration: underline;}
-      div.column{display: inline-block; vertical-align: top; width: 50%;}
-  </style>
-</head>
-<body>
-<h2 id="word-ladder-ii"><a href="https://leetcode.com/problems/word-ladder-ii/description/">126. Word Ladder II</a></h2>
-<h3 id="problem">Problem:</h3>
-<p>Given two words (<em>beginWord</em> and <em>endWord</em>), and a dictionary’s word list, find all shortest transformation sequence(s) from <em>beginWord</em> to <em>endWord</em>, such that:</p>
-<ol type="1">
-<li>Only one letter can be changed at a time</li>
-<li>Each transformed word must exist in the word list. Note that <em>beginWord</em> is <em>not</em> a transformed word.</li>
-</ol>
-<p><strong>Note:</strong></p>
-<ul>
-<li>Return an empty list if there is no such transformation sequence.</li>
-<li>All words have the same length.</li>
-<li>All words contain only lowercase alphabetic characters.</li>
-<li>You may assume no duplicates in the word list.</li>
-<li>You may assume <em>beginWord</em> and <em>endWord</em> are non-empty and are not the same.</li>
-</ul>
-<p><strong>Example 1:</strong></p>
-<pre><code>Input:
+  <head>
+    <meta charset="utf-8" />
+    <meta name="generator" content="pandoc" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=yes"
+    />
+    <title>126. Word Ladder II</title>
+    <style type="text/css">
+      code {
+        white-space: pre-wrap;
+      }
+      span.smallcaps {
+        font-variant: small-caps;
+      }
+      span.underline {
+        text-decoration: underline;
+      }
+      div.column {
+        display: inline-block;
+        vertical-align: top;
+        width: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <h2 id="word-ladder-ii">
+      <a href="https://leetcode.com/problems/word-ladder-ii/description/"
+        >126. Word Ladder II</a
+      >
+    </h2>
+    <h3 id="problem">Problem:</h3>
+    <p>
+      Given two words (<em>beginWord</em> and <em>endWord</em>), and a
+      dictionary’s word list, find all shortest transformation sequence(s) from
+      <em>beginWord</em> to <em>endWord</em>, such that:
+    </p>
+    <ol type="1">
+      <li>Only one letter can be changed at a time</li>
+      <li>
+        Each transformed word must exist in the word list. Note that
+        <em>beginWord</em> is <em>not</em> a transformed word.
+      </li>
+    </ol>
+    <p><strong>Note:</strong></p>
+    <ul>
+      <li>Return an empty list if there is no such transformation sequence.</li>
+      <li>All words have the same length.</li>
+      <li>All words contain only lowercase alphabetic characters.</li>
+      <li>You may assume no duplicates in the word list.</li>
+      <li>
+        You may assume <em>beginWord</em> and <em>endWord</em> are non-empty and
+        are not the same.
+      </li>
+    </ul>
+    <p><strong>Example 1:</strong></p>
+    <pre><code>Input:
 beginWord = &quot;hit&quot;,
 endWord = &quot;cog&quot;,
 wordList = [&quot;hot&quot;,&quot;dot&quot;,&quot;dog&quot;,&quot;lot&quot;,&quot;log&quot;,&quot;cog&quot;]
@@ -39,8 +66,8 @@ Output:
   [&quot;hit&quot;,&quot;hot&quot;,&quot;dot&quot;,&quot;dog&quot;,&quot;cog&quot;],
   [&quot;hit&quot;,&quot;hot&quot;,&quot;lot&quot;,&quot;log&quot;,&quot;cog&quot;]
 ]</code></pre>
-<p><strong>Example 2:</strong></p>
-<pre><code>Input:
+    <p><strong>Example 2:</strong></p>
+    <pre><code>Input:
 beginWord = &quot;hit&quot;
 endWord = &quot;cog&quot;
 wordList = [&quot;hot&quot;,&quot;dot&quot;,&quot;dog&quot;,&quot;lot&quot;,&quot;log&quot;]
@@ -48,11 +75,20 @@ wordList = [&quot;hot&quot;,&quot;dot&quot;,&quot;dog&quot;,&quot;lot&quot;,&quo
 Output: []
 
 Explanation: The endWord &quot;cog&quot; is not in wordList, therefore no possible transformation.</code></pre>
-<h3 id="solution">Solution:</h3>
-<p>This is just like <a href="./127.%20Word%20Ladder">127. Word Ladder</a>.</p>
-<p>The constrain still works, but instead of deleting the words right away, collect them and delete them all when a level ends, so that we can reuse the words (matching different parents in the same level).</p>
-<p>The items in the queue are not just words now. Parent nodes are also kept so that we can backtrack the path from the end.</p>
-<pre><code>/**
+    <h3 id="solution">Solution:</h3>
+    <p>
+      This is just like <a href="./127.%20Word%20Ladder">127. Word Ladder</a>.
+    </p>
+    <p>
+      The constrain still works, but instead of deleting the words right away,
+      collect them and delete them all when a level ends, so that we can reuse
+      the words (matching different parents in the same level).
+    </p>
+    <p>
+      The items in the queue are not just words now. Parent nodes are also kept
+      so that we can backtrack the path from the end.
+    </p>
+    <pre><code>/**
  * @param {string} beginWord
  * @param {string} endWord
  * @param {string[]} wordList
@@ -109,6 +145,11 @@ function findLadders (beginWord, endWord, wordList) {
 
   return result
 };</code></pre>
-<p><em>Template generated via <a href="https://github.com/crimx/crx-leetmark">Leetmark</a>.</em></p>
-</body>
+    <p>
+      <em
+        >Template generated via
+        <a href="https://github.com/crimx/crx-leetmark">Leetmark</a>.</em
+      >
+    </p>
+  </body>
 </html>

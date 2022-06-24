@@ -1,32 +1,61 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
-<head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="pandoc" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>071. Simplify Path</title>
-  <style type="text/css">
-      code{white-space: pre-wrap;}
-      span.smallcaps{font-variant: small-caps;}
-      span.underline{text-decoration: underline;}
-      div.column{display: inline-block; vertical-align: top; width: 50%;}
-  </style>
-</head>
-<body>
-<h2 id="simplify-path"><a href="https://leetcode.com/problems/simplify-path/description/">71. Simplify Path</a></h2>
-<h3 id="problem">Problem:</h3>
-<p>Given an absolute path for a file (Unix-style), simplify it.</p>
-<p>For example, <strong>path</strong> = <code>"/home/"</code>, =&gt; <code>"/home"</code> <strong>path</strong> = <code>"/a/./b/../../c/"</code>, =&gt; <code>"/c"</code></p>
-<p><strong>Corner Cases:</strong></p>
-<ul>
-<li>Did you consider the case where <strong>path</strong> = <code>"/../"</code>? In this case, you should return <code>"/"</code>.</li>
-<li>Another corner case is the path might contain multiple slashes <code>'/'</code> together, such as <code>"/home//foo/"</code>. In this case, you should ignore redundant slashes and return <code>"/home/foo"</code>.</li>
-</ul>
-<h3 id="solution">Solution:</h3>
-<p>Use stack to handle <code>/../</code>.</p>
-<h4 id="one">ONE</h4>
-<p>RegExp matching.</p>
-<pre><code>/**
+  <head>
+    <meta charset="utf-8" />
+    <meta name="generator" content="pandoc" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=yes"
+    />
+    <title>071. Simplify Path</title>
+    <style type="text/css">
+      code {
+        white-space: pre-wrap;
+      }
+      span.smallcaps {
+        font-variant: small-caps;
+      }
+      span.underline {
+        text-decoration: underline;
+      }
+      div.column {
+        display: inline-block;
+        vertical-align: top;
+        width: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <h2 id="simplify-path">
+      <a href="https://leetcode.com/problems/simplify-path/description/"
+        >71. Simplify Path</a
+      >
+    </h2>
+    <h3 id="problem">Problem:</h3>
+    <p>Given an absolute path for a file (Unix-style), simplify it.</p>
+    <p>
+      For example, <strong>path</strong> = <code>"/home/"</code>, =&gt;
+      <code>"/home"</code> <strong>path</strong> =
+      <code>"/a/./b/../../c/"</code>, =&gt; <code>"/c"</code>
+    </p>
+    <p><strong>Corner Cases:</strong></p>
+    <ul>
+      <li>
+        Did you consider the case where <strong>path</strong> =
+        <code>"/../"</code>? In this case, you should return <code>"/"</code>.
+      </li>
+      <li>
+        Another corner case is the path might contain multiple slashes
+        <code>'/'</code> together, such as <code>"/home//foo/"</code>. In this
+        case, you should ignore redundant slashes and return
+        <code>"/home/foo"</code>.
+      </li>
+    </ul>
+    <h3 id="solution">Solution:</h3>
+    <p>Use stack to handle <code>/../</code>.</p>
+    <h4 id="one">ONE</h4>
+    <p>RegExp matching.</p>
+    <pre><code>/**
  * @param {string} path
  * @return {string}
  */
@@ -42,9 +71,9 @@ var simplifyPath = function(path) {
     }, [])
     .join(&#39;/&#39;)
 };</code></pre>
-<h4 id="two">TWO</h4>
-<p>Direct search.</p>
-<pre><code>/**
+    <h4 id="two">TWO</h4>
+    <p>Direct search.</p>
+    <pre><code>/**
  * @param {string} path
  * @return {string}
  */
@@ -71,6 +100,11 @@ var simplifyPath = function(path) {
   }
   return &#39;/&#39; + stack.join(&#39;/&#39;)
 };</code></pre>
-<p><em>Template generated via <a href="https://github.com/crimx/crx-leetmark">Leetmark</a>.</em></p>
-</body>
+    <p>
+      <em
+        >Template generated via
+        <a href="https://github.com/crimx/crx-leetmark">Leetmark</a>.</em
+      >
+    </p>
+  </body>
 </html>

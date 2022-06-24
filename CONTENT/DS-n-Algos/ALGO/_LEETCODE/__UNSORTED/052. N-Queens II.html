@@ -1,27 +1,55 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
-<head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="pandoc" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>052. N-Queens II</title>
-  <style type="text/css">
-      code{white-space: pre-wrap;}
-      span.smallcaps{font-variant: small-caps;}
-      span.underline{text-decoration: underline;}
-      div.column{display: inline-block; vertical-align: top; width: 50%;}
-  </style>
-</head>
-<body>
-<h2 id="n-queens-ii"><a href="https://leetcode.com/problems/n-queens-ii/description/">52. N-Queens II</a></h2>
-<h3 id="problem">Problem:</h3>
-<p>The <em>n</em>-queens puzzle is the problem of placing <em>n</em> queens on an <em>n</em>×<em>n</em> chessboard such that no two queens attack each other.</p>
-<figure>
-<img src="https://leetcode.com/static/images/problemset/8-queens.png" alt="8-queens.png" /><figcaption>8-queens.png</figcaption>
-</figure>
-<p>Given an integer <em>n</em>, return the number of distinct solutions to the <em>n</em>-queens puzzle.</p>
-<p><strong>Example:</strong></p>
-<pre><code>Input: 4
+  <head>
+    <meta charset="utf-8" />
+    <meta name="generator" content="pandoc" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=yes"
+    />
+    <title>052. N-Queens II</title>
+    <style type="text/css">
+      code {
+        white-space: pre-wrap;
+      }
+      span.smallcaps {
+        font-variant: small-caps;
+      }
+      span.underline {
+        text-decoration: underline;
+      }
+      div.column {
+        display: inline-block;
+        vertical-align: top;
+        width: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <h2 id="n-queens-ii">
+      <a href="https://leetcode.com/problems/n-queens-ii/description/"
+        >52. N-Queens II</a
+      >
+    </h2>
+    <h3 id="problem">Problem:</h3>
+    <p>
+      The <em>n</em>-queens puzzle is the problem of placing <em>n</em> queens
+      on an <em>n</em>×<em>n</em> chessboard such that no two queens attack each
+      other.
+    </p>
+    <figure>
+      <img
+        src="https://leetcode.com/static/images/problemset/8-queens.png"
+        alt="8-queens.png"
+      />
+      <figcaption>8-queens.png</figcaption>
+    </figure>
+    <p>
+      Given an integer <em>n</em>, return the number of distinct solutions to
+      the <em>n</em>-queens puzzle.
+    </p>
+    <p><strong>Example:</strong></p>
+    <pre><code>Input: 4
 Output: 2
 Explanation: There are two distinct solutions to the 4-queens puzzle as shown below.
 [
@@ -35,9 +63,9 @@ Explanation: There are two distinct solutions to the 4-queens puzzle as shown be
   &quot;...Q&quot;,
   &quot;.Q..&quot;]
 ]</code></pre>
-<h3 id="solution">Solution:</h3>
-<p>Just modify <a href="051.%20N-Queens.md">51. N-Queens</a>.</p>
-<pre><code>/**
+    <h3 id="solution">Solution:</h3>
+    <p>Just modify <a href="051.%20N-Queens.md">51. N-Queens</a>.</p>
+    <pre><code>/**
  * @param {number} n
  * @return {string[][]}
  */
@@ -78,6 +106,11 @@ function _testDiagonal(queens, iStart) {
   }
   return true
 };</code></pre>
-<p><em>Template generated via <a href="https://github.com/crimx/crx-leetmark">Leetmark</a>.</em></p>
-</body>
+    <p>
+      <em
+        >Template generated via
+        <a href="https://github.com/crimx/crx-leetmark">Leetmark</a>.</em
+      >
+    </p>
+  </body>
 </html>

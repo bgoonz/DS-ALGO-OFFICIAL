@@ -1,49 +1,72 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
-<head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="pandoc" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>100. Same Tree</title>
-  <style type="text/css">
-      code{white-space: pre-wrap;}
-      span.smallcaps{font-variant: small-caps;}
-      span.underline{text-decoration: underline;}
-      div.column{display: inline-block; vertical-align: top; width: 50%;}
-  </style>
-</head>
-<body>
-<h2 id="same-tree"><a href="https://leetcode.com/problems/same-tree/description/">100. Same Tree</a></h2>
-<h3 id="problem">Problem:</h3>
-<p>Given two binary trees, write a function to check if they are the same or not.</p>
-<p>Two binary trees are considered the same if they are structurally identical and the nodes have the same value.</p>
-<p><strong>Example 1:</strong></p>
-<pre><code>Input:     1         1
+  <head>
+    <meta charset="utf-8" />
+    <meta name="generator" content="pandoc" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=yes"
+    />
+    <title>100. Same Tree</title>
+    <style type="text/css">
+      code {
+        white-space: pre-wrap;
+      }
+      span.smallcaps {
+        font-variant: small-caps;
+      }
+      span.underline {
+        text-decoration: underline;
+      }
+      div.column {
+        display: inline-block;
+        vertical-align: top;
+        width: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <h2 id="same-tree">
+      <a href="https://leetcode.com/problems/same-tree/description/"
+        >100. Same Tree</a
+      >
+    </h2>
+    <h3 id="problem">Problem:</h3>
+    <p>
+      Given two binary trees, write a function to check if they are the same or
+      not.
+    </p>
+    <p>
+      Two binary trees are considered the same if they are structurally
+      identical and the nodes have the same value.
+    </p>
+    <p><strong>Example 1:</strong></p>
+    <pre><code>Input:     1         1
           / \       / \
          2   3     2   3
 
         [1,2,3],   [1,2,3]
 
 Output: true</code></pre>
-<p><strong>Example 2:</strong></p>
-<pre><code>Input:     1         1
+    <p><strong>Example 2:</strong></p>
+    <pre><code>Input:     1         1
           /           \
          2             2
 
         [1,2],     [1,null,2]
 
 Output: false</code></pre>
-<p><strong>Example 3:</strong></p>
-<pre><code>Input:     1         1
+    <p><strong>Example 3:</strong></p>
+    <pre><code>Input:     1         1
           / \       / \
          2   1     1   2
 
         [1,2,1],   [1,1,2]
 
 Output: false</code></pre>
-<h3 id="solution">Solution:</h3>
-<p>The code should be self-evident.</p>
-<pre><code>/**
+    <h3 id="solution">Solution:</h3>
+    <p>The code should be self-evident.</p>
+    <pre><code>/**
  * Definition for a binary tree node.
  * function TreeNode(val) {
  *     this.val = val;
@@ -59,6 +82,11 @@ var isSameTree = function(p, q) {
   return p === null &amp;&amp; q === null ||
     p !== null &amp;&amp; q !== null &amp;&amp; p.val === q.val &amp;&amp; isSameTree(p.left, q.left) &amp;&amp; isSameTree(p.right, q.right)
 };</code></pre>
-<p><em>Template generated via <a href="https://github.com/crimx/crx-leetmark">Leetmark</a>.</em></p>
-</body>
+    <p>
+      <em
+        >Template generated via
+        <a href="https://github.com/crimx/crx-leetmark">Leetmark</a>.</em
+      >
+    </p>
+  </body>
 </html>

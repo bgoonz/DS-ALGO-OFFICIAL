@@ -1,20 +1,38 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
-<head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="pandoc" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>final</title>
-  <style type="text/css">
-      code{white-space: pre-wrap;}
-      span.smallcaps{font-variant: small-caps;}
-      span.underline{text-decoration: underline;}
-      div.column{display: inline-block; vertical-align: top; width: 50%;}
-  </style>
-</head>
-<body>
-<h2 id="given-two-binary-trees-write-a-function-to-check-if-they-are-the-same-or-not.">Given two binary trees, write a function to check if they are the same or not.</h2>
-<pre><code>Two binary trees are considered the same if they are structurally identical and the nodes have the same value.
+  <head>
+    <meta charset="utf-8" />
+    <meta name="generator" content="pandoc" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=yes"
+    />
+    <title>final</title>
+    <style type="text/css">
+      code {
+        white-space: pre-wrap;
+      }
+      span.smallcaps {
+        font-variant: small-caps;
+      }
+      span.underline {
+        text-decoration: underline;
+      }
+      div.column {
+        display: inline-block;
+        vertical-align: top;
+        width: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <h2
+      id="given-two-binary-trees-write-a-function-to-check-if-they-are-the-same-or-not."
+    >
+      Given two binary trees, write a function to check if they are the same or
+      not.
+    </h2>
+    <pre><code>Two binary trees are considered the same if they are structurally identical and the nodes have the same value.
 
 Example 1:
 
@@ -25,15 +43,20 @@ Input:     1         1
         [1,2,3],   [1,2,3]
 
 Output: true</code></pre>
-<hr />
-<h3 id="definition-for-a-binary-tree-node.">Definition for a binary tree node.</h3>
-<h3 id="class-treenodeobject">class TreeNode(object):</h3>
-<h3 id="def-initself-x">def <strong>init</strong>(self, x):</h3>
-<h3 id="self.val-x">self.val = x</h3>
-<h3 id="self.left-none">self.left = None</h3>
-<h3 id="self.right-none">self.right = None</h3>
-<p>class Solution(object): def isSameTree(self, p, q): :type p: TreeNode :type q: TreeNode :rtype: bool if not p and not q: return True</p>
-<pre><code>        stack = [(p, q)]
+    <hr />
+    <h3 id="definition-for-a-binary-tree-node.">
+      Definition for a binary tree node.
+    </h3>
+    <h3 id="class-treenodeobject">class TreeNode(object):</h3>
+    <h3 id="def-initself-x">def <strong>init</strong>(self, x):</h3>
+    <h3 id="self.val-x">self.val = x</h3>
+    <h3 id="self.left-none">self.left = None</h3>
+    <h3 id="self.right-none">self.right = None</h3>
+    <p>
+      class Solution(object): def isSameTree(self, p, q): :type p: TreeNode
+      :type q: TreeNode :rtype: bool if not p and not q: return True
+    </p>
+    <pre><code>        stack = [(p, q)]
 
         while stack:
             node1, node2 = stack.pop()
@@ -45,8 +68,13 @@ Output: true</code></pre>
                     return False
 
         return True</code></pre>
-<h2 id="given-a-binary-tree-check-whether-it-is-a-mirror-of-itself-ie-symmetric-around-its-center.">Given a binary tree, check whether it is a mirror of itself (ie, symmetric around its center).</h2>
-<pre><code>For example, this binary tree [1,2,2,3,4,4,3] is symmetric:
+    <h2
+      id="given-a-binary-tree-check-whether-it-is-a-mirror-of-itself-ie-symmetric-around-its-center."
+    >
+      Given a binary tree, check whether it is a mirror of itself (ie, symmetric
+      around its center).
+    </h2>
+    <pre><code>For example, this binary tree [1,2,2,3,4,4,3] is symmetric:
 
     1
    / \
@@ -61,14 +89,16 @@ But the following [1,2,2,null,3,null,3] is not:
   2   2
    \   \
    3    3</code></pre>
-<hr />
-<h3 id="definition-for-a-binary-tree-node.-1">Definition for a binary tree node.</h3>
-<h3 id="class-treenodeobject-1">class TreeNode(object):</h3>
-<h3 id="def-initself-x-1">def <strong>init</strong>(self, x):</h3>
-<h3 id="self.val-x-1">self.val = x</h3>
-<h3 id="self.left-none-1">self.left = None</h3>
-<h3 id="self.right-none-1">self.right = None</h3>
-<pre><code>class Solution(object): def isSymmetric(self, root):  :type root: TreeNode :rtype: bool  if not root: return True
+    <hr />
+    <h3 id="definition-for-a-binary-tree-node.-1">
+      Definition for a binary tree node.
+    </h3>
+    <h3 id="class-treenodeobject-1">class TreeNode(object):</h3>
+    <h3 id="def-initself-x-1">def <strong>init</strong>(self, x):</h3>
+    <h3 id="self.val-x-1">self.val = x</h3>
+    <h3 id="self.left-none-1">self.left = None</h3>
+    <h3 id="self.right-none-1">self.right = None</h3>
+    <pre><code>class Solution(object): def isSymmetric(self, root):  :type root: TreeNode :rtype: bool  if not root: return True
 
         def dfs(left, right):
             if not left and not right:
@@ -83,8 +113,13 @@ But the following [1,2,2,null,3,null,3] is not:
             )
 
         return dfs(root, root)</code></pre>
-<h2 id="given-a-binary-tree-return-the-level-order-traversal-of-its-nodes-values.-ie-from-left-to-right-level-by-level.">Given a binary tree, return the level order traversal of its nodes’ values. (ie, from left to right, level by level).</h2>
-<pre><code>For example:
+    <h2
+      id="given-a-binary-tree-return-the-level-order-traversal-of-its-nodes-values.-ie-from-left-to-right-level-by-level."
+    >
+      Given a binary tree, return the level order traversal of its nodes’
+      values. (ie, from left to right, level by level).
+    </h2>
+    <pre><code>For example:
 Given binary tree [3,9,20,null,null,15,7],
 
     3
@@ -100,15 +135,20 @@ return its level order traversal as:
   [9,20],
   [15,7]
 ]</code></pre>
-<hr />
-<h3 id="definition-for-a-binary-tree-node.-2">Definition for a binary tree node.</h3>
-<h3 id="class-treenodeobject-2">class TreeNode(object):</h3>
-<h3 id="def-initself-x-2">def <strong>init</strong>(self, x):</h3>
-<h3 id="self.val-x-2">self.val = x</h3>
-<h3 id="self.left-none-2">self.left = None</h3>
-<h3 id="self.right-none-2">self.right = None</h3>
-<p>class Solution(object): def levelOrder(self, root): :type root: TreeNode :rtype: List[List[int]]</p>
-<pre><code>        if not root:
+    <hr />
+    <h3 id="definition-for-a-binary-tree-node.-2">
+      Definition for a binary tree node.
+    </h3>
+    <h3 id="class-treenodeobject-2">class TreeNode(object):</h3>
+    <h3 id="def-initself-x-2">def <strong>init</strong>(self, x):</h3>
+    <h3 id="self.val-x-2">self.val = x</h3>
+    <h3 id="self.left-none-2">self.left = None</h3>
+    <h3 id="self.right-none-2">self.right = None</h3>
+    <p>
+      class Solution(object): def levelOrder(self, root): :type root: TreeNode
+      :rtype: List[List[int]]
+    </p>
+    <pre><code>        if not root:
             return []
 
         queue = [(root, 0)]
@@ -130,8 +170,14 @@ return its level order traversal as:
         for key, value in levelMap.iteritems():
             result.append(value)
         return result</code></pre>
-<h2 id="given-a-binary-tree-return-the-zigzag-level-order-traversal-of-its-nodes-values.-ie-from-left-to-right-then-right-to-left-for-the-next-level-and-alternate-between.">Given a binary tree, return the zigzag level order traversal of its nodes’ values. (ie, from left to right, then right to left for the next level and alternate between).</h2>
-<pre><code>For example:
+    <h2
+      id="given-a-binary-tree-return-the-zigzag-level-order-traversal-of-its-nodes-values.-ie-from-left-to-right-then-right-to-left-for-the-next-level-and-alternate-between."
+    >
+      Given a binary tree, return the zigzag level order traversal of its nodes’
+      values. (ie, from left to right, then right to left for the next level and
+      alternate between).
+    </h2>
+    <pre><code>For example:
 Given binary tree [3,9,20,null,null,15,7],
 
     3
@@ -147,15 +193,20 @@ return its zigzag level order traversal as:
   [20,9],
   [15,7]
 ]</code></pre>
-<hr />
-<h3 id="definition-for-a-binary-tree-node.-3">Definition for a binary tree node.</h3>
-<h3 id="class-treenodeobject-3">class TreeNode(object):</h3>
-<h3 id="def-initself-x-3">def <strong>init</strong>(self, x):</h3>
-<h3 id="self.val-x-3">self.val = x</h3>
-<h3 id="self.left-none-3">self.left = None</h3>
-<h3 id="self.right-none-3">self.right = None</h3>
-<p>class Solution(object): def zigzagLevelOrder(self, root): :type root: TreeNode :rtype: List[List[int]]</p>
-<pre><code>        if not root:
+    <hr />
+    <h3 id="definition-for-a-binary-tree-node.-3">
+      Definition for a binary tree node.
+    </h3>
+    <h3 id="class-treenodeobject-3">class TreeNode(object):</h3>
+    <h3 id="def-initself-x-3">def <strong>init</strong>(self, x):</h3>
+    <h3 id="self.val-x-3">self.val = x</h3>
+    <h3 id="self.left-none-3">self.left = None</h3>
+    <h3 id="self.right-none-3">self.right = None</h3>
+    <p>
+      class Solution(object): def zigzagLevelOrder(self, root): :type root:
+      TreeNode :rtype: List[List[int]]
+    </p>
+    <pre><code>        if not root:
             return []
 
         queue = [(root, 0)]
@@ -181,8 +232,14 @@ return its zigzag level order traversal as:
             result.append(value)
             spiral = not spiral
         return result</code></pre>
-<h2 id="given-a-non-empty-string-s-and-a-dictionary-worddict-containing-a-list-of-non-empty-words-determine-if-s-can-be-segmented-into-a-space-separated-sequence-of-one-or-more-dictionary-words.">Given a non-empty string s and a dictionary wordDict containing a list of non-empty words, determine if s can be segmented into a space-separated sequence of one or more dictionary words.</h2>
-<pre><code>Note:
+    <h2
+      id="given-a-non-empty-string-s-and-a-dictionary-worddict-containing-a-list-of-non-empty-words-determine-if-s-can-be-segmented-into-a-space-separated-sequence-of-one-or-more-dictionary-words."
+    >
+      Given a non-empty string s and a dictionary wordDict containing a list of
+      non-empty words, determine if s can be segmented into a space-separated
+      sequence of one or more dictionary words.
+    </h2>
+    <pre><code>Note:
 
 The same word in the dictionary may be reused multiple times in the segmentation.
 You may assume the dictionary does not contain duplicate words.
@@ -191,15 +248,21 @@ Example 1:
 Input: s = &quot;leetcode&quot;, wordDict = [&quot;leet&quot;, &quot;code&quot;]
 Output: true
 Explanation: Return true because &quot;leetcode&quot; can be segmented as &quot;leet code&quot;.</code></pre>
-<hr />
-<h3 id="definition-for-a-binary-tree-node.-4">Definition for a binary tree node.</h3>
-<h3 id="class-treenodeobject-4">class TreeNode(object):</h3>
-<h3 id="def-initself-x-4">def <strong>init</strong>(self, x):</h3>
-<h3 id="self.val-x-4">self.val = x</h3>
-<h3 id="self.left-none-4">self.left = None</h3>
-<h3 id="self.right-none-4">self.right = None</h3>
-<p>class Solution(object): def buildTree(self, preorder, inorder): :type preorder: List[int] :type inorder: List[int] :rtype: TreeNode self.index = 0</p>
-<pre><code>        def recursive(preorder, inorder, start, end):
+    <hr />
+    <h3 id="definition-for-a-binary-tree-node.-4">
+      Definition for a binary tree node.
+    </h3>
+    <h3 id="class-treenodeobject-4">class TreeNode(object):</h3>
+    <h3 id="def-initself-x-4">def <strong>init</strong>(self, x):</h3>
+    <h3 id="self.val-x-4">self.val = x</h3>
+    <h3 id="self.left-none-4">self.left = None</h3>
+    <h3 id="self.right-none-4">self.right = None</h3>
+    <p>
+      class Solution(object): def buildTree(self, preorder, inorder): :type
+      preorder: List[int] :type inorder: List[int] :rtype: TreeNode self.index =
+      0
+    </p>
+    <pre><code>        def recursive(preorder, inorder, start, end):
             if start &gt; end:
                 return None
 
@@ -219,8 +282,13 @@ Explanation: Return true because &quot;leetcode&quot; can be segmented as &quot;
             return node
 
         return recursive(preorder, inorder, 0, len(inorder) - 1)</code></pre>
-<h2 id="given-inorder-and-postorder-traversal-of-a-tree-construct-the-binary-tree.">Given inorder and postorder traversal of a tree, construct the binary tree.</h2>
-<pre><code>Note:
+    <h2
+      id="given-inorder-and-postorder-traversal-of-a-tree-construct-the-binary-tree."
+    >
+      Given inorder and postorder traversal of a tree, construct the binary
+      tree.
+    </h2>
+    <pre><code>Note:
 You may assume that duplicates do not exist in the tree.
 
 For example, given
@@ -234,15 +302,21 @@ Return the following binary tree:
   9  20
     /  \
    15   7</code></pre>
-<hr />
-<h3 id="definition-for-a-binary-tree-node.-5">Definition for a binary tree node.</h3>
-<h3 id="class-treenodeobject-5">class TreeNode(object):</h3>
-<h3 id="def-initself-x-5">def <strong>init</strong>(self, x):</h3>
-<h3 id="self.val-x-5">self.val = x</h3>
-<h3 id="self.left-none-5">self.left = None</h3>
-<h3 id="self.right-none-5">self.right = None</h3>
-<p>class Solution(object): def buildTree(self, inorder, postorder): :type inorder: List[int] :type postorder: List[int] :rtype: TreeNode self.index = len(inorder) - 1</p>
-<pre><code>        def recursive(postorder, inorder, start, end):
+    <hr />
+    <h3 id="definition-for-a-binary-tree-node.-5">
+      Definition for a binary tree node.
+    </h3>
+    <h3 id="class-treenodeobject-5">class TreeNode(object):</h3>
+    <h3 id="def-initself-x-5">def <strong>init</strong>(self, x):</h3>
+    <h3 id="self.val-x-5">self.val = x</h3>
+    <h3 id="self.left-none-5">self.left = None</h3>
+    <h3 id="self.right-none-5">self.right = None</h3>
+    <p>
+      class Solution(object): def buildTree(self, inorder, postorder): :type
+      inorder: List[int] :type postorder: List[int] :rtype: TreeNode self.index
+      = len(inorder) - 1
+    </p>
+    <pre><code>        def recursive(postorder, inorder, start, end):
             if start &gt; end:
                 return None
 
@@ -261,8 +335,13 @@ Return the following binary tree:
             return node
 
         return recursive(postorder, inorder, 0, len(inorder) - 1)</code></pre>
-<h2 id="given-a-binary-tree-return-the-bottom-up-level-order-traversal-of-its-nodes-values.-ie-from-left-to-right-level-by-level-from-leaf-to-root.">Given a binary tree, return the bottom-up level order traversal of its nodes’ values. (ie, from left to right, level by level from leaf to root).</h2>
-<pre><code>For example:
+    <h2
+      id="given-a-binary-tree-return-the-bottom-up-level-order-traversal-of-its-nodes-values.-ie-from-left-to-right-level-by-level-from-leaf-to-root."
+    >
+      Given a binary tree, return the bottom-up level order traversal of its
+      nodes’ values. (ie, from left to right, level by level from leaf to root).
+    </h2>
+    <pre><code>For example:
 Given binary tree [3,9,20,null,null,15,7],
 
     3
@@ -278,15 +357,20 @@ return its bottom-up level order traversal as:
   [9,20],
   [3]
 ]</code></pre>
-<hr />
-<h3 id="definition-for-a-binary-tree-node.-6">Definition for a binary tree node.</h3>
-<h3 id="class-treenodeobject-6">class TreeNode(object):</h3>
-<h3 id="def-initself-x-6">def <strong>init</strong>(self, x):</h3>
-<h3 id="self.val-x-6">self.val = x</h3>
-<h3 id="self.left-none-6">self.left = None</h3>
-<h3 id="self.right-none-6">self.right = None</h3>
-<p>class Solution(object): def levelOrderBottom(self, root): :type root: TreeNode :rtype: List[List[int]]</p>
-<pre><code>        if not root:
+    <hr />
+    <h3 id="definition-for-a-binary-tree-node.-6">
+      Definition for a binary tree node.
+    </h3>
+    <h3 id="class-treenodeobject-6">class TreeNode(object):</h3>
+    <h3 id="def-initself-x-6">def <strong>init</strong>(self, x):</h3>
+    <h3 id="self.val-x-6">self.val = x</h3>
+    <h3 id="self.left-none-6">self.left = None</h3>
+    <h3 id="self.right-none-6">self.right = None</h3>
+    <p>
+      class Solution(object): def levelOrderBottom(self, root): :type root:
+      TreeNode :rtype: List[List[int]]
+    </p>
+    <pre><code>        if not root:
             return []
 
         queue = [(root, 0)]
@@ -308,8 +392,13 @@ return its bottom-up level order traversal as:
         for key, value in levelMap.iteritems():
             result.append(value)
         return result[::-1]</code></pre>
-<h2 id="given-an-array-where-elements-are-sorted-in-ascending-order-convert-it-to-a-height-balanced-bst.">Given an array where elements are sorted in ascending order, convert it to a height balanced BST.</h2>
-<pre><code>For this problem, a height-balanced binary tree is defined as a binary tree in which the depth of the two subtrees of every node never differ by more than 1.
+    <h2
+      id="given-an-array-where-elements-are-sorted-in-ascending-order-convert-it-to-a-height-balanced-bst."
+    >
+      Given an array where elements are sorted in ascending order, convert it to
+      a height balanced BST.
+    </h2>
+    <pre><code>For this problem, a height-balanced binary tree is defined as a binary tree in which the depth of the two subtrees of every node never differ by more than 1.
 
 Example:
 
@@ -322,15 +411,20 @@ One possible answer is: [0,-3,9,-10,null,5], which represents the following heig
    -3   9
    /   /
  -10  5</code></pre>
-<hr />
-<h3 id="definition-for-a-binary-tree-node.-7">Definition for a binary tree node.</h3>
-<h3 id="class-treenodeobject-7">class TreeNode(object):</h3>
-<h3 id="def-initself-x-7">def <strong>init</strong>(self, x):</h3>
-<h3 id="self.val-x-7">self.val = x</h3>
-<h3 id="self.left-none-7">self.left = None</h3>
-<h3 id="self.right-none-7">self.right = None</h3>
-<p>class Solution(object): def sortedArrayToBST(self, nums): :type nums: List[int] :rtype: TreeNode</p>
-<pre><code>        def constructTree(nums, start, end):
+    <hr />
+    <h3 id="definition-for-a-binary-tree-node.-7">
+      Definition for a binary tree node.
+    </h3>
+    <h3 id="class-treenodeobject-7">class TreeNode(object):</h3>
+    <h3 id="def-initself-x-7">def <strong>init</strong>(self, x):</h3>
+    <h3 id="self.val-x-7">self.val = x</h3>
+    <h3 id="self.left-none-7">self.left = None</h3>
+    <h3 id="self.right-none-7">self.right = None</h3>
+    <p>
+      class Solution(object): def sortedArrayToBST(self, nums): :type nums:
+      List[int] :rtype: TreeNode
+    </p>
+    <pre><code>        def constructTree(nums, start, end):
             if start &gt; end:
                 return None
 
@@ -345,8 +439,10 @@ One possible answer is: [0,-3,9,-10,null,5], which represents the following heig
             return node
 
         return constructTree(nums, 0, len(nums) - 1)</code></pre>
-<h2 id="given-a-binary-tree-find-its-minimum-depth.">Given a binary tree, find its minimum depth.</h2>
-<pre><code>The minimum depth is the number of nodes along the shortest path from the root node down to the nearest leaf node.
+    <h2 id="given-a-binary-tree-find-its-minimum-depth.">
+      Given a binary tree, find its minimum depth.
+    </h2>
+    <pre><code>The minimum depth is the number of nodes along the shortest path from the root node down to the nearest leaf node.
 
 Note: A leaf is a node with no children.
 
@@ -361,15 +457,20 @@ Given binary tree [3,9,20,null,null,15,7],
    15   7
 
 return its minimum depth = 2.</code></pre>
-<hr />
-<h3 id="definition-for-a-binary-tree-node.-8">Definition for a binary tree node.</h3>
-<h3 id="class-treenodeobject-8">class TreeNode(object):</h3>
-<h3 id="def-initself-x-8">def <strong>init</strong>(self, x):</h3>
-<h3 id="self.val-x-8">self.val = x</h3>
-<h3 id="self.left-none-8">self.left = None</h3>
-<h3 id="self.right-none-8">self.right = None</h3>
-<p>class Solution(object): def minDepth(self, root): if not root: return 0 depth = float(“inf”) stack = [(root, 1)]</p>
-<pre><code>        while stack:
+    <hr />
+    <h3 id="definition-for-a-binary-tree-node.-8">
+      Definition for a binary tree node.
+    </h3>
+    <h3 id="class-treenodeobject-8">class TreeNode(object):</h3>
+    <h3 id="def-initself-x-8">def <strong>init</strong>(self, x):</h3>
+    <h3 id="self.val-x-8">self.val = x</h3>
+    <h3 id="self.left-none-8">self.left = None</h3>
+    <h3 id="self.right-none-8">self.right = None</h3>
+    <p>
+      class Solution(object): def minDepth(self, root): if not root: return 0
+      depth = float(“inf”) stack = [(root, 1)]
+    </p>
+    <pre><code>        while stack:
             node, level = stack.pop()
             if node:
 
@@ -380,8 +481,14 @@ return its minimum depth = 2.</code></pre>
                 stack.append((node.right, level + 1))
 
         return depth</code></pre>
-<h2 id="given-a-binary-tree-and-a-sum-determine-if-the-tree-has-a-root-to-leaf-path-such-that-adding-up-all-the-values-along-the-path-equals-the-given-sum.">Given a binary tree and a sum, determine if the tree has a root-to-leaf path such that adding up all the values along the path equals the given sum.</h2>
-<pre><code>Note: A leaf is a node with no children.
+    <h2
+      id="given-a-binary-tree-and-a-sum-determine-if-the-tree-has-a-root-to-leaf-path-such-that-adding-up-all-the-values-along-the-path-equals-the-given-sum."
+    >
+      Given a binary tree and a sum, determine if the tree has a root-to-leaf
+      path such that adding up all the values along the path equals the given
+      sum.
+    </h2>
+    <pre><code>Note: A leaf is a node with no children.
 
 Example:
 
@@ -394,22 +501,32 @@ Given the below binary tree and sum = 22,
   11  13  4
  /  \      \
 7    2      1</code></pre>
-<hr />
-<h3 id="definition-for-a-binary-tree-node.-9">Definition for a binary tree node.</h3>
-<h3 id="class-treenodeobject-9">class TreeNode(object):</h3>
-<h3 id="def-initself-x-9">def <strong>init</strong>(self, x):</h3>
-<h3 id="self.val-x-9">self.val = x</h3>
-<h3 id="self.left-none-9">self.left = None</h3>
-<h3 id="self.right-none-9">self.right = None</h3>
-<p>class Solution(object): def hasPathSum(self, root, sum): :type root: TreeNode :type sum: int :rtype: bool if not root: return False</p>
-<pre><code>        if not root.left and not root.right and root.val == sum:
+    <hr />
+    <h3 id="definition-for-a-binary-tree-node.-9">
+      Definition for a binary tree node.
+    </h3>
+    <h3 id="class-treenodeobject-9">class TreeNode(object):</h3>
+    <h3 id="def-initself-x-9">def <strong>init</strong>(self, x):</h3>
+    <h3 id="self.val-x-9">self.val = x</h3>
+    <h3 id="self.left-none-9">self.left = None</h3>
+    <h3 id="self.right-none-9">self.right = None</h3>
+    <p>
+      class Solution(object): def hasPathSum(self, root, sum): :type root:
+      TreeNode :type sum: int :rtype: bool if not root: return False
+    </p>
+    <pre><code>        if not root.left and not root.right and root.val == sum:
             return True
 
         return self.hasPathSum(root.left, sum - root.val) or self.hasPathSum(
             root.right, sum - root.val
         )</code></pre>
-<h2 id="given-a-binary-tree-and-a-sum-find-all-root-to-leaf-paths-where-each-paths-sum-equals-the-given-sum.">Given a binary tree and a sum, find all root-to-leaf paths where each path’s sum equals the given sum.</h2>
-<pre><code>Note: A leaf is a node with no children.
+    <h2
+      id="given-a-binary-tree-and-a-sum-find-all-root-to-leaf-paths-where-each-paths-sum-equals-the-given-sum."
+    >
+      Given a binary tree and a sum, find all root-to-leaf paths where each
+      path’s sum equals the given sum.
+    </h2>
+    <pre><code>Note: A leaf is a node with no children.
 
 Example:
 
@@ -428,15 +545,20 @@ Return:
    [5,4,11,2],
    [5,8,4,5]
 ]</code></pre>
-<hr />
-<h3 id="definition-for-a-binary-tree-node.-10">Definition for a binary tree node.</h3>
-<h3 id="class-treenodeobject-10">class TreeNode(object):</h3>
-<h3 id="def-initself-x-10">def <strong>init</strong>(self, x):</h3>
-<h3 id="self.val-x-10">self.val = x</h3>
-<h3 id="self.left-none-10">self.left = None</h3>
-<h3 id="self.right-none-10">self.right = None</h3>
-<p>class Solution(object): def pathSum(self, root, sum): :type root: TreeNode :type sum: int :rtype: List[List[int]]</p>
-<pre><code>        result = []
+    <hr />
+    <h3 id="definition-for-a-binary-tree-node.-10">
+      Definition for a binary tree node.
+    </h3>
+    <h3 id="class-treenodeobject-10">class TreeNode(object):</h3>
+    <h3 id="def-initself-x-10">def <strong>init</strong>(self, x):</h3>
+    <h3 id="self.val-x-10">self.val = x</h3>
+    <h3 id="self.left-none-10">self.left = None</h3>
+    <h3 id="self.right-none-10">self.right = None</h3>
+    <p>
+      class Solution(object): def pathSum(self, root, sum): :type root: TreeNode
+      :type sum: int :rtype: List[List[int]]
+    </p>
+    <pre><code>        result = []
 
         def dfs(root, curr_sum, sum, path, result):
             if not root:
@@ -454,8 +576,13 @@ Return:
 
         dfs(root, 0, sum, [], result)
         return result</code></pre>
-<h2 id="given-a-string-s-and-a-string-t-count-the-number-of-distinct-subsequences-of-s-which-equals-t.">Given a string S and a string T, count the number of distinct subsequences of S which equals T.</h2>
-<pre><code>A subsequence of a string is a new string which is formed from the original string by deleting some (can be none) of the characters without disturbing the relative positions of the remaining characters. (ie, &quot;ACE&quot; is a subsequence of &quot;ABCDE&quot; while &quot;AEC&quot; is not).
+    <h2
+      id="given-a-string-s-and-a-string-t-count-the-number-of-distinct-subsequences-of-s-which-equals-t."
+    >
+      Given a string S and a string T, count the number of distinct subsequences
+      of S which equals T.
+    </h2>
+    <pre><code>A subsequence of a string is a new string which is formed from the original string by deleting some (can be none) of the characters without disturbing the relative positions of the remaining characters. (ie, &quot;ACE&quot; is a subsequence of &quot;ABCDE&quot; while &quot;AEC&quot; is not).
 
 Example 1:
 
@@ -472,8 +599,11 @@ rabbbit
 ^^ ^^^^
 rabbbit
 ^^^ ^^^</code></pre>
-<p>class Solution(object): def numDistinct(self, s, t): :type s: str :type t: str :rtype: int</p>
-<pre><code>        row, col = len(s), len(t)
+    <p>
+      class Solution(object): def numDistinct(self, s, t): :type s: str :type t:
+      str :rtype: int
+    </p>
+    <pre><code>        row, col = len(s), len(t)
 
         if col &gt; row:
             return 0
@@ -493,8 +623,8 @@ rabbbit
                     if s[r - 1] == t[c - 1]:
                         dp[r][c] += dp[r - 1][c - 1]
         return dp[row][col]</code></pre>
-<p>’’’ Given a binary tree</p>
-<pre><code>struct TreeLinkNode {
+    <p>’’’ Given a binary tree</p>
+    <pre><code>struct TreeLinkNode {
   TreeLinkNode *left;
   TreeLinkNode *right;
   TreeLinkNode *next;
@@ -518,17 +648,34 @@ After calling your function, the tree should look like:
   2 -&gt; 3 -&gt; NULL
  / \  / \
 4-&gt;5-&gt;6-&gt;7 -&gt; NULL</code></pre>
-<p>’’’</p>
-<hr />
-<h3 id="definition-for-binary-tree-with-next-pointer.">Definition for binary tree with next pointer.</h3>
-<h3 id="class-treelinknode">class TreeLinkNode:</h3>
-<h3 id="def-initself-x-11">def <strong>init</strong>(self, x):</h3>
-<h3 id="self.val-x-11">self.val = x</h3>
-<h3 id="self.left-none-11">self.left = None</h3>
-<h3 id="self.right-none-11">self.right = None</h3>
-<h3 id="self.next-none">self.next = None</h3>
-<p>class Solution: # <span class="citation" data-cites="param"><span class="citation" data-cites="param"><span class="citation" data-cites="param">@param</span></span></span> root, a tree link node # <span class="citation" data-cites="return"><span class="citation" data-cites="return"><span class="citation" data-cites="return">@return</span></span></span> nothing def connect(self, root): def recursive(node): if node is None: return</p>
-<pre><code>            if node.left:
+    <p>’’’</p>
+    <hr />
+    <h3 id="definition-for-binary-tree-with-next-pointer.">
+      Definition for binary tree with next pointer.
+    </h3>
+    <h3 id="class-treelinknode">class TreeLinkNode:</h3>
+    <h3 id="def-initself-x-11">def <strong>init</strong>(self, x):</h3>
+    <h3 id="self.val-x-11">self.val = x</h3>
+    <h3 id="self.left-none-11">self.left = None</h3>
+    <h3 id="self.right-none-11">self.right = None</h3>
+    <h3 id="self.next-none">self.next = None</h3>
+    <p>
+      class Solution: #
+      <span class="citation" data-cites="param"
+        ><span class="citation" data-cites="param"
+          ><span class="citation" data-cites="param">@param</span></span
+        ></span
+      >
+      root, a tree link node #
+      <span class="citation" data-cites="return"
+        ><span class="citation" data-cites="return"
+          ><span class="citation" data-cites="return">@return</span></span
+        ></span
+      >
+      nothing def connect(self, root): def recursive(node): if node is None:
+      return
+    </p>
+    <pre><code>            if node.left:
                 node.left.next = node.right
             if node.right:
                 if node.next:
@@ -541,8 +688,8 @@ After calling your function, the tree should look like:
         if root != None:
             root.next = None
             recursive(root)</code></pre>
-<h2 id="given-a-binary-tree">Given a binary tree</h2>
-<pre><code>struct TreeLinkNode {
+    <h2 id="given-a-binary-tree">Given a binary tree</h2>
+    <pre><code>struct TreeLinkNode {
   TreeLinkNode *left;
   TreeLinkNode *right;
   TreeLinkNode *next;
@@ -567,16 +714,33 @@ After calling your function, the tree should look like:
   2 -&gt; 3 -&gt; NULL
  / \    \
 4-&gt; 5 -&gt; 7 -&gt; NULL</code></pre>
-<hr />
-<h3 id="definition-for-binary-tree-with-next-pointer.-1">Definition for binary tree with next pointer.</h3>
-<h3 id="class-treelinknode-1">class TreeLinkNode:</h3>
-<h3 id="def-initself-x-12">def <strong>init</strong>(self, x):</h3>
-<h3 id="self.val-x-12">self.val = x</h3>
-<h3 id="self.left-none-12">self.left = None</h3>
-<h3 id="self.right-none-12">self.right = None</h3>
-<h3 id="self.next-none-1">self.next = None</h3>
-<p>class Solution: # <span class="citation" data-cites="param"><span class="citation" data-cites="param"><span class="citation" data-cites="param">@param</span></span></span> root, a tree link node # <span class="citation" data-cites="return"><span class="citation" data-cites="return"><span class="citation" data-cites="return">@return</span></span></span> nothing def connect(self, root): if root == None: return queue = [root] queue.append(None)</p>
-<pre><code>        while queue:
+    <hr />
+    <h3 id="definition-for-binary-tree-with-next-pointer.-1">
+      Definition for binary tree with next pointer.
+    </h3>
+    <h3 id="class-treelinknode-1">class TreeLinkNode:</h3>
+    <h3 id="def-initself-x-12">def <strong>init</strong>(self, x):</h3>
+    <h3 id="self.val-x-12">self.val = x</h3>
+    <h3 id="self.left-none-12">self.left = None</h3>
+    <h3 id="self.right-none-12">self.right = None</h3>
+    <h3 id="self.next-none-1">self.next = None</h3>
+    <p>
+      class Solution: #
+      <span class="citation" data-cites="param"
+        ><span class="citation" data-cites="param"
+          ><span class="citation" data-cites="param">@param</span></span
+        ></span
+      >
+      root, a tree link node #
+      <span class="citation" data-cites="return"
+        ><span class="citation" data-cites="return"
+          ><span class="citation" data-cites="return">@return</span></span
+        ></span
+      >
+      nothing def connect(self, root): if root == None: return queue = [root]
+      queue.append(None)
+    </p>
+    <pre><code>        while queue:
             front = queue.pop(0)
             if front is not None:
                 front.next = queue[0]
@@ -586,16 +750,32 @@ After calling your function, the tree should look like:
                     queue.append(front.right)
             elif queue:
                 queue.append(None)</code></pre>
-<hr />
-<h3 id="definition-for-binary-tree-with-next-pointer.-2">Definition for binary tree with next pointer.</h3>
-<h3 id="class-treelinknode-2">class TreeLinkNode:</h3>
-<h3 id="def-initself-x-13">def <strong>init</strong>(self, x):</h3>
-<h3 id="self.val-x-13">self.val = x</h3>
-<h3 id="self.left-none-13">self.left = None</h3>
-<h3 id="self.right-none-13">self.right = None</h3>
-<h3 id="self.next-none-2">self.next = None</h3>
-<p>class Solution: # <span class="citation" data-cites="param"><span class="citation" data-cites="param"><span class="citation" data-cites="param">@param</span></span></span> root, a tree link node # <span class="citation" data-cites="return"><span class="citation" data-cites="return"><span class="citation" data-cites="return">@return</span></span></span> nothing def connect(self, root): if not root: return None</p>
-<pre><code>        root.next = None
+    <hr />
+    <h3 id="definition-for-binary-tree-with-next-pointer.-2">
+      Definition for binary tree with next pointer.
+    </h3>
+    <h3 id="class-treelinknode-2">class TreeLinkNode:</h3>
+    <h3 id="def-initself-x-13">def <strong>init</strong>(self, x):</h3>
+    <h3 id="self.val-x-13">self.val = x</h3>
+    <h3 id="self.left-none-13">self.left = None</h3>
+    <h3 id="self.right-none-13">self.right = None</h3>
+    <h3 id="self.next-none-2">self.next = None</h3>
+    <p>
+      class Solution: #
+      <span class="citation" data-cites="param"
+        ><span class="citation" data-cites="param"
+          ><span class="citation" data-cites="param">@param</span></span
+        ></span
+      >
+      root, a tree link node #
+      <span class="citation" data-cites="return"
+        ><span class="citation" data-cites="return"
+          ><span class="citation" data-cites="return">@return</span></span
+        ></span
+      >
+      nothing def connect(self, root): if not root: return None
+    </p>
+    <pre><code>        root.next = None
 
         while root:
             temp = root
@@ -625,8 +805,13 @@ After calling your function, the tree should look like:
                 return node.right
             node = node.next
         return None</code></pre>
-<h2 id="given-a-non-negative-integer-numrows-generate-the-first-numrows-of-pascals-triangle.">Given a non-negative integer numRows, generate the first numRows of Pascal’s triangle.</h2>
-<pre><code>Example:
+    <h2
+      id="given-a-non-negative-integer-numrows-generate-the-first-numrows-of-pascals-triangle."
+    >
+      Given a non-negative integer numRows, generate the first numRows of
+      Pascal’s triangle.
+    </h2>
+    <pre><code>Example:
 
 Input: 5
 Output:
@@ -637,8 +822,11 @@ Output:
   [1,3,3,1],
  [1,4,6,4,1]
 ]</code></pre>
-<p>class Solution(object): def generate(self, numRows): :type numRows: int :rtype: List[List[int]] triangle = []</p>
-<pre><code>        for row in range(numRows):
+    <p>
+      class Solution(object): def generate(self, numRows): :type numRows: int
+      :rtype: List[List[int]] triangle = []
+    </p>
+    <pre><code>        for row in range(numRows):
             new_row = [0 for _ in range(row + 1)]
             new_row[0], new_row[-1] = 1, 1
 
@@ -646,10 +834,19 @@ Output:
                 new_row[col] = triangle[row - 1][col - 1] + triangle[row - 1][col]
             triangle.append(new_row)
         return triangle</code></pre>
-<h2 id="given-a-non-negative-index-k-where-k-33-return-the-kth-index-row-of-the-pascals-triangle.">Given a non-negative index k where k ≤ 33, return the kth index row of the Pascal’s triangle.</h2>
-<pre><code>Note that the row index starts from 0.</code></pre>
-<p>class Solution(object): def getRow(self, rowIndex): :type rowIndex: int :rtype: List[int] row = [1] * (rowIndex + 1) for i in range(1, rowIndex + 1): for j in range(i - 1, 0, -1): row[j] += row[j - 1] return row</p>
-<pre><code>---
+    <h2
+      id="given-a-non-negative-index-k-where-k-33-return-the-kth-index-row-of-the-pascals-triangle."
+    >
+      Given a non-negative index k where k ≤ 33, return the kth index row of the
+      Pascal’s triangle.
+    </h2>
+    <pre><code>Note that the row index starts from 0.</code></pre>
+    <p>
+      class Solution(object): def getRow(self, rowIndex): :type rowIndex: int
+      :rtype: List[int] row = [1] * (rowIndex + 1) for i in range(1, rowIndex +
+      1): for j in range(i - 1, 0, -1): row[j] += row[j - 1] return row
+    </p>
+    <pre><code>---
 
 ```py
 
@@ -704,8 +901,8 @@ class Solution(object): def minimumTotal(self, triangle):  :type triangle: List[
 class Solution(object): def maxProfit(self, prices):  :type prices: List[int] :rtype: int  if len(prices) &lt; 2: return 0 dp = [[0 for _ in range(len(prices))] for _ in range(3)] for i in range(1, 3): maxDiff = -prices[0] for j in range(1, len(prices)): dp[i][j] = max(dp[i][j - 1], prices[j] + maxDiff) maxDiff = max(maxDiff, dp[i - 1][j] - prices[j])
 
         return dp[2][len(prices) - 1]</code></pre>
-<hr />
-<pre><code>## Given a non-empty binary tree, find the maximum path sum.
+    <hr />
+    <pre><code>## Given a non-empty binary tree, find the maximum path sum.
 
     For this problem, a path is defined as any sequence of nodes from some starting node to any node in the tree along the parent-child connections. The path must contain at least one node and does not need to go through the root.
 
@@ -729,14 +926,16 @@ class Solution(object): def maxProfit(self, prices):  :type prices: List[int] :r
        15   7
 
     Output: 42</code></pre>
-<hr />
-<h3 id="definition-for-a-binary-tree-node.-11">Definition for a binary tree node.</h3>
-<h3 id="class-treenodeobject-11">class TreeNode(object):</h3>
-<h3 id="def-initself-x-14">def <strong>init</strong>(self, x):</h3>
-<h3 id="self.val-x-14">self.val = x</h3>
-<h3 id="self.left-none-14">self.left = None</h3>
-<h3 id="self.right-none-14">self.right = None</h3>
-<pre><code>class Solution(object): def maxPathSum(self, root):  :type root: TreeNode :rtype: int  self.result = float(“-inf”) self.dfs(root) return self.result
+    <hr />
+    <h3 id="definition-for-a-binary-tree-node.-11">
+      Definition for a binary tree node.
+    </h3>
+    <h3 id="class-treenodeobject-11">class TreeNode(object):</h3>
+    <h3 id="def-initself-x-14">def <strong>init</strong>(self, x):</h3>
+    <h3 id="self.val-x-14">self.val = x</h3>
+    <h3 id="self.left-none-14">self.left = None</h3>
+    <h3 id="self.right-none-14">self.right = None</h3>
+    <pre><code>class Solution(object): def maxPathSum(self, root):  :type root: TreeNode :rtype: int  self.result = float(“-inf”) self.dfs(root) return self.result
 
     def dfs(self, root):
         if not root:
@@ -842,8 +1041,8 @@ class Solution(object): def longestConsecutive(self, nums):  :type nums: List[in
                     length += 1
                 result = max(result, length)
         return result</code></pre>
-<hr />
-<pre><code>## Given a binary tree containing digits from 0-9 only, each root-to-leaf path could represent a number.
+    <hr />
+    <pre><code>## Given a binary tree containing digits from 0-9 only, each root-to-leaf path could represent a number.
 
 An example is the root-to-leaf path 1-&gt;2-&gt;3 which represents the number 123.
 
@@ -1087,8 +1286,8 @@ class Solution(object): def hasCycle(self, head):  :type head: ListNode :rtype: 
             if slow == fast:
                 return True
         return False</code></pre>
-<hr />
-<pre><code>## Given a linked list, return the node where the cycle begins. If there is no cycle, return null.
+    <hr />
+    <pre><code>## Given a linked list, return the node where the cycle begins. If there is no cycle, return null.
 
     Note: Do not modify the linked list.
 
@@ -1155,8 +1354,8 @@ class Solution(object): def reorderList(self, head):  :type head: ListNode :rtyp
             head1 = head1.next.next
 
         head = head1</code></pre>
-<hr />
-<pre><code>## Given a binary tree, return the preorder traversal of its nodes’ values.
+    <hr />
+    <pre><code>## Given a binary tree, return the preorder traversal of its nodes’ values.
 
     Example:
 
@@ -1225,8 +1424,8 @@ class Solution(object): def preorderTraversal(self, root):  :type root: TreeNode
 
         recursive(root, result)
         return result</code></pre>
-<hr />
-<pre><code>## Given a binary tree, return the postorder traversal of its nodes’ values.
+    <hr />
+    <pre><code>## Given a binary tree, return the postorder traversal of its nodes’ values.
 
     Example:
 
@@ -1312,8 +1511,8 @@ class Solution(object): def postorderTraversal(self, root):  :type root: TreeNod
                 break
 
         return result</code></pre>
-<hr />
-<pre><code> Design and implement a data structure for Least Recently Used (LRU) cache. It should support the following operations: get and put.
+    <hr />
+    <pre><code> Design and implement a data structure for Least Recently Used (LRU) cache. It should support the following operations: get and put.
 
     get(key) - Get the value (will always be positive) of the key if the key exists in the cache, otherwise return -1.
     put(key, value) - Set or insert the value if the key is not already present. When the cache reached its capacity, it should invalidate the least recently used item before inserting a new item.
@@ -1334,8 +1533,8 @@ class Solution(object): def postorderTraversal(self, root):  :type root: TreeNod
     cache.get(1);       // returns -1 (not found)
     cache.get(3);       // returns 3
     cache.get(4);       // returns 4</code></pre>
-<hr />
-<pre><code>class Node(object): def **init**(self, key, value): self.key = key self.value = value self.next = None self.prev = None
+    <hr />
+    <pre><code>class Node(object): def **init**(self, key, value): self.key = key self.value = value self.next = None self.prev = None
 
 class LRUCache(object): def **init**(self, capacity):  :type capacity: int  self.capacity = capacity self.mapping = dict() self.head = Node(0, 0) self.tail = Node(0, 0) self.head.next = self.tail self.tail.prev = self.head
 
@@ -1539,8 +1738,8 @@ class Solution(object): def evalRPN(self, tokens):  :type tokens: List[str] :rty
             else:
                 stack.append(int(val))
         return stack[0]</code></pre>
-<hr />
-<pre><code>## Given an integer array nums, find the contiguous subarray within an array (containing at least one number) which has the largest product.
+    <hr />
+    <pre><code>## Given an integer array nums, find the contiguous subarray within an array (containing at least one number) which has the largest product.
 
     Example 1:
 
@@ -1907,8 +2106,8 @@ class BSTIterator(object): def **init**(self, root):  :type root: TreeNode  self
 ### i, v = BSTIterator(root), []
 
 ### while i.hasNext(): v.append(i.next())</code></pre>
-<hr />
-<pre><code>## Given a list of non negative integers, arrange them such that they form the largest number.
+    <hr />
+    <pre><code>## Given a list of non negative integers, arrange them such that they form the largest number.
 
     Example 1:
 
@@ -1933,8 +2132,8 @@ print Solution().reverseBits(12) class Solution(object): def hammingWeight(self,
             mask &lt;&lt;= 1
 
         return bits</code></pre>
-<hr />
-<pre><code>## Given a binary tree, imagine yourself standing on the right side of it, return the values of the nodes you can see ordered from top to bottom.
+    <hr />
+    <pre><code>## Given a binary tree, imagine yourself standing on the right side of it, return the values of the nodes you can see ordered from top to bottom.
 
     Example:
 
@@ -1978,5 +2177,5 @@ class Solution(object): def rightSideView(self, root):  :type root: TreeNode :rt
             if node.left:
                 stack.append((node.left, depth + 1))
         return node_depth.values()</code></pre>
-</body>
+  </body>
 </html>

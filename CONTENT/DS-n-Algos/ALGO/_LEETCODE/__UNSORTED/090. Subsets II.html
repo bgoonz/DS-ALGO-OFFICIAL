@@ -1,24 +1,47 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
-<head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="pandoc" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>090. Subsets II</title>
-  <style type="text/css">
-      code{white-space: pre-wrap;}
-      span.smallcaps{font-variant: small-caps;}
-      span.underline{text-decoration: underline;}
-      div.column{display: inline-block; vertical-align: top; width: 50%;}
-  </style>
-</head>
-<body>
-<h2 id="subsets-ii"><a href="https://leetcode.com/problems/subsets-ii/description/">90. Subsets II</a></h2>
-<h3 id="problem">Problem:</h3>
-<p>Given a collection of integers that might contain duplicates, <strong>nums</strong>, return all possible subsets (the power set).</p>
-<p><strong>Note:</strong> The solution set must not contain duplicate subsets.</p>
-<p><strong>Example:</strong></p>
-<pre><code>Input: [1,2,2]
+  <head>
+    <meta charset="utf-8" />
+    <meta name="generator" content="pandoc" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=yes"
+    />
+    <title>090. Subsets II</title>
+    <style type="text/css">
+      code {
+        white-space: pre-wrap;
+      }
+      span.smallcaps {
+        font-variant: small-caps;
+      }
+      span.underline {
+        text-decoration: underline;
+      }
+      div.column {
+        display: inline-block;
+        vertical-align: top;
+        width: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <h2 id="subsets-ii">
+      <a href="https://leetcode.com/problems/subsets-ii/description/"
+        >90. Subsets II</a
+      >
+    </h2>
+    <h3 id="problem">Problem:</h3>
+    <p>
+      Given a collection of integers that might contain duplicates,
+      <strong>nums</strong>, return all possible subsets (the power set).
+    </p>
+    <p>
+      <strong>Note:</strong> The solution set must not contain duplicate
+      subsets.
+    </p>
+    <p><strong>Example:</strong></p>
+    <pre><code>Input: [1,2,2]
 Output:
 [
   [2],
@@ -28,18 +51,45 @@ Output:
   [1,2],
   []
 ]</code></pre>
-<h3 id="solution">Solution:</h3>
-<p>See <a href="./078.%20Subsets.md">78. Subsets</a>. Except:</p>
-<ol type="1">
-<li>Sort input to group duplicates.</li>
-<li><p>Only consider each duplicate once, that is, when it is at the first slot.</p>
-<p>/**</p>
-<ul>
-<li><span class="citation" data-cites="param"><span class="citation" data-cites="param">@param</span></span> {number[]} nums</li>
-<li><span class="citation" data-cites="return"><span class="citation" data-cites="return">@return</span></span> {number[][]} */ var subsetsWithDup = function(nums) { const result = [] _subsetsWithDup(nums.sort(), 0, [], result) return result };</li>
-</ul>
-<p>function _subsetsWithDup(nums, start, path, result) { result.push(path.slice()) for (let i = start; i &lt; nums.length; i++) { if(i &gt; start &amp;&amp; nums[i] === nums[i-1]) { continue } path.push(nums[i]) _subsetsWithDup(nums, i + 1, path, result) path.pop() } }</p></li>
-</ol>
-<p><em>Template generated via <a href="https://github.com/crimx/crx-leetmark">Leetmark</a>.</em></p>
-</body>
+    <h3 id="solution">Solution:</h3>
+    <p>See <a href="./078.%20Subsets.md">78. Subsets</a>. Except:</p>
+    <ol type="1">
+      <li>Sort input to group duplicates.</li>
+      <li>
+        <p>
+          Only consider each duplicate once, that is, when it is at the first
+          slot.
+        </p>
+        <p>/**</p>
+        <ul>
+          <li>
+            <span class="citation" data-cites="param"
+              ><span class="citation" data-cites="param">@param</span></span
+            >
+            {number[]} nums
+          </li>
+          <li>
+            <span class="citation" data-cites="return"
+              ><span class="citation" data-cites="return">@return</span></span
+            >
+            {number[][]} */ var subsetsWithDup = function(nums) { const result =
+            [] _subsetsWithDup(nums.sort(), 0, [], result) return result };
+          </li>
+        </ul>
+        <p>
+          function _subsetsWithDup(nums, start, path, result) {
+          result.push(path.slice()) for (let i = start; i &lt; nums.length; i++)
+          { if(i &gt; start &amp;&amp; nums[i] === nums[i-1]) { continue }
+          path.push(nums[i]) _subsetsWithDup(nums, i + 1, path, result)
+          path.pop() } }
+        </p>
+      </li>
+    </ol>
+    <p>
+      <em
+        >Template generated via
+        <a href="https://github.com/crimx/crx-leetmark">Leetmark</a>.</em
+      >
+    </p>
+  </body>
 </html>

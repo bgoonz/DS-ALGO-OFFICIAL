@@ -1,24 +1,45 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
-<head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="pandoc" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>079. Word Search</title>
-  <style type="text/css">
-      code{white-space: pre-wrap;}
-      span.smallcaps{font-variant: small-caps;}
-      span.underline{text-decoration: underline;}
-      div.column{display: inline-block; vertical-align: top; width: 50%;}
-  </style>
-</head>
-<body>
-<h2 id="word-search"><a href="https://leetcode.com/problems/word-search/description/">79. Word Search</a></h2>
-<h3 id="problem">Problem:</h3>
-<p>Given a 2D board and a word, find if the word exists in the grid.</p>
-<p>The word can be constructed from letters of sequentially adjacent cell, where “adjacent” cells are those horizontally or vertically neighboring. The same letter cell may not be used more than once.</p>
-<p><strong>Example:</strong></p>
-<pre><code>board =
+  <head>
+    <meta charset="utf-8" />
+    <meta name="generator" content="pandoc" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=yes"
+    />
+    <title>079. Word Search</title>
+    <style type="text/css">
+      code {
+        white-space: pre-wrap;
+      }
+      span.smallcaps {
+        font-variant: small-caps;
+      }
+      span.underline {
+        text-decoration: underline;
+      }
+      div.column {
+        display: inline-block;
+        vertical-align: top;
+        width: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <h2 id="word-search">
+      <a href="https://leetcode.com/problems/word-search/description/"
+        >79. Word Search</a
+      >
+    </h2>
+    <h3 id="problem">Problem:</h3>
+    <p>Given a 2D board and a word, find if the word exists in the grid.</p>
+    <p>
+      The word can be constructed from letters of sequentially adjacent cell,
+      where “adjacent” cells are those horizontally or vertically neighboring.
+      The same letter cell may not be used more than once.
+    </p>
+    <p><strong>Example:</strong></p>
+    <pre><code>board =
 [
   [&#39;A&#39;,&#39;B&#39;,&#39;C&#39;,&#39;E&#39;],
   [&#39;S&#39;,&#39;F&#39;,&#39;C&#39;,&#39;S&#39;],
@@ -28,9 +49,12 @@
 Given word = &quot;ABCCED&quot;, return true.
 Given word = &quot;SEE&quot;, return true.
 Given word = &quot;ABCB&quot;, return false.</code></pre>
-<h3 id="solution">Solution:</h3>
-<p>DFS + Backtracking. Replace the cell with <code>NaN</code> before proceeding to the next level and restore when backtracking.</p>
-<pre><code>/**
+    <h3 id="solution">Solution:</h3>
+    <p>
+      DFS + Backtracking. Replace the cell with <code>NaN</code> before
+      proceeding to the next level and restore when backtracking.
+    </p>
+    <pre><code>/**
  * @param {character[][]} board
  * @param {string} word
  * @return {boolean}
@@ -76,6 +100,11 @@ function _exist (board, word, iWord, directions, row, col) {
 
   return false
 }</code></pre>
-<p><em>Template generated via <a href="https://github.com/crimx/crx-leetmark">Leetmark</a>.</em></p>
-</body>
+    <p>
+      <em
+        >Template generated via
+        <a href="https://github.com/crimx/crx-leetmark">Leetmark</a>.</em
+      >
+    </p>
+  </body>
 </html>

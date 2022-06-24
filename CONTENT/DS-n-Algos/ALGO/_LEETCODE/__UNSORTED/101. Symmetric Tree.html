@@ -1,39 +1,69 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
-<head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="pandoc" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>101. Symmetric Tree</title>
-  <style type="text/css">
-      code{white-space: pre-wrap;}
-      span.smallcaps{font-variant: small-caps;}
-      span.underline{text-decoration: underline;}
-      div.column{display: inline-block; vertical-align: top; width: 50%;}
-  </style>
-</head>
-<body>
-<h2 id="symmetric-tree"><a href="https://leetcode.com/problems/symmetric-tree/description/">101. Symmetric Tree</a></h2>
-<h3 id="problem">Problem:</h3>
-<p>Given a binary tree, check whether it is a mirror of itself (ie, symmetric around its center).</p>
-<p>For example, this binary tree <code>[1,2,2,3,4,4,3]</code> is symmetric:</p>
-<pre><code>1
+  <head>
+    <meta charset="utf-8" />
+    <meta name="generator" content="pandoc" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=yes"
+    />
+    <title>101. Symmetric Tree</title>
+    <style type="text/css">
+      code {
+        white-space: pre-wrap;
+      }
+      span.smallcaps {
+        font-variant: small-caps;
+      }
+      span.underline {
+        text-decoration: underline;
+      }
+      div.column {
+        display: inline-block;
+        vertical-align: top;
+        width: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <h2 id="symmetric-tree">
+      <a href="https://leetcode.com/problems/symmetric-tree/description/"
+        >101. Symmetric Tree</a
+      >
+    </h2>
+    <h3 id="problem">Problem:</h3>
+    <p>
+      Given a binary tree, check whether it is a mirror of itself (ie, symmetric
+      around its center).
+    </p>
+    <p>
+      For example, this binary tree <code>[1,2,2,3,4,4,3]</code> is symmetric:
+    </p>
+    <pre><code>1
    / \
   2   2
  / \ / \
 3  4 4  3</code></pre>
-<p>But the following <code>[1,2,2,null,3,null,3]</code> is not:</p>
-<pre><code>1
+    <p>But the following <code>[1,2,2,null,3,null,3]</code> is not:</p>
+    <pre><code>1
    / \
   2   2
    \   \
    3    3</code></pre>
-<p>Note: Bonus points if you could solve it both recursively and iteratively.</p>
-<h3 id="solution">Solution:</h3>
-<h4 id="one">ONE</h4>
-<p>The result of pre-order and post-order traversal on a symmetric tree should be the same.</p>
-<p>So just like <a href="./100.%20Same%20Tree.md">100. Same Tree</a>. Except one is pre-order traversal and the other is post-order.</p>
-<pre><code>/**
+    <p>
+      Note: Bonus points if you could solve it both recursively and iteratively.
+    </p>
+    <h3 id="solution">Solution:</h3>
+    <h4 id="one">ONE</h4>
+    <p>
+      The result of pre-order and post-order traversal on a symmetric tree
+      should be the same.
+    </p>
+    <p>
+      So just like <a href="./100.%20Same%20Tree.md">100. Same Tree</a>. Except
+      one is pre-order traversal and the other is post-order.
+    </p>
+    <pre><code>/**
  * Definition for a binary tree node.
  * function TreeNode(val) {
  *     this.val = val;
@@ -57,9 +87,9 @@ function isSymmetricTree (p, q) {
   return p === null &amp;&amp; q === null ||
     p !== null &amp;&amp; q !== null &amp;&amp; p.val === q.val &amp;&amp; isSymmetricTree(p.left, q.right) &amp;&amp; isSymmetricTree(p.right, q.left)
 };</code></pre>
-<h4 id="two">TWO</h4>
-<p>Level order traversal. Check symmetry before entering the next level.</p>
-<pre><code>/**
+    <h4 id="two">TWO</h4>
+    <p>Level order traversal. Check symmetry before entering the next level.</p>
+    <pre><code>/**
  * Definition for a binary tree node.
  * function TreeNode(val) {
  *     this.val = val;
@@ -97,6 +127,11 @@ var isSymmetric = function(root) {
 
   return true
 };</code></pre>
-<p><em>Template generated via <a href="https://github.com/crimx/crx-leetmark">Leetmark</a>.</em></p>
-</body>
+    <p>
+      <em
+        >Template generated via
+        <a href="https://github.com/crimx/crx-leetmark">Leetmark</a>.</em
+      >
+    </p>
+  </body>
 </html>

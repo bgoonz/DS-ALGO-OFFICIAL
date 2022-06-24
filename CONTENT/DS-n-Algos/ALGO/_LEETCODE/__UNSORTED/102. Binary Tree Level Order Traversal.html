@@ -1,36 +1,57 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
-<head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="pandoc" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>102. Binary Tree Level Order Traversal</title>
-  <style type="text/css">
-      code{white-space: pre-wrap;}
-      span.smallcaps{font-variant: small-caps;}
-      span.underline{text-decoration: underline;}
-      div.column{display: inline-block; vertical-align: top; width: 50%;}
-  </style>
-</head>
-<body>
-<h2 id="binary-tree-level-order-traversal"><a href="https://leetcode.com/problems/binary-tree-level-order-traversal/description/">102. Binary Tree Level Order Traversal</a></h2>
-<h3 id="problem">Problem:</h3>
-<p>Given a binary tree, return the level order traversal of its nodes’ values. (ie, from left to right, level by level).</p>
-<p>For example: Given binary tree <code>[3,9,20,null,null,15,7]</code>,</p>
-<pre><code>3
+  <head>
+    <meta charset="utf-8" />
+    <meta name="generator" content="pandoc" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=yes"
+    />
+    <title>102. Binary Tree Level Order Traversal</title>
+    <style type="text/css">
+      code {
+        white-space: pre-wrap;
+      }
+      span.smallcaps {
+        font-variant: small-caps;
+      }
+      span.underline {
+        text-decoration: underline;
+      }
+      div.column {
+        display: inline-block;
+        vertical-align: top;
+        width: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <h2 id="binary-tree-level-order-traversal">
+      <a
+        href="https://leetcode.com/problems/binary-tree-level-order-traversal/description/"
+        >102. Binary Tree Level Order Traversal</a
+      >
+    </h2>
+    <h3 id="problem">Problem:</h3>
+    <p>
+      Given a binary tree, return the level order traversal of its nodes’
+      values. (ie, from left to right, level by level).
+    </p>
+    <p>For example: Given binary tree <code>[3,9,20,null,null,15,7]</code>,</p>
+    <pre><code>3
    / \
   9  20
     /  \
    15   7</code></pre>
-<p>return its level order traversal as:</p>
-<pre><code>[
+    <p>return its level order traversal as:</p>
+    <pre><code>[
   [3],
   [9,20],
   [15,7]
 ]</code></pre>
-<h3 id="solution">Solution:</h3>
-<p>The code should be self-evident.</p>
-<pre><code>/**
+    <h3 id="solution">Solution:</h3>
+    <p>The code should be self-evident.</p>
+    <pre><code>/**
  * Definition for a binary tree node.
  * function TreeNode(val) {
  *     this.val = val;
@@ -59,6 +80,11 @@ var levelOrder = function(root) {
 
   return result
 };</code></pre>
-<p><em>Template generated via <a href="https://github.com/crimx/crx-leetmark">Leetmark</a>.</em></p>
-</body>
+    <p>
+      <em
+        >Template generated via
+        <a href="https://github.com/crimx/crx-leetmark">Leetmark</a>.</em
+      >
+    </p>
+  </body>
 </html>

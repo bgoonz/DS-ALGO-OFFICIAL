@@ -1,28 +1,50 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
-<head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="pandoc" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>README</title>
-  <style type="text/css">
-      code{white-space: pre-wrap;}
-      span.smallcaps{font-variant: small-caps;}
-      span.underline{text-decoration: underline;}
-      div.column{display: inline-block; vertical-align: top; width: 50%;}
-  </style>
-</head>
-<body>
-<p>A straightforward application of DP.</p>
-<p>But you have to be clear how to divide the subproblems. My approach is:</p>
-<ol type="1">
-<li>sort the numbers in descending order</li>
-<li>build a mapping from each unique number to its count</li>
-</ol>
-<p>For a target number, compare it to nums[i]:</p>
-<ol type="1">
-<li>If nums[i]&gt;target, you can not use it in the solution, reduce to subproblem for i+1;</li>
-<li>If nums[i]&lt;=target, nums[i] could appear 0-N times, where N is the largest number where N*nums[i]&lt;=target. For each of 0-N, solve the subproblem of i+1, and add nums[i] to the solutions.</li>
-</ol>
-</body>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="generator" content="pandoc" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=yes"
+    />
+    <title>README</title>
+    <style type="text/css">
+      code {
+        white-space: pre-wrap;
+      }
+      span.smallcaps {
+        font-variant: small-caps;
+      }
+      span.underline {
+        text-decoration: underline;
+      }
+      div.column {
+        display: inline-block;
+        vertical-align: top;
+        width: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <p>A straightforward application of DP.</p>
+    <p>
+      But you have to be clear how to divide the subproblems. My approach is:
+    </p>
+    <ol type="1">
+      <li>sort the numbers in descending order</li>
+      <li>build a mapping from each unique number to its count</li>
+    </ol>
+    <p>For a target number, compare it to nums[i]:</p>
+    <ol type="1">
+      <li>
+        If nums[i]&gt;target, you can not use it in the solution, reduce to
+        subproblem for i+1;
+      </li>
+      <li>
+        If nums[i]&lt;=target, nums[i] could appear 0-N times, where N is the
+        largest number where N*nums[i]&lt;=target. For each of 0-N, solve the
+        subproblem of i+1, and add nums[i] to the solutions.
+      </li>
+    </ol>
+  </body>
 </html>

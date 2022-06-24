@@ -1,40 +1,70 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
-<head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="pandoc" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>038. Count and Say</title>
-  <style type="text/css">
-      code{white-space: pre-wrap;}
-      span.smallcaps{font-variant: small-caps;}
-      span.underline{text-decoration: underline;}
-      div.column{display: inline-block; vertical-align: top; width: 50%;}
-  </style>
-</head>
-<body>
-<h2 id="count-and-say"><a href="https://leetcode.com/problems/count-and-say/description/">38. Count and Say</a></h2>
-<h3 id="problem">Problem:</h3>
-<p>The count-and-say sequence is the sequence of integers with the first five terms as following:</p>
-<pre><code>1.     1
+  <head>
+    <meta charset="utf-8" />
+    <meta name="generator" content="pandoc" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=yes"
+    />
+    <title>038. Count and Say</title>
+    <style type="text/css">
+      code {
+        white-space: pre-wrap;
+      }
+      span.smallcaps {
+        font-variant: small-caps;
+      }
+      span.underline {
+        text-decoration: underline;
+      }
+      div.column {
+        display: inline-block;
+        vertical-align: top;
+        width: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <h2 id="count-and-say">
+      <a href="https://leetcode.com/problems/count-and-say/description/"
+        >38. Count and Say</a
+      >
+    </h2>
+    <h3 id="problem">Problem:</h3>
+    <p>
+      The count-and-say sequence is the sequence of integers with the first five
+      terms as following:
+    </p>
+    <pre><code>1.     1
 2.     11
 3.     21
 4.     1211
 5.     111221</code></pre>
-<p><code>1</code> is read off as <code>"one 1"</code> or <code>11</code>. <code>11</code> is read off as <code>"two 1s"</code> or <code>21</code>. <code>21</code> is read off as <code>"one 2</code>, then <code>one 1"</code> or <code>1211</code>.</p>
-<p>Given an integer n, generate the nth term of the count-and-say sequence.</p>
-<p>Note: Each term of the sequence of integers will be represented as a string.</p>
-<p>Example 1:</p>
-<pre><code>Input: 1
+    <p>
+      <code>1</code> is read off as <code>"one 1"</code> or <code>11</code>.
+      <code>11</code> is read off as <code>"two 1s"</code> or <code>21</code>.
+      <code>21</code> is read off as <code>"one 2</code>, then
+      <code>one 1"</code> or <code>1211</code>.
+    </p>
+    <p>
+      Given an integer n, generate the nth term of the count-and-say sequence.
+    </p>
+    <p>
+      Note: Each term of the sequence of integers will be represented as a
+      string.
+    </p>
+    <p>Example 1:</p>
+    <pre><code>Input: 1
 Output: &quot;1&quot;</code></pre>
-<p>Example 2:</p>
-<pre><code>Input: 4
+    <p>Example 2:</p>
+    <pre><code>Input: 4
 Output: &quot;1211&quot;</code></pre>
-<h3 id="solution">Solution:</h3>
-<p>Just loop and grow the sequence.</p>
-<h4 id="one">ONE</h4>
-<p>JavaScript specific.</p>
-<pre><code>/**
+    <h3 id="solution">Solution:</h3>
+    <p>Just loop and grow the sequence.</p>
+    <h4 id="one">ONE</h4>
+    <p>JavaScript specific.</p>
+    <pre><code>/**
  * @param {number} n
  * @return {string}
  */
@@ -47,9 +77,9 @@ var countAndSay = function(n) {
 
   return num
 };</code></pre>
-<h4 id="two">TWO</h4>
-<p>General solution.</p>
-<pre><code>/**
+    <h4 id="two">TWO</h4>
+    <p>General solution.</p>
+    <pre><code>/**
  * @param {number} n
  * @return {string}
  */
@@ -69,6 +99,11 @@ var countAndSay = function(n) {
 
   return num
 };</code></pre>
-<p><em>Template generated via <a href="https://github.com/crimx/crx-leetmark">Leetmark</a>.</em></p>
-</body>
+    <p>
+      <em
+        >Template generated via
+        <a href="https://github.com/crimx/crx-leetmark">Leetmark</a>.</em
+      >
+    </p>
+  </body>
 </html>

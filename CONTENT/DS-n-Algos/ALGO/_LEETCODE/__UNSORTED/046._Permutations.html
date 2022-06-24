@@ -1,23 +1,43 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
-<head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="pandoc" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>046. Permutations</title>
-  <style type="text/css">
-      code{white-space: pre-wrap;}
-      span.smallcaps{font-variant: small-caps;}
-      span.underline{text-decoration: underline;}
-      div.column{display: inline-block; vertical-align: top; width: 50%;}
-  </style>
-</head>
-<body>
-<h2 id="permutations"><a href="https://leetcode.com/problems/permutations/description/">46. Permutations</a></h2>
-<h3 id="problem">Problem:</h3>
-<p>Given a collection of <strong>distinct</strong> integers, return all possible permutations.</p>
-<p><strong>Example:</strong></p>
-<pre><code>Input: [1,2,3]
+  <head>
+    <meta charset="utf-8" />
+    <meta name="generator" content="pandoc" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=yes"
+    />
+    <title>046. Permutations</title>
+    <style type="text/css">
+      code {
+        white-space: pre-wrap;
+      }
+      span.smallcaps {
+        font-variant: small-caps;
+      }
+      span.underline {
+        text-decoration: underline;
+      }
+      div.column {
+        display: inline-block;
+        vertical-align: top;
+        width: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <h2 id="permutations">
+      <a href="https://leetcode.com/problems/permutations/description/"
+        >46. Permutations</a
+      >
+    </h2>
+    <h3 id="problem">Problem:</h3>
+    <p>
+      Given a collection of <strong>distinct</strong> integers, return all
+      possible permutations.
+    </p>
+    <p><strong>Example:</strong></p>
+    <pre><code>Input: [1,2,3]
 Output:
 [
   [1,2,3],
@@ -27,9 +47,12 @@ Output:
   [3,1,2],
   [3,2,1]
 ]</code></pre>
-<h3 id="solution">Solution:</h3>
-<p>One position at a time, pick a number from the unused set and put it in that position (by swapping). Then move on to the next.</p>
-<pre><code>/**
+    <h3 id="solution">Solution:</h3>
+    <p>
+      One position at a time, pick a number from the unused set and put it in
+      that position (by swapping). Then move on to the next.
+    </p>
+    <pre><code>/**
  * @param {number[]} nums
  * @return {number[][]}
  */
@@ -57,6 +80,11 @@ function _permute (nums, start, result) {
     nums[i] = next
   }
 };</code></pre>
-<p><em>Template generated via <a href="https://github.com/crimx/crx-leetmark">Leetmark</a>.</em></p>
-</body>
+    <p>
+      <em
+        >Template generated via
+        <a href="https://github.com/crimx/crx-leetmark">Leetmark</a>.</em
+      >
+    </p>
+  </body>
 </html>

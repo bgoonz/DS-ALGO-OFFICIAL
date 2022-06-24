@@ -1,35 +1,73 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
-<head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="pandoc" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>output</title>
-  <style type="text/css">
-      code{white-space: pre-wrap;}
-      span.smallcaps{font-variant: small-caps;}
-      span.underline{text-decoration: underline;}
-      div.column{display: inline-block; vertical-align: top; width: 50%;}
-  </style>
-</head>
-<body>
-<p>def zeros(arr, n): count = 0 for i in range(n): if arr[i] != 0: arr[count] = arr[i] count += 1</p>
-<pre><code>while count &lt; n:
+  <head>
+    <meta charset="utf-8" />
+    <meta name="generator" content="pandoc" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=yes"
+    />
+    <title>output</title>
+    <style type="text/css">
+      code {
+        white-space: pre-wrap;
+      }
+      span.smallcaps {
+        font-variant: small-caps;
+      }
+      span.underline {
+        text-decoration: underline;
+      }
+      div.column {
+        display: inline-block;
+        vertical-align: top;
+        width: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <p>
+      def zeros(arr, n): count = 0 for i in range(n): if arr[i] != 0: arr[count]
+      = arr[i] count += 1
+    </p>
+    <pre><code>while count &lt; n:
     arr[count] = 0
     count += 1</code></pre>
-<p>def print_arr(arr, n): for i in range(n): print(arr[i], end=" ")</p>
-<p>arr = [1, 0, 0, 2, 5, 0] zeros(arr, len(arr)) print_arr(arr, len(arr))</p>
-<h1 id="simple-function-that-will-take-a-string-of-latin-characters-and-return-a-unique-hash">Simple function that will take a string of latin characters and return a unique hash</h1>
-<p>def hashString(str): # Map characters to prime numbers to multiply charMap = { “a”: 2, “b”: 3, “c”: 5, “d”: 7, “e”: 11, “f”: 13, “g”: 17, “h”: 19, “i”: 23, “j”: 29, “k”: 31, “l”: 37, “m”: 41, “n”: 43, “o”: 47, “p”: 53, “q”: 59, “r”: 61, “s”: 67, “t”: 71, “u”: 73, “v”: 79, “w”: 83, “x”: 89, “y”: 97, “z”: 101, “A”: 103, “B”: 107, “C”: 109, “D”: 113, “E”: 127, “F”: 131, “G”: 137, “H”: 139, “I”: 149, “J”: 151, “K”: 163, “L”: 167, “M”: 173, “N”: 179, “O”: 181, “P”: 191, “Q”: 193, “R”: 197, “S”: 199, “T”: 211, “U”: 223, “V”: 227, “W”: 229, “X”: 233, “Y”: 239, “Z”: 241, }</p>
-<pre><code>return reduce(lambda memo, char: memo * charMap[char], list(str), 1)</code></pre>
-<p>def anagramDetection(parent, child): length = len(child) anagram = hashString(child) total = 0</p>
-<pre><code>for i in range(0, len(parent) - length):
+    <p>def print_arr(arr, n): for i in range(n): print(arr[i], end=" ")</p>
+    <p>
+      arr = [1, 0, 0, 2, 5, 0] zeros(arr, len(arr)) print_arr(arr, len(arr))
+    </p>
+    <h1
+      id="simple-function-that-will-take-a-string-of-latin-characters-and-return-a-unique-hash"
+    >
+      Simple function that will take a string of latin characters and return a
+      unique hash
+    </h1>
+    <p>
+      def hashString(str): # Map characters to prime numbers to multiply charMap
+      = { “a”: 2, “b”: 3, “c”: 5, “d”: 7, “e”: 11, “f”: 13, “g”: 17, “h”: 19,
+      “i”: 23, “j”: 29, “k”: 31, “l”: 37, “m”: 41, “n”: 43, “o”: 47, “p”: 53,
+      “q”: 59, “r”: 61, “s”: 67, “t”: 71, “u”: 73, “v”: 79, “w”: 83, “x”: 89,
+      “y”: 97, “z”: 101, “A”: 103, “B”: 107, “C”: 109, “D”: 113, “E”: 127, “F”:
+      131, “G”: 137, “H”: 139, “I”: 149, “J”: 151, “K”: 163, “L”: 167, “M”: 173,
+      “N”: 179, “O”: 181, “P”: 191, “Q”: 193, “R”: 197, “S”: 199, “T”: 211, “U”:
+      223, “V”: 227, “W”: 229, “X”: 233, “Y”: 239, “Z”: 241, }
+    </p>
+    <pre><code>return reduce(lambda memo, char: memo * charMap[char], list(str), 1)</code></pre>
+    <p>
+      def anagramDetection(parent, child): length = len(child) anagram =
+      hashString(child) total = 0
+    </p>
+    <pre><code>for i in range(0, len(parent) - length):
     if hashString(parent[i : i + length]) == anagram:
         total = total + 1
 
 return total</code></pre>
-<p>def SortAnagram(arr): temp = <a href="#section-9"></a> stage = <a href="#section-9"></a> dic = <a href="#section-9"></a></p>
-<pre><code>for i in arr:
+    <p>
+      def SortAnagram(arr): temp = <a href="#section-9"></a> stage =
+      <a href="#section-9"></a> dic = <a href="#section-9"></a>
+    </p>
+    <pre><code>for i in arr:
     for j in i:
         stage.append(j)
     stage.sort()
@@ -48,12 +86,15 @@ for i in stage:
     temp.append(arr[i])
 
 print(temp)</code></pre>
-<p>arr = [“cat”, “dog”, “tac”, “god”, “act”]</p>
-<p>SortAnagram(arr)</p>
-<p>import unittest</p>
-<p>""“solution to the array pair sum problem”""</p>
-<p>def array_pair_sum_iterative(arr, k): """ returns the array of pairs using an iterative method. complexity: O(n^2) """</p>
-<pre><code>result = []
+    <p>arr = [“cat”, “dog”, “tac”, “god”, “act”]</p>
+    <p>SortAnagram(arr)</p>
+    <p>import unittest</p>
+    <p>""“solution to the array pair sum problem”""</p>
+    <p>
+      def array_pair_sum_iterative(arr, k): """ returns the array of pairs using
+      an iterative method. complexity: O(n^2) """
+    </p>
+    <pre><code>result = []
 
 for i in range(len(arr)):
     for j in range(i + 1, len(arr)):
@@ -61,8 +102,11 @@ for i in range(len(arr)):
             result.append([arr[i], arr[j]])
 
 return result</code></pre>
-<p>def array_pair_sum_sort(arr, k): """ first sort the array and then use binary search to find pairs. complexity: O(nlogn) """</p>
-<pre><code>result = []
+    <p>
+      def array_pair_sum_sort(arr, k): """ first sort the array and then use
+      binary search to find pairs. complexity: O(nlogn) """
+    </p>
+    <pre><code>result = []
 arr.sort()
 
 for i in range(len(arr)):
@@ -70,8 +114,11 @@ for i in range(len(arr)):
         result.append([arr[i], k - arr[i]])
 
 return result</code></pre>
-<p>def array_pair_sum_hash_table(arr, k): """ Use a hash table to store array elements of pairs. complexity: O(n) """</p>
-<pre><code>result = []
+    <p>
+      def array_pair_sum_hash_table(arr, k): """ Use a hash table to store array
+      elements of pairs. complexity: O(n) """
+    </p>
+    <pre><code>result = []
 hash_table = {}
 
 for e in arr:
@@ -82,9 +129,13 @@ for e in arr:
 result.reverse()
 
 return result</code></pre>
-<h1 id="unit-tests">Unit tests</h1>
-<p>class array_pair_sum_tests(unittest.TestCase): def setUp(self): self.arr1 = [3, 4, 5, 6, 7] self.arr2 = [3, 4, 5, 4, 4] self.result1 = [[3, 7], [4, 6]] self.result2 = [[3, 5], [4, 4], [4, 4], [4, 4]]</p>
-<pre><code>def test_one(self):
+    <h1 id="unit-tests">Unit tests</h1>
+    <p>
+      class array_pair_sum_tests(unittest.TestCase): def setUp(self): self.arr1
+      = [3, 4, 5, 6, 7] self.arr2 = [3, 4, 5, 4, 4] self.result1 = [[3, 7], [4,
+      6]] self.result2 = [[3, 5], [4, 4], [4, 4], [4, 4]]
+    </p>
+    <pre><code>def test_one(self):
     self.assertEqual(array_pair_sum_iterative(self.arr1, 10), self.result1)
     self.assertEqual(array_pair_sum_sort(self.arr1, 10), self.result1)
     self.assertEqual(array_pair_sum_hash_table(self.arr1, 10), self.result1)
@@ -93,31 +144,77 @@ def test_two(self):
     self.assertEqual(array_pair_sum_iterative(self.arr2, 8), self.result2)
     self.assertEqual(array_pair_sum_sort(self.arr2, 8), self.result2)
     self.assertEqual(array_pair_sum_hash_table(self.arr2, 8), self.result2)</code></pre>
-<p>if <strong>name</strong> == “<strong>main</strong>”: unittest.main()</p>
-<h1 id="use-a-dictionary-to-map-sets-of-brackets-to-their-opposites">Use a dictionary to map sets of brackets to their opposites</h1>
-<p>brackets = {“(”: “)”, “{”: “}”, “[": "]”}</p>
-<h1 id="on-each-input-string-process-it-using-the-balance-checker">On each input string, process it using the balance checker</h1>
-<p>def balancedBrackets(string): stack = <a href="#section-9"></a> # Process every character on input for char in string: # Assign an initial value in case the stack is empty last = 0 # Assign the value of the last element if stack is not empty if stack: last = stack[len(stack) - 1] if stack and last in brackets and brackets[last] == char: stack.pop() else: stack.append(char)</p>
-<pre><code>return not stack</code></pre>
-<p>def balance(arr): open_bracket = [“[", "{", "("] close_bracket = ["]”, “}”, “)”] stack = <a href="#section-9"></a> for i in arr: if i in open_bracket: stack.append(i) elif i in close_bracket: pos = close_bracket.index(i) if len(stack) &gt;= 0 and (open_bracket[pos] == stack[len(stack) - 1]): stack.pop() else: return “unbalanced” if len(stack) == 0: return “balanced” else: return “unbalanced”</p>
-<p>arr = [“{”, “[", "]”, “}”] print(balance(arr))</p>
-<p>arr = [1, 2, 3, 4, 5, 6] x = 5</p>
-<p>print(“iterative approach to find element using”)</p>
-<p>def binary_search_iterative(arr, l, r, x): while l &lt;= r: mid = l + (r - l) // 2 if arr[mid] == x: return mid elif arr[mid] &lt; x: l = mid + 1 else: l = r - 1 return -1</p>
-<p>result_iterative = binary_search_iterative(arr, 0, len(arr) - 1, x) if result_iterative != -1: print(“element found:” + str(result_iterative)) else: print(“not found”)</p>
-<p>print(“#########################################”) print(“recursive approach to find element using”)</p>
-<p>def binary_search_recursive(arr, l, r, x): if l &lt;= r: mid = l + (r - l) // 2 if arr[mid] == x: return mid elif arr[mid] &lt; x: return binary_search_recursive(arr, mid + 1, r, x) else: return binary_search_recursive(arr, l, mid - 1, x) else: return -1</p>
-<p>result_recursive = binary_search_recursive(arr, 0, len(arr) - 1, x)</p>
-<p>if result_iterative != -1: print(“element found:” + str(result_recursive)) else: print(“not found”)</p>
-<h1 id="sample-input-4">sample input : 4</h1>
-<h1 id="section">-1,0,3,57,89,9</h1>
-<h1 id="output--10395789">output : -1,0,3,9,57,89</h1>
-<p>def bubble_sort(arr, n): for i in range(n): for j in range(0, n - i - 1): if arr[j] &gt; arr[j + 1]: arr[j], arr[j + 1] = arr[j + 1], arr[j] return arr</p>
-<p>arr = [64, 34, 25, 12, 22, 11, 90]</p>
-<p>result = bubble_sort(arr, len(arr))</p>
-<p>print(result)</p>
-<p>def orangesRotting(elemnts): if not elemnts or len(elemnts) == 0: return 0 n = len(elemnts) m = len(elemnts[0]) rotten = <a href="#section-9"></a> for i in range(n): for j in range(m): if elemnts[i][j] == 2: rotten.append((i, j)) mins = 0</p>
-<pre><code>def dfs(rotten):
+    <p>if <strong>name</strong> == “<strong>main</strong>”: unittest.main()</p>
+    <h1 id="use-a-dictionary-to-map-sets-of-brackets-to-their-opposites">
+      Use a dictionary to map sets of brackets to their opposites
+    </h1>
+    <p>brackets = {“(”: “)”, “{”: “}”, “[": "]”}</p>
+    <h1 id="on-each-input-string-process-it-using-the-balance-checker">
+      On each input string, process it using the balance checker
+    </h1>
+    <p>
+      def balancedBrackets(string): stack = <a href="#section-9"></a> # Process
+      every character on input for char in string: # Assign an initial value in
+      case the stack is empty last = 0 # Assign the value of the last element if
+      stack is not empty if stack: last = stack[len(stack) - 1] if stack and
+      last in brackets and brackets[last] == char: stack.pop() else:
+      stack.append(char)
+    </p>
+    <pre><code>return not stack</code></pre>
+    <p>
+      def balance(arr): open_bracket = [“[", "{", "("] close_bracket = ["]”,
+      “}”, “)”] stack = <a href="#section-9"></a> for i in arr: if i in
+      open_bracket: stack.append(i) elif i in close_bracket: pos =
+      close_bracket.index(i) if len(stack) &gt;= 0 and (open_bracket[pos] ==
+      stack[len(stack) - 1]): stack.pop() else: return “unbalanced” if
+      len(stack) == 0: return “balanced” else: return “unbalanced”
+    </p>
+    <p>arr = [“{”, “[", "]”, “}”] print(balance(arr))</p>
+    <p>arr = [1, 2, 3, 4, 5, 6] x = 5</p>
+    <p>print(“iterative approach to find element using”)</p>
+    <p>
+      def binary_search_iterative(arr, l, r, x): while l &lt;= r: mid = l + (r -
+      l) // 2 if arr[mid] == x: return mid elif arr[mid] &lt; x: l = mid + 1
+      else: l = r - 1 return -1
+    </p>
+    <p>
+      result_iterative = binary_search_iterative(arr, 0, len(arr) - 1, x) if
+      result_iterative != -1: print(“element found:” + str(result_iterative))
+      else: print(“not found”)
+    </p>
+    <p>
+      print(“#########################################”) print(“recursive
+      approach to find element using”)
+    </p>
+    <p>
+      def binary_search_recursive(arr, l, r, x): if l &lt;= r: mid = l + (r - l)
+      // 2 if arr[mid] == x: return mid elif arr[mid] &lt; x: return
+      binary_search_recursive(arr, mid + 1, r, x) else: return
+      binary_search_recursive(arr, l, mid - 1, x) else: return -1
+    </p>
+    <p>result_recursive = binary_search_recursive(arr, 0, len(arr) - 1, x)</p>
+    <p>
+      if result_iterative != -1: print(“element found:” + str(result_recursive))
+      else: print(“not found”)
+    </p>
+    <h1 id="sample-input-4">sample input : 4</h1>
+    <h1 id="section">-1,0,3,57,89,9</h1>
+    <h1 id="output--10395789">output : -1,0,3,9,57,89</h1>
+    <p>
+      def bubble_sort(arr, n): for i in range(n): for j in range(0, n - i - 1):
+      if arr[j] &gt; arr[j + 1]: arr[j], arr[j + 1] = arr[j + 1], arr[j] return
+      arr
+    </p>
+    <p>arr = [64, 34, 25, 12, 22, 11, 90]</p>
+    <p>result = bubble_sort(arr, len(arr))</p>
+    <p>print(result)</p>
+    <p>
+      def orangesRotting(elemnts): if not elemnts or len(elemnts) == 0: return 0
+      n = len(elemnts) m = len(elemnts[0]) rotten =
+      <a href="#section-9"></a> for i in range(n): for j in range(m): if
+      elemnts[i][j] == 2: rotten.append((i, j)) mins = 0
+    </p>
+    <pre><code>def dfs(rotten):
     count = []
     for i, j in rotten:
         if i &gt; 0 and rotten[i - 1][j] == 1:
@@ -150,9 +247,12 @@ for i in range(n):
             return -1
 
 return mins</code></pre>
-<p>""“solution to the convert array problem”""</p>
-<p>def f(arr): ""“sorts the array by numbers in place using constant extra space”""</p>
-<pre><code>position = 0
+    <p>""“solution to the convert array problem”""</p>
+    <p>
+      def f(arr): ""“sorts the array by numbers in place using constant extra
+      space”""
+    </p>
+    <pre><code>position = 0
 for i in xrange(len(arr) / 3):
     gap = (len(arr) - position) / 3
     arr.insert(position + 1, arr.pop(position + gap * 1))
@@ -160,17 +260,26 @@ for i in xrange(len(arr) / 3):
     position += 3
 
 return arr</code></pre>
-<p>#!/bin/python3 import sys</p>
-<h1 id="section-1"></h1>
-<h1 id="complete-the-countingvalleys-function-below.">Complete the ‘countingValleys’ function below.</h1>
-<h1 id="section-2"></h1>
-<h1 id="the-function-is-expected-to-return-an-integer.">The function is expected to return an INTEGER.</h1>
-<h1 id="the-function-accepts-following-parameters">The function accepts following parameters:</h1>
-<h1 id="integer-steps">1. INTEGER steps</h1>
-<h1 id="string-path">2. STRING path</h1>
-<h1 id="section-3"></h1>
-<p>def countingValleys(steps, path): # Write your code here path = list(path) sealevel = valley = 0 for paths in path:</p>
-<pre><code>    if paths == &quot;U&quot;:
+    <p>#!/bin/python3 import sys</p>
+    <h1 id="section-1"></h1>
+    <h1 id="complete-the-countingvalleys-function-below.">
+      Complete the ‘countingValleys’ function below.
+    </h1>
+    <h1 id="section-2"></h1>
+    <h1 id="the-function-is-expected-to-return-an-integer.">
+      The function is expected to return an INTEGER.
+    </h1>
+    <h1 id="the-function-accepts-following-parameters">
+      The function accepts following parameters:
+    </h1>
+    <h1 id="integer-steps">1. INTEGER steps</h1>
+    <h1 id="string-path">2. STRING path</h1>
+    <h1 id="section-3"></h1>
+    <p>
+      def countingValleys(steps, path): # Write your code here path = list(path)
+      sealevel = valley = 0 for paths in path:
+    </p>
+    <pre><code>    if paths == &quot;U&quot;:
         sealevel += 1
     else:
         sealevel -= 1
@@ -178,29 +287,51 @@ return arr</code></pre>
     if paths == &quot;U&quot; and sealevel == 0:
         valley += 1
 return valley</code></pre>
-<p>path = “UDDDUDUU” steps = 8 print(countingValleys(steps, path))</p>
-<h1 id="input">Input:</h1>
-<h1 id="s-geeksforgeeks-n-2">S = “geeksforgeeks”, N = 2</h1>
-<h1 id="output-4">Output: 4</h1>
-<h1 id="explanation-g-e-k-and-s-have">Explanation: ‘g’, ‘e’, ‘k’ and ‘s’ have</h1>
-<h1 id="occurrences.">2 occurrences.</h1>
-<p>def CountChar(String, Occurance): STROCR = {} RESULT = <a href="#section-9"></a> for i in range(len(String)): if String[i] in STROCR.keys(): STROCR[String[i]] += 1 else: STROCR[String[i]] = 1 for j in STROCR.keys(): if STROCR[j] == Occurance: RESULT.append(j) elif STROCR[j] &gt; Occurance: RESULT.append(j) else: pass print(RESULT)</p>
-<p>String = “geeksforgeeks” Occurance = 2 CountChar(String, Occurance)</p>
-<p>def cyclic_rotation(arr, n): temp = arr[n - 1] for i in range(n - 1, 0, -1): arr[i] = arr[i - 1] arr[0] = temp</p>
-<p>def print_array(arr, n): for i in range(n): print(arr[i])</p>
-<p>arr = [1, 2, 3, 4, 5]</p>
-<p>cyclic_rotation(arr, 5)</p>
-<p>print_array(arr, 5)</p>
-<h1 id="input-nums-131-11-48">Input: nums = [131, 11, 48]</h1>
-<h1 id="output-1-3-4-8">Output: 1 3 4 8</h1>
-<h1 id="explanation-1-3-4-and-8-are-only-distinct">Explanation: 1, 3, 4, and 8 are only distinct</h1>
-<h1 id="digits-that-can-be-extracted-from-the-numbers">digits that can be extracted from the numbers</h1>
-<h1 id="of-the-array.">of the array.</h1>
-<p>def Dis_array(arr): dup = <a href="#section-9"></a> for i in arr: length = len(str(i)) i = str(i) for j in range(length): if i[j] in dup: pass else: dup.append(i[j])</p>
-<pre><code>print(dup)</code></pre>
-<p>arr = [131, 11, 48] Dis_array(arr)</p>
-<p>class Stack: def <strong>init</strong>(self, limit=10): self.stack = <a href="#section-9"></a> self.limit = limit</p>
-<pre><code>def push(self, n):
+    <p>path = “UDDDUDUU” steps = 8 print(countingValleys(steps, path))</p>
+    <h1 id="input">Input:</h1>
+    <h1 id="s-geeksforgeeks-n-2">S = “geeksforgeeks”, N = 2</h1>
+    <h1 id="output-4">Output: 4</h1>
+    <h1 id="explanation-g-e-k-and-s-have">
+      Explanation: ‘g’, ‘e’, ‘k’ and ‘s’ have
+    </h1>
+    <h1 id="occurrences.">2 occurrences.</h1>
+    <p>
+      def CountChar(String, Occurance): STROCR = {} RESULT =
+      <a href="#section-9"></a> for i in range(len(String)): if String[i] in
+      STROCR.keys(): STROCR[String[i]] += 1 else: STROCR[String[i]] = 1 for j in
+      STROCR.keys(): if STROCR[j] == Occurance: RESULT.append(j) elif STROCR[j]
+      &gt; Occurance: RESULT.append(j) else: pass print(RESULT)
+    </p>
+    <p>String = “geeksforgeeks” Occurance = 2 CountChar(String, Occurance)</p>
+    <p>
+      def cyclic_rotation(arr, n): temp = arr[n - 1] for i in range(n - 1, 0,
+      -1): arr[i] = arr[i - 1] arr[0] = temp
+    </p>
+    <p>def print_array(arr, n): for i in range(n): print(arr[i])</p>
+    <p>arr = [1, 2, 3, 4, 5]</p>
+    <p>cyclic_rotation(arr, 5)</p>
+    <p>print_array(arr, 5)</p>
+    <h1 id="input-nums-131-11-48">Input: nums = [131, 11, 48]</h1>
+    <h1 id="output-1-3-4-8">Output: 1 3 4 8</h1>
+    <h1 id="explanation-1-3-4-and-8-are-only-distinct">
+      Explanation: 1, 3, 4, and 8 are only distinct
+    </h1>
+    <h1 id="digits-that-can-be-extracted-from-the-numbers">
+      digits that can be extracted from the numbers
+    </h1>
+    <h1 id="of-the-array.">of the array.</h1>
+    <p>
+      def Dis_array(arr): dup = <a href="#section-9"></a> for i in arr: length =
+      len(str(i)) i = str(i) for j in range(length): if i[j] in dup: pass else:
+      dup.append(i[j])
+    </p>
+    <pre><code>print(dup)</code></pre>
+    <p>arr = [131, 11, 48] Dis_array(arr)</p>
+    <p>
+      class Stack: def <strong>init</strong>(self, limit=10): self.stack =
+      <a href="#section-9"></a> self.limit = limit
+    </p>
+    <pre><code>def push(self, n):
     if len(self.stack) &gt; self.limit:
         self.doublelimit()
     else:
@@ -229,15 +360,24 @@ def doublelimit(self):
     newStack = self.stack
     self.limit = 2 * self.limit
     self.stack = newStack</code></pre>
-<p>sta = Stack(5)</p>
-<p>sta.push(1) sta.push(2) sta.push(1) sta.push(2) sta.push(2) sta.push(2)</p>
-<p>sta.PrintStack()</p>
-<p>sta.Length()</p>
-<p>def duplicate_removal(arr): dictonary = {} for i in arr: if i in dictonary: dictonary[i] = dictonary[i] + 1 else: dictonary[i] = 1 return dictonary.keys()</p>
-<p>arr = [1, 2, 2, 3, 4, 5, 5, 6, 7]</p>
-<p>print(int(len(list(duplicate_removal(arr)))))</p>
-<p>def even_occuring_element(arr): ""“Returns the even occuring element within a list of integers”""</p>
-<pre><code>dict = {}
+    <p>sta = Stack(5)</p>
+    <p>
+      sta.push(1) sta.push(2) sta.push(1) sta.push(2) sta.push(2) sta.push(2)
+    </p>
+    <p>sta.PrintStack()</p>
+    <p>sta.Length()</p>
+    <p>
+      def duplicate_removal(arr): dictonary = {} for i in arr: if i in
+      dictonary: dictonary[i] = dictonary[i] + 1 else: dictonary[i] = 1 return
+      dictonary.keys()
+    </p>
+    <p>arr = [1, 2, 2, 3, 4, 5, 5, 6, 7]</p>
+    <p>print(int(len(list(duplicate_removal(arr)))))</p>
+    <p>
+      def even_occuring_element(arr): ""“Returns the even occuring element
+      within a list of integers”""
+    </p>
+    <pre><code>dict = {}
 for num in arr:
     if num in dict:
         dict[num] += 1
@@ -247,75 +387,129 @@ for num in arr:
 for num in dict:
     if not dict[num] &amp; 1:  # bitwise check for parity.
         return num</code></pre>
-<p>def find(arr, search, n): for i in range(n): if arr[i] == search: return True break</p>
-<p>arr = [1, 2, 3, 4, 5, 6] search = 4</p>
-<p>print(find(arr, search, 6))</p>
-<p>import tarfile</p>
-<p>fname = “spark-3.0.2-bin-hadoop2.7.tgz”</p>
-<p>if fname.endswith(“tgz”): tar = tarfile.open( “C:\Users\ag16000\spark-3.0.2-bin-hadoop2.7.tgz”, “r:gz” ) tar.extractall() tar.close() elif fname.endswith(“tar”): tar = tarfile.open( “C:\Users\ag16000\spark-3.0.2-bin-hadoop2.7.tgz”, “r:” ) tar.extractall() tar.close()</p>
-<p>""“solutions to the factorial problem”""</p>
-<p>def factorial_iterative(num): ""“returns the factorial of num using an iterative method.”""</p>
-<pre><code>factor = 1
+    <p>
+      def find(arr, search, n): for i in range(n): if arr[i] == search: return
+      True break
+    </p>
+    <p>arr = [1, 2, 3, 4, 5, 6] search = 4</p>
+    <p>print(find(arr, search, 6))</p>
+    <p>import tarfile</p>
+    <p>fname = “spark-3.0.2-bin-hadoop2.7.tgz”</p>
+    <p>
+      if fname.endswith(“tgz”): tar = tarfile.open(
+      “C:\Users\ag16000\spark-3.0.2-bin-hadoop2.7.tgz”, “r:gz” )
+      tar.extractall() tar.close() elif fname.endswith(“tar”): tar =
+      tarfile.open( “C:\Users\ag16000\spark-3.0.2-bin-hadoop2.7.tgz”, “r:” )
+      tar.extractall() tar.close()
+    </p>
+    <p>""“solutions to the factorial problem”""</p>
+    <p>
+      def factorial_iterative(num): ""“returns the factorial of num using an
+      iterative method.”""
+    </p>
+    <pre><code>factor = 1
 
 for i in xrange(1, num + 1):
     factor *= i
 
 return factor</code></pre>
-<p>def factorial_reduce(num): ""“returns the factorial of num using a reduce (shortest method).”""</p>
-<pre><code>return reduce(lambda x, y: x * y, range(1, num + 1))</code></pre>
-<p>def factorial_recursive(num): ""“returns the factorial of num using a recursive method.”""</p>
-<pre><code>if num == 1:
+    <p>
+      def factorial_reduce(num): ""“returns the factorial of num using a reduce
+      (shortest method).”""
+    </p>
+    <pre><code>return reduce(lambda x, y: x * y, range(1, num + 1))</code></pre>
+    <p>
+      def factorial_recursive(num): ""“returns the factorial of num using a
+      recursive method.”""
+    </p>
+    <pre><code>if num == 1:
     return 1
 
 return num * factorial_recursive(num - 1)</code></pre>
-<p>""“solutions to the fibonacci problem”""</p>
-<p>def fibonacci_iterative(limit): ""“fibonacci sequence using an iterative approach.”""</p>
-<pre><code>a, b = 0, 1
+    <p>""“solutions to the fibonacci problem”""</p>
+    <p>
+      def fibonacci_iterative(limit): ""“fibonacci sequence using an iterative
+      approach.”""
+    </p>
+    <pre><code>a, b = 0, 1
 for i in xrange(limit):
     a, b = b, a + b
 
 return a</code></pre>
-<p>def fibonacci_recursive(limit): ""“fibonacci sequence using a recusive approach.”""</p>
-<pre><code>if limit &lt;= 1:
+    <p>
+      def fibonacci_recursive(limit): ""“fibonacci sequence using a recusive
+      approach.”""
+    </p>
+    <pre><code>if limit &lt;= 1:
     return limit
 
 return fibonacci_recursive(limit - 1) + fibonacci_recursive(limit - 2)</code></pre>
-<p>def fibonacci_reduce(limit): ""“fibonacci sequence using reduce (shortest option).”""</p>
-<pre><code>return reduce(lambda x, y: x + [x[y] + x[y - 1]], range(1, limit), [0, 1])[-1]</code></pre>
-<p>def fibonacci_comprehension(limit): ""“fibonacci sequence using a list comprehension.”""</p>
-<pre><code>sequence = [0, 1]
+    <p>
+      def fibonacci_reduce(limit): ""“fibonacci sequence using reduce (shortest
+      option).”""
+    </p>
+    <pre><code>return reduce(lambda x, y: x + [x[y] + x[y - 1]], range(1, limit), [0, 1])[-1]</code></pre>
+    <p>
+      def fibonacci_comprehension(limit): ""“fibonacci sequence using a list
+      comprehension.”""
+    </p>
+    <pre><code>sequence = [0, 1]
 
 [sequence.append(sequence[i] + sequence[i - 1]) for i in range(1, limit)]
 
 return sequence[-1]</code></pre>
-<p>def fib_series(count): a = 0 b = 1 c = 1 for i in range(count): a = b b = c c = a + b print(a)</p>
-<p>fib_series(10)</p>
-<p>""“finds the missing element in the shuffled list”""</p>
-<p>def difference_set(orig, shuffled): ""“finds the missing element using a set.”""</p>
-<pre><code>return set(orig).difference(set(shuffled)).pop()</code></pre>
-<p>def difference_iterative(orig, shuffled): ""“finds the missing element by iterating over the list”""</p>
-<pre><code>for x in orig:
+    <p>
+      def fib_series(count): a = 0 b = 1 c = 1 for i in range(count): a = b b =
+      c c = a + b print(a)
+    </p>
+    <p>fib_series(10)</p>
+    <p>""“finds the missing element in the shuffled list”""</p>
+    <p>
+      def difference_set(orig, shuffled): ""“finds the missing element using a
+      set.”""
+    </p>
+    <pre><code>return set(orig).difference(set(shuffled)).pop()</code></pre>
+    <p>
+      def difference_iterative(orig, shuffled): ""“finds the missing element by
+      iterating over the list”""
+    </p>
+    <pre><code>for x in orig:
     if not x in shuffled:
         return x</code></pre>
-<h1 id="given-an-array-of-integers-nums-containing-n-1-integers-where-each-integer-is-in-the-range-1-n-inclusive.">Given an array of integers nums containing n + 1 integers where each integer is in the range [1, n] inclusive.</h1>
-<h1 id="there-is-only-one-repeated-number-in-nums-return-this-repeated-number.">There is only one repeated number in nums, return this repeated number.</h1>
-<h1 id="example-1">Example 1:</h1>
-<h1 id="input-nums-13422">Input: nums = [1,3,4,2,2]</h1>
-<h1 id="output-2">Output: 2</h1>
-<p>def findDuplicate(arr): for i in range(len(arr)): if arr[i] == arr[i + 1]: return arr[i] else: pass</p>
-<p>arr = [1, 3, 4, 2, 2]</p>
-<p>print(findDuplicate(arr))</p>
-<p>""“solution for the first-non-repeated-character problem”""</p>
-<p>def first_non_repeated_character(str): ""“finds the first character in a string that’s not repreated”""</p>
-<pre><code>for i, char in enumerate(str):
+    <h1
+      id="given-an-array-of-integers-nums-containing-n-1-integers-where-each-integer-is-in-the-range-1-n-inclusive."
+    >
+      Given an array of integers nums containing n + 1 integers where each
+      integer is in the range [1, n] inclusive.
+    </h1>
+    <h1
+      id="there-is-only-one-repeated-number-in-nums-return-this-repeated-number."
+    >
+      There is only one repeated number in nums, return this repeated number.
+    </h1>
+    <h1 id="example-1">Example 1:</h1>
+    <h1 id="input-nums-13422">Input: nums = [1,3,4,2,2]</h1>
+    <h1 id="output-2">Output: 2</h1>
+    <p>
+      def findDuplicate(arr): for i in range(len(arr)): if arr[i] == arr[i + 1]:
+      return arr[i] else: pass
+    </p>
+    <p>arr = [1, 3, 4, 2, 2]</p>
+    <p>print(findDuplicate(arr))</p>
+    <p>""“solution for the first-non-repeated-character problem”""</p>
+    <p>
+      def first_non_repeated_character(str): ""“finds the first character in a
+      string that’s not repreated”""
+    </p>
+    <pre><code>for i, char in enumerate(str):
     if i - 1 &gt;= 0 and char == str[i - 1]:
         continue
     if i + 1 &lt; len(str) and char == str[i + 1]:
         continue
 
     return char</code></pre>
-<p>def left_search(arr, low, high, x): temp = -1</p>
-<pre><code>while low &lt;= high:
+    <p>def left_search(arr, low, high, x): temp = -1</p>
+    <pre><code>while low &lt;= high:
     mid = low + (high - low) // 2
     if arr[mid] &gt; x:
         high = mid - 1
@@ -325,8 +519,8 @@ return sequence[-1]</code></pre>
         temp = mid
         high = mid - 1
 return temp</code></pre>
-<p>def right_search(arr, low, high, x): temp = -1</p>
-<pre><code>while low &lt;= high:
+    <p>def right_search(arr, low, high, x): temp = -1</p>
+    <pre><code>while low &lt;= high:
     mid = low + (high - low) // 2
     if arr[mid] &gt; x:
         high = mid - 1
@@ -336,11 +530,19 @@ return temp</code></pre>
         temp = mid
         low = mid + 1
 return temp</code></pre>
-<p>arr = [1, 4, 4, 4, 5, 6, 7] l_result = left_search(arr, 0, len(arr), 4) r_result = right_search(arr, 0, len(arr), 4)</p>
-<p>print(“first occurance:” + str(l_result)) print(“last occurance:” + str(r_result))</p>
-<p>""“accepts a multi dimensional array and returns a flattened version”""</p>
-<p>def flatten_array(orig): ""“returns a new, flattened, list”""</p>
-<pre><code>flattened_list = []
+    <p>
+      arr = [1, 4, 4, 4, 5, 6, 7] l_result = left_search(arr, 0, len(arr), 4)
+      r_result = right_search(arr, 0, len(arr), 4)
+    </p>
+    <p>
+      print(“first occurance:” + str(l_result)) print(“last occurance:” +
+      str(r_result))
+    </p>
+    <p>
+      ""“accepts a multi dimensional array and returns a flattened version”""
+    </p>
+    <p>def flatten_array(orig): ""“returns a new, flattened, list”""</p>
+    <pre><code>flattened_list = []
 
 for item in orig:
     if isinstance(item, list):
@@ -349,8 +551,8 @@ for item in orig:
         flattened_list.append(item)
 
 return flattened_list</code></pre>
-<p>def flatten_in_place(orig): ""“flattens a given list in place”""</p>
-<pre><code>is_flattened = False
+    <p>def flatten_in_place(orig): ""“flattens a given list in place”""</p>
+    <pre><code>is_flattened = False
 
 while not is_flattened:  # iterating until no more lists are found
 
@@ -362,49 +564,66 @@ while not is_flattened:  # iterating until no more lists are found
             orig = orig[:i] + item + orig[i + 1 :]
 
 return orig</code></pre>
-<p>def jumpingOnClouds(c): i = counter = 0 length = len(c)</p>
-<pre><code>while i &lt; length - 1:
+    <p>def jumpingOnClouds(c): i = counter = 0 length = len(c)</p>
+    <pre><code>while i &lt; length - 1:
     if c[i + 2] == 0:
         i += 2
     else:
         i += 1
     counter += 1
 return counter</code></pre>
-<p>arr = [0, 0, 0, 0, 1, 0]</p>
-<p>print(jumpingOnClouds(arr))</p>
-<p>def kidsWithCandies(candies, extraCandies): temp_array = <a href="#section-9"></a> max_element = max(candies) for i in candies: temp = i + extraCandies if max_element &lt;= temp: temp_array.append(True) else: temp_array.append(False)</p>
-<pre><code>return temp_array</code></pre>
-<p>candies = [2, 3, 5, 1, 3] extraCandies = 3</p>
-<p>print(kidsWithCandies(candies, extraCandies))</p>
-<p>def kth_array(arr, n): arr.sort(reverse=True)</p>
-<pre><code>for i in range(n):
+    <p>arr = [0, 0, 0, 0, 1, 0]</p>
+    <p>print(jumpingOnClouds(arr))</p>
+    <p>
+      def kidsWithCandies(candies, extraCandies): temp_array =
+      <a href="#section-9"></a> max_element = max(candies) for i in candies:
+      temp = i + extraCandies if max_element &lt;= temp: temp_array.append(True)
+      else: temp_array.append(False)
+    </p>
+    <pre><code>return temp_array</code></pre>
+    <p>candies = [2, 3, 5, 1, 3] extraCandies = 3</p>
+    <p>print(kidsWithCandies(candies, extraCandies))</p>
+    <p>def kth_array(arr, n): arr.sort(reverse=True)</p>
+    <pre><code>for i in range(n):
     print(arr[i])</code></pre>
-<p>arr = [1, 23, 12, 9, 30, 2, 50]</p>
-<p>kth_array(arr, 3)</p>
-<h1 id="input-1">Input:</h1>
-<h1 id="n-6">N = 6</h1>
-<h1 id="arr-7-10-4-3-20-15">arr<a href="#section-9"></a> = 7 10 4 3 20 15</h1>
-<h1 id="k-3">K = 3</h1>
-<h1 id="output-7">Output : 7</h1>
-<h1 id="explanation">Explanation :</h1>
-<h1 id="rd-smallest-element-in-the-given">3rd smallest element in the given</h1>
-<h1 id="array-is-7.">array is 7.</h1>
-<h1 id="def-kthsmallestarr-l-r-k">def kthSmallest(arr, l, r, k):</h1>
-<h1 id="section-4">’’’</h1>
-<h1 id="arr-given-array">arr : given array</h1>
-<h1 id="l-starting-index-of-the-array-i.e-0">l : starting index of the array i.e 0</h1>
-<h1 id="r-ending-index-of-the-array-i.e-size-1">r : ending index of the array i.e size-1</h1>
-<h1 id="k-find-kth-smallest-element-and-return-using-this-function">k : find kth smallest element and return using this function</h1>
-<h1 id="section-5">’’’</h1>
-<h1 id="arr.sort">arr.sort()</h1>
-<h1 id="returnarrk-1">return(arr[k-1])</h1>
-<h1 id="rintinput">r=int(input())</h1>
-<h1 id="arrinput">arr=input()</h1>
-<h1 id="arraylistmapintarr.strip.split">array=list(map(int,arr.strip().split()))</h1>
-<h1 id="kintinput">k=int(input())</h1>
-<h1 id="printkthsmallestarray0r-1k">print(kthSmallest(array,0,r-1,k))</h1>
-<p>def kthSmallest(arr, l, r, k):</p>
-<pre><code>if k &gt; 0 and k &lt;= r - l + 1:
+    <p>arr = [1, 23, 12, 9, 30, 2, 50]</p>
+    <p>kth_array(arr, 3)</p>
+    <h1 id="input-1">Input:</h1>
+    <h1 id="n-6">N = 6</h1>
+    <h1 id="arr-7-10-4-3-20-15">
+      arr<a href="#section-9"></a> = 7 10 4 3 20 15
+    </h1>
+    <h1 id="k-3">K = 3</h1>
+    <h1 id="output-7">Output : 7</h1>
+    <h1 id="explanation">Explanation :</h1>
+    <h1 id="rd-smallest-element-in-the-given">
+      3rd smallest element in the given
+    </h1>
+    <h1 id="array-is-7.">array is 7.</h1>
+    <h1 id="def-kthsmallestarr-l-r-k">def kthSmallest(arr, l, r, k):</h1>
+    <h1 id="section-4">’’’</h1>
+    <h1 id="arr-given-array">arr : given array</h1>
+    <h1 id="l-starting-index-of-the-array-i.e-0">
+      l : starting index of the array i.e 0
+    </h1>
+    <h1 id="r-ending-index-of-the-array-i.e-size-1">
+      r : ending index of the array i.e size-1
+    </h1>
+    <h1 id="k-find-kth-smallest-element-and-return-using-this-function">
+      k : find kth smallest element and return using this function
+    </h1>
+    <h1 id="section-5">’’’</h1>
+    <h1 id="arr.sort">arr.sort()</h1>
+    <h1 id="returnarrk-1">return(arr[k-1])</h1>
+    <h1 id="rintinput">r=int(input())</h1>
+    <h1 id="arrinput">arr=input()</h1>
+    <h1 id="arraylistmapintarr.strip.split">
+      array=list(map(int,arr.strip().split()))
+    </h1>
+    <h1 id="kintinput">k=int(input())</h1>
+    <h1 id="printkthsmallestarray0r-1k">print(kthSmallest(array,0,r-1,k))</h1>
+    <p>def kthSmallest(arr, l, r, k):</p>
+    <pre><code>if k &gt; 0 and k &lt;= r - l + 1:
 
     pos = randomPartition(arr, l, r)
     if pos - l == k - 1:
@@ -416,12 +635,21 @@ return counter</code></pre>
     return kthSmallest(arr, pos + 1, r, k - pos + l - 1)
 
 return 999999999999</code></pre>
-<p>def swap(arr, a, b): temp = arr[a] arr[a] = arr[b] arr[b] = temp</p>
-<p>def partition(arr, l, r): x = arr[r] i = l for j in range(l, r): if arr[j] &lt;= x: swap(arr, i, j) i += 1 swap(arr, i, r) return i</p>
-<p>def randomPartition(arr, l, r): n = r - l + 1 pivot = int(random.random() % n) swap(arr, l + pivot, r) return partition(arr, l, r)</p>
-<p>""“solution to the largest-continuous-sum problem”""</p>
-<p>def largest_continuous_sum(arr): ""“returns the highest sum of a continuous sequence in a given list”""</p>
-<pre><code>largest = 0
+    <p>def swap(arr, a, b): temp = arr[a] arr[a] = arr[b] arr[b] = temp</p>
+    <p>
+      def partition(arr, l, r): x = arr[r] i = l for j in range(l, r): if arr[j]
+      &lt;= x: swap(arr, i, j) i += 1 swap(arr, i, r) return i
+    </p>
+    <p>
+      def randomPartition(arr, l, r): n = r - l + 1 pivot = int(random.random()
+      % n) swap(arr, l + pivot, r) return partition(arr, l, r)
+    </p>
+    <p>""“solution to the largest-continuous-sum problem”""</p>
+    <p>
+      def largest_continuous_sum(arr): ""“returns the highest sum of a
+      continuous sequence in a given list”""
+    </p>
+    <pre><code>largest = 0
 queue = []
 for num in arr:
     if len(queue) &gt; 0 and queue[-1] + 1 != num:
@@ -433,8 +661,11 @@ for num in arr:
     queue.append(num)
 
 return largest</code></pre>
-<p>def addTwoNumbers(l1, l2): l1.reverse() l2.reverse() con_1 = "" con_2 = "" for i in l1: con_1 += str(i) for i in l2: con_2 += str(i)</p>
-<pre><code>result = int(con_1) + int(con_2)
+    <p>
+      def addTwoNumbers(l1, l2): l1.reverse() l2.reverse() con_1 = "" con_2 = ""
+      for i in l1: con_1 += str(i) for i in l2: con_2 += str(i)
+    </p>
+    <pre><code>result = int(con_1) + int(con_2)
 
 temp = str(result)
 
@@ -444,40 +675,78 @@ for i in temp:
 
 lis.reverse()
 return lis</code></pre>
-<p>l1 = [2, 4, 3] l2 = [5, 6, 4] result = addTwoNumbers(l1, l2) print(result)</p>
-<h1 id="linked-list-creation">linked list creation</h1>
-<h1 id="singly-linked-list">singly linked list</h1>
-<p>class Node: def <strong>init</strong>(self, data): self.data = data self.next = None</p>
-<p>class LinkedList: def <strong>init</strong>(self): self.head = None</p>
-<pre><code>def PrintList(self):
+    <p>
+      l1 = [2, 4, 3] l2 = [5, 6, 4] result = addTwoNumbers(l1, l2) print(result)
+    </p>
+    <h1 id="linked-list-creation">linked list creation</h1>
+    <h1 id="singly-linked-list">singly linked list</h1>
+    <p>
+      class Node: def <strong>init</strong>(self, data): self.data = data
+      self.next = None
+    </p>
+    <p>class LinkedList: def <strong>init</strong>(self): self.head = None</p>
+    <pre><code>def PrintList(self):
     if self.head is not None:
         itr = self.head
         while itr:
             print(itr.data, end=&quot;--&gt;&quot;)
             itr = itr.next</code></pre>
-<p>if <strong>name</strong> == “<strong>main</strong>”: # creating empty linked list l = LinkedList() # assigning the first node to head of linked list l.head = Node(1) # assigining the second node l2 = Node(2) # assigining the third node l3 = Node(3)</p>
-<pre><code># linking the first node to the second
+    <p>
+      if <strong>name</strong> == “<strong>main</strong>”: # creating empty
+      linked list l = LinkedList() # assigning the first node to head of linked
+      list l.head = Node(1) # assigining the second node l2 = Node(2) #
+      assigining the third node l3 = Node(3)
+    </p>
+    <pre><code># linking the first node to the second
 l.head.next = l2
 # linking the second node to the third
 l2.next = l3
 
 # printing the list
 l.PrintList()</code></pre>
-<p>from <strong>future</strong> import division from math import ceil from itertools import combinations from operator import mul</p>
-<h1 id="sum-of-multiples-of-3-or-5-under-1000-simplified">Sum of multiples of 3 or 5 under 1000, simplified:</h1>
-<h1 id="print-3-_-333-_-334-2-5-_-199-_-200-2---15-_-66-_-67-2">print (3 _ 333 _ 334 / 2) + (5 _ 199 _ 200 / 2) - (15 _ 66 _ 67 / 2)</h1>
-<p>def getSumOfMultiple(num, limit): return int((ceil(limit / num) - 1) _ ceil(limit / num) _ num / 2)</p>
-<p>def getSumOfMultiples(multiples, limit): result = 0 sign = 1 for i in range(1, len(multiples) + 1): for x in combinations(multiples, i): result += sign _ getSumOfMultiple(reduce(mul, x, 1), limit) sign _= -1 return result</p>
-<p>class once: def <strong>init</strong>(self, func, times=1): self.times = int(times) self.func = func</p>
-<pre><code>def __call__(self, *args, **kwargs):
+    <p>
+      from <strong>future</strong> import division from math import ceil from
+      itertools import combinations from operator import mul
+    </p>
+    <h1 id="sum-of-multiples-of-3-or-5-under-1000-simplified">
+      Sum of multiples of 3 or 5 under 1000, simplified:
+    </h1>
+    <h1 id="print-3-_-333-_-334-2-5-_-199-_-200-2---15-_-66-_-67-2">
+      print (3 _ 333 _ 334 / 2) + (5 _ 199 _ 200 / 2) - (15 _ 66 _ 67 / 2)
+    </h1>
+    <p>
+      def getSumOfMultiple(num, limit): return int((ceil(limit / num) - 1) _
+      ceil(limit / num) _ num / 2)
+    </p>
+    <p>
+      def getSumOfMultiples(multiples, limit): result = 0 sign = 1 for i in
+      range(1, len(multiples) + 1): for x in combinations(multiples, i): result
+      += sign _ getSumOfMultiple(reduce(mul, x, 1), limit) sign _= -1 return
+      result
+    </p>
+    <p>
+      class once: def <strong>init</strong>(self, func, times=1): self.times =
+      int(times) self.func = func
+    </p>
+    <pre><code>def __call__(self, *args, **kwargs):
     if self.times &gt; 0:
         self.times -= 1
         return self.func(*args, **kwargs)</code></pre>
-<p>from math import sqrt</p>
-<p>def is_prime(n): if n &lt;= 1: return False elif n == 2: return True elif n % 2 == 0: return False for i in xrange(3, int(sqrt(n)) + 1, 2): if n % i == 0: return False return True</p>
-<p>from random import randint</p>
-<p>def quickSort(lst): # List of 0 or 1 items is already sorted if len(lst) &lt;= 1: return lst else: # Pivot can be chosen randomly pivotIndex = randint(0, len(lst) - 1) pivot = lst[pivotIndex] # Elements lower than and greater than pivot lesser, greater = <a href="#section-9"></a>, <a href="#section-9"></a></p>
-<pre><code>    for index in range(len(lst)):
+    <p>from math import sqrt</p>
+    <p>
+      def is_prime(n): if n &lt;= 1: return False elif n == 2: return True elif
+      n % 2 == 0: return False for i in xrange(3, int(sqrt(n)) + 1, 2): if n % i
+      == 0: return False return True
+    </p>
+    <p>from random import randint</p>
+    <p>
+      def quickSort(lst): # List of 0 or 1 items is already sorted if len(lst)
+      &lt;= 1: return lst else: # Pivot can be chosen randomly pivotIndex =
+      randint(0, len(lst) - 1) pivot = lst[pivotIndex] # Elements lower than and
+      greater than pivot lesser, greater = <a href="#section-9"></a>,
+      <a href="#section-9"></a>
+    </p>
+    <pre><code>    for index in range(len(lst)):
         # Don&#39;t do anything if you&#39;re at the pivot
         if index == pivotIndex:
             pass
@@ -491,8 +760,12 @@ l.PrintList()</code></pre>
 
     # Sort lesser and greater, concatenate results
     return quickSort(lesser) + [pivot] + quickSort(greater)</code></pre>
-<p>def sort_num(arr, n): cnt0 = 0 cnt1 = 0 cnt2 = 0 for i in range(n): if arr[i] == 0: cnt0 += 1 elif arr[i] == 1: cnt1 += 1 elif arr[i] == 2: cnt2 += 1</p>
-<pre><code>i = 0
+    <p>
+      def sort_num(arr, n): cnt0 = 0 cnt1 = 0 cnt2 = 0 for i in range(n): if
+      arr[i] == 0: cnt0 += 1 elif arr[i] == 1: cnt1 += 1 elif arr[i] == 2: cnt2
+      += 1
+    </p>
+    <pre><code>i = 0
 
 while cnt0 &gt; 0:
     arr[i] = 0
@@ -506,14 +779,22 @@ while cnt2 &gt; 0:
     arr[i] = 2
     i += 1
     cnt2 -= 1</code></pre>
-<p>def print_arr(arr, n): for i in range(n): print(arr[i], end=" ")</p>
-<p>arr = [0, 1, 2, 0, 1, 2] n = len(arr) sort_num(arr, n) print_arr(arr, n)</p>
-<p>def sorted_rotation(arr, low, high, n): while low &lt; high: if arr[low] &lt;= arr[high]: return low mid = low + (high - low) // 2 next = (mid + 1) % n prev = (mid + n - 1) % n if arr[mid] &lt; arr[next] and arr[mid] &lt; arr[prev]: return mid elif arr[mid] &lt;= arr[high]: high = mid - 1 elif arr[mid] &gt;= arr[low]: low = mid + 1 return -1</p>
-<p>arr = [6, 7, 8, 9, 1, 2, 3, 4, 5]</p>
-<p>result = sorted_rotation(arr, 0, len(arr) - 1, len(arr))</p>
-<p>print(“array is rotated by :” + result)</p>
-<p>def sprialMatrix(arr, m, n): k = 0 l = 0 while k &lt; m and l &lt; n:</p>
-<pre><code>    for i in range(l, n):
+    <p>def print_arr(arr, n): for i in range(n): print(arr[i], end=" ")</p>
+    <p>
+      arr = [0, 1, 2, 0, 1, 2] n = len(arr) sort_num(arr, n) print_arr(arr, n)
+    </p>
+    <p>
+      def sorted_rotation(arr, low, high, n): while low &lt; high: if arr[low]
+      &lt;= arr[high]: return low mid = low + (high - low) // 2 next = (mid + 1)
+      % n prev = (mid + n - 1) % n if arr[mid] &lt; arr[next] and arr[mid] &lt;
+      arr[prev]: return mid elif arr[mid] &lt;= arr[high]: high = mid - 1 elif
+      arr[mid] &gt;= arr[low]: low = mid + 1 return -1
+    </p>
+    <p>arr = [6, 7, 8, 9, 1, 2, 3, 4, 5]</p>
+    <p>result = sorted_rotation(arr, 0, len(arr) - 1, len(arr))</p>
+    <p>print(“array is rotated by :” + result)</p>
+    <p>def sprialMatrix(arr, m, n): k = 0 l = 0 while k &lt; m and l &lt; n:</p>
+    <pre><code>    for i in range(l, n):
         print(arr[k][i], end=&quot; &quot;)
     k += 1
 
@@ -529,11 +810,15 @@ while cnt2 &gt; 0:
         for i in range(m - 1, k - 1, -1):
             print(arr[i][l], end=&quot; &quot;)
         l += 1</code></pre>
-<h1 id="function-calling">function calling</h1>
-<p>sprialMatrix([[1, 2, 3], [4, 5, 6], [7, 8, 9]], 3, 3)</p>
-<p>import sys</p>
-<p>class Stack: # initialize the constructor of empty array def <strong>init</strong>(self, arr, limit): self.arr = arr self.arr = <a href="#section-9"></a> self.limit = limit</p>
-<pre><code># defining an method to get all the elements in the que
+    <h1 id="function-calling">function calling</h1>
+    <p>sprialMatrix([[1, 2, 3], [4, 5, 6], [7, 8, 9]], 3, 3)</p>
+    <p>import sys</p>
+    <p>
+      class Stack: # initialize the constructor of empty array def
+      <strong>init</strong>(self, arr, limit): self.arr = arr self.arr =
+      <a href="#section-9"></a> self.limit = limit
+    </p>
+    <pre><code># defining an method to get all the elements in the que
 def print_elements(self):
     for i in range(len(self.arr)):
         print(self.arr[i])
@@ -567,22 +852,41 @@ def is_empty(self):
 def top(self):
     n = len(self.arr)
     return self.arr[n]</code></pre>
-<h1 id="initialize-the-object">initialize the object</h1>
-<p>sta = Stack(<a href="#section-9"></a>, 4)</p>
-<h1 id="pushing-an-element-to-the-array">pushing an element to the array</h1>
-<p>sta.push(1) sta.push(2) sta.push(1) sta.push(2) sta.push(2) sta.push(2)</p>
-<h1 id="printing-all-the-elements-in-the-stack">printing all the elements in the stack</h1>
-<p>sta.print_elements()</p>
-<h1 id="popping-the-element-from-the-array">popping the element from the array</h1>
-<p>sta.pop()</p>
-<h1 id="printing-all-the-elements-in-the-stack-1">printing all the elements in the stack</h1>
-<p>sta.print_elements()</p>
-<h1 id="popping-an-element-from-the-array">popping an element from the array</h1>
-<p>sta.pop()</p>
-<h1 id="checking-if-the-array-is-empty-or-not">checking if the array is empty or not</h1>
-<p>sta.is_empty()</p>
-<p>class Stack: # initialize the constructor of empty array def <strong>init</strong>(self, arr, limit): self.arr = arr self.arr = <a href="#section-9"></a> self.limit = limit self.max_array = <a href="#section-9"></a></p>
-<pre><code># defining an method to get all the elements in the que
+    <h1 id="initialize-the-object">initialize the object</h1>
+    <p>sta = Stack(<a href="#section-9"></a>, 4)</p>
+    <h1 id="pushing-an-element-to-the-array">
+      pushing an element to the array
+    </h1>
+    <p>
+      sta.push(1) sta.push(2) sta.push(1) sta.push(2) sta.push(2) sta.push(2)
+    </p>
+    <h1 id="printing-all-the-elements-in-the-stack">
+      printing all the elements in the stack
+    </h1>
+    <p>sta.print_elements()</p>
+    <h1 id="popping-the-element-from-the-array">
+      popping the element from the array
+    </h1>
+    <p>sta.pop()</p>
+    <h1 id="printing-all-the-elements-in-the-stack-1">
+      printing all the elements in the stack
+    </h1>
+    <p>sta.print_elements()</p>
+    <h1 id="popping-an-element-from-the-array">
+      popping an element from the array
+    </h1>
+    <p>sta.pop()</p>
+    <h1 id="checking-if-the-array-is-empty-or-not">
+      checking if the array is empty or not
+    </h1>
+    <p>sta.is_empty()</p>
+    <p>
+      class Stack: # initialize the constructor of empty array def
+      <strong>init</strong>(self, arr, limit): self.arr = arr self.arr =
+      <a href="#section-9"></a> self.limit = limit self.max_array =
+      <a href="#section-9"></a>
+    </p>
+    <pre><code># defining an method to get all the elements in the que
 def print_elements(self):
     for i in range(len(self.arr)):
         print(self.arr[i])
@@ -614,16 +918,40 @@ def pop(self):
 def top(self):
     n = len(self.arr)
     return self.arr[n]</code></pre>
-<h1 id="initialize-the-object-1">initialize the object</h1>
-<p>sta = Stack(<a href="#section-9"></a>, 6)</p>
-<h1 id="pushing-an-element-to-the-array-1">pushing an element to the array</h1>
-<p>sta.push(10) sta.maxPush() print(“——————-”) sta.push(2) sta.maxPush() print(“——————-”) sta.push(3) sta.maxPush() print(“——————-”) sta.push(4) sta.maxPush() print(“——————-”) sta.push(5) sta.maxPush() print(“——————-”) sta.push(6) sta.maxPush() print(“——————-”)</p>
-<h1 id="printing-all-the-elements-in-the-stack-2">printing all the elements in the stack</h1>
-<h1 id="sta.print_elements">sta.print_elements()</h1>
-<h1 id="popping-the-element-from-the-array-1">popping the element from the array</h1>
-<h1 id="sta.pop">sta.pop()</h1>
-<p>class Solution: def strongPasswordChecker(self, s: str) -&gt; int: len_passwd = len(s) lowercase, uppercase, digit = False, False, False repeating = <a href="#section-9"></a> # list of interval of consecutive char. for idx, char in enumerate(s): if not lowercase and 97 &lt;= ord(char) &lt;= 122: lowercase = True if not uppercase and 65 &lt;= ord(char) &lt;= 90: uppercase = True if not digit and char in {“1”, “2”, “3”, “4”, “5”, “6”, “7”, “8”, “9”, “0”}: digit = True if ( repeating and repeating[-1][1] + 1 == idx and s[repeating[-1][1]] == s[idx] ): repeating[-1][1] = idx # extend the lastest interval if ( 0 &lt; idx &lt; len_passwd - 1 and s[idx - 1] == s[idx] == s[idx + 1] and (not repeating or idx &gt; repeating[-1][1]) ): repeating.append([idx - 1, idx + 1]) # new an interval</p>
-<pre><code>    def helper(lenpass, case, repeat):
+    <h1 id="initialize-the-object-1">initialize the object</h1>
+    <p>sta = Stack(<a href="#section-9"></a>, 6)</p>
+    <h1 id="pushing-an-element-to-the-array-1">
+      pushing an element to the array
+    </h1>
+    <p>
+      sta.push(10) sta.maxPush() print(“——————-”) sta.push(2) sta.maxPush()
+      print(“——————-”) sta.push(3) sta.maxPush() print(“——————-”) sta.push(4)
+      sta.maxPush() print(“——————-”) sta.push(5) sta.maxPush() print(“——————-”)
+      sta.push(6) sta.maxPush() print(“——————-”)
+    </p>
+    <h1 id="printing-all-the-elements-in-the-stack-2">
+      printing all the elements in the stack
+    </h1>
+    <h1 id="sta.print_elements">sta.print_elements()</h1>
+    <h1 id="popping-the-element-from-the-array-1">
+      popping the element from the array
+    </h1>
+    <h1 id="sta.pop">sta.pop()</h1>
+    <p>
+      class Solution: def strongPasswordChecker(self, s: str) -&gt; int:
+      len_passwd = len(s) lowercase, uppercase, digit = False, False, False
+      repeating = <a href="#section-9"></a> # list of interval of consecutive
+      char. for idx, char in enumerate(s): if not lowercase and 97 &lt;=
+      ord(char) &lt;= 122: lowercase = True if not uppercase and 65 &lt;=
+      ord(char) &lt;= 90: uppercase = True if not digit and char in {“1”, “2”,
+      “3”, “4”, “5”, “6”, “7”, “8”, “9”, “0”}: digit = True if ( repeating and
+      repeating[-1][1] + 1 == idx and s[repeating[-1][1]] == s[idx] ):
+      repeating[-1][1] = idx # extend the lastest interval if ( 0 &lt; idx &lt;
+      len_passwd - 1 and s[idx - 1] == s[idx] == s[idx + 1] and (not repeating
+      or idx &gt; repeating[-1][1]) ): repeating.append([idx - 1, idx + 1]) #
+      new an interval
+    </p>
+    <pre><code>    def helper(lenpass, case, repeat):
         if 6 &lt;= lenpass &lt;= 20 and case == 3 and repeat == ():
             return 0
         ans = inf
@@ -675,11 +1003,16 @@ def top(self):
         sum([lowercase, uppercase, digit]),
         tuple([term[1] - term[0] + 1 for term in repeating]),
     )</code></pre>
-<p>Sol = Solution() print(Sol.strongPasswordChecker(“a”))</p>
-<h1 id="recursive-python3-program-to-find-if-a-given-pattern-is">Recursive Python3 program to find if a given pattern is</h1>
-<h1 id="present-in-a-text">present in a text</h1>
-<p>def exactMatch(text, pat, text_index, pat_index): if text_index == len(text) and pat_index != len(pat): return 0</p>
-<pre><code># Else If last character of pattern reaches
+    <p>Sol = Solution() print(Sol.strongPasswordChecker(“a”))</p>
+    <h1 id="recursive-python3-program-to-find-if-a-given-pattern-is">
+      Recursive Python3 program to find if a given pattern is
+    </h1>
+    <h1 id="present-in-a-text">present in a text</h1>
+    <p>
+      def exactMatch(text, pat, text_index, pat_index): if text_index ==
+      len(text) and pat_index != len(pat): return 0
+    </p>
+    <pre><code># Else If last character of pattern reaches
 if pat_index == len(pat):
     return 1
 
@@ -687,9 +1020,14 @@ if text[text_index] == pat[pat_index]:
     return exactMatch(text, pat, text_index + 1, pat_index + 1)
 
 return 0</code></pre>
-<h1 id="this-function-returns-true-if-text-contain-pat">This function returns true if ‘text’ contain ‘pat’</h1>
-<p>def contains(text, pat, text_index, pat_index): # If last character of text reaches if text_index == len(text): return 0</p>
-<pre><code># If current characters of pat and text match
+    <h1 id="this-function-returns-true-if-text-contain-pat">
+      This function returns true if ‘text’ contain ‘pat’
+    </h1>
+    <p>
+      def contains(text, pat, text_index, pat_index): # If last character of
+      text reaches if text_index == len(text): return 0
+    </p>
+    <pre><code># If current characters of pat and text match
 if text[text_index] == pat[pat_index]:
     if exactMatch(text, pat, text_index, pat_index):
         return 1
@@ -698,22 +1036,37 @@ if text[text_index] == pat[pat_index]:
 
     # If current characters of pat and tex don&#39;t match
 return contains(text, pat, text_index + 1, pat_index)</code></pre>
-<h1 id="driver-program-to-test-the-above-function">Driver program to test the above function</h1>
-<p>print(contains(“geeksforgeeks”, “geeks”, 0, 0)) print(contains(“geeksforgeeks”, “geeksquiz”, 0, 0)) print(contains(“geeksquizgeeks”, “quiz”, 0, 0))</p>
-<h1 id="def-twosumarrntarget">def twoSum(arr,n,target):</h1>
-<h1 id="for-i-in-rangen">for i in range(n):</h1>
-<h1 id="for-j-in-range1n">for j in range(1,n):</h1>
-<h1 id="resultarriarrj">result=arr[i]+arr[j]</h1>
-<h1 id="if-resulttarget">if result==target:</h1>
-<h1 id="printstristrj">print(“["+str(i)+","+str(j)+"]”)</h1>
-<h1 id="arr271115">arr=[2,7,11,15]</h1>
-<h1 id="twosumarrlenarr9">twoSum(arr,len(arr),9)</h1>
-<p>class Solution: # def <strong>init</strong>(self,arr,n,target): # self.arr=arr # self.n=n # self.target=target def twoSum(self, arr, n, target): for i in range(self.n): for j in range(1, self.n): result = self.arr[i] + self.arr[j] if result == self.target: print(“[" + str(i) + "," + str(j) + "]”)</p>
-<p>temp = Solution([2, 7, 11, 15], len([2, 7, 11, 15]), 9)</p>
-<p>temp.twoSum()</p>
-<p>import psutil import json</p>
-<p>def getListOfProcessSortedByMemory(): listOfProcObjects = <a href="#section-9"></a></p>
-<pre><code>for proc in psutil.process_iter():
+    <h1 id="driver-program-to-test-the-above-function">
+      Driver program to test the above function
+    </h1>
+    <p>
+      print(contains(“geeksforgeeks”, “geeks”, 0, 0))
+      print(contains(“geeksforgeeks”, “geeksquiz”, 0, 0))
+      print(contains(“geeksquizgeeks”, “quiz”, 0, 0))
+    </p>
+    <h1 id="def-twosumarrntarget">def twoSum(arr,n,target):</h1>
+    <h1 id="for-i-in-rangen">for i in range(n):</h1>
+    <h1 id="for-j-in-range1n">for j in range(1,n):</h1>
+    <h1 id="resultarriarrj">result=arr[i]+arr[j]</h1>
+    <h1 id="if-resulttarget">if result==target:</h1>
+    <h1 id="printstristrj">print(“["+str(i)+","+str(j)+"]”)</h1>
+    <h1 id="arr271115">arr=[2,7,11,15]</h1>
+    <h1 id="twosumarrlenarr9">twoSum(arr,len(arr),9)</h1>
+    <p>
+      class Solution: # def <strong>init</strong>(self,arr,n,target): #
+      self.arr=arr # self.n=n # self.target=target def twoSum(self, arr, n,
+      target): for i in range(self.n): for j in range(1, self.n): result =
+      self.arr[i] + self.arr[j] if result == self.target: print(“[" + str(i) +
+      "," + str(j) + "]”)
+    </p>
+    <p>temp = Solution([2, 7, 11, 15], len([2, 7, 11, 15]), 9)</p>
+    <p>temp.twoSum()</p>
+    <p>import psutil import json</p>
+    <p>
+      def getListOfProcessSortedByMemory(): listOfProcObjects =
+      <a href="#section-9"></a>
+    </p>
+    <pre><code>for proc in psutil.process_iter():
     pinfo = proc.as_dict(attrs=[&quot;pid&quot;, &quot;name&quot;])
     pinfo[&quot;CPU_USAGE&quot;] = proc.memory_info().vms / (1024 * 1024)
     # Append dict to list
@@ -739,42 +1092,55 @@ for elem in lst:
     f.write(&quot;&lt;p&gt;&quot; + str(elem) + &quot; MB&quot; + &quot;&lt;/p&gt;&quot;)
 f.write(end_text)
 f.close()</code></pre>
-<p>def main():</p>
-<pre><code>print(&quot;##### Create a list of all running processes #######&quot;)
+    <p>def main():</p>
+    <pre><code>print(&quot;##### Create a list of all running processes #######&quot;)
 getListOfProcessSortedByMemory()</code></pre>
-<p>if <strong>name</strong> == “<strong>main</strong>”: main()</p>
-<h1 id="class-human">class human():</h1>
-<h1 id="def-initselfnameage">def <strong>init</strong>(self,name,age):</h1>
-<h1 id="self.namename">self.name=name</h1>
-<h1 id="self.ageage">self.age=age</h1>
-<h1 id="class-rohanhuman">class rohan(human):</h1>
-<h1 id="def-initself-name-ageyear">def <strong>init</strong>(self, name, age,year):</h1>
-<h1 id="super.initnameage">super().<strong>init</strong>(name,age)</h1>
-<h1 id="self.yearyear">self.year=year</h1>
-<h1 id="def-welcomeself">def welcome(self):</h1>
-<h1 id="printhellostrself.name-strself.age-strself.year">print(“hello”+str(self.name) + " “+str(self.age)+” " + str(self.year))</h1>
-<h1 id="ronrohanrohan222019">ron=rohan(“rohan”,22,2019)</h1>
-<h1 id="ron.welcome">ron.welcome()</h1>
-<h1 id="class-incr">class incr():</h1>
-<h1 id="def-itrself">def itr(self):</h1>
-<h1 id="self.a1">self.a=1</h1>
-<h1 id="def-nextself">def next(self):</h1>
-<h1 id="if-self.a-5">if self.a &lt;=5:</h1>
-<h1 id="printself.a">print(self.a)</h1>
-<h1 id="self.a1-1">self.a+=1</h1>
-<h1 id="else">else:</h1>
-<h1 id="raise-stopiteration">raise StopIteration</h1>
-<h1 id="zipincr">zip=incr()</h1>
-<h1 id="zip.itr">zip.itr()</h1>
-<h1 id="zip.next">zip.next()</h1>
-<h1 id="zip.next-1">zip.next()</h1>
-<h1 id="zip.next-2">zip.next()</h1>
-<h1 id="zip.next-3">zip.next()</h1>
-<h1 id="zip.next-4">zip.next()</h1>
-<p>theBoard = [’ ’] * 10</p>
-<p>print(theBoard)</p>
-<p>((bo[7] == le and bo[8] == le and bo[9] == le) or # across the top (bo[4] == le and bo[5] == le and bo[6] == le) or # across the middle (bo[1] == le and bo[2] == le and bo[3] == le) or # across the bottom (bo[7] == le and bo[4] == le and bo[1] == le) or # down the left side (bo[8] == le and bo[5] == le and bo[2] == le) or # down the middle (bo[9] == le and bo[6] == le and bo[3] == le) or # down the right side (bo[7] == le and bo[5] == le and bo[3] == le) or # diagonal (bo[9] == le and bo[5] == le and bo[1] == le))</p>
-<pre><code>print(&#39;   |   |&#39;)
+    <p>if <strong>name</strong> == “<strong>main</strong>”: main()</p>
+    <h1 id="class-human">class human():</h1>
+    <h1 id="def-initselfnameage">def <strong>init</strong>(self,name,age):</h1>
+    <h1 id="self.namename">self.name=name</h1>
+    <h1 id="self.ageage">self.age=age</h1>
+    <h1 id="class-rohanhuman">class rohan(human):</h1>
+    <h1 id="def-initself-name-ageyear">
+      def <strong>init</strong>(self, name, age,year):
+    </h1>
+    <h1 id="super.initnameage">super().<strong>init</strong>(name,age)</h1>
+    <h1 id="self.yearyear">self.year=year</h1>
+    <h1 id="def-welcomeself">def welcome(self):</h1>
+    <h1 id="printhellostrself.name-strself.age-strself.year">
+      print(“hello”+str(self.name) + " “+str(self.age)+” " + str(self.year))
+    </h1>
+    <h1 id="ronrohanrohan222019">ron=rohan(“rohan”,22,2019)</h1>
+    <h1 id="ron.welcome">ron.welcome()</h1>
+    <h1 id="class-incr">class incr():</h1>
+    <h1 id="def-itrself">def itr(self):</h1>
+    <h1 id="self.a1">self.a=1</h1>
+    <h1 id="def-nextself">def next(self):</h1>
+    <h1 id="if-self.a-5">if self.a &lt;=5:</h1>
+    <h1 id="printself.a">print(self.a)</h1>
+    <h1 id="self.a1-1">self.a+=1</h1>
+    <h1 id="else">else:</h1>
+    <h1 id="raise-stopiteration">raise StopIteration</h1>
+    <h1 id="zipincr">zip=incr()</h1>
+    <h1 id="zip.itr">zip.itr()</h1>
+    <h1 id="zip.next">zip.next()</h1>
+    <h1 id="zip.next-1">zip.next()</h1>
+    <h1 id="zip.next-2">zip.next()</h1>
+    <h1 id="zip.next-3">zip.next()</h1>
+    <h1 id="zip.next-4">zip.next()</h1>
+    <p>theBoard = [’ ’] * 10</p>
+    <p>print(theBoard)</p>
+    <p>
+      ((bo[7] == le and bo[8] == le and bo[9] == le) or # across the top (bo[4]
+      == le and bo[5] == le and bo[6] == le) or # across the middle (bo[1] == le
+      and bo[2] == le and bo[3] == le) or # across the bottom (bo[7] == le and
+      bo[4] == le and bo[1] == le) or # down the left side (bo[8] == le and
+      bo[5] == le and bo[2] == le) or # down the middle (bo[9] == le and bo[6]
+      == le and bo[3] == le) or # down the right side (bo[7] == le and bo[5] ==
+      le and bo[3] == le) or # diagonal (bo[9] == le and bo[5] == le and bo[1]
+      == le))
+    </p>
+    <pre><code>print(&#39;   |   |&#39;)
 print(&#39; &#39; + board[7] + &#39; | &#39; + board[8] + &#39; | &#39; + board[9])
 print(&#39;   |   |&#39;)
 print(&#39;-----------&#39;)
@@ -785,9 +1151,9 @@ print(&#39;-----------&#39;)
 print(&#39;   |   |&#39;)
 print(&#39; &#39; + board[1] + &#39; | &#39; + board[2] + &#39; | &#39; + board[3])
 print(&#39;   |   |&#39;)</code></pre>
-<p>import random</p>
-<p>def drawBoard(board):</p>
-<pre><code># This function prints out the board that it was passed.
+    <p>import random</p>
+    <p>def drawBoard(board):</p>
+    <pre><code># This function prints out the board that it was passed.
 # &quot;board&quot; is a list of 10 strings representing the board (ignore index 0)
 print(&quot;   |   |&quot;)
 print(&quot; &quot; + board[7] + &quot; | &quot; + board[8] + &quot; | &quot; + board[9])
@@ -800,18 +1166,71 @@ print(&quot;-----------&quot;)
 print(&quot;   |   |&quot;)
 print(&quot; &quot; + board[1] + &quot; | &quot; + board[2] + &quot; | &quot; + board[3])
 print(&quot;   |   |&quot;)</code></pre>
-<p>def inputPlayerLetter(): # Lets the player type which letter they want to be. # Returns a list with the player’s letter as the first item, and the computer’s letter as the second. letter = "" while not (letter == “X” or letter == “O”): print(“Do you want to be X or O?”) letter = input().upper() # the first element in the list is the player’s letter, the second is the computer’s letter. if letter == “X”: return [“X”, “O”] else: return [“O”, “X”]</p>
-<p>def whoGoesFirst(): # Randomly choose the player who goes first. if random.randint(0, 1) == 0: return “computer” else: return “player”</p>
-<p>def playAgain(): # This function returns True if the player wants to play again, otherwise it returns False. print(“Do you want to play again? (yes or no)”) return input().lower().startswith(“y”)</p>
-<p>def makeMove(board, letter, move): board[move] = letter</p>
-<p>def isWinner(bo, le): # Given a board and a player’s letter, this function returns True if that player has won. # We use bo instead of board and le instead of letter so we don’t have to type as much. return ( (bo[7] == le and bo[8] == le and bo[9] == le) or (bo[4] == le and bo[5] == le and bo[6] == le) # across the top or (bo[1] == le and bo[2] == le and bo[3] == le) # across the middle or (bo[7] == le and bo[4] == le and bo[1] == le) # across the bottom or (bo[8] == le and bo[5] == le and bo[2] == le) # down the left side or (bo[9] == le and bo[6] == le and bo[3] == le) # down the middle or (bo[7] == le and bo[5] == le and bo[3] == le) # down the right side or (bo[9] == le and bo[5] == le and bo[1] == le) # diagonal ) # diagonal</p>
-<p>def getBoardCopy(board): # Make a duplicate of the board list and return it the duplicate. dupeBoard = <a href="#section-9"></a> for i in board: dupeBoard.append(i)</p>
-<pre><code>return dupeBoard</code></pre>
-<p>def isSpaceFree(board, move): # Return true if the passed move is free on the passed board. return board[move] == " "</p>
-<p>def getPlayerMove(board): # Let the player type in their move. move = " " while move not in “1 2 3 4 5 6 7 8 9”.split() or not isSpaceFree(board, int(move)): print(“What is your next move? (1-9)”) move = input() return int(move)</p>
-<p>def chooseRandomMoveFromList(board, movesList): # Returns a valid move from the passed list on the passed board. # Returns None if there is no valid move. possibleMoves = <a href="#section-9"></a> for i in movesList: if isSpaceFree(board, i): possibleMoves.append(i) if len(possibleMoves) != 0: return random.choice(possibleMoves) else: return None</p>
-<p>def getComputerMove(board, computerLetter): # Given a board and the computer’s letter, determine where to move and return that move. if computerLetter == “X”: playerLetter = “O” else: playerLetter = “X” # Here is our algorithm for our Tic Tac Toe AI: # First, check if we can win in the next move for i in range(1, 10): copy = getBoardCopy(board) if isSpaceFree(copy, i): makeMove(copy, computerLetter, i) if isWinner(copy, computerLetter): return i</p>
-<pre><code># Check if the player could win on their next move, and block them.
+    <p>
+      def inputPlayerLetter(): # Lets the player type which letter they want to
+      be. # Returns a list with the player’s letter as the first item, and the
+      computer’s letter as the second. letter = "" while not (letter == “X” or
+      letter == “O”): print(“Do you want to be X or O?”) letter =
+      input().upper() # the first element in the list is the player’s letter,
+      the second is the computer’s letter. if letter == “X”: return [“X”, “O”]
+      else: return [“O”, “X”]
+    </p>
+    <p>
+      def whoGoesFirst(): # Randomly choose the player who goes first. if
+      random.randint(0, 1) == 0: return “computer” else: return “player”
+    </p>
+    <p>
+      def playAgain(): # This function returns True if the player wants to play
+      again, otherwise it returns False. print(“Do you want to play again? (yes
+      or no)”) return input().lower().startswith(“y”)
+    </p>
+    <p>def makeMove(board, letter, move): board[move] = letter</p>
+    <p>
+      def isWinner(bo, le): # Given a board and a player’s letter, this function
+      returns True if that player has won. # We use bo instead of board and le
+      instead of letter so we don’t have to type as much. return ( (bo[7] == le
+      and bo[8] == le and bo[9] == le) or (bo[4] == le and bo[5] == le and bo[6]
+      == le) # across the top or (bo[1] == le and bo[2] == le and bo[3] == le) #
+      across the middle or (bo[7] == le and bo[4] == le and bo[1] == le) #
+      across the bottom or (bo[8] == le and bo[5] == le and bo[2] == le) # down
+      the left side or (bo[9] == le and bo[6] == le and bo[3] == le) # down the
+      middle or (bo[7] == le and bo[5] == le and bo[3] == le) # down the right
+      side or (bo[9] == le and bo[5] == le and bo[1] == le) # diagonal ) #
+      diagonal
+    </p>
+    <p>
+      def getBoardCopy(board): # Make a duplicate of the board list and return
+      it the duplicate. dupeBoard = <a href="#section-9"></a> for i in board:
+      dupeBoard.append(i)
+    </p>
+    <pre><code>return dupeBoard</code></pre>
+    <p>
+      def isSpaceFree(board, move): # Return true if the passed move is free on
+      the passed board. return board[move] == " "
+    </p>
+    <p>
+      def getPlayerMove(board): # Let the player type in their move. move = " "
+      while move not in “1 2 3 4 5 6 7 8 9”.split() or not isSpaceFree(board,
+      int(move)): print(“What is your next move? (1-9)”) move = input() return
+      int(move)
+    </p>
+    <p>
+      def chooseRandomMoveFromList(board, movesList): # Returns a valid move
+      from the passed list on the passed board. # Returns None if there is no
+      valid move. possibleMoves = <a href="#section-9"></a> for i in movesList:
+      if isSpaceFree(board, i): possibleMoves.append(i) if len(possibleMoves) !=
+      0: return random.choice(possibleMoves) else: return None
+    </p>
+    <p>
+      def getComputerMove(board, computerLetter): # Given a board and the
+      computer’s letter, determine where to move and return that move. if
+      computerLetter == “X”: playerLetter = “O” else: playerLetter = “X” # Here
+      is our algorithm for our Tic Tac Toe AI: # First, check if we can win in
+      the next move for i in range(1, 10): copy = getBoardCopy(board) if
+      isSpaceFree(copy, i): makeMove(copy, computerLetter, i) if isWinner(copy,
+      computerLetter): return i
+    </p>
+    <pre><code># Check if the player could win on their next move, and block them.
 for i in range(1, 10):
     copy = getBoardCopy(board)
     if isSpaceFree(copy, i):
@@ -828,10 +1247,18 @@ if isSpaceFree(board, 5):
     return 5
 # Move on one of the sides.
 return chooseRandomMoveFromList(board, [2, 4, 6, 8])</code></pre>
-<p>def isBoardFull(board): # Return True if every space on the board has been taken. Otherwise return False. for i in range(1, 10): if isSpaceFree(board, i): return False return True</p>
-<p>print(“Welcome to Tic Tac Toe!”)</p>
-<p>while True: # Reset the board theBoard = [" "] * 10 playerLetter, computerLetter = inputPlayerLetter() turn = whoGoesFirst() print(“The” + turn + " will go first.") gameIsPlaying = True</p>
-<pre><code>while gameIsPlaying:
+    <p>
+      def isBoardFull(board): # Return True if every space on the board has been
+      taken. Otherwise return False. for i in range(1, 10): if
+      isSpaceFree(board, i): return False return True
+    </p>
+    <p>print(“Welcome to Tic Tac Toe!”)</p>
+    <p>
+      while True: # Reset the board theBoard = [" "] * 10 playerLetter,
+      computerLetter = inputPlayerLetter() turn = whoGoesFirst() print(“The” +
+      turn + " will go first.") gameIsPlaying = True
+    </p>
+    <pre><code>while gameIsPlaying:
     if turn == &quot;player&quot;:
         # Player’s turn.
         drawBoard(theBoard)
@@ -867,25 +1294,72 @@ return chooseRandomMoveFromList(board, [2, 4, 6, 8])</code></pre>
 
 if not playAgain():
     break</code></pre>
-<h1 id="recursive-python-function-to-solve-the-tower-of-hanoi">Recursive Python function to solve the tower of hanoi</h1>
-<p>def TowerOfHanoi(n, source, destination, auxiliary): if n == 1: print(“Move disk 1 from source”, source, “to destination”, destination) return TowerOfHanoi(n - 1, source, auxiliary, destination) print(“Move disk”, n, “from source”, source, “to destination”, destination) TowerOfHanoi(n - 1, auxiliary, destination, source)</p>
-<h1 id="driver-code">Driver code</h1>
-<p>n = 4 TowerOfHanoi(n, “A”, “B”, “C”)</p>
-<p>def LeftMax(array, i): left = array[i] for j in range(i): # left=max(left,array[j]) if left &lt; array[j]: left = array[j] else: left = left return left</p>
-<p>def RightMax(array, i): right = array[i] for j in range(i + 1, len(array)): # right=max(right,array[j]) if right &lt; array[j]: right = array[j] else: right = right return right</p>
-<p>def TrappingWater(array): totalwater = 0 for i in range(1, len(array) - 1): leftMax = LeftMax(array, i) rightMax = RightMax(array, i) totalwater = totalwater + (min(leftMax, rightMax) - array[i]) return totalwater</p>
-<p>array = [2, 0, 2]</p>
-<p>print(TrappingWater(array))</p>
-<p>class node: def <strong>init</strong>(self, val): self.right = None self.left = None self.val = val</p>
-<p>root = node(1) root.left = node(2) root.right = node(3) root.left.right = node(5) root.left.left = node(4)</p>
-<p>def inorder_traversal(root): if root: inorder_traversal(root.left) print(root.val) inorder_traversal(root.right)</p>
-<p>def preorder_traversal(root): if root: print(root.val) preorder_traversal(root.left) preorder_traversal(root.right)</p>
-<p>def postorder_traversal(root): if root: postorder_traversal(root.left) postorder_traversal(root.right) print(root.val)</p>
-<p>print(“########################”) print(“inorder traversal: L N R”) inorder_traversal(root)</p>
-<p>print(“########################”) print(“preorder traversal: N L R”) preorder_traversal(root)</p>
-<p>print(“########################”) print(“postorder traversal: N R L”) postorder_traversal(root)</p>
-<p>class Tree: def <strong>init</strong>(self, data): self.data = data self.children = <a href="#section-9"></a> self.parent = None</p>
-<pre><code>def add_child(self, child):
+    <h1 id="recursive-python-function-to-solve-the-tower-of-hanoi">
+      Recursive Python function to solve the tower of hanoi
+    </h1>
+    <p>
+      def TowerOfHanoi(n, source, destination, auxiliary): if n == 1:
+      print(“Move disk 1 from source”, source, “to destination”, destination)
+      return TowerOfHanoi(n - 1, source, auxiliary, destination) print(“Move
+      disk”, n, “from source”, source, “to destination”, destination)
+      TowerOfHanoi(n - 1, auxiliary, destination, source)
+    </p>
+    <h1 id="driver-code">Driver code</h1>
+    <p>n = 4 TowerOfHanoi(n, “A”, “B”, “C”)</p>
+    <p>
+      def LeftMax(array, i): left = array[i] for j in range(i): #
+      left=max(left,array[j]) if left &lt; array[j]: left = array[j] else: left
+      = left return left
+    </p>
+    <p>
+      def RightMax(array, i): right = array[i] for j in range(i + 1,
+      len(array)): # right=max(right,array[j]) if right &lt; array[j]: right =
+      array[j] else: right = right return right
+    </p>
+    <p>
+      def TrappingWater(array): totalwater = 0 for i in range(1, len(array) -
+      1): leftMax = LeftMax(array, i) rightMax = RightMax(array, i) totalwater =
+      totalwater + (min(leftMax, rightMax) - array[i]) return totalwater
+    </p>
+    <p>array = [2, 0, 2]</p>
+    <p>print(TrappingWater(array))</p>
+    <p>
+      class node: def <strong>init</strong>(self, val): self.right = None
+      self.left = None self.val = val
+    </p>
+    <p>
+      root = node(1) root.left = node(2) root.right = node(3) root.left.right =
+      node(5) root.left.left = node(4)
+    </p>
+    <p>
+      def inorder_traversal(root): if root: inorder_traversal(root.left)
+      print(root.val) inorder_traversal(root.right)
+    </p>
+    <p>
+      def preorder_traversal(root): if root: print(root.val)
+      preorder_traversal(root.left) preorder_traversal(root.right)
+    </p>
+    <p>
+      def postorder_traversal(root): if root: postorder_traversal(root.left)
+      postorder_traversal(root.right) print(root.val)
+    </p>
+    <p>
+      print(“########################”) print(“inorder traversal: L N R”)
+      inorder_traversal(root)
+    </p>
+    <p>
+      print(“########################”) print(“preorder traversal: N L R”)
+      preorder_traversal(root)
+    </p>
+    <p>
+      print(“########################”) print(“postorder traversal: N R L”)
+      postorder_traversal(root)
+    </p>
+    <p>
+      class Tree: def <strong>init</strong>(self, data): self.data = data
+      self.children = <a href="#section-9"></a> self.parent = None
+    </p>
+    <pre><code>def add_child(self, child):
     child.parent = self
     self.children.append(child)
 
@@ -895,44 +1369,69 @@ def print_elements(self):
         print(&quot;  !-&quot; + i.data)
         for j in i.children:
             print(&quot;    !----&quot; + j.data)</code></pre>
-<p>root = Tree(“electronics”)</p>
-<p>laptop = Tree(“laptop”) laptop.add_child(Tree(“mac”)) laptop.add_child(Tree(“windows”))</p>
-<p>cell = Tree(“cell”) cell.add_child(Tree(“LG”)) cell.add_child(Tree(“apple”))</p>
-<p>root.add_child(laptop) root.add_child(cell)</p>
-<p>root.print_elements()</p>
-<p>class Node(object): def <strong>init</strong>(self, value): self.value = value self.left = None self.right = None</p>
-<p>def traverse_levelorder(root): if not root: return q = [root, True] # Use True as sentinel for end of row while len(q) &gt; 0: node = q.pop(0) print node.value, if node.left: q.append(node.left) if node.right: q.append(node.right) if q[0] is True: # End of row q.pop(0) if len(q) &gt; 0: q.append(True) print</p>
-<h1 id="httpswww.geeksforgeeks.orgfind-triplets-array-whose-sum-equal-zero">https://www.geeksforgeeks.org/find-triplets-array-whose-sum-equal-zero/</h1>
-<h1 id="on3">o(n^3)</h1>
-<h1 id="def-tripletarr">def Triplet(arr):</h1>
-<h1 id="n-lenarr">n = len(arr)</h1>
-<h1 id="found-false">found = False</h1>
-<h1 id="for-i-in-range0-n---2">for i in range(0, n - 2):</h1>
-<h1 id="for-j-in-rangei-1-n---1">for j in range(i + 1, n - 1):</h1>
-<h1 id="for-k-in-rangej-1-n">for k in range(j + 1, n):</h1>
-<h1 id="if-arri-arrj-arrk-0">if arr[i] + arr[j] + arr[k] == 0:</h1>
-<h1 id="printarri-arrj-arrk">print(arr[i], arr[j], arr[k])</h1>
-<h1 id="foundtrue">found=True</h1>
-<h1 id="section-6"></h1>
-<h1 id="if-not-found">if not found:</h1>
-<h1 id="printelement-not-found">print(“element not found”)</h1>
-<h1 id="section-7"></h1>
-<h1 id="section-8"></h1>
-<h1 id="arr0--1-2--3-1">arr=[0, -1, 2, -3, 1]</h1>
-<h1 id="section-9"></h1>
-<h1 id="tripletarr">Triplet(arr)</h1>
-<h1 id="optimal-soultion">optimal soultion</h1>
-<h1 id="on2">o(n^2)</h1>
-<p>def Triplet(arr): n = len(arr) found = True for i in range(n - 1): l = i + 1 r = n - 1 x = arr[i] while l &lt; r: if arr[l] + arr[r] + x == 0: print(arr[l], arr[r], x) l += 1 r -= 1 found = True elif arr[l] + arr[r] + x &lt; 0: l += 1 else: r -= 1</p>
-<pre><code>if not found:
+    <p>root = Tree(“electronics”)</p>
+    <p>
+      laptop = Tree(“laptop”) laptop.add_child(Tree(“mac”))
+      laptop.add_child(Tree(“windows”))
+    </p>
+    <p>
+      cell = Tree(“cell”) cell.add_child(Tree(“LG”))
+      cell.add_child(Tree(“apple”))
+    </p>
+    <p>root.add_child(laptop) root.add_child(cell)</p>
+    <p>root.print_elements()</p>
+    <p>
+      class Node(object): def <strong>init</strong>(self, value): self.value =
+      value self.left = None self.right = None
+    </p>
+    <p>
+      def traverse_levelorder(root): if not root: return q = [root, True] # Use
+      True as sentinel for end of row while len(q) &gt; 0: node = q.pop(0) print
+      node.value, if node.left: q.append(node.left) if node.right:
+      q.append(node.right) if q[0] is True: # End of row q.pop(0) if len(q) &gt;
+      0: q.append(True) print
+    </p>
+    <h1 id="httpswww.geeksforgeeks.orgfind-triplets-array-whose-sum-equal-zero">
+      https://www.geeksforgeeks.org/find-triplets-array-whose-sum-equal-zero/
+    </h1>
+    <h1 id="on3">o(n^3)</h1>
+    <h1 id="def-tripletarr">def Triplet(arr):</h1>
+    <h1 id="n-lenarr">n = len(arr)</h1>
+    <h1 id="found-false">found = False</h1>
+    <h1 id="for-i-in-range0-n---2">for i in range(0, n - 2):</h1>
+    <h1 id="for-j-in-rangei-1-n---1">for j in range(i + 1, n - 1):</h1>
+    <h1 id="for-k-in-rangej-1-n">for k in range(j + 1, n):</h1>
+    <h1 id="if-arri-arrj-arrk-0">if arr[i] + arr[j] + arr[k] == 0:</h1>
+    <h1 id="printarri-arrj-arrk">print(arr[i], arr[j], arr[k])</h1>
+    <h1 id="foundtrue">found=True</h1>
+    <h1 id="section-6"></h1>
+    <h1 id="if-not-found">if not found:</h1>
+    <h1 id="printelement-not-found">print(“element not found”)</h1>
+    <h1 id="section-7"></h1>
+    <h1 id="section-8"></h1>
+    <h1 id="arr0--1-2--3-1">arr=[0, -1, 2, -3, 1]</h1>
+    <h1 id="section-9"></h1>
+    <h1 id="tripletarr">Triplet(arr)</h1>
+    <h1 id="optimal-soultion">optimal soultion</h1>
+    <h1 id="on2">o(n^2)</h1>
+    <p>
+      def Triplet(arr): n = len(arr) found = True for i in range(n - 1): l = i +
+      1 r = n - 1 x = arr[i] while l &lt; r: if arr[l] + arr[r] + x == 0:
+      print(arr[l], arr[r], x) l += 1 r -= 1 found = True elif arr[l] + arr[r] +
+      x &lt; 0: l += 1 else: r -= 1
+    </p>
+    <pre><code>if not found:
     print(&quot;triplet not found&quot;)</code></pre>
-<p>arr = [0, -1, 2, -3, 1]</p>
-<p>Triplet(arr)</p>
-<h1 id="time-complexity-omn">Time complexity O(M*N)</h1>
-<h1 id="space-complexity-omn">Space Complexity O(M+N)</h1>
-<h1 id="method-1">Method 1</h1>
-<p>class Solution: # Function to return the count of number of elements in union of two arrays. def doUnion(self, a, n, b, m): c = a + b c.sort()</p>
-<pre><code>    d = []
+    <p>arr = [0, -1, 2, -3, 1]</p>
+    <p>Triplet(arr)</p>
+    <h1 id="time-complexity-omn">Time complexity O(M*N)</h1>
+    <h1 id="space-complexity-omn">Space Complexity O(M+N)</h1>
+    <h1 id="method-1">Method 1</h1>
+    <p>
+      class Solution: # Function to return the count of number of elements in
+      union of two arrays. def doUnion(self, a, n, b, m): c = a + b c.sort()
+    </p>
+    <pre><code>    d = []
     for i in c:
         if i not in d:
             d.append(i)
@@ -940,46 +1439,76 @@ def print_elements(self):
             pass
 
     return len(d)</code></pre>
-<p>if <strong>name</strong> == “<strong>main</strong>”: t = int(input()) for _ in range(t): n, m = [int(x) for x in input().strip().split()]</p>
-<pre><code>    a = [int(x) for x in input().strip().split()]
+    <p>
+      if <strong>name</strong> == “<strong>main</strong>”: t = int(input()) for
+      _ in range(t): n, m = [int(x) for x in input().strip().split()]
+    </p>
+    <pre><code>    a = [int(x) for x in input().strip().split()]
     b = [int(x) for x in input().strip().split()]
     ob = Solution()
 
     print(ob.doUnion(a, n, b, m))</code></pre>
-<h1 id="time-complexity-omonomlogmnlogn">Time complexity O(M)+O(N)+O(Mlog(M)+Nlog(N))</h1>
-<h1 id="space-complexity-onm">Space Complexity O(n+m)</h1>
-<h1 id="method-2">Method 2</h1>
-<p>class Solution: # Function to return the count of number of elements in union of two arrays. def doUnion(self, a, n, b, m): c = a + b c.sort() # O(Mlog(M))+O(Nlog(N)) sample_dict = {}</p>
-<pre><code>    for i in c:  # O(M)+O(N)
+    <h1 id="time-complexity-omonomlogmnlogn">
+      Time complexity O(M)+O(N)+O(Mlog(M)+Nlog(N))
+    </h1>
+    <h1 id="space-complexity-onm">Space Complexity O(n+m)</h1>
+    <h1 id="method-2">Method 2</h1>
+    <p>
+      class Solution: # Function to return the count of number of elements in
+      union of two arrays. def doUnion(self, a, n, b, m): c = a + b c.sort() #
+      O(Mlog(M))+O(Nlog(N)) sample_dict = {}
+    </p>
+    <pre><code>    for i in c:  # O(M)+O(N)
         if i in sample_dict.keys():
             sample_dict[i] += 1
         else:
             sample_dict[i] = 1
 
     return len([int(x) for x in sample_dict.values()])</code></pre>
-<p>if <strong>name</strong> == “<strong>main</strong>”: t = int(input()) for _ in range(t): n, m = [int(x) for x in input().strip().split()]</p>
-<pre><code>    a = [int(x) for x in input().strip().split()]
+    <p>
+      if <strong>name</strong> == “<strong>main</strong>”: t = int(input()) for
+      _ in range(t): n, m = [int(x) for x in input().strip().split()]
+    </p>
+    <pre><code>    a = [int(x) for x in input().strip().split()]
     b = [int(x) for x in input().strip().split()]
     ob = Solution()
 
     print(ob.doUnion(a, n, b, m))</code></pre>
-<p>def wave(arr, n): arr.sort() for i in range(0, n - 1, 2): arr[i], arr[i + 1] = arr[i + 1], arr[i]</p>
-<p>arr = [10, 90, 49, 2, 1, 5, 23]</p>
-<p>wave(arr, len(arr))</p>
-<p>for i in range(len(arr)): print(arr[i], end=" ")</p>
-<p>file = open(“sample.txt”, “r”)</p>
-<p>d = dict() for lines in file: lines = lines.strip() lines = lines.lower() words = lines.split(" ") for word in words: if word in d: d[word] = d[word] + 1 else: d[word] = 1</p>
-<p>find = str(input(“enter the word to count:”)) find = find.lower() if find in list(d.keys()): print(f“{find} :” + str(d.get(find))) else: print(“word not present!!”)</p>
-<p>def xor(arr, n):</p>
-<pre><code>xor_val = 0
+    <p>
+      def wave(arr, n): arr.sort() for i in range(0, n - 1, 2): arr[i], arr[i +
+      1] = arr[i + 1], arr[i]
+    </p>
+    <p>arr = [10, 90, 49, 2, 1, 5, 23]</p>
+    <p>wave(arr, len(arr))</p>
+    <p>for i in range(len(arr)): print(arr[i], end=" ")</p>
+    <p>file = open(“sample.txt”, “r”)</p>
+    <p>
+      d = dict() for lines in file: lines = lines.strip() lines = lines.lower()
+      words = lines.split(" ") for word in words: if word in d: d[word] =
+      d[word] + 1 else: d[word] = 1
+    </p>
+    <p>
+      find = str(input(“enter the word to count:”)) find = find.lower() if find
+      in list(d.keys()): print(f“{find} :” + str(d.get(find))) else: print(“word
+      not present!!”)
+    </p>
+    <p>def xor(arr, n):</p>
+    <pre><code>xor_val = 0
 for i in range(n):
     xor_val = xor_val ^ arr[i]
 return xor_val</code></pre>
-<p>arr = [3, 9, 12, 13, 15] n = len(arr) print(xor(arr, n))</p>
-<p>import pafy</p>
-<p>url = “https://www.youtube.com/watch?v=OE7wUUpJw6I&amp;list=PL2_aWCzGMAwLPEZrZIcNEq9ukGWPfLT4A” video = pafy.new(url) print(video.title)</p>
-<p>stream = pafy.new(url).streams</p>
-<p>best = video.getbest() for i in stream: print(i)</p>
-<p>print(best.resolution, best.extension) print(best.url) best.download(quiet=False)</p>
-</body>
+    <p>arr = [3, 9, 12, 13, 15] n = len(arr) print(xor(arr, n))</p>
+    <p>import pafy</p>
+    <p>
+      url =
+      “https://www.youtube.com/watch?v=OE7wUUpJw6I&amp;list=PL2_aWCzGMAwLPEZrZIcNEq9ukGWPfLT4A”
+      video = pafy.new(url) print(video.title)
+    </p>
+    <p>stream = pafy.new(url).streams</p>
+    <p>best = video.getbest() for i in stream: print(i)</p>
+    <p>
+      print(best.resolution, best.extension) print(best.url)
+      best.download(quiet=False)
+    </p>
+  </body>
 </html>

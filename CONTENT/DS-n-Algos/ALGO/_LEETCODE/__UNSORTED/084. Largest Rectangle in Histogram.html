@@ -1,157 +1,161 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
-<head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="pandoc" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>084. Largest Rectangle in Histogram</title>
-  <style type="text/css">
-      code{white-space: pre-wrap;}
-      span.smallcaps{font-variant: small-caps;}
-      span.underline{text-decoration: underline;}
-      div.column{display: inline-block; vertical-align: top; width: 50%;}
-  </style>
-</head>
-<body>
-<h2 id="largest-rectangle-in-histogram"><a href="https://leetcode.com/problems/largest-rectangle-in-histogram/description/">84. Largest Rectangle in Histogram</a></h2>
-<h3 id="problem">Problem:</h3>
-<p>Given <em>n</em> non-negative integers representing the histogram’s bar height where the width of each bar is 1, find the area of largest rectangle in the histogram.</p>
-<figure>
-<img src="https://leetcode.com/static/images/problemset/histogram.png" alt="histogram.png" /><figcaption>histogram.png</figcaption>
-</figure>
-<p>Above is a histogram where width of each bar is 1, given height = <code>[2,1,5,6,2,3]</code>.</p>
-<figure>
-<img src="https://leetcode.com/static/images/problemset/histogram_area.png" alt="histogram_area.png" /><figcaption>histogram_area.png</figcaption>
-</figure>
-<p>The largest rectangle is shown in the shaded area, which has area = <code>10</code> unit.</p>
-<p><strong>Example:</strong></p>
-<pre><code>Input: [2,1,5,6,2,3]
+  <head>
+    <meta charset="utf-8" />
+    <meta name="generator" content="pandoc" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=yes"
+    />
+    <title>084. Largest Rectangle in Histogram</title>
+    <style type="text/css">
+      code {
+        white-space: pre-wrap;
+      }
+      span.smallcaps {
+        font-variant: small-caps;
+      }
+      span.underline {
+        text-decoration: underline;
+      }
+      div.column {
+        display: inline-block;
+        vertical-align: top;
+        width: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <h2 id="largest-rectangle-in-histogram">
+      <a
+        href="https://leetcode.com/problems/largest-rectangle-in-histogram/description/"
+        >84. Largest Rectangle in Histogram</a
+      >
+    </h2>
+    <h3 id="problem">Problem:</h3>
+    <p>
+      Given <em>n</em> non-negative integers representing the histogram’s bar
+      height where the width of each bar is 1, find the area of largest
+      rectangle in the histogram.
+    </p>
+    <figure>
+      <img
+        src="https://leetcode.com/static/images/problemset/histogram.png"
+        alt="histogram.png"
+      />
+      <figcaption>histogram.png</figcaption>
+    </figure>
+    <p>
+      Above is a histogram where width of each bar is 1, given height =
+      <code>[2,1,5,6,2,3]</code>.
+    </p>
+    <figure>
+      <img
+        src="https://leetcode.com/static/images/problemset/histogram_area.png"
+        alt="histogram_area.png"
+      />
+      <figcaption>histogram_area.png</figcaption>
+    </figure>
+    <p>
+      The largest rectangle is shown in the shaded area, which has area =
+      <code>10</code> unit.
+    </p>
+    <p><strong>Example:</strong></p>
+    <pre><code>Input: [2,1,5,6,2,3]
 Output: 10</code></pre>
-<h3 id="solution">Solution:</h3>
-<p>The height of a rectangle is determined by the lowest bar inside of it. So the core idea is, for each bar, assume it is the lowest bar and see how far it can expand. Then we have <code>len(heights)</code> rectangles. Return the max area.</p>
-<p>For a bar <code>b</code> whose height is <code>h</code>, find the closest bar <code>b1</code> on the left that is lower than <code>h</code>, and <code>b2</code> on the right. The area of the rectangle is <code>h * (i2 - i1 - 1)</code>.</p>
-<p>Notice that if we just loop the bars from left to right, <code>b1</code> and <code>b2</code> of each bar may overlap.</p>
-<table>
-<thead>
-<tr class="header">
-<th style="text-align: center;">
-index
-</th>
-<th style="text-align: center;">
-height
-</th>
-<th style="text-align: center;">
-width
-</th>
-<th style="text-align: center;">
-area
-</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: center;">
-<code>i</code>
-</td>
-<td style="text-align: center;">
-<code>heights[i]</code>
-</td>
-<td style="text-align: center;">
-<code>i2 - i1 - 1</code>
-</td>
-<td style="text-align: center;">
-<code>height * width</code>
-</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">
-0
-</td>
-<td style="text-align: center;">
-2
-</td>
-<td style="text-align: center;">
-1 - -1 - 1
-</td>
-<td style="text-align: center;">
-2
-</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">
-1
-</td>
-<td style="text-align: center;">
-1
-</td>
-<td style="text-align: center;">
-6 - -1 - 1
-</td>
-<td style="text-align: center;">
-6
-</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">
-2
-</td>
-<td style="text-align: center;">
-5
-</td>
-<td style="text-align: center;">
-4 - 1 - 1
-</td>
-<td style="text-align: center;">
-10
-</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">
-3
-</td>
-<td style="text-align: center;">
-6
-</td>
-<td style="text-align: center;">
-4 - 2 - 1
-</td>
-<td style="text-align: center;">
-6
-</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">
-4
-</td>
-<td style="text-align: center;">
-2
-</td>
-<td style="text-align: center;">
-6 - 1 - 1
-</td>
-<td style="text-align: center;">
-8
-</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">
-5
-</td>
-<td style="text-align: center;">
-3
-</td>
-<td style="text-align: center;">
-6 - 4 - 1
-</td>
-<td style="text-align: center;">
-3
-</td>
-</tr>
-</tbody>
-</table>
-<p>Observe how <code>i1</code> and <code>i2</code> changes depending on the height.</p>
-<p>To reduce O(<em>n^2</em>) to O(<em>n</em>), we use a stack to store incremental <code>b</code>s. Because <code>b1</code> and <code>b2</code> are both lower than <code>b</code>, whenever we reach a bar that is lower than the top of the stack, we know it’s a <code>b2</code>. So stack top is a <code>b</code>. Second top is a <code>b1</code>. Keep popping the <code>b</code> to calculate areas until <code>b2</code> is no longer lower than stack top.</p>
-<pre><code>/**
+    <h3 id="solution">Solution:</h3>
+    <p>
+      The height of a rectangle is determined by the lowest bar inside of it. So
+      the core idea is, for each bar, assume it is the lowest bar and see how
+      far it can expand. Then we have <code>len(heights)</code> rectangles.
+      Return the max area.
+    </p>
+    <p>
+      For a bar <code>b</code> whose height is <code>h</code>, find the closest
+      bar <code>b1</code> on the left that is lower than <code>h</code>, and
+      <code>b2</code> on the right. The area of the rectangle is
+      <code>h * (i2 - i1 - 1)</code>.
+    </p>
+    <p>
+      Notice that if we just loop the bars from left to right,
+      <code>b1</code> and <code>b2</code> of each bar may overlap.
+    </p>
+    <table>
+      <thead>
+        <tr class="header">
+          <th style="text-align: center">index</th>
+          <th style="text-align: center">height</th>
+          <th style="text-align: center">width</th>
+          <th style="text-align: center">area</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="odd">
+          <td style="text-align: center">
+            <code>i</code>
+          </td>
+          <td style="text-align: center">
+            <code>heights[i]</code>
+          </td>
+          <td style="text-align: center">
+            <code>i2 - i1 - 1</code>
+          </td>
+          <td style="text-align: center">
+            <code>height * width</code>
+          </td>
+        </tr>
+        <tr class="even">
+          <td style="text-align: center">0</td>
+          <td style="text-align: center">2</td>
+          <td style="text-align: center">1 - -1 - 1</td>
+          <td style="text-align: center">2</td>
+        </tr>
+        <tr class="odd">
+          <td style="text-align: center">1</td>
+          <td style="text-align: center">1</td>
+          <td style="text-align: center">6 - -1 - 1</td>
+          <td style="text-align: center">6</td>
+        </tr>
+        <tr class="even">
+          <td style="text-align: center">2</td>
+          <td style="text-align: center">5</td>
+          <td style="text-align: center">4 - 1 - 1</td>
+          <td style="text-align: center">10</td>
+        </tr>
+        <tr class="odd">
+          <td style="text-align: center">3</td>
+          <td style="text-align: center">6</td>
+          <td style="text-align: center">4 - 2 - 1</td>
+          <td style="text-align: center">6</td>
+        </tr>
+        <tr class="even">
+          <td style="text-align: center">4</td>
+          <td style="text-align: center">2</td>
+          <td style="text-align: center">6 - 1 - 1</td>
+          <td style="text-align: center">8</td>
+        </tr>
+        <tr class="odd">
+          <td style="text-align: center">5</td>
+          <td style="text-align: center">3</td>
+          <td style="text-align: center">6 - 4 - 1</td>
+          <td style="text-align: center">3</td>
+        </tr>
+      </tbody>
+    </table>
+    <p>
+      Observe how <code>i1</code> and <code>i2</code> changes depending on the
+      height.
+    </p>
+    <p>
+      To reduce O(<em>n^2</em>) to O(<em>n</em>), we use a stack to store
+      incremental <code>b</code>s. Because <code>b1</code> and
+      <code>b2</code> are both lower than <code>b</code>, whenever we reach a
+      bar that is lower than the top of the stack, we know it’s a
+      <code>b2</code>. So stack top is a <code>b</code>. Second top is a
+      <code>b1</code>. Keep popping the <code>b</code> to calculate areas until
+      <code>b2</code> is no longer lower than stack top.
+    </p>
+    <pre><code>/**
  * @param {number[]} heights
  * @return {number}
  */
@@ -168,6 +172,11 @@ var largestRectangleArea = function(heights) {
   }
   return max
 };</code></pre>
-<p><em>Template generated via <a href="https://github.com/crimx/crx-leetmark">Leetmark</a>.</em></p>
-</body>
+    <p>
+      <em
+        >Template generated via
+        <a href="https://github.com/crimx/crx-leetmark">Leetmark</a>.</em
+      >
+    </p>
+  </body>
 </html>

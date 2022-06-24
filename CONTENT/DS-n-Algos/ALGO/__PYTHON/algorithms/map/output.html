@@ -1,20 +1,43 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
-<head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="pandoc" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>output</title>
-  <style type="text/css">
-      code{white-space: pre-wrap;}
-      span.smallcaps{font-variant: small-caps;}
-      span.underline{text-decoration: underline;}
-      div.column{display: inline-block; vertical-align: top; width: 50%;}
-  </style>
-</head>
-<body>
-<p>class HashTable(object): """ HashMap Data Type HashMap() Create a new, empty map. It returns an empty map collection. put(key, val) Add a new key-value pair to the map. If the key is already in the map then replace the old value with the new value. get(key) Given a key, return the value stored in the map or None otherwise. del_(key) or del map[key] Delete the key-value pair from the map using a statement of the form del map[key]. len() Return the number of key-value pairs stored in the map. in Return True for a statement of the form key in map, if the given key is in the map, False otherwise. """</p>
-<pre><code>_empty = object()
+  <head>
+    <meta charset="utf-8" />
+    <meta name="generator" content="pandoc" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=yes"
+    />
+    <title>output</title>
+    <style type="text/css">
+      code {
+        white-space: pre-wrap;
+      }
+      span.smallcaps {
+        font-variant: small-caps;
+      }
+      span.underline {
+        text-decoration: underline;
+      }
+      div.column {
+        display: inline-block;
+        vertical-align: top;
+        width: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <p>
+      class HashTable(object): """ HashMap Data Type HashMap() Create a new,
+      empty map. It returns an empty map collection. put(key, val) Add a new
+      key-value pair to the map. If the key is already in the map then replace
+      the old value with the new value. get(key) Given a key, return the value
+      stored in the map or None otherwise. del_(key) or del map[key] Delete the
+      key-value pair from the map using a statement of the form del map[key].
+      len() Return the number of key-value pairs stored in the map. in Return
+      True for a statement of the form key in map, if the given key is in the
+      map, False otherwise. """
+    </p>
+    <pre><code>_empty = object()
 _deleted = object()
 
 def __init__(self, size=11):
@@ -98,8 +121,8 @@ def __setitem__(self, key, value):
 
 def __len__(self):
     return self._len</code></pre>
-<p>class ResizableHashTable(HashTable): MIN_SIZE = 8</p>
-<pre><code>def __init__(self):
+    <p>class ResizableHashTable(HashTable): MIN_SIZE = 8</p>
+    <pre><code>def __init__(self):
     super().__init__(self.MIN_SIZE)
 
 def put(self, key, value):
@@ -117,23 +140,62 @@ def __resize(self):
     for key, value in zip(keys, values):
         if key is not self._empty and key is not self._deleted:
             self.put(key, value)</code></pre>
-<p>from .hashtable import <em> from .separate_chaining_hashtable import </em> from .word<em>pattern import </em> from .is<em>isomorphic import </em> from .is_anagram import *</p>
-<p>""" Given two strings s and t , write a function to determine if t is an anagram of s.</p>
-<p>Example 1: Input: s = “anagram”, t = “nagaram” Output: true</p>
-<p>Example 2: Input: s = “rat”, t = “car” Output: false</p>
-<p>Note: You may assume the string contains only lowercase alphabets.</p>
-<p>Reference: https://leetcode.com/problems/valid-anagram/description/ """</p>
-<p>def is_anagram(s, t): """ :type s: str :type t: str :rtype: bool """ maps = {} mapt = {} for i in s: maps[i] = maps.get(i, 0) + 1 for i in t: mapt[i] = mapt.get(i, 0) + 1 return maps == mapt</p>
-<p>""" Given two strings s and t, determine if they are isomorphic. Two strings are isomorphic if the characters in s can be replaced to get t. All occurrences of a character must be replaced with another character while preserving the order of characters. No two characters may map to the same character but a character may map to itself.</p>
-<p>Example 1: Input: s = “egg”, t = “add” Output: true</p>
-<p>Example 2: Input: s = “foo”, t = “bar” Output: false</p>
-<p>Example 3: Input: s = “paper”, t = “title” Output: true Reference: https://leetcode.com/problems/isomorphic-strings/description/ """</p>
-<p>def is_isomorphic(s, t): """ :type s: str :type t: str :rtype: bool """ if len(s) != len(t): return False dict = {} set_value = set() for i in range(len(s)): if s[i] not in dict: if t[i] in set_value: return False dict[s[i]] = t[i] set_value.add(t[i]) else: if dict[s[i]] != t[i]: return False return True</p>
-<p>""" Given string a and b, with b containing all distinct characters, find the longest common sub sequence’s length.</p>
-<p>Expected complexity O(n logn). """</p>
-<p>def max_common_sub_string(s1, s2): # Assuming s2 has all unique chars s2dic = {s2[i]: i for i in range(len(s2))} maxr = 0 subs = "" i = 0 while i &lt; len(s1): if s1[i] in s2dic: j = s2dic[s1[i]] k = i while j &lt; len(s2) and k &lt; len(s1) and s1[k] == s2[j]: k += 1 j += 1 if k - i &gt; maxr: maxr = k - i subs = s1[i:k] i = k else: i += 1 return subs</p>
-<p>def longest_palindromic_subsequence(str): n = len(str)</p>
-<pre><code># Create a table to store results of subproblems
+    <p>
+      from .hashtable import
+      <em> from .separate_chaining_hashtable import </em> from .word<em
+        >pattern import
+      </em>
+      from .is<em>isomorphic import </em> from .is_anagram import *
+    </p>
+    <p>
+      """ Given two strings s and t , write a function to determine if t is an
+      anagram of s.
+    </p>
+    <p>Example 1: Input: s = “anagram”, t = “nagaram” Output: true</p>
+    <p>Example 2: Input: s = “rat”, t = “car” Output: false</p>
+    <p>Note: You may assume the string contains only lowercase alphabets.</p>
+    <p>
+      Reference: https://leetcode.com/problems/valid-anagram/description/ """
+    </p>
+    <p>
+      def is_anagram(s, t): """ :type s: str :type t: str :rtype: bool """ maps
+      = {} mapt = {} for i in s: maps[i] = maps.get(i, 0) + 1 for i in t:
+      mapt[i] = mapt.get(i, 0) + 1 return maps == mapt
+    </p>
+    <p>
+      """ Given two strings s and t, determine if they are isomorphic. Two
+      strings are isomorphic if the characters in s can be replaced to get t.
+      All occurrences of a character must be replaced with another character
+      while preserving the order of characters. No two characters may map to the
+      same character but a character may map to itself.
+    </p>
+    <p>Example 1: Input: s = “egg”, t = “add” Output: true</p>
+    <p>Example 2: Input: s = “foo”, t = “bar” Output: false</p>
+    <p>
+      Example 3: Input: s = “paper”, t = “title” Output: true Reference:
+      https://leetcode.com/problems/isomorphic-strings/description/ """
+    </p>
+    <p>
+      def is_isomorphic(s, t): """ :type s: str :type t: str :rtype: bool """ if
+      len(s) != len(t): return False dict = {} set_value = set() for i in
+      range(len(s)): if s[i] not in dict: if t[i] in set_value: return False
+      dict[s[i]] = t[i] set_value.add(t[i]) else: if dict[s[i]] != t[i]: return
+      False return True
+    </p>
+    <p>
+      """ Given string a and b, with b containing all distinct characters, find
+      the longest common sub sequence’s length.
+    </p>
+    <p>Expected complexity O(n logn). """</p>
+    <p>
+      def max_common_sub_string(s1, s2): # Assuming s2 has all unique chars
+      s2dic = {s2[i]: i for i in range(len(s2))} maxr = 0 subs = "" i = 0 while
+      i &lt; len(s1): if s1[i] in s2dic: j = s2dic[s1[i]] k = i while j &lt;
+      len(s2) and k &lt; len(s1) and s1[k] == s2[j]: k += 1 j += 1 if k - i &gt;
+      maxr: maxr = k - i subs = s1[i:k] i = k else: i += 1 return subs
+    </p>
+    <p>def longest_palindromic_subsequence(str): n = len(str)</p>
+    <pre><code># Create a table to store results of subproblems
 L = [[0 for x in range(n)] for x in range(n)]
 
 for i in range(n):
@@ -150,11 +212,22 @@ for sub_string_length in range(2, n + 1):
             L[i][j] = max(L[i][j - 1], L[i + 1][j])
 
 return L[0][n - 1]</code></pre>
-<p>""" Design a data structure that supports all following operations in average O(1) time.</p>
-<p>insert(val): Inserts an item val to the set if not already present. remove(val): Removes an item val from the set if present. getRandom: Returns a random element from current set of elements. Each element must have the same probability of being returned. """</p>
-<p>import random</p>
-<p>class RandomizedSet: def <strong>init</strong>(self): self.nums = [] self.idxs = {}</p>
-<pre><code>def insert(self, val):
+    <p>
+      """ Design a data structure that supports all following operations in
+      average O(1) time.
+    </p>
+    <p>
+      insert(val): Inserts an item val to the set if not already present.
+      remove(val): Removes an item val from the set if present. getRandom:
+      Returns a random element from current set of elements. Each element must
+      have the same probability of being returned. """
+    </p>
+    <p>import random</p>
+    <p>
+      class RandomizedSet: def <strong>init</strong>(self): self.nums = []
+      self.idxs = {}
+    </p>
+    <pre><code>def insert(self, val):
     if val not in self.idxs:
         self.nums.append(val)
         self.idxs[val] = len(self.nums) - 1
@@ -173,11 +246,26 @@ def remove(self, val):
 def get_random(self):
     idx = random.randint(0, len(self.nums) - 1)
     return self.nums[idx]</code></pre>
-<p>if <strong>name</strong> == “<strong>main</strong>”: rs = RandomizedSet() print(“insert 1:”, rs.insert(1)) print(“insert 2:”, rs.insert(2)) print(“insert 3:”, rs.insert(3)) print(“insert 4:”, rs.insert(4)) print(“remove 3:”, rs.remove(3)) print(“remove 3:”, rs.remove(3)) print(“remove 1:”, rs.remove(1)) print(“random:”, rs.get_random()) print(“random:”, rs.get_random()) print(“random:”, rs.get_random()) print(“random:”, rs.get_random())</p>
-<p>import unittest</p>
-<p>class Node(object): def <strong>init</strong>(self, key=None, value=None, next=None): self.key = key self.value = value self.next = next</p>
-<p>class SeparateChainingHashTable(object): """ HashTable Data Type: By having each bucket contain a linked list of elements that are hashed to that bucket.</p>
-<pre><code>Usage:
+    <p>
+      if <strong>name</strong> == “<strong>main</strong>”: rs = RandomizedSet()
+      print(“insert 1:”, rs.insert(1)) print(“insert 2:”, rs.insert(2))
+      print(“insert 3:”, rs.insert(3)) print(“insert 4:”, rs.insert(4))
+      print(“remove 3:”, rs.remove(3)) print(“remove 3:”, rs.remove(3))
+      print(“remove 1:”, rs.remove(1)) print(“random:”, rs.get_random())
+      print(“random:”, rs.get_random()) print(“random:”, rs.get_random())
+      print(“random:”, rs.get_random())
+    </p>
+    <p>import unittest</p>
+    <p>
+      class Node(object): def <strong>init</strong>(self, key=None, value=None,
+      next=None): self.key = key self.value = value self.next = next
+    </p>
+    <p>
+      class SeparateChainingHashTable(object): """ HashTable Data Type: By
+      having each bucket contain a linked list of elements that are hashed to
+      that bucket.
+    </p>
+    <pre><code>Usage:
 &gt;&gt;&gt; table = SeparateChainingHashTable() # Create a new, empty map.
 &gt;&gt;&gt; table.put(&#39;hello&#39;, &#39;world&#39;) # Add a new key-value pair.
 &gt;&gt;&gt; len(table) # Return the number of key-value pairs stored in the map.
@@ -247,14 +335,46 @@ def __delitem__(self, key):
 
 def __setitem__(self, key, value):
     self.put(key, value)</code></pre>
-<p>""" Determine if a Sudoku is valid, according to: Sudoku Puzzles - The Rules.</p>
-<p>The Sudoku board could be partially filled, where empty cells are filled with the character ‘.’. """</p>
-<p>def is_valid_sudoku(self, board): seen = [] for i, row in enumerate(board): for j, c in enumerate(row): if c != “.”: seen += [(c, j), (i, c), (i / 3, j / 3, c)] return len(seen) == len(set(seen))</p>
-<p>""" Given a pattern and a string str, find if str follows the same pattern. Here follow means a full match, such that there is a bijection between a letter in pattern and a non-empty word in str.</p>
-<p>Example 1: Input: pattern = “abba”, str = “dog cat cat dog” Output: true</p>
-<p>Example 2: Input:pattern = “abba”, str = “dog cat cat fish” Output: false</p>
-<p>Example 3: Input: pattern = “aaaa”, str = “dog cat cat dog” Output: false</p>
-<p>Example 4: Input: pattern = “abba”, str = “dog dog dog dog” Output: false Notes: You may assume pattern contains only lowercase letters, and str contains lowercase letters separated by a single space. Reference: https://leetcode.com/problems/word-pattern/description/ """</p>
-<p>def word_pattern(pattern, str): dict = {} set_value = set() list_str = str.split() if len(list_str) != len(pattern): return False for i in range(len(pattern)): if pattern[i] not in dict: if list_str[i] in set_value: return False dict[pattern[i]] = list_str[i] set_value.add(list_str[i]) else: if dict[pattern[i]] != list_str[i]: return False return True</p>
-</body>
+    <p>
+      """ Determine if a Sudoku is valid, according to: Sudoku Puzzles - The
+      Rules.
+    </p>
+    <p>
+      The Sudoku board could be partially filled, where empty cells are filled
+      with the character ‘.’. """
+    </p>
+    <p>
+      def is_valid_sudoku(self, board): seen = [] for i, row in
+      enumerate(board): for j, c in enumerate(row): if c != “.”: seen += [(c,
+      j), (i, c), (i / 3, j / 3, c)] return len(seen) == len(set(seen))
+    </p>
+    <p>
+      """ Given a pattern and a string str, find if str follows the same
+      pattern. Here follow means a full match, such that there is a bijection
+      between a letter in pattern and a non-empty word in str.
+    </p>
+    <p>
+      Example 1: Input: pattern = “abba”, str = “dog cat cat dog” Output: true
+    </p>
+    <p>
+      Example 2: Input:pattern = “abba”, str = “dog cat cat fish” Output: false
+    </p>
+    <p>
+      Example 3: Input: pattern = “aaaa”, str = “dog cat cat dog” Output: false
+    </p>
+    <p>
+      Example 4: Input: pattern = “abba”, str = “dog dog dog dog” Output: false
+      Notes: You may assume pattern contains only lowercase letters, and str
+      contains lowercase letters separated by a single space. Reference:
+      https://leetcode.com/problems/word-pattern/description/ """
+    </p>
+    <p>
+      def word_pattern(pattern, str): dict = {} set_value = set() list_str =
+      str.split() if len(list_str) != len(pattern): return False for i in
+      range(len(pattern)): if pattern[i] not in dict: if list_str[i] in
+      set_value: return False dict[pattern[i]] = list_str[i]
+      set_value.add(list_str[i]) else: if dict[pattern[i]] != list_str[i]:
+      return False return True
+    </p>
+  </body>
 </html>

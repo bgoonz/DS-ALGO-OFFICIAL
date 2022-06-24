@@ -1,39 +1,74 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
-<head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="pandoc" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>080. Remove Duplicates from Sorted Array II</title>
-  <style type="text/css">
-      code{white-space: pre-wrap;}
-      span.smallcaps{font-variant: small-caps;}
-      span.underline{text-decoration: underline;}
-      div.column{display: inline-block; vertical-align: top; width: 50%;}
-  </style>
-</head>
-<body>
-<h2 id="remove-duplicates-from-sorted-array-ii"><a href="https://leetcode.com/problems/remove-duplicates-from-sorted-array-ii/description/">80. Remove Duplicates from Sorted Array II</a></h2>
-<h3 id="problem">Problem:</h3>
-<p>Given a sorted array <em>nums</em>, remove the duplicates <a href="https://en.wikipedia.org/wiki/In-place_algorithm"><strong>in-place</strong></a> such that duplicates appeared at most <em>twice</em> and return the new length.</p>
-<p>Do not allocate extra space for another array, you must do this by <strong>modifying the input array in-place</strong> with O(1) extra memory.</p>
-<p><strong>Example 1:</strong></p>
-<pre><code>Given nums = [1,1,1,2,2,3],
+  <head>
+    <meta charset="utf-8" />
+    <meta name="generator" content="pandoc" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=yes"
+    />
+    <title>080. Remove Duplicates from Sorted Array II</title>
+    <style type="text/css">
+      code {
+        white-space: pre-wrap;
+      }
+      span.smallcaps {
+        font-variant: small-caps;
+      }
+      span.underline {
+        text-decoration: underline;
+      }
+      div.column {
+        display: inline-block;
+        vertical-align: top;
+        width: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <h2 id="remove-duplicates-from-sorted-array-ii">
+      <a
+        href="https://leetcode.com/problems/remove-duplicates-from-sorted-array-ii/description/"
+        >80. Remove Duplicates from Sorted Array II</a
+      >
+    </h2>
+    <h3 id="problem">Problem:</h3>
+    <p>
+      Given a sorted array <em>nums</em>, remove the duplicates
+      <a href="https://en.wikipedia.org/wiki/In-place_algorithm"
+        ><strong>in-place</strong></a
+      >
+      such that duplicates appeared at most <em>twice</em> and return the new
+      length.
+    </p>
+    <p>
+      Do not allocate extra space for another array, you must do this by
+      <strong>modifying the input array in-place</strong> with O(1) extra
+      memory.
+    </p>
+    <p><strong>Example 1:</strong></p>
+    <pre><code>Given nums = [1,1,1,2,2,3],
 
 Your function should return length = 5, with the first five elements of nums being 1, 1, 2, 2 and 3 respectively.
 
 It doesn&#39;t matter what you leave beyond the returned length.</code></pre>
-<p><strong>Example 2:</strong></p>
-<pre><code>Given nums = [0,0,1,1,1,1,2,3,3],
+    <p><strong>Example 2:</strong></p>
+    <pre><code>Given nums = [0,0,1,1,1,1,2,3,3],
 
 Your function should return length = 7, with the first seven elements of nums being modified to 0, 0, 1, 1, 2, 3 and 3 respectively.
 
 It doesn&#39;t matter what values are set beyond the returned length.</code></pre>
-<p><strong>Clarification:</strong></p>
-<p>Confused why the returned value is an integer but your answer is an array?</p>
-<p>Note that the input array is passed in by <strong>reference</strong>, which means modification to the input array will be known to the caller as well.</p>
-<p>Internally you can think of this:</p>
-<pre><code>// nums is passed in by reference. (i.e., without making a copy)
+    <p><strong>Clarification:</strong></p>
+    <p>
+      Confused why the returned value is an integer but your answer is an array?
+    </p>
+    <p>
+      Note that the input array is passed in by <strong>reference</strong>,
+      which means modification to the input array will be known to the caller as
+      well.
+    </p>
+    <p>Internally you can think of this:</p>
+    <pre><code>// nums is passed in by reference. (i.e., without making a copy)
 int len = removeDuplicates(nums);
 
 // any modification to nums in your function would be known by the caller.
@@ -41,9 +76,14 @@ int len = removeDuplicates(nums);
 for (int i = 0; i &lt; len; i++) {
     print(nums[i]);
 }</code></pre>
-<h3 id="solution">Solution:</h3>
-<p>Similar to <a href="./026.%20Remove%20Duplicates%20from%20Sorted%20Array.md">26. Remove Duplicates from Sorted Array</a>.</p>
-<pre><code>/**
+    <h3 id="solution">Solution:</h3>
+    <p>
+      Similar to
+      <a href="./026.%20Remove%20Duplicates%20from%20Sorted%20Array.md"
+        >26. Remove Duplicates from Sorted Array</a
+      >.
+    </p>
+    <pre><code>/**
  * @param {number[]} nums
  * @return {number}
  */
@@ -56,6 +96,11 @@ var removeDuplicates = function(nums) {
   }
   return len
 };</code></pre>
-<p><em>Template generated via <a href="https://github.com/crimx/crx-leetmark">Leetmark</a>.</em></p>
-</body>
+    <p>
+      <em
+        >Template generated via
+        <a href="https://github.com/crimx/crx-leetmark">Leetmark</a>.</em
+      >
+    </p>
+  </body>
 </html>
