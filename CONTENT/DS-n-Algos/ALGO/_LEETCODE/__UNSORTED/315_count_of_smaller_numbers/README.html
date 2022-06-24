@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>README</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+</head>
+<body>
+<p>This problem can be solved by sorting:</p>
+<p>We will do insertion sort with binary search to find the place to insert, we need to record 2 things for each number:</p>
+<ol type="1">
+<li>C1 - The number of elements less than or equal to N when N is inserted</li>
+<li>C2 - The index of N after the whole list has been sorted</li>
+</ol>
+<p><code>C2-C1</code> is the number of smaller element after N</p>
+<p>But we need to output the counts in original sequence, this can be done by carrying the original index with the number, and finally sorting by this index.</p>
+</body>
+</html>

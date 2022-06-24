@@ -1,57 +1,33 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="generator" content="pandoc" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0, user-scalable=yes"
-    />
-    <title>097. Interleaving String</title>
-    <style type="text/css">
-      code {
-        white-space: pre-wrap;
-      }
-      span.smallcaps {
-        font-variant: small-caps;
-      }
-      span.underline {
-        text-decoration: underline;
-      }
-      div.column {
-        display: inline-block;
-        vertical-align: top;
-        width: 50%;
-      }
-    </style>
-  </head>
-  <body>
-    <h2 id="interleaving-string">
-      <a href="https://leetcode.com/problems/interleaving-string/description/"
-        >97. Interleaving String</a
-      >
-    </h2>
-    <h3 id="problem">Problem:</h3>
-    <p>
-      Given <em>s1</em>, <em>s2</em>, <em>s3</em>, find whether <em>s3</em> is
-      formed by the interleaving of <em>s1</em> and <em>s2</em>.
-    </p>
-    <p><strong>Example 1:</strong></p>
-    <pre><code>Input: s1 = &quot;aabcc&quot;, s2 = &quot;dbbca&quot;, s3 = &quot;aadbbcbcac&quot;
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>097. Interleaving String</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+</head>
+<body>
+<h2 id="interleaving-string"><a href="https://leetcode.com/problems/interleaving-string/description/">97. Interleaving String</a></h2>
+<h3 id="problem">Problem:</h3>
+<p>Given <em>s1</em>, <em>s2</em>, <em>s3</em>, find whether <em>s3</em> is formed by the interleaving of <em>s1</em> and <em>s2</em>.</p>
+<p><strong>Example 1:</strong></p>
+<pre><code>Input: s1 = &quot;aabcc&quot;, s2 = &quot;dbbca&quot;, s3 = &quot;aadbbcbcac&quot;
 Output: true</code></pre>
-    <p><strong>Example 2:</strong></p>
-    <pre><code>Input: s1 = &quot;aabcc&quot;, s2 = &quot;dbbca&quot;, s3 = &quot;aadbbbaccc&quot;
+<p><strong>Example 2:</strong></p>
+<pre><code>Input: s1 = &quot;aabcc&quot;, s2 = &quot;dbbca&quot;, s3 = &quot;aadbbbaccc&quot;
 Output: false</code></pre>
-    <h3 id="solution">Solution:</h3>
-    <p>
-      Define <code>f(i, j)</code> to be whether <code>s3[0...i+j-1)</code> can
-      be formed by the interleaving of <code>s1[0...i)</code> and
-      <code>s2[0...j)</code>.
-    </p>
-    <pre><code>f(i, j) = true, i &lt;= 0 || j &lt;= 0 // meaningless, skipped
+<h3 id="solution">Solution:</h3>
+<p>Define <code>f(i, j)</code> to be whether <code>s3[0...i+j-1)</code> can be formed by the interleaving of <code>s1[0...i)</code> and <code>s2[0...j)</code>.</p>
+<pre><code>f(i, j) = true, i &lt;= 0 || j &lt;= 0 // meaningless, skipped
 f(i, j) = f(i-1, j) &amp;&amp; s1[i-1] == s3[i+j-1] || f(i, j-1) &amp;&amp; s2[j-1] == s3[i+j-1], 0 &lt; i &lt;= len(s1), 0 &lt; j &lt;= len(s2)</code></pre>
-    <p>Dynamic array can be used.</p>
-    <pre><code>/**
+<p>Dynamic array can be used.</p>
+<pre><code>/**
  * @param {string} s1
  * @param {string} s2
  * @param {string} s3
@@ -74,8 +50,6 @@ var isInterleave = function(s1, s2, s3) {
   }
   return dp[len2]
 };</code></pre>
-    <br />
-    <hr />
-    <br />
-  </body>
+<p><em>Template generated via <a href="https://github.com/crimx/crx-leetmark">Leetmark</a>.</em></p>
+</body>
 </html>

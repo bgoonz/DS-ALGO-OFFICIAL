@@ -1,71 +1,117 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
-<head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="pandoc" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>116. Populating Next Right Pointers in Each Node</title>
-  <style type="text/css">
-      code{white-space: pre-wrap;}
-      span.smallcaps{font-variant: small-caps;}
-      span.underline{text-decoration: underline;}
-      div.column{display: inline-block; vertical-align: top; width: 50%;}
-  </style>
-</head>
-<body>
-<h2 id="populating-next-right-pointers-in-each-node"><a href="https://leetcode.com/problems/populating-next-right-pointers-in-each-node/description/">116. Populating Next Right Pointers in Each Node</a></h2>
-<h3 id="problem">Problem:</h3>
-<p>Given a binary tree</p>
-<pre><code>struct TreeLinkNode {
+  <head>
+    <meta charset="utf-8" />
+    <meta name="generator" content="pandoc" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=yes"
+    />
+    <title>116. Populating Next Right Pointers in Each Node</title>
+    <style type="text/css">
+      code {
+        white-space: pre-wrap;
+      }
+      span.smallcaps {
+        font-variant: small-caps;
+      }
+      span.underline {
+        text-decoration: underline;
+      }
+      div.column {
+        display: inline-block;
+        vertical-align: top;
+        width: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <h2 id="populating-next-right-pointers-in-each-node">
+      <a
+        href="https://leetcode.com/problems/populating-next-right-pointers-in-each-node/description/"
+        >116. Populating Next Right Pointers in Each Node</a
+      >
+    </h2>
+    <h3 id="problem">Problem:</h3>
+    <p>Given a binary tree</p>
+    <pre><code>struct TreeLinkNode {
   TreeLinkNode *left;
   TreeLinkNode *right;
   TreeLinkNode *next;
 }</code></pre>
-<p>Populate each next pointer to point to its next right node. If there is no next right node, the next pointer should be set to <code>NULL</code>.</p>
-<p>Initially, all next pointers are set to <code>NULL</code>.</p>
-<p><strong>Note:</strong></p>
-<ul>
-<li>You may only use constant extra space.</li>
-<li>Recursive approach is fine, implicit stack space does not count as extra space for this problem.</li>
-<li>You may assume that it is a perfect binary tree (ie, all leaves are at the same level, and every parent has two children).</li>
-</ul>
-<p><strong>Example:</strong></p>
-<p>Given the following perfect binary tree,</p>
-<pre><code>     1
+    <p>
+      Populate each next pointer to point to its next right node. If there is no
+      next right node, the next pointer should be set to <code>NULL</code>.
+    </p>
+    <p>Initially, all next pointers are set to <code>NULL</code>.</p>
+    <p><strong>Note:</strong></p>
+    <ul>
+      <li>You may only use constant extra space.</li>
+      <li>
+        Recursive approach is fine, implicit stack space does not count as extra
+        space for this problem.
+      </li>
+      <li>
+        You may assume that it is a perfect binary tree (ie, all leaves are at
+        the same level, and every parent has two children).
+      </li>
+    </ul>
+    <p><strong>Example:</strong></p>
+    <p>Given the following perfect binary tree,</p>
+    <pre><code>     1
    /  \
   2    3
  / \  / \
 4  5  6  7</code></pre>
-<p>After calling your function, the tree should look like:</p>
-<pre><code>     1 -&gt; NULL
+    <p>After calling your function, the tree should look like:</p>
+    <pre><code>     1 -&gt; NULL
    /  \
   2 -&gt; 3 -&gt; NULL
  / \  / \
 4-&gt;5-&gt;6-&gt;7 -&gt; NULL</code></pre>
-<h3 id="solution">Solution:</h3>
-<h4 id="one">ONE</h4>
-<p>Recursive.</p>
-<p>For every <code>node</code>:</p>
-<ul>
-<li>Left child: points to <code>node.right</code>.</li>
-<li><p>Right child: points to <code>node.next.left</code> if <code>node.next</code> exists.</p>
-<p>/**</p>
-<ul>
-<li>Definition for binary tree with next pointer.</li>
-<li>function TreeLinkNode(val) {</li>
-<li><p>this.val = val;</p></li>
-<li><p>this.left = this.right = this.next = null;</p></li>
-<li><p>} */</p></li>
-</ul>
-<p>/**</p>
-<ul>
-<li><span class="citation" data-cites="param"><span class="citation" data-cites="param">@param</span></span> {TreeLinkNode} root</li>
-<li><span class="citation" data-cites="return"><span class="citation" data-cites="return">@return</span></span> {void} Do not return anything, modify tree in-place instead. */ var connect = function(root) { if (!root) { return } if (root.left !== null) { root.left.next = root.right connect(root.left) } if (root.right !== null) { if (root.next !== null) { root.right.next = root.next.left } connect(root.right) } };</li>
-</ul></li>
-</ul>
-<h4 id="two">TWO</h4>
-<p>Level order traversal.</p>
-<pre><code>/**
+    <h3 id="solution">Solution:</h3>
+    <h4 id="one">ONE</h4>
+    <p>Recursive.</p>
+    <p>For every <code>node</code>:</p>
+    <ul>
+      <li>Left child: points to <code>node.right</code>.</li>
+      <li>
+        <p>
+          Right child: points to <code>node.next.left</code> if
+          <code>node.next</code> exists.
+        </p>
+        <p>/**</p>
+        <ul>
+          <li>Definition for binary tree with next pointer.</li>
+          <li>function TreeLinkNode(val) {</li>
+          <li><p>this.val = val;</p></li>
+          <li><p>this.left = this.right = this.next = null;</p></li>
+          <li><p>} */</p></li>
+        </ul>
+        <p>/**</p>
+        <ul>
+          <li>
+            <span class="citation" data-cites="param"
+              ><span class="citation" data-cites="param">@param</span></span
+            >
+            {TreeLinkNode} root
+          </li>
+          <li>
+            <span class="citation" data-cites="return"
+              ><span class="citation" data-cites="return">@return</span></span
+            >
+            {void} Do not return anything, modify tree in-place instead. */ var
+            connect = function(root) { if (!root) { return } if (root.left !==
+            null) { root.left.next = root.right connect(root.left) } if
+            (root.right !== null) { if (root.next !== null) { root.right.next =
+            root.next.left } connect(root.right) } };
+          </li>
+        </ul>
+      </li>
+    </ul>
+    <h4 id="two">TWO</h4>
+    <p>Level order traversal.</p>
+    <pre><code>/**
  * Definition for binary tree with next pointer.
  * function TreeLinkNode(val) {
  *     this.val = val;
@@ -94,6 +140,11 @@ var connect = function(root) {
     }
   }
 };</code></pre>
-<p><em>Template generated via <a href="https://github.com/crimx/crx-leetmark">Leetmark</a>.</em></p>
-</body>
+    <p>
+      <em
+        >Template generated via
+        <a href="https://github.com/crimx/crx-leetmark">Leetmark</a>.</em
+      >
+    </p>
+  </body>
 </html>

@@ -1,55 +1,34 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="generator" content="pandoc" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0, user-scalable=yes"
-    />
-    <title>111. Minimum Depth of Binary Tree</title>
-    <style type="text/css">
-      code {
-        white-space: pre-wrap;
-      }
-      span.smallcaps {
-        font-variant: small-caps;
-      }
-      span.underline {
-        text-decoration: underline;
-      }
-      div.column {
-        display: inline-block;
-        vertical-align: top;
-        width: 50%;
-      }
-    </style>
-  </head>
-  <body>
-    <h2 id="minimum-depth-of-binary-tree">
-      <a
-        href="https://leetcode.com/problems/minimum-depth-of-binary-tree/description/"
-        >111. Minimum Depth of Binary Tree</a
-      >
-    </h2>
-    <h3 id="problem">Problem:</h3>
-    <p>Given a binary tree, find its minimum depth.</p>
-    <p>
-      The minimum depth is the number of nodes along the shortest path from the
-      root node down to the nearest leaf node.
-    </p>
-    <p><strong>Note:</strong> A leaf is a node with no children.</p>
-    <p><strong>Example:</strong></p>
-    <p>Given binary tree <code>[3,9,20,null,null,15,7]</code>,</p>
-    <pre><code>    3
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>111. Minimum Depth of Binary Tree</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+</head>
+<body>
+<h2 id="minimum-depth-of-binary-tree"><a href="https://leetcode.com/problems/minimum-depth-of-binary-tree/description/">111. Minimum Depth of Binary Tree</a></h2>
+<h3 id="problem">Problem:</h3>
+<p>Given a binary tree, find its minimum depth.</p>
+<p>The minimum depth is the number of nodes along the shortest path from the root node down to the nearest leaf node.</p>
+<p><strong>Note:</strong> A leaf is a node with no children.</p>
+<p><strong>Example:</strong></p>
+<p>Given binary tree <code>[3,9,20,null,null,15,7]</code>,</p>
+<pre><code>    3
    / \
   9  20
     /  \
    15   7</code></pre>
-    <p>return its minimum depth = 2.</p>
-    <h3 id="solution">Solution:</h3>
-    <p>Ignore <code>null</code> children.</p>
-    <pre><code>/**
+<p>return its minimum depth = 2.</p>
+<h3 id="solution">Solution:</h3>
+<p>Ignore <code>null</code> children.</p>
+<pre><code>/**
  * Definition for a binary tree node.
  * function TreeNode(val) {
  *     this.val = val;
@@ -70,8 +49,6 @@ var minDepth = function(root) {
     return minDepth(root.right) + 1
   }
 };</code></pre>
-    <br />
-    <hr />
-    <br />
-  </body>
+<p><em>Template generated via <a href="https://github.com/crimx/crx-leetmark">Leetmark</a>.</em></p>
+</body>
 </html>

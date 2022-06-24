@@ -1,58 +1,31 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="generator" content="pandoc" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0, user-scalable=yes"
-    />
-    <title>083. Remove Duplicates from Sorted List</title>
-    <style type="text/css">
-      code {
-        white-space: pre-wrap;
-      }
-      span.smallcaps {
-        font-variant: small-caps;
-      }
-      span.underline {
-        text-decoration: underline;
-      }
-      div.column {
-        display: inline-block;
-        vertical-align: top;
-        width: 50%;
-      }
-    </style>
-  </head>
-  <body>
-    <h2 id="remove-duplicates-from-sorted-list">
-      <a
-        href="https://leetcode.com/problems/remove-duplicates-from-sorted-list/description/"
-        >83. Remove Duplicates from Sorted List</a
-      >
-    </h2>
-    <h3 id="problem">Problem:</h3>
-    <p>
-      Given a sorted linked list, delete all duplicates such that each element
-      appear only <em>once</em>.
-    </p>
-    <p><strong>Example 1:</strong></p>
-    <pre><code>Input: 1-&gt;1-&gt;2
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>083. Remove Duplicates from Sorted List</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+</head>
+<body>
+<h2 id="remove-duplicates-from-sorted-list"><a href="https://leetcode.com/problems/remove-duplicates-from-sorted-list/description/">83. Remove Duplicates from Sorted List</a></h2>
+<h3 id="problem">Problem:</h3>
+<p>Given a sorted linked list, delete all duplicates such that each element appear only <em>once</em>.</p>
+<p><strong>Example 1:</strong></p>
+<pre><code>Input: 1-&gt;1-&gt;2
 Output: 1-&gt;2</code></pre>
-    <p><strong>Example 2:</strong></p>
-    <pre><code>Input: 1-&gt;1-&gt;2-&gt;3-&gt;3
+<p><strong>Example 2:</strong></p>
+<pre><code>Input: 1-&gt;1-&gt;2-&gt;3-&gt;3
 Output: 1-&gt;2-&gt;3</code></pre>
-    <h3 id="solution">Solution:</h3>
-    <h4 id="one">ONE</h4>
-    <p>
-      Just like
-      <a href="./082.%20Remove%20Duplicates%20from%20Sorted%20List%20II.md"
-        >82. Remove Duplicates from Sorted List II</a
-      >
-      except keeping the first duplicate node.
-    </p>
-    <pre><code>/**
+<h3 id="solution">Solution:</h3>
+<h4 id="one">ONE</h4>
+<p>Just like <a href="./082.%20Remove%20Duplicates%20from%20Sorted%20List%20II.md">82. Remove Duplicates from Sorted List II</a> except keeping the first duplicate node.</p>
+<pre><code>/**
  * Definition for singly-linked list.
  * function ListNode(val) {
  *     this.val = val;
@@ -83,9 +56,9 @@ var deleteDuplicates = function(head) {
 
   return prehead.next
 };</code></pre>
-    <h4 id="two">TWO</h4>
-    <p>Just compare the next node. This is way more faster.</p>
-    <pre><code>/**
+<h4 id="two">TWO</h4>
+<p>Just compare the next node. This is way more faster.</p>
+<pre><code>/**
  * Definition for singly-linked list.
  * function ListNode(val) {
  *     this.val = val;
@@ -110,8 +83,6 @@ var deleteDuplicates = function(head) {
 
   return head
 };</code></pre>
-    <br />
-    <hr />
-    <br />
-  </body>
+<p><em>Template generated via <a href="https://github.com/crimx/crx-leetmark">Leetmark</a>.</em></p>
+</body>
 </html>

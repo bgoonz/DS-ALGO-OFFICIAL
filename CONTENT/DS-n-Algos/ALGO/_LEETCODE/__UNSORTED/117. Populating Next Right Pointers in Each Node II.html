@@ -1,85 +1,52 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="generator" content="pandoc" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0, user-scalable=yes"
-    />
-    <title>117. Populating Next Right Pointers in Each Node II</title>
-    <style type="text/css">
-      code {
-        white-space: pre-wrap;
-      }
-      span.smallcaps {
-        font-variant: small-caps;
-      }
-      span.underline {
-        text-decoration: underline;
-      }
-      div.column {
-        display: inline-block;
-        vertical-align: top;
-        width: 50%;
-      }
-    </style>
-  </head>
-  <body>
-    <h2 id="populating-next-right-pointers-in-each-node-ii">
-      <a
-        href="https://leetcode.com/problems/populating-next-right-pointers-in-each-node-ii/description/"
-        >117. Populating Next Right Pointers in Each Node II</a
-      >
-    </h2>
-    <h3 id="problem">Problem:</h3>
-    <p>Given a binary tree</p>
-    <pre><code>struct TreeLinkNode {
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>117. Populating Next Right Pointers in Each Node II</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+</head>
+<body>
+<h2 id="populating-next-right-pointers-in-each-node-ii"><a href="https://leetcode.com/problems/populating-next-right-pointers-in-each-node-ii/description/">117. Populating Next Right Pointers in Each Node II</a></h2>
+<h3 id="problem">Problem:</h3>
+<p>Given a binary tree</p>
+<pre><code>struct TreeLinkNode {
   TreeLinkNode *left;
   TreeLinkNode *right;
   TreeLinkNode *next;
 }</code></pre>
-    <p>
-      Populate each next pointer to point to its next right node. If there is no
-      next right node, the next pointer should be set to <code>NULL</code>.
-    </p>
-    <p>Initially, all next pointers are set to <code>NULL</code>.</p>
-    <p><strong>Note:</strong></p>
-    <ul>
-      <li>You may only use constant extra space.</li>
-      <li>
-        Recursive approach is fine, implicit stack space does not count as extra
-        space for this problem.
-      </li>
-    </ul>
-    <p><strong>Example:</strong></p>
-    <p>Given the following binary tree,</p>
-    <pre><code>     1
+<p>Populate each next pointer to point to its next right node. If there is no next right node, the next pointer should be set to <code>NULL</code>.</p>
+<p>Initially, all next pointers are set to <code>NULL</code>.</p>
+<p><strong>Note:</strong></p>
+<ul>
+<li>You may only use constant extra space.</li>
+<li>Recursive approach is fine, implicit stack space does not count as extra space for this problem.</li>
+</ul>
+<p><strong>Example:</strong></p>
+<p>Given the following binary tree,</p>
+<pre><code>     1
    /  \
   2    3
  / \    \
 4   5    7</code></pre>
-    <p>After calling your function, the tree should look like:</p>
-    <pre><code>     1 -&gt; NULL
+<p>After calling your function, the tree should look like:</p>
+<pre><code>     1 -&gt; NULL
    /  \
   2 -&gt; 3 -&gt; NULL
  / \    \
 4-&gt; 5 -&gt; 7 -&gt; NULL</code></pre>
-    <h3 id="solution">Solution:</h3>
-    <h4 id="one">ONE</h4>
-    <p>
-      Recursive. See
-      <a
-        href="./116.%20Populating%20Next%20Right%20Pointers%20in%20Each%20Node.md"
-        >116. Populating Next Right Pointers in Each Node</a
-      >.
-    </p>
-    <p>
-      The tree may not be perfect now. So keep finding <code>next</code> until
-      there is a node with children, or <code>null</code>.
-    </p>
-    <p>This also means post-order traversal is required.</p>
-    <pre><code>/**
+<h3 id="solution">Solution:</h3>
+<h4 id="one">ONE</h4>
+<p>Recursive. See <a href="./116.%20Populating%20Next%20Right%20Pointers%20in%20Each%20Node.md">116. Populating Next Right Pointers in Each Node</a>.</p>
+<p>The tree may not be perfect now. So keep finding <code>next</code> until there is a node with children, or <code>null</code>.</p>
+<p>This also means post-order traversal is required.</p>
+<pre><code>/**
  * Definition for binary tree with next pointer.
  * function TreeLinkNode(val) {
  *     this.val = val;
@@ -113,15 +80,9 @@ var connect = function(root) {
   connect(root.right)
   connect(root.left)
 };</code></pre>
-    <h4 id="two">TWO</h4>
-    <p>
-      Level order traversal. Exact same as
-      <a
-        href="./116.%20Populating%20Next%20Right%20Pointers%20in%20Each%20Node.md"
-        >116. Populating Next Right Pointers in Each Node</a
-      >.
-    </p>
-    <pre><code>/**
+<h4 id="two">TWO</h4>
+<p>Level order traversal. Exact same as <a href="./116.%20Populating%20Next%20Right%20Pointers%20in%20Each%20Node.md">116. Populating Next Right Pointers in Each Node</a>.</p>
+<pre><code>/**
  * Definition for binary tree with next pointer.
  * function TreeLinkNode(val) {
  *     this.val = val;
@@ -150,8 +111,6 @@ var connect = function(root) {
     }
   }
 };</code></pre>
-    <br />
-    <hr />
-    <br />
-  </body>
+<p><em>Template generated via <a href="https://github.com/crimx/crx-leetmark">Leetmark</a>.</em></p>
+</body>
 </html>

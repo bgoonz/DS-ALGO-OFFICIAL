@@ -1,29 +1,54 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
-<head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="pandoc" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>128. Longest Consecutive Sequence</title>
-  <style type="text/css">
-      code{white-space: pre-wrap;}
-      span.smallcaps{font-variant: small-caps;}
-      span.underline{text-decoration: underline;}
-      div.column{display: inline-block; vertical-align: top; width: 50%;}
-  </style>
-</head>
-<body>
-<h2 id="longest-consecutive-sequence"><a href="https://leetcode.com/problems/longest-consecutive-sequence/description/">128. Longest Consecutive Sequence</a></h2>
-<h3 id="problem">Problem:</h3>
-<p>Given an unsorted array of integers, find the length of the longest consecutive elements sequence.</p>
-<p>Your algorithm should run in O(<em>n</em>) complexity.</p>
-<p><strong>Example:</strong></p>
-<pre><code>Input: [100, 4, 200, 1, 3, 2]
+  <head>
+    <meta charset="utf-8" />
+    <meta name="generator" content="pandoc" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=yes"
+    />
+    <title>128. Longest Consecutive Sequence</title>
+    <style type="text/css">
+      code {
+        white-space: pre-wrap;
+      }
+      span.smallcaps {
+        font-variant: small-caps;
+      }
+      span.underline {
+        text-decoration: underline;
+      }
+      div.column {
+        display: inline-block;
+        vertical-align: top;
+        width: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <h2 id="longest-consecutive-sequence">
+      <a
+        href="https://leetcode.com/problems/longest-consecutive-sequence/description/"
+        >128. Longest Consecutive Sequence</a
+      >
+    </h2>
+    <h3 id="problem">Problem:</h3>
+    <p>
+      Given an unsorted array of integers, find the length of the longest
+      consecutive elements sequence.
+    </p>
+    <p>Your algorithm should run in O(<em>n</em>) complexity.</p>
+    <p><strong>Example:</strong></p>
+    <pre><code>Input: [100, 4, 200, 1, 3, 2]
 Output: 4
 Explanation: The longest consecutive elements sequence is [1, 2, 3, 4]. Therefore its length is 4.</code></pre>
-<h3 id="solution">Solution:</h3>
-<p>Build a Set from the list. Pick a number, find all it’s adjacent numbers that are also in the Set. Count them and remove them all from the Set. Repeat until the Set is empty. Time complexity O(n + n) = O(n).</p>
-<pre><code>/**
+    <h3 id="solution">Solution:</h3>
+    <p>
+      Build a Set from the list. Pick a number, find all it’s adjacent numbers
+      that are also in the Set. Count them and remove them all from the Set.
+      Repeat until the Set is empty. Time complexity O(n + n) = O(n).
+    </p>
+    <pre><code>/**
  * @param {number[]} nums
  * @return {number}
  */
@@ -46,6 +71,11 @@ var longestConsecutive = function(nums) {
   }
   return maxCount
 };</code></pre>
-<p><em>Template generated via <a href="https://github.com/crimx/crx-leetmark">Leetmark</a>.</em></p>
-</body>
+    <p>
+      <em
+        >Template generated via
+        <a href="https://github.com/crimx/crx-leetmark">Leetmark</a>.</em
+      >
+    </p>
+  </body>
 </html>

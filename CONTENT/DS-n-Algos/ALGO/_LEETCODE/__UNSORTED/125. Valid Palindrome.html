@@ -1,31 +1,54 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
-<head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="pandoc" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>125. Valid Palindrome</title>
-  <style type="text/css">
-      code{white-space: pre-wrap;}
-      span.smallcaps{font-variant: small-caps;}
-      span.underline{text-decoration: underline;}
-      div.column{display: inline-block; vertical-align: top; width: 50%;}
-  </style>
-</head>
-<body>
-<h2 id="valid-palindrome"><a href="https://leetcode.com/problems/valid-palindrome/description/">125. Valid Palindrome</a></h2>
-<h3 id="problem">Problem:</h3>
-<p>Given a string, determine if it is a palindrome, considering only alphanumeric characters and ignoring cases.</p>
-<p><strong>Note:</strong> For the purpose of this problem, we define empty string as valid palindrome.</p>
-<p><strong>Example 1:</strong></p>
-<pre><code>Input: &quot;A man, a plan, a canal: Panama&quot;
+  <head>
+    <meta charset="utf-8" />
+    <meta name="generator" content="pandoc" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=yes"
+    />
+    <title>125. Valid Palindrome</title>
+    <style type="text/css">
+      code {
+        white-space: pre-wrap;
+      }
+      span.smallcaps {
+        font-variant: small-caps;
+      }
+      span.underline {
+        text-decoration: underline;
+      }
+      div.column {
+        display: inline-block;
+        vertical-align: top;
+        width: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <h2 id="valid-palindrome">
+      <a href="https://leetcode.com/problems/valid-palindrome/description/"
+        >125. Valid Palindrome</a
+      >
+    </h2>
+    <h3 id="problem">Problem:</h3>
+    <p>
+      Given a string, determine if it is a palindrome, considering only
+      alphanumeric characters and ignoring cases.
+    </p>
+    <p>
+      <strong>Note:</strong> For the purpose of this problem, we define empty
+      string as valid palindrome.
+    </p>
+    <p><strong>Example 1:</strong></p>
+    <pre><code>Input: &quot;A man, a plan, a canal: Panama&quot;
 Output: true</code></pre>
-<p><strong>Example 2:</strong></p>
-<pre><code>Input: &quot;race a car&quot;
+    <p><strong>Example 2:</strong></p>
+    <pre><code>Input: &quot;race a car&quot;
 Output: false</code></pre>
-<h3 id="solution">Solution:</h3>
-<h4 id="one">ONE</h4>
-<pre><code>/**
+    <h3 id="solution">Solution:</h3>
+    <h4 id="one">ONE</h4>
+    <pre><code>/**
  * @param {string} s
  * @return {boolean}
  */
@@ -33,9 +56,9 @@ var isPalindrome = function(s) {
   const clean = s.toLowerCase().split(/[^a-z0-9]*/)
   return clean.join(&#39;&#39;) === clean.reverse().join(&#39;&#39;)
 };</code></pre>
-<h4 id="two">TWO</h4>
-<p>Remove non-alphanumeric characters then compare.</p>
-<pre><code>/**
+    <h4 id="two">TWO</h4>
+    <p>Remove non-alphanumeric characters then compare.</p>
+    <pre><code>/**
  * @param {string} s
  * @return {boolean}
  */
@@ -46,9 +69,9 @@ var isPalindrome = function(s) {
   }
   return true
 };</code></pre>
-<h4 id="three">THREE</h4>
-<p>Compare the char codes.</p>
-<pre><code>/**
+    <h4 id="three">THREE</h4>
+    <p>Compare the char codes.</p>
+    <pre><code>/**
  * @param {string} s
  * @return {boolean}
  */
@@ -77,6 +100,11 @@ var isPalindrome = function(s) {
 
   return true
 };</code></pre>
-<p><em>Template generated via <a href="https://github.com/crimx/crx-leetmark">Leetmark</a>.</em></p>
-</body>
+    <p>
+      <em
+        >Template generated via
+        <a href="https://github.com/crimx/crx-leetmark">Leetmark</a>.</em
+      >
+    </p>
+  </body>
 </html>

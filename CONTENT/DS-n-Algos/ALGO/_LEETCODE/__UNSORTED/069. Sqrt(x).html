@@ -1,55 +1,34 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="generator" content="pandoc" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0, user-scalable=yes"
-    />
-    <title>069. Sqrt(x)</title>
-    <style type="text/css">
-      code {
-        white-space: pre-wrap;
-      }
-      span.smallcaps {
-        font-variant: small-caps;
-      }
-      span.underline {
-        text-decoration: underline;
-      }
-      div.column {
-        display: inline-block;
-        vertical-align: top;
-        width: 50%;
-      }
-    </style>
-  </head>
-  <body>
-    <h2 id="sqrtx">
-      <a href="https://leetcode.com/problems/sqrtx/description/">69. Sqrt(x)</a>
-    </h2>
-    <h3 id="problem">Problem:</h3>
-    <p>Implement <code>int sqrt(int x)</code>.</p>
-    <p>
-      Compute and return the square root of <em>x</em>, where <em>x</em> is
-      guaranteed to be a non-negative integer.
-    </p>
-    <p>
-      Since the return type is an integer, the decimal digits are truncated and
-      only the integer part of the result is returned.
-    </p>
-    <p><strong>Example 1:</strong></p>
-    <pre><code>Input: 4
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>069. Sqrt(x)</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+</head>
+<body>
+<h2 id="sqrtx"><a href="https://leetcode.com/problems/sqrtx/description/">69. Sqrt(x)</a></h2>
+<h3 id="problem">Problem:</h3>
+<p>Implement <code>int sqrt(int x)</code>.</p>
+<p>Compute and return the square root of <em>x</em>, where <em>x</em> is guaranteed to be a non-negative integer.</p>
+<p>Since the return type is an integer, the decimal digits are truncated and only the integer part of the result is returned.</p>
+<p><strong>Example 1:</strong></p>
+<pre><code>Input: 4
 Output: 2</code></pre>
-    <p><strong>Example 2:</strong></p>
-    <pre><code>Input: 8
+<p><strong>Example 2:</strong></p>
+<pre><code>Input: 8
 Output: 2
-Explanation: The square root of 8 is 2.82842..., and since 
+Explanation: The square root of 8 is 2.82842..., and since
              the decimal part is truncated, 2 is returned.</code></pre>
-    <h3 id="solution">Solution:</h3>
-    <p>Binary Search. The square root of x is within [0…(x+1)/2].</p>
-    <pre><code>/**
+<h3 id="solution">Solution:</h3>
+<p>Binary Search. The square root of x is within [0…(x+1)/2].</p>
+<pre><code>/**
  * @param {number} x
  * @return {number}
  */
@@ -69,8 +48,6 @@ var mySqrt = function(x) {
   }
   return max
 };</code></pre>
-    <br />
-    <hr />
-    <br />
-  </body>
+<p><em>Template generated via <a href="https://github.com/crimx/crx-leetmark">Leetmark</a>.</em></p>
+</body>
 </html>

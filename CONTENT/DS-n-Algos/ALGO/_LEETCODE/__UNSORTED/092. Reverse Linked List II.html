@@ -1,49 +1,28 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="generator" content="pandoc" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0, user-scalable=yes"
-    />
-    <title>092. Reverse Linked List II</title>
-    <style type="text/css">
-      code {
-        white-space: pre-wrap;
-      }
-      span.smallcaps {
-        font-variant: small-caps;
-      }
-      span.underline {
-        text-decoration: underline;
-      }
-      div.column {
-        display: inline-block;
-        vertical-align: top;
-        width: 50%;
-      }
-    </style>
-  </head>
-  <body>
-    <h2 id="reverse-linked-list-ii">
-      <a
-        href="https://leetcode.com/problems/reverse-linked-list-ii/description/"
-        >92. Reverse Linked List II</a
-      >
-    </h2>
-    <h3 id="problem">Problem:</h3>
-    <p>
-      Reverse a linked list from position <em>m</em> to <em>n</em>. Do it in
-      one-pass.
-    </p>
-    <p><strong>Note:</strong>1 ≤ <em>m</em> ≤ <em>n</em> ≤ length of list.</p>
-    <p><strong>Example:</strong></p>
-    <pre><code>Input: 1-&gt;2-&gt;3-&gt;4-&gt;5-&gt;NULL, m = 2, n = 4
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>092. Reverse Linked List II</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+</head>
+<body>
+<h2 id="reverse-linked-list-ii"><a href="https://leetcode.com/problems/reverse-linked-list-ii/description/">92. Reverse Linked List II</a></h2>
+<h3 id="problem">Problem:</h3>
+<p>Reverse a linked list from position <em>m</em> to <em>n</em>. Do it in one-pass.</p>
+<p><strong>Note:</strong>1 ≤ <em>m</em> ≤ <em>n</em> ≤ length of list.</p>
+<p><strong>Example:</strong></p>
+<pre><code>Input: 1-&gt;2-&gt;3-&gt;4-&gt;5-&gt;NULL, m = 2, n = 4
 Output: 1-&gt;4-&gt;3-&gt;2-&gt;5-&gt;NULL</code></pre>
-    <h3 id="solution">Solution:</h3>
-    <p>Break the list into 3 parts.</p>
-    <pre><code>/**
+<h3 id="solution">Solution:</h3>
+<p>Break the list into 3 parts.</p>
+<pre><code>/**
  * Definition for singly-linked list.
  * function ListNode(val) {
  *     this.val = val;
@@ -83,8 +62,6 @@ var reverseBetween = function(head, m, n) {
 
   return prehead.next
 };</code></pre>
-    <br />
-    <hr />
-    <br />
-  </body>
+<p><em>Template generated via <a href="https://github.com/crimx/crx-leetmark">Leetmark</a>.</em></p>
+</body>
 </html>

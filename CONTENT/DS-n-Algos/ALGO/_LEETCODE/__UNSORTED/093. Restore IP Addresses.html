@@ -1,50 +1,27 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="generator" content="pandoc" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0, user-scalable=yes"
-    />
-    <title>093. Restore IP Addresses</title>
-    <style type="text/css">
-      code {
-        white-space: pre-wrap;
-      }
-      span.smallcaps {
-        font-variant: small-caps;
-      }
-      span.underline {
-        text-decoration: underline;
-      }
-      div.column {
-        display: inline-block;
-        vertical-align: top;
-        width: 50%;
-      }
-    </style>
-  </head>
-  <body>
-    <h2 id="restore-ip-addresses">
-      <a href="https://leetcode.com/problems/restore-ip-addresses/description/"
-        >93. Restore IP Addresses</a
-      >
-    </h2>
-    <h3 id="problem">Problem:</h3>
-    <p>
-      Given a string containing only digits, restore it by returning all
-      possible valid IP address combinations.
-    </p>
-    <p><strong>Example:</strong></p>
-    <pre><code>Input: &quot;25525511135&quot;
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>093. Restore IP Addresses</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+</head>
+<body>
+<h2 id="restore-ip-addresses"><a href="https://leetcode.com/problems/restore-ip-addresses/description/">93. Restore IP Addresses</a></h2>
+<h3 id="problem">Problem:</h3>
+<p>Given a string containing only digits, restore it by returning all possible valid IP address combinations.</p>
+<p><strong>Example:</strong></p>
+<pre><code>Input: &quot;25525511135&quot;
 Output: [&quot;255.255.11.135&quot;, &quot;255.255.111.35&quot;]</code></pre>
-    <h3 id="solution">Solution:</h3>
-    <p>
-      Backtracking. Note that leading <code>'0'</code> is not allowed except
-      just <code>'0'</code>.
-    </p>
-    <pre><code>/**
+<h3 id="solution">Solution:</h3>
+<p>Backtracking. Note that leading <code>'0'</code> is not allowed except just <code>'0'</code>.</p>
+<pre><code>/**
  * @param {string} s
  * @return {string[]}
  */
@@ -81,8 +58,6 @@ var restoreIpAddresses = function(s, i = 0, path = [], result = []) {
 
   return result
 };</code></pre>
-    <br />
-    <hr />
-    <br />
-  </body>
+<p><em>Template generated via <a href="https://github.com/crimx/crx-leetmark">Leetmark</a>.</em></p>
+</body>
 </html>

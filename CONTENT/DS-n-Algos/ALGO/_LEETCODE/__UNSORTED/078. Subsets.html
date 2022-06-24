@@ -1,47 +1,24 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="generator" content="pandoc" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0, user-scalable=yes"
-    />
-    <title>078. Subsets</title>
-    <style type="text/css">
-      code {
-        white-space: pre-wrap;
-      }
-      span.smallcaps {
-        font-variant: small-caps;
-      }
-      span.underline {
-        text-decoration: underline;
-      }
-      div.column {
-        display: inline-block;
-        vertical-align: top;
-        width: 50%;
-      }
-    </style>
-  </head>
-  <body>
-    <h2 id="subsets">
-      <a href="https://leetcode.com/problems/subsets/description/"
-        >78. Subsets</a
-      >
-    </h2>
-    <h3 id="problem">Problem:</h3>
-    <p>
-      Given a set of <strong>distinct</strong> integers, <em>nums</em>, return
-      all possible subsets (the power set).
-    </p>
-    <p>
-      <strong>Note:</strong> The solution set must not contain duplicate
-      subsets.
-    </p>
-    <p><strong>Example:</strong></p>
-    <pre><code>Input: nums = [1,2,3]
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>078. Subsets</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+</head>
+<body>
+<h2 id="subsets"><a href="https://leetcode.com/problems/subsets/description/">78. Subsets</a></h2>
+<h3 id="problem">Problem:</h3>
+<p>Given a set of <strong>distinct</strong> integers, <em>nums</em>, return all possible subsets (the power set).</p>
+<p><strong>Note:</strong> The solution set must not contain duplicate subsets.</p>
+<p><strong>Example:</strong></p>
+<pre><code>Input: nums = [1,2,3]
 Output:
 [
   [3],
@@ -53,18 +30,18 @@ Output:
   [1,2],
   []
 ]</code></pre>
-    <h3 id="solution">Solution:</h3>
-    <h4 id="one">ONE</h4>
-    <p>BFS.</p>
-    <pre><code>/**
+<h3 id="solution">Solution:</h3>
+<h4 id="one">ONE</h4>
+<p>BFS.</p>
+<pre><code>/**
  * @param {number[]} nums
  * @return {number[][]}
  */
 var subsets = function(nums) {
   return nums.reduce((result, num) =&gt; result.concat(result.map(r =&gt; [...r, num])), [[]])
 };</code></pre>
-    <p>Or more imperative. Loop backward to avoid crossing the boundary.</p>
-    <pre><code>/**
+<p>Or more imperative. Loop backward to avoid crossing the boundary.</p>
+<pre><code>/**
  * @param {number[]} nums
  * @return {number[][]}
  */
@@ -77,9 +54,9 @@ var subsets = function(nums) {
   }
   return result
 };</code></pre>
-    <h4 id="two">TWO</h4>
-    <p>DFS + Backtracking.</p>
-    <pre><code>/**
+<h4 id="two">TWO</h4>
+<p>DFS + Backtracking.</p>
+<pre><code>/**
  * @param {number[]} nums
  * @return {number[][]}
  */
@@ -97,8 +74,6 @@ function _subsets(nums, start, path, result) {
     path.pop()
   }
 }</code></pre>
-    <br />
-    <hr />
-    <br />
-  </body>
+<p><em>Template generated via <a href="https://github.com/crimx/crx-leetmark">Leetmark</a>.</em></p>
+</body>
 </html>
