@@ -60,7 +60,7 @@
     x = 3.14; // throws an error because x is not declared
     ```
 
-4.              ```
+4.               ```
 
     var printNumTwo;
     for (var i = 0; i < 3; i++) {
@@ -506,7 +506,7 @@
 1) Arrays are mutable in JS, arr.length returns the no of elements in array,  
    JS array can contain items of different Data type elements.
 
-2.              ```
+2.               ```
 
     arr.push(2); // push() adds element in end of array
     arr.unshift(2); // unshift() adds element in start of array
@@ -678,7 +678,7 @@
     `arr.filter(Boolean);
     to filter all the boolean type values in hs array
 
-6.              To sort an array in alphabetic order in js
+6.               To sort an array in alphabetic order in js
 
     Note: Even numbers will be converted to string and then will be compared
     then their utf-16 value gets compared not the numbers themselves.
