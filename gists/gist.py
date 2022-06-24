@@ -1,5 +1,3 @@
-
-
 #!/usr/bin/env python3
 
 import os
@@ -39,8 +37,7 @@ def download_all(gists: list):
 
 def download(gist):
 
-    target = gist["id"] + \
-        hashlib.md5(gist["updated_at"].encode("utf-8")).hexdigest()
+    target = gist["id"] + hashlib.md5(gist["updated_at"].encode("utf-8")).hexdigest()
 
     call(["git", "clone", gist["git_pull_url"], target])
 
