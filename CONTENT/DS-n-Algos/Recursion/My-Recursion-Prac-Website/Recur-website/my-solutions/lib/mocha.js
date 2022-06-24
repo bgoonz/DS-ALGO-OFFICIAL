@@ -8334,7 +8334,8 @@
                   return len >>> 1;
                 case "base64":
                   return base64ToBytes(string).length;
-                default: // assume utf8
+                default:
+                  // assume utf8
                   if (loweredCase) return utf8ToBytes(string).length;
                   encoding = ("" + encoding).toLowerCase();
                   loweredCase = true;
