@@ -1,89 +1,42 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="generator" content="pandoc" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0, user-scalable=yes"
-    />
-    <title>133. Clone Graph</title>
-    <style type="text/css">
-      code {
-        white-space: pre-wrap;
-      }
-      span.smallcaps {
-        font-variant: small-caps;
-      }
-      span.underline {
-        text-decoration: underline;
-      }
-      div.column {
-        display: inline-block;
-        vertical-align: top;
-        width: 50%;
-      }
-    </style>
-  </head>
-  <body>
-    <h2 id="clone-graph">
-      <a href="https://leetcode.com/problems/clone-graph/description/"
-        >133. Clone Graph</a
-      >
-    </h2>
-    <h3 id="problem">Problem:</h3>
-    <p>
-      Given the head of a graph, return a deep copy (clone) of the graph. Each
-      node in the graph contains a <code>label</code> (<code>int</code>) and a
-      list (<code>List[UndirectedGraphNode]</code>) of its
-      <code>neighbors</code>. There is an edge between the given node and each
-      of the nodes in its neighbors.
-    </p>
-    <p>
-      OJ’s undirected graph serialization (so you can understand error output):
-    </p>
-    <p>Nodes are labeled uniquely.</p>
-    <p>
-      We use <code>#</code> as a separator for each node, and <code>,</code> as
-      a separator for node label and each neighbor of the node.
-    </p>
-    <p>
-      As an example, consider the serialized graph <code>{0,1,2#1,2#2,2}</code>.
-    </p>
-    <p>
-      The graph has a total of three nodes, and therefore contains three parts
-      as separated by <code>#</code>.
-    </p>
-    <ol type="1">
-      <li>
-        First node is labeled as <code>0</code>. Connect node <code>0</code> to
-        both nodes <code>1</code> and <code>2</code>.
-      </li>
-      <li>
-        Second node is labeled as <code>1</code>. Connect node <code>1</code> to
-        node <code>2</code>.
-      </li>
-      <li>
-        Third node is labeled as <code>2</code>. Connect node <code>2</code> to
-        node <code>2</code> (itself), thus forming a self-cycle.
-      </li>
-    </ol>
-    <p>Visually, the graph looks like the following:</p>
-    <pre><code>       1
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>133. Clone Graph</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+</head>
+<body>
+<h2 id="clone-graph"><a href="https://leetcode.com/problems/clone-graph/description/">133. Clone Graph</a></h2>
+<h3 id="problem">Problem:</h3>
+<p>Given the head of a graph, return a deep copy (clone) of the graph. Each node in the graph contains a <code>label</code> (<code>int</code>) and a list (<code>List[UndirectedGraphNode]</code>) of its <code>neighbors</code>. There is an edge between the given node and each of the nodes in its neighbors.</p>
+<p>OJ’s undirected graph serialization (so you can understand error output):</p>
+<p>Nodes are labeled uniquely.</p>
+<p>We use <code>#</code> as a separator for each node, and <code>,</code> as a separator for node label and each neighbor of the node.</p>
+<p>As an example, consider the serialized graph <code>{0,1,2#1,2#2,2}</code>.</p>
+<p>The graph has a total of three nodes, and therefore contains three parts as separated by <code>#</code>.</p>
+<ol type="1">
+<li>First node is labeled as <code>0</code>. Connect node <code>0</code> to both nodes <code>1</code> and <code>2</code>.</li>
+<li>Second node is labeled as <code>1</code>. Connect node <code>1</code> to node <code>2</code>.</li>
+<li>Third node is labeled as <code>2</code>. Connect node <code>2</code> to node <code>2</code> (itself), thus forming a self-cycle.</li>
+</ol>
+<p>Visually, the graph looks like the following:</p>
+<pre><code>       1
       / \
      /   \
     0 --- 2
          / \
          \_/</code></pre>
-    <p>
-      <strong>Note</strong>: The information about the tree serialization is
-      only meant so that you can understand error output if you get a wrong
-      answer. You don’t need to understand the serialization to solve the
-      problem.
-    </p>
-    <h3 id="solution">Solution:</h3>
-    <p>DFS. Cache the visited node before entering the next recursion.</p>
-    <pre><code>/**
+<p><strong>Note</strong>: The information about the tree serialization is only meant so that you can understand error output if you get a wrong answer. You don’t need to understand the serialization to solve the problem.</p>
+<h3 id="solution">Solution:</h3>
+<p>DFS. Cache the visited node before entering the next recursion.</p>
+<pre><code>/**
  * Definition for undirected graph.
  * function UndirectedGraphNode(label) {
  *     this.label = label;
@@ -109,8 +62,6 @@ var cloneGraph = function(graph) {
     return cache[label]
   }
 };</code></pre>
-    <br />
-    <hr />
-    <br />
-  </body>
+<p><em>Template generated via <a href="https://github.com/crimx/crx-leetmark">Leetmark</a>.</em></p>
+</body>
 </html>

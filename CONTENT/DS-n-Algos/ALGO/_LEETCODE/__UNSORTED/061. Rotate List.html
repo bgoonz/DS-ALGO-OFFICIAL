@@ -1,70 +1,41 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="generator" content="pandoc" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0, user-scalable=yes"
-    />
-    <title>061. Rotate List</title>
-    <style type="text/css">
-      code {
-        white-space: pre-wrap;
-      }
-      span.smallcaps {
-        font-variant: small-caps;
-      }
-      span.underline {
-        text-decoration: underline;
-      }
-      div.column {
-        display: inline-block;
-        vertical-align: top;
-        width: 50%;
-      }
-    </style>
-  </head>
-  <body>
-    <h2 id="rotate-list">
-      <a href="https://leetcode.com/problems/rotate-list/description/"
-        >61. Rotate List</a
-      >
-    </h2>
-    <h3 id="problem">Problem:</h3>
-    <p>
-      Given a linked list, rotate the list to the right by <em>k</em> places,
-      where <em>k</em> is non-negative.
-    </p>
-    <p><strong>Example 1:</strong></p>
-    <pre><code>Input: 1-&gt;2-&gt;3-&gt;4-&gt;5-&gt;NULL, k = 2
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>061. Rotate List</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+</head>
+<body>
+<h2 id="rotate-list"><a href="https://leetcode.com/problems/rotate-list/description/">61. Rotate List</a></h2>
+<h3 id="problem">Problem:</h3>
+<p>Given a linked list, rotate the list to the right by <em>k</em> places, where <em>k</em> is non-negative.</p>
+<p><strong>Example 1:</strong></p>
+<pre><code>Input: 1-&gt;2-&gt;3-&gt;4-&gt;5-&gt;NULL, k = 2
 Output: 4-&gt;5-&gt;1-&gt;2-&gt;3-&gt;NULL
 Explanation:
 rotate 1 steps to the right: 5-&gt;1-&gt;2-&gt;3-&gt;4-&gt;NULL
 rotate 2 steps to the right: 4-&gt;5-&gt;1-&gt;2-&gt;3-&gt;NULL</code></pre>
-    <p><strong>Example 2:</strong></p>
-    <pre><code>Input: 0-&gt;1-&gt;2-&gt;NULL, k = 4
+<p><strong>Example 2:</strong></p>
+<pre><code>Input: 0-&gt;1-&gt;2-&gt;NULL, k = 4
 Output: 2-&gt;0-&gt;1-&gt;NULL
 Explanation:
 rotate 1 steps to the right: 2-&gt;0-&gt;1-&gt;NULL
 rotate 2 steps to the right: 1-&gt;2-&gt;0-&gt;NULL
 rotate 3 steps to the right: 0-&gt;1-&gt;2-&gt;NULL
 rotate 4 steps to the right: 2-&gt;0-&gt;1-&gt;NULL</code></pre>
-    <h3 id="solution">Solution:</h3>
-    <p>
-      Classic two-pointers chasing except the <code>k</code> could be larger
-      than the length of this list.
-    </p>
-    <p>
-      We first attempt to locate the right pointer while also recording the
-      length of the list.
-    </p>
-    <p>
-      If we hit the end of list and still do not have the right pointer, we know
-      <code>k</code> is larger than the length.
-    </p>
-    <p>Locate the right pointer again with <code>k % len</code>.</p>
-    <pre><code>/**
+<h3 id="solution">Solution:</h3>
+<p>Classic two-pointers chasing except the <code>k</code> could be larger than the length of this list.</p>
+<p>We first attempt to locate the right pointer while also recording the length of the list.</p>
+<p>If we hit the end of list and still do not have the right pointer, we know <code>k</code> is larger than the length.</p>
+<p>Locate the right pointer again with <code>k % len</code>.</p>
+<pre><code>/**
  * Definition for singly-linked list.
  * function ListNode(val) {
  *     this.val = val;
@@ -109,8 +80,6 @@ var rotateRight = function(head, k) {
 
   return head
 };</code></pre>
-    <br />
-    <hr />
-    <br />
-  </body>
+<p><em>Template generated via <a href="https://github.com/crimx/crx-leetmark">Leetmark</a>.</em></p>
+</body>
 </html>

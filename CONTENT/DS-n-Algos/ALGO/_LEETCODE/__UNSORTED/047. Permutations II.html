@@ -1,56 +1,32 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="generator" content="pandoc" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0, user-scalable=yes"
-    />
-    <title>047. Permutations II</title>
-    <style type="text/css">
-      code {
-        white-space: pre-wrap;
-      }
-      span.smallcaps {
-        font-variant: small-caps;
-      }
-      span.underline {
-        text-decoration: underline;
-      }
-      div.column {
-        display: inline-block;
-        vertical-align: top;
-        width: 50%;
-      }
-    </style>
-  </head>
-  <body>
-    <h2 id="permutations-ii">
-      <a href="https://leetcode.com/problems/permutations-ii/description/"
-        >47. Permutations II</a
-      >
-    </h2>
-    <h3 id="problem">Problem:</h3>
-    <p>
-      Given a collection of numbers that might contain duplicates, return all
-      possible unique permutations.
-    </p>
-    <p><strong>Example:</strong></p>
-    <pre><code>Input: [1,1,2]
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>047. Permutations II</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+</head>
+<body>
+<h2 id="permutations-ii"><a href="https://leetcode.com/problems/permutations-ii/description/">47. Permutations II</a></h2>
+<h3 id="problem">Problem:</h3>
+<p>Given a collection of numbers that might contain duplicates, return all possible unique permutations.</p>
+<p><strong>Example:</strong></p>
+<pre><code>Input: [1,1,2]
 Output:
 [
   [1,1,2],
   [1,2,1],
   [2,1,1]
 ]</code></pre>
-    <h3 id="solution">Solution:</h3>
-    <p>
-      Same as <a href="./046.%20Permutations.md">46. Permutations</a>. To avoid
-      duplication, when picking a number for a position, only pick the unused.
-      Either sort the <code>nums</code> or use a set to mark.
-    </p>
-    <pre><code>/**
+<h3 id="solution">Solution:</h3>
+<p>Same as <a href="./046.%20Permutations.md">46. Permutations</a>. To avoid duplication, when picking a number for a position, only pick the unused. Either sort the <code>nums</code> or use a set to mark.</p>
+<pre><code>/**
  * @param {number[]} nums
  * @return {number[][]}
  */
@@ -85,8 +61,6 @@ function _permuteUnique (nums, start, result) {
     nums[i] = next
   }
 };</code></pre>
-    <br />
-    <hr />
-    <br />
-  </body>
+<p><em>Template generated via <a href="https://github.com/crimx/crx-leetmark">Leetmark</a>.</em></p>
+</body>
 </html>

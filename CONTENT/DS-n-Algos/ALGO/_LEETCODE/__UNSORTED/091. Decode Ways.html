@@ -75,7 +75,7 @@ var numDecodings = function(s) {
   let dp = s[0] &gt; 0 ? 1 : 0
   let dp_1 = dp
   let dp_2 = 1
-  
+
   for (let i = 1; i &lt; s.length; i++) {
     dp = 0
     if (s[i] !== &#39;0&#39;) {
@@ -87,11 +87,14 @@ var numDecodings = function(s) {
     dp_2 = dp_1
     dp_1 = dp
   }
-  
+
   return dp
 };</code></pre>
-    <br />
-    <hr />
-    <br />
+    <p>
+      <em
+        >Template generated via
+        <a href="https://github.com/crimx/crx-leetmark">Leetmark</a>.</em
+      >
+    </p>
   </body>
 </html>

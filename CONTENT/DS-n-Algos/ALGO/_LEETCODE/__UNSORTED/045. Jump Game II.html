@@ -1,56 +1,33 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="generator" content="pandoc" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0, user-scalable=yes"
-    />
-    <title>045. Jump Game II</title>
-    <style type="text/css">
-      code {
-        white-space: pre-wrap;
-      }
-      span.smallcaps {
-        font-variant: small-caps;
-      }
-      span.underline {
-        text-decoration: underline;
-      }
-      div.column {
-        display: inline-block;
-        vertical-align: top;
-        width: 50%;
-      }
-    </style>
-  </head>
-  <body>
-    <h2 id="jump-game-ii">
-      <a href="https://leetcode.com/problems/jump-game-ii/description/"
-        >45. Jump Game II</a
-      >
-    </h2>
-    <h3 id="problem">Problem:</h3>
-    <p>
-      Given an array of non-negative integers, you are initially positioned at
-      the first index of the array.
-    </p>
-    <p>
-      Each element in the array represents your maximum jump length at that
-      position.
-    </p>
-    <p>Your goal is to reach the last index in the minimum number of jumps.</p>
-    <p><strong>Example:</strong></p>
-    <pre><code>Input: [2,3,1,1,4]
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>045. Jump Game II</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+</head>
+<body>
+<h2 id="jump-game-ii"><a href="https://leetcode.com/problems/jump-game-ii/description/">45. Jump Game II</a></h2>
+<h3 id="problem">Problem:</h3>
+<p>Given an array of non-negative integers, you are initially positioned at the first index of the array.</p>
+<p>Each element in the array represents your maximum jump length at that position.</p>
+<p>Your goal is to reach the last index in the minimum number of jumps.</p>
+<p><strong>Example:</strong></p>
+<pre><code>Input: [2,3,1,1,4]
 Output: 2
 Explanation: The minimum number of jumps to reach the last index is 2.
     Jump 1 step from index 0 to 1, then 3 steps to the last index.</code></pre>
-    <p><strong>Note:</strong></p>
-    <p>You can assume that you can always reach the last index.</p>
-    <h3 id="solution">Solution:</h3>
-    <p>Greedy. Always pick the one that would allow to jump to the rightest.</p>
-    <pre><code>/**
+<p><strong>Note:</strong></p>
+<p>You can assume that you can always reach the last index.</p>
+<h3 id="solution">Solution:</h3>
+<p>Greedy. Always pick the one that would allow to jump to the rightest.</p>
+<pre><code>/**
  * @param {number[]} nums
  * @return {number}
  */
@@ -70,8 +47,6 @@ let jump = function(nums) {
   }
   return jump
 };</code></pre>
-    <br />
-    <hr />
-    <br />
-  </body>
+<p><em>Template generated via <a href="https://github.com/crimx/crx-leetmark">Leetmark</a>.</em></p>
+</body>
 </html>
