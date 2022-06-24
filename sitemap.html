@@ -57,8 +57,8 @@
     }
 
     .scroll-pane {
-      width: 90%;
-
+      width: 100%;
+border: 1px solid black;
       overflow: auto;
     }
 
@@ -81,36 +81,6 @@
       font-size: 80.75%;
       background: #ffffff;
       color: blue;
-
-      background-image: #dc143c;
-      background-image: -moz-linear-gradient(top,
-          #DC143C; 0%,
-          #000000 44%,
-          #FF7F50; 100%);
-      background-image: -webkit-gradient(linear,
-          left top,
-          left bottom,
-          color-stop(0%, #DC143C; ),
-          color-stop(44%, #000000),
-          color-stop(100%, #FF7F50; ));
-      background-image: -webkit-linear-gradient(top,
-          #DC143C; 0%,
-          #000000 44%,
-          #FF7F50; 100%);
-      background-image: -o-linear-gradient(top,
-          #DC143C; 0%,
-          #000000 44%,
-          #FF7F50; 100%);
-      background-image: -ms-linear-gradient(top,
-          #DC143C; 0%,
-          #000000 44%,
-          #FF7F50; 100%);
-      filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#c9de96', endColorstr='#000000', GradientType=0);
-      background-image: linear-gradient(top,
-          #DC143C; 0%,
-          #000000 44%,
-          #FF7F50; 100%);
-
       display: flex;
       flex-direction: row;
     }
@@ -758,9 +728,9 @@
     }
 
     span.dynatree-node {
-      /*	display: -moz-inline-box; /* issue 133, 165, 172, 192. removed for issue 221*/
-      /*	-moz-box-align: start; /* issue 221 */
-      /*  display: inline-block; /* Required to make a span sizeable */
+      	display: -moz-inline-box; 
+      	-moz-box-align: start; 
+        display: inline-block;  
     }
 
     ul.dynatree-container a {
@@ -769,19 +739,19 @@
       text-decoration: none;
       vertical-align: top;
       margin: 0px;
-      /*margin-left: 3px;*/
+      margin-left: 3px;
       border: 1px solid transparent;
       /*	outline: 0; /* @ Firefox, prevent dotted border after click */
     }
 
     ul.dynatree-container a:hover {
-      /*	text-decoration: underline; */
+      	text-decoration: underline; 
       background-color: #e9edef;
       border: 1px solid whitesmoke;
     }
 
     span.dynatree-node a {
-      /*font-size: 10pt; /* required for IE, quirks mode */
+      font-size: 10pt; /* required for IE, quirks mode */
       display: inline-block;
       /* Better alignment, when title contains <br> */
       padding-left: 2px;
@@ -23774,26 +23744,12 @@
   <hr>
   <br>
   <br> -->
-  <!-- 
-  <iframe class="scroll-pane jspVerticalBar" src="https://bgoonz-blog.netlify.app/" name="iframe_a" height="100%"
-    width="60%" style="
-        text-align: center;
-        border: 6px solid white;
-        background-color: white;
-        margin-left: auto;
-        margin-right: auto;
-        zoom:1.5;
-      " title="iframe_a" frameborder="0"></iframe> -->
+  
+ <iframe class="scroll-pane jspVerticalBar" src="./index.html" name="iframe_a" height="100%" width="60%"
+     style=" text-align: center; resize:both; border: 6px solid white; background-color: white; margin-left: auto; margin-right: auto; zoom:1.5; "
+     title="iframe_a" frameborder="0"></iframe>
 
-  <iframe class="scroll-pane jspVerticalBar" src="https://bgoonz-blog.netlify.app/" name="iframe_a" height="100%"
-    width="100%" style="
-          text-align: center;
-          border: 6px solid white;
-          background-color: white;
-          margin-left: auto;
-          margin-right: auto;
-          zoom:1.5;
-        " title="iframe_a" frameborder="0"></iframe>
+
 
   </div>
 </body>

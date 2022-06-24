@@ -86,7 +86,7 @@ aus einem Satz von Regeln, die eine Abfolge von Operationen genau definieren.
   - `A` [Diskrete Fourier-Transformation (Discrete Fourier Transform)](src/algorithms/math/fourier-transform) - Eine Funktion der Zeit (ein Signal) in die Frequenzen zerlegen, aus denen sie sich zusammensetzt
 - **Sets**
   - `B` [Kartesisches Produkt (Cartesian Product)](src/algorithms/sets/cartesian-product) - Produkt aus mehreren Mengen
-  - `B` [Fisher-Yates-Verfahren (Fisher–Yates Shuffle)](src/algorithms/sets/fisher-yates) - Zufällige Permutation einer endlichen Folge
+  - `B` [Fisher-Yates-Verfahren (Fisher-Yates Shuffle)](src/algorithms/sets/fisher-yates) - Zufällige Permutation einer endlichen Folge
   - `A` [Potenzmenge (Power Set)](src/algorithms/sets/power-set) - Alle Teilmengen einer Menge (Bitweise und Rücksetzverfahren Lösungen(backtracking solutions))
   - `A` [Permutation (Permutations)](src/algorithms/sets/permutations) (mit und ohne Wiederholungen)
   - `A` [Kombination (Combinations)](src/algorithms/sets/combinations) (mit und ohne Wiederholungen)
