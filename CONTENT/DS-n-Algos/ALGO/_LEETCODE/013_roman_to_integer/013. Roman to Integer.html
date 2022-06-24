@@ -1,22 +1,43 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
-<head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="pandoc" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>013. Roman to Integer</title>
-  <style type="text/css">
-      code{white-space: pre-wrap;}
-      span.smallcaps{font-variant: small-caps;}
-      span.underline{text-decoration: underline;}
-      div.column{display: inline-block; vertical-align: top; width: 50%;}
-  </style>
-</head>
-<body>
-<h2 id="roman-to-integer"><a href="https://leetcode.com/problems/roman-to-integer/description/">13. Roman to Integer</a></h2>
-<h3 id="problem">Problem:</h3>
-<p>Roman numerals are represented by seven different symbols: <code>I</code>, <code>V</code>, <code>X</code>, <code>L</code>, <code>C</code>, <code>D</code> and <code>M</code>.</p>
-<pre><code>Symbol       Value
+  <head>
+    <meta charset="utf-8" />
+    <meta name="generator" content="pandoc" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=yes"
+    />
+    <title>013. Roman to Integer</title>
+    <style type="text/css">
+      code {
+        white-space: pre-wrap;
+      }
+      span.smallcaps {
+        font-variant: small-caps;
+      }
+      span.underline {
+        text-decoration: underline;
+      }
+      div.column {
+        display: inline-block;
+        vertical-align: top;
+        width: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <h2 id="roman-to-integer">
+      <a href="https://leetcode.com/problems/roman-to-integer/description/"
+        >13. Roman to Integer</a
+      >
+    </h2>
+    <h3 id="problem">Problem:</h3>
+    <p>
+      Roman numerals are represented by seven different symbols: <code>I</code>,
+      <code>V</code>, <code>X</code>, <code>L</code>, <code>C</code>,
+      <code>D</code> and <code>M</code>.
+    </p>
+    <pre><code>Symbol       Value
 I             1
 V             5
 X             10
@@ -24,34 +45,64 @@ L             50
 C             100
 D             500
 M             1000</code></pre>
-<p>For example, two is written as <code>II</code> in Roman numeral, just two one’s added together. Twelve is written as, <code>XII</code>, which is simply <code>X</code> + <code>II</code>. The number twenty seven is written as <code>XXVII</code>, which is <code>XX</code> + <code>V</code> + <code>II</code>.</p>
-<p>Roman numerals are usually written largest to smallest from left to right. However, the numeral for four is not <code>IIII</code>. Instead, the number four is written as <code>IV</code>. Because the one is before the five we subtract it making four. The same principle applies to the number nine, which is written as <code>IX</code>. There are six instances where subtraction is used:</p>
-<ul>
-<li><code>I</code> can be placed before <code>V</code> (5) and <code>X</code> (10) to make 4 and 9.</li>
-<li><code>X</code> can be placed before <code>L</code> (50) and <code>C</code> (100) to make 40 and 90.</li>
-<li><code>C</code> can be placed before <code>D</code> (500) and <code>M</code> (1000) to make 400 and 900.</li>
-</ul>
-<p>Given a roman numeral, convert it to an integer. Input is guaranteed to be within the range from 1 to 3999.</p>
-<p><strong>Example 1:</strong></p>
-<pre><code>Input: &quot;III&quot;
+    <p>
+      For example, two is written as <code>II</code> in Roman numeral, just two
+      one’s added together. Twelve is written as, <code>XII</code>, which is
+      simply <code>X</code> + <code>II</code>. The number twenty seven is
+      written as <code>XXVII</code>, which is <code>XX</code> + <code>V</code> +
+      <code>II</code>.
+    </p>
+    <p>
+      Roman numerals are usually written largest to smallest from left to right.
+      However, the numeral for four is not <code>IIII</code>. Instead, the
+      number four is written as <code>IV</code>. Because the one is before the
+      five we subtract it making four. The same principle applies to the number
+      nine, which is written as <code>IX</code>. There are six instances where
+      subtraction is used:
+    </p>
+    <ul>
+      <li>
+        <code>I</code> can be placed before <code>V</code> (5) and
+        <code>X</code> (10) to make 4 and 9.
+      </li>
+      <li>
+        <code>X</code> can be placed before <code>L</code> (50) and
+        <code>C</code> (100) to make 40 and 90.
+      </li>
+      <li>
+        <code>C</code> can be placed before <code>D</code> (500) and
+        <code>M</code> (1000) to make 400 and 900.
+      </li>
+    </ul>
+    <p>
+      Given a roman numeral, convert it to an integer. Input is guaranteed to be
+      within the range from 1 to 3999.
+    </p>
+    <p><strong>Example 1:</strong></p>
+    <pre><code>Input: &quot;III&quot;
 Output: 3</code></pre>
-<p><strong>Example 2:</strong></p>
-<pre><code>Input: &quot;IV&quot;
+    <p><strong>Example 2:</strong></p>
+    <pre><code>Input: &quot;IV&quot;
 Output: 4</code></pre>
-<p><strong>Example 3:</strong></p>
-<pre><code>Input: &quot;IX&quot;
+    <p><strong>Example 3:</strong></p>
+    <pre><code>Input: &quot;IX&quot;
 Output: 9</code></pre>
-<p><strong>Example 4:</strong></p>
-<pre><code>Input: &quot;LVIII&quot;
+    <p><strong>Example 4:</strong></p>
+    <pre><code>Input: &quot;LVIII&quot;
 Output: 58
 Explanation: C = 100, L = 50, XXX = 30 and III = 3.</code></pre>
-<p><strong>Example 5:</strong></p>
-<pre><code>Input: &quot;MCMXCIV&quot;
+    <p><strong>Example 5:</strong></p>
+    <pre><code>Input: &quot;MCMXCIV&quot;
 Output: 1994
 Explanation: M = 1000, CM = 900, XC = 90 and IV = 4.</code></pre>
-<h3 id="solution">Solution:</h3>
-<p>Normally we just add up the digits, except when the digit is greater than its left (e.g. IV). In that case we need to fallback and remove the last digit then combine the two as new digit. That is why we subtract the last digit twice.</p>
-<pre><code>/**
+    <h3 id="solution">Solution:</h3>
+    <p>
+      Normally we just add up the digits, except when the digit is greater than
+      its left (e.g. IV). In that case we need to fallback and remove the last
+      digit then combine the two as new digit. That is why we subtract the last
+      digit twice.
+    </p>
+    <pre><code>/**
  * @param {string} s
  * @return {number}
  */
@@ -74,5 +125,5 @@ let romanToInt = function (s) {
   }
   return result
 };</code></pre>
-</body>
+  </body>
 </html>

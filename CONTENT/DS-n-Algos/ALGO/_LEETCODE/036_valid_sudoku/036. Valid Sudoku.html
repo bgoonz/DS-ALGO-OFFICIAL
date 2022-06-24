@@ -1,33 +1,67 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
-<head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="pandoc" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>036. Valid Sudoku</title>
-  <style type="text/css">
-      code{white-space: pre-wrap;}
-      span.smallcaps{font-variant: small-caps;}
-      span.underline{text-decoration: underline;}
-      div.column{display: inline-block; vertical-align: top; width: 50%;}
-  </style>
-</head>
-<body>
-<h2 id="valid-sudoku"><a href="https://leetcode.com/problems/valid-sudoku/description/">36. Valid Sudoku</a></h2>
-<h3 id="problem">Problem:</h3>
-<p>Determine if a 9x9 Sudoku board is valid. Only the filled cells need to be validated <strong>according to the following rules</strong>:</p>
-<ol type="1">
-<li>Each row must contain the digits <code>1-9</code> without repetition.</li>
-<li>Each column must contain the digits <code>1-9</code> without repetition.</li>
-<li>Each of the 9 <code>3x3</code> sub-boxes of the grid must contain the digits <code>1-9</code> without repetition.</li>
-</ol>
-<figure>
-<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Sudoku-by-L2G-20050714.svg/250px-Sudoku-by-L2G-20050714.svg.png" alt="250px-Sudoku-by-L2G-20050714.svg.png" /><figcaption>250px-Sudoku-by-L2G-20050714.svg.png</figcaption>
-</figure>
-<p>A partially filled sudoku which is valid.</p>
-<p>The Sudoku board could be partially filled, where empty cells are filled with the character <code>'.'</code>.</p>
-<p><strong>Example 1:</strong></p>
-<pre><code>Input:
+  <head>
+    <meta charset="utf-8" />
+    <meta name="generator" content="pandoc" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=yes"
+    />
+    <title>036. Valid Sudoku</title>
+    <style type="text/css">
+      code {
+        white-space: pre-wrap;
+      }
+      span.smallcaps {
+        font-variant: small-caps;
+      }
+      span.underline {
+        text-decoration: underline;
+      }
+      div.column {
+        display: inline-block;
+        vertical-align: top;
+        width: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <h2 id="valid-sudoku">
+      <a href="https://leetcode.com/problems/valid-sudoku/description/"
+        >36. Valid Sudoku</a
+      >
+    </h2>
+    <h3 id="problem">Problem:</h3>
+    <p>
+      Determine if a 9x9 Sudoku board is valid. Only the filled cells need to be
+      validated <strong>according to the following rules</strong>:
+    </p>
+    <ol type="1">
+      <li>
+        Each row must contain the digits <code>1-9</code> without repetition.
+      </li>
+      <li>
+        Each column must contain the digits <code>1-9</code> without repetition.
+      </li>
+      <li>
+        Each of the 9 <code>3x3</code> sub-boxes of the grid must contain the
+        digits <code>1-9</code> without repetition.
+      </li>
+    </ol>
+    <figure>
+      <img
+        src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Sudoku-by-L2G-20050714.svg/250px-Sudoku-by-L2G-20050714.svg.png"
+        alt="250px-Sudoku-by-L2G-20050714.svg.png"
+      />
+      <figcaption>250px-Sudoku-by-L2G-20050714.svg.png</figcaption>
+    </figure>
+    <p>A partially filled sudoku which is valid.</p>
+    <p>
+      The Sudoku board could be partially filled, where empty cells are filled
+      with the character <code>'.'</code>.
+    </p>
+    <p><strong>Example 1:</strong></p>
+    <pre><code>Input:
 [
   [&quot;5&quot;,&quot;3&quot;,&quot;.&quot;,&quot;.&quot;,&quot;7&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;],
   [&quot;6&quot;,&quot;.&quot;,&quot;.&quot;,&quot;1&quot;,&quot;9&quot;,&quot;5&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;],
@@ -40,8 +74,8 @@
   [&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;8&quot;,&quot;.&quot;,&quot;.&quot;,&quot;7&quot;,&quot;9&quot;]
 ]
 Output: true</code></pre>
-<p><strong>Example 2:</strong></p>
-<pre><code>Input:
+    <p><strong>Example 2:</strong></p>
+    <pre><code>Input:
 [
   [&quot;8&quot;,&quot;3&quot;,&quot;.&quot;,&quot;.&quot;,&quot;7&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;],
   [&quot;6&quot;,&quot;.&quot;,&quot;.&quot;,&quot;1&quot;,&quot;9&quot;,&quot;5&quot;,&quot;.&quot;,&quot;.&quot;,&quot;.&quot;],
@@ -56,16 +90,25 @@ Output: true</code></pre>
 Output: false
 Explanation: Same as Example 1, except with the 5 in the top left corner being
     modified to 8. Since there are two 8&#39;s in the top left 3x3 sub-box, it is invalid.</code></pre>
-<p><strong>Note:</strong></p>
-<ul>
-<li>A Sudoku board (partially filled) could be valid but is not necessarily solvable.</li>
-<li>Only the filled cells need to be validated according to the mentioned rules.</li>
-<li>The given board contain only digits <code>1-9</code> and the character <code>'.'</code>.</li>
-<li>The given board size is always <code>9x9</code>.</li>
-</ul>
-<h3 id="solution">Solution:</h3>
-<p>Scan the board once.</p>
-<pre><code>/**
+    <p><strong>Note:</strong></p>
+    <ul>
+      <li>
+        A Sudoku board (partially filled) could be valid but is not necessarily
+        solvable.
+      </li>
+      <li>
+        Only the filled cells need to be validated according to the
+        mentioned rules.
+      </li>
+      <li>
+        The given board contain only digits <code>1-9</code> and the character
+        <code>'.'</code>.
+      </li>
+      <li>The given board size is always <code>9x9</code>.</li>
+    </ul>
+    <h3 id="solution">Solution:</h3>
+    <p>Scan the board once.</p>
+    <pre><code>/**
  * @param {character[][]} board
  * @return {boolean}
  */
@@ -100,5 +143,5 @@ let isValidSudoku = function(board) {
 
   return true
 };</code></pre>
-</body>
+  </body>
 </html>

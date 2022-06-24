@@ -1,29 +1,54 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
-<head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="pandoc" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>002. Add Two Numbers</title>
-  <style type="text/css">
-      code{white-space: pre-wrap;}
-      span.smallcaps{font-variant: small-caps;}
-      span.underline{text-decoration: underline;}
-      div.column{display: inline-block; vertical-align: top; width: 50%;}
-  </style>
-</head>
-<body>
-<h2 id="add-two-numbers"><a href="https://leetcode.com/problems/add-two-numbers/description/">2. Add Two Numbers</a></h2>
-<h3 id="problem">Problem:</h3>
-<p>You are given two non-empty linked lists representing two non-negative integers. The digits are stored in reverse order and each of their nodes contain a single digit. Add the two numbers and return it as a linked list.</p>
-<p>You may assume the two numbers do not contain any leading zero, except the number 0 itself.</p>
-<p>Example</p>
-<pre><code>Input: (2 -&gt; 4 -&gt; 3) + (5 -&gt; 6 -&gt; 4)
+  <head>
+    <meta charset="utf-8" />
+    <meta name="generator" content="pandoc" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=yes"
+    />
+    <title>002. Add Two Numbers</title>
+    <style type="text/css">
+      code {
+        white-space: pre-wrap;
+      }
+      span.smallcaps {
+        font-variant: small-caps;
+      }
+      span.underline {
+        text-decoration: underline;
+      }
+      div.column {
+        display: inline-block;
+        vertical-align: top;
+        width: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <h2 id="add-two-numbers">
+      <a href="https://leetcode.com/problems/add-two-numbers/description/"
+        >2. Add Two Numbers</a
+      >
+    </h2>
+    <h3 id="problem">Problem:</h3>
+    <p>
+      You are given two non-empty linked lists representing two non-negative
+      integers. The digits are stored in reverse order and each of their nodes
+      contain a single digit. Add the two numbers and return it as a linked
+      list.
+    </p>
+    <p>
+      You may assume the two numbers do not contain any leading zero, except the
+      number 0 itself.
+    </p>
+    <p>Example</p>
+    <pre><code>Input: (2 -&gt; 4 -&gt; 3) + (5 -&gt; 6 -&gt; 4)
 Output: 7 -&gt; 0 -&gt; 8
 Explanation: 342 + 465 = 807.</code></pre>
-<h3 id="solution">Solution:</h3>
-<p>Mind the last carry.</p>
-<pre><code>/**
+    <h3 id="solution">Solution:</h3>
+    <p>Mind the last carry.</p>
+    <pre><code>/**
  * Definition for singly-linked list.
  * function ListNode(val) {
  *     this.val = val;
@@ -56,6 +81,11 @@ let addTwoNumbers = function(l1, l2) {
 
   return prehead.next
 };</code></pre>
-<p><em>Template generated via <a href="https://github.com/crimx/crx-leetmark">Leetmark</a>.</em></p>
-</body>
+    <p>
+      <em
+        >Template generated via
+        <a href="https://github.com/crimx/crx-leetmark">Leetmark</a>.</em
+      >
+    </p>
+  </body>
 </html>

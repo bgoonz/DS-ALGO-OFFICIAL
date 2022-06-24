@@ -1,33 +1,53 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
-<head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="pandoc" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>022. Generate Parentheses</title>
-  <style type="text/css">
-      code{white-space: pre-wrap;}
-      span.smallcaps{font-variant: small-caps;}
-      span.underline{text-decoration: underline;}
-      div.column{display: inline-block; vertical-align: top; width: 50%;}
-  </style>
-</head>
-<body>
-<h2 id="generate-parentheses"><a href="https://leetcode.com/problems/generate-parentheses/description/">22. Generate Parentheses</a></h2>
-<h3 id="problem">Problem:</h3>
-<p>Given n pairs of parentheses, write a function to generate all combinations of well-formed parentheses.</p>
-<p>For example, given n = 3, a solution set is:</p>
-<pre><code>[
+  <head>
+    <meta charset="utf-8" />
+    <meta name="generator" content="pandoc" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=yes"
+    />
+    <title>022. Generate Parentheses</title>
+    <style type="text/css">
+      code {
+        white-space: pre-wrap;
+      }
+      span.smallcaps {
+        font-variant: small-caps;
+      }
+      span.underline {
+        text-decoration: underline;
+      }
+      div.column {
+        display: inline-block;
+        vertical-align: top;
+        width: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <h2 id="generate-parentheses">
+      <a href="https://leetcode.com/problems/generate-parentheses/description/"
+        >22. Generate Parentheses</a
+      >
+    </h2>
+    <h3 id="problem">Problem:</h3>
+    <p>
+      Given n pairs of parentheses, write a function to generate all
+      combinations of well-formed parentheses.
+    </p>
+    <p>For example, given n = 3, a solution set is:</p>
+    <pre><code>[
   &quot;((()))&quot;,
   &quot;(()())&quot;,
   &quot;(())()&quot;,
   &quot;()(())&quot;,
   &quot;()()()&quot;
 ]</code></pre>
-<h3 id="solution">Solution:</h3>
-<h4 id="one">ONE</h4>
-<p>Recursive DFS backtracking.</p>
-<pre><code>/**
+    <h3 id="solution">Solution:</h3>
+    <h4 id="one">ONE</h4>
+    <p>Recursive DFS backtracking.</p>
+    <pre><code>/**
  * @param {number} n
  * @return {string[]}
  */
@@ -53,9 +73,9 @@ function dfs (n, nopen, nclose, path, result) {
     dfs(n, nopen, nclose + 1, path + &#39;)&#39;, result)
   }
 };</code></pre>
-<h4 id="two">TWO</h4>
-<p>BFS.</p>
-<pre><code>/**
+    <h4 id="two">TWO</h4>
+    <p>BFS.</p>
+    <pre><code>/**
  * @param {number} n
  * @return {string[]}
  */
@@ -94,5 +114,5 @@ let generateParenthesis = function(n) {
 
   return queue.map(x =&gt; x.path)
 };</code></pre>
-</body>
+  </body>
 </html>

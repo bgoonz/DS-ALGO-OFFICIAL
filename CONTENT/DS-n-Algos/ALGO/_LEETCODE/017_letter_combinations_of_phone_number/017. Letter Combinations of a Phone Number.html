@@ -1,36 +1,70 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
-<head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="pandoc" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>017. Letter Combinations of a Phone Number</title>
-  <style type="text/css">
-      code{white-space: pre-wrap;}
-      span.smallcaps{font-variant: small-caps;}
-      span.underline{text-decoration: underline;}
-      div.column{display: inline-block; vertical-align: top; width: 50%;}
-  </style>
-</head>
-<body>
-<h2 id="letter-combinations-of-a-phone-number"><a href="https://leetcode.com/problems/letter-combinations-of-a-phone-number/description/">17. Letter Combinations of a Phone Number</a></h2>
-<h3 id="problem">Problem:</h3>
-<p>Given a string containing digits from <code>2-9</code> inclusive, return all possible letter combinations that the number could represent.</p>
-<p>A mapping of digit to letters (just like on the telephone buttons) is given below. Note that 1 does not map to any letters.</p>
-<figure>
-<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/Telephone-keypad2.svg/200px-Telephone-keypad2.svg.png" alt="200px-Telephone-keypad2" /><figcaption>200px-Telephone-keypad2</figcaption>
-</figure>
-<p><strong>Example:</strong></p>
-<pre><code>Input: &quot;23&quot;
+  <head>
+    <meta charset="utf-8" />
+    <meta name="generator" content="pandoc" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=yes"
+    />
+    <title>017. Letter Combinations of a Phone Number</title>
+    <style type="text/css">
+      code {
+        white-space: pre-wrap;
+      }
+      span.smallcaps {
+        font-variant: small-caps;
+      }
+      span.underline {
+        text-decoration: underline;
+      }
+      div.column {
+        display: inline-block;
+        vertical-align: top;
+        width: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <h2 id="letter-combinations-of-a-phone-number">
+      <a
+        href="https://leetcode.com/problems/letter-combinations-of-a-phone-number/description/"
+        >17. Letter Combinations of a Phone Number</a
+      >
+    </h2>
+    <h3 id="problem">Problem:</h3>
+    <p>
+      Given a string containing digits from <code>2-9</code> inclusive, return
+      all possible letter combinations that the number could represent.
+    </p>
+    <p>
+      A mapping of digit to letters (just like on the telephone buttons) is
+      given below. Note that 1 does not map to any letters.
+    </p>
+    <figure>
+      <img
+        src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/73/Telephone-keypad2.svg/200px-Telephone-keypad2.svg.png"
+        alt="200px-Telephone-keypad2"
+      />
+      <figcaption>200px-Telephone-keypad2</figcaption>
+    </figure>
+    <p><strong>Example:</strong></p>
+    <pre><code>Input: &quot;23&quot;
 Output: [&quot;ad&quot;, &quot;ae&quot;, &quot;af&quot;, &quot;bd&quot;, &quot;be&quot;, &quot;bf&quot;, &quot;cd&quot;, &quot;ce&quot;, &quot;cf&quot;].</code></pre>
-<p><strong>Note:</strong></p>
-<p>Although the above answer is in lexicographical order, your answer could be in any order you want.</p>
-<h3 id="solution">Solution:</h3>
-<h4 id="one">ONE</h4>
-<p>JavaScript specific optimization.</p>
-<p><code>Array.prototype.push</code> accepts arbitrary arguments which enables tighter loops.</p>
-<p>Also, appending string is faster than prepending.</p>
-<pre><code>/**
+    <p><strong>Note:</strong></p>
+    <p>
+      Although the above answer is in lexicographical order, your answer could
+      be in any order you want.
+    </p>
+    <h3 id="solution">Solution:</h3>
+    <h4 id="one">ONE</h4>
+    <p>JavaScript specific optimization.</p>
+    <p>
+      <code>Array.prototype.push</code> accepts arbitrary arguments which
+      enables tighter loops.
+    </p>
+    <p>Also, appending string is faster than prepending.</p>
+    <pre><code>/**
  * @param {string} digits
  * @return {string[]}
  */
@@ -61,9 +95,9 @@ let letterCombinations = function(digits) {
 
   return result
 };</code></pre>
-<h4 id="two">TWO</h4>
-<p>General recursive DFS solution.</p>
-<pre><code>/**
+    <h4 id="two">TWO</h4>
+    <p>General recursive DFS solution.</p>
+    <pre><code>/**
  * @param {string} digits
  * @return {string[]}
  */
@@ -86,5 +120,5 @@ function dfs (digits, idigit, path, letters, result) {
     dfs(digits, idigit + 1, path + str[i], letters, result)
   }
 };</code></pre>
-</body>
+  </body>
 </html>

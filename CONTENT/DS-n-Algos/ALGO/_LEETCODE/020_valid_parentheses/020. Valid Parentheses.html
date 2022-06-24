@@ -1,48 +1,75 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
-<head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="pandoc" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>020. Valid Parentheses</title>
-  <style type="text/css">
-      code{white-space: pre-wrap;}
-      span.smallcaps{font-variant: small-caps;}
-      span.underline{text-decoration: underline;}
-      div.column{display: inline-block; vertical-align: top; width: 50%;}
-  </style>
-</head>
-<body>
-<h2 id="valid-parentheses"><a href="https://leetcode.com/problems/valid-parentheses/description/">20. Valid Parentheses</a></h2>
-<h3 id="problem">Problem:</h3>
-<p>Given a string containing just the characters <code>'('</code>, <code>')'</code>, <code>'{'</code>, <code>'}'</code>, <code>'['</code> and <code>']'</code>, determine if the input string is valid.</p>
-<p>An input string is valid if:</p>
-<ol type="1">
-<li>Open brackets must be closed by the same type of brackets.</li>
-<li>Open brackets must be closed in the correct order.</li>
-</ol>
-<p>Note that an empty string is also considered valid.</p>
-<p><strong>Example 1:</strong></p>
-<pre><code>Input: &quot;()&quot;
+  <head>
+    <meta charset="utf-8" />
+    <meta name="generator" content="pandoc" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=yes"
+    />
+    <title>020. Valid Parentheses</title>
+    <style type="text/css">
+      code {
+        white-space: pre-wrap;
+      }
+      span.smallcaps {
+        font-variant: small-caps;
+      }
+      span.underline {
+        text-decoration: underline;
+      }
+      div.column {
+        display: inline-block;
+        vertical-align: top;
+        width: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <h2 id="valid-parentheses">
+      <a href="https://leetcode.com/problems/valid-parentheses/description/"
+        >20. Valid Parentheses</a
+      >
+    </h2>
+    <h3 id="problem">Problem:</h3>
+    <p>
+      Given a string containing just the characters <code>'('</code>,
+      <code>')'</code>, <code>'{'</code>, <code>'}'</code>, <code>'['</code> and
+      <code>']'</code>, determine if the input string is valid.
+    </p>
+    <p>An input string is valid if:</p>
+    <ol type="1">
+      <li>Open brackets must be closed by the same type of brackets.</li>
+      <li>Open brackets must be closed in the correct order.</li>
+    </ol>
+    <p>Note that an empty string is also considered valid.</p>
+    <p><strong>Example 1:</strong></p>
+    <pre><code>Input: &quot;()&quot;
 Output: true</code></pre>
-<p><strong>Example 2:</strong></p>
-<pre><code>Input: &quot;()[]{}&quot;
+    <p><strong>Example 2:</strong></p>
+    <pre><code>Input: &quot;()[]{}&quot;
 Output: true</code></pre>
-<p><strong>Example 3:</strong></p>
-<pre><code>Input: &quot;(]&quot;
+    <p><strong>Example 3:</strong></p>
+    <pre><code>Input: &quot;(]&quot;
 Output: false</code></pre>
-<p><strong>Example 4:</strong></p>
-<pre><code>Input: &quot;([)]&quot;
+    <p><strong>Example 4:</strong></p>
+    <pre><code>Input: &quot;([)]&quot;
 Output: false</code></pre>
-<p><strong>Example 5:</strong></p>
-<pre><code>Input: &quot;{[]}&quot;
+    <p><strong>Example 5:</strong></p>
+    <pre><code>Input: &quot;{[]}&quot;
 Output: true</code></pre>
-<h3 id="solution">Solution:</h3>
-<p>Stack 101.</p>
-<p>Whenever we meet a close bracket, we want to compare it to the last open bracket.</p>
-<p>That is why we use stack to store open brackets: first in, last out.</p>
-<p>And since there is only bracket characters, the last open bracket happens to be the last character.</p>
-<pre><code>/**
+    <h3 id="solution">Solution:</h3>
+    <p>Stack 101.</p>
+    <p>
+      Whenever we meet a close bracket, we want to compare it to the last open
+      bracket.
+    </p>
+    <p>That is why we use stack to store open brackets: first in, last out.</p>
+    <p>
+      And since there is only bracket characters, the last open bracket happens
+      to be the last character.
+    </p>
+    <pre><code>/**
  * @param {string} s
  * @return {boolean}
  */
@@ -65,5 +92,5 @@ let isValid = function(s) {
   }
   return stack.length &lt;= 0
 };</code></pre>
-</body>
+  </body>
 </html>

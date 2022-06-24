@@ -1,70 +1,110 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
-<head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="pandoc" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>008. String to Integer (atoi)</title>
-  <style type="text/css">
-      code{white-space: pre-wrap;}
-      span.smallcaps{font-variant: small-caps;}
-      span.underline{text-decoration: underline;}
-      div.column{display: inline-block; vertical-align: top; width: 50%;}
-  </style>
-</head>
-<body>
-<h2 id="string-to-integer-atoi"><a href="https://leetcode.com/problems/string-to-integer-atoi/description/">8. String to Integer (atoi)</a></h2>
-<h3 id="problem">Problem:</h3>
-<p>Implement <code>atoi</code> which converts a string to an integer.</p>
-<p>The function first discards as many whitespace characters as necessary until the first non-whitespace character is found. Then, starting from this character, takes an optional initial plus or minus sign followed by as many numerical digits as possible, and interprets them as a numerical value.</p>
-<p>The string can contain additional characters after those that form the integral number, which are ignored and have no effect on the behavior of this function.</p>
-<p>If the first sequence of non-whitespace characters in str is not a valid integral number, or if no such sequence exists because either str is empty or it contains only whitespace characters, no conversion is performed.</p>
-<p>If no valid conversion could be performed, a zero value is returned.</p>
-<p><strong>Note:</strong></p>
-<p>Only the space character <code>' '</code> is considered as whitespace character. Assume we are dealing with an environment which could only store integers within the 32-bit signed integer range: [−231,  231 − 1]. If the numerical value is out of the range of representable values, INT_MAX (231 − 1) or INT_MIN (−231) is returned.</p>
-<p><strong>Example 1:</strong></p>
-<pre><code>Input: &quot;42&quot;
+  <head>
+    <meta charset="utf-8" />
+    <meta name="generator" content="pandoc" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=yes"
+    />
+    <title>008. String to Integer (atoi)</title>
+    <style type="text/css">
+      code {
+        white-space: pre-wrap;
+      }
+      span.smallcaps {
+        font-variant: small-caps;
+      }
+      span.underline {
+        text-decoration: underline;
+      }
+      div.column {
+        display: inline-block;
+        vertical-align: top;
+        width: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <h2 id="string-to-integer-atoi">
+      <a
+        href="https://leetcode.com/problems/string-to-integer-atoi/description/"
+        >8. String to Integer (atoi)</a
+      >
+    </h2>
+    <h3 id="problem">Problem:</h3>
+    <p>Implement <code>atoi</code> which converts a string to an integer.</p>
+    <p>
+      The function first discards as many whitespace characters as necessary
+      until the first non-whitespace character is found. Then, starting from
+      this character, takes an optional initial plus or minus sign followed by
+      as many numerical digits as possible, and interprets them as a numerical
+      value.
+    </p>
+    <p>
+      The string can contain additional characters after those that form the
+      integral number, which are ignored and have no effect on the behavior of
+      this function.
+    </p>
+    <p>
+      If the first sequence of non-whitespace characters in str is not a valid
+      integral number, or if no such sequence exists because either str is empty
+      or it contains only whitespace characters, no conversion is performed.
+    </p>
+    <p>If no valid conversion could be performed, a zero value is returned.</p>
+    <p><strong>Note:</strong></p>
+    <p>
+      Only the space character <code>' '</code> is considered as whitespace
+      character. Assume we are dealing with an environment which could only
+      store integers within the 32-bit signed integer range: [−231,  231 − 1].
+      If the numerical value is out of the range of representable values,
+      INT_MAX (231 − 1) or INT_MIN (−231) is returned.
+    </p>
+    <p><strong>Example 1:</strong></p>
+    <pre><code>Input: &quot;42&quot;
 Output: 42</code></pre>
-<p><strong>Example 2:</strong></p>
-<pre><code>Input: &quot;   -42&quot;
+    <p><strong>Example 2:</strong></p>
+    <pre><code>Input: &quot;   -42&quot;
 Output: -42
 Explanation: The first non-whitespace character is &#39;-&#39;, which is the minus sign.
              Then take as many numerical digits as possible, which gets 42.</code></pre>
-<p><strong>Example 3:</strong></p>
-<pre><code>Input: &quot;4193 with words&quot;
+    <p><strong>Example 3:</strong></p>
+    <pre><code>Input: &quot;4193 with words&quot;
 Output: 4193
 Explanation: Conversion stops at digit &#39;3&#39; as the next character is not a numerical digit.</code></pre>
-<p><strong>Example 4:</strong></p>
-<pre><code>Input: &quot;words and 987&quot;
+    <p><strong>Example 4:</strong></p>
+    <pre><code>Input: &quot;words and 987&quot;
 Output: 0
 Explanation: The first non-whitespace character is &#39;w&#39;, which is not a numerical
              digit or a +/- sign. Therefore no valid conversion could be performed.</code></pre>
-<p><strong>Example 5:</strong></p>
-<pre><code>Input: &quot;-91283472332&quot;
+    <p><strong>Example 5:</strong></p>
+    <pre><code>Input: &quot;-91283472332&quot;
 Output: -2147483648
 Explanation: The number &quot;-91283472332&quot; is out of the range of a 32-bit signed integer.
              Thefore INT_MIN (−231) is returned.</code></pre>
-<h3 id="solution">Solution:</h3>
-<h4 id="one">ONE</h4>
-<pre><code>/**
+    <h3 id="solution">Solution:</h3>
+    <h4 id="one">ONE</h4>
+    <pre><code>/**
  * @param {string} str
  * @return {number}
  */
 let myAtoi = function (str) {
   return Math.min(2147483647, Math.max(-2147483648, parseInt(str))) || 0
 };</code></pre>
-<h4 id="two">TWO</h4>
-<p>Looks like <code>Number()</code> is faster than <code>parseInt()</code>.</p>
-<pre><code>/**
+    <h4 id="two">TWO</h4>
+    <p>
+      Looks like <code>Number()</code> is faster than <code>parseInt()</code>.
+    </p>
+    <pre><code>/**
  * @param {string} str
  * @return {number}
  */
 let myAtoi = function (str) {
   return Math.min(2147483647, Math.max(-2147483648, (/^ *[-+]?\d+/.exec(str) || [0])[0]))
 };</code></pre>
-<h4 id="three">THREE</h4>
-<p>General solution.</p>
-<pre><code>/**
+    <h4 id="three">THREE</h4>
+    <p>General solution.</p>
+    <pre><code>/**
  * @param {string} str
  * @return {number}
  */
@@ -98,5 +138,5 @@ let myAtoi = function (str) {
 
   return Math.min(2147483647, Math.max(-2147483648, result * sign))
 };</code></pre>
-</body>
+  </body>
 </html>

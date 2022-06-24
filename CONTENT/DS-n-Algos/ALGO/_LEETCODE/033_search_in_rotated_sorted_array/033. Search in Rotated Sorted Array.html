@@ -1,48 +1,113 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
-<head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="pandoc" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>033. Search in Rotated Sorted Array</title>
-  <style type="text/css">
-      code{white-space: pre-wrap;}
-      span.smallcaps{font-variant: small-caps;}
-      span.underline{text-decoration: underline;}
-      div.column{display: inline-block; vertical-align: top; width: 50%;}
-  </style>
-</head>
-<body>
-<h2 id="search-in-rotated-sorted-array"><a href="https://leetcode.com/problems/search-in-rotated-sorted-array/description/">33. Search in Rotated Sorted Array</a></h2>
-<h3 id="problem">Problem:</h3>
-<p>Suppose an array sorted in ascending order is rotated at some pivot unknown to you beforehand.</p>
-<p>(i.e., <code>[0,1,2,4,5,6,7]</code> might become <code>[4,5,6,7,0,1,2]</code>).</p>
-<p>You are given a target value to search. If found in the array return its index, otherwise return <code>-1</code>.</p>
-<p>You may assume no duplicate exists in the array.</p>
-<p>Your algorithm’s runtime complexity must be in the order of <em>O</em>(log <em>n</em>).</p>
-<p><strong>Example 1:</strong></p>
-<pre><code>Input: nums = [4,5,6,7,0,1,2], target = 0
+  <head>
+    <meta charset="utf-8" />
+    <meta name="generator" content="pandoc" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=yes"
+    />
+    <title>033. Search in Rotated Sorted Array</title>
+    <style type="text/css">
+      code {
+        white-space: pre-wrap;
+      }
+      span.smallcaps {
+        font-variant: small-caps;
+      }
+      span.underline {
+        text-decoration: underline;
+      }
+      div.column {
+        display: inline-block;
+        vertical-align: top;
+        width: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <h2 id="search-in-rotated-sorted-array">
+      <a
+        href="https://leetcode.com/problems/search-in-rotated-sorted-array/description/"
+        >33. Search in Rotated Sorted Array</a
+      >
+    </h2>
+    <h3 id="problem">Problem:</h3>
+    <p>
+      Suppose an array sorted in ascending order is rotated at some pivot
+      unknown to you beforehand.
+    </p>
+    <p>
+      (i.e., <code>[0,1,2,4,5,6,7]</code> might become
+      <code>[4,5,6,7,0,1,2]</code>).
+    </p>
+    <p>
+      You are given a target value to search. If found in the array return its
+      index, otherwise return <code>-1</code>.
+    </p>
+    <p>You may assume no duplicate exists in the array.</p>
+    <p>
+      Your algorithm’s runtime complexity must be in the order
+      of <em>O</em>(log <em>n</em>).
+    </p>
+    <p><strong>Example 1:</strong></p>
+    <pre><code>Input: nums = [4,5,6,7,0,1,2], target = 0
 Output: 4</code></pre>
-<p><strong>Example 2:</strong></p>
-<pre><code>Input: nums = [4,5,6,7,0,1,2], target = 3
+    <p><strong>Example 2:</strong></p>
+    <pre><code>Input: nums = [4,5,6,7,0,1,2], target = 3
 Output: -1</code></pre>
-<h3 id="solution">Solution:</h3>
-<p>Obviously the problem requires binary search.</p>
-<p>The core idea of binary search is to pick the middle item and then decide to keep which half.</p>
-<p>The precondition of it is the array must be sorted.</p>
-<p>But take a closer look and we realize that only one of the two halves needs to be sorted. This is sufficient for us to know if the target is in that half. If not, then it must be in the other.</p>
-<p>Whenever we choose a pivot, it must be in one of the two sorted parts of the rotated array.</p>
-<ul>
-<li>If the pivot is in the left part. We know that the begin of the left part to the pivot are sorted.</li>
-<li><p>Otherwise the pivot is in the right part. We know that the end of the right part to the pivot are sorted.</p>
-<p>/**</p>
-<ul>
-<li><span class="citation" data-cites="param"><span class="citation" data-cites="param">@param</span></span> {number[]} nums</li>
-<li><span class="citation" data-cites="param"><span class="citation" data-cites="param">@param</span></span> {number} target</li>
-<li><span class="citation" data-cites="return"><span class="citation" data-cites="return">@return</span></span> {number} */ let search = function(nums, target) { let s = 0 let e = nums.length - 1</li>
-</ul>
-<p>while (s &lt;= e) { const p = (e + s) / 2 | 0 const pivot = nums[p]</p>
-<pre><code>if (pivot === target) {
+    <h3 id="solution">Solution:</h3>
+    <p>Obviously the problem requires binary search.</p>
+    <p>
+      The core idea of binary search is to pick the middle item and then decide
+      to keep which half.
+    </p>
+    <p>The precondition of it is the array must be sorted.</p>
+    <p>
+      But take a closer look and we realize that only one of the two halves
+      needs to be sorted. This is sufficient for us to know if the target is in
+      that half. If not, then it must be in the other.
+    </p>
+    <p>
+      Whenever we choose a pivot, it must be in one of the two sorted parts of
+      the rotated array.
+    </p>
+    <ul>
+      <li>
+        If the pivot is in the left part. We know that the begin of the left
+        part to the pivot are sorted.
+      </li>
+      <li>
+        <p>
+          Otherwise the pivot is in the right part. We know that the end of the
+          right part to the pivot are sorted.
+        </p>
+        <p>/**</p>
+        <ul>
+          <li>
+            <span class="citation" data-cites="param"
+              ><span class="citation" data-cites="param">@param</span></span
+            >
+            {number[]} nums
+          </li>
+          <li>
+            <span class="citation" data-cites="param"
+              ><span class="citation" data-cites="param">@param</span></span
+            >
+            {number} target
+          </li>
+          <li>
+            <span class="citation" data-cites="return"
+              ><span class="citation" data-cites="return">@return</span></span
+            >
+            {number} */ let search = function(nums, target) { let s = 0 let e =
+            nums.length - 1
+          </li>
+        </ul>
+        <p>
+          while (s &lt;= e) { const p = (e + s) / 2 | 0 const pivot = nums[p]
+        </p>
+        <pre><code>if (pivot === target) {
   return p
 }
 
@@ -63,8 +128,9 @@ if (pivot &lt; nums[e]) {
     s = p + 1
   }
 }</code></pre>
-<p>}</p>
-<p>return -1 };</p></li>
-</ul>
-</body>
+        <p>}</p>
+        <p>return -1 };</p>
+      </li>
+    </ul>
+  </body>
 </html>

@@ -1,27 +1,51 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
-<head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="pandoc" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>021. Merge Two Sorted Lists</title>
-  <style type="text/css">
-      code{white-space: pre-wrap;}
-      span.smallcaps{font-variant: small-caps;}
-      span.underline{text-decoration: underline;}
-      div.column{display: inline-block; vertical-align: top; width: 50%;}
-  </style>
-</head>
-<body>
-<h2 id="merge-two-sorted-lists"><a href="https://leetcode.com/problems/merge-two-sorted-lists/description/">21. Merge Two Sorted Lists</a></h2>
-<h3 id="problem">Problem:</h3>
-<p>Merge two sorted linked lists and return it as a new list. The new list should be made by splicing together the nodes of the first two lists.</p>
-<p>Example:</p>
-<pre><code>Input: 1-&gt;2-&gt;4, 1-&gt;3-&gt;4
+  <head>
+    <meta charset="utf-8" />
+    <meta name="generator" content="pandoc" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=yes"
+    />
+    <title>021. Merge Two Sorted Lists</title>
+    <style type="text/css">
+      code {
+        white-space: pre-wrap;
+      }
+      span.smallcaps {
+        font-variant: small-caps;
+      }
+      span.underline {
+        text-decoration: underline;
+      }
+      div.column {
+        display: inline-block;
+        vertical-align: top;
+        width: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <h2 id="merge-two-sorted-lists">
+      <a
+        href="https://leetcode.com/problems/merge-two-sorted-lists/description/"
+        >21. Merge Two Sorted Lists</a
+      >
+    </h2>
+    <h3 id="problem">Problem:</h3>
+    <p>
+      Merge two sorted linked lists and return it as a new list. The new list
+      should be made by splicing together the nodes of the first two lists.
+    </p>
+    <p>Example:</p>
+    <pre><code>Input: 1-&gt;2-&gt;4, 1-&gt;3-&gt;4
 Output: 1-&gt;1-&gt;2-&gt;3-&gt;4-&gt;4</code></pre>
-<h3 id="solution">Solution:</h3>
-<p>Keep tracking the head of two lists and keep moving the pointer of smaller one to the next node.</p>
-<pre><code>/**
+    <h3 id="solution">Solution:</h3>
+    <p>
+      Keep tracking the head of two lists and keep moving the pointer of smaller
+      one to the next node.
+    </p>
+    <pre><code>/**
  * Definition for singly-linked list.
  * function ListNode(val) {
  *     this.val = val;
@@ -55,5 +79,5 @@ let mergeTwoLists = function(l1, l2) {
 
   return prehead.next
 };</code></pre>
-</body>
+  </body>
 </html>

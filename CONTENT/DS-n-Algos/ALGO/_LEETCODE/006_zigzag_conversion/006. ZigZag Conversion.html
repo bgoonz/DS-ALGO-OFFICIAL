@@ -1,32 +1,56 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
-<head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="pandoc" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>006. ZigZag Conversion</title>
-  <style type="text/css">
-      code{white-space: pre-wrap;}
-      span.smallcaps{font-variant: small-caps;}
-      span.underline{text-decoration: underline;}
-      div.column{display: inline-block; vertical-align: top; width: 50%;}
-  </style>
-</head>
-<body>
-<h2 id="zigzag-conversion"><a href="https://leetcode.com/problems/zigzag-conversion/description/">6. ZigZag Conversion</a></h2>
-<h3 id="problem">Problem:</h3>
-<p>The string <code>"PAYPALISHIRING"</code> is written in a zigzag pattern on a given number of rows like this: (you may want to display this pattern in a fixed font for better legibility)</p>
-<pre><code>P   A   H   N
+  <head>
+    <meta charset="utf-8" />
+    <meta name="generator" content="pandoc" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=yes"
+    />
+    <title>006. ZigZag Conversion</title>
+    <style type="text/css">
+      code {
+        white-space: pre-wrap;
+      }
+      span.smallcaps {
+        font-variant: small-caps;
+      }
+      span.underline {
+        text-decoration: underline;
+      }
+      div.column {
+        display: inline-block;
+        vertical-align: top;
+        width: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <h2 id="zigzag-conversion">
+      <a href="https://leetcode.com/problems/zigzag-conversion/description/"
+        >6. ZigZag Conversion</a
+      >
+    </h2>
+    <h3 id="problem">Problem:</h3>
+    <p>
+      The string <code>"PAYPALISHIRING"</code> is written in a zigzag pattern on
+      a given number of rows like this: (you may want to display this pattern in
+      a fixed font for better legibility)
+    </p>
+    <pre><code>P   A   H   N
 A P L S I I G
 Y   I   R</code></pre>
-<p>And then read line by line: <code>"PAHNAPLSIIGYIR"</code></p>
-<p>Write the code that will take a string and make this conversion given a number of rows:</p>
-<pre><code>string convert(string s, int numRows);</code></pre>
-<p><strong>Example 1:</strong></p>
-<pre><code>Input: s = &quot;PAYPALISHIRING&quot;, numRows = 3
+    <p>And then read line by line: <code>"PAHNAPLSIIGYIR"</code></p>
+    <p>
+      Write the code that will take a string and make this conversion given a
+      number of rows:
+    </p>
+    <pre><code>string convert(string s, int numRows);</code></pre>
+    <p><strong>Example 1:</strong></p>
+    <pre><code>Input: s = &quot;PAYPALISHIRING&quot;, numRows = 3
 Output: &quot;PAHNAPLSIIGYIR&quot;</code></pre>
-<p><strong>Example 2:</strong></p>
-<pre><code>Input: s = &quot;PAYPALISHIRING&quot;, numRows = 4
+    <p><strong>Example 2:</strong></p>
+    <pre><code>Input: s = &quot;PAYPALISHIRING&quot;, numRows = 4
 Output: &quot;PINALSIGYAHRPI&quot;
 Explanation:
 
@@ -34,25 +58,37 @@ P     I    N
 A   L S  I G
 Y A   H R
 P     I</code></pre>
-<h3 id="solution">Solution:</h3>
-<p>Squeeze the zigzag pattern horizontally to form a matrix. Now deal with the odd and even columns respectively.</p>
-<p>For example let numRows be 5, if we list out the indecies:</p>
-<pre><code>row
+    <h3 id="solution">Solution:</h3>
+    <p>
+      Squeeze the zigzag pattern horizontally to form a matrix. Now deal with
+      the odd and even columns respectively.
+    </p>
+    <p>For example let numRows be 5, if we list out the indecies:</p>
+    <pre><code>row
  1    00    08    16
  2    01 07 09 15 17
  3    02 06 10 14 18
  4    03 05 11 13 19
  5    04    12    20</code></pre>
-<p>First calculate the matrix width:</p>
-<pre><code>pairs = floor( len(s) / (numRows + numRows - 2) )
+    <p>First calculate the matrix width:</p>
+    <pre><code>pairs = floor( len(s) / (numRows + numRows - 2) )
 width = pairs * 2 + ceil( (len(s) - pairs * (numRows + numRows - 2)) / numRows )</code></pre>
-<p>We can easily make a observation that the direction of odd and even columns and different.</p>
-<p>Let the first column be index 0 and let i be the current position at column col.</p>
-<p>We need to count the items between matrix[row][col] and matrix[row][col+1], exclusive.</p>
-<pre><code>next_i = i + (numRows - row) + (numRows - row), if col is even &amp;&amp; 1 &lt; row &lt; numRows
+    <p>
+      We can easily make a observation that the direction of odd and even
+      columns and different.
+    </p>
+    <p>
+      Let the first column be index 0 and let i be the current position at
+      column col.
+    </p>
+    <p>
+      We need to count the items between matrix[row][col] and
+      matrix[row][col+1], exclusive.
+    </p>
+    <pre><code>next_i = i + (numRows - row) + (numRows - row), if col is even &amp;&amp; 1 &lt; row &lt; numRows
 next_i = i + row - 2 + row, if col is odd &amp;&amp; 1 &lt; row &lt; numRows</code></pre>
-<p>If row == 1 or row == numRows, skip the odd columns.</p>
-<pre><code>next_i = i + numRows + (numRows - 2), if col is even &amp;&amp; (row == 1 || row == numRows)
+    <p>If row == 1 or row == numRows, skip the odd columns.</p>
+    <pre><code>next_i = i + numRows + (numRows - 2), if col is even &amp;&amp; (row == 1 || row == numRows)
 
 /**
  * @param {string} s
@@ -90,5 +126,5 @@ let convert = function(s, numRows) {
 
   return result
 };</code></pre>
-</body>
+  </body>
 </html>

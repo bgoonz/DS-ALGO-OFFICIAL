@@ -1,59 +1,89 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
-<head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="pandoc" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>010. Regular Expression Matching</title>
-  <style type="text/css">
-      code{white-space: pre-wrap;}
-      span.smallcaps{font-variant: small-caps;}
-      span.underline{text-decoration: underline;}
-      div.column{display: inline-block; vertical-align: top; width: 50%;}
-  </style>
-</head>
-<body>
-<h2 id="regular-expression-matching"><a href="https://leetcode.com/problems/regular-expression-matching/description/">10. Regular Expression Matching</a></h2>
-<h3 id="problem">Problem:</h3>
-<p>Given an input string (<code>s</code>) and a pattern (<code>p</code>), implement regular expression matching with support for <code>'.'</code> and <code>'*'</code>.</p>
-<pre><code>&#39;.&#39; Matches any single character.
+  <head>
+    <meta charset="utf-8" />
+    <meta name="generator" content="pandoc" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=yes"
+    />
+    <title>010. Regular Expression Matching</title>
+    <style type="text/css">
+      code {
+        white-space: pre-wrap;
+      }
+      span.smallcaps {
+        font-variant: small-caps;
+      }
+      span.underline {
+        text-decoration: underline;
+      }
+      div.column {
+        display: inline-block;
+        vertical-align: top;
+        width: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <h2 id="regular-expression-matching">
+      <a
+        href="https://leetcode.com/problems/regular-expression-matching/description/"
+        >10. Regular Expression Matching</a
+      >
+    </h2>
+    <h3 id="problem">Problem:</h3>
+    <p>
+      Given an input string (<code>s</code>) and a pattern (<code>p</code>),
+      implement regular expression matching with support for
+      <code>'.'</code> and <code>'*'</code>.
+    </p>
+    <pre><code>&#39;.&#39; Matches any single character.
 &#39;*&#39; Matches zero or more of the preceding element.</code></pre>
-<p>The matching should cover the <strong>entire</strong> input string (not partial).</p>
-<p><strong>Note:</strong></p>
-<p><code>s</code> could be empty and contains only lowercase letters <code>a-z</code>. <code>p</code> could be empty and contains only lowercase letters <code>a-z</code>, and characters like <code>.</code> or <code>*</code>.</p>
-<p><strong>Example 1:</strong></p>
-<pre><code>Input:
+    <p>
+      The matching should cover the <strong>entire</strong> input string (not
+      partial).
+    </p>
+    <p><strong>Note:</strong></p>
+    <p>
+      <code>s</code> could be empty and contains only lowercase letters
+      <code>a-z</code>. <code>p</code> could be empty and contains only
+      lowercase letters <code>a-z</code>, and characters
+      like <code>.</code> or <code>*</code>.
+    </p>
+    <p><strong>Example 1:</strong></p>
+    <pre><code>Input:
 s = &quot;aa&quot;
 p = &quot;a&quot;
 Output: false
 Explanation: &quot;a&quot; does not match the entire string &quot;aa&quot;.</code></pre>
-<p><strong>Example 2:</strong></p>
-<pre><code>Input:
+    <p><strong>Example 2:</strong></p>
+    <pre><code>Input:
 s = &quot;aa&quot;
 p = &quot;a*&quot;
 Output: true
 Explanation: &#39;*&#39; means zero or more of the precedeng element, &#39;a&#39;. Therefore, by repeating &#39;a&#39; once, it becomes &quot;aa&quot;.</code></pre>
-<p><strong>Example 3:</strong></p>
-<pre><code>Input:
+    <p><strong>Example 3:</strong></p>
+    <pre><code>Input:
 s = &quot;ab&quot;
 p = &quot;.*&quot;
 Output: true
 Explanation: &quot;.*&quot; means &quot;zero or more (*) of any character (.)&quot;.</code></pre>
-<p><strong>Example 4:</strong></p>
-<pre><code>Input:
+    <p><strong>Example 4:</strong></p>
+    <pre><code>Input:
 s = &quot;aab&quot;
 p = &quot;c*a*b&quot;
 Output: true
 Explanation: c can be repeated 0 times, a can be repeated 1 time. Therefore it matches &quot;aab&quot;.</code></pre>
-<p><strong>Example 5:</strong></p>
-<pre><code>Input:
+    <p><strong>Example 5:</strong></p>
+    <pre><code>Input:
 s = &quot;mississippi&quot;
 p = &quot;mis*is*p*.&quot;
 Output: false</code></pre>
-<h3 id="solution">Solution:</h3>
-<h4 id="one">ONE</h4>
-<p>Cheating with real RegExp matching.</p>
-<pre><code>/**
+    <h3 id="solution">Solution:</h3>
+    <h4 id="one">ONE</h4>
+    <p>Cheating with real RegExp matching.</p>
+    <pre><code>/**
  * @param {string} s
  * @param {string} p
  * @return {boolean}
@@ -62,9 +92,9 @@ let isMatch = function(s, p) {
   if (p[0] === &#39;*&#39;) { return false }
   return new RegExp(`^${p}$`).test(s)
 };</code></pre>
-<h4 id="two">TWO</h4>
-<p>Let f(i, j) be the matching result of s[0…i) and p[0…j).</p>
-<pre><code>f(0, j) =
+    <h4 id="two">TWO</h4>
+    <p>Let f(i, j) be the matching result of s[0…i) and p[0…j).</p>
+    <pre><code>f(0, j) =
     j == 0 || // empty
     p[j-1] == &#39;*&#39; &amp;&amp; f(i, j-2) // matches 0 time, which matches empty string
 
@@ -114,5 +144,5 @@ let isMatch = function(s, p) {
 
   return !!dp[s.length][p.length]
 }</code></pre>
-</body>
+  </body>
 </html>

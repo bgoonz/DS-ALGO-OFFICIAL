@@ -1,47 +1,67 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
-<head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="pandoc" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>009. Palindrome Number</title>
-  <style type="text/css">
-      code{white-space: pre-wrap;}
-      span.smallcaps{font-variant: small-caps;}
-      span.underline{text-decoration: underline;}
-      div.column{display: inline-block; vertical-align: top; width: 50%;}
-  </style>
-</head>
-<body>
-<h2 id="palindrome-number"><a href="https://leetcode.com/problems/palindrome-number/description/">9. Palindrome Number</a></h2>
-<h3 id="problem">Problem:</h3>
-<p>Determine whether an integer is a palindrome. An integer is a palindrome when it reads the same backward as forward.</p>
-<p><strong>Example 1:</strong></p>
-<pre><code>Input: 121
+  <head>
+    <meta charset="utf-8" />
+    <meta name="generator" content="pandoc" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=yes"
+    />
+    <title>009. Palindrome Number</title>
+    <style type="text/css">
+      code {
+        white-space: pre-wrap;
+      }
+      span.smallcaps {
+        font-variant: small-caps;
+      }
+      span.underline {
+        text-decoration: underline;
+      }
+      div.column {
+        display: inline-block;
+        vertical-align: top;
+        width: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <h2 id="palindrome-number">
+      <a href="https://leetcode.com/problems/palindrome-number/description/"
+        >9. Palindrome Number</a
+      >
+    </h2>
+    <h3 id="problem">Problem:</h3>
+    <p>
+      Determine whether an integer is a palindrome. An integer is a palindrome
+      when it reads the same backward as forward.
+    </p>
+    <p><strong>Example 1:</strong></p>
+    <pre><code>Input: 121
 Output: true</code></pre>
-<p><strong>Example 2:</strong></p>
-<pre><code>Input: -121
+    <p><strong>Example 2:</strong></p>
+    <pre><code>Input: -121
 Output: false
 Explanation: From left to right, it reads -121. From right to left, it becomes 121-. Therefore it is not a palindrome.</code></pre>
-<p><strong>Example 3:</strong></p>
-<pre><code>Input: 10
+    <p><strong>Example 3:</strong></p>
+    <pre><code>Input: 10
 Output: false
 Explanation: Reads 01 from right to left. Therefore it is not a palindrome.</code></pre>
-<p><strong>Follow up:</strong></p>
-<p>Coud you solve it without converting the integer to a string?</p>
-<h3 id="solution">Solution:</h3>
-<h4 id="one">ONE</h4>
-<p>Easy to write but slow since it generates an array.</p>
-<pre><code>/**
+    <p><strong>Follow up:</strong></p>
+    <p>Coud you solve it without converting the integer to a string?</p>
+    <h3 id="solution">Solution:</h3>
+    <h4 id="one">ONE</h4>
+    <p>Easy to write but slow since it generates an array.</p>
+    <pre><code>/**
  * @param {number} x
  * @return {boolean}
  */
 let isPalindrome = function(x) {
   return x == String(x).split(&#39;&#39;).reverse().join(&#39;&#39;)
 };</code></pre>
-<h4 id="two">TWO</h4>
-<p>A bit faster.</p>
-<pre><code>/**
+    <h4 id="two">TWO</h4>
+    <p>A bit faster.</p>
+    <pre><code>/**
  * @param {number} x
  * @return {boolean}
  */
@@ -54,9 +74,12 @@ let isPalindrome = function(x) {
   }
   return true
 };</code></pre>
-<h4 id="three">THREE</h4>
-<p>General solution. Combining <a href="./007.%20Reverse%20Integer.md">7. Reverse Integer</a>.</p>
-<pre><code>/**
+    <h4 id="three">THREE</h4>
+    <p>
+      General solution. Combining
+      <a href="./007.%20Reverse%20Integer.md">7. Reverse Integer</a>.
+    </p>
+    <pre><code>/**
  * @param {number} x
  * @return {boolean}
  */
@@ -77,5 +100,5 @@ function reverse (x) {
   }
   return result
 };</code></pre>
-</body>
+  </body>
 </html>

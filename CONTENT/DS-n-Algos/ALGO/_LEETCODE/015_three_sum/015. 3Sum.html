@@ -1,42 +1,77 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
-<head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="pandoc" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>015. 3Sum</title>
-  <style type="text/css">
-      code{white-space: pre-wrap;}
-      span.smallcaps{font-variant: small-caps;}
-      span.underline{text-decoration: underline;}
-      div.column{display: inline-block; vertical-align: top; width: 50%;}
-  </style>
-</head>
-<body>
-<h2 id="sum"><a href="https://leetcode.com/problems/3sum/description/">15. 3Sum</a></h2>
-<h3 id="problem">Problem:</h3>
-<p>Given an array <code>nums</code> of <em>n</em> integers, are there elements <em>a</em>, <em>b</em>, <em>c</em> in <code>nums</code> such that <em>a</em> + <em>b</em> + <em>c</em> = 0? Find all unique triplets in the array which gives the sum of zero.</p>
-<p><strong>Note:</strong></p>
-<p>The solution set must not contain duplicate triplets.</p>
-<p><strong>Example:</strong></p>
-<pre><code>Given array nums = [-1, 0, 1, 2, -1, -4],
+  <head>
+    <meta charset="utf-8" />
+    <meta name="generator" content="pandoc" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=yes"
+    />
+    <title>015. 3Sum</title>
+    <style type="text/css">
+      code {
+        white-space: pre-wrap;
+      }
+      span.smallcaps {
+        font-variant: small-caps;
+      }
+      span.underline {
+        text-decoration: underline;
+      }
+      div.column {
+        display: inline-block;
+        vertical-align: top;
+        width: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <h2 id="sum">
+      <a href="https://leetcode.com/problems/3sum/description/">15. 3Sum</a>
+    </h2>
+    <h3 id="problem">Problem:</h3>
+    <p>
+      Given an array <code>nums</code> of <em>n</em> integers, are there
+      elements <em>a</em>, <em>b</em>, <em>c</em> in <code>nums</code> such that
+      <em>a</em> + <em>b</em> + <em>c</em> = 0? Find all unique triplets in the
+      array which gives the sum of zero.
+    </p>
+    <p><strong>Note:</strong></p>
+    <p>The solution set must not contain duplicate triplets.</p>
+    <p><strong>Example:</strong></p>
+    <pre><code>Given array nums = [-1, 0, 1, 2, -1, -4],
 
 A solution set is:
 [
   [-1, 0, 1],
   [-1, -1, 2]
 ]</code></pre>
-<h3 id="solution">Solution:</h3>
-<p>To simplify the problem, sort the nums first.</p>
-<p>If <code>sorted[0] &gt; 0</code> or <code>sorted[last] &lt; 0</code>, return an empty set.</p>
-<p>From i = <code>0</code> to <code>len(sorted) - 2</code>, pick <code>sorted[i]</code> as the first number of a possible triplet result.</p>
-<p>Let <code>l = i + 1</code>, <code>r = len(sorted) - 1</code>, we want to narrow them down to enumerate all possible combinations.</p>
-<ul>
-<li><code>l++</code> if <code>sorted[i] + sorted[l] + sorted[r] &gt; 0</code>.</li>
-<li><code>r--</code> if <code>sorted[i] + sorted[l] + sorted[r] &lt; 0</code>.</li>
-</ul>
-<p>Skip any duplicate number as we iterate to avoid duplicate triplets.</p>
-<pre><code>/**
+    <h3 id="solution">Solution:</h3>
+    <p>To simplify the problem, sort the nums first.</p>
+    <p>
+      If <code>sorted[0] &gt; 0</code> or <code>sorted[last] &lt; 0</code>,
+      return an empty set.
+    </p>
+    <p>
+      From i = <code>0</code> to <code>len(sorted) - 2</code>, pick
+      <code>sorted[i]</code> as the first number of a possible triplet result.
+    </p>
+    <p>
+      Let <code>l = i + 1</code>, <code>r = len(sorted) - 1</code>, we want to
+      narrow them down to enumerate all possible combinations.
+    </p>
+    <ul>
+      <li>
+        <code>l++</code> if
+        <code>sorted[i] + sorted[l] + sorted[r] &gt; 0</code>.
+      </li>
+      <li>
+        <code>r--</code> if
+        <code>sorted[i] + sorted[l] + sorted[r] &lt; 0</code>.
+      </li>
+    </ul>
+    <p>Skip any duplicate number as we iterate to avoid duplicate triplets.</p>
+    <pre><code>/**
  * @param {number[]} nums
  * @return {number[][]}
  */
@@ -76,5 +111,5 @@ let threeSum = function (nums) {
 
   return result
 };</code></pre>
-</body>
+  </body>
 </html>

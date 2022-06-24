@@ -1,46 +1,105 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
-<head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="pandoc" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>004. Median of Two Sorted Arrays</title>
-  <style type="text/css">
-      code{white-space: pre-wrap;}
-      span.smallcaps{font-variant: small-caps;}
-      span.underline{text-decoration: underline;}
-      div.column{display: inline-block; vertical-align: top; width: 50%;}
-  </style>
-</head>
-<body>
-<h2 id="median-of-two-sorted-arrays"><a href="https://leetcode.com/problems/median-of-two-sorted-arrays/description/">4. Median of Two Sorted Arrays</a></h2>
-<h3 id="problem">Problem:</h3>
-<p>There are two sorted arrays nums1 and nums2 of size m and n respectively.</p>
-<p>Find the median of the two sorted arrays. The overall run time complexity should be O(log (m+n)).</p>
-<p>Example 1:</p>
-<pre><code>nums1 = [1, 3]
+  <head>
+    <meta charset="utf-8" />
+    <meta name="generator" content="pandoc" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=yes"
+    />
+    <title>004. Median of Two Sorted Arrays</title>
+    <style type="text/css">
+      code {
+        white-space: pre-wrap;
+      }
+      span.smallcaps {
+        font-variant: small-caps;
+      }
+      span.underline {
+        text-decoration: underline;
+      }
+      div.column {
+        display: inline-block;
+        vertical-align: top;
+        width: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <h2 id="median-of-two-sorted-arrays">
+      <a
+        href="https://leetcode.com/problems/median-of-two-sorted-arrays/description/"
+        >4. Median of Two Sorted Arrays</a
+      >
+    </h2>
+    <h3 id="problem">Problem:</h3>
+    <p>
+      There are two sorted arrays nums1 and nums2 of size m and n respectively.
+    </p>
+    <p>
+      Find the median of the two sorted arrays. The overall run time complexity
+      should be O(log (m+n)).
+    </p>
+    <p>Example 1:</p>
+    <pre><code>nums1 = [1, 3]
 nums2 = [2]
 
 The median is 2.0</code></pre>
-<p>Example 2:</p>
-<pre><code>nums1 = [1, 2]
+    <p>Example 2:</p>
+    <pre><code>nums1 = [1, 2]
 nums2 = [3, 4]
 
 The median is (2 + 3)/2 = 2.5</code></pre>
-<h3 id="solution">Solution:</h3>
-<p>O(log (m+n)) means half of the sequence is ruled out on each loop. So obviously we need binary search.</p>
-<p>To do it on two sorted arrays, we need a formula to guide division.</p>
-<p>Let <code>nums3</code> be the sorted array combining all the items in <code>nums1</code> and <code>nums2</code>.</p>
-<p>If <code>nums2[j-1] &lt;= nums1[i] &lt;= nums2[j]</code>, then we know <code>nums1[i]</code> is at <code>num3[i+j]</code>. Same goes <code>nums1[i-1] &lt;= nums2[j] &lt;= nums1[i]</code>.</p>
-<p>Let <code>k</code> be <code>⌊(m+n-1)/2⌋</code>. We need to find <code>nums3[k]</code> (and also <code>nums3[k+1]</code> if m+n is even).</p>
-<p>Let <code>i + j = k</code>, if we find <code>nums2[j-1] &lt;= nums1[i] &lt;= nums2[j]</code> or <code>nums1[i-1] &lt;= nums2[j] &lt;= nums1[i]</code>, then we got <code>k</code>.</p>
-<p>Otherwise, if <code>nums1[i] &lt;= nums2[j]</code> then we know <code>nums1[i] &lt; nums2[j-1]</code> (because we did not find <code>k</code>).</p>
-<ul>
-<li><p>There are <code>i</code> items before <code>nums1[i]</code>, and <code>j-1</code> items brefor <code>nums2[j-1]</code>, which means <code>nums1[0...i]</code> are before <code>nums3[i+j-1]</code>. So we now know <code>nums1[0...i] &lt; nums3[k]</code>. They can be safely discarded.</p></li>
-<li><p>We Also have <code>nums1[i] &lt; nums2[j]</code>, which means <code>nums2[j...n)</code> are after <code>nums3[i+j]</code>. So <code>nums2[j...n) &gt; nums3[k]</code>.</p></li>
-</ul>
-<p>Same goes <code>nums1[i-1] &lt;= nums2[j] &lt;= nums1[i]</code>.</p>
-<pre><code>/**
+    <h3 id="solution">Solution:</h3>
+    <p>
+      O(log (m+n)) means half of the sequence is ruled out on each loop. So
+      obviously we need binary search.
+    </p>
+    <p>To do it on two sorted arrays, we need a formula to guide division.</p>
+    <p>
+      Let <code>nums3</code> be the sorted array combining all the items in
+      <code>nums1</code> and <code>nums2</code>.
+    </p>
+    <p>
+      If <code>nums2[j-1] &lt;= nums1[i] &lt;= nums2[j]</code>, then we know
+      <code>nums1[i]</code> is at <code>num3[i+j]</code>. Same goes
+      <code>nums1[i-1] &lt;= nums2[j] &lt;= nums1[i]</code>.
+    </p>
+    <p>
+      Let <code>k</code> be <code>⌊(m+n-1)/2⌋</code>. We need to find
+      <code>nums3[k]</code> (and also <code>nums3[k+1]</code> if m+n is even).
+    </p>
+    <p>
+      Let <code>i + j = k</code>, if we find
+      <code>nums2[j-1] &lt;= nums1[i] &lt;= nums2[j]</code> or
+      <code>nums1[i-1] &lt;= nums2[j] &lt;= nums1[i]</code>, then we got
+      <code>k</code>.
+    </p>
+    <p>
+      Otherwise, if <code>nums1[i] &lt;= nums2[j]</code> then we know
+      <code>nums1[i] &lt; nums2[j-1]</code> (because we did not find
+      <code>k</code>).
+    </p>
+    <ul>
+      <li>
+        <p>
+          There are <code>i</code> items before <code>nums1[i]</code>, and
+          <code>j-1</code> items brefor <code>nums2[j-1]</code>, which means
+          <code>nums1[0...i]</code> are before <code>nums3[i+j-1]</code>. So we
+          now know <code>nums1[0...i] &lt; nums3[k]</code>. They can be safely
+          discarded.
+        </p>
+      </li>
+      <li>
+        <p>
+          We Also have <code>nums1[i] &lt; nums2[j]</code>, which means
+          <code>nums2[j...n)</code> are after <code>nums3[i+j]</code>. So
+          <code>nums2[j...n) &gt; nums3[k]</code>.
+        </p>
+      </li>
+    </ul>
+    <p>Same goes <code>nums1[i-1] &lt;= nums2[j] &lt;= nums1[i]</code>.</p>
+    <pre><code>/**
  * @param {number[]} nums1
  * @param {number[]} nums2
  * @return {number}
@@ -92,5 +151,5 @@ function _find (nums1, nums2, k) {
     }
   }
 };</code></pre>
-</body>
+  </body>
 </html>

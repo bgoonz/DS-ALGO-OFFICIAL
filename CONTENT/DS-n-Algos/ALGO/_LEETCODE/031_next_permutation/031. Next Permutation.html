@@ -1,33 +1,70 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
-<head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="pandoc" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>031. Next Permutation</title>
-  <style type="text/css">
-      code{white-space: pre-wrap;}
-      span.smallcaps{font-variant: small-caps;}
-      span.underline{text-decoration: underline;}
-      div.column{display: inline-block; vertical-align: top; width: 50%;}
-  </style>
-</head>
-<body>
-<h2 id="next-permutation"><a href="https://leetcode.com/problems/next-permutation/description/">31. Next Permutation</a></h2>
-<h3 id="problem">Problem:</h3>
-<p>Implement <strong>next permutation</strong>, which rearranges numbers into the lexicographically next greater permutation of numbers.</p>
-<p>If such arrangement is not possible, it must rearrange it as the lowest possible order (ie, sorted in ascending order).</p>
-<p>The replacement must be <strong>in-place</strong> and use only constant extra memory.</p>
-<p>Here are some examples. Inputs are in the left-hand column and its corresponding outputs are in the right-hand column.</p>
-<p><code>1,2,3</code> → <code>1,3,2</code><br />
-<code>3,2,1</code> → <code>1,2,3</code><br />
-<code>1,1,5</code> → <code>1,5,1</code></p>
-<h3 id="solution">Solution:</h3>
-<p>Observe a few longer examples and the pattern is self-evident.</p>
-<p>Divide the list into two parts. The first half must be incremental and the second half must be decremental.</p>
-<p>Reverse the second half and find the smallest number in it that is greater the last number of the first half.</p>
-<p>Swap the two.</p>
-<pre><code>/**
+  <head>
+    <meta charset="utf-8" />
+    <meta name="generator" content="pandoc" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=yes"
+    />
+    <title>031. Next Permutation</title>
+    <style type="text/css">
+      code {
+        white-space: pre-wrap;
+      }
+      span.smallcaps {
+        font-variant: small-caps;
+      }
+      span.underline {
+        text-decoration: underline;
+      }
+      div.column {
+        display: inline-block;
+        vertical-align: top;
+        width: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <h2 id="next-permutation">
+      <a href="https://leetcode.com/problems/next-permutation/description/"
+        >31. Next Permutation</a
+      >
+    </h2>
+    <h3 id="problem">Problem:</h3>
+    <p>
+      Implement <strong>next permutation</strong>, which rearranges numbers into
+      the lexicographically next greater permutation of numbers.
+    </p>
+    <p>
+      If such arrangement is not possible, it must rearrange it as the lowest
+      possible order (ie, sorted in ascending order).
+    </p>
+    <p>
+      The replacement must be <strong>in-place</strong> and use only
+      constant extra memory.
+    </p>
+    <p>
+      Here are some examples. Inputs are in the left-hand column and its
+      corresponding outputs are in the right-hand column.
+    </p>
+    <p>
+      <code>1,2,3</code> → <code>1,3,2</code><br />
+      <code>3,2,1</code> → <code>1,2,3</code><br />
+      <code>1,1,5</code> → <code>1,5,1</code>
+    </p>
+    <h3 id="solution">Solution:</h3>
+    <p>Observe a few longer examples and the pattern is self-evident.</p>
+    <p>
+      Divide the list into two parts. The first half must be incremental and the
+      second half must be decremental.
+    </p>
+    <p>
+      Reverse the second half and find the smallest number in it that is greater
+      the last number of the first half.
+    </p>
+    <p>Swap the two.</p>
+    <pre><code>/**
  * @param {number[]} nums
  * @return {void} Do not return anything, modify nums in-place instead.
  */
@@ -61,6 +98,11 @@ let nextPermutation = function(nums) {
     nums.reverse()
   }
 };</code></pre>
-<p><em>Template generated via <a href="https://github.com/crimx/crx-leetmark">Leetmark</a>.</em></p>
-</body>
+    <p>
+      <em
+        >Template generated via
+        <a href="https://github.com/crimx/crx-leetmark">Leetmark</a>.</em
+      >
+    </p>
+  </body>
 </html>

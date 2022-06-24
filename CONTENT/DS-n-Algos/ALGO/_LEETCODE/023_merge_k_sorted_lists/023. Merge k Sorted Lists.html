@@ -1,40 +1,69 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
-<head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="pandoc" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>023. Merge k Sorted Lists</title>
-  <style type="text/css">
-      code{white-space: pre-wrap;}
-      span.smallcaps{font-variant: small-caps;}
-      span.underline{text-decoration: underline;}
-      div.column{display: inline-block; vertical-align: top; width: 50%;}
-  </style>
-</head>
-<body>
-<h2 id="merge-k-sorted-lists"><a href="https://leetcode.com/problems/merge-k-sorted-lists/description/">23. Merge k Sorted Lists</a></h2>
-<h3 id="problem">Problem:</h3>
-<p>Merge <em>k</em> sorted linked lists and return it as one sorted list. Analyze and describe its complexity.</p>
-<p><strong>Example:</strong></p>
-<pre><code>Input:
+  <head>
+    <meta charset="utf-8" />
+    <meta name="generator" content="pandoc" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=yes"
+    />
+    <title>023. Merge k Sorted Lists</title>
+    <style type="text/css">
+      code {
+        white-space: pre-wrap;
+      }
+      span.smallcaps {
+        font-variant: small-caps;
+      }
+      span.underline {
+        text-decoration: underline;
+      }
+      div.column {
+        display: inline-block;
+        vertical-align: top;
+        width: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <h2 id="merge-k-sorted-lists">
+      <a href="https://leetcode.com/problems/merge-k-sorted-lists/description/"
+        >23. Merge k Sorted Lists</a
+      >
+    </h2>
+    <h3 id="problem">Problem:</h3>
+    <p>
+      Merge <em>k</em> sorted linked lists and return it as one sorted list.
+      Analyze and describe its complexity.
+    </p>
+    <p><strong>Example:</strong></p>
+    <pre><code>Input:
 [
   1-&gt;4-&gt;5,
   1-&gt;3-&gt;4,
   2-&gt;6
 ]
 Output: 1-&gt;1-&gt;2-&gt;3-&gt;4-&gt;4-&gt;5-&gt;6</code></pre>
-<h3 id="solution">Solution:</h3>
-<h4 id="one">ONE</h4>
-<p>Extend the idea of <a href="./021.%20Merge%20Two%20Sorted%20Lists.md">21. Merge Two Sorted Lists</a> and compare N items at a time.</p>
-<p>This is slow as it reaches O(N^2).</p>
-<h4 id="two">TWO</h4>
-<p>Priority Queue. O(N * log(K)).</p>
-<p>Since JavaScript does not provide a standard built-in Priority Queue data structure, it is challenging to implement an efficient one barehanded.</p>
-<h4 id="three">THREE</h4>
-<p>Divide and conquer. Also O(N * log(K)).</p>
-<p>Divide N lists into ceil(N/2) pairs and merge your way up.</p>
-<pre><code>/**
+    <h3 id="solution">Solution:</h3>
+    <h4 id="one">ONE</h4>
+    <p>
+      Extend the idea of
+      <a href="./021.%20Merge%20Two%20Sorted%20Lists.md"
+        >21. Merge Two Sorted Lists</a
+      >
+      and compare N items at a time.
+    </p>
+    <p>This is slow as it reaches O(N^2).</p>
+    <h4 id="two">TWO</h4>
+    <p>Priority Queue. O(N * log(K)).</p>
+    <p>
+      Since JavaScript does not provide a standard built-in Priority Queue data
+      structure, it is challenging to implement an efficient one barehanded.
+    </p>
+    <h4 id="three">THREE</h4>
+    <p>Divide and conquer. Also O(N * log(K)).</p>
+    <p>Divide N lists into ceil(N/2) pairs and merge your way up.</p>
+    <pre><code>/**
  * Definition for singly-linked list.
  * function ListNode(val) {
  *     this.val = val;
@@ -86,5 +115,5 @@ function mergeTwoLists (l1, l2) {
 
   return prehead.next
 };</code></pre>
-</body>
+  </body>
 </html>

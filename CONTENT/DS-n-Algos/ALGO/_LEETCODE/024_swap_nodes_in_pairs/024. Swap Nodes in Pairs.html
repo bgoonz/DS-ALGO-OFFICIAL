@@ -1,45 +1,91 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
-<head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="pandoc" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>024. Swap Nodes in Pairs</title>
-  <style type="text/css">
-      code{white-space: pre-wrap;}
-      span.smallcaps{font-variant: small-caps;}
-      span.underline{text-decoration: underline;}
-      div.column{display: inline-block; vertical-align: top; width: 50%;}
-  </style>
-</head>
-<body>
-<h2 id="swap-nodes-in-pairs"><a href="https://leetcode.com/problems/swap-nodes-in-pairs/description/">24. Swap Nodes in Pairs</a></h2>
-<h3 id="problem">Problem:</h3>
-<p>Given a linked list, swap every two adjacent nodes and return its head.</p>
-<p><strong>Example:</strong></p>
-<pre><code>Given 1-&gt;2-&gt;3-&gt;4, you should return the list as 2-&gt;1-&gt;4-&gt;3.</code></pre>
-<p><strong>Note:</strong></p>
-<ul>
-<li>Your algorithm should use only constant extra space.</li>
-<li>You may <strong>not</strong> modify the values in the list’s nodes, only nodes itself may be changed.</li>
-</ul>
-<h3 id="solution">Solution:</h3>
-<ol type="1">
-<li>Draw the nodes down on paper to reason about the relationships.</li>
-<li><p>Pointing to every active node is an easy way to keep on track.</p>
-<p>/**</p>
-<ul>
-<li>Definition for singly-linked list.</li>
-<li>function ListNode(val) {</li>
-<li><p>this.val = val;</p></li>
-<li><p>this.next = null;</p></li>
-<li>} */ /**</li>
-<li><span class="citation" data-cites="param"><span class="citation" data-cites="param">@param</span></span> {ListNode} head</li>
-<li><p><span class="citation" data-cites="return"><span class="citation" data-cites="return">@return</span></span> {ListNode} */ let swapPairs = function(head) { const prehead = { next: head }</p></li>
-</ul>
-<p>for (let p = prehead; p.next !== null &amp;&amp; p.next.next !== null;) { const p1 = p.next const p2 = p1.next p1.next = p2.next p2.next = p1 p.next = p2 p = p1 }</p>
-<p>return prehead.next };</p></li>
-</ol>
-<p><em>Template generated via <a href="https://github.com/crimx/crx-leetmark">Leetmark</a>.</em></p>
-</body>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="generator" content="pandoc" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=yes"
+    />
+    <title>024. Swap Nodes in Pairs</title>
+    <style type="text/css">
+      code {
+        white-space: pre-wrap;
+      }
+      span.smallcaps {
+        font-variant: small-caps;
+      }
+      span.underline {
+        text-decoration: underline;
+      }
+      div.column {
+        display: inline-block;
+        vertical-align: top;
+        width: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <h2 id="swap-nodes-in-pairs">
+      <a href="https://leetcode.com/problems/swap-nodes-in-pairs/description/"
+        >24. Swap Nodes in Pairs</a
+      >
+    </h2>
+    <h3 id="problem">Problem:</h3>
+    <p>
+      Given a linked list, swap every two adjacent nodes and return its head.
+    </p>
+    <p><strong>Example:</strong></p>
+    <pre><code>Given 1-&gt;2-&gt;3-&gt;4, you should return the list as 2-&gt;1-&gt;4-&gt;3.</code></pre>
+    <p><strong>Note:</strong></p>
+    <ul>
+      <li>Your algorithm should use only constant extra space.</li>
+      <li>
+        You may <strong>not</strong> modify the values in the list’s nodes, only
+        nodes itself may be changed.
+      </li>
+    </ul>
+    <h3 id="solution">Solution:</h3>
+    <ol type="1">
+      <li>Draw the nodes down on paper to reason about the relationships.</li>
+      <li>
+        <p>Pointing to every active node is an easy way to keep on track.</p>
+        <p>/**</p>
+        <ul>
+          <li>Definition for singly-linked list.</li>
+          <li>function ListNode(val) {</li>
+          <li><p>this.val = val;</p></li>
+          <li><p>this.next = null;</p></li>
+          <li>} */ /**</li>
+          <li>
+            <span class="citation" data-cites="param"
+              ><span class="citation" data-cites="param">@param</span></span
+            >
+            {ListNode} head
+          </li>
+          <li>
+            <p>
+              <span class="citation" data-cites="return"
+                ><span class="citation" data-cites="return">@return</span></span
+              >
+              {ListNode} */ let swapPairs = function(head) { const prehead = {
+              next: head }
+            </p>
+          </li>
+        </ul>
+        <p>
+          for (let p = prehead; p.next !== null &amp;&amp; p.next.next !==
+          null;) { const p1 = p.next const p2 = p1.next p1.next = p2.next
+          p2.next = p1 p.next = p2 p = p1 }
+        </p>
+        <p>return prehead.next };</p>
+      </li>
+    </ol>
+    <p>
+      <em
+        >Template generated via
+        <a href="https://github.com/crimx/crx-leetmark">Leetmark</a>.</em
+      >
+    </p>
+  </body>
 </html>

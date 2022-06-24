@@ -1,51 +1,107 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
-<head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="pandoc" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>019. Remove Nth Node From End of List</title>
-  <style type="text/css">
-      code{white-space: pre-wrap;}
-      span.smallcaps{font-variant: small-caps;}
-      span.underline{text-decoration: underline;}
-      div.column{display: inline-block; vertical-align: top; width: 50%;}
-  </style>
-</head>
-<body>
-<h2 id="remove-nth-node-from-end-of-list"><a href="https://leetcode.com/problems/remove-nth-node-from-end-of-list/description/">19. Remove Nth Node From End of List</a></h2>
-<h3 id="problem">Problem:</h3>
-<p>Given a linked list, remove the <em>n</em>-th node from the end of list and return its head.</p>
-<p><strong>Example:</strong></p>
-<pre><code>Given linked list: 1-&gt;2-&gt;3-&gt;4-&gt;5, and n = 2.
+  <head>
+    <meta charset="utf-8" />
+    <meta name="generator" content="pandoc" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=yes"
+    />
+    <title>019. Remove Nth Node From End of List</title>
+    <style type="text/css">
+      code {
+        white-space: pre-wrap;
+      }
+      span.smallcaps {
+        font-variant: small-caps;
+      }
+      span.underline {
+        text-decoration: underline;
+      }
+      div.column {
+        display: inline-block;
+        vertical-align: top;
+        width: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <h2 id="remove-nth-node-from-end-of-list">
+      <a
+        href="https://leetcode.com/problems/remove-nth-node-from-end-of-list/description/"
+        >19. Remove Nth Node From End of List</a
+      >
+    </h2>
+    <h3 id="problem">Problem:</h3>
+    <p>
+      Given a linked list, remove the <em>n</em>-th node from the end of list
+      and return its head.
+    </p>
+    <p><strong>Example:</strong></p>
+    <pre><code>Given linked list: 1-&gt;2-&gt;3-&gt;4-&gt;5, and n = 2.
 
 After removing the second node from the end, the linked list becomes 1-&gt;2-&gt;3-&gt;5.</code></pre>
-<p><strong>Note:</strong></p>
-<p>Given <em>n</em> will always be valid.</p>
-<p><strong>Follow up:</strong></p>
-<p>Could you do this in one pass?</p>
-<h3 id="solution">Solution:</h3>
-<p>Set a pointer <code>p1</code> for iterating, and <code>p2</code> which is <code>n</code> nodes behind, pointing at the (n+1)-th node from the end of list.</p>
-<p>Boundaries that should be awared of:</p>
-<ul>
-<li><code>p2</code> could be one node before <code>head</code>, which means the <code>head</code> should be removed.</li>
-<li><code>p2</code> could be larger than the length of the list (Though the description says <code>n</code> will always be valid, we take care of it anyway).</li>
-<li><p>It should be <code>p1.next</code> touches the end rather than <code>p1</code> because we want <code>p1</code> pointing at the last node.</p>
-<p>/**</p>
-<ul>
-<li>Definition for singly-linked list.</li>
-<li>function ListNode(val) {</li>
-<li><p>this.val = val;</p></li>
-<li><p>this.next = null;</p></li>
-<li>} */ /**</li>
-<li><span class="citation" data-cites="param"><span class="citation" data-cites="param">@param</span></span> {ListNode} head</li>
-<li><span class="citation" data-cites="param"><span class="citation" data-cites="param">@param</span></span> {number} n</li>
-<li><p><span class="citation" data-cites="return"><span class="citation" data-cites="return">@return</span></span> {ListNode} */ let removeNthFromEnd = function(head, n) { let p1 = head while (p1 &amp;&amp; n–) { p1 = p1.next }</p></li>
-</ul>
-<p>if (!p1) { return n ? head : head.next }</p>
-<p>let p2 = head while (p1.next) { p1 = p1.next p2 = p2.next }</p>
-<p>p2.next = p2.next.next</p>
-<p>return head };</p></li>
-</ul>
-</body>
+    <p><strong>Note:</strong></p>
+    <p>Given <em>n</em> will always be valid.</p>
+    <p><strong>Follow up:</strong></p>
+    <p>Could you do this in one pass?</p>
+    <h3 id="solution">Solution:</h3>
+    <p>
+      Set a pointer <code>p1</code> for iterating, and <code>p2</code> which is
+      <code>n</code> nodes behind, pointing at the (n+1)-th node from the end of
+      list.
+    </p>
+    <p>Boundaries that should be awared of:</p>
+    <ul>
+      <li>
+        <code>p2</code> could be one node before <code>head</code>, which means
+        the <code>head</code> should be removed.
+      </li>
+      <li>
+        <code>p2</code> could be larger than the length of the list (Though the
+        description says <code>n</code> will always be valid, we take care of it
+        anyway).
+      </li>
+      <li>
+        <p>
+          It should be <code>p1.next</code> touches the end rather than
+          <code>p1</code> because we want <code>p1</code> pointing at the last
+          node.
+        </p>
+        <p>/**</p>
+        <ul>
+          <li>Definition for singly-linked list.</li>
+          <li>function ListNode(val) {</li>
+          <li><p>this.val = val;</p></li>
+          <li><p>this.next = null;</p></li>
+          <li>} */ /**</li>
+          <li>
+            <span class="citation" data-cites="param"
+              ><span class="citation" data-cites="param">@param</span></span
+            >
+            {ListNode} head
+          </li>
+          <li>
+            <span class="citation" data-cites="param"
+              ><span class="citation" data-cites="param">@param</span></span
+            >
+            {number} n
+          </li>
+          <li>
+            <p>
+              <span class="citation" data-cites="return"
+                ><span class="citation" data-cites="return">@return</span></span
+              >
+              {ListNode} */ let removeNthFromEnd = function(head, n) { let p1 =
+              head while (p1 &amp;&amp; n–) { p1 = p1.next }
+            </p>
+          </li>
+        </ul>
+        <p>if (!p1) { return n ? head : head.next }</p>
+        <p>let p2 = head while (p1.next) { p1 = p1.next p2 = p2.next }</p>
+        <p>p2.next = p2.next.next</p>
+        <p>return head };</p>
+      </li>
+    </ul>
+  </body>
 </html>
