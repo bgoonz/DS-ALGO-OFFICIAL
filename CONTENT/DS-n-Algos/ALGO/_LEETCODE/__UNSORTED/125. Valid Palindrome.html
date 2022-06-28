@@ -85,7 +85,7 @@ var isPalindrome = function(s) {
     if (left &gt;= 65 &amp;&amp; left &lt;= 90) {
       left += 32
     }
-    
+
     let right = s.charCodeAt(j)
     while (i &lt; j &amp;&amp; (right &lt; 48 || right &gt; 57 &amp;&amp; right &lt; 65 || right &gt; 90 &amp;&amp; right &lt; 97 || right &gt; 122)) {
       right = s.charCodeAt(--j)
@@ -94,14 +94,17 @@ var isPalindrome = function(s) {
     if (right &gt;= 65 &amp;&amp; right &lt;= 90) {
       right += 32
     }
-    
+
     if (left !== right) { return false }
   }
-  
+
   return true
 };</code></pre>
-    <br />
-    <hr />
-    <br />
+    <p>
+      <em
+        >Template generated via
+        <a href="https://github.com/crimx/crx-leetmark">Leetmark</a>.</em
+      >
+    </p>
   </body>
 </html>

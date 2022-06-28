@@ -55,11 +55,11 @@ The **base** part we may omit by just agreeing on what it will be equal to. In o
 
 Instead of using all 16 bits (or 32 bits, or 64 bits) to store the fraction of the number, we may share the bits and store a sign, exponent, and fraction at the same time. Depending on the number of bits that we're going to use to store the number we end up with the following splits:
 
-| Floating-point format | Total bits | Sign bits | Exponent bits | Fraction bits | Base |
-| :-------------------- | :--------: | :-------: | :-----------: | :--------------: | :--: |
-| [Half-precision](https://en.wikipedia.org/wiki/Half-precision_floating-point_format)        | 16         | 1         | 5             | 10               | 2    |
-| [Single-precision](https://en.wikipedia.org/wiki/Single-precision_floating-point_format)      | 32         | 1         | 8             | 23               | 2    |
-| [Double-precision](https://en.wikipedia.org/wiki/Double-precision_floating-point_format)      | 64         | 1         | 11            | 52               | 2    |
+| Floating-point format                                                                    | Total bits | Sign bits | Exponent bits | Fraction bits | Base |
+| :--------------------------------------------------------------------------------------- | :--------: | :-------: | :-----------: | :-----------: | :--: |
+| [Half-precision](https://en.wikipedia.org/wiki/Half-precision_floating-point_format)     |     16     |     1     |       5       |      10       |  2   |
+| [Single-precision](https://en.wikipedia.org/wiki/Single-precision_floating-point_format) |     32     |     1     |       8       |      23       |  2   |
+| [Double-precision](https://en.wikipedia.org/wiki/Double-precision_floating-point_format) |     64     |     1     |      11       |      52       |  2   |
 
 With this approach, the number of bits for the fraction has been reduced (i.e. for the 16-bits number it was reduced from 16 bits to 10 bits). It means that the fraction might take a narrower range of values now (losing some precision). However, since we also have an exponent part, it will actually increase the ultimate number range and also allow us to describe the numbers between 0 and 1 (if the exponent is negative).
 
@@ -81,10 +81,10 @@ I've tried to describe the logic behind the converting of floating-point numbers
 
 Here is the number ranges that different floating-point formats support:
 
-| Floating-point format | Exp min | Exp max | Range            | Min positive |
-| :-------------------- | :------ | :------ | :--------------- | :----------- |
-| Half-precision        | −14     | +15     | ±65,504          | 6.10 × 10⁻⁵  |
-| Single-precision      | −126    | +127    | ±3.4028235 × 10³⁸| 1.18 × 10⁻³⁸ |
+| Floating-point format | Exp min | Exp max | Range             | Min positive |
+| :-------------------- | :------ | :------ | :---------------- | :----------- |
+| Half-precision        | −14     | +15     | ±65,504           | 6.10 × 10⁻⁵  |
+| Single-precision      | −126    | +127    | ±3.4028235 × 10³⁸ | 1.18 × 10⁻³⁸ |
 
 Be aware that this is by no means a complete and sufficient overview of the IEEE 754 standard. It is rather a simplified and basic overview. Several corner cases were omitted in the examples above for simplicity of presentation (i.e. `-0`, `-∞`, `+∞` and `NaN` (not a number) values)
 

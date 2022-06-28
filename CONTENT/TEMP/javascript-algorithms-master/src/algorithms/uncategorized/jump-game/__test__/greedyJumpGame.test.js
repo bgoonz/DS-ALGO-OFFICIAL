@@ -1,7 +1,7 @@
-import greedyJumpGame from '../greedyJumpGame';
+import greedyJumpGame from "../greedyJumpGame";
 
-describe('greedyJumpGame', () => {
-  it('should solve Jump Game problem in greedy manner', () => {
+describe("greedyJumpGame", () => {
+  it("should solve Jump Game problem in greedy manner", () => {
     expect(greedyJumpGame([1, 0])).toBe(true);
     expect(greedyJumpGame([100, 0])).toBe(true);
     expect(greedyJumpGame([2, 3, 1, 1, 4])).toBe(true);

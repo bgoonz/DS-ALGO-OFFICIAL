@@ -27,7 +27,7 @@ export default function dpBottomUpJumpGame(numbers) {
   for (let cellIndex = numbers.length - 2; cellIndex >= 0; cellIndex -= 1) {
     const maxJumpLength = Math.min(
       numbers[cellIndex],
-      numbers.length - 1 - cellIndex,
+      numbers.length - 1 - cellIndex
     );
 
     for (let jumpLength = maxJumpLength; jumpLength > 0; jumpLength -= 1) {

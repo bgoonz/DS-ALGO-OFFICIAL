@@ -1,7 +1,7 @@
-import squareMatrixRotation from '../squareMatrixRotation';
+import squareMatrixRotation from "../squareMatrixRotation";
 
-describe('squareMatrixRotation', () => {
-  it('should rotate matrix #0 in-place', () => {
+describe("squareMatrixRotation", () => {
+  it("should rotate matrix #0 in-place", () => {
     const matrix = [[1]];
 
     const rotatedMatrix = [[1]];
@@ -9,7 +9,7 @@ describe('squareMatrixRotation', () => {
     expect(squareMatrixRotation(matrix)).toEqual(rotatedMatrix);
   });
 
-  it('should rotate matrix #1 in-place', () => {
+  it("should rotate matrix #1 in-place", () => {
     const matrix = [
       [1, 2],
       [3, 4],
@@ -23,7 +23,7 @@ describe('squareMatrixRotation', () => {
     expect(squareMatrixRotation(matrix)).toEqual(rotatedMatrix);
   });
 
-  it('should rotate matrix #2 in-place', () => {
+  it("should rotate matrix #2 in-place", () => {
     const matrix = [
       [1, 2, 3],
       [4, 5, 6],
@@ -39,7 +39,7 @@ describe('squareMatrixRotation', () => {
     expect(squareMatrixRotation(matrix)).toEqual(rotatedMatrix);
   });
 
-  it('should rotate matrix #3 in-place', () => {
+  it("should rotate matrix #3 in-place", () => {
     const matrix = [
       [5, 1, 9, 11],
       [2, 4, 8, 10],

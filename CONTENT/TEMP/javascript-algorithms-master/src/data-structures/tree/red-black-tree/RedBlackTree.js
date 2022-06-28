@@ -1,13 +1,13 @@
-import BinarySearchTree from '../binary-search-tree/BinarySearchTree';
+import BinarySearchTree from "../binary-search-tree/BinarySearchTree";
 
 // Possible colors of red-black tree nodes.
 const RED_BLACK_TREE_COLORS = {
-  red: 'red',
-  black: 'black',
+  red: "red",
+  black: "black",
 };
 
 // Color property name in meta information of the nodes.
-const COLOR_PROP_NAME = 'color';
+const COLOR_PROP_NAME = "color";
 
 export default class RedBlackTree extends BinarySearchTree {
   /**
@@ -37,7 +37,9 @@ export default class RedBlackTree extends BinarySearchTree {
    * @return {boolean}
    */
   remove(value) {
-    throw new Error(`Can't remove ${value}. Remove method is not implemented yet`);
+    throw new Error(
+      `Can't remove ${value}. Remove method is not implemented yet`
+    );
   }
 
   /**
@@ -127,7 +129,10 @@ export default class RedBlackTree extends BinarySearchTree {
     // Check what type of sibling is our grandParentNode is (left or right).
     let grandParentNodeIsLeft;
     if (grandGrandParent) {
-      grandParentNodeIsLeft = this.nodeComparator.equal(grandGrandParent.left, grandParentNode);
+      grandParentNodeIsLeft = this.nodeComparator.equal(
+        grandGrandParent.left,
+        grandParentNode
+      );
     }
 
     // Memorize grandParentNode's left node.
@@ -202,7 +207,10 @@ export default class RedBlackTree extends BinarySearchTree {
     // Check what type of sibling is our grandParentNode is (left or right).
     let grandParentNodeIsLeft;
     if (grandGrandParent) {
-      grandParentNodeIsLeft = this.nodeComparator.equal(grandGrandParent.left, grandParentNode);
+      grandParentNodeIsLeft = this.nodeComparator.equal(
+        grandGrandParent.left,
+        grandParentNode
+      );
     }
 
     // Memorize grandParentNode's right node.

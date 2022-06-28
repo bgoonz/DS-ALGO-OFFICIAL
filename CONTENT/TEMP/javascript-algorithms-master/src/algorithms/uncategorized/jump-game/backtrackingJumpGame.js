@@ -12,7 +12,11 @@
  * @param {number[]} currentJumps - current jumps path.
  * @return {boolean}
  */
-export default function backtrackingJumpGame(numbers, startIndex = 0, currentJumps = []) {
+export default function backtrackingJumpGame(
+  numbers,
+  startIndex = 0,
+  currentJumps = []
+) {
   if (startIndex === numbers.length - 1) {
     // We've jumped directly to last cell. This situation is a solution.
     return true;
@@ -22,7 +26,7 @@ export default function backtrackingJumpGame(numbers, startIndex = 0, currentJum
   // We don't need to jump beyond the array.
   const maxJumpLength = Math.min(
     numbers[startIndex], // Jump is within array.
-    numbers.length - 1 - startIndex, // Jump goes beyond array.
+    numbers.length - 1 - startIndex // Jump goes beyond array.
   );
 
   // Let's start jumping from startIndex and see whether any
@@ -32,7 +36,11 @@ export default function backtrackingJumpGame(numbers, startIndex = 0, currentJum
     const nextIndex = startIndex + jumpLength;
     currentJumps.push(nextIndex);
 
-    const isJumpSuccessful = backtrackingJumpGame(numbers, nextIndex, currentJumps);
+    const isJumpSuccessful = backtrackingJumpGame(
+      numbers,
+      nextIndex,
+      currentJumps
+    );
 
     // Check if current jump was successful.
     if (isJumpSuccessful) {

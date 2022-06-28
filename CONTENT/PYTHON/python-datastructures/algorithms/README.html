@@ -1,0 +1,1132 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="generator" content="pandoc" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=yes"
+    />
+    <title>README</title>
+    <style type="text/css">
+      code {
+        white-space: pre-wrap;
+      }
+      span.smallcaps {
+        font-variant: small-caps;
+      }
+      span.underline {
+        text-decoration: underline;
+      }
+      div.column {
+        display: inline-block;
+        vertical-align: top;
+        width: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <p>
+      <a href="https://badge.fury.io/py/algorithms"
+        ><img src="https://badge.fury.io/py/algorithms.svg" alt="PyPI version"
+      /></a>
+      <a href="https://www.codetriage.com/keon/algorithms"
+        ><img
+          src="https://www.codetriage.com/keon/algorithms/badges/users.svg"
+          alt="Open Source Helpers"
+      /></a>
+      <a href="https://travis-ci.org/keon/algorithms"
+        ><img
+          src="https://travis-ci.org/keon/algorithms.svg?branch=master"
+          alt="Build Status"
+      /></a>
+      <a href="https://coveralls.io/github/keon/algorithms?branch=master"
+        ><img
+          src="https://coveralls.io/repos/github/keon/algorithms/badge.svg?branch=master"
+          alt="Coverage Status"
+      /></a>
+    </p>
+    <p align="center">
+      <img
+        src="https://raw.githubusercontent.com/keon/algorithms/master/docs/source/_static/logo/logotype1blue.png"
+      />
+    </p>
+    <h1 id="pythonic-data-structures-and-algorithms">
+      Pythonic Data Structures and Algorithms
+    </h1>
+    <p>
+      Minimal and clean example implementations of data structures and
+      algorithms in Python 3.
+    </p>
+    <h2 id="contributing">Contributing</h2>
+    <p>
+      Thanks for your interest in contributing! There are many ways to
+      contribute to this project. <a href="CONTRIBUTING.md">Get started here</a>
+    </p>
+    <h2 id="tests">Tests</h2>
+    <h3 id="use-unittest">Use unittest</h3>
+    <p>For running all tests write down:</p>
+    <pre><code>$ python3 -m unittest discover tests</code></pre>
+    <p>
+      For running some specific tests you can do this as following (Ex: sort):
+    </p>
+    <pre><code>$ python3 -m unittest tests.test_sort</code></pre>
+    <h3 id="use-pytest">Use pytest</h3>
+    <p>For running all tests write down:</p>
+    <pre><code>$ python3 -m pytest tests</code></pre>
+    <h2 id="install">Install</h2>
+    <p>
+      If you want to use the API algorithms in your code, it is as simple as:
+    </p>
+    <pre><code>$ pip3 install algorithms</code></pre>
+    <p>
+      You can test by creating a python file: (Ex: use
+      <code>merge_sort</code> in <code>sort</code>)
+    </p>
+    <pre class="python3"><code>from algorithms.sort import merge_sort
+
+if __name__ == &quot;__main__&quot;:
+    my_list = [1, 8, 3, 5, 6]
+    my_list = merge_sort(my_list)
+    print(my_list)</code></pre>
+    <h2 id="uninstall">Uninstall</h2>
+    <p>If you want to uninstall algorithms, it is as simple as:</p>
+    <pre><code>$ pip3 uninstall -y algorithms</code></pre>
+    <h2 id="list-of-implementations">List of Implementations</h2>
+    <ul>
+      <li>
+        <a href="algorithms/arrays">arrays</a>
+        <ul>
+          <li><a href="algorithms/arrays/delete_nth.py">delete_nth</a></li>
+          <li><a href="algorithms/arrays/flatten.py">flatten</a></li>
+          <li><a href="algorithms/arrays/garage.py">garage</a></li>
+          <li><a href="algorithms/arrays/josephus.py">josephus_problem</a></li>
+          <li><a href="algorithms/arrays/limit.py">limit</a></li>
+          <li>
+            <a href="algorithms/arrays/longest_non_repeat.py/"
+              >longest_non_repeat</a
+            >
+          </li>
+          <li>
+            <a href="algorithms/arrays/max_ones_index.py">max_ones_index</a>
+          </li>
+          <li>
+            <a href="algorithms/arrays/merge_intervals.py">merge_intervals</a>
+          </li>
+          <li>
+            <a href="algorithms/arrays/missing_ranges.py">missing_ranges</a>
+          </li>
+          <li><a href="algorithms/arrays/plus_one.py">plus_one</a></li>
+          <li><a href="algorithms/arrays/rotate.py">rotate</a></li>
+          <li>
+            <a href="algorithms/arrays/summarize_ranges.py">summarize_ranges</a>
+          </li>
+          <li><a href="algorithms/arrays/three_sum.py">three_sum</a></li>
+          <li><a href="algorithms/arrays/trimmean.py">trimmean</a></li>
+          <li><a href="algorithms/arrays/top_1.py">top_1</a></li>
+          <li><a href="algorithms/arrays/two_sum.py">two_sum</a></li>
+          <li><a href="algorithms/arrays/move_zeros.py">move_zeros</a></li>
+          <li><a href="algorithms/arrays/n_sum.py">n_sum</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="algorithms/automata">automata</a>
+        <ul>
+          <li><a href="algorithms/automata/dfa.py">DFA</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="algorithms/backtrack">backtrack</a>
+        <ul>
+          <li><a href="algorithms/backtrack/">general_solution.md</a></li>
+          <li>
+            <a href="algorithms/backtrack/add_operators.py">add_operators</a>
+          </li>
+          <li><a href="algorithms/backtrack/anagram.py">anagram</a></li>
+          <li>
+            <a href="algorithms/backtrack/array_sum_combinations.py"
+              >array_sum_combinations</a
+            >
+          </li>
+          <li>
+            <a href="algorithms/backtrack/combination_sum.py"
+              >combination_sum</a
+            >
+          </li>
+          <li>
+            <a href="algorithms/backtrack/factor_combinations.py"
+              >factor_combinations</a
+            >
+          </li>
+          <li>
+            <a href="algorithms/backtrack/generate_abbreviations.py"
+              >generate_abbreviations</a
+            >
+          </li>
+          <li>
+            <a href="algorithms/backtrack/generate_parenthesis.py"
+              >generate_parenthesis</a
+            >
+          </li>
+          <li>
+            <a href="algorithms/backtrack/letter_combination.py"
+              >letter_combination</a
+            >
+          </li>
+          <li>
+            <a href="algorithms/backtrack/palindrome_partitioning.py"
+              >palindrome_partitioning</a
+            >
+          </li>
+          <li>
+            <a href="algorithms/backtrack/pattern_match.py">pattern_match</a>
+          </li>
+          <li><a href="algorithms/backtrack/permute.py">permute</a></li>
+          <li>
+            <a href="algorithms/backtrack/permute_unique.py">permute_unique</a>
+          </li>
+          <li><a href="algorithms/backtrack/subsets.py">subsets</a></li>
+          <li>
+            <a href="algorithms/backtrack/subsets_unique.py">subsets_unique</a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a href="algorithms/bfs">bfs</a>
+        <ul>
+          <li><a href="algorithms/bfs/maze_search.py">maze_search</a></li>
+          <li>
+            <a href="algorithms/bfs/shortest_distance_from_all_buildings.py"
+              >shortest_distance_from_all_buildings</a
+            >
+          </li>
+          <li><a href="algorithms/bfs/word_ladder.py">word_ladder</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="algorithms/bit">bit</a>
+        <ul>
+          <li>
+            <a href="algorithms/bit/add_bitwise_operator.py"
+              >add_bitwise_operator</a
+            >
+          </li>
+          <li><a href="algorithms/bit/bit_operation.py">bit_operation</a></li>
+          <li>
+            <a href="algorithms/bit/bytes_int_conversion.py"
+              >bytes_int_conversion</a
+            >
+          </li>
+          <li>
+            <a href="algorithms/bit/count_flips_to_convert.py"
+              >count_flips_to_convert</a
+            >
+          </li>
+          <li><a href="algorithms/bit/count_ones.py">count_ones</a></li>
+          <li>
+            <a href="algorithms/bit/find_difference.py">find_difference</a>
+          </li>
+          <li>
+            <a href="algorithms/bit/find_missing_number.py"
+              >find_missing_number</a
+            >
+          </li>
+          <li>
+            <a href="algorithms/bit/flip_bit_longest_sequence.py"
+              >flip_bit_longest_sequence</a
+            >
+          </li>
+          <li><a href="algorithms/bit/power_of_two.py">power_of_two</a></li>
+          <li><a href="algorithms/bit/reverse_bits.py">reverse_bits</a></li>
+          <li><a href="algorithms/bit/single_number.py">single_number</a></li>
+          <li><a href="algorithms/bit/single_number2.py">single_number2</a></li>
+          <li><a href="algorithms/bit/single_number3.py">single_number3</a></li>
+          <li><a href="algorithms/bit/subsets.py">subsets</a></li>
+          <li><a href="algorithms/bit/swap_pair.py">swap_pair</a></li>
+          <li>
+            <a href="algorithms/bit/has_alternative_bit.py"
+              >has_alternative_bit</a
+            >
+          </li>
+          <li><a href="algorithms/bit/insert_bit.py">insert_bit</a></li>
+          <li><a href="algorithms/bit/remove_bit.py">remove_bit</a></li>
+          <li><a href="algorithms/bit/binary_gap.py">binary_gap</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="algorithms/compression">compression</a>
+        <ul>
+          <li>
+            <a href="algorithms/compression/huffman_coding.py"
+              >huffman_coding</a
+            >
+          </li>
+          <li>
+            <a href="algorithms/compression/rle_compression.py"
+              >rle_compression</a
+            >
+          </li>
+          <li><a href="algorithms/compression/elias.py">elias</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="algorithms/dfs">dfs</a>
+        <ul>
+          <li><a href="algorithms/dfs/all_factors.py">all_factors</a></li>
+          <li><a href="algorithms/dfs/count_islands.py">count_islands</a></li>
+          <li>
+            <a href="algorithms/dfs/pacific_atlantic.py">pacific_atlantic</a>
+          </li>
+          <li><a href="algorithms/dfs/sudoku_solver.py">sudoku_solver</a></li>
+          <li>
+            <a href="algorithms/dfs/walls_and_gates.py">walls_and_gates</a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a href="algorithms/distribution">distribution</a>
+        <ul>
+          <li><a href="algorithms/distribution/histogram.py">histogram</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="algorithms/dp">dp</a>
+        <ul>
+          <li><a href="algorithms/dp/buy_sell_stock.py">buy_sell_stock</a></li>
+          <li>
+            <a href="algorithms/dp/climbing_stairs.py">climbing_stairs</a>
+          </li>
+          <li><a href="algorithms/dp/coin_change.py">coin_change</a></li>
+          <li>
+            <a href="algorithms/dp/combination_sum.py">combination_sum</a>
+          </li>
+          <li><a href="algorithms/dp/egg_drop.py">egg_drop</a></li>
+          <li><a href="algorithms/dp/house_robber.py">house_robber</a></li>
+          <li><a href="algorithms/dp/int_divide.py">int_divide</a></li>
+          <li><a href="algorithms/dp/job_scheduling.py">job_scheduling</a></li>
+          <li><a href="algorithms/dp/knapsack.py">knapsack</a></li>
+          <li>
+            <a href="algorithms/dp/longest_increasing.py">longest_increasing</a>
+          </li>
+          <li>
+            <a href="algorithms/dp/matrix_chain_order.py">matrix_chain_order</a>
+          </li>
+          <li>
+            <a href="algorithms/dp/max_product_subarray.py"
+              >max_product_subarray</a
+            >
+          </li>
+          <li><a href="algorithms/dp/max_subarray.py">max_subarray</a></li>
+          <li><a href="algorithms/dp/min_cost_path.py">min_cost_path</a></li>
+          <li><a href="algorithms/dp/num_decodings.py">num_decodings</a></li>
+          <li><a href="algorithms/dp/regex_matching.py">regex_matching</a></li>
+          <li><a href="algorithms/dp/rod_cut.py">rod_cut</a></li>
+          <li><a href="algorithms/dp/word_break.py">word_break</a></li>
+          <li><a href="algorithms/dp/fib.py">fibonacci</a></li>
+          <li>
+            <a href="algorithms/dp/hosoya_triangle.py">hosoya triangle</a>
+          </li>
+          <li>
+            <a href="algorithms/dp/k_factor.py">K-Factor_strings</a>
+            <ul>
+              <li>
+                <a href="algorithms/dp/planting_trees.py">planting_trees</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a href="algorithms/graph">graph</a>
+        <ul>
+          <li>
+            <a href="algorithms/graph/check_bipartite.py">check_bipartite</a>
+          </li>
+          <li>
+            <a href="algorithms/graph/check_digraph_strongly_connected.py"
+              >strongly_connected</a
+            >
+          </li>
+          <li><a href="algorithms/graph/clone_graph.py">clone_graph</a></li>
+          <li>
+            <a href="algorithms/graph/cycle_detection.py">cycle_detection</a>
+          </li>
+          <li>
+            <a href="algorithms/graph/find_all_cliques.py">find_all_cliques</a>
+          </li>
+          <li><a href="algorithms/graph/find_path.py">find_path</a></li>
+          <li><a href="algorithms/graph/graph.py">graph</a></li>
+          <li><a href="algorithms/graph/dijkstra.py">dijkstra</a></li>
+          <li><a href="algorithms/graph/markov_chain.py">markov_chain</a></li>
+          <li>
+            <a href="algorithms/graph/minimum_spanning_tree.py"
+              >minimum_spanning_tree</a
+            >
+          </li>
+          <li>
+            <a href="algorithms/graph/satisfiability.py">satisfiability</a>
+          </li>
+          <li>
+            <a href="algorithms/graph/prims_minimum_spanning.py"
+              >minimum_spanning_tree_prims</a
+            >
+          </li>
+          <li><a href="algorithms/graph/tarjan.py">tarjan</a></li>
+          <li><a href="algorithms/graph/traversal.py">traversal</a></li>
+          <li><a href="algorithms/graph/maximum_flow.py">maximum_flow</a></li>
+          <li>
+            <a href="algorithms/graph/maximum_flow_bfs.py">maximum_flow_bfs</a>
+          </li>
+          <li>
+            <a href="algorithms/graph/maximum_flow_dfs.py">maximum_flow_dfs</a>
+          </li>
+          <li>
+            <a href="algorithms/graph/all_pairs_shortest_path.py"
+              >all_pairs_shortest_path</a
+            >
+          </li>
+          <li><a href="algorithms/graph/bellman_ford.py">bellman_ford</a></li>
+          <li>
+            <a href="algorithms/graph/count_connected_number_of_component.py"
+              >Count Connected Components</a
+            >
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a href="algorithms/heap">heap</a>
+        <ul>
+          <li>
+            <a href="algorithms/heap/merge_sorted_k_lists.py"
+              >merge_sorted_k_lists</a
+            >
+          </li>
+          <li><a href="algorithms/heap/skyline.py">skyline</a></li>
+          <li>
+            <a href="algorithms/heap/sliding_window_max.py"
+              >sliding_window_max</a
+            >
+          </li>
+          <li><a href="algorithms/heap/binary_heap.py">binary_heap</a></li>
+          <li>
+            <a href="algorithms/heap/k_closest_points.py">k_closest_points</a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a href="algorithms/linkedlist">linkedlist</a>
+        <ul>
+          <li>
+            <a href="algorithms/linkedlist/add_two_numbers.py"
+              >add_two_numbers</a
+            >
+          </li>
+          <li>
+            <a href="algorithms/linkedlist/copy_random_pointer.py"
+              >copy_random_pointer</a
+            >
+          </li>
+          <li>
+            <a href="algorithms/linkedlist/delete_node.py">delete_node</a>
+          </li>
+          <li>
+            <a href="algorithms/linkedlist/first_cyclic_node.py"
+              >first_cyclic_node</a
+            >
+          </li>
+          <li><a href="algorithms/linkedlist/is_cyclic.py">is_cyclic</a></li>
+          <li>
+            <a href="algorithms/linkedlist/is_palindrome.py">is_palindrome</a>
+          </li>
+          <li>
+            <a href="algorithms/linkedlist/kth_to_last.py">kth_to_last</a>
+          </li>
+          <li><a href="algorithms/linkedlist/linkedlist.py">linkedlist</a></li>
+          <li>
+            <a href="algorithms/linkedlist/remove_duplicates.py"
+              >remove_duplicates</a
+            >
+          </li>
+          <li><a href="algorithms/linkedlist/reverse.py">reverse</a></li>
+          <li>
+            <a href="algorithms/linkedlist/rotate_list.py">rotate_list</a>
+          </li>
+          <li>
+            <a href="algorithms/linkedlist/swap_in_pairs.py">swap_in_pairs</a>
+          </li>
+          <li><a href="algorithms/linkedlist/is_sorted.py">is_sorted</a></li>
+          <li>
+            <a href="algorithms/linkedlist/remove_range.py">remove_range</a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a href="algorithms/map">map</a>
+        <ul>
+          <li><a href="algorithms/map/hashtable.py">hashtable</a></li>
+          <li>
+            <a href="algorithms/map/separate_chaining_hashtable.py"
+              >separate_chaining_hashtable</a
+            >
+          </li>
+          <li>
+            <a href="algorithms/map/longest_common_subsequence.py"
+              >longest_common_subsequence</a
+            >
+          </li>
+          <li>
+            <a href="algorithms/map/longest_palindromic_subsequence.py"
+              >longest_palindromic_subsequence</a
+            >
+          </li>
+          <li><a href="algorithms/map/randomized_set.py">randomized_set</a></li>
+          <li><a href="algorithms/map/valid_sudoku.py">valid_sudoku</a></li>
+          <li><a href="algorithms/map/word_pattern.py">word_pattern</a></li>
+          <li><a href="algorithms/map/is_isomorphic.py">is_isomorphic</a></li>
+          <li><a href="algorithms/map/is_anagram.py">is_anagram</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="algorithms/maths">maths</a>
+        <ul>
+          <li>
+            <a href="algorithms/maths/base_conversion.py">base_conversion</a>
+          </li>
+          <li>
+            <a href="algorithms/maths/chinese_remainder_theorem.py"
+              >chinese_remainder_theorem</a
+            >
+          </li>
+          <li><a href="algorithms/maths/combination.py">combination</a></li>
+          <li>
+            <a href="algorithms/maths/cosine_similarity.py"
+              >cosine_similarity</a
+            >
+          </li>
+          <li>
+            <a href="algorithms/maths/decimal_to_binary_ip.py"
+              >decimal_to_binary_ip</a
+            >
+          </li>
+          <li>
+            <a href="algorithms/maths/diffie_hellman_key_exchange.py"
+              >diffie_hellman_key_exchange</a
+            >
+          </li>
+          <li><a href="algorithms/maths/euler_totient.py">euler_totient</a></li>
+          <li><a href="algorithms/maths/extended_gcd.py">extended_gcd</a></li>
+          <li><a href="algorithms/maths/factorial.py">factorial</a></li>
+          <li>
+            <a href="algorithms/maths/find_order_simple.py">find_order</a>
+          </li>
+          <li>
+            <a href="algorithms/maths/find_primitive_root_simple.py"
+              >find_primitive_root</a
+            >
+          </li>
+          <li><a href="algorithms/maths/gcd.py">gcd/lcm</a></li>
+          <li>
+            <a href="algorithms/maths/generate_strobogrammtic.py"
+              >generate_strobogrammtic</a
+            >
+          </li>
+          <li><a href="algorithms/maths/hailstone.py">hailstone</a></li>
+          <li>
+            <a href="algorithms/maths/is_strobogrammatic.py"
+              >is_strobogrammatic</a
+            >
+          </li>
+          <li>
+            <a href="algorithms/maths/krishnamurthy_number.py"
+              >krishnamurthy_number</a
+            >
+          </li>
+          <li><a href="algorithms/maths/magic_number.py">magic_number</a></li>
+          <li>
+            <a href="algorithms/maths/modular_exponential.py"
+              >modular_exponential</a
+            >
+          </li>
+          <li>
+            <a href="algorithms/maths/modular_inverse.py">modular_inverse</a>
+          </li>
+          <li><a href="algorithms/maths/next_bigger.py">next_bigger</a></li>
+          <li>
+            <a href="algorithms/maths/next_perfect_square.py"
+              >next_perfect_square</a
+            >
+          </li>
+          <li><a href="algorithms/maths/nth_digit.py">nth_digit</a></li>
+          <li><a href="algorithms/maths/polynomial.py">polynomial</a></li>
+          <li><a href="algorithms/maths/power.py">power</a></li>
+          <li><a href="algorithms/maths/prime_check.py">prime_check</a></li>
+          <li>
+            <a href="algorithms/maths/primes_sieve_of_eratosthenes.py"
+              >primes_sieve_of_eratosthenes</a
+            >
+          </li>
+          <li><a href="algorithms/maths/pythagoras.py">pythagoras</a></li>
+          <li><a href="algorithms/maths/rabin_miller.py">rabin_miller</a></li>
+          <li>
+            <a href="algorithms/maths/recursive_binomial_coefficient.py"
+              >recursive_binomial_coefficient</a
+            >
+          </li>
+          <li><a href="algorithms/maths/rsa.py">rsa</a></li>
+          <li>
+            <a href="algorithms/maths/sqrt_precision_factor.py"
+              >sqrt_precision_factor</a
+            >
+          </li>
+          <li>
+            <a href="algorithms/maths/summing_digits.py">summing_digits</a>
+          </li>
+          <li>
+            <a href="algorithms/maths/symmetry_group_cycle_index.py"
+              >symmetry_group_cycle_index</a
+            >
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a href="algorithms/matrix">matrix</a>
+        <ul>
+          <li>
+            <a href="algorithms/matrix/sudoku_validator.py">sudoku_validator</a>
+          </li>
+          <li><a href="algorithms/matrix/bomb_enemy.py">bomb_enemy</a></li>
+          <li>
+            <a href="algorithms/matrix/copy_transform.py">copy_transform</a>
+          </li>
+          <li><a href="algorithms/matrix/count_paths.py">count_paths</a></li>
+          <li>
+            <a href="algorithms/matrix/matrix_exponentiation.py"
+              >matrix_exponentiation</a
+            >
+          </li>
+          <li>
+            <a href="algorithms/matrix/matrix_inversion.py">matrix_inversion</a>
+          </li>
+          <li>
+            <a href="algorithms/matrix/multiply.py">matrix_multiplication</a>
+          </li>
+          <li><a href="algorithms/matrix/rotate_image.py">rotate_image</a></li>
+          <li>
+            <a href="algorithms/matrix/search_in_sorted_matrix.py"
+              >search_in_sorted_matrix</a
+            >
+          </li>
+          <li>
+            <a href="algorithms/matrix/sparse_dot_vector.py"
+              >sparse_dot_vector</a
+            >
+          </li>
+          <li><a href="algorithms/matrix/sparse_mul.py">sparse_mul</a></li>
+          <li>
+            <a href="algorithms/matrix/spiral_traversal.py">spiral_traversal</a>
+          </li>
+          <li>
+            <a href="algorithms/matrix/crout_matrix_decomposition.py"
+              >crout_matrix_decomposition</a
+            >
+          </li>
+          <li>
+            <a href="algorithms/matrix/cholesky_matrix_decomposition.py"
+              >cholesky_matrix_decomposition</a
+            >
+            <ul>
+              <li>
+                <a href="algorithms/matrix/sum_sub_squares.py"
+                  >sum_sub_squares</a
+                >
+              </li>
+              <li>
+                <a href="algorithms/matrix/sort_matrix_diagonally.py"
+                  >sort_matrix_diagonally</a
+                >
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a href="algorithms/queues">queues</a>
+        <ul>
+          <li>
+            <a href="algorithms/queues/max_sliding_window.py"
+              >max_sliding_window</a
+            >
+          </li>
+          <li>
+            <a href="algorithms/queues/moving_average.py">moving_average</a>
+          </li>
+          <li><a href="algorithms/queues/queue.py">queue</a></li>
+          <li>
+            <a href="algorithms/queues/reconstruct_queue.py"
+              >reconstruct_queue</a
+            >
+          </li>
+          <li>
+            <a href="algorithms/queues/zigzagiterator.py">zigzagiterator</a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a href="algorithms/search">search</a>
+        <ul>
+          <li>
+            <a href="algorithms/search/binary_search.py">binary_search</a>
+          </li>
+          <li>
+            <a href="algorithms/search/first_occurrence.py">first_occurrence</a>
+          </li>
+          <li>
+            <a href="algorithms/search/last_occurrence.py">last_occurrence</a>
+          </li>
+          <li>
+            <a href="algorithms/search/linear_search.py">linear_search</a>
+          </li>
+          <li>
+            <a href="algorithms/search/search_insert.py">search_insert</a>
+          </li>
+          <li><a href="algorithms/search/two_sum.py">two_sum</a></li>
+          <li><a href="algorithms/search/search_range.py">search_range</a></li>
+          <li>
+            <a href="algorithms/search/find_min_rotate.py">find_min_rotate</a>
+          </li>
+          <li>
+            <a href="algorithms/search/search_rotate.py">search_rotate</a>
+          </li>
+          <li><a href="algorithms/search/jump_search.py">jump_search</a></li>
+          <li>
+            <a href="algorithms/search/next_greatest_letter.py"
+              >next_greatest_letter</a
+            >
+          </li>
+          <li>
+            <a href="algorithms/search/interpolation_search.py"
+              >interpolation_search</a
+            >
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a href="algorithms/set">set</a>
+        <ul>
+          <li><a href="algorithms/set/randomized_set.py">randomized_set</a></li>
+          <li><a href="algorithms/set/set_covering.py">set_covering</a></li>
+          <li>
+            <a href="algorithms/set/find_keyboard_row.py">find_keyboard_row</a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a href="algorithms/sort">sort</a>
+        <ul>
+          <li><a href="algorithms/sort/bitonic_sort.py">bitonic_sort</a></li>
+          <li><a href="algorithms/sort/bogo_sort.py">bogo_sort</a></li>
+          <li><a href="algorithms/sort/bubble_sort.py">bubble_sort</a></li>
+          <li><a href="algorithms/sort/bucket_sort.py">bucket_sort</a></li>
+          <li>
+            <a href="algorithms/sort/cocktail_shaker_sort.py"
+              >cocktail_shaker_sort</a
+            >
+          </li>
+          <li><a href="algorithms/sort/comb_sort.py">comb_sort</a></li>
+          <li><a href="algorithms/sort/counting_sort.py">counting_sort</a></li>
+          <li><a href="algorithms/sort/cycle_sort.py">cycle_sort</a></li>
+          <li><a href="algorithms/sort/gnome_sort.py">gnome_sort</a></li>
+          <li><a href="algorithms/sort/heap_sort.py">heap_sort</a></li>
+          <li>
+            <a href="algorithms/sort/insertion_sort.py">insertion_sort</a>
+          </li>
+          <li><a href="algorithms/sort/meeting_rooms.py">meeting_rooms</a></li>
+          <li><a href="algorithms/sort/merge_sort.py">merge_sort</a></li>
+          <li><a href="algorithms/sort/pancake_sort.py">pancake_sort</a></li>
+          <li>
+            <a href="algorithms/sort/pigeonhole_sort.py">pigeonhole_sort</a>
+          </li>
+          <li><a href="algorithms/sort/quick_sort.py">quick_sort</a></li>
+          <li><a href="algorithms/sort/radix_sort.py">radix_sort</a></li>
+          <li>
+            <a href="algorithms/sort/selection_sort.py">selection_sort</a>
+          </li>
+          <li><a href="algorithms/sort/shell_sort.py">shell_sort</a></li>
+          <li><a href="algorithms/sort/sort_colors.py">sort_colors</a></li>
+          <li><a href="algorithms/sort/stooge_sort.py">stooge_sort</a></li>
+          <li><a href="algorithms/sort/top_sort.py">top_sort</a></li>
+          <li><a href="algorithms/sort/wiggle_sort.py">wiggle_sort</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="algorithms/stack">stack</a>
+        <ul>
+          <li>
+            <a href="algorithms/stack/longest_abs_path.py">longest_abs_path</a>
+          </li>
+          <li><a href="algorithms/stack/simplify_path.py">simplify_path</a></li>
+          <li><a href="algorithms/stack/stack.py">stack</a></li>
+          <li>
+            <a href="algorithms/stack/valid_parenthesis.py"
+              >valid_parenthesis</a
+            >
+          </li>
+          <li><a href="algorithms/stack/stutter.py">stutter</a></li>
+          <li><a href="algorithms/stack/switch_pairs.py">switch_pairs</a></li>
+          <li>
+            <a href="algorithms/stack/is_consecutive.py">is_consecutive</a>
+          </li>
+          <li><a href="algorithms/stack/remove_min.py">remove_min</a></li>
+          <li><a href="algorithms/stack/is_sorted.py">is_sorted</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="algorithms/streaming">streaming</a>
+        <ul>
+          <li>
+            <a href="algorithms/streaming/one_sparse_recovery.py"
+              >1-sparse-recovery</a
+            >
+          </li>
+          <li><a href="algorithms/streaming/misra_gries.py">misra-gries</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="algorithms/strings">strings</a>
+        <ul>
+          <li><a href="algorithms/strings/fizzbuzz.py">fizzbuzz</a></li>
+          <li>
+            <a href="algorithms/strings/delete_reoccurring.py"
+              >delete_reoccurring</a
+            >
+          </li>
+          <li>
+            <a href="algorithms/strings/strip_url_params.py"
+              >strip_url_params</a
+            >
+          </li>
+          <li>
+            <a href="algorithms/strings/validate_coordinates.py"
+              >validate_coordinates</a
+            >
+          </li>
+          <li>
+            <a href="algorithms/strings/domain_extractor.py"
+              >domain_extractor</a
+            >
+          </li>
+          <li>
+            <a href="algorithms/strings/merge_string_checker.py"
+              >merge_string_checker</a
+            >
+          </li>
+          <li><a href="algorithms/strings/add_binary.py">add_binary</a></li>
+          <li><a href="algorithms/strings/breaking_bad.py">breaking_bad</a></li>
+          <li>
+            <a href="algorithms/strings/decode_string.py">decode_string</a>
+          </li>
+          <li>
+            <a href="algorithms/strings/encode_decode.py">encode_decode</a>
+          </li>
+          <li>
+            <a href="algorithms/strings/group_anagrams.py">group_anagrams</a>
+          </li>
+          <li><a href="algorithms/strings/int_to_roman.py">int_to_roman</a></li>
+          <li>
+            <a href="algorithms/strings/is_palindrome.py">is_palindrome</a>
+          </li>
+          <li>
+            <a href="algorithms/strings/license_number.py">license_number</a>
+          </li>
+          <li>
+            <a href="algorithms/strings/make_sentence.py">make_sentence</a>
+          </li>
+          <li>
+            <a href="algorithms/strings/multiply_strings.py"
+              >multiply_strings</a
+            >
+          </li>
+          <li>
+            <a href="algorithms/strings/one_edit_distance.py"
+              >one_edit_distance</a
+            >
+          </li>
+          <li><a href="algorithms/strings/rabin_karp.py">rabin_karp</a></li>
+          <li>
+            <a href="algorithms/strings/reverse_string.py">reverse_string</a>
+          </li>
+          <li>
+            <a href="algorithms/strings/reverse_vowel.py">reverse_vowel</a>
+          </li>
+          <li>
+            <a href="algorithms/strings/reverse_words.py">reverse_words</a>
+          </li>
+          <li><a href="algorithms/strings/roman_to_int.py">roman_to_int</a></li>
+          <li><a href="algorithms/strings/word_squares.py">word_squares</a></li>
+          <li><a href="algorithms/strings/unique_morse.py">unique_morse</a></li>
+          <li><a href="algorithms/strings/judge_circle.py">judge_circle</a></li>
+          <li>
+            <a href="algorithms/strings/strong_password.py">strong_password</a>
+          </li>
+          <li>
+            <a href="algorithms/strings/caesar_cipher.py">caesar_cipher</a>
+          </li>
+          <li>
+            <a href="algorithms/strings/check_pangram.py">check_pangram</a>
+          </li>
+          <li>
+            <a href="algorithms/strings/contain_string.py">contain_string</a>
+          </li>
+          <li>
+            <a href="algorithms/strings/count_binary_substring.py"
+              >count_binary_substring</a
+            >
+          </li>
+          <li>
+            <a href="algorithms/strings/repeat_string.py">repeat_string</a>
+          </li>
+          <li><a href="algorithms/strings/min_distance.py">min_distance</a></li>
+          <li>
+            <a href="algorithms/strings/longest_common_prefix.py"
+              >longest_common_prefix</a
+            >
+          </li>
+          <li><a href="algorithms/strings/rotate.py">rotate</a></li>
+          <li>
+            <a href="algorithms/strings/first_unique_char.py"
+              >first_unique_char</a
+            >
+          </li>
+          <li>
+            <a href="algorithms/strings/repeat_substring.py"
+              >repeat_substring</a
+            >
+          </li>
+          <li>
+            <a href="algorithms/strings/atbash_cipher.py">atbash_cipher</a>
+          </li>
+          <li>
+            <a href="algorithms/strings/longest_palindromic_substring.py"
+              >longest_palindromic_substring</a
+            >
+            <ul>
+              <li>
+                <a href="algorithms/strings/knuth_morris_pratt.py"
+                  >knuth_morris_pratt</a
+                >
+              </li>
+            </ul>
+          </li>
+          <li><a href="algorithms/strings/panagram.py">panagram</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="algorithms/tree">tree</a>
+        <ul>
+          <li>
+            <a href="algorithms/tree/bst">bst</a>
+            <ul>
+              <li>
+                <a href="algorithms/tree/bst/array_to_bst.py">array_to_bst</a>
+              </li>
+              <li>
+                <a href="algorithms/tree/bst/bst_closest_value.py"
+                  >bst_closest_value</a
+                >
+              </li>
+              <li>
+                <a href="algorithms/tree/bst/BSTIterator.py">BSTIterator</a>
+              </li>
+              <li>
+                <a href="algorithms/tree/bst/delete_node.py">delete_node</a>
+              </li>
+              <li><a href="algorithms/tree/bst/is_bst.py">is_bst</a></li>
+              <li>
+                <a href="algorithms/tree/bst/kth_smallest.py">kth_smallest</a>
+              </li>
+              <li>
+                <a href="algorithms/tree/bst/lowest_common_ancestor.py"
+                  >lowest_common_ancestor</a
+                >
+              </li>
+              <li>
+                <a href="algorithms/tree/bst/predecessor.py">predecessor</a>
+              </li>
+              <li>
+                <a href="algorithms/tree/bst/serialize_deserialize.py"
+                  >serialize_deserialize</a
+                >
+              </li>
+              <li><a href="algorithms/tree/bst/successor.py">successor</a></li>
+              <li>
+                <a href="algorithms/tree/bst/unique_bst.py">unique_bst</a>
+              </li>
+              <li><a href="algorithms/tree/bst/depth_sum.py">depth_sum</a></li>
+              <li>
+                <a href="algorithms/tree/bst/count_left_node.py"
+                  >count_left_node</a
+                >
+              </li>
+              <li><a href="algorithms/tree/bst/num_empty.py">num_empty</a></li>
+              <li><a href="algorithms/tree/bst/height.py">height</a></li>
+            </ul>
+          </li>
+          <li>[fenwick_tree](algorithms/tree/fenwick_tree]</li>
+          <li>
+            <a href="algorithms/tree/fenwick_tree/fenwick_tree.py"
+              >fenwick_tree</a
+            >
+            <ul>
+              <li>
+                <a href="algorithms/tree/red_black_tree">red_black_tree</a>
+                <ul>
+                  <li>
+                    <a href="algorithms/tree/red_black_tree/red_black_tree.py"
+                      >red_black_tree</a
+                    >
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <a href="algorithms/tree/segment_tree">segment_tree</a>
+                <ul>
+                  <li>
+                    <a href="algorithms/tree/segment_tree/segment_tree.py"
+                      >segment_tree</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="algorithms/tree/segment_tree/iterative_segment_tree.py"
+                      >iterative_segment_tree</a
+                    >
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <a href="algorithms/tree/traversal">traversal</a>
+                <ul>
+                  <li>
+                    <a href="algorithms/tree/traversal/inorder.py">inorder</a>
+                  </li>
+                  <li>
+                    <a href="algorithms/tree/traversal/level_order.py"
+                      >level_order</a
+                    >
+                  </li>
+                  <li>
+                    <a href="algorithms/tree/traversal/postorder.py"
+                      >postorder</a
+                    >
+                  </li>
+                  <li>
+                    <a href="algorithms/tree/traversal/preorder.py">preorder</a>
+                  </li>
+                  <li>
+                    <a href="algorithms/tree/traversal/zigzag.py">zigzag</a>
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <a href="algorithms/tree/trie">trie</a>
+                <ul>
+                  <li>
+                    <a href="algorithms/tree/trie/add_and_search.py"
+                      >add_and_search</a
+                    >
+                  </li>
+                  <li><a href="algorithms/tree/trie/trie.py">trie</a></li>
+                </ul>
+              </li>
+              <li><a href="algorithms/tree/b_tree.py">b_tree</a></li>
+              <li>
+                <a href="algorithms/tree/binary_tree_paths.py"
+                  >binary_tree_paths</a
+                >
+              </li>
+              <li>
+                <a href="algorithms/tree/bin_tree_to_list.py"
+                  >bin_tree_to_list</a
+                >
+              </li>
+              <li>
+                <a href="algorithms/tree/construct_tree_postorder_preorder.py"
+                  >construct_tree_preorder_postorder</a
+                >
+              </li>
+              <li>
+                <a href="algorithms/tree/deepest_left.py">deepest_left</a>
+              </li>
+              <li><a href="algorithms/tree/invert_tree.py">invert_tree</a></li>
+              <li><a href="algorithms/tree/is_balanced.py">is_balanced</a></li>
+              <li><a href="algorithms/tree/is_subtree.py">is_subtree</a></li>
+              <li>
+                <a href="algorithms/tree/is_symmetric.py">is_symmetric</a>
+              </li>
+              <li>
+                <a href="algorithms/tree/longest_consecutive.py"
+                  >longest_consecutive</a
+                >
+              </li>
+              <li>
+                <a href="algorithms/tree/lowest_common_ancestor.py"
+                  >lowest_common_ancestor</a
+                >
+              </li>
+              <li><a href="algorithms/tree/max_height.py">max_height</a></li>
+              <li>
+                <a href="algorithms/tree/max_path_sum.py">max_path_sum</a>
+              </li>
+              <li><a href="algorithms/tree/min_height.py">min_height</a></li>
+              <li><a href="algorithms/tree/path_sum.py">path_sum</a></li>
+              <li><a href="algorithms/tree/path_sum2.py">path_sum2</a></li>
+              <li>
+                <a href="algorithms/tree/pretty_print.py">pretty_print</a>
+              </li>
+              <li><a href="algorithms/tree/same_tree.py">same_tree</a></li>
+              <li><a href="algorithms/tree/tree.py">tree</a></li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a href="algorithms/unix">unix</a>
+        <ul>
+          <li>
+            <a href="algorithms/unix/path/">path</a>
+            <ul>
+              <li>
+                <a href="algorithms/unix/path/join_with_slash.py"
+                  >join_with_slash</a
+                >
+              </li>
+              <li><a href="algorithms/unix/path/full_path.py">full_path</a></li>
+              <li><a href="algorithms/unix/path/split.py">split</a></li>
+              <li>
+                <a href="algorithms/unix/path/simplify_path.py"
+                  >simplify_path</a
+                >
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a href="algorithms/unionfind">unionfind</a>
+        <ul>
+          <li>
+            <a href="algorithms/unionfind/count_islands.py">count_islands</a>
+          </li>
+        </ul>
+      </li>
+    </ul>
+    <h2 id="contributors">Contributors</h2>
+    <p>
+      Thanks to
+      <a href="https://github.com/keon/algorithms/graphs/contributors"
+        >all the contributors</a
+      >
+      who helped in building the repo.
+    </p>
+  </body>
+</html>

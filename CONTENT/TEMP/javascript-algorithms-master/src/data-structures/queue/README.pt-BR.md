@@ -17,12 +17,11 @@ retornando o valor do elemento da frente, sem desenfileira-lo. Uma lista é
 um exemplo de uma estrutura de dados linear, ou mais abstratamente uma
 coleção seqüencial.
 
-
 Representação de uma file FIFO (first in, first out)
 
 ![Queue](https://upload.wikimedia.org/wikipedia/commons/5/52/Data_Queue.svg)
 
 ## References
 
-- [Wikipedia](https://en.wikipedia.org/wiki/Queue_(abstract_data_type))
+- [Wikipedia](<https://en.wikipedia.org/wiki/Queue_(abstract_data_type)>)
 - [YouTube](https://www.youtube.com/watch?v=wjI1WNcIntg&list=PLLXdhg_r2hKA7DPDsunoDZ-Z769jWn4R8&index=3&)

@@ -6,7 +6,10 @@
 // URL : https://app.codesignal.com/arcade/intro/level-5/g6dc9KJyxmFjB98dL
 
 function areEquallyStrong(yourLeft, yourRight, friendsLeft, friendsRight) {
-    return yourLeft+yourRight === friendsLeft+friendsRight && (yourLeft === friendsLeft || yourLeft === friendsRight);
+  return (
+    yourLeft + yourRight === friendsLeft + friendsRight &&
+    (yourLeft === friendsLeft || yourLeft === friendsRight)
+  );
 }
 
 exports.areEquallyStrong = areEquallyStrong;

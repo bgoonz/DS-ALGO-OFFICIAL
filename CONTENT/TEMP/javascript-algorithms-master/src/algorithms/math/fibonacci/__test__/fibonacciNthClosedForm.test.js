@@ -1,7 +1,7 @@
-import fibonacciNthClosedForm from '../fibonacciNthClosedForm';
+import fibonacciNthClosedForm from "../fibonacciNthClosedForm";
 
-describe('fibonacciClosedForm', () => {
-  it('should throw an error when trying to calculate fibonacci for not allowed positions', () => {
+describe("fibonacciClosedForm", () => {
+  it("should throw an error when trying to calculate fibonacci for not allowed positions", () => {
     const calculateFibonacciForNotAllowedPosition = () => {
       fibonacciNthClosedForm(76);
     };
@@ -9,7 +9,7 @@ describe('fibonacciClosedForm', () => {
     expect(calculateFibonacciForNotAllowedPosition).toThrow();
   });
 
-  it('should calculate fibonacci correctly', () => {
+  it("should calculate fibonacci correctly", () => {
     expect(fibonacciNthClosedForm(1)).toBe(1);
     expect(fibonacciNthClosedForm(2)).toBe(1);
     expect(fibonacciNthClosedForm(3)).toBe(2);

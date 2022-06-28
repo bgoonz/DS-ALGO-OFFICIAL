@@ -32,7 +32,7 @@ export default function multiplyUnsigned(number1, number2) {
       // In case if multiplier's bit at position bitIndex is set
       // it would mean that we need to multiply number1 by the power
       // of bit with index bitIndex and then add it to the result.
-      result += (number1 << bitIndex);
+      result += number1 << bitIndex;
     }
 
     bitIndex += 1;

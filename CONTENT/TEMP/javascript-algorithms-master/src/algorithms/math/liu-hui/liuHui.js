@@ -17,9 +17,9 @@ function getNGonSideLength(sideLength, splitCounter) {
   const halfSide = sideLength / 2;
 
   // Liu Hui used the Gou Gu (Pythagorean theorem) theorem repetitively.
-  const perpendicular = Math.sqrt((circleRadius ** 2) - (halfSide ** 2));
+  const perpendicular = Math.sqrt(circleRadius ** 2 - halfSide ** 2);
   const excessRadius = circleRadius - perpendicular;
-  const splitSideLength = Math.sqrt((excessRadius ** 2) + (halfSide ** 2));
+  const splitSideLength = Math.sqrt(excessRadius ** 2 + halfSide ** 2);
 
   return getNGonSideLength(splitSideLength, splitCounter - 1);
 }
@@ -50,5 +50,5 @@ export default function liuHui(splitCount = 1) {
   const approximateCircleArea = (nGonPerimeter / 2) * circleRadius;
 
   // Return approximate value of pi.
-  return approximateCircleArea / (circleRadius ** 2);
+  return approximateCircleArea / circleRadius ** 2;
 }

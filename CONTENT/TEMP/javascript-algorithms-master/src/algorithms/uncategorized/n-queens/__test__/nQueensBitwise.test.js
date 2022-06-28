@@ -1,7 +1,7 @@
-import nQueensBitwise from '../nQueensBitwise';
+import nQueensBitwise from "../nQueensBitwise";
 
-describe('nQueensBitwise', () => {
-  it('should have solutions for 4 to N queens', () => {
+describe("nQueensBitwise", () => {
+  it("should have solutions for 4 to N queens", () => {
     expect(nQueensBitwise(4)).toBe(2);
     expect(nQueensBitwise(5)).toBe(10);
     expect(nQueensBitwise(6)).toBe(4);

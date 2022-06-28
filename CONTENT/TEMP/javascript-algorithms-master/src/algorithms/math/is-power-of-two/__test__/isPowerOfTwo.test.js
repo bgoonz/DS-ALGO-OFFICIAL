@@ -1,7 +1,7 @@
-import isPowerOfTwo from '../isPowerOfTwo';
+import isPowerOfTwo from "../isPowerOfTwo";
 
-describe('isPowerOfTwo', () => {
-  it('should check if the number is made by multiplying twos', () => {
+describe("isPowerOfTwo", () => {
+  it("should check if the number is made by multiplying twos", () => {
     expect(isPowerOfTwo(-1)).toBe(false);
     expect(isPowerOfTwo(0)).toBe(false);
     expect(isPowerOfTwo(1)).toBe(true);

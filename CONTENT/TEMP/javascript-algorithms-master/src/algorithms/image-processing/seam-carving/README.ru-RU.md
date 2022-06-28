@@ -6,7 +6,7 @@
 
 ## TL;DR
 
-Написано много замечательных статей об алгоритме *Seam Carving* ("Вырезание швов"), но я не смог устоять перед соблазном самостоятельно исследовать этот элегантный, мощный и в то же время простой алгоритм и написать о своем личном опыте работы с ним. Мое внимание также привлек тот факт, что для его имплементации мы можем применить *динамическое программирование (DP)*. И, если вы, как и я, все еще находитесь на пути изучения алгоритмов, то это решение может обогатить ваш личный арсенал DP.
+Написано много замечательных статей об алгоритме _Seam Carving_ ("Вырезание швов"), но я не смог устоять перед соблазном самостоятельно исследовать этот элегантный, мощный и в то же время простой алгоритм и написать о своем личном опыте работы с ним. Мое внимание также привлек тот факт, что для его имплементации мы можем применить _динамическое программирование (DP)_. И, если вы, как и я, все еще находитесь на пути изучения алгоритмов, то это решение может обогатить ваш личный арсенал DP.
 
 Итак, в этой статье я хочу сделать три вещи:
 
@@ -16,17 +16,17 @@
 
 ### Изменение размеров изображений с учетом их содержимого
 
-*Изменение размера изображения с учетом содержимого* (content-aware image resizing) может быть применено, когда дело доходит до изменения пропорций изображения (например, уменьшения ширины при сохранении высоты), а также когда потеря некоторых частей изображения нежелательна. Простое масштабирование изображения в этом случае исказит находящиеся в нем объекты. Для сохранения пропорций объектов при изменении пропорций изображения можно использовать [алгоритм Seam Carving](https://perso.crans.org/frenoy/matlab2012/seamcarving.pdf), который был описан *Shai Avidan* и *Ariel Shamir*.
+_Изменение размера изображения с учетом содержимого_ (content-aware image resizing) может быть применено, когда дело доходит до изменения пропорций изображения (например, уменьшения ширины при сохранении высоты), а также когда потеря некоторых частей изображения нежелательна. Простое масштабирование изображения в этом случае исказит находящиеся в нем объекты. Для сохранения пропорций объектов при изменении пропорций изображения можно использовать [алгоритм Seam Carving](https://perso.crans.org/frenoy/matlab2012/seamcarving.pdf), который был описан _Shai Avidan_ и _Ariel Shamir_.
 
-В приведенном ниже примере показано, как ширина исходного изображения была уменьшена на 50% *с учетом содержимого изображения* (слева) и *без учета содержимого изображения* (справа, простой скейлинг). В данном случае левое изображение выглядит более естественным, так как пропорции воздушных шаров в нем были сохранены.
+В приведенном ниже примере показано, как ширина исходного изображения была уменьшена на 50% _с учетом содержимого изображения_ (слева) и _без учета содержимого изображения_ (справа, простой скейлинг). В данном случае левое изображение выглядит более естественным, так как пропорции воздушных шаров в нем были сохранены.
 
 ![Content-aware image resizing](https://raw.githubusercontent.com/trekhleb/trekhleb.github.io/master/src/posts/2021/content-aware-image-resizing-in-javascript/assets/01-resizing-options.png)
 
-Идея алгоритма Seam Carving заключается в том, чтобы найти *шов* (seam, непрерывную последовательность пикселей) с наименьшим влиянием на содержание изображения, а затем его *вырезать* (carve). Этот процесс повторяется снова и снова, пока мы не получим требуемую ширину или высоту изображения. В примере ниже интуитивно видно, что пиксели воздушных шаров вносят больший "вклад" в содержание и смысл изображения, чем пиксели неба. Таким образом, сначала удаляются пиксели неба.
+Идея алгоритма Seam Carving заключается в том, чтобы найти _шов_ (seam, непрерывную последовательность пикселей) с наименьшим влиянием на содержание изображения, а затем его _вырезать_ (carve). Этот процесс повторяется снова и снова, пока мы не получим требуемую ширину или высоту изображения. В примере ниже интуитивно видно, что пиксели воздушных шаров вносят больший "вклад" в содержание и смысл изображения, чем пиксели неба. Таким образом, сначала удаляются пиксели неба.
 
 ![JS IMAGE CARVER DEMO](https://raw.githubusercontent.com/trekhleb/trekhleb.github.io/master/src/posts/2021/content-aware-image-resizing-in-javascript/assets/10-demo-01.gif)
 
-Поиск шва с наименьшей энергией (с наименьшим вкладом в содержимое изображения) является вычислительно дорогостоящей операцией (особенно для больших изображений). Для ускорения поиска шва может быть применено *динамическое программирование* (мы рассмотрим детали реализации ниже).
+Поиск шва с наименьшей энергией (с наименьшим вкладом в содержимое изображения) является вычислительно дорогостоящей операцией (особенно для больших изображений). Для ускорения поиска шва может быть применено _динамическое программирование_ (мы рассмотрим детали реализации ниже).
 
 ### Удаление объектов
 
@@ -50,7 +50,7 @@
 
 ![Resizing demo with more complex backgrounds](https://raw.githubusercontent.com/trekhleb/trekhleb.github.io/master/src/posts/2021/content-aware-image-resizing-in-javascript/assets/11-demo-02.png)
 
-Нужно помнить, что алгоритм Seam Carving не является "волшебной таблеткой", и может не сохранить пропорции важных частей изображения в том случае, когда *большая часть пикселей выглядят как края, ребра или границы* (почти все пиксели выглядят одинаково важными с точки зрения алгоритма). В приведенном ниже примере изменение размера изображения с учетом содержимого похоже на простое масштабирование, т.к. для алгоритма все пиксели выглядят важными, и ему трудно отличить лицо Ван Гога от фона.
+Нужно помнить, что алгоритм Seam Carving не является "волшебной таблеткой", и может не сохранить пропорции важных частей изображения в том случае, когда _большая часть пикселей выглядят как края, ребра или границы_ (почти все пиксели выглядят одинаково важными с точки зрения алгоритма). В приведенном ниже примере изменение размера изображения с учетом содержимого похоже на простое масштабирование, т.к. для алгоритма все пиксели выглядят важными, и ему трудно отличить лицо Ван Гога от фона.
 
 ![Example when the algorithm does not work as expected](https://raw.githubusercontent.com/trekhleb/trekhleb.github.io/master/src/posts/2021/content-aware-image-resizing-in-javascript/assets/12-demo-01.png)
 
@@ -58,26 +58,26 @@
 
 Представим, что у нас есть картинка размером `1000 x 500 px`, и мы хотим уменьшить ее до `500 x 500 px` (допустим, квадратное изображение больше подходит для Instagram). В этом случае мы, возможно, захотим задать несколько **требований к процессу изменения размера**:
 
-- *Важные части изображения должны быть сохранены* (если до ресайза на фото было 5 деревьев, то и после ресайза мы хотим увидеть все те же 5 деревьев).
-- *Пропорции важных частей изображения должны быть сохранены* (круглые колеса автомобиля не должны стать овальными после ресайза).
+- _Важные части изображения должны быть сохранены_ (если до ресайза на фото было 5 деревьев, то и после ресайза мы хотим увидеть все те же 5 деревьев).
+- _Пропорции важных частей изображения должны быть сохранены_ (круглые колеса автомобиля не должны стать овальными после ресайза).
 
-Чтобы избежать изменения важных частей изображения можно найти **непрерывную последовательность пикселей (шов)**, которая будет идти от верхней границы к нижней и иметь *наименьший вклад в содержимое* изображения (шов, который не проходит через важные части изображения), а затем удалить его. Удаление шва сожмет изображение на один пиксель. Далее надо повторять этот шаг до тех пор, пока изображение не станет нужной ширины.
+Чтобы избежать изменения важных частей изображения можно найти **непрерывную последовательность пикселей (шов)**, которая будет идти от верхней границы к нижней и иметь _наименьший вклад в содержимое_ изображения (шов, который не проходит через важные части изображения), а затем удалить его. Удаление шва сожмет изображение на один пиксель. Далее надо повторять этот шаг до тех пор, пока изображение не станет нужной ширины.
 
-Вопрос в том, как определить *важность пикселя* и его вклад в содержание изображения (в оригинальной статье авторы используют термин **энергия пикселя**). Один из способов это сделать — рассматривать все пиксели, образующие края (границы, ребра), как важные. В случае, если пиксель является частью ребра, его цвет будет отличаться от соседей (левого и правого пикселей).
+Вопрос в том, как определить _важность пикселя_ и его вклад в содержание изображения (в оригинальной статье авторы используют термин **энергия пикселя**). Один из способов это сделать — рассматривать все пиксели, образующие края (границы, ребра), как важные. В случае, если пиксель является частью ребра, его цвет будет отличаться от соседей (левого и правого пикселей).
 
 ![Pixels color difference](https://raw.githubusercontent.com/trekhleb/trekhleb.github.io/master/src/posts/2021/content-aware-image-resizing-in-javascript/assets/30-pixel-energy-comparison.png)
 
-Предполагая, что цвет пикселя представлен *4-мя* числами (`R` - красный, `G` - зеленый, `B` - синий, `A` - альфа, прозрачность), мы можем использовать следующую формулу для вычисления разницы в цвете (энергии пикселя):
+Предполагая, что цвет пикселя представлен _4-мя_ числами (`R` - красный, `G` - зеленый, `B` - синий, `A` - альфа, прозрачность), мы можем использовать следующую формулу для вычисления разницы в цвете (энергии пикселя):
 
 ![Pixel energy formula](https://raw.githubusercontent.com/trekhleb/trekhleb.github.io/master/src/posts/2021/content-aware-image-resizing-in-javascript/assets/20-energy-formula.png)
 
 Где:
 
-- `mEnergy` - *Энергия* (важность) *среднего* пикселя (`[0..626]` если округлить)
-- `lR` - *Красный* цветовой канал *левого* пикселя (`[0..255]`)
-- `mR` - *Красный* цветовой канал *среднего* пикселя (`[0..255]`)
-- `rR` - *Красный* цветовой канал *правого* пикселя (`[0..255]`)
-- `lG` - *Зеленый* цветовой канал *левого* пикселя (`[0..255]`)
+- `mEnergy` - _Энергия_ (важность) _среднего_ пикселя (`[0..626]` если округлить)
+- `lR` - _Красный_ цветовой канал _левого_ пикселя (`[0..255]`)
+- `mR` - _Красный_ цветовой канал _среднего_ пикселя (`[0..255]`)
+- `rR` - _Красный_ цветовой канал _правого_ пикселя (`[0..255]`)
+- `lG` - _Зеленый_ цветовой канал _левого_ пикселя (`[0..255]`)
 - и так далее...
 
 В приведенной выше формуле мы пока не используем альфа-канал (прозрачность), предполагая, что изображение не содержит прозрачные пиксели. Позже мы будем использовать альфа-канал для маскировки и удаления объектов.
@@ -112,8 +112,8 @@
 
 В приведенных выше примерах мы уменьшали ширину изображения. Аналогичный подход может быть использован для уменьшения высоты изображения. Для этого нам нужно:
 
-- начать использовать соседей *сверху* и *снизу*, а не *слева* и *справа*, для вычисления энергии пикселя
-- при поиске шва нам нужно двигаться *слева* *направо*, а не *сверху* *вниз*.
+- начать использовать соседей _сверху_ и _снизу_, а не _слева_ и _справа_, для вычисления энергии пикселя
+- при поиске шва нам нужно двигаться _слева_ _направо_, а не _сверху_ _вниз_.
 
 ## Реализация алгоритма на TypeScript
 
@@ -121,7 +121,7 @@
 
 Для реализации алгоритма мы будем использовать TypeScript. Если вам нужна версия на JavaScript, вы можете игнорировать (удалить) определения типов и их использование.
 
-Для простоты примеров мы напишем код только для уменьшения *ширины* изображения.
+Для простоты примеров мы напишем код только для уменьшения _ширины_ изображения.
 
 ### Уменьшение ширины с учетом содержимого изображения (исходная функция)
 
@@ -129,10 +129,10 @@
 
 ```typescript
 // Type that describes the image size (width and height).
-type ImageSize = { w: number, h: number };
+type ImageSize = { w: number; h: number };
 
 // The coordinate of the pixel.
-type Coordinate = { x: number, y: number };
+type Coordinate = { x: number; y: number };
 
 // The seam is a sequence of pixels (coordinates).
 type Seam = Coordinate[];
@@ -142,12 +142,14 @@ type Seam = Coordinate[];
 type EnergyMap = number[][];
 
 // Type that describes the image pixel's RGBA color.
-type Color = [
-  r: number, // Red
-  g: number, // Green
-  b: number, // Blue
-  a: number, // Alpha (transparency)
-] | Uint8ClampedArray;
+type Color =
+  | [
+      r: number, // Red
+      g: number, // Green
+      b: number, // Blue
+      a: number // Alpha (transparency)
+    ]
+  | Uint8ClampedArray;
 ```
 
 Для имплементации алгоритма нам необходимо выполнить следующие шаги:
@@ -159,19 +161,20 @@ type Color = [
 
 ```typescript
 type ResizeImageWidthArgs = {
-  img: ImageData, // Image data we want to resize.
-  toWidth: number, // Final image width we want the image to shrink to.
+  img: ImageData; // Image data we want to resize.
+  toWidth: number; // Final image width we want the image to shrink to.
 };
 
 type ResizeImageWidthResult = {
-  img: ImageData, // Resized image data.
-  size: ImageSize, // Resized image size (w x h).
+  img: ImageData; // Resized image data.
+  size: ImageSize; // Resized image size (w x h).
 };
 
 // Performs the content-aware image width resizing using the seam carving method.
-export const resizeImageWidth = (
-  { img, toWidth }: ResizeImageWidthArgs,
-): ResizeImageWidthResult => {
+export const resizeImageWidth = ({
+  img,
+  toWidth,
+}: ResizeImageWidthArgs): ResizeImageWidthResult => {
   // For performance reasons we want to avoid changing the img data array size.
   // Instead we'll just keep the record of the resized image width and height separately.
   const size: ImageSize = { w: img.width, h: img.height };
@@ -179,7 +182,7 @@ export const resizeImageWidth = (
   // Calculating the number of pixels to remove.
   const pxToRemove = img.width - toWidth;
   if (pxToRemove < 0) {
-    throw new Error('Upsizing is not supported for now');
+    throw new Error("Upsizing is not supported for now");
   }
 
   let energyMap: EnergyMap | null = null;
@@ -211,7 +214,7 @@ export const resizeImageWidth = (
 Изображение, которому необходимо изменить размер, передается в функцию в формате [ImageData](https://developer.mozilla.org/en-US/docs/Web/API/ImageData). Вы можете отобразить изображение на canvas-е, а затем извлечь ImageData из того же canvas-а следующим образом:
 
 ```javascript
-const ctx = canvas.getContext('2d');
+const ctx = canvas.getContext("2d");
 const imgData = ctx.getImageData(0, 0, imgWidth, imgHeight);
 ```
 
@@ -225,7 +228,11 @@ const imgData = ctx.getImageData(0, 0, imgWidth, imgHeight);
 
 ```typescript
 // Calculates the energy of a pixel.
-const getPixelEnergy = (left: Color | null, middle: Color, right: Color | null): number => {
+const getPixelEnergy = (
+  left: Color | null,
+  middle: Color,
+  right: Color | null
+): number => {
   // Middle pixel is the pixel we're calculating the energy for.
   const [mR, mG, mB] = middle;
 
@@ -250,7 +257,7 @@ const getPixelEnergy = (left: Color | null, middle: Color, right: Color | null):
 
 ### Расчет энергетической карты
 
-Изображение, с которым мы работаем, имеет формат [ImageData](https://developer.mozilla.org/en-US/docs/Web/API/ImageData). Это означает, что все пиксели (и их цвета) хранятся в одномерном массиве [Uint8ClampedArray](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint8ClampedArray). Для удобства чтения введем пару вспомогательных функций, которые позволят работать с массивом Uint8ClampedArray как с *2D* матрицей.
+Изображение, с которым мы работаем, имеет формат [ImageData](https://developer.mozilla.org/en-US/docs/Web/API/ImageData). Это означает, что все пиксели (и их цвета) хранятся в одномерном массиве [Uint8ClampedArray](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint8ClampedArray). Для удобства чтения введем пару вспомогательных функций, которые позволят работать с массивом Uint8ClampedArray как с _2D_ матрицей.
 
 ```typescript
 // Helper function that returns the color of the pixel.
@@ -261,7 +268,10 @@ const getPixel = (img: ImageData, { x, y }: Coordinate): Color => {
   const cellsPerColor = 4; // RGBA
   // For better efficiency, instead of creating a new sub-array we return
   // a pointer to the part of the ImageData array.
-  return img.data.subarray(i * cellsPerColor, i * cellsPerColor + cellsPerColor);
+  return img.data.subarray(
+    i * cellsPerColor,
+    i * cellsPerColor + cellsPerColor
+  );
 };
 
 // Helper function that sets the color of the pixel.
@@ -280,11 +290,9 @@ const setPixel = (img: ImageData, { x, y }: Coordinate, color: Color): void => {
 // Helper function that creates a matrix (2D array) of specific
 // size (w x h) and fills it with specified value.
 const matrix = <T>(w: number, h: number, filler: T): T[][] => {
-  return new Array(h)
-    .fill(null)
-    .map(() => {
-      return new Array(w).fill(filler);
-    });
+  return new Array(h).fill(null).map(() => {
+    return new Array(w).fill(filler);
+  });
 };
 
 // Calculates the energy of each pixel of the image.
@@ -295,11 +303,11 @@ const calculateEnergyMap = (img: ImageData, { w, h }: ImageSize): EnergyMap => {
   for (let y = 0; y < h; y += 1) {
     for (let x = 0; x < w; x += 1) {
       // Left pixel might not exist if we're on the very left edge of the image.
-      const left = (x - 1) >= 0 ? getPixel(img, { x: x - 1, y }) : null;
+      const left = x - 1 >= 0 ? getPixel(img, { x: x - 1, y }) : null;
       // The color of the middle pixel that we're calculating the energy for.
       const middle = getPixel(img, { x, y });
       // Right pixel might not exist if we're on the very right edge of the image.
-      const right = (x + 1) < w ? getPixel(img, { x: x + 1, y }) : null;
+      const right = x + 1 < w ? getPixel(img, { x: x + 1, y }) : null;
       energyMap[y][x] = getPixelEnergy(left, middle, right);
     }
   }
@@ -341,11 +349,11 @@ const calculateEnergyMap = (img: ImageData, { w, h }: ImageSize): EnergyMap => {
 
 В примере выше видно, что для первых двух швов мы повторно используем энергию более короткого шва (который имеет энергию `235`). Вместо одной операции `235 + 70` для вычисления энергии 2-го шва мы делаем четыре операции `(5 + 0 + 80 + 150) + 70`.
 
-> Тот факт, что мы повторно используем энергию предыдущего шва для вычисления энергии текущего шва, может быть применен рекурсивно ко всем более коротким швам до самого верхнего 1-го ряда. Когда у нас есть такие перекрывающиеся под-проблемы, [это признак](https://trekhleb.dev/blog/2018/dynamic-programming-vs-divide-and-conquer/), что общая задача *может* быть оптимизирована с использованием динамического программирования.
+> Тот факт, что мы повторно используем энергию предыдущего шва для вычисления энергии текущего шва, может быть применен рекурсивно ко всем более коротким швам до самого верхнего 1-го ряда. Когда у нас есть такие перекрывающиеся под-проблемы, [это признак](https://trekhleb.dev/blog/2018/dynamic-programming-vs-divide-and-conquer/), что общая задача _может_ быть оптимизирована с использованием динамического программирования.
 
 Таким образом, мы можем **сохранить энергию текущего шва** для конкретного пикселя в дополнительной таблице `samsEnergies`, чтобы повторно использовать ее при расчете энергии следующих швов (таблица `samsEnergies` будет иметь тот же размер, что и энергетическая карта и само изображение).
 
-Обратите также внимание, что для большинства пикселей в изображении (например, для левого нижнего) мы можем иметь *несколько* значений энергий предыдущих швов.
+Обратите также внимание, что для большинства пикселей в изображении (например, для левого нижнего) мы можем иметь _несколько_ значений энергий предыдущих швов.
 
 ![What seam to choose](https://raw.githubusercontent.com/trekhleb/trekhleb.github.io/master/src/posts/2021/content-aware-image-resizing-in-javascript/assets/53-dp-what-to-choose.png)
 
@@ -370,16 +378,16 @@ const calculateEnergyMap = (img: ImageData, { w, h }: ImageSize): EnergyMap => {
 
 После заполнения таблицы `ShesamsEnergies` видно, что в нижнем ряду пиксель с самой низкой энергией имеет значение `50`. Для удобства во время генерации `samsEnergies` для каждого пикселя мы можем сохранить не только энергию шва, но и координаты предыдущего шва с наименьшей энергией. Это даст нам возможность легко восстанавливать траекторию шва снизу вверх.
 
-Временная сложность DP подхода составит `O(w * h)`, где `w` и `h` - это ширина и высота изображения. Обусловлена она тем, что нужно вычислить энергии для *всех* пикселей изображения.
+Временная сложность DP подхода составит `O(w * h)`, где `w` и `h` - это ширина и высота изображения. Обусловлена она тем, что нужно вычислить энергии для _всех_ пикселей изображения.
 
 Вот пример того, как эта логика может быть реализована:
 
 ```typescript
 // The metadata for the pixels in the seam.
 type SeamPixelMeta = {
-  energy: number, // The energy of the pixel.
-  coordinate: Coordinate, // The coordinate of the pixel.
-  previous: Coordinate | null, // The previous pixel in a seam.
+  energy: number; // The energy of the pixel.
+  coordinate: Coordinate; // The coordinate of the pixel.
+  previous: Coordinate | null; // The previous pixel in a seam.
 };
 
 // Finds the seam (the sequence of pixels from top to bottom) that has the
@@ -388,7 +396,8 @@ const findLowEnergySeam = (energyMap: EnergyMap, { w, h }: ImageSize): Seam => {
   // The 2D array of the size of w and h, where each pixel contains the
   // seam metadata (pixel energy, pixel coordinate and previous pixel from
   // the lowest energy seam at this point).
-  const seamsEnergies: (SeamPixelMeta | null)[][] = matrix<SeamPixelMeta | null>(w, h, null);
+  const seamsEnergies: (SeamPixelMeta | null)[][] =
+    matrix<SeamPixelMeta | null>(w, h, null);
 
   // Populate the first row of the map by just copying the energies
   // from the energy map.
@@ -411,7 +420,7 @@ const findLowEnergySeam = (energyMap: EnergyMap, { w, h }: ImageSize): Seam => {
       // us to the current pixel with the coordinates x and y.
       let minPrevEnergy = Infinity;
       let minPrevX: number = x;
-      for (let i = (x - 1); i <= (x + 1); i += 1) {
+      for (let i = x - 1; i <= x + 1; i += 1) {
         if (i >= 0 && i < w && seamsEnergies[y - 1][i].energy < minPrevEnergy) {
           minPrevEnergy = seamsEnergies[y - 1][i].energy;
           minPrevX = i;
@@ -478,7 +487,7 @@ const findLowEnergySeam = (energyMap: EnergyMap, { w, h }: ImageSize): Seam => {
 // We delete the pixel in each row and then shift the rest of the row pixels to the left.
 const deleteSeam = (img: ImageData, seam: Seam, { w }: ImageSize): void => {
   seam.forEach(({ x: seamX, y: seamY }: Coordinate) => {
-    for (let x = seamX; x < (w - 1); x += 1) {
+    for (let x = seamX; x < w - 1; x += 1) {
       const nextPixel = getPixel(img, { x: x + 1, y: seamY });
       setPixel(img, { x, y: seamY }, nextPixel);
     }
@@ -488,7 +497,7 @@ const deleteSeam = (img: ImageData, seam: Seam, { w }: ImageSize): void => {
 
 ## Удаление объектов с изображения
 
-Seam Carving алгоритм пытается сначала удалить швы, состоящие из низкоэнергетических пикселей. Мы могли бы использовать этот факт и, присвоив низкую энергию некоторым пикселям вручную (например, нарисовав на изображении маску), мы могли бы заставить алгоритм удалить отмеченные пиксели (*объекты*).
+Seam Carving алгоритм пытается сначала удалить швы, состоящие из низкоэнергетических пикселей. Мы могли бы использовать этот факт и, присвоив низкую энергию некоторым пикселям вручную (например, нарисовав на изображении маску), мы могли бы заставить алгоритм удалить отмеченные пиксели (_объекты_).
 
 В настоящее время в функции `getPixelEnergy()` мы используем только каналы цветов `R`, `G`, `B` для вычисления энергии пикселей. Но есть еще и параметр `A` (альфа, прозрачность), который мы не использовали. Мы можем использовать канал прозрачности, чтобы "сказать" алгоритму, что прозрачные пиксели — это те пиксели, которые мы хотим удалить. Вы можете ознакомиться с [исходным кодом функции getPixelEnergy()](https://github.com/trekhleb/js-image-carver/blob/main/src/utils/contentAwareResizer.ts#L54), которая учитывает прозрачность.
 

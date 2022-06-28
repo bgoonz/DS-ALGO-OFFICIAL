@@ -1,4 +1,4 @@
-import depthFirstSearch from '../depth-first-search/depthFirstSearch';
+import depthFirstSearch from "../depth-first-search/depthFirstSearch";
 
 /**
  * Helper class for visited vertex metadata.
@@ -65,19 +65,22 @@ export default function articulationPoints(graph) {
       // Update the low time with the smallest time of adjacent vertices.
       // Get minimum low discovery time from all neighbors.
       /** @param {GraphVertex} neighbor */
-      visitedSet[currentVertex.getKey()].lowDiscoveryTime = currentVertex.getNeighbors()
-        .filter((earlyNeighbor) => earlyNeighbor.getKey() !== previousVertex.getKey())
+      visitedSet[currentVertex.getKey()].lowDiscoveryTime = currentVertex
+        .getNeighbors()
+        .filter(
+          (earlyNeighbor) => earlyNeighbor.getKey() !== previousVertex.getKey()
+        )
         /**
          * @param {number} lowestDiscoveryTime
          * @param {GraphVertex} neighbor
          */
-        .reduce(
-          (lowestDiscoveryTime, neighbor) => {
-            const neighborLowTime = visitedSet[neighbor.getKey()].lowDiscoveryTime;
-            return neighborLowTime < lowestDiscoveryTime ? neighborLowTime : lowestDiscoveryTime;
-          },
-          visitedSet[currentVertex.getKey()].lowDiscoveryTime,
-        );
+        .reduce((lowestDiscoveryTime, neighbor) => {
+          const neighborLowTime =
+            visitedSet[neighbor.getKey()].lowDiscoveryTime;
+          return neighborLowTime < lowestDiscoveryTime
+            ? neighborLowTime
+            : lowestDiscoveryTime;
+        }, visitedSet[currentVertex.getKey()].lowDiscoveryTime);
 
       // Detect whether previous vertex is articulation point or not.
       // To do so we need to check two [OR] conditions:
@@ -90,12 +93,14 @@ export default function articulationPoints(graph) {
         }
       } else {
         // Get current vertex low discovery time.
-        const currentLowDiscoveryTime = visitedSet[currentVertex.getKey()].lowDiscoveryTime;
+        const currentLowDiscoveryTime =
+          visitedSet[currentVertex.getKey()].lowDiscoveryTime;
 
         // Compare current vertex low discovery time with parent discovery time. Check if there
         // are any short path (back edge) exists. If we can't get to current vertex other then
         // via parent then the parent vertex is articulation point for current one.
-        const parentDiscoveryTime = visitedSet[previousVertex.getKey()].discoveryTime;
+        const parentDiscoveryTime =
+          visitedSet[previousVertex.getKey()].discoveryTime;
         if (parentDiscoveryTime <= currentLowDiscoveryTime) {
           articulationPointsSet[previousVertex.getKey()] = previousVertex;
         }

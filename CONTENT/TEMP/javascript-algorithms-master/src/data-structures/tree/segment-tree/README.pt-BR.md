@@ -13,7 +13,7 @@ _array_ inteira. Os dois filhos da raíz representam a primeira e a segunda
 metade da _array_. Similarmente, os filhos de cada nó correspondem ao número
 das duas metadas da _array_ correspondente do nó.
 
-Nós construímos a árvore debaixo para cima, com o valor de cada nó sendo o 
+Nós construímos a árvore debaixo para cima, com o valor de cada nó sendo o
 "mínimo" (ou qualquer outra função) dos valores de seus filhos. Isto consumirá
 tempo `O(n log n)`. O número de oprações realizadas é equivalente a altura da
 árvore, pela qual consome tempo `O(log n)`. Para fazer consultas de intervalos,
@@ -40,7 +40,7 @@ qualquer função binária (com dois parâmetros de entradas) e então, você
 será capaz de realizar consultas de intervalos para uma variedade de funções.
 Nos testes você poderá encontrar exemplos realizando `min`, `max` e consultas de
 intervalo `sum` na árvore segmentada (SegmentTree).
- 
+
 ## Referências
 
 - [Wikipedia](https://en.wikipedia.org/wiki/Segment_tree)

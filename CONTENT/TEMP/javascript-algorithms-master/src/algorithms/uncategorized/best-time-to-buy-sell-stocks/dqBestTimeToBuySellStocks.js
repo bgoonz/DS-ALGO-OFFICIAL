@@ -29,7 +29,7 @@ const dqBestTimeToBuySellStocks = (prices, visit = () => {}) => {
       // Option 1: Don't do anything.
       recursiveBuyerSeller(buy, day + 1),
       // Option 2: Sell or Buy at the current price.
-      operationSign * prices[day] + recursiveBuyerSeller(!buy, day + 1),
+      operationSign * prices[day] + recursiveBuyerSeller(!buy, day + 1)
     );
   };
 

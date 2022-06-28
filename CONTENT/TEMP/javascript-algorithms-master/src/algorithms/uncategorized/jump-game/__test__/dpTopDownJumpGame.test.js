@@ -1,7 +1,7 @@
-import dpTopDownJumpGame from '../dpTopDownJumpGame';
+import dpTopDownJumpGame from "../dpTopDownJumpGame";
 
-describe('dpTopDownJumpGame', () => {
-  it('should solve Jump Game problem in top-down dynamic programming manner', () => {
+describe("dpTopDownJumpGame", () => {
+  it("should solve Jump Game problem in top-down dynamic programming manner", () => {
     expect(dpTopDownJumpGame([1, 0])).toBe(true);
     expect(dpTopDownJumpGame([100, 0])).toBe(true);
     expect(dpTopDownJumpGame([2, 3, 1, 1, 4])).toBe(true);

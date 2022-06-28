@@ -1,0 +1,1414 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="generator" content="pandoc" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=yes"
+    />
+    <title>README.uk-UA</title>
+    <style type="text/css">
+      code {
+        white-space: pre-wrap;
+      }
+      span.smallcaps {
+        font-variant: small-caps;
+      }
+      span.underline {
+        text-decoration: underline;
+      }
+      div.column {
+        display: inline-block;
+        vertical-align: top;
+        width: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 id="алгоритми-javascript-та-структури-даних">
+      Алгоритми JavaScript та структури даних
+    </h1>
+    <p>
+      <a
+        href="https://github.com/trekhleb/javascript-algorithms/actions?query=workflow%3ACI+branch%3Amaster"
+        ><img
+          src="https://github.com/trekhleb/javascript-algorithms/workflows/CI/badge.svg"
+          alt="CI"
+      /></a>
+      <a href="https://codecov.io/gh/trekhleb/javascript-algorithms"
+        ><img
+          src="https://codecov.io/gh/trekhleb/javascript-algorithms/branch/master/graph/badge.svg"
+          alt="codecov"
+      /></a>
+    </p>
+    <p>
+      Даний репозиторій приклади багатьох популярних алгоритмів та структур
+      даних на основі JavaScript.
+    </p>
+    <p>
+      Кожен алгоритм та структура даних має свій окремий README-файл із
+      відповідними поясненнями та посиланнями для подальшого вивчення (включаючи
+      посилання на відео на YouTube).
+    </p>
+    <p>
+      <em>Вивчення матеріалу на інших мовах:</em>
+      <a href="README.md"><em>English</em></a
+      >, <a href="README.zh-CN.md"><em>简体中文</em></a
+      >, <a href="README.zh-TW.md"><em>繁體中文</em></a
+      >, <a href="README.ko-KR.md"><em>한국어</em></a
+      >, <a href="README.ja-JP.md"><em>日本語</em></a
+      >, <a href="README.pl-PL.md"><em>Polski</em></a
+      >, <a href="README.fr-FR.md"><em>Français</em></a
+      >, <a href="README.es-ES.md"><em>Español</em></a
+      >, <a href="README.pt-BR.md"><em>Português</em></a
+      >, <a href="README.ru-RU.md"><em>Русский</em></a
+      >, <a href="README.tr-TR.md"><em>Türk</em></a
+      >, <a href="README.it-IT.md"><em>Italiana</em></a
+      >, <a href="README.id-ID.md"><em>Bahasa Indonesia</em></a
+      >, <a href="README.ar-AR.md"><em>Arabic</em></a
+      >, <a href="README.de-DE.md"><em>Deutsch</em></a>
+    </p>
+    <p>
+      <em
+        >☝ Зверніть увагу! Даний проект призначений лише для навчальних та
+        дослідницьких цілей, і він <strong>не</strong> призначений для
+        виробництва (продакшн).</em
+      >
+    </p>
+    <h2 id="структури-даних">Структури даних</h2>
+    <p>
+      Структура даних (в програмуванні) - це спосіб організації даних в
+      комп’ютерах. Часто разом зі структурою даних пов’язується і специфічний
+      перелік операцій, що можуть бути виконаними над даними, організованими в
+      таку структуру. Точніше, структура даних - це сукупність даних цінності,
+      взаємозв’язки між ними та функції або операції, до яких можна застосувати
+      дані.
+    </p>
+    <p><code>B</code> - Початківець, <code>A</code> - Просунутий рівень</p>
+    <ul>
+      <li>
+        <code>B</code>
+        <a href="src/data-structures/linked-list">Зв’язаний список</a>
+      </li>
+      <li>
+        <code>B</code>
+        <a href="src/data-structures/doubly-linked-list"
+          >Двобічно зв’язаний список</a
+        >
+      </li>
+      <li><code>B</code> <a href="src/data-structures/queue">Черга</a></li>
+      <li><code>B</code> <a href="src/data-structures/stack">Стек</a></li>
+      <li>
+        <code>B</code> <a href="src/data-structures/hash-table">Геш-таблиця</a>
+      </li>
+      <li>
+        <code>B</code>
+        <a href="src/data-structures/heap">Купа, стіс або піраміда</a> - max and
+        min heap versions
+      </li>
+      <li>
+        <code>B</code>
+        <a href="src/data-structures/priority-queue">Черга з пріоритетом</a>
+      </li>
+      <li>
+        <code>A</code> <a href="src/data-structures/trie">Префіксне дерево</a>
+      </li>
+      <li>
+        <code>A</code> <a href="src/data-structures/tree">Дерево</a>
+        <ul>
+          <li>
+            <code>A</code>
+            <a href="src/data-structures/tree/binary-search-tree"
+              >Двійкове дерево пошуку</a
+            >
+          </li>
+          <li>
+            <code>A</code>
+            <a href="src/data-structures/tree/avl-tree">АВЛ-дерево</a>
+          </li>
+          <li>
+            <code>A</code>
+            <a href="src/data-structures/tree/red-black-tree"
+              >Червоно-чорне дерево</a
+            >
+          </li>
+          <li>
+            <code>A</code>
+            <a href="src/data-structures/tree/segment-tree">Дерево відрізків</a>
+            - with min/max/sum range queries examples
+          </li>
+          <li>
+            <code>A</code>
+            <a href="src/data-structures/tree/fenwick-tree">Дерево Фенвіка</a>
+            (Binary Indexed Tree)
+          </li>
+        </ul>
+      </li>
+      <li>
+        <code>A</code>
+        <a href="src/data-structures/graph">Граф (абстрактний тип даних)</a>
+        (both directed and undirected)
+      </li>
+      <li>
+        <code>A</code>
+        <a href="src/data-structures/disjoint-set"
+          >Система неперетинних множин</a
+        >
+      </li>
+      <li>
+        <code>A</code>
+        <a href="src/data-structures/bloom-filter">Фільтр Блума</a>
+      </li>
+    </ul>
+    <h2 id="алгоритми">Алгоритми</h2>
+    <p>
+      Алгоритм - це однозначна специфікація способу вирішення класу задач. Це
+      набір правил, які точно визначають послідовність операцій.
+    </p>
+    <p><code>B</code> - Початківець, <code>A</code> - Просунутий рівень</p>
+    <h3 id="алгоритми-за-тематикою">Алгоритми за тематикою</h3>
+    <ul>
+      <li>
+        <strong>Математика</strong>
+        <ul>
+          <li>
+            <code>B</code>
+            <a href="src/algorithms/math/bits">Бітова маніпуляція</a> -
+            встановити / отримати / оновити / очистити біти, множення / ділення
+            на два, робити від’ємними тощо
+          </li>
+          <li>
+            <code>B</code> <a href="src/algorithms/math/factorial">Факторіал</a>
+          </li>
+          <li>
+            <code>B</code>
+            <a href="src/algorithms/math/fibonacci">Послідовність Фібоначчі</a>
+            - класична та закриті версії
+          </li>
+          <li>
+            <code>B</code>
+            <a href="src/algorithms/math/prime-factors">Основні фактори</a> -
+            пошук простих множників і підрахунок їх за допомогою теореми
+            Харді-Рамануджана
+          </li>
+          <li>
+            <code>B</code>
+            <a href="src/algorithms/math/primality-test">Тест простоти</a>
+            (метод пробного поділу)
+          </li>
+          <li>
+            <code>B</code>
+            <a href="src/algorithms/math/euclidean-algorithm"
+              >Алгоритм Евкліда</a
+            >
+            - метод обчислення найбільшого спільного дільника (НСД)
+          </li>
+          <li>
+            <code>B</code>
+            <a href="src/algorithms/math/least-common-multiple"
+              >Найменше спільне кратне</a
+            >
+            (НСК)
+          </li>
+          <li>
+            <code>B</code>
+            <a href="src/algorithms/math/sieve-of-eratosthenes"
+              >Решето Ератосфена</a
+            >
+            - алгоритм знаходження всіх простих чисел менших деякого цілого
+            числа <em>n</em>
+          </li>
+          <li>
+            <code>B</code>
+            <a href="src/algorithms/math/is-power-of-two"
+              >Піднесення до степеня</a
+            >
+            - перевірити, чи є число ступенем двох (просте та побітове рішення)
+          </li>
+          <li>
+            <code>B</code>
+            <a href="src/algorithms/math/pascal-triangle">Трикутник Паскаля</a>
+          </li>
+          <li>
+            <code>B</code>
+            <a href="src/algorithms/math/complex-number">Комплексне число</a> -
+            комплексні числа та основні операції з ними
+          </li>
+          <li>
+            <code>B</code>
+            <a href="src/algorithms/math/radian">Радіани &amp; Градуси</a> -
+            перетворення радіанів у градуси та навпаки
+          </li>
+          <li>
+            <code>B</code>
+            <a href="src/algorithms/math/fast-powering"
+              >Швидке піднесення до степеня</a
+            >
+          </li>
+          <li>
+            <code>B</code>
+            <a href="src/algorithms/math/horner-method">Схема Горнера</a> -
+            поліноміальна оцінка
+          </li>
+          <li>
+            <code>A</code>
+            <a href="src/algorithms/math/integer-partition">Розбиття числа</a>
+          </li>
+          <li>
+            <code>A</code>
+            <a href="src/algorithms/math/square-root"
+              >Метод дотичних (метод Ньютона)</a
+            >
+            - метод наближеного знаходження кореня дійсного рівняння
+          </li>
+          <li>
+            <code>A</code>
+            <a href="src/algorithms/math/liu-hui">Алгоритм Лю Хуея</a> -
+            розрахунок числа π з заданою точністю методом вписаних правильних
+            багатокутників
+          </li>
+          <li>
+            <code>A</code>
+            <a href="src/algorithms/math/fourier-transform"
+              >Дискретне перетворення Фур’є</a
+            >
+            - розкладання тимчасової функції (сигналу) на частотні складові
+          </li>
+        </ul>
+      </li>
+      <li>
+        <strong>Множина</strong>
+        <ul>
+          <li>
+            <code>B</code>
+            <a href="src/algorithms/sets/cartesian-product"
+              >Декартів добуток множин</a
+            >
+            - множина усіх можливих впорядкованих пар
+          </li>
+          <li>
+            <code>B</code>
+            <a href="src/algorithms/sets/fisher-yates"
+              >Тасування Фішера - Єйтса</a
+            >
+            - створення випадкових перестановок кінцевого безлічі
+          </li>
+          <li>
+            <code>A</code> <a href="src/algorithms/sets/power-set">Булеан</a> -
+            множина всіх підмножин даної множини (бітові та зворотні рішення)
+          </li>
+          <li>
+            <code>A</code>
+            <a href="src/algorithms/sets/permutations">Перестановка</a> (з
+            повтореннями та без)
+          </li>
+          <li>
+            <code>A</code>
+            <a href="src/algorithms/sets/combinations">Комбінації</a> (з
+            повтореннями та без)
+          </li>
+          <li>
+            <code>A</code>
+            <a href="src/algorithms/sets/longest-common-subsequence"
+              >Пошук найдовшої спільної підпослідовності</a
+            >
+          </li>
+          <li>
+            <code>A</code>
+            <a href="src/algorithms/sets/longest-increasing-subsequence"
+              >Завдання пошуку найбільшою збільшується підпослідовності</a
+            >
+          </li>
+          <li>
+            <code>A</code>
+            <a href="src/algorithms/sets/shortest-common-supersequence"
+              >Найменша загальна супер-послідовність</a
+            >
+          </li>
+          <li>
+            <code>A</code>
+            <a href="src/algorithms/sets/knapsack-problem"
+              >Задача пакування рюкзака</a
+            >
+            - приклади “0/1” та “Необмежений”
+          </li>
+          <li>
+            <code>A</code>
+            <a href="src/algorithms/sets/maximum-subarray"
+              >Максимальний підмасив</a
+            >
+            - метод «Грубої сили» та алгоритм Кадана
+          </li>
+          <li>
+            <code>A</code>
+            <a href="src/algorithms/sets/combination-sum">Комбінована сума</a> -
+            знайти всі комбінації, що утворюють конкретну суму
+          </li>
+        </ul>
+      </li>
+      <li>
+        <strong>Алгоритми роботи з рядками</strong>
+        <ul>
+          <li>
+            <code>B</code>
+            <a href="src/algorithms/string/hamming-distance"
+              >Відстань Геммінга</a
+            >
+            - число позицій, у яких відповідні цифри двох двійкових слів
+            однакової довжини різні
+          </li>
+          <li>
+            <code>A</code>
+            <a href="src/algorithms/string/levenshtein-distance"
+              >Відстань Левенштейна</a
+            >
+            - міра відмінності двох послідовностей символів (рядків)
+          </li>
+          <li>
+            <code>A</code>
+            <a href="src/algorithms/string/knuth-morris-pratt"
+              >Алгоритм Кнута — Морріса — Пратта</a
+            >
+            пошук підрядків (узгодження шаблонів)
+          </li>
+          <li>
+            <code>A</code>
+            <a href="src/algorithms/string/z-algorithm">Z-функція</a> - пошук
+            підрядків (зіставлення зразків)
+          </li>
+          <li>
+            <code>A</code>
+            <a href="src/algorithms/string/rabin-karp"
+              >Алгоритм Рабіна — Карпа</a
+            >
+            - алгоритм пошуку рядка
+          </li>
+          <li>
+            <code>A</code>
+            <a href="src/algorithms/string/longest-common-substring"
+              >Найбільший загальний підрядок</a
+            >
+          </li>
+          <li>
+            <code>A</code>
+            <a href="src/algorithms/string/regular-expression-matching"
+              >Підбирання регулярного виразу</a
+            >
+          </li>
+        </ul>
+      </li>
+      <li>
+        <strong>Алгоритми пошуку</strong>
+        <ul>
+          <li>
+            <code>B</code>
+            <a href="src/algorithms/search/linear-search">Лінійний пошук</a>
+          </li>
+          <li>
+            <code>B</code>
+            <a href="src/algorithms/search/jump-search">Пошук блоків</a> - пошук
+            у відсортованому масиві
+          </li>
+          <li>
+            <code>B</code>
+            <a href="src/algorithms/search/binary-search">Двійковий пошук</a> -
+            знаходження заданого значення у впорядкованому масиві
+          </li>
+          <li>
+            <code>B</code>
+            <a href="src/algorithms/search/interpolation-search"
+              >Інтерполяційний алгоритм пошуку</a
+            >
+            - алгоритм для пошуку за заданим ключем в індексованому масиві, який
+            впорядкований за значенням ключів
+          </li>
+        </ul>
+      </li>
+      <li>
+        <strong>Алгоритми сортування</strong>
+        <ul>
+          <li>
+            <code>B</code>
+            <a href="src/algorithms/sorting/bubble-sort"
+              >Сортування бульбашкою</a
+            >
+          </li>
+          <li>
+            <code>B</code>
+            <a href="src/algorithms/sorting/selection-sort"
+              >Сортування вибором</a
+            >
+          </li>
+          <li>
+            <code>B</code>
+            <a href="src/algorithms/sorting/insertion-sort"
+              >Сортування включенням</a
+            >
+          </li>
+          <li>
+            <code>B</code>
+            <a href="src/algorithms/sorting/heap-sort"
+              >Пірамідальне сортування</a
+            >
+          </li>
+          <li>
+            <code>B</code>
+            <a href="src/algorithms/sorting/merge-sort">Сортування злиттям</a>
+          </li>
+          <li>
+            <code>B</code>
+            <a href="src/algorithms/sorting/quick-sort">Швидке сортування</a>
+          </li>
+          <li>
+            <code>B</code>
+            <a href="src/algorithms/sorting/shell-sort">Сортування Шелла</a>
+          </li>
+          <li>
+            <code>B</code>
+            <a href="src/algorithms/sorting/counting-sort"
+              >Сортування підрахунком</a
+            >
+          </li>
+          <li>
+            <code>B</code>
+            <a href="src/algorithms/sorting/radix-sort"
+              >Сортування за розрядами</a
+            >
+          </li>
+        </ul>
+      </li>
+      <li>
+        <strong>Зв’язані списки</strong>
+        <ul>
+          <li>
+            <code>B</code>
+            <a href="src/algorithms/linked-list/traversal">Прямий обхід</a>
+          </li>
+          <li>
+            <code>B</code>
+            <a href="src/algorithms/linked-list/reverse-traversal"
+              >Зворотний обхід</a
+            >
+          </li>
+        </ul>
+      </li>
+      <li>
+        <strong>Дерева</strong>
+        <ul>
+          <li>
+            <code>B</code>
+            <a href="src/algorithms/tree/depth-first-search">Пошук у глибину</a>
+          </li>
+          <li>
+            <code>B</code>
+            <a href="src/algorithms/tree/breadth-first-search"
+              >Пошук у ширину</a
+            >
+          </li>
+        </ul>
+      </li>
+      <li>
+        <strong>Графи</strong>
+        <ul>
+          <li>
+            <code>B</code>
+            <a href="src/algorithms/graph/depth-first-search"
+              >Пошук у глибину</a
+            >
+          </li>
+          <li>
+            <code>B</code>
+            <a href="src/algorithms/graph/breadth-first-search"
+              >Пошук у ширину</a
+            >
+          </li>
+          <li>
+            <code>B</code>
+            <a href="src/algorithms/graph/kruskal">Алгоритм Крускала</a> -
+            алгоритм побудови мінімального кістякового дерева зваженого
+            неорієнтовного графа
+          </li>
+          <li>
+            <code>A</code>
+            <a href="src/algorithms/graph/dijkstra">Алгоритм Дейкстри</a> -
+            знаходження найкоротшого шляху від однієї вершини графа до всіх
+            інших вершин
+          </li>
+          <li>
+            <code>A</code>
+            <a href="src/algorithms/graph/bellman-ford"
+              >Алгоритм Беллмана — Форда</a
+            >
+            - алгоритм пошуку найкоротшого шляху в зваженому графі
+          </li>
+          <li>
+            <code>A</code>
+            <a href="src/algorithms/graph/floyd-warshall"
+              >Алгоритм Флойда — Воршелла</a
+            >
+            - знаходження найкоротшого шляху в зваженому графі з додатними або
+            від’ємними вагами ребер (але без від’ємнозначних циклів)
+          </li>
+          <li>
+            <code>A</code>
+            <a href="src/algorithms/graph/detect-cycle">Циклічний граф</a> -
+            граф, що складається з єдиного циклу, або, іншими словами, деякого
+            числа вершин, з’єднаних замкнутим ланцюгом.
+          </li>
+          <li>
+            <code>A</code>
+            <a href="src/algorithms/graph/prim">Алгоритм Прима</a> - жадібний
+            алгоритм побудови мінімального кістякового дерева зваженого
+            зв’язного неорієнтованого графа
+          </li>
+          <li>
+            <code>A</code>
+            <a href="src/algorithms/graph/topological-sorting"
+              >Топологічне сортування</a
+            >
+            - впорядковування вершин безконтурного орієнтованого графа згідно з
+            частковим порядком, визначеним ребрами цього графу на множині його
+            вершин
+          </li>
+          <li>
+            <code>A</code>
+            <a href="src/algorithms/graph/articulation-points"
+              >Алгоритм Тар’яна</a
+            >
+            - алгоритм пошуку компонент сильної зв’язності в орієнтованому
+            графі, що працює за лінійний час
+          </li>
+          <li>
+            <code>A</code>
+            <a href="src/algorithms/graph/bridges">Міст (теорія графів)</a>
+          </li>
+          <li>
+            <code>A</code>
+            <a href="src/algorithms/graph/eulerian-path">Ейлерів ланцюг</a> -
+            ланцюг у графі, який проходить кожне ребро рівно один раз
+          </li>
+          <li>
+            <code>A</code>
+            <a href="src/algorithms/graph/hamiltonian-cycle"
+              >Гамільтонів граф</a
+            >
+            - шлях, що містить кожну вершину графа рівно один раз
+          </li>
+          <li>
+            <code>A</code>
+            <a href="src/algorithms/graph/strongly-connected-components"
+              >Компонента сильної зв’язності графа</a
+            >
+            - Алгоритм Косараджу - алгоритм для знаходження компонент сильної
+            зв’язності орієнтованого графу
+          </li>
+          <li>
+            <code>A</code>
+            <a href="src/algorithms/graph/travelling-salesman"
+              >Задача комівояжера</a
+            >
+            - знаходження найвигіднішого маршруту, що проходить через вказані
+            міста хоча б по одному разу
+          </li>
+        </ul>
+      </li>
+      <li>
+        <strong>Криптографія</strong>
+        <ul>
+          <li>
+            <code>B</code>
+            <a href="src/algorithms/cryptography/polynomial-hash"
+              >Хеш-функція</a
+            >
+            - функція, що перетворює вхідні дані будь-якого (як правило
+            великого) розміру в дані фіксованого розміру.
+          </li>
+          <li>
+            <code>B</code>
+            <a href="src/algorithms/cryptography/caesar-cipher"
+              >Шифр Цезаря (шифр зсуву)</a
+            >
+            - симетричний моноалфавітний алгоритм шифрування, в якому кожна
+            буква відкритого тексту заміняється на ту, що віддалена від неї в
+            алфавіті на сталу кількість позицій
+          </li>
+          <li>
+            <code>B</code>
+            <a href="src/algorithms/cryptography/hill-cipher">Шифр Гілла</a> -
+            поліграмний шифр підстановки, заснований на лінійній алгебрі
+          </li>
+        </ul>
+      </li>
+      <li>
+        <strong>Машинне навчання</strong>
+        <ul>
+          <li>
+            <code>B</code>
+            <a href="https://github.com/trekhleb/nano-neuron">Нано-нейрон</a> -
+            7 простих функцій JS, які ілюструють, як машини насправді можуть
+            навчатися (пряме та зворотнє поширення)
+          </li>
+          <li>
+            <code>B</code>
+            <a href="src/algorithms/ml/knn">Метод k-найближчих сусідів</a> -
+            простий непараметричний класифікаційний метод, де для класифікації
+            об’єктів у рамках простору властивостей використовуються відстані
+            (зазвичай евклідові), пораховані до усіх інших об’єктів
+          </li>
+          <li>
+            <code>B</code>
+            <a href="src/algorithms/ml/knn">Кластеризація методом к–середніх</a>
+            - популярний метод кластеризації, — впорядкування множини об’єктів в
+            порівняно однорідні групи.
+          </li>
+        </ul>
+      </li>
+      <li>
+        <strong>Без категорії</strong>
+        <ul>
+          <li>
+            <code>B</code>
+            <a href="src/algorithms/uncategorized/hanoi-tower"
+              >Ханойська вежа</a
+            >
+          </li>
+          <li>
+            <code>B</code>
+            <a href="src/algorithms/uncategorized/square-matrix-rotation"
+              >Поворот квадратної матриці</a
+            >
+          </li>
+          <li>
+            <code>B</code>
+            <a href="src/algorithms/uncategorized/jump-game">Гра стрибків</a> -
+            зворотне відстеження, динамічне програмування (зверху вниз + знизу
+            вгору) та жадібні приклади
+          </li>
+          <li>
+            <code>B</code>
+            <a href="src/algorithms/uncategorized/unique-paths"
+              >Проблема унікальних шляхів</a
+            >
+            - зворотне відстеження, динамічне програмування та приклади на
+            основі Трикутника Паскаля
+          </li>
+          <li>
+            <code>B</code>
+            <a href="src/algorithms/uncategorized/rain-terraces"
+              >Дощові тераси</a
+            >
+            - проблема захоплення дощової води (динамічне програмування та
+            версії грубої сили)
+          </li>
+          <li>
+            <code>B</code>
+            <a href="src/algorithms/uncategorized/recursive-staircase"
+              >Завдання про рекурсивні сходи</a
+            >
+            - підрахунок кількості способів досягти вершини (4 рішення)
+          </li>
+          <li>
+            <code>A</code>
+            <a href="src/algorithms/uncategorized/n-queens"
+              >Задача про вісім ферзів</a
+            >
+          </li>
+          <li>
+            <code>A</code>
+            <a href="src/algorithms/uncategorized/knight-tour"
+              >Задача про хід коня</a
+            >
+          </li>
+        </ul>
+      </li>
+    </ul>
+    <h3 id="парадигма-програмування">Парадигма програмування</h3>
+    <p>
+      Парадиигма програмува́ння — це система ідей і понять, які визначають стиль
+      написання комп’ютерних програм, а також спосіб мислення програміста. Це
+      спосіб концептуалізації, що визначає організацію обчислень і
+      структурування роботи, яку виконує комп’ютер.
+    </p>
+    <ul>
+      <li>
+        <strong>Метод «грубої сили» або повний перебір</strong> - метод рішення
+        криптографічної задачі шляхом перебору всіх можливих варіантів ключа
+        <ul>
+          <li>
+            <code>B</code>
+            <a href="src/algorithms/search/linear-search">Лінійний пошук</a>
+          </li>
+          <li>
+            <code>B</code>
+            <a href="src/algorithms/uncategorized/rain-terraces"
+              >Дощові тераси</a
+            >
+            - задача про дощові тераси
+          </li>
+          <li>
+            <code>B</code>
+            <a href="src/algorithms/uncategorized/recursive-staircase"
+              >Завдання про рекурсивні сходи</a
+            >
+            - підрахунок кількості способів досягти вершини
+          </li>
+          <li>
+            <code>A</code>
+            <a href="src/algorithms/sets/maximum-subarray"
+              >Максимальний підмасив</a
+            >
+          </li>
+          <li>
+            <code>A</code>
+            <a href="src/algorithms/graph/travelling-salesman"
+              >Задача комівояжера</a
+            >
+            - знаходження найвигіднішого маршруту, що проходить через вказані
+            міста хоча б по одному разу
+          </li>
+          <li>
+            <code>A</code>
+            <a href="src/algorithms/math/fourier-transform"
+              >Дискретне перетворення Фур’є</a
+            >
+            - розкладання тимчасової функції (сигналу) на частотні складові
+          </li>
+        </ul>
+      </li>
+      <li>
+        <strong>“Жадібні” алгоритми</strong> - простий і прямолінійний
+        евристичний алгоритм, який приймає найкраще рішення, виходячи з наявних
+        на кожному етапі даних, не зважаючи на можливі наслідки, сподіваючись
+        урешті-решт отримати оптимальний розв’язок
+        <ul>
+          <li>
+            <code>B</code>
+            <a href="src/algorithms/uncategorized/jump-game">Гра стрибків</a> -
+            зворотне відстеження, динамічне програмування (зверху вниз + знизу
+            вгору) та жадібні приклади
+          </li>
+          <li>
+            <code>A</code>
+            <a href="src/algorithms/sets/knapsack-problem"
+              >Задача пакування рюкзака</a
+            >
+            - приклади “0/1” та “Необмежений”
+          </li>
+          <li>
+            <code>A</code>
+            <a href="src/algorithms/graph/dijkstra">Алгоритм Дейкстри</a> -
+            знаходження найкоротшого шляху від однієї вершини графа до всіх
+            інших вершин
+          </li>
+          <li>
+            <code>A</code>
+            <a href="src/algorithms/graph/prim">Алгоритм Прима</a> - жадібний
+            алгоритм побудови мінімального кістякового дерева зваженого
+            зв’язного неорієнтованого графа
+          </li>
+          <li>
+            <code>A</code>
+            <a href="src/algorithms/graph/kruskal">Алгоритм Крускала</a> -
+            алгоритм побудови мінімального кістякового дерева зваженого
+            неорієнтовного графа
+          </li>
+        </ul>
+      </li>
+      <li>
+        <strong>Розділяй і володарюй</strong> - важлива парадигма розробки
+        алгоритмів, що полягає в рекурсивному розбитті розв’язуваної задачі на
+        дві або більше підзадачі того ж типу, але меншого розміру, і
+        комбінуванні їх розв’язків для отримання відповіді до вихідного
+        завдання. Розбиття виконуються доти, поки всі підзавдання не стануть
+        елементарними.
+        <ul>
+          <li>
+            <code>B</code>
+            <a href="src/algorithms/search/binary-search">Двійковий пошук</a> -
+            знаходження заданого значення у впорядкованому масиві
+          </li>
+          <li>
+            <code>B</code>
+            <a href="src/algorithms/uncategorized/hanoi-tower"
+              >Ханойська вежа</a
+            >
+          </li>
+          <li>
+            <code>B</code>
+            <a href="src/algorithms/math/pascal-triangle">Трикутник Паскаля</a>
+          </li>
+          <li>
+            <code>B</code>
+            <a href="src/algorithms/math/euclidean-algorithm"
+              >Алгоритм Евкліда</a
+            >
+            - метод обчислення найбільшого спільного дільника (НСД)
+          </li>
+          <li>
+            <code>B</code>
+            <a href="src/algorithms/sorting/merge-sort">Сортування злиттям</a>
+          </li>
+          <li>
+            <code>B</code>
+            <a href="src/algorithms/sorting/quick-sort">Швидке сортування</a>
+          </li>
+          <li>
+            <code>B</code>
+            <a href="src/algorithms/tree/depth-first-search">Пошук у глибину</a>
+          </li>
+          <li>
+            <code>B</code>
+            <a href="src/algorithms/tree/breadth-first-search"
+              >Пошук у ширину</a
+            >
+          </li>
+          <li>
+            <code>B</code>
+            <a href="src/algorithms/uncategorized/jump-game">Гра стрибків</a> -
+            зворотне відстеження, динамічне програмування (зверху вниз + знизу
+            вгору) та жадібні приклади
+          </li>
+          <li>
+            <code>B</code>
+            <a href="src/algorithms/math/fast-powering"
+              >Швидке піднесення до степеня</a
+            >
+          </li>
+          <li>
+            <code>A</code>
+            <a href="src/algorithms/sets/permutations">Перестановка</a> (з
+            повтореннями та без)
+          </li>
+          <li>
+            <code>A</code>
+            <a href="src/algorithms/sets/combinations">Комбінації</a> (з
+            повтореннями та без)
+          </li>
+        </ul>
+      </li>
+      <li>
+        <strong>Динамічне програмування</strong> - розділ математики, який
+        присвячено теорії і методам розв’язання багатокрокових задач
+        оптимального управління
+        <ul>
+          <li>
+            <code>B</code>
+            <a href="src/algorithms/math/fibonacci">Послідовність Фібоначчі</a>
+            - класична та закриті версії
+          </li>
+          <li>
+            <code>B</code>
+            <a href="src/algorithms/uncategorized/jump-game">Гра стрибків</a> -
+            зворотне відстеження, динамічне програмування (зверху вниз + знизу
+            вгору) та жадібні приклади
+          </li>
+          <li>
+            <code>B</code>
+            <a href="src/algorithms/uncategorized/unique-paths"
+              >Проблема унікальних шляхів</a
+            >
+            - зворотне відстеження, динамічне програмування та приклади на
+            основі Трикутника Паскаля
+          </li>
+          <li>
+            <code>B</code>
+            <a href="src/algorithms/uncategorized/rain-terraces"
+              >Дощові тераси</a
+            >
+            - проблема захоплення дощової води (динамічне програмування та
+            версії грубої сили)
+          </li>
+          <li>
+            <code>B</code>
+            <a href="src/algorithms/uncategorized/recursive-staircase"
+              >Завдання про рекурсивні сходи</a
+            >
+            - підрахунок кількості способів досягти вершини (4 рішення)
+          </li>
+          <li>
+            <code>A</code>
+            <a href="src/algorithms/string/levenshtein-distance"
+              >Відстань Левенштейна</a
+            >
+            - міра відмінності двох послідовностей символів (рядків)
+          </li>
+          <li>
+            <code>A</code>
+            <a href="src/algorithms/sets/longest-common-subsequence"
+              >Пошук найдовшої спільної підпослідовності</a
+            >
+          </li>
+          <li>
+            <code>A</code>
+            <a href="src/algorithms/string/longest-common-substring"
+              >Найбільший загальний підрядок</a
+            >
+          </li>
+          <li>
+            <code>A</code>
+            <a href="src/algorithms/sets/longest-increasing-subsequence"
+              >Завдання пошуку найбільшою збільшується підпослідовності</a
+            >
+          </li>
+          <li>
+            <code>A</code>
+            <a href="src/algorithms/sets/shortest-common-supersequence"
+              >Найменша загальна супер-послідовність</a
+            >
+          </li>
+          <li>
+            <code>A</code>
+            <a href="src/algorithms/sets/knapsack-problem"
+              >Задача пакування рюкзака</a
+            >
+            - приклади “0/1” та “Необмежений”
+          </li>
+          <li>
+            <code>A</code>
+            <a href="src/algorithms/math/integer-partition">Розбиття числа</a>
+          </li>
+          <li>
+            <code>A</code>
+            <a href="src/algorithms/sets/maximum-subarray"
+              >Максимальний підмасив</a
+            >
+          </li>
+          <li>
+            <code>A</code>
+            <a href="src/algorithms/graph/bellman-ford"
+              >Алгоритм Беллмана — Форда</a
+            >
+            - алгоритм пошуку найкоротшого шляху в зваженому графі
+          </li>
+          <li>
+            <code>A</code>
+            <a href="src/algorithms/graph/floyd-warshall"
+              >Алгоритм Флойда — Воршелла</a
+            >
+            - знаходження найкоротшого шляху в зваженому графі з додатними або
+            від’ємними вагами ребер (але без від’ємнозначних циклів)
+          </li>
+          <li>
+            <code>A</code>
+            <a href="src/algorithms/string/regular-expression-matching"
+              >Підбирання регулярного виразу</a
+            >
+          </li>
+        </ul>
+      </li>
+      <li>
+        <strong>Пошук із зворотом</strong> - подібно до грубої сили, намагайтеся
+        генерувати всі можливі рішення, але кожного разу, коли ви створюєте
+        наступне рішення, тестуєте чи він задовольняє всім умовам, і лише потім
+        продовжуєте генерувати наступні рішення. В іншому випадку поверніться
+        назад і рухайтесь далі іншим шляхом пошуку рішення.
+        <ul>
+          <li>
+            <code>B</code>
+            <a href="src/algorithms/uncategorized/jump-game">Гра стрибків</a> -
+            зворотне відстеження, динамічне програмування (зверху вниз + знизу
+            вгору) та жадібні приклади
+          </li>
+          <li>
+            <code>B</code>
+            <a href="src/algorithms/uncategorized/unique-paths"
+              >Проблема унікальних шляхів</a
+            >
+            - зворотне відстеження, динамічне програмування та приклади на
+            основі Трикутника Паскаля
+          </li>
+          <li>
+            <code>B</code> <a href="src/algorithms/sets/power-set">Булеан</a> -
+            множина всіх підмножин даної множини (бітові та зворотні рішення)
+          </li>
+          <li>
+            <code>A</code>
+            <a href="src/algorithms/graph/hamiltonian-cycle"
+              >Гамільтонів граф</a
+            >
+            - шлях, що містить кожну вершину графа рівно один раз
+          </li>
+          <li>
+            <code>A</code>
+            <a href="src/algorithms/uncategorized/n-queens"
+              >Задача про вісім ферзів</a
+            >
+          </li>
+          <li>
+            <code>A</code>
+            <a href="src/algorithms/uncategorized/knight-tour"
+              >Задача про хід коня</a
+            >
+          </li>
+          <li>
+            <code>A</code>
+            <a href="src/algorithms/sets/combination-sum">Комбінована сума</a> -
+            знайти всі комбінації, що утворюють конкретну суму
+          </li>
+        </ul>
+      </li>
+      <li>
+        <strong>Метод гілок і меж</strong> - один з поширених методів дискретної
+        оптимізації. Метод працює на дереві рішень та визначає принципи роботи
+        конкретних алгоритмів пошуку розв’язків, тобто, є мета-алгоритмом. Для
+        різних задач комбінаторної оптимізації створюють спеціалізовані
+        алгоритми гілок та меж.
+      </li>
+    </ul>
+    <h2 id="як-користуватися-цим-репозиторієм">
+      Як користуватися цим репозиторієм
+    </h2>
+    <p><strong>Встановіть усі залежності</strong></p>
+    <pre><code>npm install</code></pre>
+    <p><strong>Запустіть ESLint</strong></p>
+    <p>Запустіть для перевірки якості коду</p>
+    <pre><code>npm run lint</code></pre>
+    <p><strong>Запустіть усі тести</strong></p>
+    <pre><code>npm test</code></pre>
+    <p><strong>Запустіть тести за назвою</strong></p>
+    <pre><code>npm test -- &#39;LinkedList&#39;</code></pre>
+    <p><strong>Ігрище</strong></p>
+    <p>
+      Ви можете побавитись зі структурами даних та алгоритмами в файлі
+      <code>./src/playground/playground.js</code> та писати тести до них в
+      даному файлі <code>./src/playground/__test__/playground.test.js</code>.
+    </p>
+    <p>Для перевірки, чи працює ваш код належним чином запустіть команду:</p>
+    <pre><code>npm test -- &#39;playground&#39;</code></pre>
+    <h2 id="корисна-інформація">Корисна інформація</h2>
+    <h3 id="список-літератури">Список літератури</h3>
+    <p>
+      <a
+        href="https://www.youtube.com/playlist?list=PLLXdhg_r2hKA7DPDsunoDZ-Z769jWn4R8"
+        >▶ Структури даних та алгоритми на YouTube</a
+      >
+    </p>
+    <h3 id="асимптотична-нотація-великого-о-нотація-ландау">
+      Асимптотична нотація великого О (нотація Ландау)
+    </h3>
+    <p>
+      <em>Асимптотична нотація великого О (нотація Ландау)</em> розповсюджена
+      математична нотація для формального запису асимптотичної поведінки
+      функцій. Широко вживається в теорії складності обчислень, інформатиці та
+      математиці.
+      <img
+        src="./assets/big-o-graph.png"
+        alt="Асимптотична нотація великого О"
+      />
+    </p>
+    <p>
+      Джерело:
+      <a href="http://bigocheatsheet.com/">Асимптотична нотація великого О</a>.
+    </p>
+    <p>
+      Нижче наведено список деяких найбільш часто використовуваних позначень
+      нотації Ландаута їх порівняння продуктивності з різними розмірами вхідних
+      даних.
+    </p>
+    <table>
+      <colgroup>
+        <col style="width: 14%" />
+        <col style="width: 27%" />
+        <col style="width: 28%" />
+        <col style="width: 29%" />
+      </colgroup>
+      <thead>
+        <tr class="header">
+          <th>Нотація Ландау</th>
+          <th>Обчислення для 10 елементів</th>
+          <th>Обчислення для 100 елементів</th>
+          <th>Обчислення для 1000 елементів</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="odd">
+          <td><strong>O(1)</strong></td>
+          <td>1</td>
+          <td>1</td>
+          <td>1</td>
+        </tr>
+        <tr class="even">
+          <td><strong>O(log N)</strong></td>
+          <td>3</td>
+          <td>6</td>
+          <td>9</td>
+        </tr>
+        <tr class="odd">
+          <td><strong>O(N)</strong></td>
+          <td>10</td>
+          <td>100</td>
+          <td>1000</td>
+        </tr>
+        <tr class="even">
+          <td><strong>O(N log N)</strong></td>
+          <td>30</td>
+          <td>600</td>
+          <td>9000</td>
+        </tr>
+        <tr class="odd">
+          <td><strong>O(N^2)</strong></td>
+          <td>100</td>
+          <td>10000</td>
+          <td>1000000</td>
+        </tr>
+        <tr class="even">
+          <td><strong>O(2^N)</strong></td>
+          <td>1024</td>
+          <td>1.26e+29</td>
+          <td>1.07e+301</td>
+        </tr>
+        <tr class="odd">
+          <td><strong>O(N!)</strong></td>
+          <td>3628800</td>
+          <td>9.3e+157</td>
+          <td>4.02e+2567</td>
+        </tr>
+      </tbody>
+    </table>
+    <h3 id="складність-операцій-в-структурі-даних">
+      Складність операцій в структурі даних
+    </h3>
+    <table>
+      <colgroup>
+        <col style="width: 21%" />
+        <col style="width: 5%" />
+        <col style="width: 5%" />
+        <col style="width: 6%" />
+        <col style="width: 7%" />
+        <col style="width: 53%" />
+      </colgroup>
+      <thead>
+        <tr class="header">
+          <th>Структура даних</th>
+          <th style="text-align: center">Доступ</th>
+          <th style="text-align: center">Пошук</th>
+          <th style="text-align: center">Вставка</th>
+          <th style="text-align: center">Видалення</th>
+          <th style="text-align: left">Коментарі</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="odd">
+          <td><strong>Масив</strong></td>
+          <td style="text-align: center">1</td>
+          <td style="text-align: center">n</td>
+          <td style="text-align: center">n</td>
+          <td style="text-align: center">n</td>
+          <td style="text-align: left"></td>
+        </tr>
+        <tr class="even">
+          <td><strong>Купа</strong></td>
+          <td style="text-align: center">n</td>
+          <td style="text-align: center">n</td>
+          <td style="text-align: center">1</td>
+          <td style="text-align: center">1</td>
+          <td style="text-align: left"></td>
+        </tr>
+        <tr class="odd">
+          <td><strong>Черга</strong></td>
+          <td style="text-align: center">n</td>
+          <td style="text-align: center">n</td>
+          <td style="text-align: center">1</td>
+          <td style="text-align: center">1</td>
+          <td style="text-align: left"></td>
+        </tr>
+        <tr class="even">
+          <td><strong>Зв’язаний список</strong></td>
+          <td style="text-align: center">n</td>
+          <td style="text-align: center">n</td>
+          <td style="text-align: center">1</td>
+          <td style="text-align: center">n</td>
+          <td style="text-align: left"></td>
+        </tr>
+        <tr class="odd">
+          <td><strong>Хеш-таблиця</strong></td>
+          <td style="text-align: center">-</td>
+          <td style="text-align: center">n</td>
+          <td style="text-align: center">n</td>
+          <td style="text-align: center">n</td>
+          <td style="text-align: left">У разі ідеальної хеш-функції - O(1)</td>
+        </tr>
+        <tr class="even">
+          <td><strong>Бінарне дерево пошуку</strong></td>
+          <td style="text-align: center">n</td>
+          <td style="text-align: center">n</td>
+          <td style="text-align: center">n</td>
+          <td style="text-align: center">n</td>
+          <td style="text-align: left">
+            У разі збалансованого дерева витрати становитимуть O (log (n))
+          </td>
+        </tr>
+        <tr class="odd">
+          <td><strong>Б-дерево</strong></td>
+          <td style="text-align: center">log(n)</td>
+          <td style="text-align: center">log(n)</td>
+          <td style="text-align: center">log(n)</td>
+          <td style="text-align: center">log(n)</td>
+          <td style="text-align: left"></td>
+        </tr>
+        <tr class="even">
+          <td><strong>Червоно-чорне дерево</strong></td>
+          <td style="text-align: center">log(n)</td>
+          <td style="text-align: center">log(n)</td>
+          <td style="text-align: center">log(n)</td>
+          <td style="text-align: center">log(n)</td>
+          <td style="text-align: left"></td>
+        </tr>
+        <tr class="odd">
+          <td><strong>АВЛ-дерево</strong></td>
+          <td style="text-align: center">log(n)</td>
+          <td style="text-align: center">log(n)</td>
+          <td style="text-align: center">log(n)</td>
+          <td style="text-align: center">log(n)</td>
+          <td style="text-align: left"></td>
+        </tr>
+        <tr class="even">
+          <td><strong>Фільтр Блума</strong></td>
+          <td style="text-align: center">-</td>
+          <td style="text-align: center">1</td>
+          <td style="text-align: center">1</td>
+          <td style="text-align: center">-</td>
+          <td style="text-align: left">
+            Під час пошуку можливі помилкові спрацьовування
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <h3 id="складність-алгоритмів-сортування-масивів">
+      Складність алгоритмів сортування масивів
+    </h3>
+    <table>
+      <colgroup>
+        <col style="width: 12%" />
+        <col style="width: 6%" />
+        <col style="width: 16%" />
+        <col style="width: 12%" />
+        <col style="width: 3%" />
+        <col style="width: 5%" />
+        <col style="width: 43%" />
+      </colgroup>
+      <thead>
+        <tr class="header">
+          <th>Назва</th>
+          <th style="text-align: center">Найкращий</th>
+          <th style="text-align: center">Середній</th>
+          <th style="text-align: center">Найгірший</th>
+          <th style="text-align: center">Пам’ять</th>
+          <th style="text-align: center">Стабільність</th>
+          <th style="text-align: left">Коментарі</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="odd">
+          <td><strong>Сортування бульбашкою</strong></td>
+          <td style="text-align: center">n</td>
+          <td style="text-align: center">n<sup>2</sup></td>
+          <td style="text-align: center">n<sup>2</sup></td>
+          <td style="text-align: center">1</td>
+          <td style="text-align: center">Так</td>
+          <td style="text-align: left"></td>
+        </tr>
+        <tr class="even">
+          <td><strong>Сортування включенням</strong></td>
+          <td style="text-align: center">n</td>
+          <td style="text-align: center">n<sup>2</sup></td>
+          <td style="text-align: center">n<sup>2</sup></td>
+          <td style="text-align: center">1</td>
+          <td style="text-align: center">Так</td>
+          <td style="text-align: left"></td>
+        </tr>
+        <tr class="odd">
+          <td><strong>Сортування вибором</strong></td>
+          <td style="text-align: center">n<sup>2</sup></td>
+          <td style="text-align: center">n<sup>2</sup></td>
+          <td style="text-align: center">n<sup>2</sup></td>
+          <td style="text-align: center">1</td>
+          <td style="text-align: center">Ні</td>
+          <td style="text-align: left"></td>
+        </tr>
+        <tr class="even">
+          <td><strong>Пірамідальне сортування</strong></td>
+          <td style="text-align: center">n log(n)</td>
+          <td style="text-align: center">n log(n)</td>
+          <td style="text-align: center">n log(n)</td>
+          <td style="text-align: center">1</td>
+          <td style="text-align: center">Ні</td>
+          <td style="text-align: left"></td>
+        </tr>
+        <tr class="odd">
+          <td><strong>Сортування злиттям</strong></td>
+          <td style="text-align: center">n log(n)</td>
+          <td style="text-align: center">n log(n)</td>
+          <td style="text-align: center">n log(n)</td>
+          <td style="text-align: center">n</td>
+          <td style="text-align: center">Так</td>
+          <td style="text-align: left"></td>
+        </tr>
+        <tr class="even">
+          <td><strong>Швидке сортування</strong></td>
+          <td style="text-align: center">n log(n)</td>
+          <td style="text-align: center">n log(n)</td>
+          <td style="text-align: center">n<sup>2</sup></td>
+          <td style="text-align: center">log(n)</td>
+          <td style="text-align: center">Ні</td>
+          <td style="text-align: left">
+            Швидке сортування зазвичай виконується на місці з використанням O
+            (log (n)) додаткової пам’яті
+          </td>
+        </tr>
+        <tr class="odd">
+          <td><strong>Сортування Шелла</strong></td>
+          <td style="text-align: center">n log(n)</td>
+          <td style="text-align: center">
+            залежить від послідовності проміжків
+          </td>
+          <td style="text-align: center">n (log(n))<sup>2</sup></td>
+          <td style="text-align: center">1</td>
+          <td style="text-align: center">Ні</td>
+          <td style="text-align: left"></td>
+        </tr>
+        <tr class="even">
+          <td><strong>Сортування підрахунком</strong></td>
+          <td style="text-align: center">n + r</td>
+          <td style="text-align: center">n + r</td>
+          <td style="text-align: center">n + r</td>
+          <td style="text-align: center">n + r</td>
+          <td style="text-align: center">Так</td>
+          <td style="text-align: left">Де r - найбільше число в масиві</td>
+        </tr>
+        <tr class="odd">
+          <td><strong>Сортування за розрядами</strong></td>
+          <td style="text-align: center">n * k</td>
+          <td style="text-align: center">n * k</td>
+          <td style="text-align: center">n * k</td>
+          <td style="text-align: center">n + k</td>
+          <td style="text-align: center">Так</td>
+          <td style="text-align: left">Де k - довжина найдовшого ключа</td>
+        </tr>
+      </tbody>
+    </table>
+    <h2 id="патронати-проекту">Патронати проекту</h2>
+    <blockquote>
+      <p>
+        Ви можете підтримати цей проект через ❤️️
+        <a href="https://github.com/sponsors/trekhleb">GitHub</a> або ❤️️
+        <a href="https://www.patreon.com/trekhleb">Patreon</a>.
+      </p>
+    </blockquote>
+    <p>
+      <a
+        href="https://github.com/trekhleb/javascript-algorithms/blob/master/BACKERS.md"
+        >Люди, які підтримують цей проект</a
+      >
+      <code>∑ = 1</code>
+    </p>
+    <blockquote>
+      <p>
+        ℹ️ A few more <a href="https://trekhleb.dev/projects/">projects</a> and
+        <a href="https://trekhleb.dev/blog/">articles</a> about JavaScript and
+        algorithms on <a href="https://trekhleb.dev">trekhleb.dev</a>
+      </p>
+    </blockquote>
+  </body>
+</html>

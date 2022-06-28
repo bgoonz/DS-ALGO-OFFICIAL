@@ -1,4 +1,4 @@
-import trialDivision from '../trialDivision';
+import trialDivision from "../trialDivision";
 
 /**
  * @param {function(n: number)} testFunction
@@ -30,8 +30,8 @@ function primalityTest(testFunction) {
   expect(testFunction(10.5)).toBe(false);
 }
 
-describe('trialDivision', () => {
-  it('should detect prime numbers', () => {
+describe("trialDivision", () => {
+  it("should detect prime numbers", () => {
     primalityTest(trialDivision);
   });
 });

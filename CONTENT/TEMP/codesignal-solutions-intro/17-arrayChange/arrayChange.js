@@ -5,15 +5,15 @@
 // URL : https://app.codesignal.com/arcade/intro/level-4/xvkRbxYkdHdHNCKjg
 
 function arrayChange(inputArray) {
-    moves = 0;
-    for(i=0; i<inputArray.length; i++) {
-        if(inputArray[i+1]<=inputArray[i]){
-            moves += inputArray[i]+1-inputArray[i+1];
-            inputArray[i+1] = inputArray[i]+1;
-        }
+  moves = 0;
+  for (i = 0; i < inputArray.length; i++) {
+    if (inputArray[i + 1] <= inputArray[i]) {
+      moves += inputArray[i] + 1 - inputArray[i + 1];
+      inputArray[i + 1] = inputArray[i] + 1;
     }
+  }
 
-    return moves;
+  return moves;
 }
 
 exports.arrayChange = arrayChange;

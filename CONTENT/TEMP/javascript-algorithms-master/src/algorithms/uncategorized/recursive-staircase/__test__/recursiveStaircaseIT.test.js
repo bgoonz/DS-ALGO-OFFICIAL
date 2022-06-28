@@ -1,7 +1,7 @@
-import recursiveStaircaseIT from '../recursiveStaircaseIT';
+import recursiveStaircaseIT from "../recursiveStaircaseIT";
 
-describe('recursiveStaircaseIT', () => {
-  it('should calculate number of variants using Iterative solution', () => {
+describe("recursiveStaircaseIT", () => {
+  it("should calculate number of variants using Iterative solution", () => {
     expect(recursiveStaircaseIT(-1)).toBe(0);
     expect(recursiveStaircaseIT(0)).toBe(0);
     expect(recursiveStaircaseIT(1)).toBe(1);

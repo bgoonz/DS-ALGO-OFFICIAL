@@ -18,5 +18,5 @@
 
 ## Ссылки
 
-- [Wikipedia](https://ru.wikipedia.org/wiki/Куча_(структура_данных))
+- [Wikipedia](<https://ru.wikipedia.org/wiki/Куча_(структура_данных)>)
 - [YouTube](https://www.youtube.com/watch?v=noQ4SUoqrQA)

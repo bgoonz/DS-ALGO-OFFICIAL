@@ -1,7 +1,7 @@
-import recursiveStaircaseBF from '../recursiveStaircaseBF';
+import recursiveStaircaseBF from "../recursiveStaircaseBF";
 
-describe('recursiveStaircaseBF', () => {
-  it('should calculate number of variants using Brute Force solution', () => {
+describe("recursiveStaircaseBF", () => {
+  it("should calculate number of variants using Brute Force solution", () => {
     expect(recursiveStaircaseBF(-1)).toBe(0);
     expect(recursiveStaircaseBF(0)).toBe(0);
     expect(recursiveStaircaseBF(1)).toBe(1);

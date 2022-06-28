@@ -13,10 +13,10 @@ Here's an example of a graph with 8 connected components:
 
 There are a lot of theoretical uses of connected components that are beyond the scope of the course. But on the more practical front, here are some potential uses:
 
-* Look for people you might know in a social network.
-* Predict the spread of zombie apocalypse or other disease within social groups.
-* Determining which parts of a computer network are reachable from another.
-* Finding clusters of related information.
+- Look for people you might know in a social network.
+- Predict the spread of zombie apocalypse or other disease within social groups.
+- Determining which parts of a computer network are reachable from another.
+- Finding clusters of related information.
 
 ## Finding Connected Components
 

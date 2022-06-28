@@ -1,1 +1,0 @@
-SVG Arc using Dash Offset to animate

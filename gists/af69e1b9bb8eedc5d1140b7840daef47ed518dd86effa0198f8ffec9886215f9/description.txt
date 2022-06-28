@@ -1,1 +1,0 @@
-Prune local GIT branches that are merged into origin master

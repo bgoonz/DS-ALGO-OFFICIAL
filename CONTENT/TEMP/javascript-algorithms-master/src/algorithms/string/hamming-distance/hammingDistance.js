@@ -5,7 +5,7 @@
  */
 export default function hammingDistance(a, b) {
   if (a.length !== b.length) {
-    throw new Error('Strings must be of the same length');
+    throw new Error("Strings must be of the same length");
   }
 
   let distance = 0;

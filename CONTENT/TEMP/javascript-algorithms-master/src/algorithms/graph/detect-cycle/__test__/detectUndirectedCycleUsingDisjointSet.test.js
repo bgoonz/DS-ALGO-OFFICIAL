@@ -1,16 +1,16 @@
-import GraphVertex from '../../../../data-structures/graph/GraphVertex';
-import GraphEdge from '../../../../data-structures/graph/GraphEdge';
-import Graph from '../../../../data-structures/graph/Graph';
-import detectUndirectedCycleUsingDisjointSet from '../detectUndirectedCycleUsingDisjointSet';
+import GraphVertex from "../../../../data-structures/graph/GraphVertex";
+import GraphEdge from "../../../../data-structures/graph/GraphEdge";
+import Graph from "../../../../data-structures/graph/Graph";
+import detectUndirectedCycleUsingDisjointSet from "../detectUndirectedCycleUsingDisjointSet";
 
-describe('detectUndirectedCycleUsingDisjointSet', () => {
-  it('should detect undirected cycle', () => {
-    const vertexA = new GraphVertex('A');
-    const vertexB = new GraphVertex('B');
-    const vertexC = new GraphVertex('C');
-    const vertexD = new GraphVertex('D');
-    const vertexE = new GraphVertex('E');
-    const vertexF = new GraphVertex('F');
+describe("detectUndirectedCycleUsingDisjointSet", () => {
+  it("should detect undirected cycle", () => {
+    const vertexA = new GraphVertex("A");
+    const vertexB = new GraphVertex("B");
+    const vertexC = new GraphVertex("C");
+    const vertexD = new GraphVertex("D");
+    const vertexE = new GraphVertex("E");
+    const vertexF = new GraphVertex("F");
 
     const edgeAF = new GraphEdge(vertexA, vertexF);
     const edgeAB = new GraphEdge(vertexA, vertexB);

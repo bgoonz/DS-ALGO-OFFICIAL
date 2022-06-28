@@ -7,7 +7,7 @@
       name="viewport"
       content="width=device-width, initial-scale=1.0, user-scalable=yes"
     />
-    <title>112. Path Sum</title>
+    <title>112._Path_Sum</title>
     <style type="text/css">
       code {
         white-space: pre-wrap;
@@ -134,7 +134,7 @@
         color: #60a0b0;
         font-weight: bold;
         font-style: italic;
-      } /* Comment let */
+      } /* CommentVar */
       code span.do {
         color: #ba2121;
         font-style: italic;
@@ -244,14 +244,28 @@
 <a class="sourceLine" id="cb2-10" title="10"><span class="co"> * </span><span class="an">@param</span><span class="co"> </span><span class="cv">{number}</span><span class="co"> sum</span></a>
 <a class="sourceLine" id="cb2-11" title="11"><span class="co"> * </span><span class="an">@return</span><span class="co"> {boolean}</span></a>
 <a class="sourceLine" id="cb2-12" title="12"><span class="co"> */</span></a>
-<a class="sourceLine" id="cb2-13" title="13"><span class="kw">var</span> hasPathSum <span class="op">=</span> <span class="kw">function</span>(root<span class="op">,</span> sum) <span class="op">{</span></a>
-<a class="sourceLine" id="cb2-14" title="14">  <span class="cf">if</span> (<span class="op">!</span>root) <span class="op">{</span> <span class="cf">return</span> <span class="kw">false</span> <span class="op">}</span></a>
-<a class="sourceLine" id="cb2-15" title="15">  <span class="cf">if</span> (<span class="va">root</span>.<span class="at">left</span> <span class="op">===</span> <span class="kw">null</span> <span class="op">&amp;&amp;</span> <span class="va">root</span>.<span class="at">right</span> <span class="op">===</span> <span class="kw">null</span>) <span class="op">{</span> <span class="cf">return</span> <span class="va">root</span>.<span class="at">val</span> <span class="op">===</span> sum <span class="op">}</span></a>
-<a class="sourceLine" id="cb2-16" title="16">  <span class="cf">return</span> <span class="at">hasPathSum</span>(<span class="va">root</span>.<span class="at">left</span><span class="op">,</span> sum <span class="op">-</span> <span class="va">root</span>.<span class="at">val</span>) <span class="op">||</span> <span class="at">hasPathSum</span>(<span class="va">root</span>.<span class="at">right</span><span class="op">,</span> sum <span class="op">-</span> <span class="va">root</span>.<span class="at">val</span>)</a>
-<a class="sourceLine" id="cb2-17" title="17"><span class="op">};</span></a></code></pre>
+<a class="sourceLine" id="cb2-13" title="13"><span class="kw">let</span> hasPathSum <span class="op">=</span> <span class="kw">function</span> (root<span class="op">,</span> sum) <span class="op">{</span></a>
+<a class="sourceLine" id="cb2-14" title="14">  <span class="cf">if</span> (<span class="op">!</span>root) <span class="op">{</span></a>
+<a class="sourceLine" id="cb2-15" title="15">    <span class="cf">return</span> <span class="kw">false</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb2-16" title="16">  <span class="op">}</span></a>
+<a class="sourceLine" id="cb2-17" title="17">  <span class="cf">if</span> (<span class="va">root</span>.<span class="at">left</span> <span class="op">===</span> <span class="kw">null</span> <span class="op">&amp;&amp;</span> <span class="va">root</span>.<span class="at">right</span> <span class="op">===</span> <span class="kw">null</span>) <span class="op">{</span></a>
+<a class="sourceLine" id="cb2-18" title="18">    <span class="cf">return</span> <span class="va">root</span>.<span class="at">val</span> <span class="op">===</span> sum<span class="op">;</span></a>
+<a class="sourceLine" id="cb2-19" title="19">  <span class="op">}</span></a>
+<a class="sourceLine" id="cb2-20" title="20">  <span class="cf">return</span> (</a>
+<a class="sourceLine" id="cb2-21" title="21">    <span class="at">hasPathSum</span>(<span class="va">root</span>.<span class="at">left</span><span class="op">,</span> sum <span class="op">-</span> <span class="va">root</span>.<span class="at">val</span>) <span class="op">||</span></a>
+<a class="sourceLine" id="cb2-22" title="22">    <span class="at">hasPathSum</span>(<span class="va">root</span>.<span class="at">right</span><span class="op">,</span> sum <span class="op">-</span> <span class="va">root</span>.<span class="at">val</span>)</a>
+<a class="sourceLine" id="cb2-23" title="23">  )<span class="op">;</span></a>
+<a class="sourceLine" id="cb2-24" title="24"><span class="op">};</span></a></code></pre>
     </div>
-    <br />
     <hr />
-    <br />
+    <p>
+      ☆<em>: .｡. o(≧▽≦)o .｡.:</em>☆☆<em>: .｡. o(≧▽≦)o .｡.:</em>☆☆<em
+        >: .｡. o(≧▽≦)o .｡.:</em
+      >☆
+    </p>
+    <hr />
+    <hr />
+    <p>☆<em>: .｡. o(≧▽≦)o .｡.:</em>☆☆<em>: .｡. o(≧▽≦)o .｡.:</em>☆</p>
+    <hr />
   </body>
 </html>

@@ -9,9 +9,9 @@
 // URL : https://app.codesignal.com/arcade/intro/level-4/cC5QuL9fqvZjXJsW9
 
 function alternatingSums(a) {
-    res = [0, 0]
-    a.map((el, index) => index%2 == 0 ? res[0] += el : res[1] += el)
-    return res 
+  res = [0, 0];
+  a.map((el, index) => (index % 2 == 0 ? (res[0] += el) : (res[1] += el)));
+  return res;
 }
 
 exports.alternatingSums = alternatingSums;
