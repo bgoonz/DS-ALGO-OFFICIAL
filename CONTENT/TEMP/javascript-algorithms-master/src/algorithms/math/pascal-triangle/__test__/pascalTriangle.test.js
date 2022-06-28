@@ -1,7 +1,7 @@
-import pascalTriangle from '../pascalTriangle';
+import pascalTriangle from "../pascalTriangle";
 
-describe('pascalTriangle', () => {
-  it('should calculate Pascal Triangle coefficients for specific line number', () => {
+describe("pascalTriangle", () => {
+  it("should calculate Pascal Triangle coefficients for specific line number", () => {
     expect(pascalTriangle(0)).toEqual([1]);
     expect(pascalTriangle(1)).toEqual([1, 1]);
     expect(pascalTriangle(2)).toEqual([1, 2, 1]);

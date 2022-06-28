@@ -7,7 +7,7 @@
       name="viewport"
       content="width=device-width, initial-scale=1.0, user-scalable=yes"
     />
-    <title>055. Jump Game</title>
+    <title>055._Jump_Game</title>
     <style type="text/css">
       code {
         white-space: pre-wrap;
@@ -134,7 +134,7 @@
         color: #60a0b0;
         font-weight: bold;
         font-style: italic;
-      } /* Commentlet */
+      } /* CommentVar */
       code span.do {
         color: #ba2121;
         font-style: italic;
@@ -237,21 +237,23 @@ Explanation: You will always arrive at index 3 no matter what. Its maximum
 <a class="sourceLine" id="cb3-2" title="2"><span class="co"> * </span><span class="an">@param</span><span class="co"> </span><span class="cv">{number</span><span class="co">[]} nums</span></a>
 <a class="sourceLine" id="cb3-3" title="3"><span class="co"> * </span><span class="an">@return</span><span class="co"> {boolean}</span></a>
 <a class="sourceLine" id="cb3-4" title="4"><span class="co"> */</span></a>
-<a class="sourceLine" id="cb3-5" title="5"><span class="kw">var</span> canJump <span class="op">=</span> <span class="kw">function</span>(nums) <span class="op">{</span></a>
-<a class="sourceLine" id="cb3-6" title="6">  <span class="cf">for</span> (<span class="kw">let</span> l <span class="op">=</span> <span class="dv">0</span><span class="op">,</span> r <span class="op">=</span> <span class="dv">1</span><span class="op">;</span> r <span class="op">&lt;</span> <span class="va">nums</span>.<span class="at">length</span><span class="op">;</span>) <span class="op">{</span></a>
-<a class="sourceLine" id="cb3-7" title="7">    <span class="kw">let</span> rNext <span class="op">=</span> r</a>
+<a class="sourceLine" id="cb3-5" title="5"><span class="kw">let</span> canJump <span class="op">=</span> <span class="kw">function</span> (nums) <span class="op">{</span></a>
+<a class="sourceLine" id="cb3-6" title="6">  <span class="cf">for</span> (<span class="kw">let</span> l <span class="op">=</span> <span class="dv">0</span><span class="op">,</span> r <span class="op">=</span> <span class="dv">1</span><span class="op">;</span> r <span class="op">&lt;</span> <span class="va">nums</span>.<span class="at">length</span><span class="op">;</span> ) <span class="op">{</span></a>
+<a class="sourceLine" id="cb3-7" title="7">    <span class="kw">let</span> rNext <span class="op">=</span> r<span class="op">;</span></a>
 <a class="sourceLine" id="cb3-8" title="8">    <span class="cf">for</span> (<span class="kw">let</span> i <span class="op">=</span> l<span class="op">;</span> i <span class="op">&lt;</span> r<span class="op">;</span> i<span class="op">++</span>) <span class="op">{</span></a>
-<a class="sourceLine" id="cb3-9" title="9">      <span class="kw">const</span> rNextAtmp <span class="op">=</span> i <span class="op">+</span> nums[i] <span class="op">+</span> <span class="dv">1</span></a>
+<a class="sourceLine" id="cb3-9" title="9">      <span class="kw">const</span> rNextAtmp <span class="op">=</span> i <span class="op">+</span> nums[i] <span class="op">+</span> <span class="dv">1</span><span class="op">;</span></a>
 <a class="sourceLine" id="cb3-10" title="10">      <span class="cf">if</span> (rNextAtmp <span class="op">&gt;</span> rNext) <span class="op">{</span></a>
-<a class="sourceLine" id="cb3-11" title="11">        rNext <span class="op">=</span> rNextAtmp</a>
+<a class="sourceLine" id="cb3-11" title="11">        rNext <span class="op">=</span> rNextAtmp<span class="op">;</span></a>
 <a class="sourceLine" id="cb3-12" title="12">      <span class="op">}</span></a>
 <a class="sourceLine" id="cb3-13" title="13">    <span class="op">}</span></a>
-<a class="sourceLine" id="cb3-14" title="14">    <span class="cf">if</span> (rNext <span class="op">&lt;=</span> r) <span class="op">{</span> <span class="cf">return</span> <span class="kw">false</span> <span class="op">}</span></a>
-<a class="sourceLine" id="cb3-15" title="15">    l <span class="op">=</span> r</a>
-<a class="sourceLine" id="cb3-16" title="16">    r <span class="op">=</span> rNext</a>
-<a class="sourceLine" id="cb3-17" title="17">  <span class="op">}</span></a>
-<a class="sourceLine" id="cb3-18" title="18">  <span class="cf">return</span> <span class="kw">true</span></a>
-<a class="sourceLine" id="cb3-19" title="19"><span class="op">};</span></a></code></pre>
+<a class="sourceLine" id="cb3-14" title="14">    <span class="cf">if</span> (rNext <span class="op">&lt;=</span> r) <span class="op">{</span></a>
+<a class="sourceLine" id="cb3-15" title="15">      <span class="cf">return</span> <span class="kw">false</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb3-16" title="16">    <span class="op">}</span></a>
+<a class="sourceLine" id="cb3-17" title="17">    l <span class="op">=</span> r<span class="op">;</span></a>
+<a class="sourceLine" id="cb3-18" title="18">    r <span class="op">=</span> rNext<span class="op">;</span></a>
+<a class="sourceLine" id="cb3-19" title="19">  <span class="op">}</span></a>
+<a class="sourceLine" id="cb3-20" title="20">  <span class="cf">return</span> <span class="kw">true</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb3-21" title="21"><span class="op">};</span></a></code></pre>
     </div>
     <h4 id="two">TWO</h4>
     <p>
@@ -269,18 +271,25 @@ Explanation: You will always arrive at index 3 no matter what. Its maximum
 <a class="sourceLine" id="cb4-2" title="2"><span class="co"> * </span><span class="an">@param</span><span class="co"> </span><span class="cv">{number</span><span class="co">[]} nums</span></a>
 <a class="sourceLine" id="cb4-3" title="3"><span class="co"> * </span><span class="an">@return</span><span class="co"> {boolean}</span></a>
 <a class="sourceLine" id="cb4-4" title="4"><span class="co"> */</span></a>
-<a class="sourceLine" id="cb4-5" title="5"><span class="kw">var</span> canJump <span class="op">=</span> <span class="kw">function</span>(nums) <span class="op">{</span></a>
-<a class="sourceLine" id="cb4-6" title="6">  <span class="kw">let</span> des <span class="op">=</span> <span class="va">nums</span>.<span class="at">length</span> <span class="op">-</span> <span class="dv">1</span></a>
+<a class="sourceLine" id="cb4-5" title="5"><span class="kw">let</span> canJump <span class="op">=</span> <span class="kw">function</span> (nums) <span class="op">{</span></a>
+<a class="sourceLine" id="cb4-6" title="6">  <span class="kw">let</span> des <span class="op">=</span> <span class="va">nums</span>.<span class="at">length</span> <span class="op">-</span> <span class="dv">1</span><span class="op">;</span></a>
 <a class="sourceLine" id="cb4-7" title="7">  <span class="cf">for</span> (<span class="kw">let</span> i <span class="op">=</span> des <span class="op">-</span> <span class="dv">1</span><span class="op">;</span> i <span class="op">&gt;</span> <span class="dv">0</span><span class="op">;</span> i<span class="op">--</span>) <span class="op">{</span></a>
 <a class="sourceLine" id="cb4-8" title="8">    <span class="cf">if</span> (nums[i] <span class="op">+</span> i <span class="op">&gt;=</span> des) <span class="op">{</span></a>
-<a class="sourceLine" id="cb4-9" title="9">      des <span class="op">=</span> i</a>
+<a class="sourceLine" id="cb4-9" title="9">      des <span class="op">=</span> i<span class="op">;</span></a>
 <a class="sourceLine" id="cb4-10" title="10">    <span class="op">}</span></a>
 <a class="sourceLine" id="cb4-11" title="11">  <span class="op">}</span></a>
-<a class="sourceLine" id="cb4-12" title="12">  <span class="cf">return</span> nums[<span class="dv">0</span>] <span class="op">&gt;=</span> des</a>
+<a class="sourceLine" id="cb4-12" title="12">  <span class="cf">return</span> nums[<span class="dv">0</span>] <span class="op">&gt;=</span> des<span class="op">;</span></a>
 <a class="sourceLine" id="cb4-13" title="13"><span class="op">};</span></a></code></pre>
     </div>
-    <br />
     <hr />
-    <br />
+    <p>
+      ☆<em>: .｡. o(≧▽≦)o .｡.:</em>☆☆<em>: .｡. o(≧▽≦)o .｡.:</em>☆☆<em
+        >: .｡. o(≧▽≦)o .｡.:</em
+      >☆
+    </p>
+    <hr />
+    <hr />
+    <p>☆<em>: .｡. o(≧▽≦)o .｡.:</em>☆☆<em>: .｡. o(≧▽≦)o .｡.:</em>☆</p>
+    <hr />
   </body>
 </html>

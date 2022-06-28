@@ -7,7 +7,7 @@
       name="viewport"
       content="width=device-width, initial-scale=1.0, user-scalable=yes"
     />
-    <title>133. Clone Graph</title>
+    <title>133._Clone_Graph</title>
     <style type="text/css">
       code {
         white-space: pre-wrap;
@@ -134,7 +134,7 @@
         color: #60a0b0;
         font-weight: bold;
         font-style: italic;
-      } /* Comment let */
+      } /* CommentVar */
       code span.do {
         color: #ba2121;
         font-style: italic;
@@ -273,23 +273,32 @@
 <a class="sourceLine" id="cb2-10" title="10"><span class="co"> * </span><span class="an">@param</span><span class="co"> </span><span class="cv">{UndirectedGraphNode}</span><span class="co"> graph</span></a>
 <a class="sourceLine" id="cb2-11" title="11"><span class="co"> * </span><span class="an">@return</span><span class="co"> {UndirectedGraphNode}</span></a>
 <a class="sourceLine" id="cb2-12" title="12"><span class="co"> */</span></a>
-<a class="sourceLine" id="cb2-13" title="13"><span class="kw">var</span> cloneGraph <span class="op">=</span> <span class="kw">function</span>(graph) <span class="op">{</span></a>
-<a class="sourceLine" id="cb2-14" title="14">  <span class="kw">const</span> cache <span class="op">=</span> <span class="op">{}</span></a>
-<a class="sourceLine" id="cb2-15" title="15">  <span class="cf">return</span> <span class="at">_clone</span>(graph)</a>
+<a class="sourceLine" id="cb2-13" title="13"><span class="kw">let</span> cloneGraph <span class="op">=</span> <span class="kw">function</span> (graph) <span class="op">{</span></a>
+<a class="sourceLine" id="cb2-14" title="14">  <span class="kw">const</span> cache <span class="op">=</span> <span class="op">{};</span></a>
+<a class="sourceLine" id="cb2-15" title="15">  <span class="cf">return</span> <span class="at">_clone</span>(graph)<span class="op">;</span></a>
 <a class="sourceLine" id="cb2-16" title="16"></a>
-<a class="sourceLine" id="cb2-17" title="17">  <span class="kw">function</span> <span class="at">_clone</span> (graph) <span class="op">{</span></a>
-<a class="sourceLine" id="cb2-18" title="18">    <span class="cf">if</span> (<span class="op">!</span>graph) <span class="op">{</span> <span class="cf">return</span> graph <span class="op">}</span></a>
-<a class="sourceLine" id="cb2-19" title="19">    <span class="kw">const</span> label <span class="op">=</span> <span class="va">graph</span>.<span class="at">label</span></a>
-<a class="sourceLine" id="cb2-20" title="20">    <span class="cf">if</span> (<span class="op">!</span>cache[label]) <span class="op">{</span></a>
-<a class="sourceLine" id="cb2-21" title="21">      cache[label] <span class="op">=</span> <span class="kw">new</span> <span class="at">UndirectedGraphNode</span>(label)</a>
-<a class="sourceLine" id="cb2-22" title="22">      cache[label].<span class="at">neighbors</span> <span class="op">=</span> <span class="va">graph</span>.<span class="va">neighbors</span>.<span class="at">map</span>(_clone)</a>
-<a class="sourceLine" id="cb2-23" title="23">    <span class="op">}</span></a>
-<a class="sourceLine" id="cb2-24" title="24">    <span class="cf">return</span> cache[label]</a>
-<a class="sourceLine" id="cb2-25" title="25">  <span class="op">}</span></a>
-<a class="sourceLine" id="cb2-26" title="26"><span class="op">};</span></a></code></pre>
+<a class="sourceLine" id="cb2-17" title="17">  <span class="kw">function</span> <span class="at">_clone</span>(graph) <span class="op">{</span></a>
+<a class="sourceLine" id="cb2-18" title="18">    <span class="cf">if</span> (<span class="op">!</span>graph) <span class="op">{</span></a>
+<a class="sourceLine" id="cb2-19" title="19">      <span class="cf">return</span> graph<span class="op">;</span></a>
+<a class="sourceLine" id="cb2-20" title="20">    <span class="op">}</span></a>
+<a class="sourceLine" id="cb2-21" title="21">    <span class="kw">const</span> label <span class="op">=</span> <span class="va">graph</span>.<span class="at">label</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb2-22" title="22">    <span class="cf">if</span> (<span class="op">!</span>cache[label]) <span class="op">{</span></a>
+<a class="sourceLine" id="cb2-23" title="23">      cache[label] <span class="op">=</span> <span class="kw">new</span> <span class="at">UndirectedGraphNode</span>(label)<span class="op">;</span></a>
+<a class="sourceLine" id="cb2-24" title="24">      cache[label].<span class="at">neighbors</span> <span class="op">=</span> <span class="va">graph</span>.<span class="va">neighbors</span>.<span class="at">map</span>(_clone)<span class="op">;</span></a>
+<a class="sourceLine" id="cb2-25" title="25">    <span class="op">}</span></a>
+<a class="sourceLine" id="cb2-26" title="26">    <span class="cf">return</span> cache[label]<span class="op">;</span></a>
+<a class="sourceLine" id="cb2-27" title="27">  <span class="op">}</span></a>
+<a class="sourceLine" id="cb2-28" title="28"><span class="op">};</span></a></code></pre>
     </div>
-    <br />
     <hr />
-    <br />
+    <p>
+      ☆<em>: .｡. o(≧▽≦)o .｡.:</em>☆☆<em>: .｡. o(≧▽≦)o .｡.:</em>☆☆<em
+        >: .｡. o(≧▽≦)o .｡.:</em
+      >☆
+    </p>
+    <hr />
+    <hr />
+    <p>☆<em>: .｡. o(≧▽≦)o .｡.:</em>☆☆<em>: .｡. o(≧▽≦)o .｡.:</em>☆</p>
+    <hr />
   </body>
 </html>

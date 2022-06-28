@@ -1,4 +1,4 @@
-import Sort from '../Sort';
+import Sort from "../Sort";
 
 export default class BubbleSort extends Sort {
   sort(originalArray) {

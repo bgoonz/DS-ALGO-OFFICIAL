@@ -1,10 +1,10 @@
 # Árvore (Tree)
 
-* [Árvore de Pesquisa Binária (Binary Search Tree)](binary-search-tree/README.pt-BR.md)
-* [Árvore AVL (AVL Tree)](avl-tree/README.pt-BR.md)
-* [Árvore Vermelha-Preta (Red-Black Tree)](red-black-tree/README.pt-BR.md)
-* [Árvore de Segmento (Segment Tree)](segment-tree/README.pt-BR.md) - com exemplos de consulta de intervalores min/max/sum
-* [Árvorem Fenwick (Fenwick Tree)](fenwick-tree/README.pt-BR.md) (Árvore Binária Indexada / Binary Indexed Tree)
+- [Árvore de Pesquisa Binária (Binary Search Tree)](binary-search-tree/README.pt-BR.md)
+- [Árvore AVL (AVL Tree)](avl-tree/README.pt-BR.md)
+- [Árvore Vermelha-Preta (Red-Black Tree)](red-black-tree/README.pt-BR.md)
+- [Árvore de Segmento (Segment Tree)](segment-tree/README.pt-BR.md) - com exemplos de consulta de intervalores min/max/sum
+- [Árvorem Fenwick (Fenwick Tree)](fenwick-tree/README.pt-BR.md) (Árvore Binária Indexada / Binary Indexed Tree)
 
 Na ciência da computação, uma **árvore** é uma estrutura de dados
 abstrada (ADT) amplamente utilizada - ou uma estrutura de dados
@@ -26,5 +26,5 @@ O nó raíz, no topo, não possui nenhum pai.
 
 ## Referências
 
-- [Wikipedia](https://en.wikipedia.org/wiki/Tree_(data_structure))
+- [Wikipedia](<https://en.wikipedia.org/wiki/Tree_(data_structure)>)
 - [YouTube](https://www.youtube.com/watch?v=oSWTXtMglKE&list=PLLXdhg_r2hKA7DPDsunoDZ-Z769jWn4R8&index=8)

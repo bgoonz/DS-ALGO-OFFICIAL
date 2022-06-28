@@ -1,4 +1,4 @@
-import LinkedList from '../linked-list/LinkedList';
+import LinkedList from "../linked-list/LinkedList";
 
 export default class GraphVertex {
   /**
@@ -6,7 +6,7 @@ export default class GraphVertex {
    */
   constructor(value) {
     if (value === undefined) {
-      throw new Error('Graph vertex must have a value');
+      throw new Error("Graph vertex must have a value");
     }
 
     /**
@@ -52,7 +52,9 @@ export default class GraphVertex {
 
     /** @param {LinkedListNode} node */
     const neighborsConverter = (node) => {
-      return node.value.startVertex === this ? node.value.endVertex : node.value.startVertex;
+      return node.value.startVertex === this
+        ? node.value.endVertex
+        : node.value.startVertex;
     };
 
     // Return either start or end vertex.
@@ -92,7 +94,8 @@ export default class GraphVertex {
    */
   hasNeighbor(vertex) {
     const vertexNode = this.edges.find({
-      callback: (edge) => edge.startVertex === vertex || edge.endVertex === vertex,
+      callback: (edge) =>
+        edge.startVertex === vertex || edge.endVertex === vertex,
     });
 
     return !!vertexNode;

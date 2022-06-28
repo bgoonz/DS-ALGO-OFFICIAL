@@ -7,7 +7,7 @@
       name="viewport"
       content="width=device-width, initial-scale=1.0, user-scalable=yes"
     />
-    <title>080. Remove Duplicates from Sorted Array II</title>
+    <title>080._Remove_Duplicates_from_Sorted_Array_II</title>
     <style type="text/css">
       code {
         white-space: pre-wrap;
@@ -134,7 +134,7 @@
         color: #60a0b0;
         font-weight: bold;
         font-style: italic;
-      } /* Comment let */
+      } /* CommentVar */
       code span.do {
         color: #ba2121;
         font-style: italic;
@@ -264,18 +264,25 @@ for (int i = 0; i &lt; len; i++) {
 <a class="sourceLine" id="cb4-2" title="2"><span class="co"> * </span><span class="an">@param</span><span class="co"> </span><span class="cv">{number</span><span class="co">[]} nums</span></a>
 <a class="sourceLine" id="cb4-3" title="3"><span class="co"> * </span><span class="an">@return</span><span class="co"> {number}</span></a>
 <a class="sourceLine" id="cb4-4" title="4"><span class="co"> */</span></a>
-<a class="sourceLine" id="cb4-5" title="5"><span class="kw">var</span> removeDuplicates <span class="op">=</span> <span class="kw">function</span>(nums) <span class="op">{</span></a>
-<a class="sourceLine" id="cb4-6" title="6">  <span class="kw">let</span> len <span class="op">=</span> <span class="dv">0</span></a>
+<a class="sourceLine" id="cb4-5" title="5"><span class="kw">let</span> removeDuplicates <span class="op">=</span> <span class="kw">function</span> (nums) <span class="op">{</span></a>
+<a class="sourceLine" id="cb4-6" title="6">  <span class="kw">let</span> len <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></a>
 <a class="sourceLine" id="cb4-7" title="7">  <span class="cf">for</span> (<span class="kw">let</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> <span class="va">nums</span>.<span class="at">length</span><span class="op">;</span> i<span class="op">++</span>) <span class="op">{</span></a>
-<a class="sourceLine" id="cb4-8" title="8">    <span class="cf">if</span> (nums[i] <span class="op">!==</span> nums[len<span class="dv">-2</span>]) <span class="op">{</span></a>
-<a class="sourceLine" id="cb4-9" title="9">      nums[len<span class="op">++</span>] <span class="op">=</span> nums[i]</a>
+<a class="sourceLine" id="cb4-8" title="8">    <span class="cf">if</span> (nums[i] <span class="op">!==</span> nums[len <span class="op">-</span> <span class="dv">2</span>]) <span class="op">{</span></a>
+<a class="sourceLine" id="cb4-9" title="9">      nums[len<span class="op">++</span>] <span class="op">=</span> nums[i]<span class="op">;</span></a>
 <a class="sourceLine" id="cb4-10" title="10">    <span class="op">}</span></a>
 <a class="sourceLine" id="cb4-11" title="11">  <span class="op">}</span></a>
-<a class="sourceLine" id="cb4-12" title="12">  <span class="cf">return</span> len</a>
+<a class="sourceLine" id="cb4-12" title="12">  <span class="cf">return</span> len<span class="op">;</span></a>
 <a class="sourceLine" id="cb4-13" title="13"><span class="op">};</span></a></code></pre>
     </div>
-    <br />
     <hr />
-    <br />
+    <p>
+      ☆<em>: .｡. o(≧▽≦)o .｡.:</em>☆☆<em>: .｡. o(≧▽≦)o .｡.:</em>☆☆<em
+        >: .｡. o(≧▽≦)o .｡.:</em
+      >☆
+    </p>
+    <hr />
+    <hr />
+    <p>☆<em>: .｡. o(≧▽≦)o .｡.:</em>☆☆<em>: .｡. o(≧▽≦)o .｡.:</em>☆</p>
+    <hr />
   </body>
 </html>

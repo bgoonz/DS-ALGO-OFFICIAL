@@ -1,1 +1,0 @@
-Possible implementation of Enums in Coffeescript

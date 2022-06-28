@@ -1,13 +1,13 @@
-import knightTour from '../knightTour';
+import knightTour from "../knightTour";
 
-describe('knightTour', () => {
-  it('should not find solution on 3x3 board', () => {
+describe("knightTour", () => {
+  it("should not find solution on 3x3 board", () => {
     const moves = knightTour(3);
 
     expect(moves.length).toBe(0);
   });
 
-  it('should find one solution to do knight tour on 5x5 board', () => {
+  it("should find one solution to do knight tour on 5x5 board", () => {
     const moves = knightTour(5);
 
     expect(moves.length).toBe(25);

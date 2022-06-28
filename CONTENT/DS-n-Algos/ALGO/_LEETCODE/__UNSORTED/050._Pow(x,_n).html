@@ -7,7 +7,7 @@
       name="viewport"
       content="width=device-width, initial-scale=1.0, user-scalable=yes"
     />
-    <title>050. Pow(x, n)</title>
+    <title>050._Pow(x,_n)</title>
     <style type="text/css">
       code {
         white-space: pre-wrap;
@@ -134,7 +134,7 @@
         color: #60a0b0;
         font-weight: bold;
         font-style: italic;
-      } /* Comment let */
+      } /* CommentVar */
       code span.do {
         color: #ba2121;
         font-style: italic;
@@ -249,20 +249,33 @@ x^n = x^((n-1)/2) * x^((n-1)/2) * x, if n is odd</code></pre>
 <a class="sourceLine" id="cb5-3" title="3"><span class="co"> * </span><span class="an">@param</span><span class="co"> </span><span class="cv">{number}</span><span class="co"> n</span></a>
 <a class="sourceLine" id="cb5-4" title="4"><span class="co"> * </span><span class="an">@return</span><span class="co"> {number}</span></a>
 <a class="sourceLine" id="cb5-5" title="5"><span class="co"> */</span></a>
-<a class="sourceLine" id="cb5-6" title="6"><span class="kw">var</span> myPow <span class="op">=</span> <span class="kw">function</span>(x<span class="op">,</span> n) <span class="op">{</span></a>
-<a class="sourceLine" id="cb5-7" title="7">  <span class="cf">if</span> (n <span class="op">===</span> <span class="dv">0</span>) <span class="op">{</span> <span class="cf">return</span> <span class="dv">1</span> <span class="op">}</span></a>
-<a class="sourceLine" id="cb5-8" title="8">  <span class="cf">if</span> (n <span class="op">===</span> <span class="dv">1</span>) <span class="op">{</span> <span class="cf">return</span> x <span class="op">}</span></a>
-<a class="sourceLine" id="cb5-9" title="9">  <span class="cf">if</span> (n <span class="op">===</span> <span class="dv">-1</span>) <span class="op">{</span> <span class="cf">return</span> <span class="dv">1</span> / x <span class="op">}</span></a>
-<a class="sourceLine" id="cb5-10" title="10">  <span class="cf">if</span> (n <span class="op">%</span> <span class="dv">2</span> <span class="op">===</span> <span class="dv">0</span>) <span class="op">{</span></a>
-<a class="sourceLine" id="cb5-11" title="11">    <span class="kw">const</span> res <span class="op">=</span> <span class="at">myPow</span>(x<span class="op">,</span> n / <span class="dv">2</span>)</a>
-<a class="sourceLine" id="cb5-12" title="12">    <span class="cf">return</span> res <span class="op">*</span> res</a>
-<a class="sourceLine" id="cb5-13" title="13">  <span class="op">}</span></a>
-<a class="sourceLine" id="cb5-14" title="14">  <span class="kw">const</span> res <span class="op">=</span> <span class="at">myPow</span>(x<span class="op">,</span> (n <span class="op">-</span> <span class="dv">1</span>) / <span class="dv">2</span>)</a>
-<a class="sourceLine" id="cb5-15" title="15">  <span class="cf">return</span> x <span class="op">*</span> res <span class="op">*</span> res</a>
-<a class="sourceLine" id="cb5-16" title="16"><span class="op">};</span></a></code></pre>
+<a class="sourceLine" id="cb5-6" title="6"><span class="kw">let</span> myPow <span class="op">=</span> <span class="kw">function</span> (x<span class="op">,</span> n) <span class="op">{</span></a>
+<a class="sourceLine" id="cb5-7" title="7">  <span class="cf">if</span> (n <span class="op">===</span> <span class="dv">0</span>) <span class="op">{</span></a>
+<a class="sourceLine" id="cb5-8" title="8">    <span class="cf">return</span> <span class="dv">1</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb5-9" title="9">  <span class="op">}</span></a>
+<a class="sourceLine" id="cb5-10" title="10">  <span class="cf">if</span> (n <span class="op">===</span> <span class="dv">1</span>) <span class="op">{</span></a>
+<a class="sourceLine" id="cb5-11" title="11">    <span class="cf">return</span> x<span class="op">;</span></a>
+<a class="sourceLine" id="cb5-12" title="12">  <span class="op">}</span></a>
+<a class="sourceLine" id="cb5-13" title="13">  <span class="cf">if</span> (n <span class="op">===</span> <span class="dv">-1</span>) <span class="op">{</span></a>
+<a class="sourceLine" id="cb5-14" title="14">    <span class="cf">return</span> <span class="dv">1</span> / x<span class="op">;</span></a>
+<a class="sourceLine" id="cb5-15" title="15">  <span class="op">}</span></a>
+<a class="sourceLine" id="cb5-16" title="16">  <span class="cf">if</span> (n <span class="op">%</span> <span class="dv">2</span> <span class="op">===</span> <span class="dv">0</span>) <span class="op">{</span></a>
+<a class="sourceLine" id="cb5-17" title="17">    <span class="kw">const</span> res <span class="op">=</span> <span class="at">myPow</span>(x<span class="op">,</span> n / <span class="dv">2</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb5-18" title="18">    <span class="cf">return</span> res <span class="op">*</span> res<span class="op">;</span></a>
+<a class="sourceLine" id="cb5-19" title="19">  <span class="op">}</span></a>
+<a class="sourceLine" id="cb5-20" title="20">  <span class="kw">const</span> res <span class="op">=</span> <span class="at">myPow</span>(x<span class="op">,</span> (n <span class="op">-</span> <span class="dv">1</span>) / <span class="dv">2</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb5-21" title="21">  <span class="cf">return</span> x <span class="op">*</span> res <span class="op">*</span> res<span class="op">;</span></a>
+<a class="sourceLine" id="cb5-22" title="22"><span class="op">};</span></a></code></pre>
     </div>
-    <br />
     <hr />
-    <br />
+    <p>
+      ☆<em>: .｡. o(≧▽≦)o .｡.:</em>☆☆<em>: .｡. o(≧▽≦)o .｡.:</em>☆☆<em
+        >: .｡. o(≧▽≦)o .｡.:</em
+      >☆
+    </p>
+    <hr />
+    <hr />
+    <p>☆<em>: .｡. o(≧▽≦)o .｡.:</em>☆☆<em>: .｡. o(≧▽≦)o .｡.:</em>☆</p>
+    <hr />
   </body>
 </html>

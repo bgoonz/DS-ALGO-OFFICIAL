@@ -1,7 +1,7 @@
-import multiplyByTwo from '../multiplyByTwo';
+import multiplyByTwo from "../multiplyByTwo";
 
-describe('multiplyByTwo', () => {
-  it('should multiply numbers by two using bitwise operations', () => {
+describe("multiplyByTwo", () => {
+  it("should multiply numbers by two using bitwise operations", () => {
     expect(multiplyByTwo(0)).toBe(0);
     expect(multiplyByTwo(1)).toBe(2);
     expect(multiplyByTwo(3)).toBe(6);

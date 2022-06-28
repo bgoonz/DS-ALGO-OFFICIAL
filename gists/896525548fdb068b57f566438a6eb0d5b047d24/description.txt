@@ -1,1 +1,0 @@
-BracketHighlighter User Preferences (ST2 Plugin)

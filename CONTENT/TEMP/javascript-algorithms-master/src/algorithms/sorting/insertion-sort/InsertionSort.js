@@ -1,4 +1,4 @@
-import Sort from '../Sort';
+import Sort from "../Sort";
 
 export default class InsertionSort extends Sort {
   sort(originalArray) {
@@ -14,17 +14,14 @@ export default class InsertionSort extends Sort {
       // Check if previous element is greater than current element.
       // If so, swap the two elements.
       while (
-        array[currentIndex - 1] !== undefined
-        && this.comparator.lessThan(array[currentIndex], array[currentIndex - 1])
+        array[currentIndex - 1] !== undefined &&
+        this.comparator.lessThan(array[currentIndex], array[currentIndex - 1])
       ) {
         // Call visiting callback.
         this.callbacks.visitingCallback(array[currentIndex - 1]);
 
         // Swap the elements.
-        [
-          array[currentIndex - 1],
-          array[currentIndex],
-        ] = [
+        [array[currentIndex - 1], array[currentIndex]] = [
           array[currentIndex],
           array[currentIndex - 1],
         ];

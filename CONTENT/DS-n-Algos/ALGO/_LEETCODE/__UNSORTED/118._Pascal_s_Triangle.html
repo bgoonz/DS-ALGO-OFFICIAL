@@ -7,7 +7,7 @@
       name="viewport"
       content="width=device-width, initial-scale=1.0, user-scalable=yes"
     />
-    <title>118. Pascal_s Triangle</title>
+    <title>118._Pascal_s_Triangle</title>
     <style type="text/css">
       code {
         white-space: pre-wrap;
@@ -134,7 +134,7 @@
         color: #60a0b0;
         font-weight: bold;
         font-style: italic;
-      } /* Comment let */
+      } /* CommentVar */
       code span.do {
         color: #ba2121;
         font-style: italic;
@@ -241,25 +241,34 @@ Output:
 <a class="sourceLine" id="cb2-2" title="2"><span class="co"> * </span><span class="an">@param</span><span class="co"> </span><span class="cv">{number}</span><span class="co"> numRows</span></a>
 <a class="sourceLine" id="cb2-3" title="3"><span class="co"> * </span><span class="an">@return</span><span class="co"> {number[][]}</span></a>
 <a class="sourceLine" id="cb2-4" title="4"><span class="co"> */</span></a>
-<a class="sourceLine" id="cb2-5" title="5"><span class="kw">var</span> generate <span class="op">=</span> <span class="kw">function</span>(numRows) <span class="op">{</span></a>
-<a class="sourceLine" id="cb2-6" title="6">  <span class="cf">if</span> (numRows <span class="op">&lt;=</span> <span class="dv">0</span>) <span class="op">{</span> <span class="cf">return</span> [] <span class="op">}</span></a>
-<a class="sourceLine" id="cb2-7" title="7"></a>
-<a class="sourceLine" id="cb2-8" title="8">  <span class="kw">const</span> result <span class="op">=</span> [[<span class="dv">1</span>]]</a>
-<a class="sourceLine" id="cb2-9" title="9">  <span class="cf">for</span> (<span class="kw">let</span> i <span class="op">=</span> <span class="dv">1</span><span class="op">;</span> i <span class="op">&lt;</span> numRows<span class="op">;</span> i<span class="op">++</span>) <span class="op">{</span></a>
-<a class="sourceLine" id="cb2-10" title="10">    <span class="kw">const</span> lastRow <span class="op">=</span> result[i<span class="dv">-1</span>]</a>
-<a class="sourceLine" id="cb2-11" title="11">    <span class="kw">const</span> row <span class="op">=</span> [<span class="dv">1</span>]</a>
-<a class="sourceLine" id="cb2-12" title="12">    <span class="cf">for</span> (<span class="kw">let</span> j <span class="op">=</span> <span class="dv">1</span><span class="op">;</span> j <span class="op">&lt;</span> i<span class="op">;</span> j<span class="op">++</span>) <span class="op">{</span></a>
-<a class="sourceLine" id="cb2-13" title="13">      row[j] <span class="op">=</span> lastRow[j] <span class="op">+</span> lastRow[j<span class="dv">-1</span>]</a>
-<a class="sourceLine" id="cb2-14" title="14">    <span class="op">}</span></a>
-<a class="sourceLine" id="cb2-15" title="15">    <span class="va">row</span>.<span class="at">push</span>(<span class="dv">1</span>)</a>
-<a class="sourceLine" id="cb2-16" title="16">    <span class="va">result</span>.<span class="at">push</span>(row)</a>
-<a class="sourceLine" id="cb2-17" title="17">  <span class="op">}</span></a>
-<a class="sourceLine" id="cb2-18" title="18">  </a>
-<a class="sourceLine" id="cb2-19" title="19">  <span class="cf">return</span> result</a>
-<a class="sourceLine" id="cb2-20" title="20"><span class="op">};</span></a></code></pre>
+<a class="sourceLine" id="cb2-5" title="5"><span class="kw">let</span> generate <span class="op">=</span> <span class="kw">function</span> (numRows) <span class="op">{</span></a>
+<a class="sourceLine" id="cb2-6" title="6">  <span class="cf">if</span> (numRows <span class="op">&lt;=</span> <span class="dv">0</span>) <span class="op">{</span></a>
+<a class="sourceLine" id="cb2-7" title="7">    <span class="cf">return</span> []<span class="op">;</span></a>
+<a class="sourceLine" id="cb2-8" title="8">  <span class="op">}</span></a>
+<a class="sourceLine" id="cb2-9" title="9"></a>
+<a class="sourceLine" id="cb2-10" title="10">  <span class="kw">const</span> result <span class="op">=</span> [[<span class="dv">1</span>]]<span class="op">;</span></a>
+<a class="sourceLine" id="cb2-11" title="11">  <span class="cf">for</span> (<span class="kw">let</span> i <span class="op">=</span> <span class="dv">1</span><span class="op">;</span> i <span class="op">&lt;</span> numRows<span class="op">;</span> i<span class="op">++</span>) <span class="op">{</span></a>
+<a class="sourceLine" id="cb2-12" title="12">    <span class="kw">const</span> lastRow <span class="op">=</span> result[i <span class="op">-</span> <span class="dv">1</span>]<span class="op">;</span></a>
+<a class="sourceLine" id="cb2-13" title="13">    <span class="kw">const</span> row <span class="op">=</span> [<span class="dv">1</span>]<span class="op">;</span></a>
+<a class="sourceLine" id="cb2-14" title="14">    <span class="cf">for</span> (<span class="kw">let</span> j <span class="op">=</span> <span class="dv">1</span><span class="op">;</span> j <span class="op">&lt;</span> i<span class="op">;</span> j<span class="op">++</span>) <span class="op">{</span></a>
+<a class="sourceLine" id="cb2-15" title="15">      row[j] <span class="op">=</span> lastRow[j] <span class="op">+</span> lastRow[j <span class="op">-</span> <span class="dv">1</span>]<span class="op">;</span></a>
+<a class="sourceLine" id="cb2-16" title="16">    <span class="op">}</span></a>
+<a class="sourceLine" id="cb2-17" title="17">    <span class="va">row</span>.<span class="at">push</span>(<span class="dv">1</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb2-18" title="18">    <span class="va">result</span>.<span class="at">push</span>(row)<span class="op">;</span></a>
+<a class="sourceLine" id="cb2-19" title="19">  <span class="op">}</span></a>
+<a class="sourceLine" id="cb2-20" title="20"></a>
+<a class="sourceLine" id="cb2-21" title="21">  <span class="cf">return</span> result<span class="op">;</span></a>
+<a class="sourceLine" id="cb2-22" title="22"><span class="op">};</span></a></code></pre>
     </div>
-    <br />
     <hr />
-    <br />
+    <p>
+      ☆<em>: .｡. o(≧▽≦)o .｡.:</em>☆☆<em>: .｡. o(≧▽≦)o .｡.:</em>☆☆<em
+        >: .｡. o(≧▽≦)o .｡.:</em
+      >☆
+    </p>
+    <hr />
+    <hr />
+    <p>☆<em>: .｡. o(≧▽≦)o .｡.:</em>☆☆<em>: .｡. o(≧▽≦)o .｡.:</em>☆</p>
+    <hr />
   </body>
 </html>

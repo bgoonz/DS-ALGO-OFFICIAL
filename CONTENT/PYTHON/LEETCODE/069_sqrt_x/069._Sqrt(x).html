@@ -7,7 +7,7 @@
       name="viewport"
       content="width=device-width, initial-scale=1.0, user-scalable=yes"
     />
-    <title>069. Sqrt(x)</title>
+    <title>069._Sqrt(x)</title>
     <style type="text/css">
       code {
         white-space: pre-wrap;
@@ -134,7 +134,7 @@
         color: #60a0b0;
         font-weight: bold;
         font-style: italic;
-      } /* Commentlet */
+      } /* CommentVar */
       code span.do {
         color: #ba2121;
         font-style: italic;
@@ -219,7 +219,7 @@ Output: 2</code></pre>
     <p><strong>Example 2:</strong></p>
     <pre><code>Input: 8
 Output: 2
-Explanation: The square root of 8 is 2.82842..., and since 
+Explanation: The square root of 8 is 2.82842..., and since
              the decimal part is truncated, 2 is returned.</code></pre>
     <h3 id="solution">Solution:</h3>
     <p>Binary Search. The square root of x is within [0…(x+1)/2].</p>
@@ -230,25 +230,32 @@ Explanation: The square root of 8 is 2.82842..., and since
 <a class="sourceLine" id="cb3-2" title="2"><span class="co"> * </span><span class="an">@param</span><span class="co"> </span><span class="cv">{number}</span><span class="co"> x</span></a>
 <a class="sourceLine" id="cb3-3" title="3"><span class="co"> * </span><span class="an">@return</span><span class="co"> {number}</span></a>
 <a class="sourceLine" id="cb3-4" title="4"><span class="co"> */</span></a>
-<a class="sourceLine" id="cb3-5" title="5"><span class="kw">var</span> mySqrt <span class="op">=</span> <span class="kw">function</span>(x) <span class="op">{</span></a>
-<a class="sourceLine" id="cb3-6" title="6">  <span class="kw">let</span> max <span class="op">=</span> <span class="va">Math</span>.<span class="at">round</span>(x / <span class="dv">2</span>)</a>
-<a class="sourceLine" id="cb3-7" title="7">  <span class="kw">let</span> min <span class="op">=</span> <span class="dv">0</span></a>
+<a class="sourceLine" id="cb3-5" title="5"><span class="kw">let</span> mySqrt <span class="op">=</span> <span class="kw">function</span> (x) <span class="op">{</span></a>
+<a class="sourceLine" id="cb3-6" title="6">  <span class="kw">let</span> max <span class="op">=</span> <span class="va">Math</span>.<span class="at">round</span>(x / <span class="dv">2</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb3-7" title="7">  <span class="kw">let</span> min <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></a>
 <a class="sourceLine" id="cb3-8" title="8">  <span class="cf">while</span> (min <span class="op">&lt;=</span> max) <span class="op">{</span></a>
-<a class="sourceLine" id="cb3-9" title="9">    <span class="kw">const</span> mid <span class="op">=</span> <span class="va">Math</span>.<span class="at">floor</span>((min <span class="op">+</span> max) / <span class="dv">2</span>)</a>
-<a class="sourceLine" id="cb3-10" title="10">    <span class="kw">const</span> diff <span class="op">=</span> mid <span class="op">*</span> mid <span class="op">-</span> x</a>
+<a class="sourceLine" id="cb3-9" title="9">    <span class="kw">const</span> mid <span class="op">=</span> <span class="va">Math</span>.<span class="at">floor</span>((min <span class="op">+</span> max) / <span class="dv">2</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb3-10" title="10">    <span class="kw">const</span> diff <span class="op">=</span> mid <span class="op">*</span> mid <span class="op">-</span> x<span class="op">;</span></a>
 <a class="sourceLine" id="cb3-11" title="11">    <span class="cf">if</span> (diff <span class="op">&gt;</span> <span class="dv">0</span>) <span class="op">{</span></a>
-<a class="sourceLine" id="cb3-12" title="12">      max <span class="op">=</span> mid <span class="op">-</span> <span class="dv">1</span></a>
+<a class="sourceLine" id="cb3-12" title="12">      max <span class="op">=</span> mid <span class="op">-</span> <span class="dv">1</span><span class="op">;</span></a>
 <a class="sourceLine" id="cb3-13" title="13">    <span class="op">}</span> <span class="cf">else</span> <span class="cf">if</span> (diff <span class="op">&lt;</span> <span class="dv">0</span>) <span class="op">{</span></a>
-<a class="sourceLine" id="cb3-14" title="14">      min <span class="op">=</span> mid <span class="op">+</span> <span class="dv">1</span></a>
+<a class="sourceLine" id="cb3-14" title="14">      min <span class="op">=</span> mid <span class="op">+</span> <span class="dv">1</span><span class="op">;</span></a>
 <a class="sourceLine" id="cb3-15" title="15">    <span class="op">}</span> <span class="cf">else</span> <span class="op">{</span></a>
-<a class="sourceLine" id="cb3-16" title="16">      <span class="cf">return</span> mid</a>
+<a class="sourceLine" id="cb3-16" title="16">      <span class="cf">return</span> mid<span class="op">;</span></a>
 <a class="sourceLine" id="cb3-17" title="17">    <span class="op">}</span></a>
 <a class="sourceLine" id="cb3-18" title="18">  <span class="op">}</span></a>
-<a class="sourceLine" id="cb3-19" title="19">  <span class="cf">return</span> max</a>
+<a class="sourceLine" id="cb3-19" title="19">  <span class="cf">return</span> max<span class="op">;</span></a>
 <a class="sourceLine" id="cb3-20" title="20"><span class="op">};</span></a></code></pre>
     </div>
-    <br />
     <hr />
-    <br />
+    <p>
+      ☆<em>: .｡. o(≧▽≦)o .｡.:</em>☆☆<em>: .｡. o(≧▽≦)o .｡.:</em>☆☆<em
+        >: .｡. o(≧▽≦)o .｡.:</em
+      >☆
+    </p>
+    <hr />
+    <hr />
+    <p>☆<em>: .｡. o(≧▽≦)o .｡.:</em>☆☆<em>: .｡. o(≧▽≦)o .｡.:</em>☆</p>
+    <hr />
   </body>
 </html>

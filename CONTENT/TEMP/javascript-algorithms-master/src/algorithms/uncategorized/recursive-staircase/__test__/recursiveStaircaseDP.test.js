@@ -1,7 +1,7 @@
-import recursiveStaircaseDP from '../recursiveStaircaseDP';
+import recursiveStaircaseDP from "../recursiveStaircaseDP";
 
-describe('recursiveStaircaseDP', () => {
-  it('should calculate number of variants using Dynamic Programming solution', () => {
+describe("recursiveStaircaseDP", () => {
+  it("should calculate number of variants using Dynamic Programming solution", () => {
     expect(recursiveStaircaseDP(-1)).toBe(0);
     expect(recursiveStaircaseDP(0)).toBe(0);
     expect(recursiveStaircaseDP(1)).toBe(1);

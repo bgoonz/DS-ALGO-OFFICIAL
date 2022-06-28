@@ -1,11 +1,8 @@
-import bwPowerSet from '../bwPowerSet';
+import bwPowerSet from "../bwPowerSet";
 
-describe('bwPowerSet', () => {
-  it('should calculate power set of given set using bitwise approach', () => {
-    expect(bwPowerSet([1])).toEqual([
-      [],
-      [1],
-    ]);
+describe("bwPowerSet", () => {
+  it("should calculate power set of given set using bitwise approach", () => {
+    expect(bwPowerSet([1])).toEqual([[], [1]]);
 
     expect(bwPowerSet([1, 2, 3])).toEqual([
       [],

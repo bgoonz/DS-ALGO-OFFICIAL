@@ -7,7 +7,12 @@
  * @param {number} uniqueSteps - Total number of unique steps.
  * @return {number} - Number of unique paths.
  */
-export default function btUniquePaths(width, height, steps = [[0, 0]], uniqueSteps = 0) {
+export default function btUniquePaths(
+  width,
+  height,
+  steps = [[0, 0]],
+  uniqueSteps = 0
+) {
   // Fetch current position on board.
   const currentPos = steps[steps.length - 1];
 
@@ -25,10 +30,7 @@ export default function btUniquePaths(width, height, steps = [[0, 0]], uniqueSte
 
   // Do right step if possible.
   if (currentPos[0] < width - 1) {
-    steps.push([
-      currentPos[0] + 1,
-      currentPos[1],
-    ]);
+    steps.push([currentPos[0] + 1, currentPos[1]]);
 
     // Calculate how many unique paths we'll get by moving right.
     rightUniqueSteps = btUniquePaths(width, height, steps, uniqueSteps);
@@ -39,10 +41,7 @@ export default function btUniquePaths(width, height, steps = [[0, 0]], uniqueSte
 
   // Do down step if possible.
   if (currentPos[1] < height - 1) {
-    steps.push([
-      currentPos[0],
-      currentPos[1] + 1,
-    ]);
+    steps.push([currentPos[0], currentPos[1] + 1]);
 
     // Calculate how many unique paths we'll get by moving down.
     downUniqueSteps = btUniquePaths(width, height, steps, uniqueSteps);

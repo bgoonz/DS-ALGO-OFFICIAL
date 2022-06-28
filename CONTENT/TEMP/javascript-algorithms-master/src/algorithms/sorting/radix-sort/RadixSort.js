@@ -1,4 +1,4 @@
-import Sort from '../Sort';
+import Sort from "../Sort";
 
 // Using charCode (a = 97, b = 98, etc), we can map characters to buckets from 0 - 25
 const BASE_CHAR_CODE = 97;
@@ -20,7 +20,11 @@ export default class RadixSort extends Sort {
     for (let currentIndex = 0; currentIndex < numPasses; currentIndex += 1) {
       const buckets = isArrayOfNumbers
         ? this.placeElementsInNumberBuckets(sortedArray, currentIndex)
-        : this.placeElementsInCharacterBuckets(sortedArray, currentIndex, numPasses);
+        : this.placeElementsInCharacterBuckets(
+            sortedArray,
+            currentIndex,
+            numPasses
+          );
 
       // Flatten buckets into sortedArray, and repeat at next index
       sortedArray = buckets.reduce((acc, val) => {
@@ -71,7 +75,11 @@ export default class RadixSort extends Sort {
 
     array.forEach((element) => {
       this.callbacks.visitingCallback(element);
-      const currentBucket = this.getCharCodeOfElementAtIndex(element, index, numPasses);
+      const currentBucket = this.getCharCodeOfElementAtIndex(
+        element,
+        index,
+        numPasses
+      );
       buckets[currentBucket].push(element);
     });
 
@@ -86,7 +94,7 @@ export default class RadixSort extends Sort {
    */
   getCharCodeOfElementAtIndex(element, index, numPasses) {
     // Place element in last bucket if not ready to organize
-    if ((numPasses - index) > element.length) {
+    if (numPasses - index > element.length) {
       return ENGLISH_ALPHABET_LENGTH - 1;
     }
 

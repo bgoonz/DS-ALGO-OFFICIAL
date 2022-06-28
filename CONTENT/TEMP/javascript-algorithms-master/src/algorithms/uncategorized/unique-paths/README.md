@@ -1,10 +1,10 @@
 # Unique Paths Problem
 
-A robot is located at the top-left corner of a `m x n` grid 
+A robot is located at the top-left corner of a `m x n` grid
 (marked 'Start' in the diagram below).
 
-The robot can only move either down or right at any point in 
-time. The robot is trying to reach the bottom-right corner 
+The robot can only move either down or right at any point in
+time. The robot is trying to reach the bottom-right corner
 of the grid (marked 'Finish' in the diagram below).
 
 How many possible unique paths are there?
@@ -36,7 +36,7 @@ Output: 28
 
 ### Backtracking
 
-First thought that might came to mind is that we need to build a decision tree 
+First thought that might came to mind is that we need to build a decision tree
 where `D` means moving down and `R` means moving right. For example in case
 of boars `width = 3` and `height = 2` we will have the following decision tree:
 
@@ -82,12 +82,12 @@ BOARD[any][0] = 1; // only one way to reach any slot in the leftmost column.
 
 For the board `3 x 2` our dynamic programming matrix will look like:
 
-|     | 0   | 1   | 1   |
-|:---:|:---:|:---:|:---:|
-|**0**| 0   | 1   | 1   |
-|**1**| 1   | 2   | 3   |
+|       |  0  |  1  |  1  |
+| :---: | :-: | :-: | :-: |
+| **0** |  0  |  1  |  1  |
+| **1** |  1  |  2  |  3  |
 
-Each cell contains the number of unique paths to it. We need 
+Each cell contains the number of unique paths to it. We need
 the bottom right one with number `3`.
 
 **Time Complexity**: `O(m * n)` - since we're going through each cell of the DP matrix.
@@ -98,7 +98,7 @@ the bottom right one with number `3`.
 
 This question is actually another form of Pascal Triangle.
 
-The corner of this rectangle is at `m + n - 2` line, and 
+The corner of this rectangle is at `m + n - 2` line, and
 at `min(m, n) - 1` position of the Pascal's Triangle.
 
 ## References

@@ -1,7 +1,7 @@
-import dpUniquePaths from '../dpUniquePaths';
+import dpUniquePaths from "../dpUniquePaths";
 
-describe('dpUniquePaths', () => {
-  it('should find the number of unique paths on board', () => {
+describe("dpUniquePaths", () => {
+  it("should find the number of unique paths on board", () => {
     expect(dpUniquePaths(3, 2)).toBe(3);
     expect(dpUniquePaths(7, 3)).toBe(28);
     expect(dpUniquePaths(3, 7)).toBe(28);

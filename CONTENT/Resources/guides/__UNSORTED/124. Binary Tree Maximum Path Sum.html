@@ -125,7 +125,7 @@ var maxPathSum = function(root) {
  */
 function _maxPathSum (root) {
   if (!root) { return [-Infinity, -Infinity] }
-  
+
   const left = _maxPathSum(root.left)
   const right = _maxPathSum(root.right)
   return [
@@ -160,20 +160,23 @@ var maxPathSum = function(root) {
 /**
  * @param {TreeNode} root
  * @param {object} global
- * @param {number} global.max 
+ * @param {number} global.max
  * @return {number[]}
  */
 function _maxPathSum (root, global) {
   if (!root) { return -Infinity }
-  
+
   const left = _maxPathSum(root.left, global)
   const right = _maxPathSum(root.right, global)
   const localMax = Math.max(left, right, 0) + root.val
   global.max = Math.max(global.max, localMax, root.val + left + right)
   return localMax
 }</code></pre>
-    <br />
-    <hr />
-    <br />
+    <p>
+      <em
+        >Template generated via
+        <a href="https://github.com/crimx/crx-leetmark">Leetmark</a>.</em
+      >
+    </p>
   </body>
 </html>

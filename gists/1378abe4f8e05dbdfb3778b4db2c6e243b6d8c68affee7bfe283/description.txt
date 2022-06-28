@@ -1,1 +1,0 @@
-Fix for issue https://github.com/Aconex/drakov/issues/115

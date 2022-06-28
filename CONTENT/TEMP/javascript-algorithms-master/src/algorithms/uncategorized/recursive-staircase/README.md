@@ -13,7 +13,7 @@ This is an interesting problem because there are several ways of how it may be s
 - [Brute Force Recursive Solution](./recursiveStaircaseBF.js) - Time: `O(2^n)`; Space: `O(1)`
 - [Recursive Solution With Memoization](./recursiveStaircaseMEM.js) - Time: `O(n)`; Space: `O(n)`
 - [Dynamic Programming Solution](./recursiveStaircaseDP.js) - Time: `O(n)`; Space: `O(n)`
-- [Iterative Solution](./recursiveStaircaseIT.js) - Time: `O(n)`; Space: `O(1)` 
+- [Iterative Solution](./recursiveStaircaseIT.js) - Time: `O(n)`; Space: `O(1)`
 
 ## References
 

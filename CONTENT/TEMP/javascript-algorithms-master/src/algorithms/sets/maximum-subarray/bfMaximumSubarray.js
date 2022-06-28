@@ -12,7 +12,11 @@ export default function bfMaximumSubarray(inputArray) {
 
   for (let startIndex = 0; startIndex < inputArray.length; startIndex += 1) {
     let subarraySum = 0;
-    for (let arrLength = 1; arrLength <= (inputArray.length - startIndex); arrLength += 1) {
+    for (
+      let arrLength = 1;
+      arrLength <= inputArray.length - startIndex;
+      arrLength += 1
+    ) {
       subarraySum += inputArray[startIndex + (arrLength - 1)];
       if (maxSubarraySum === null || subarraySum > maxSubarraySum) {
         maxSubarraySum = subarraySum;
@@ -22,5 +26,8 @@ export default function bfMaximumSubarray(inputArray) {
     }
   }
 
-  return inputArray.slice(maxSubarrayStartIndex, maxSubarrayStartIndex + maxSubarrayLength);
+  return inputArray.slice(
+    maxSubarrayStartIndex,
+    maxSubarrayStartIndex + maxSubarrayLength
+  );
 }

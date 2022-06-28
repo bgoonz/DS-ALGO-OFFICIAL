@@ -28,12 +28,8 @@ export const shape = (m) => {
  * @throws {Error}
  */
 const validateType = (m) => {
-  if (
-    !m
-    || !Array.isArray(m)
-    || !Array.isArray(m[0])
-  ) {
-    throw new Error('Invalid matrix format');
+  if (!m || !Array.isArray(m) || !Array.isArray(m[0])) {
+    throw new Error("Invalid matrix format");
   }
 };
 
@@ -47,7 +43,7 @@ const validate2D = (m) => {
   validateType(m);
   const aShape = shape(m);
   if (aShape.length !== 2) {
-    throw new Error('Matrix is not of 2D shape');
+    throw new Error("Matrix is not of 2D shape");
   }
 };
 
@@ -66,12 +62,12 @@ export const validateSameShape = (a, b) => {
   const bShape = shape(b);
 
   if (aShape.length !== bShape.length) {
-    throw new Error('Matrices have different dimensions');
+    throw new Error("Matrices have different dimensions");
   }
 
   while (aShape.length && bShape.length) {
     if (aShape.pop() !== bShape.pop()) {
-      throw new Error('Matrices have different shapes');
+      throw new Error("Matrices have different shapes");
     }
   }
 };
@@ -132,7 +128,7 @@ export const dot = (a, b) => {
   const aShape = shape(a);
   const bShape = shape(b);
   if (aShape[1] !== bShape[0]) {
-    throw new Error('Matrices have incompatible shape for multiplication');
+    throw new Error("Matrices have incompatible shape for multiplication");
   }
 
   // Perform matrix multiplication.

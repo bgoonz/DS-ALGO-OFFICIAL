@@ -1,7 +1,7 @@
-import divideByTwo from '../divideByTwo';
+import divideByTwo from "../divideByTwo";
 
-describe('divideByTwo', () => {
-  it('should divide numbers by two using bitwise operations', () => {
+describe("divideByTwo", () => {
+  it("should divide numbers by two using bitwise operations", () => {
     expect(divideByTwo(0)).toBe(0);
     expect(divideByTwo(1)).toBe(0);
     expect(divideByTwo(3)).toBe(1);

@@ -1,6 +1,0 @@
-Split string into an array by specified lengths of characters and pad each element with a specified character.
-
-Given a value ```str = 'abcdefg```
-
-Running this function ```splitBy str, 2, '-'``` should produce an array ```['ab', 'cd', 'ef', 'g-']```
-

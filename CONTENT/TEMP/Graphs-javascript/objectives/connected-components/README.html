@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="generator" content="pandoc" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=yes"
+    />
+    <title>README</title>
+    <style type="text/css">
+      code {
+        white-space: pre-wrap;
+      }
+      span.smallcaps {
+        font-variant: small-caps;
+      }
+      span.underline {
+        text-decoration: underline;
+      }
+      div.column {
+        display: inline-block;
+        vertical-align: top;
+        width: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 id="connected-components-in-a-graph">
+      Connected Components in a Graph
+    </h1>
+    <p>
+      A <em>connected component</em> of a graph is a subgraph where all vertices
+      are reachable via edges in the subgraph.
+    </p>
+    <p>Here’s an example of a graph with 8 connected components:</p>
+    <figure>
+      <img src="img/connected-components.png" alt="Connected Components" />
+      <figcaption>Connected Components</figcaption>
+    </figure>
+    <p>(Two of the connected components are single verts.)</p>
+    <h2 id="usefulness-of-connected-components">
+      Usefulness of Connected Components
+    </h2>
+    <p>
+      There are a lot of theoretical uses of connected components that are
+      beyond the scope of the course. But on the more practical front, here are
+      some potential uses:
+    </p>
+    <ul>
+      <li>Look for people you might know in a social network.</li>
+      <li>
+        Predict the spread of zombie apocalypse or other disease within social
+        groups.
+      </li>
+      <li>
+        Determining which parts of a computer network are reachable from
+        another.
+      </li>
+      <li>Finding clusters of related information.</li>
+    </ul>
+    <h2 id="finding-connected-components">Finding Connected Components</h2>
+    <p>
+      If you have a BFS or DFS, finding connected components is pretty
+      straightforward if you modify your search to return a list of verts
+      visited. (Also modify the search to not always color the verts white at
+      the start.)
+    </p>
+    <pre class="pseudocode"><code>connected_components = [];
+
+for v in graph.vertexes:
+  v.color = white
+
+for v in graph.vertexes:
+  if v.color == white:
+    component = bfs(v)
+    connected_components.push(component);</code></pre>
+    <h2 id="exercises">Exercises</h2>
+    <p>Draw a graph of 8 vertexes with 3 connected components.</p>
+  </body>
+</html>

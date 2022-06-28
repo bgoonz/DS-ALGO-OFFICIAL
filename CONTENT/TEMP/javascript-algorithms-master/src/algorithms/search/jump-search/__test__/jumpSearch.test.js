@@ -1,7 +1,7 @@
-import jumpSearch from '../jumpSearch';
+import jumpSearch from "../jumpSearch";
 
-describe('jumpSearch', () => {
-  it('should search for an element in sorted array', () => {
+describe("jumpSearch", () => {
+  it("should search for an element in sorted array", () => {
     expect(jumpSearch([], 1)).toBe(-1);
     expect(jumpSearch([1], 2)).toBe(-1);
     expect(jumpSearch([1], 1)).toBe(0);
@@ -18,11 +18,11 @@ describe('jumpSearch', () => {
     expect(jumpSearch([1, 2, 5, 10, 20, 21, 24, 30, 48], 48)).toBe(8);
   });
 
-  it('should search object in sorted array', () => {
+  it("should search object in sorted array", () => {
     const sortedArrayOfObjects = [
-      { key: 1, value: 'value1' },
-      { key: 2, value: 'value2' },
-      { key: 3, value: 'value3' },
+      { key: 1, value: "value1" },
+      { key: 2, value: "value2" },
+      { key: 3, value: "value3" },
     ];
 
     const comparator = (a, b) => {

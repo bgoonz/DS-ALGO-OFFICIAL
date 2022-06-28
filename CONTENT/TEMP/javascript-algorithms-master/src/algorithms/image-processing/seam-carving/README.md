@@ -6,7 +6,7 @@
 
 ## TL;DR
 
-There are many great articles written about the *Seam Carving algorithm* already, but I couldn't resist the temptation to explore this elegant, powerful, and *yet simple* algorithm on my own, and to write about my personal experience with it. Another point that drew my attention (as a creator of [javascript-algorithms](https://github.com/trekhleb/javascript-algorithms) repo) was the fact that *Dynamic Programming (DP)* approach might be smoothly applied to solve it. And, if you're like me and still on your "learning algorithms" journey, this algorithmic solution may enrich your personal DP arsenal.
+There are many great articles written about the _Seam Carving algorithm_ already, but I couldn't resist the temptation to explore this elegant, powerful, and _yet simple_ algorithm on my own, and to write about my personal experience with it. Another point that drew my attention (as a creator of [javascript-algorithms](https://github.com/trekhleb/javascript-algorithms) repo) was the fact that _Dynamic Programming (DP)_ approach might be smoothly applied to solve it. And, if you're like me and still on your "learning algorithms" journey, this algorithmic solution may enrich your personal DP arsenal.
 
 So, with this article I want to do three things:
 
@@ -16,17 +16,17 @@ So, with this article I want to do three things:
 
 ### Content-aware image resizing
 
-*Content-aware image resizing* might be applied when it comes to changing the image proportions (i.e. reducing the width while keeping the height) and when losing some parts of the image is not desirable. Doing the straightforward image scaling in this case would distort the objects in it. To preserve the proportions of the objects while changing the image proportions we may use the [Seam Carving algorithm](https://perso.crans.org/frenoy/matlab2012/seamcarving.pdf) that was introduced by *Shai Avidan* and *Ariel Shamir*.
+_Content-aware image resizing_ might be applied when it comes to changing the image proportions (i.e. reducing the width while keeping the height) and when losing some parts of the image is not desirable. Doing the straightforward image scaling in this case would distort the objects in it. To preserve the proportions of the objects while changing the image proportions we may use the [Seam Carving algorithm](https://perso.crans.org/frenoy/matlab2012/seamcarving.pdf) that was introduced by _Shai Avidan_ and _Ariel Shamir_.
 
-The example below shows how the original image width was reduced by 50% using *content-aware resizing* (left image) and *straightforward scaling* (right image). In this particular case, the left image looks more natural since the proportions of the balloons were preserved.
+The example below shows how the original image width was reduced by 50% using _content-aware resizing_ (left image) and _straightforward scaling_ (right image). In this particular case, the left image looks more natural since the proportions of the balloons were preserved.
 
 ![Content-aware image resizing](https://raw.githubusercontent.com/trekhleb/trekhleb.github.io/master/src/posts/2021/content-aware-image-resizing-in-javascript/assets/01-resizing-options.png)
 
-The Seam Carving algorithm's idea is to find the *seam* (continuous sequence of pixels) with the lowest contribution to the image content and then *carve* (remove) it. This process repeats over and over again until we get the required image width or height. In the example below you may see that the hot air balloon pixels contribute more to the content of the image than the sky pixels. Thus, the sky pixels are being removed first.
+The Seam Carving algorithm's idea is to find the _seam_ (continuous sequence of pixels) with the lowest contribution to the image content and then _carve_ (remove) it. This process repeats over and over again until we get the required image width or height. In the example below you may see that the hot air balloon pixels contribute more to the content of the image than the sky pixels. Thus, the sky pixels are being removed first.
 
 ![JS IMAGE CARVER DEMO](https://raw.githubusercontent.com/trekhleb/trekhleb.github.io/master/src/posts/2021/content-aware-image-resizing-in-javascript/assets/10-demo-01.gif)
 
-Finding the seam with the lowest energy is a computationally expensive task (especially for large images). To make the seam search faster the *dynamic programming* approach might be applied (we will go through the implementation details below).
+Finding the seam with the lowest energy is a computationally expensive task (especially for large images). To make the seam search faster the _dynamic programming_ approach might be applied (we will go through the implementation details below).
 
 ### Objects removal
 
@@ -50,7 +50,7 @@ The same goes for the ocean waves. The algorithm preserved the wave structure wi
 
 ![Resizing demo with more complex backgrounds](https://raw.githubusercontent.com/trekhleb/trekhleb.github.io/master/src/posts/2021/content-aware-image-resizing-in-javascript/assets/11-demo-02.png)
 
-We need to keep in mind that the Seam Carving algorithm is not a silver bullet, and it may fail to resize the images where *most of the pixels are edges* (look important to the algorithm). In this case, it starts distorting even the important parts of the image. In the example below the content-aware image resizing looks pretty similar to a straightforward scaling since for the algorithm all the pixels look important, and it is hard for it to distinguish Van Gogh's face from the background.
+We need to keep in mind that the Seam Carving algorithm is not a silver bullet, and it may fail to resize the images where _most of the pixels are edges_ (look important to the algorithm). In this case, it starts distorting even the important parts of the image. In the example below the content-aware image resizing looks pretty similar to a straightforward scaling since for the algorithm all the pixels look important, and it is hard for it to distinguish Van Gogh's face from the background.
 
 ![Example when the algorithm does not work as expected](https://raw.githubusercontent.com/trekhleb/trekhleb.github.io/master/src/posts/2021/content-aware-image-resizing-in-javascript/assets/12-demo-01.png)
 
@@ -58,26 +58,26 @@ We need to keep in mind that the Seam Carving algorithm is not a silver bullet, 
 
 Imagine we have a `1000 x 500 px` picture, and we want to change its size to `500 x 500 px` to make it square (let's say the square ratio would better fit the Instagram feed). We might want to set up several **requirements to the resizing process** in this case:
 
-- *Preserve the important parts of the image* (i.e. if there were 5 trees before the resizing we want to have 5 trees after resizing as well).
-- *Preserve the proportions* of the important parts of the image (i.e. circle car wheels should not be squeezed to the ellipse wheels)
+- _Preserve the important parts of the image_ (i.e. if there were 5 trees before the resizing we want to have 5 trees after resizing as well).
+- _Preserve the proportions_ of the important parts of the image (i.e. circle car wheels should not be squeezed to the ellipse wheels)
 
-To avoid changing the important parts of the image we may find the **continuous sequence of pixels (the seam)**, that goes from top to bottom and has *the lowest contribution to the content* of the image (avoids important parts) and then remove it. The seam removal will shrink the image by 1 pixel. We will then repeat this step until the image will get the desired width.
+To avoid changing the important parts of the image we may find the **continuous sequence of pixels (the seam)**, that goes from top to bottom and has _the lowest contribution to the content_ of the image (avoids important parts) and then remove it. The seam removal will shrink the image by 1 pixel. We will then repeat this step until the image will get the desired width.
 
-The question is how to define *the importance of the pixel* and its contribution to the content (in the original paper the authors are using the term **energy of the pixel**). One of the ways to do it is to treat all the pixels that form the edges as important ones. In case if a pixel is a part of the edge its color would have a greater difference between the neighbors (left and right pixels) than the pixel that isn't a part of the edge.
+The question is how to define _the importance of the pixel_ and its contribution to the content (in the original paper the authors are using the term **energy of the pixel**). One of the ways to do it is to treat all the pixels that form the edges as important ones. In case if a pixel is a part of the edge its color would have a greater difference between the neighbors (left and right pixels) than the pixel that isn't a part of the edge.
 
 ![Pixels color difference](https://raw.githubusercontent.com/trekhleb/trekhleb.github.io/master/src/posts/2021/content-aware-image-resizing-in-javascript/assets/30-pixel-energy-comparison.png)
 
-Assuming that the color of a pixel is represented by *4* numbers (`R` - red, `G` - green, `B` - blue, `A` - alpha) we may use the following formula to calculate the color difference (the pixel energy):
+Assuming that the color of a pixel is represented by _4_ numbers (`R` - red, `G` - green, `B` - blue, `A` - alpha) we may use the following formula to calculate the color difference (the pixel energy):
 
 ![Pixel energy formula](https://raw.githubusercontent.com/trekhleb/trekhleb.github.io/master/src/posts/2021/content-aware-image-resizing-in-javascript/assets/20-energy-formula.png)
 
 Where:
 
-- `mEnergy` - *Energy* (importance) of the *middle* pixel (`[0..626]` if rounded)
-- `lR` - *Red* channel value for the *left* pixel (`[0..255]`)
-- `mR` - *Red* channel value for the *middle* pixel (`[0..255]`)
-- `rR` - *Red* channel value for the *right* pixel (`[0..255]`)
-- `lG` - *Green* channel value for the *left* pixel (`[0..255]`)
+- `mEnergy` - _Energy_ (importance) of the _middle_ pixel (`[0..626]` if rounded)
+- `lR` - _Red_ channel value for the _left_ pixel (`[0..255]`)
+- `mR` - _Red_ channel value for the _middle_ pixel (`[0..255]`)
+- `rR` - _Red_ channel value for the _right_ pixel (`[0..255]`)
+- `lG` - _Green_ channel value for the _left_ pixel (`[0..255]`)
 - and so on...
 
 In the formula above we're omitting the alpha (transparency) channel, for now, assuming that there are no transparent pixels in the image. Later we will use the alpha channel for masking and for object removal.
@@ -112,8 +112,8 @@ In the example below, you may see the energy map with the first lowest energy se
 
 In the examples above we were reducing the width of the image. A similar approach may be taken to reduce the image height. We need to "rotate" the approach though:
 
-- start using *top* and *bottom* pixel neighbors (instead of *left* and *right* ones) to calculate the pixel energy
-- when searching for a seam we need to move from *left* to *right* (instead of from *up* to *bottom*)
+- start using _top_ and _bottom_ pixel neighbors (instead of _left_ and _right_ ones) to calculate the pixel energy
+- when searching for a seam we need to move from _left_ to _right_ (instead of from _up_ to _bottom_)
 
 ## Implementation in TypeScript
 
@@ -121,7 +121,7 @@ In the examples above we were reducing the width of the image. A similar approac
 
 To implement the algorithm we will be using TypeScript. If you want a JavaScript version, you may ignore (remove) type definitions and their usages.
 
-For simplicity reasons let's implement the seam carving algorithm only for the image *width* reduction.
+For simplicity reasons let's implement the seam carving algorithm only for the image _width_ reduction.
 
 ### Content-aware width resizing (the entry function)
 
@@ -129,10 +129,10 @@ First, let's define some common types that we're going to use while implementing
 
 ```typescript
 // Type that describes the image size (width and height).
-type ImageSize = { w: number, h: number };
+type ImageSize = { w: number; h: number };
 
 // The coordinate of the pixel.
-type Coordinate = { x: number, y: number };
+type Coordinate = { x: number; y: number };
 
 // The seam is a sequence of pixels (coordinates).
 type Seam = Coordinate[];
@@ -142,12 +142,14 @@ type Seam = Coordinate[];
 type EnergyMap = number[][];
 
 // Type that describes the image pixel's RGBA color.
-type Color = [
-  r: number, // Red
-  g: number, // Green
-  b: number, // Blue
-  a: number, // Alpha (transparency)
-] | Uint8ClampedArray;
+type Color =
+  | [
+      r: number, // Red
+      g: number, // Green
+      b: number, // Blue
+      a: number // Alpha (transparency)
+    ]
+  | Uint8ClampedArray;
 ```
 
 On the high level the algorithm consists of the following steps:
@@ -159,19 +161,20 @@ On the high level the algorithm consists of the following steps:
 
 ```typescript
 type ResizeImageWidthArgs = {
-  img: ImageData, // Image data we want to resize.
-  toWidth: number, // Final image width we want the image to shrink to.
+  img: ImageData; // Image data we want to resize.
+  toWidth: number; // Final image width we want the image to shrink to.
 };
 
 type ResizeImageWidthResult = {
-  img: ImageData, // Resized image data.
-  size: ImageSize, // Resized image size (w x h).
+  img: ImageData; // Resized image data.
+  size: ImageSize; // Resized image size (w x h).
 };
 
 // Performs the content-aware image width resizing using the seam carving method.
-export const resizeImageWidth = (
-  { img, toWidth }: ResizeImageWidthArgs,
-): ResizeImageWidthResult => {
+export const resizeImageWidth = ({
+  img,
+  toWidth,
+}: ResizeImageWidthArgs): ResizeImageWidthResult => {
   // For performance reasons we want to avoid changing the img data array size.
   // Instead we'll just keep the record of the resized image width and height separately.
   const size: ImageSize = { w: img.width, h: img.height };
@@ -179,7 +182,7 @@ export const resizeImageWidth = (
   // Calculating the number of pixels to remove.
   const pxToRemove = img.width - toWidth;
   if (pxToRemove < 0) {
-    throw new Error('Upsizing is not supported for now');
+    throw new Error("Upsizing is not supported for now");
   }
 
   let energyMap: EnergyMap | null = null;
@@ -211,7 +214,7 @@ export const resizeImageWidth = (
 The image that needs to be resized is being passed to the function in [ImageData](https://developer.mozilla.org/en-US/docs/Web/API/ImageData) format. You may draw the image on the canvas and then extract the ImageData from the canvas like this:
 
 ```javascript
-const ctx = canvas.getContext('2d');
+const ctx = canvas.getContext("2d");
 const imgData = ctx.getImageData(0, 0, imgWidth, imgHeight);
 ```
 
@@ -225,7 +228,11 @@ Here we apply the color difference formula described above. For the left and rig
 
 ```typescript
 // Calculates the energy of a pixel.
-const getPixelEnergy = (left: Color | null, middle: Color, right: Color | null): number => {
+const getPixelEnergy = (
+  left: Color | null,
+  middle: Color,
+  right: Color | null
+): number => {
   // Middle pixel is the pixel we're calculating the energy for.
   const [mR, mG, mB] = middle;
 
@@ -250,7 +257,7 @@ const getPixelEnergy = (left: Color | null, middle: Color, right: Color | null):
 
 ### Calculating the energy map
 
-The image we're working with has the [ImageData](https://developer.mozilla.org/en-US/docs/Web/API/ImageData) format. It means that all the pixels (and their colors) are stored in a flat (*1D*) [Uint8ClampedArray](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint8ClampedArray) array. For readability purposes let's introduce the couple of helper functions that will allow us to work with the Uint8ClampedArray array as with a *2D* matrix instead.
+The image we're working with has the [ImageData](https://developer.mozilla.org/en-US/docs/Web/API/ImageData) format. It means that all the pixels (and their colors) are stored in a flat (_1D_) [Uint8ClampedArray](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint8ClampedArray) array. For readability purposes let's introduce the couple of helper functions that will allow us to work with the Uint8ClampedArray array as with a _2D_ matrix instead.
 
 ```typescript
 // Helper function that returns the color of the pixel.
@@ -261,7 +268,10 @@ const getPixel = (img: ImageData, { x, y }: Coordinate): Color => {
   const cellsPerColor = 4; // RGBA
   // For better efficiency, instead of creating a new sub-array we return
   // a pointer to the part of the ImageData array.
-  return img.data.subarray(i * cellsPerColor, i * cellsPerColor + cellsPerColor);
+  return img.data.subarray(
+    i * cellsPerColor,
+    i * cellsPerColor + cellsPerColor
+  );
 };
 
 // Helper function that sets the color of the pixel.
@@ -280,11 +290,9 @@ To calculate the energy map we go through each image pixel and call the previous
 // Helper function that creates a matrix (2D array) of specific
 // size (w x h) and fills it with specified value.
 const matrix = <T>(w: number, h: number, filler: T): T[][] => {
-  return new Array(h)
-    .fill(null)
-    .map(() => {
-      return new Array(w).fill(filler);
-    });
+  return new Array(h).fill(null).map(() => {
+    return new Array(w).fill(filler);
+  });
 };
 
 // Calculates the energy of each pixel of the image.
@@ -295,11 +303,11 @@ const calculateEnergyMap = (img: ImageData, { w, h }: ImageSize): EnergyMap => {
   for (let y = 0; y < h; y += 1) {
     for (let x = 0; x < w; x += 1) {
       // Left pixel might not exist if we're on the very left edge of the image.
-      const left = (x - 1) >= 0 ? getPixel(img, { x: x - 1, y }) : null;
+      const left = x - 1 >= 0 ? getPixel(img, { x: x - 1, y }) : null;
       // The color of the middle pixel that we're calculating the energy for.
       const middle = getPixel(img, { x, y });
       // Right pixel might not exist if we're on the very right edge of the image.
-      const right = (x + 1) < w ? getPixel(img, { x: x + 1, y }) : null;
+      const right = x + 1 < w ? getPixel(img, { x: x + 1, y }) : null;
       energyMap[y][x] = getPixelEnergy(left, middle, right);
     }
   }
@@ -341,11 +349,11 @@ You might have noticed that in the naive approach we summed up the same pixel en
 
 In the example above you see that for the first two seams we are re-using the energy of the shorter seam (which has the energy of `235`). Instead of doing just one operation `235 + 70` to calculate the energy of the 2nd seam we're doing four operations `(5 + 0 + 80 + 150) + 70`.
 
-> This fact that we're re-using the energy of the previous seam to calculate the current seam's energy might be applied recursively to all the shorter seams up to the very top 1st row seam. When we have such overlapping sub-problems, [it is a sign](https://trekhleb.dev/blog/2018/dynamic-programming-vs-divide-and-conquer/) that the general problem *might* be optimized by dynamic programming approach.
+> This fact that we're re-using the energy of the previous seam to calculate the current seam's energy might be applied recursively to all the shorter seams up to the very top 1st row seam. When we have such overlapping sub-problems, [it is a sign](https://trekhleb.dev/blog/2018/dynamic-programming-vs-divide-and-conquer/) that the general problem _might_ be optimized by dynamic programming approach.
 
 So, we may **save the energy of the current seam** at the particular pixel in an additional `seamsEnergies` table to make it re-usable for calculating the next seams faster (the `seamsEnergies` table will have the same size as the energy map and the image itself).
 
-Let's also keep in mind that for one particular pixel on the image (i.e. the bottom left one) we may have *several* values of the previous seams energies.
+Let's also keep in mind that for one particular pixel on the image (i.e. the bottom left one) we may have _several_ values of the previous seams energies.
 
 ![What seam to choose](https://raw.githubusercontent.com/trekhleb/trekhleb.github.io/master/src/posts/2021/content-aware-image-resizing-in-javascript/assets/53-dp-what-to-choose.png)
 
@@ -370,16 +378,16 @@ Let's try to fill several cells of this table to see how it works.
 
 After filling out the `seamsEnergies` table we may see that the lowest energy pixel has an energy of `50`. For convenience, during the `seamsEnergies` generation for each pixel, we may save not only the energy of the seam but also the coordinates of the previous lowest energy seam. This will give us the possibility to reconstruct the seam path from the bottom to the top easily.
 
-The time complexity of DP approach would be `O(w * h)`, where `w` and `h` are the width and the height of the image. We need to calculate energies for *every* pixel of the image.
+The time complexity of DP approach would be `O(w * h)`, where `w` and `h` are the width and the height of the image. We need to calculate energies for _every_ pixel of the image.
 
 Here is an example of how this logic might be implemented:
 
 ```typescript
 // The metadata for the pixels in the seam.
 type SeamPixelMeta = {
-  energy: number, // The energy of the pixel.
-  coordinate: Coordinate, // The coordinate of the pixel.
-  previous: Coordinate | null, // The previous pixel in a seam.
+  energy: number; // The energy of the pixel.
+  coordinate: Coordinate; // The coordinate of the pixel.
+  previous: Coordinate | null; // The previous pixel in a seam.
 };
 
 // Finds the seam (the sequence of pixels from top to bottom) that has the
@@ -388,7 +396,8 @@ const findLowEnergySeam = (energyMap: EnergyMap, { w, h }: ImageSize): Seam => {
   // The 2D array of the size of w and h, where each pixel contains the
   // seam metadata (pixel energy, pixel coordinate and previous pixel from
   // the lowest energy seam at this point).
-  const seamsEnergies: (SeamPixelMeta | null)[][] = matrix<SeamPixelMeta | null>(w, h, null);
+  const seamsEnergies: (SeamPixelMeta | null)[][] =
+    matrix<SeamPixelMeta | null>(w, h, null);
 
   // Populate the first row of the map by just copying the energies
   // from the energy map.
@@ -411,7 +420,7 @@ const findLowEnergySeam = (energyMap: EnergyMap, { w, h }: ImageSize): Seam => {
       // us to the current pixel with the coordinates x and y.
       let minPrevEnergy = Infinity;
       let minPrevX: number = x;
-      for (let i = (x - 1); i <= (x + 1); i += 1) {
+      for (let i = x - 1; i <= x + 1; i += 1) {
         if (i >= 0 && i < w && seamsEnergies[y - 1][i].energy < minPrevEnergy) {
           minPrevEnergy = seamsEnergies[y - 1][i].energy;
           minPrevX = i;
@@ -478,7 +487,7 @@ Once we found the lowest energy seam, we need to remove (to carve) the pixels th
 // We delete the pixel in each row and then shift the rest of the row pixels to the left.
 const deleteSeam = (img: ImageData, seam: Seam, { w }: ImageSize): void => {
   seam.forEach(({ x: seamX, y: seamY }: Coordinate) => {
-    for (let x = seamX; x < (w - 1); x += 1) {
+    for (let x = seamX; x < w - 1; x += 1) {
       const nextPixel = getPixel(img, { x: x + 1, y: seamY });
       setPixel(img, { x, y: seamY }, nextPixel);
     }
@@ -488,7 +497,7 @@ const deleteSeam = (img: ImageData, seam: Seam, { w }: ImageSize): void => {
 
 ## Objects removal
 
-The Seam Carving algorithm tries to remove the seams which consist of low energy pixels first. We could leverage this fact and by assigning low energy to some pixels manually (i.e. by drawing on the image and masking out some areas of it) we could make the Seam Carving algorithm to do *objects removal* for us for free.
+The Seam Carving algorithm tries to remove the seams which consist of low energy pixels first. We could leverage this fact and by assigning low energy to some pixels manually (i.e. by drawing on the image and masking out some areas of it) we could make the Seam Carving algorithm to do _objects removal_ for us for free.
 
 Currently, in `getPixelEnergy()` function we were using only the `R`, `G`, `B` color channels to calculate the pixel's energy. But there is also the `A` (alpha, transparency) parameter of the color that we didn't use yet. We may use the transparency channel to tell the algorithm that transparent pixels are the pixels we want to remove. You may check the [source-code of the energy function](https://github.com/trekhleb/js-image-carver/blob/main/src/utils/contentAwareResizer.ts#L54) that takes transparency into account.
 

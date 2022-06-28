@@ -1,5 +1,5 @@
-import ComplexNumber from '../complex-number/ComplexNumber';
-import bitLength from '../bits/bitLength';
+import ComplexNumber from "../complex-number/ComplexNumber";
+import bitLength from "../bits/bitLength";
 
 /**
  * Returns the number which is the flipped binary representation of input.
@@ -40,7 +40,8 @@ export default function fastFourierTransform(inputData, inverse = false) {
 
   const output = [];
   for (let dataSampleIndex = 0; dataSampleIndex < N; dataSampleIndex += 1) {
-    output[dataSampleIndex] = inputData[reverseBits(dataSampleIndex, bitsCount)];
+    output[dataSampleIndex] =
+      inputData[reverseBits(dataSampleIndex, bitsCount)];
   }
 
   for (let blockLength = 2; blockLength <= N; blockLength *= 2) {
@@ -53,7 +54,11 @@ export default function fastFourierTransform(inputData, inverse = false) {
     for (let blockStart = 0; blockStart < N; blockStart += blockLength) {
       let phase = new ComplexNumber({ re: 1, im: 0 });
 
-      for (let signalId = blockStart; signalId < (blockStart + blockLength / 2); signalId += 1) {
+      for (
+        let signalId = blockStart;
+        signalId < blockStart + blockLength / 2;
+        signalId += 1
+      ) {
         const component = output[signalId + blockLength / 2].multiply(phase);
 
         const upd1 = output[signalId].add(component);
