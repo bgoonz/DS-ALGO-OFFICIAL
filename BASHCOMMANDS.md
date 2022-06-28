@@ -1247,6 +1247,39 @@ for i in */; do zip -r "${i%/}.zip" "$i"; done
 
 ```sh
 
+function RecurseDirs ()
+{
+    oldIFS=$IFS
+    IFS=$'\n'
+    for f in "$@"
+    do
+  
+  # YOUR CODE HERE!
+#----------------------------------------------
+
+ lebab --replace ./ --transform arrow
+ lebab --replace ./ --transform arrow-return
+ lebab --replace ./ --transform for-of
+ lebab --replace ./ --transform for-each
+ lebab --replace ./ --transform arg-rest
+ lebab --replace ./ --transform arg-spread
+ lebab --replace ./ --transform obj-method
+ lebab --replace ./ --transform obj-shorthand
+ lebab --replace ./ --transform multi-var
+  
+  #----------------------------------------------
+        if [[ -d "${f}" ]]; then
+            cd "${f}"
+            RecurseDirs $(ls -1 ".")
+            cd ..
+        fi
+    done
+    IFS=$oldIFS
+}
+RecurseDirs "./"
+
+
+
 
 ```
 

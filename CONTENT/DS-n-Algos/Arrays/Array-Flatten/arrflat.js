@@ -1,6 +1,4 @@
-module.exports = (arr) => {
-  return flat(arr, []);
-};
+module.exports = arr => flat(arr, []);
 
 function flat(arr, res) {
   let i = 0,

@@ -9,8 +9,8 @@ let root,
 
 createNode = function createNode(num) {
   return {
-    add: add,
-    search: search,
+    add,
+    search,
     delete: binaryTreeDelete,
     left: undefined,
     right: undefined,

@@ -1,4 +1,4 @@
-class TreeNode {
+nclass TreeNode {
   constructor(val) {
     this.val = val;
     this.left = null;

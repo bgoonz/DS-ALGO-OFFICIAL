@@ -28,9 +28,7 @@ function memoize(fn) {
   };
 }
 let reduce2Sum = (arr) => {
-  let sum = arr.reduce((accumulator, currentValue) => {
-    return (accumulator += currentValue);
-  }, 0);
+  let sum = arr.reduce((accumulator, currentValue) => accumulator += currentValue, 0);
   return sum;
 };
 const memoizedArrSum = memoize(reduce2Sum);

@@ -11,8 +11,7 @@ mirrorArray(['a', 'b', 'c', 'd']); // => [ 'a', 'b', 'c', 'd', 'd', 'c', 'b', 'a
 const mirrorArray = (array) => {
   let newArray = [];
 
-  for (let i = 0; i < array.length; i += 1) {
-    let el = array[i];
+  for (let el of array) {
     newArray.push(el);
   }
 

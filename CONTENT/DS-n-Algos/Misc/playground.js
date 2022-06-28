@@ -106,19 +106,19 @@ factorial(6); // => 720, requires 6 calls
 factorial(5); // => 120, requires 5 calls
 factorial(7); // => 5040, requires 7 calls
 
-let memo = {};
+let memo2 = {};
 
 function factorial(n) {
   // if this function has calculated factorial(n) previously,
   // fetch the stored result in memo
-  if (n in memo) return memo[n];
+  if (n in memo2) return memo2[n];
   if (n === 1) return 1;
 
   // otherwise, it havs not calculated factorial(n) previously,
   // so calculate it now, but store the result in case it is
   // needed again in the future
-  memo[n] = n * factorial(n - 1);
-  return memo[n];
+  memo2[n] = n * factorial(n - 1);
+  return memo2[n];
 }
 
 factorial(6); // => 720, requires 6 calls
@@ -126,7 +126,7 @@ factorial(6); // => 720, requires 1 call
 factorial(5); // => 120, requires 1 call
 factorial(7); // => 5040, requires 2 calls
 
-memo; // => { '2': 2, '3': 6, '4': 24, '5': 120, '6': 720, '7': 5040 }
+console.log(memo); // => { '2': 2, '3': 6, '4': 24, '5': 120, '6': 720, '7': 5040 }
 
 function fib(n) {
   if (n === 1 || n === 2) return 1;
@@ -512,11 +512,11 @@ let right = array.filter((el) => el >= pivot);
 //------------------------------------------------------
 
 // let pivot = array.shift();
-let left = array.filter((el) => el < pivot);
-let right = array.filter((el) => el >= pivot);
+const left1 = array.filter((el) => el < pivot);
+const right1 = array.filter((el) => el >= pivot);
 
-let leftSorted = quickSort(left);
-let rightSorted = quickSort(right);
+let leftSorted = quickSort(left1);
+let rightSorted = quickSort(right1);
 //------------------------------------------------------
 
 function quickSort(array) {

@@ -1,7 +1,5 @@
 let reduce2Sum = (arr) => {
-  let sum = arr.reduce((accumulator, currentValue) => {
-    return (accumulator += currentValue);
-  }, 0);
+  let sum = arr.reduce((accumulator, currentValue) => accumulator += currentValue, 0);
   return sum;
 };
 const m = [1, 43, 656, 8, 54, 908, 4, 5, 23, 78, 435, 89, 45, 476, 89];
