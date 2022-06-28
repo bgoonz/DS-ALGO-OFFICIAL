@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>README.pt-BR</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+</head>
+<body>
+<h1 id="árvore-de-segmento-segment-tree">Árvore de Segmento (Segment Tree)</h1>
+<p>Na ciência da computação, uma <strong>árvore de segmento</strong> também conhecida como árvore estatística é uma árvore de estrutura de dados utilizadas para armazenar informações sobre intervalores ou segmentos. Ela permite pesquisas no qual os segmentos armazenados contém um ponto fornecido. Isto é, em princípio, uma estrutura estática; ou seja, é uma estrutura que não pode ser modificada depois de inicializada. Uma estrutura de dados similar é a árvore de intervalos.</p>
+<p>Uma árvore de segmento é uma árvore binária. A raíz da árvore representa a <em>array</em> inteira. Os dois filhos da raíz representam a primeira e a segunda metade da <em>array</em>. Similarmente, os filhos de cada nó correspondem ao número das duas metadas da <em>array</em> correspondente do nó.</p>
+<p>Nós construímos a árvore debaixo para cima, com o valor de cada nó sendo o “mínimo” (ou qualquer outra função) dos valores de seus filhos. Isto consumirá tempo <code>O(n log n)</code>. O número de oprações realizadas é equivalente a altura da árvore, pela qual consome tempo <code>O(log n)</code>. Para fazer consultas de intervalos, cada nó divide a consulta em duas partes, sendo uma sub consulta para cada filho. Se uma pesquisa contém todo o <em>subarray</em> de um nó, nós podemos utilizar do valor pré-calculado do nó. Utilizando esta otimização, nós podemos provar que somente operações mínimas <code>O(log n)</code> são realizadas.</p>
+<figure>
+<img src="https://www.geeksforgeeks.org/wp-content/uploads/RangeMinimumQuery.png" alt="Min Segment Tree" /><figcaption>Min Segment Tree</figcaption>
+</figure>
+<figure>
+<img src="https://www.geeksforgeeks.org/wp-content/uploads/segment-tree1.png" alt="Sum Segment Tree" /><figcaption>Sum Segment Tree</figcaption>
+</figure>
+<h2 id="aplicação">Aplicação</h2>
+<p>Uma árvore de segmento é uma estrutura de dados designada a realizar certas operações de <em>array</em> eficientemente, especialmente aquelas envolvendo consultas de intervalos.</p>
+<p>Aplicações da árvore de segmentos são nas áreas de computação geométrica e sistemas de informação geográficos.</p>
+<p>A implementação atual da Árvore de Segmentos implica que você pode passar qualquer função binária (com dois parâmetros de entradas) e então, você será capaz de realizar consultas de intervalos para uma variedade de funções. Nos testes você poderá encontrar exemplos realizando <code>min</code>, <code>max</code> e consultas de intervalo <code>sum</code> na árvore segmentada (SegmentTree).</p>
+<h2 id="referências">Referências</h2>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Segment_tree">Wikipedia</a></li>
+<li><a href="https://www.youtube.com/watch?v=ZBHKZF5w4YU&amp;index=65&amp;list=PLLXdhg_r2hKA7DPDsunoDZ-Z769jWn4R8">YouTube</a></li>
+<li><a href="https://www.geeksforgeeks.org/segment-tree-set-1-sum-of-given-range/">GeeksForGeeks</a></li>
+</ul>
+</body>
+</html>

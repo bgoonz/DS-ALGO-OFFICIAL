@@ -14,33 +14,30 @@
  * @param {TreeNode} q
  * @return {TreeNode}
  */
-var lowestCommonAncestor = function(root, p, q) {
+var lowestCommonAncestor = function (root, p, q) {
   var a = findTrace(root, p);
   var b = findTrace(root, q);
 
   var index = 0;
-  while (a[index] && b[index] && a[index].a === b[index].a)
-    index++;
+  while (a[index] && b[index] && a[index].a === b[index].a) index++;
 
   return a[index - 1].a;
 
   // find the trace
   function findTrace(root, node) {
-    var ans = [{a: root}];
+    var ans = [{ a: root }];
 
     while (true) {
       var item = ans[ans.length - 1];
 
-      if (item.a === node)
-        return ans;
+      if (item.a === node) return ans;
       if (!item.left && item.a.left) {
         item.left = true;
-        ans.push({a: item.a.left});
+        ans.push({ a: item.a.left });
       } else if (!item.right && item.a.right) {
         item.right = true;
-        ans.push({a: item.a.right});
-      } else
-        ans.pop();
+        ans.push({ a: item.a.right });
+      } else ans.pop();
     }
   }
 };

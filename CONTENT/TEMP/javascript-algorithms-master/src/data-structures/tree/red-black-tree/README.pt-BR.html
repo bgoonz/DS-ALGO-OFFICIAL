@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>README.pt-BR</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+</head>
+<body>
+<h1 id="árvore-vermelha-preta-red-black-tree">Árvore Vermelha-Preta (Red-Black Tree)</h1>
+<p>Uma <strong>árvore vermelha-preta</strong> é um tipo de árvore de pesquisa binária auto balanceada na ciência da computação. Cada nó da árvore binária possui um <em>bit</em> extra, e este <em>bit</em> é frequentemente interpretado com a cor (vermelho ou preto) do nó. Estas cores de <em>bits</em> são utilizadas para garantir que a árvore permanece aproximadamente equilibrada durante as operações de inserções e remoções.</p>
+<p>O equilíbrio é preservado através da pintura de cada nó da árvore com uma das duas cores, de maneira que satisfaça certas propriedades, das quais restringe nos piores dos casos, o quão desequilibrada a árvore pode se tornar. Quando a árvore é modificada, a nova árvore é subsequentemente reorganizada e repintada para restaurar as propriedades de coloração. As propriedades são designadas de tal modo que esta reorganização e nova pintura podem ser realizadas eficientemente.</p>
+<p>O balanceamento de uma árvore não é perfeito, mas é suficientemente bom para permitir e garantir uma pesquisa no tempo <code>O(log n)</code>, aonde <code>n</code> é o número total de elementos na árvore. Operações de inserções e remoções, juntamente com a reorganização e repintura da árvore, também são executados no tempo <code>O (log n)</code>.</p>
+<p>Um exemplo de uma árvore vermalha-preta:</p>
+<figure>
+<img src="https://upload.wikimedia.org/wikipedia/commons/6/66/Red-black_tree_example.svg" alt="red-black tree" /><figcaption>red-black tree</figcaption>
+</figure>
+<h2 id="propriedades">Propriedades</h2>
+<p>Em adição aos requerimentos impostos pela árvore de pesquisa binária, as seguintes condições devem ser satisfeitas pela árvore vermelha-preta:</p>
+<ul>
+<li>Cada nó é tanto vermelho ou preto.</li>
+<li>O nó raíz é preto. Esta regra algumas vezes é omitida. Tendo em vista que a raíz pode sempre ser alterada de vermelho para preto, mas não de preto para vermelho, esta regra tem pouco efeito na análise.</li>
+<li>Todas as folhas (Nulo/NIL) são pretas.</li>
+<li>Caso um nó é vermelho, então seus filhos serão pretos.</li>
+<li>Cada caminho de um determinado nó para qualquer um dos seus nós nulos (NIL) descendentes contém o mesmo número de nós pretos.</li>
+</ul>
+<p>Algumas definições: o número de nós pretos da raiz até um nó é a <strong>profundidade preta</strong>(<em>black depth</em>) do nó; o número uniforme de nós pretos em todos os caminhos da raíz até as folhas são chamados de <strong>altura negra</strong> (<em>black-height</em>) da árvore vermelha-preta.</p>
+<p>Essas restrições impõem uma propriedade crítica de árvores vermelhas e pretas: <em>o caminho da raiz até a folha mais distante não possui mais que o dobro do comprimento do caminho da raiz até a folha mais próxima</em>. O resultado é que a árvore é grosseiramente balanceada na altura.</p>
+<p>Tendo em vista que operações como inserções, remoção e pesquisa de valores requerem nos piores dos casos um tempo proporcional a altura da ávore, este limite superior teórico na altura permite que as árvores vermelha-preta sejam eficientes no pior dos casos, ao contrário das árvores de busca binária comuns.</p>
+<h2 id="balanceamento-durante-a-inserção">Balanceamento durante a inserção</h2>
+<h3 id="se-o-tio-é-vermelho">Se o tio é VERMELHO</h3>
+<figure>
+<img src="https://www.geeksforgeeks.org/wp-content/uploads/redBlackCase2.png" alt="Red Black Tree Balancing" /><figcaption>Red Black Tree Balancing</figcaption>
+</figure>
+<h3 id="se-o-tio-é-preto">Se o tio é PRETO</h3>
+<ul>
+<li>Caso Esquerda Esquerda (<code>p</code> é o filho a esquerda de <code>g</code> e <code>x</code>, é o filho a esquerda de <code>p</code>)</li>
+<li>Caso Esquerda Direita (<code>p</code> é o filho a esquerda de <code>g</code> e <code>x</code>, é o filho a direita de <code>p</code>)</li>
+<li>Caso Direita Direita (<code>p</code> é o filho a direita de <code>g</code> e <code>x</code>, é o filho da direita de <code>p</code>)</li>
+<li>Caso Direita Esqueda (<code>p</code> é o filho a direita de <code>g</code> e <code>x</code>, é o filho a esquerda de <code>p</code>)</li>
+</ul>
+<h4 id="caso-esquerda-esquerda-veja-g-p-e-x">Caso Esquerda Esquerda (Veja g, p e x)</h4>
+<figure>
+<img src="https://www.geeksforgeeks.org/wp-content/uploads/redBlackCase3a1.png" alt="Red Black Tree Balancing" /><figcaption>Red Black Tree Balancing</figcaption>
+</figure>
+<h4 id="caso-esquerda-direita-veja-g-p-e-x">Caso Esquerda Direita (Veja g, p e x)</h4>
+<figure>
+<img src="https://www.geeksforgeeks.org/wp-content/uploads/redBlackCase3b.png" alt="Red Black Tree Balancing" /><figcaption>Red Black Tree Balancing</figcaption>
+</figure>
+<h4 id="caso-direita-direita-veja-g-p-e-x">Caso Direita Direita (Veja g, p e x)</h4>
+<figure>
+<img src="https://www.geeksforgeeks.org/wp-content/uploads/redBlackCase3c.png" alt="Red Black Tree Balancing" /><figcaption>Red Black Tree Balancing</figcaption>
+</figure>
+<h4 id="caso-direita-esquerda-veja-g-p-e-x">Caso Direita Esquerda (Veja g, p e x)</h4>
+<figure>
+<img src="https://www.geeksforgeeks.org/wp-content/uploads/redBlackCase3d.png" alt="Red Black Tree Balancing" /><figcaption>Red Black Tree Balancing</figcaption>
+</figure>
+<h2 id="referências">Referências</h2>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Red%E2%80%93black_tree">Wikipedia</a></li>
+<li><a href="https://www.youtube.com/watch?v=UaLIHuR1t8Q&amp;list=PLLXdhg_r2hKA7DPDsunoDZ-Z769jWn4R8&amp;index=63">Red Black Tree Insertion by Tushar Roy (YouTube)</a></li>
+<li><a href="https://www.youtube.com/watch?v=CTvfzU_uNKE&amp;t=0s&amp;list=PLLXdhg_r2hKA7DPDsunoDZ-Z769jWn4R8&amp;index=64">Red Black Tree Deletion by Tushar Roy (YouTube)</a></li>
+<li><a href="https://www.geeksforgeeks.org/red-black-tree-set-2-insert/">Red Black Tree Insertion on GeeksForGeeks</a></li>
+<li><a href="https://www.cs.usfca.edu/~galles/visualization/RedBlack.html">Red Black Tree Interactive Visualisations</a></li>
+</ul>
+</body>
+</html>

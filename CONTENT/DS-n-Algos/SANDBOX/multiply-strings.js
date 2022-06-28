@@ -6,25 +6,23 @@
  * @param {string} num2
  * @return {string}
  */
-var multiply = function(num1, num2) {
+var multiply = function (num1, num2) {
   var ans = [];
 
   for (i = 0, len = num2.length; i < len; i++) {
     var product = m(num1, num2[i]);
     var zeroNum = len - i - 1;
-    while (zeroNum--)
-      product.unshift(0);
+    while (zeroNum--) product.unshift(0);
     ans = p(ans, product);
   }
 
   ans.reverse();
-  ans = ans.join('');
+  ans = ans.join("");
 
   for (var i = 0, len = ans.length; i < len; i++)
-    if (ans[i] !== '0')
-      return ans.substring(i);
+    if (ans[i] !== "0") return ans.substring(i);
 
-  return '0';
+  return "0";
 };
 
 // "123" * "4"
@@ -52,7 +50,7 @@ function p(a, b) {
   var ans = [];
 
   for (var i = 0; i < len; i++) {
-    var sum = (~~a[i]) + (~~b[i]) + add;
+    var sum = ~~a[i] + ~~b[i] + add;
     ans.push(sum % 10);
     add = ~~(sum / 10);
   }

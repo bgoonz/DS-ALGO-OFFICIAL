@@ -17,8 +17,5 @@
  * @param {TreeNode} root
  * @return {boolean}
  */
-const isBalanced = root => {
-    
-};
+const isBalanced = (root) => {};
 // @lc code=end
-

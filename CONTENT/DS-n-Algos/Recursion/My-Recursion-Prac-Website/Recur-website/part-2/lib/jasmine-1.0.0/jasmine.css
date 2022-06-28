@@ -1,7 +1,7 @@
 body {
-  font-family: "Helvetica Neue Light", "Lucida Grande", "Calibri", "Arial", sans-serif;
+  font-family: "Helvetica Neue Light", "Lucida Grande", "Calibri", "Arial",
+    sans-serif;
 }
-
 
 .jasmine_reporter a:visited,
 .jasmine_reporter a {
@@ -16,7 +16,7 @@ body {
 .run_spec {
   float: right;
   padding-right: 5px;
-  font-size: .8em;
+  font-size: 0.8em;
   text-decoration: none;
 }
 
@@ -37,7 +37,7 @@ body {
 }
 
 .logo .version {
-  font-size: .6em;
+  font-size: 0.6em;
   padding-left: 1em;
 }
 
@@ -45,14 +45,10 @@ body {
   background-color: yellow;
 }
 
-
 .options {
   text-align: right;
-  font-size: .8em;
+  font-size: 0.8em;
 }
-
-
-
 
 .suite {
   border: 1px outset gray;
@@ -120,7 +116,6 @@ body {
   display: none;
 }
 
-
 /*.resultMessage {*/
 /*white-space: pre;*/
 /*}*/
@@ -137,7 +132,7 @@ body {
 
 .stackTrace {
   white-space: pre;
-  font-size: .8em;
+  font-size: 0.8em;
   margin-left: 10px;
   max-height: 5em;
   overflow: auto;
@@ -148,14 +143,13 @@ body {
 
 .finished-at {
   padding-left: 1em;
-  font-size: .6em;
+  font-size: 0.6em;
 }
 
 .show-passed .passed,
 .show-skipped .skipped {
   display: block;
 }
-
 
 #jasmine_content {
   position: fixed;

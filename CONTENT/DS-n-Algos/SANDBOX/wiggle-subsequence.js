@@ -9,10 +9,9 @@
 // Greedy
 var ans;
 
-var wiggleMaxLength = function(nums) {
+var wiggleMaxLength = function (nums) {
   ans = 0;
 
- 
   dfs(Infinity, 0, false, 0, nums);
   dfs(-Infinity, 0, true, 0, nums);
 
@@ -29,15 +28,11 @@ function dfs(current, index, flag, len, nums) {
 
   // 需要减
   if (!flag) {
-    if (item < current)
-      dfs(item, index + 1, !flag, len + 1, nums);
-    else
-      dfs(item, index + 1, flag, len, nums);
-  } else { // 需要增
-    if (item > current)
-      dfs(item, index + 1, !flag, len + 1, nums);
-    else
-      dfs(item, index + 1, flag, len, nums);
+    if (item < current) dfs(item, index + 1, !flag, len + 1, nums);
+    else dfs(item, index + 1, flag, len, nums);
+  } else {
+    // 需要增
+    if (item > current) dfs(item, index + 1, !flag, len + 1, nums);
+    else dfs(item, index + 1, flag, len, nums);
   }
-
 }

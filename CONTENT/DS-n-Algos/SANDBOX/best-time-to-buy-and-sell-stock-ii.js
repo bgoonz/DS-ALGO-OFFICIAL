@@ -5,7 +5,7 @@
  * @param {number[]} prices
  * @return {number}
  */
-var maxProfit = function(prices) {
+var maxProfit = function (prices) {
   prices.push(0);
 
   var len = prices.length;
@@ -18,10 +18,9 @@ var maxProfit = function(prices) {
       continue;
     }
 
-    if (prices[i] >= prices[i - 1])
-      continue;
+    if (prices[i] >= prices[i - 1]) continue;
 
-    sum += (prices[i - 1] - begin);
+    sum += prices[i - 1] - begin;
     begin = prices[i];
   }
 

@@ -12,7 +12,7 @@
  * If everything succeeds, don't print anything.
  */
 
-const fs = require('fs');
+const fs = require("fs");
 
 const [_, __, from, to] = process.argv;
 
@@ -22,7 +22,7 @@ if (!from || !to) {
 }
 
 fs.stat(from, (err, stats) => {
-  if (err && err.code === 'ENOENT') {
+  if (err && err.code === "ENOENT") {
     console.error(`The path ${from} does not exist.`);
     process.exit(9);
   }
@@ -32,7 +32,7 @@ fs.stat(from, (err, stats) => {
     process.exit(10);
   }
 
-  fs.copyFile(from, to, err => {
+  fs.copyFile(from, to, (err) => {
     if (err) throw err;
   });
 });

@@ -1,4 +1,4 @@
-/*******************************************************************************
+/*
 Write a function `one` that accepts an array and a callback as arguments. The
 function should call the callback for each element of the array, passing in the
 element and its index. The function should return a boolean indicating whether
@@ -35,15 +35,15 @@ let result6 = one(['apple', 'dog', 'food', 'cat'], function(el, idx) {
     return el.length === idx;
 });
 console.log(result6);   // true
-*******************************************************************************/
+*/
 
-function one( array, cb ) {
+function one(array, cb) {
   let count = 0;
-  array.forEach( ( el, i ) => {
-    if ( cb( el, i, array ) === true ) {
+  array.forEach((el, i) => {
+    if (cb(el, i, array) === true) {
       count++;
     }
-  } );
+  });
   return count === 1;
 }
 

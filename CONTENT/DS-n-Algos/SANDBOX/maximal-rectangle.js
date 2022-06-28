@@ -8,7 +8,7 @@
  * @param {number[]} heights
  * @return {number}
  */
-var largestRectangleArea = function(heights) {
+var largestRectangleArea = function (heights) {
   heights.push(0);
 
   var maxn = 0;
@@ -30,31 +30,26 @@ var largestRectangleArea = function(heights) {
   return maxn;
 };
 
-
 /**
  * @param {character[][]} matrix
  * @return {number}
  */
-var maximalRectangle = function(matrix) {
-  if (!matrix.length)
-    return 0;
+var maximalRectangle = function (matrix) {
+  if (!matrix.length) return 0;
 
-  var n = matrix.length
-    , m = matrix[0].length;
+  var n = matrix.length,
+    m = matrix[0].length;
 
   var heights = [];
 
-  for (var i = 0; i < m; i++)
-    heights[i] = 0;
+  for (var i = 0; i < m; i++) heights[i] = 0;
 
   var ans = 0;
 
   for (var i = 0; i < n; i++) {
     for (var j = 0; j < m; j++) {
-      if (matrix[i][j] === '1') 
-        heights[j]++;
-      else 
-        heights[j] = 0;
+      if (matrix[i][j] === "1") heights[j]++;
+      else heights[j] = 0;
     }
 
     ans = Math.max(ans, largestRectangleArea(heights));

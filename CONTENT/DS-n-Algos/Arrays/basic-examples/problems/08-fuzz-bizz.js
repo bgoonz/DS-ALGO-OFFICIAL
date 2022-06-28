@@ -6,19 +6,18 @@ Examples:
 
 fuzzBizz(17) => [ 2, 4, 6, 7, 8, 10, 12, 16 ]
 fuzzBizz(30) => [ 2, 4, 6, 7, 8, 10, 12, 16, 18, 20, 21, 22, 24, 26 ]
-*******************************************************************************/
+*/
 
-function fuzzBizz( max ) {
+function fuzzBizz(max) {
   let nums = [];
 
-  for ( let i = 0; i < max; i++ ) {
-    if ( ( i % 2 === 0 || i % 7 === 0 ) && i % 14 !== 0 ) {
-      nums.push( i );
+  for (let i = 0; i < max; i++) {
+    if ((i % 2 === 0 || i % 7 === 0) && i % 14 !== 0) {
+      nums.push(i);
     }
   }
 
   return nums;
 }
 
-/**************DO NOT MODIFY ANYTHING UNDER THIS  LINE*************************/
 module.exports = fuzzBizz;

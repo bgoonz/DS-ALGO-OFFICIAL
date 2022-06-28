@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>README</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+</head>
+<body>
+<p>This problem can be solved with either a greedy method or by backtracking.</p>
+<h2 id="greedy">Greedy</h2>
+<p>Get the sorted alphabet for the characters in the string, pick the the smallest char, whose leftmost index idx satisfies:</p>
+<pre><code>set(s[idx:]) == set(s)</code></pre>
+<p>Thus, we guarantees all the characters in s still has a chance to be picked.</p>
+<h2 id="backtracking">Backtracking</h2>
+<p>Maintain the last index for each character in s in a map rindex. And when looping over the string, before putting the char in result, check the end of current result backwards, if result[-1]&gt;c and rindex[result[-1]]&gt;current_position: result = result[:-1]</p>
+<p>By repeatedly adjusting the tail of result string, we maintain the minimum result property.</p>
+</body>
+</html>

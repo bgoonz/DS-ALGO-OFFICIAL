@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>README.es-ES</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+</head>
+<body>
+<h1 id="lista-doblemente-enlazada">Lista doblemente enlazada</h1>
+<p><em>Lea esto en otros idiomas:</em> <a href="README.ru-RU.md"><em>Русский</em></a>, <a href="README.zh-CN.md"><em>简体中文</em></a>, <a href="README.ja-JP.md"><em>日本語</em></a>, <a href="README.pt-BR.md"><em>Português</em></a> <a href="README.ko-KR.md"><em>한국어</em></a></p>
+<p>En informática, una <strong>lista doblemente enlazada</strong> es una estructura de datos enlazados que consta de un conjunto de registros enlazados secuencialmente llamados nodos. Cada nodo contiene dos campos, llamados enlaces, que son referencias al nodo anterior y al siguiente en la secuencia de nodos. Los enlaces anterior y siguiente de los nodos inicial y final, respectivamente, apuntan a algún tipo de terminador, normalmente un nodo centinela o nulo, para facilitar el recorrido de la lista. Si solo hay un ganglio centinela, la lista se enlaza circularmente a través del ganglio centinela. Puede conceptualizarse como dos listas enlazadas individualmente formadas a partir de los mismos elementos de datos, pero en órdenes secuenciales opuestos.</p>
+<figure>
+<img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/Doubly-linked-list.svg" alt="Lista doblemente enlazada" /><figcaption>Lista doblemente enlazada</figcaption>
+</figure>
+<p>Los dos enlaces de nodo permiten recorrer la lista en cualquier dirección. Si bien agregar o eliminar un nodo en una lista doblemente enlazada requiere cambiar más enlaces que las mismas operaciones en una lista enlazada individualmente, las operaciones son más simples y potencialmente más eficientes (para nodos que no sean los primeros) porque no hay necesidad de realizar un seguimiento de el nodo anterior durante el recorrido o no es necesario recorrer la lista para encontrar el nodo anterior, de modo que se pueda modificar su enlace.</p>
+<h2 id="pseudocódigo-para-operaciones-básicas">Pseudocódigo para operaciones básicas</h2>
+<h3 id="insertar">Insertar</h3>
+<pre class="text"><code>Add(value)
+  Pre: value is the value to add to the list
+  Post: value has been placed at the tail of the list
+  n ← node(value)
+  if head = ø
+    head ← n
+    tail ← n
+  else
+    n.previous ← tail
+    tail.next ← n
+    tail ← n
+  end if
+end Add</code></pre>
+<h3 id="eliminar">Eliminar</h3>
+<pre class="text"><code>Remove(head, value)
+  Pre: head is the head node in the list
+       value is the value to remove from the list
+  Post: value is removed from the list, true; otherwise false
+  if head = ø
+    return false
+  end if
+  if value = head.value
+    if head = tail
+      head ← ø
+      tail ← ø
+    else
+      head ← head.next
+      head.previous ← ø
+    end if
+    return true
+  end if
+  n ← head.next
+  while n != ø and value !== n.value
+    n ← n.next
+  end while
+  if n = tail
+    tail ← tail.previous
+    tail.next ← ø
+    return true
+  else if n != ø
+    n.previous.next ← n.next
+    n.next.previous ← n.previous
+    return true
+  end if
+  return false
+end Remove</code></pre>
+<h3 id="recorrido-inverso">Recorrido Inverso</h3>
+<pre class="text"><code>ReverseTraversal(tail)
+  Pre: tail is the node of the list to traverse
+  Post: the list has been traversed in reverse order
+  n ← tail
+  while n != ø
+    yield n.value
+    n ← n.previous
+  end while
+end Reverse Traversal</code></pre>
+<h2 id="complejidades">Complejidades</h2>
+<h2 id="complejidad-del-tiempo">Complejidad del Tiempo</h2>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;">Acceso</th>
+<th style="text-align: center;">Busqueda</th>
+<th style="text-align: center;">Inserción</th>
+<th style="text-align: center;">Supresión</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">O(n)</td>
+<td style="text-align: center;">O(n)</td>
+<td style="text-align: center;">O(1)</td>
+<td style="text-align: center;">O(n)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="complejidad-del-espacio">Complejidad del Espacio</h3>
+<p>O(n)</p>
+<h2 id="referencias">Referencias</h2>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Doubly_linked_list">Wikipedia</a></li>
+<li><a href="https://www.youtube.com/watch?v=JdQeNxWCguQ&amp;t=7s&amp;index=72&amp;list=PLLXdhg_r2hKA7DPDsunoDZ-Z769jWn4R8">YouTube</a></li>
+</ul>
+</body>
+</html>

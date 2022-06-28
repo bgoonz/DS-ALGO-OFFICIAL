@@ -21,9 +21,8 @@ Input: ** s = "abcabcbb" **
 Notice that the answer must be a substring, "pwke" is a subsequence and not a substring.
 */
 
-
-let lengthOfLongestSubstring = string => {
-  if ( string.length === 0 ) {
+let lengthOfLongestSubstring = (string) => {
+  if (string.length === 0) {
     return 0;
   }
 
@@ -31,12 +30,12 @@ let lengthOfLongestSubstring = string => {
     max = 0,
     length = 0;
 
-  for ( let i = 0; i < string.length; ++i ) {
-    if ( string.charAt( i ) in map ) {
-      length = Math.max( length, map[ string.charAt( i ) ] + 1 );
+  for (let i = 0; i < string.length; ++i) {
+    if (string.charAt(i) in map) {
+      length = Math.max(length, map[string.charAt(i)] + 1);
     }
-    map[ string.charAt( i ) ] = i;
-    max = Math.max( max, i - length + 1 );
+    map[string.charAt(i)] = i;
+    max = Math.max(max, i - length + 1);
   }
   return max;
 };

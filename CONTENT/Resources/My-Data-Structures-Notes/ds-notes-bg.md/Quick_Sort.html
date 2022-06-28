@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Quick Sort</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+</head>
+<body>
+<h1 id="quick-sort">Quick Sort</h1>
+<h4 id="problem-statement">Problem Statement</h4>
+<p>Given an unsorted array of n elements, write a function to sort the array</p>
+<h4 id="approach">Approach</h4>
+<ul>
+<li>Make the right-most index value pivot</li>
+<li>partition the array using pivot value</li>
+<li>quicksort left partition recursively</li>
+<li>quicksort right partition recursively</li>
+</ul>
+<h4 id="time-complexity">Time Complexity</h4>
+<ul>
+<li><code>O(n^2)</code> Worst case performance</li>
+<li><code>O(n log n)</code> Best-case performance</li>
+<li><code>O(n log n)</code> Average performance</li>
+</ul>
+<h4 id="space-complexity">Space Complexity</h4>
+<p><code>O(log n)</code> Worst case</p>
+<h4 id="founders-name">Founder’s Name</h4>
+<p>Tony Hoare in 1959</p>
+<h4 id="example">Example</h4>
+<pre><code>arr[] = {10, 80, 30, 90, 40, 50, 70}
+Indexes:  0   1   2   3   4   5   6
+
+low = 0, high =  6, pivot = arr[h] = 70
+Initialize index of smaller element, i = -1
+
+Traverse elements from j = low to high-1
+j = 0 : Since arr[j] &lt;= pivot, do i++ and swap(arr[i], arr[j])
+i = 0
+arr[] = {10, 80, 30, 90, 40, 50, 70} // No change as i and j
+                                     // are same
+
+j = 1 : Since arr[j] &gt; pivot, do nothing
+// No change in i and arr[]
+
+j = 2 : Since arr[j] &lt;= pivot, do i++ and swap(arr[i], arr[j])
+i = 1
+arr[] = {10, 30, 80, 90, 40, 50, 70} // We swap 80 and 30
+
+j = 3 : Since arr[j] &gt; pivot, do nothing
+// No change in i and arr[]
+
+j = 4 : Since arr[j] &lt;= pivot, do i++ and swap(arr[i], arr[j])
+i = 2
+arr[] = {10, 30, 40, 90, 80, 50, 70} // 80 and 40 Swapped
+j = 5 : Since arr[j] &lt;= pivot, do i++ and swap arr[i] with arr[j]
+i = 3
+arr[] = {10, 30, 40, 50, 80, 90, 70} // 90 and 50 Swapped
+
+We come out of loop because j is now equal to high-1.
+Finally we place pivot at correct position by swapping
+arr[i+1] and arr[high] (or pivot)
+arr[] = {10, 30, 40, 50, 70, 90, 80} // 80 and 70 Swapped
+
+Now 70 is at its correct place. All elements smaller than
+70 are before it and all elements greater than 70 are after
+it.</code></pre>
+<h4 id="code-implementation-links">Code Implementation Links</h4>
+<ul>
+<li><a href="https://github.com/TheAlgorithms/Java/blob/master/Sorts/QuickSort.java">Java</a></li>
+<li><a href="https://github.com/TheAlgorithms/C-Plus-Plus/blob/master/Sorting/Quick%20Sort.cpp">C++</a></li>
+<li><a href="https://github.com/TheAlgorithms/Python/blob/master/sorts/quick_sort.py">Python</a></li>
+<li><a href="https://github.com/TheAlgorithms/Ruby/blob/master/sorting/quicksort.rb">Ruby</a></li>
+</ul>
+<h4 id="video-explanation">Video Explanation</h4>
+<p><a href="https://www.youtube.com/watch?v=COk73cpQbFQ">A video explaining the Quick Sort Algorithm</a></p>
+</body>
+</html>

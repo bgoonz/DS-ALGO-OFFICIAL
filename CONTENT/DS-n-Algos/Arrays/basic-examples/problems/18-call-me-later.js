@@ -33,17 +33,16 @@ melan.callMeLater(1000); // waits one second then prints "Hello this is Melan"
 
 ***********************************************************************/
 
-const callCenter = ( name ) => {
+const callCenter = (name) => {
   return {
     name: name,
     sayHello: function () {
-      console.log( "Hello this is " + this.name );
+      console.log("Hello this is " + this.name);
     },
-    callMeLater: function ( time ) {
-        return setTimeout( this.sayHello.bind( this ), time );
+    callMeLater: function (time) {
+      return setTimeout(this.sayHello.bind(this), time);
     },
   };
 };
-
 
 // module.exports = boundfuncTimer;

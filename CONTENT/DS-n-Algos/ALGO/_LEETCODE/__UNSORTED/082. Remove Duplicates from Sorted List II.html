@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="generator" content="pandoc" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=yes"
+    />
+    <title>082. Remove Duplicates from Sorted List II</title>
+    <style type="text/css">
+      code {
+        white-space: pre-wrap;
+      }
+      span.smallcaps {
+        font-variant: small-caps;
+      }
+      span.underline {
+        text-decoration: underline;
+      }
+      div.column {
+        display: inline-block;
+        vertical-align: top;
+        width: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <h2 id="remove-duplicates-from-sorted-list-ii">
+      <a
+        href="https://leetcode.com/problems/remove-duplicates-from-sorted-list-ii/description/"
+        >82. Remove Duplicates from Sorted List II</a
+      >
+    </h2>
+    <h3 id="problem">Problem:</h3>
+    <p>
+      Given a sorted linked list, delete all nodes that have duplicate numbers,
+      leaving only <em>distinct</em> numbers from the original list.
+    </p>
+    <p><strong>Example 1:</strong></p>
+    <pre><code>Input: 1-&gt;2-&gt;3-&gt;3-&gt;4-&gt;4-&gt;5
+Output: 1-&gt;2-&gt;5</code></pre>
+    <p><strong>Example 2:</strong></p>
+    <pre><code>Input: 1-&gt;1-&gt;1-&gt;2-&gt;3
+Output: 2-&gt;3</code></pre>
+    <h3 id="solution">Solution:</h3>
+    <p>
+      <code>p1</code> points to the current node. <code>p</code> points to the
+      node before <code>p1</code> so that we can ditch <code>p1</code> if
+      needed.
+    </p>
+    <p>
+      The list is sorted so we only need <code>dupVal</code> to keep the latest
+      duplicate value.
+    </p>
+    <pre><code>/**
+ * Definition for singly-linked list.
+ * function ListNode(val) {
+ *     this.val = val;
+ *     this.next = null;
+ * }
+ */
+/**
+ * @param {ListNode} head
+ * @return {ListNode}
+ */
+var deleteDuplicates = function(head) {
+  if (!head) { return null }
+  const prehead = { next: head }
+
+  let p = prehead
+  let dupVal = NaN
+
+  for (let p1 = head; p1; p1 = p1.next) {
+    if (p1.val === dupVal) {
+      p.next = p1.next
+    } else if (p1.next &amp;&amp; p1.val === p1.next.val) {
+      p.next = p1.next
+      dupVal = p1.val
+    } else {
+      p = p1
+    }
+  }
+
+  return prehead.next
+};</code></pre>
+    <p>
+      <em
+        >Template generated via
+        <a href="https://github.com/crimx/crx-leetmark">Leetmark</a>.</em
+      >
+    </p>
+  </body>
+</html>

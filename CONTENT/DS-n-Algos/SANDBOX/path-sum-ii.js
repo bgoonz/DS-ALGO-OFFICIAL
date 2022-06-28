@@ -18,14 +18,13 @@ var tmp = [];
 var ans = [];
 
 function dfs(root, sum) {
-  if (!root)
-    return;
+  if (!root) return;
 
   tmp.push(root.val);
 
   if (!root.left && !root.right) {
     if (root.val === sum) {
-      var res = tmp.map(function(item) {
+      var res = tmp.map(function (item) {
         return item;
       });
 
@@ -47,7 +46,7 @@ function dfs(root, sum) {
   }
 }
 
-var pathSum = function(root, sum) {
+var pathSum = function (root, sum) {
   tmp = [];
   ans = [];
   dfs(root, sum);

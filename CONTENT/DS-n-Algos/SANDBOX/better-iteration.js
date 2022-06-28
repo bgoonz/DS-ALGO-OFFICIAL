@@ -12,22 +12,20 @@
  * @param {TreeNode} root
  * @return {number}
  */
-var countNodes = function(root) {
-  if (!root)
-    return 0;
+var countNodes = function (root) {
+  if (!root) return 0;
 
   var ans = 0;
 
   while (root) {
-    var l = findDepth(root.left)
-      , r = findDepth(root.right);
+    var l = findDepth(root.left),
+      r = findDepth(root.right);
 
     if (l === r) {
-      ans += (1 << l);
+      ans += 1 << l;
       root = root.right;
-    }
-    else {
-      ans += (1 << r);
+    } else {
+      ans += 1 << r;
       root = root.left;
     }
   }

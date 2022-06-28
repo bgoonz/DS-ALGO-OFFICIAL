@@ -12,12 +12,11 @@
  * @param {TreeNode} root
  * @return {number}
  */
-var findBottomLeftValue = function(root) {
+var findBottomLeftValue = function (root) {
   let res = [];
 
   let dfs = (node, step) => {
-    if (res[step] === undefined)
-      res[step] = node.val;
+    if (res[step] === undefined) res[step] = node.val;
 
     node.left && dfs(node.left, step + 1);
     node.right && dfs(node.right, step + 1);

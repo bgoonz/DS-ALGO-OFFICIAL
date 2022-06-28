@@ -3,11 +3,11 @@ const greaterCallbackValue = require("../problems/19-greater-callback-value.js")
 
 describe("greaterCallbackValue", () => {
   it("", () => {
-    let doubler = n => {
+    let doubler = (n) => {
       return 2 * n;
     };
 
-    let squarer = n => {
+    let squarer = (n) => {
       return n * n;
     };
 

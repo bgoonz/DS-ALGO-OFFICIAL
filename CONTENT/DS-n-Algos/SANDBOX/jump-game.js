@@ -6,7 +6,7 @@
  * @return {boolean}
  */
 
-var canJump = function(nums) {
+var canJump = function (nums) {
   var rightMost = 1;
   for (var i = 0, len = nums.length; i < len; i++) {
     if (rightMost < i + 1) break;

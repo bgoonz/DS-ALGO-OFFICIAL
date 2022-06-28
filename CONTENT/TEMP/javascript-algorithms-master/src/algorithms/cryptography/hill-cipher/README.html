@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>README</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+</head>
+<body>
+<h1 id="hill-cipher">Hill Cipher</h1>
+<p>The <strong>Hill cipher</strong> is a <a href="https://en.wikipedia.org/wiki/Polygraphic_substitution">polygraphic substitution</a> cipher based on linear algebra.</p>
+<p>Each letter is represented by a number <a href="https://en.wikipedia.org/wiki/Modular_arithmetic">modulo</a> <code>26</code>. Though this is not an essential feature of the cipher, this simple scheme is often used:</p>
+<table>
+<thead>
+<tr class="header">
+<th><strong>Letter</strong></th>
+<th>A</th>
+<th>B</th>
+<th>C</th>
+<th>D</th>
+<th>E</th>
+<th>F</th>
+<th>G</th>
+<th>H</th>
+<th>I</th>
+<th>J</th>
+<th>K</th>
+<th>L</th>
+<th>M</th>
+<th>N</th>
+<th>O</th>
+<th>P</th>
+<th>Q</th>
+<th>R</th>
+<th>S</th>
+<th>T</th>
+<th>U</th>
+<th>V</th>
+<th>W</th>
+<th>X</th>
+<th>Y</th>
+<th>Z</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Number</strong></td>
+<td>0</td>
+<td>1</td>
+<td>2</td>
+<td>3</td>
+<td>4</td>
+<td>5</td>
+<td>6</td>
+<td>7</td>
+<td>8</td>
+<td>9</td>
+<td>10</td>
+<td>11</td>
+<td>12</td>
+<td>13</td>
+<td>14</td>
+<td>15</td>
+<td>16</td>
+<td>17</td>
+<td>18</td>
+<td>19</td>
+<td>20</td>
+<td>21</td>
+<td>22</td>
+<td>23</td>
+<td>24</td>
+<td>25</td>
+</tr>
+</tbody>
+</table>
+<h2 id="encryption">Encryption</h2>
+<p>To encrypt a message, each block of <code>n</code> letters (considered as an <code>n</code>-component vector) is multiplied by an invertible <code>n × n</code> matrix, against modulus <code>26</code>.</p>
+<p>The matrix used for encryption is the <em>cipher key</em>, and it should be chosen randomly from the set of invertible <code>n × n</code> matrices (modulo <code>26</code>). The cipher can, of course, be adapted to an alphabet with any number of letters; all arithmetic just needs to be done modulo the number of letters instead of modulo <code>26</code>.</p>
+<p>Consider the message <code>ACT</code>, and the key below (or <code>GYB/NQK/URP</code> in letters):</p>
+<pre><code>| 6   24   1  |
+| 13  16   10 |
+| 20  17   15 |</code></pre>
+<p>Since <code>A</code> is<code>0</code>, <code>C</code> is <code>2</code> and <code>T</code> is <code>19</code>, the message is the vector:</p>
+<pre><code>|  0  |
+|  2  |
+|  19 |</code></pre>
+<p>Thus, the enciphered vector is given by:</p>
+<pre><code>| 6   24   1  |  |  0  |   |  67  |   |  15 |
+| 13  16   10 |  |  2  | = |  222 | ≡ |  14 | (mod 26)
+| 20  17   15 |  |  19 |   |  319 |   |  7  |</code></pre>
+<p>which corresponds to a ciphertext of <code>POH</code>.</p>
+<p>Now, suppose that our message is instead <code>CAT</code> (notice how we’re using the same letters as in <code>ACT</code> here), or:</p>
+<pre><code>|  2  |
+|  0  |
+|  19 |</code></pre>
+<p>This time, the enciphered vector is given by:</p>
+<pre><code>| 6   24   1  |  |  2  |   |  31  |   |  5  |
+| 13  16   10 |  |  0  | = |  216 | ≡ |  8  | (mod 26)
+| 20  17   15 |  |  19 |   |  325 |   |  13 |</code></pre>
+<p>which corresponds to a ciphertext of <code>FIN</code>. Every letter has changed.</p>
+<h2 id="decryption">Decryption</h2>
+<p>To decrypt the message, each block is multiplied by the inverse of the matrix used for encryption. We turn the ciphertext back into a vector, then simply multiply by the inverse matrix of the key matrix (<code>IFK/VIV/VMI</code> in letters). (See <a href="https://en.wikipedia.org/wiki/Matrix_inversion">matrix inversion</a> for methods to calculate the inverse matrix.) We find that, modulo 26, the inverse of the matrix used in the previous example is:</p>
+<pre><code>                -1
+| 6   24   1  |                | 8   5    10 |
+| 13  16   10 |    (mod 26) ≡  | 21  8    21 |
+| 20  17   15 |                | 21  12   8  |</code></pre>
+<p>Taking the previous example ciphertext of <code>POH</code>, we get:</p>
+<pre><code>| 8   5    10 |  |  15 |   |  260 |   |  0  |
+| 21  8    21 |  |  14 | = |  574 | ≡ |  2  | (mod 26)
+| 21  12   8  |  |  7  |   |  539 |   |  19 |</code></pre>
+<p>which gets us back to <code>ACT</code>, as expected.</p>
+<h2 id="defining-the-encrypting-matrix">Defining the encrypting matrix</h2>
+<p>Two complications exist in picking the encrypting matrix:</p>
+<ol type="1">
+<li>Not all matrices have an inverse. The matrix will have an inverse if and only if its <a href="https://en.wikipedia.org/wiki/Determinant">determinant</a> is not zero.</li>
+<li>The determinant of the encrypting matrix must not have any common factors with the modular base.</li>
+</ol>
+<p>Thus, if we work modulo <code>26</code> as above, the determinant must be nonzero, and must not be divisible by <code>2</code> or <code>13</code>. If the determinant is <code>0</code>, or has common factors with the modular base, then the matrix cannot be used in the Hill cipher, and another matrix must be chosen (otherwise it will not be possible to decrypt). Fortunately, matrices which satisfy the conditions to be used in the Hill cipher are fairly common.</p>
+<h2 id="references">References</h2>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Hill_cipher">Hill cipher on Wikipedia</a></li>
+<li><a href="https://www.mathsisfun.com/algebra/matrix-inverse.html">Matrix inversion on MathIsFun</a></li>
+<li><a href="https://www.geeksforgeeks.org/hill-cipher/">GeeksForGeeks</a></li>
+</ul>
+</body>
+</html>

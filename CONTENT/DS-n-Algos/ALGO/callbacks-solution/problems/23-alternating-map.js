@@ -1,4 +1,4 @@
-/*******************************************************************************
+/*
 Write a function `alternatingMap` that accepts an array and two callbacks as
 arguments. The function should return a new array containing the results of passing
 the original elements into the callbacks in an alternating fashion.
@@ -33,16 +33,16 @@ let whisper = function (s) {
 console.log(alternatingMap(['hEy', 'EVERYone', 'whats', 'uP??'], yell, whisper));
 // [ 'HEY!', '..everyone..', 'WHATS!', '..up??..' ]
 
-*******************************************************************************/
+*/
 
-function alternatingMap( array, cb1, cb2 ) {
+function alternatingMap(array, cb1, cb2) {
   let mapped = [];
-  for ( let i = 0; i < array.length; i++ ) {
-    let ele = array[ i ];
-    if ( i % 2 === 0 ) {
-      mapped.push( cb1( ele ) );
+  for (let i = 0; i < array.length; i++) {
+    let ele = array[i];
+    if (i % 2 === 0) {
+      mapped.push(cb1(ele));
     } else {
-      mapped.push( cb2( ele ) );
+      mapped.push(cb2(ele));
     }
   }
   return mapped;

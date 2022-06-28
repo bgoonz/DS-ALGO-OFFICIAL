@@ -6,23 +6,25 @@
  * @param {number[]} heaters
  * @return {number}
  */
-var findRadius = function(houses, heaters) {
+var findRadius = function (houses, heaters) {
+  houses.sort(function (a, b) {
+    return a - b;
+  });
+  heaters.sort(function (a, b) {
+    return a - b;
+  });
 
-  houses.sort(function(a, b) {return a - b});
-  heaters.sort(function(a, b) {return a - b});
-
-  let A = houses.length
-    , B = heaters.length
-    , j = 0
-    , ans = 0;
+  let A = houses.length,
+    B = heaters.length,
+    j = 0,
+    ans = 0;
 
   // enum each hourse
   for (let i = 0; i < A; i++) {
-    let pos = houses[i]
-      , minDis = Infinity; // the minimum radius that houses[i] can be covered
+    let pos = houses[i],
+      minDis = Infinity; // the minimum radius that houses[i] can be covered
 
-    while (heaters[j] < pos && j < B - 1)
-      j++;
+    while (heaters[j] < pos && j < B - 1) j++;
 
     // heaters[j - 1] is the one right before houses[i]
     // heaters[j] is the one right after houses[i]

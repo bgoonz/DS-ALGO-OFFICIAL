@@ -1,68 +1,68 @@
 // starting at s
-function solve( graph, s ) {
-  const solutions = {}
-  solutions[ s ] = []
-  solutions[ s ].dist = 0
+function solve(graph, s) {
+  const solutions = {};
+  solutions[s] = [];
+  solutions[s].dist = 0;
 
-  while ( true ) {
-    let p = null
-    let neighbor = null
-    let dist = Infinity
+  while (true) {
+    let p = null;
+    let neighbor = null;
+    let dist = Infinity;
 
-    for ( const n in solutions ) {
-      if ( !solutions[ n ] ) {
-        continue
+    for (const n in solutions) {
+      if (!solutions[n]) {
+        continue;
       }
-      const ndist = solutions[ n ].dist
-      const adj = graph[ n ]
+      const ndist = solutions[n].dist;
+      const adj = graph[n];
 
-      for ( const a in adj ) {
-        if ( solutions[ a ] ) {
-          continue
+      for (const a in adj) {
+        if (solutions[a]) {
+          continue;
         }
 
-        const d = adj[ a ] + ndist
-        if ( d < dist ) {
-          p = solutions[ n ]
-          neighbor = a
-          dist = d
+        const d = adj[a] + ndist;
+        if (d < dist) {
+          p = solutions[n];
+          neighbor = a;
+          dist = d;
         }
       }
     }
 
     // no more solutions
-    if ( dist === Infinity ) {
-      break
+    if (dist === Infinity) {
+      break;
     }
 
     // extend parent's solution path
-    solutions[ neighbor ] = p.concat( neighbor )
+    solutions[neighbor] = p.concat(neighbor);
     // extend parent's cost
-    solutions[ neighbor ].dist = dist
+    solutions[neighbor].dist = dist;
   }
 
-  return solutions
+  return solutions;
 }
 // create graph
-const graph = {}
+const graph = {};
 
 const layout = {
-  R: [ '2' ],
-  2: [ '3', '4' ],
-  3: [ '4', '6', '13' ],
-  4: [ '5', '8' ],
-  5: [ '7', '11' ],
-  6: [ '13', '15' ],
-  7: [ '10' ],
-  8: [ '11', '13' ],
-  9: [ '14' ],
+  R: ["2"],
+  2: ["3", "4"],
+  3: ["4", "6", "13"],
+  4: ["5", "8"],
+  5: ["7", "11"],
+  6: ["13", "15"],
+  7: ["10"],
+  8: ["11", "13"],
+  9: ["14"],
   10: [],
-  11: [ '12' ],
+  11: ["12"],
   12: [],
-  13: [ '14' ],
+  13: ["14"],
   14: [],
-  15: []
-}
+  15: [],
+};
 
 // convert uni-directional to bi-directional graph
 // let  graph = {
@@ -76,29 +76,37 @@ const layout = {
 //     h: {f:1}
 // };
 
-for ( const id in layout ) {
-  if ( !graph[ id ] ) {
-    graph[ id ] = {}
+for (const id in layout) {
+  if (!graph[id]) {
+    graph[id] = {};
   }
-  layout[ id ].forEach( aid => {
-    graph[ id ][ aid ] = 1
-    if ( !graph[ aid ] ) {
-      graph[ aid ] = {}
+  layout[id].forEach((aid) => {
+    graph[id][aid] = 1;
+    if (!graph[aid]) {
+      graph[aid] = {};
     }
-    graph[ aid ][ id ] = 1
-  } )
+    graph[aid][id] = 1;
+  });
 }
 
 // choose start node
-const start = '10'
+const start = "10";
 // get all solutions
-const solutions = solve( graph, start )
+const solutions = solve(graph, start);
 
-console.log( "From '" + start + "' to" )
+console.log("From '" + start + "' to");
 // display solutions
-for ( const s in solutions ) {
-  if ( !solutions[ s ] ) continue
-  console.log( ' -> ' + s + ': [' + solutions[ s ].join( ', ' ) + ']   (dist:' + solutions[ s ].dist + ')' )
+for (const s in solutions) {
+  if (!solutions[s]) continue;
+  console.log(
+    " -> " +
+      s +
+      ": [" +
+      solutions[s].join(", ") +
+      "]   (dist:" +
+      solutions[s].dist +
+      ")"
+  );
 }
 
 // From '10' to

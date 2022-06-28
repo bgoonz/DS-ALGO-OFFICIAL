@@ -17,8 +17,7 @@ hidden2(); // returns 1
 
 function hiddenCounter() {
   let count = 0;
-  return () => ( count += 1 );
+  return () => (count += 1);
 }
-
 
 module.exports = hiddenCounter;

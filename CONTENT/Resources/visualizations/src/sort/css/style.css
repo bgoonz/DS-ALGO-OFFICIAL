@@ -64,27 +64,19 @@ div.circleBehind a:hover:after {
 /*navbar1*/
 
 /*logo */
-.navbar-brand
-{
-  padding: 0px; 
+.navbar-brand {
+  padding: 0px;
 }
 
-.navbar-brand img{
-  background:rgb(248, 242, 242); 
- border-radius: 60%; /* the magic */
-    padding: 9px 10px;
-  position:relative;
-    float: left;
-    height: 50px;
-   margin: 10px 5px 0px 100px;
-  
-
-    
+.navbar-brand img {
+  background: rgb(248, 242, 242);
+  border-radius: 60%; /* the magic */
+  padding: 9px 10px;
+  position: relative;
+  float: left;
+  height: 50px;
+  margin: 10px 5px 0px 100px;
 }
-    
-    
-    
-  
 
 /*2n endl logo*/
 
@@ -132,8 +124,7 @@ button {
   position: relative;
   display: inline-block;
   box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, 0.5),
-    7px 7px 20px 0px rgba(0, 0, 0, 0.1),
-    4px 4px 5px 0px rgba(0, 0, 0, 0.1);
+    7px 7px 20px 0px rgba(0, 0, 0, 0.1), 4px 4px 5px 0px rgba(0, 0, 0, 0.1);
   outline: none;
 }
 
@@ -150,8 +141,7 @@ button {
   position: relative;
   display: inline-block;
   box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, 0.5),
-    7px 7px 20px 0px rgba(0, 0, 0, 0.1), 
-    4px 4px 5px 0px rgba(0, 0, 0, 0.1);
+    7px 7px 20px 0px rgba(0, 0, 0, 0.1), 4px 4px 5px 0px rgba(0, 0, 0, 0.1);
   outline: none;
 }
 
@@ -166,11 +156,7 @@ button {
 }
 .b1:hover {
   background: rgb(39, 226, 179);
-  background: linear-gradient(
-    0deg,
-    rgb(49, 24, 213) 0%,
-    rgb(251, 2, 14) 100%
-  );
+  background: linear-gradient(0deg, rgb(49, 24, 213) 0%, rgb(251, 2, 14) 100%);
 }
 
 label {

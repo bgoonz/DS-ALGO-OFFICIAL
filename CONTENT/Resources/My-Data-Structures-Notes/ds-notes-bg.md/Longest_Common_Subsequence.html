@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Longest Common Subsequence</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+</head>
+<body>
+<h1 id="longest-common-subsequence">Longest Common Subsequence</h1>
+<h4 id="problem-statement">Problem Statement</h4>
+<p>Given two strings <code>S</code> and <code>T</code>, find the length of the longest common subsequence (<b>LCS</b>).</p>
+<h4 id="approach">Approach</h4>
+<p>Let the <code>dp[i][j]</code> be the length of the longest common subsequence of prefixes <code>S[1..i]</code> and <code>T[1..j]</code>. Our answer (the length of LCS) is <code>dp[|S|][|T|]</code> since the prefix of the length of string is the string itself.</p>
+<p>Both <code>dp[0][i]</code> and <code>dp[i][0]</code> are <code>0</code> for any <code>i</code> since the LCS of empty prefix and anything else is an empty string.</p>
+<p>Now let’s try to calculate <code>dp[i][j]</code> for any <code>i</code>, <code>j</code>. Let’s say <code>S[1..i] = *A</code> and <code>T[1..j] = *B</code> where <code>*</code> stands for any sequence of letters (could be different for <code>S</code> and <code>T</code>), <code>A</code> stands for any letter and <code>B</code> stands for any letter different from <code>A</code>. Since <code>A != B</code>, our LCS doesn’t include <code>A</code> or <code>B</code> as a last character. So we could try to throw away <code>A</code> or <code>B</code> character. If we throw <code>A</code>, our LCS length will be <code>dp[i - 1][j]</code> (since we have prefixes <code>S[1..i - 1]</code> and <code>T[1..j]</code>). If we try to throw <code>B</code> character, we will have prefixes <code>S[1..i]</code> and <code>T[1..j - 1]</code> so the length of LCS will be <code>dp[i][j - 1]</code>. As we are looking for the <b>Longest</b> common subsequence, we will pick <b>the maximum value</b> from <code>dp[i][j - 1]</code> and <code>dp[i - 1][j]</code>.</p>
+<p>But what if <code>S[1..i] = *A</code> and <code>T[1..j] = *A</code>? We could say that the LCS of our prefixes is LCS of prefixes <code>S[1..i - 1]</code> and <code>T[1..j - 1]</code> <b>plus</b> the letter <code>A</code>. So <code>dp[i][j] = dp[i - 1][j - 1] + 1</code> if <code>S[i] = T[j]</code>.</p>
+<p>We could see that we can fill our <code>dp</code> table row by row, column by column. So our algorithm will be like:</p>
+<ul>
+<li>Let’s say that we have strings <code>S</code> of the length N and <code>T</code> of the length M (numbered from 1). Let’s create the table <code>dp</code> of size <code>(N + 1) x (M + 1)</code> numbered from 0.</li>
+<li>Let’s fill the 0th row and the 0th column of <code>dp</code> with 0.</li>
+<li>Then, we follow the algorithm:</li>
+</ul>
+<pre><code>for i in range(1..N):
+    for j in range(1..M):
+        if(S[i] == T[j])
+            dp[i][j] = dp[i - 1][j - 1] + 1
+        else
+            dp[i][j] = max(dp[i - 1][j], dp[i][j - 1])</code></pre>
+<h4 id="time-complexity">Time Complexity</h4>
+<p><code>O(N * M)</code> In any case</p>
+<h4 id="space-complexity">Space Complexity</h4>
+<p><code>O(N * M)</code> - simple implementation <code>O(min {N, M})</code> - two-layers implementation (as <code>dp[i][j]</code> depends on only i-th and i-th layers, we coudld store only two layers).</p>
+<h4 id="example">Example</h4>
+<p>Let’s say we have strings <code>ABCB</code> and <code>BBCB</code>. We will build such a table:</p>
+<pre><code># # A B C B
+# 0 0 0 0 0
+B 0 ? ? ? ?
+B 0 ? ? ? ?
+C 0 ? ? ? ?
+B 0 ? ? ? ?</code></pre>
+<p>Now we will start to fill our table from 1st row. Since <code>S[1] = A</code> and <code>T[1] = B</code>, the <code>dp[1][1]</code> will be tha maximal value of <code>dp[0][1] = 0</code> and <code>dp[1][0] = 0</code>. So <code>dp[1][1] = 0</code>. But now <code>S[2] = B = T[1]</code>, so <code>dp[1][2] = dp[0][1] + 1 = 1</code>. <code>dp[1][3]</code> is <code>1</code> since <code>A != C</code> and we pick <code>max{dp[1][2], dp[0][3]}</code>. And <code>dp[1][4] = dp[0][3] + 1 = 1</code>.</p>
+<pre><code># # A B C B
+# 0 0 0 0 0
+B 0 0 1 1 1
+B 0 ? ? ? ?
+C 0 ? ? ? ?
+B 0 ? ? ? ?</code></pre>
+<p>Now let’s fill the other part of the table:</p>
+<pre><code># # A B C B
+# 0 0 0 0 0
+B 0 0 1 1 1
+B 0 0 1 1 2
+C 0 0 1 2 2
+B 0 0 1 2 3</code></pre>
+<p>So the length of LCS is <code>dp[4][4] = 3</code>.</p>
+<h4 id="code-implementation-links">Code Implementation Links</h4>
+<ul>
+<li><a href="https://github.com/TheAlgorithms/Java/blob/master/Dynamic%20Programming/LongestCommonSubsequence.java">Java</a></li>
+<li><a href="https://github.com/TheAlgorithms/Python/blob/master/dynamic_programming/longest_common_subsequence.py">Python</a></li>
+<li><a href="https://github.com/TheAlgorithms/C-Plus-Plus/blob/master/Dynamic%20Programming/Longest%20Common%20Subsequence.cpp">C++</a></li>
+</ul>
+<h4 id="video-explanation">Video Explanation</h4>
+<p><a href="https://youtu.be/NnD96abizww">Video explanation by Tushar Roy</a></p>
+</body>
+</html>

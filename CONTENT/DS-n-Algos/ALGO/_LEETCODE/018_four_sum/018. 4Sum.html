@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="generator" content="pandoc" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=yes"
+    />
+    <title>018. 4Sum</title>
+    <style type="text/css">
+      code {
+        white-space: pre-wrap;
+      }
+      span.smallcaps {
+        font-variant: small-caps;
+      }
+      span.underline {
+        text-decoration: underline;
+      }
+      div.column {
+        display: inline-block;
+        vertical-align: top;
+        width: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <h2 id="sum">
+      <a href="https://leetcode.com/problems/4sum/description/">18. 4Sum</a>
+    </h2>
+    <h3 id="problem">Problem:</h3>
+    <p>
+      Given an array <code>nums</code> of <em>n</em> integers and an integer
+      <code>target</code>, are there elements <em>a</em>, <em>b</em>,
+      <em>c</em>, and <em>d</em> in <code>nums</code> such that <em>a</em> +
+      <em>b</em> + <em>c</em> + <em>d</em> = <code>target</code>? Find all
+      unique quadruplets in the array which gives the sum of
+      <code>target</code>.
+    </p>
+    <p><strong>Note:</strong></p>
+    <p>The solution set must not contain duplicate quadruplets.</p>
+    <p><strong>Example:</strong></p>
+    <pre><code>Given array nums = [1, 0, -1, 0, -2, 2], and target = 0.
+
+A solution set is:
+[
+  [-1,  0, 0, 1],
+  [-2, -1, 1, 2],
+  [-2,  0, 0, 2]
+]</code></pre>
+    <h3 id="solution">Solution:</h3>
+    <p>
+      Like <a href="./015.%203Sum.md">15. 3Sum</a> and
+      <a href="./016.%203Sum%20Closest.md">16. 3Sum Closest</a>. Wrap one more
+      loop.
+    </p>
+    <pre><code>/**
+ * @param {number[]} nums
+ * @param {number} target
+ * @return {number[][]}
+ */
+let fourSum = function(nums, target) {
+  const len = nums.length
+  const sorted = nums.sort((a, b) =&gt; a - b)
+  const result = []
+
+  for (let k = 0; k &lt; len - 3; k++) {
+    if (k &gt; 0 &amp;&amp; sorted[k] === sorted[k-1]) {
+      continue
+    }
+
+    const threeSum = target - sorted[k]
+
+    for (let i = k+1; i &lt; len - 2; i++) {
+      if (i &gt; k+1 &amp;&amp; sorted[i] === sorted[i-1]) {
+        continue
+      }
+
+      const twoSum = threeSum - sorted[i]
+
+      for (let l = i + 1, r = len - 1; l &lt; r;) {
+        const diff = twoSum - sorted[l] - sorted[r]
+        if (diff &gt; 0) {
+          l++
+        } else if (diff &lt; 0) {
+          r--
+        } else {
+          result.push([sorted[k], sorted[i], sorted[l], sorted[r]])
+          while (++l &lt; r &amp;&amp; sorted[l] === sorted[l - 1]);
+          while (--r &gt; l &amp;&amp; sorted[r] === sorted[r + 1]);
+        }
+      }
+    }
+  }
+
+  return result
+};</code></pre>
+  </body>
+</html>

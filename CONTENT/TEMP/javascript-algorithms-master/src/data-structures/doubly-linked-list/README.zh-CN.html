@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>README.zh-CN</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+</head>
+<body>
+<h1 id="双向链表">双向链表</h1>
+<p>在计算机科学中, 一个 <strong>双向链表(doubly linked list)</strong> 是由一组称为节点的顺序链接记录组成的链接数据结构。每个节点包含两个字段，称为链接，它们是对节点序列中上一个节点和下一个节点的引用。开始节点和结束节点的上一个链接和下一个链接分别指向某种终止节点，通常是前哨节点或null，以方便遍历列表。如果只有一个前哨节点，则列表通过前哨节点循环链接。它可以被概念化为两个由相同数据项组成的单链表，但顺序相反。</p>
+<figure>
+<img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/Doubly-linked-list.svg" alt="Doubly Linked List" /><figcaption>Doubly Linked List</figcaption>
+</figure>
+<p>两个节点链接允许在任一方向上遍历列表。</p>
+<p>在双向链表中进行添加或者删除节点时,需做的链接更改要比单向链表复杂得多。这种操作在单向链表中更简单高效,因为不需要关注一个节点（除第一个和最后一个节点以外的节点）的两个链接,而只需要关注一个链接即可。</p>
+<h2 id="基础操作的伪代码">基础操作的伪代码</h2>
+<h3 id="插入">插入</h3>
+<pre class="text"><code>Add(value)
+  Pre: value is the value to add to the list
+  Post: value has been placed at the tail of the list
+  n ← node(value)
+  if head = ø
+    head ← n
+    tail ← n
+  else
+    n.previous ← tail
+    tail.next ← n
+    tail ← n
+  end if
+end Add</code></pre>
+<h3 id="删除">删除</h3>
+<pre class="text"><code>Remove(head, value)
+  Pre: head is the head node in the list
+       value is the value to remove from the list
+  Post: value is removed from the list, true; otherwise false
+  if head = ø
+    return false
+  end if
+  if value = head.value
+    if head = tail
+      head ← ø
+      tail ← ø
+    else
+      head ← head.next
+      head.previous ← ø
+    end if
+    return true
+  end if
+  n ← head.next
+  while n = ø and value !== n.value
+    n ← n.next
+  end while
+  if n = tail
+    tail ← tail.previous
+    tail.next ← ø
+    return true
+  else if n = ø
+    n.previous.next ← n.next
+    n.next.previous ← n.previous
+    return true
+  end if
+  return false
+end Remove</code></pre>
+<h3 id="反向遍历">反向遍历</h3>
+<pre class="text"><code>ReverseTraversal(tail)
+  Pre: tail is the node of the list to traverse
+  Post: the list has been traversed in reverse order
+  n ← tail
+  while n = ø
+    yield n.value
+    n ← n.previous
+  end while
+end Reverse Traversal</code></pre>
+<h2 id="复杂度">复杂度</h2>
+<h2 id="时间复杂度">时间复杂度</h2>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;">Access</th>
+<th style="text-align: center;">Search</th>
+<th style="text-align: center;">Insertion</th>
+<th style="text-align: center;">Deletion</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">O(n)</td>
+<td style="text-align: center;">O(n)</td>
+<td style="text-align: center;">O(1)</td>
+<td style="text-align: center;">O(1)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="空间复杂度">空间复杂度</h3>
+<p>O(n)</p>
+<h2 id="参考">参考</h2>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Doubly_linked_list">Wikipedia</a></li>
+<li><a href="https://www.youtube.com/watch?v=JdQeNxWCguQ&amp;t=7s&amp;index=72&amp;list=PLLXdhg_r2hKA7DPDsunoDZ-Z769jWn4R8">YouTube</a></li>
+</ul>
+</body>
+</html>

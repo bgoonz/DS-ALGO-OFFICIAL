@@ -7,11 +7,10 @@
  * @return {number}
  */
 
-var removeElement = function(nums, val) {
+var removeElement = function (nums, val) {
   var ans = 0;
-  for(var i = nums.length; i--; )
-    if (nums[i] !== val)
-      ans++;
+  for (var i = nums.length; i--; )
+    if (nums[i] !== val) ans++;
     else nums.splice(i, 1);
 
   return ans;

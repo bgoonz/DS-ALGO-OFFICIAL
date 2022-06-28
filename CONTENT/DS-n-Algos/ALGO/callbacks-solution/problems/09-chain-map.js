@@ -1,4 +1,4 @@
-/*******************************************************************************
+/*
 Write a function `chainMap` that accepts a value and any number of callbacks as
 arguments. The function should return the final result of passing the value through
 all of the given callbacks. In other words, if three callbacks are given then:
@@ -26,12 +26,12 @@ console.log( chainMap( 25, add5, half ) ); // 15
 console.log(chainMap(25, add5, half, square));  // 225
 console.log( chainMap( 4, square, half ) ); // 8
 console.log(chainMap(4, half, square));         // 4
-*******************************************************************************/
+*/
 
-function chainMap( val, ...callbacks ) {
-  callbacks.forEach( cb => {
-    val = cb( val );
-  } );
+function chainMap(val, ...callbacks) {
+  callbacks.forEach((cb) => {
+    val = cb(val);
+  });
   return val;
 }
 

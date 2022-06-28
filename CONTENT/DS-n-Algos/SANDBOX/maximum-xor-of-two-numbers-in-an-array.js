@@ -7,16 +7,16 @@
  * @param {number[]} nums
  * @return {number}
  */
-var findMaximumXOR = function(nums) {
-  let maxn = 0
-    , mask = 0;
+var findMaximumXOR = function (nums) {
+  let maxn = 0,
+    mask = 0;
 
   for (let i = 31; i >= 0; i--) {
-    mask |= (1 << i);
+    mask |= 1 << i;
 
     let set = new Set();
 
-    nums.forEach(function(item) {
+    nums.forEach(function (item) {
       set.add(item & mask);
     });
 
@@ -26,8 +26,7 @@ var findMaximumXOR = function(nums) {
     for (let item of set) {
       // A ^ B = C
       // => (A ^ C = B) & (B ^ C = A)
-      if (set.has(tmp ^ item))
-        maxn = tmp;
+      if (set.has(tmp ^ item)) maxn = tmp;
     }
   }
 

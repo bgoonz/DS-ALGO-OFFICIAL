@@ -11,10 +11,10 @@ Example 2:
 let fame = intersection(["f", "a", "m", "e"]); // returns a function
 console.log(fame(["a", "f", "z", "b"])); // returns [ 'f', 'a' ]
 
-*******************************************************************************/
+**\*\*\*\***\*\***\*\*\*\***\*\***\*\*\*\***\*\***\*\*\*\***\*\*\***\*\*\*\***\*\***\*\*\*\***\*\***\*\*\*\***\*\***\*\*\*\***/
 
 function intersection(firstArr) {
-  return (secondArr) => {
+return (secondArr) => {
 
     let common = [];
 
@@ -27,5 +27,5 @@ function intersection(firstArr) {
 
     return common;
 
-  }; 
+};
 }

@@ -1,114 +1,158 @@
 /* Binary Search Tree!!
-*
-* Nodes that will go on the Binary Tree.
-* They consist of the data in them, the node to the left, the node
-* to the right, and the parent from which they came from.
-*
-* A binary tree is a data structure in which an element
-* has two successors(children). The left child is usually
-* smaller than the parent, and the right child is usually
-* bigger.
-*/
+ *
+ * Nodes that will go on the Binary Tree.
+ * They consist of the data in them, the node to the left, the node
+ * to the right, and the parent from which they came from.
+ *
+ * A binary tree is a data structure in which an element
+ * has two successors(children). The left child is usually
+ * smaller than the parent, and the right child is usually
+ * bigger.
+ */
 
 // class Node
-var Node = (function () {
+const Node = (function Node() {
   // Node in the tree
-  function Node (val) {
-    this.value = val
-    this.left = null
-    this.right = null
-  }
-
-  // Search the tree for a value
-  Node.prototype.search = function (val) {
-    if (this.value === val) {
-      return this
-    } else if (val < this.value && this.left != null) {
-      return this.left.search(val)
-    } else if (val > this.value && this.right != null) {
-      return this.right.search(val)
+  class Node {
+    constructor(val) {
+      this.value = val;
+      this.left = null;
+      this.right = null;
     }
-    return null
-  }
 
-  // Visit a node
-  Node.prototype.visit = function () {
-    // Recursively go left
-    if (this.left != null) {
-      this.left.visit()
-    }
-    // Print out value
-    console.log(this.value)
-    // Recursively go right
-    if (this.right != null) {
-      this.right.visit()
-    }
-  }
-
-  // Add a node
-  Node.prototype.addNode = function (n) {
-    if (n.value < this.value) {
-      if (this.left == null) {
-        this.left = n
-      } else {
-        this.left.addNode(n)
+    // Search the tree for a value
+    search(val) {
+      if (this.value === val) {
+        return this;
+      } else if (val < this.value && this.left !== null) {
+        return this.left.search(val);
+      } else if (val > this.value && this.right !== null) {
+        return this.right.search(val);
       }
-    } else if (n.value > this.value) {
-      if (this.right == null) {
-        this.right = n
-      } else {
-        this.right.addNode(n)
+      return null;
+    }
+
+    // Visit a node
+    visit(output = (value) => console.log(value)) {
+      // Recursively go left
+      if (this.left !== null) {
+        this.left.visit();
+      }
+      // Print out value
+      output(this.value);
+      // Recursively go right
+      if (this.right !== null) {
+        this.right.visit();
       }
     }
+
+    // Add a node
+    addNode(n) {
+      if (n.value < this.value) {
+        if (this.left === null) {
+          this.left = n;
+        } else {
+          this.left.addNode(n);
+        }
+      } else if (n.value > this.value) {
+        if (this.right === null) {
+          this.right = n;
+        } else {
+          this.right.addNode(n);
+        }
+      }
+    }
+
+    // remove a node
+    removeNode(val) {
+      if (val === this.value) {
+        if (!this.left && !this.right) {
+          return null;
+        } else {
+          if (this.left) {
+            const leftMax = maxVal(this.left);
+            this.value = leftMax;
+            this.left = this.left.removeNode(leftMax);
+          } else {
+            const rightMin = minVal(this.right);
+            this.value = rightMin;
+            this.right = this.right.removeNode(rightMin);
+          }
+        }
+      } else if (val < this.value) {
+        this.left = this.left && this.left.removeNode(val);
+      } else if (val > this.value) {
+        this.right = this.right && this.right.removeNode(val);
+      }
+      return this;
+    }
   }
 
-  // returns the constructor
-  return Node
-}())
-
-// class Tree
-var Tree = (function () {
-  function Tree () {
-    // Just store the root
-    this.root = null
+  // find maximum value in the tree
+  const maxVal = ({ right, value }) => {
+    if (!right) {
+      return value;
+    }
+    return maxVal(right);
   };
 
-  // Inorder traversal
-  Tree.prototype.traverse = function () {
-    this.root.visit()
-  }
-
-  // Start by searching the root
-  Tree.prototype.search = function (val) {
-    const found = this.root.search(val)
-    if (found === null) {
-      console.log(val + ' not found')
-    } else {
-      console.log('Found:' + found.value)
+  // find minimum value in the tree
+  const minVal = ({ left, value }) => {
+    if (!left) {
+      return value;
     }
-  }
+    return minVal(left);
+  };
+  // returns the constructor
+  return Node;
+})();
 
-  // Add a new value to the tree
-  Tree.prototype.addValue = function (val) {
-    const n = new Node(val)
-    if (this.root == null) {
-      this.root = n
-    } else {
-      this.root.addNode(n)
+// class Tree
+const Tree = (() => {
+  class Tree {
+    constructor() {
+      // Just store the root
+      this.root = null;
+    }
+
+    // Inorder traversal
+    traverse() {
+      if (!this.root) {
+        // No nodes are there in the tree till now
+        return;
+      }
+      this.root.visit();
+    }
+
+    // Start by searching the root
+    search(val) {
+      const found = this.root.search(val);
+      if (found !== null) {
+        return found.value;
+      }
+      // not found
+      return null;
+    }
+
+    // Add a new value to the tree
+    addValue(val) {
+      const n = new Node(val);
+      if (this.root === null) {
+        this.root = n;
+      } else {
+        this.root.addNode(n);
+      }
+    }
+
+    // remove a value from the tree
+    removeValue(val) {
+      // remove something if root exists
+      this.root = this.root && this.root.removeNode(val);
     }
   }
 
   // returns the constructor
-  return Tree
-}())
+  return Tree;
+})();
 
-// Implementation of BST
-var bst = new Tree()
-bst.addValue(6)
-bst.addValue(3)
-bst.addValue(9)
-bst.addValue(2)
-bst.addValue(8)
-bst.addValue(4)
-bst.traverse()
-bst.search(8)
+export { Tree };

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>README</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+</head>
+<body>
+<p>This is obviously a DP problem.</p>
+<p>But it is hard to partition it into sub-problems because of operator precedence: 1+2*3+4</p>
+<p>If we partition the problem into <code>12</code> and <code>34</code>, then the values calculated from subproblems cannot be used to construct solution for the big problem. So we need 2 levels of recursion:</p>
+<p>First level is for <code>+</code> and <code>-</code>, second level is for <code>*</code> operator.</p>
+<p>For each finished expression like <code>1*2+3-4</code>, we find the leftmost + or - operator, character to its left is either an atomic number or a <code>*</code> expression, then we can recurse with <code>*</code> on the left, and recurse with <code>+</code> or <code>-</code> on the right.</p>
+<p>There is a minor problem with “-” operator: 1-2+3 is not equal to 1-(2+3)</p>
+<p>We can treat minus as adding a negative number. For every atomic number or <code>*</code> expression, we consider adding either the number or its negative number, and adjust the expression accordingly.</p>
+<p>In the end, we need to filter out expressions that starts with a “-” sign. (Because operators are only allowed <em>between</em> numbers).</p>
+</body>
+</html>

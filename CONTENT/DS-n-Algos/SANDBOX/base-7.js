@@ -5,13 +5,12 @@
  * @param {number} num
  * @return {string}
  */
-var convertToBase7 = function(num) {
-  if (num === 0)
-    return '0';
-  
-  let prefix = num < 0 ? '-' : ''
-    , res = []
-    , base = 7;
+var convertToBase7 = function (num) {
+  if (num === 0) return "0";
+
+  let prefix = num < 0 ? "-" : "",
+    res = [],
+    base = 7;
 
   num = Math.abs(num);
 
@@ -20,5 +19,5 @@ var convertToBase7 = function(num) {
     num = ~~(num / base);
   }
 
-  return prefix + res.reverse().join('');
+  return prefix + res.reverse().join("");
 };

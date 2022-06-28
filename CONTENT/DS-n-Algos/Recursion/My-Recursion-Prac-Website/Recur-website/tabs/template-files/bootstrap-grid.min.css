@@ -44,8 +44,8 @@ html {
   margin-left: 0;
 }
 
-.no-gutters>.col,
-.no-gutters>[class*='col-'] {
+.no-gutters > .col,
+.no-gutters > [class*="col-"] {
   padding-right: 0;
   padding-left: 0;
 }

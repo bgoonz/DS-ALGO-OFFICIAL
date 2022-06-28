@@ -4,7 +4,7 @@
 /**
  * @param {number[]} nums
  */
-var Solution = function(nums) {
+var Solution = function (nums) {
   this.nums = nums;
 };
 
@@ -12,7 +12,7 @@ var Solution = function(nums) {
  * Resets the array to its original configuration and return it.
  * @return {number[]}
  */
-Solution.prototype.reset = function() {
+Solution.prototype.reset = function () {
   return this.nums;
 };
 
@@ -20,7 +20,7 @@ Solution.prototype.reset = function() {
  * Returns a random shuffling of the array.
  * @return {number[]}
  */
-Solution.prototype.shuffle = function() {
+Solution.prototype.shuffle = function () {
   // @see https://github.com/hanzichi/underscore-analysis/issues/15
   function shuffle(a) {
     var length = a.length;
@@ -28,8 +28,7 @@ Solution.prototype.shuffle = function() {
 
     for (var index = 0, rand; index < length; index++) {
       rand = ~~(Math.random() * (index + 1));
-      if (rand !== index)
-        shuffled[index] = shuffled[rand];
+      if (rand !== index) shuffled[index] = shuffled[rand];
       shuffled[rand] = a[index];
     }
 

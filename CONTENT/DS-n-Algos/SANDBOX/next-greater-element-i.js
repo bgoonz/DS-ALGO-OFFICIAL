@@ -6,7 +6,7 @@
  * @param {number[]} nums
  * @return {number[]}
  */
-var nextGreaterElement = function(findNums, nums) {
+var nextGreaterElement = function (findNums, nums) {
   let ans = [];
   let len = nums.length;
 
@@ -22,8 +22,7 @@ var nextGreaterElement = function(findNums, nums) {
       }
     }
 
-    if (!hasNextGreaterElement)
-      ans.push(-1);
+    if (!hasNextGreaterElement) ans.push(-1);
   });
 
   return ans;

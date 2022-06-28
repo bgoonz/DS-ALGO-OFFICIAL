@@ -22,7 +22,7 @@ function dfs(root, ans) {
   ans.push(root.val);
 }
 
-var postorderTraversal = function(root) {
+var postorderTraversal = function (root) {
   var ans = [];
   dfs(root, ans);
   return ans;

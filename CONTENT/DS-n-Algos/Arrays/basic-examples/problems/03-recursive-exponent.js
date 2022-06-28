@@ -20,16 +20,16 @@ exponent(2, -2); // => 1/4 (or 0.25)
 exponent(5, 5); // => 3,125
 ***********************************************************************/
 
-function exponent( num, power ) {
-  if ( power < 0 ) {
-    return ( 1 / exponent( num, Math.abs( power ) ) );
+function exponent(num, power) {
+  if (power < 0) {
+    return 1 / exponent(num, Math.abs(power));
   }
 
-  if ( power === 1 ) {
-    return num
+  if (power === 1) {
+    return num;
   }
 
-  return num * exponent( num, power - 1 );
+  return num * exponent(num, power - 1);
 }
 
 /**************DO NOT MODIFY ANYTHING UNDER THIS LINE*****************/

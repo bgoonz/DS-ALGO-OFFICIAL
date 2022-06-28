@@ -5,14 +5,14 @@
  * @param {number[]} nums
  * @return {number}
  */
-var rob = function(nums) {
+var rob = function (nums) {
   var len = nums.length;
   if (!len) return 0;
 
   var dp = [];
   dp[0] = [];
-  dp[0][0] = 0, // not steal 1st room
-  dp[0][1] = nums[0]; // steal 1st room
+  (dp[0][0] = 0), // not steal 1st room
+    (dp[0][1] = nums[0]); // steal 1st room
 
   for (var i = 1; i < len; i++) {
     dp[i] = [];

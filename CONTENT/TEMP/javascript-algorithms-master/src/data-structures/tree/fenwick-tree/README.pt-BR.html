@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>README.pt-BR</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+</head>
+<body>
+<h1 id="árvore-fenwick-árvore-binária-indexada-fenwick-tree-binary-indexed-tree">Árvore Fenwick / Árvore Binária Indexada (Fenwick Tree / Binary Indexed Tree)</h1>
+<p>Uma <strong>árvore Fenwick</strong> ou <strong>árvore binária indexada</strong> é um tipo de estrutura de dados que consegue eficiemente atualizar elementos e calcular soma dos prefixos em uma tabela de números.</p>
+<p>Quando comparado com um <em>flat array</em> de números, a árvore Fenwick alcança um balanceamento muito melhor entre duas operações: atualização (<em>update</em>) do elemento e cálculo da soma do prefíxo. Em uma <em>flar array</em> de <code>n</code> números, você pode tanto armazenar elementos quando a soma dos prefixos. Em ambos os casos, computar a soma dos prefixos requer ou atualizar um array de elementos também requerem um tempo linear, contudo, a demais operações podem ser realizadas com tempo constante. A árvore Fenwick permite ambas as operações serem realizadas com tempo <code>O(log n)</code>.</p>
+<p>Isto é possível devido a representação dos números como uma árvore, aonde os valores de cada nó é a soma dos números naquela sub-árvore. A estrutura de árvore permite operações a serem realizadas consumindo somente acessos a nós em <code>O(log n)</code>.</p>
+<h2 id="implementação-de-nós">Implementação de Nós</h2>
+<p>Árvore Binária Indexada é representada como um <em>array</em>. Em cada nó da Árvore Binária Indexada armazena a soma de alguns dos elementos de uma <em>array</em> fornecida. O tamanho da Árvore Binária Indexada é igual a <code>n</code> aonde <code>n</code> é o tamanho do <em>array</em> de entrada. Na presente implementação nós utilizados o tamanho <code>n+1</code> para uma implementação fácil. Todos os índices são baseados em 1.</p>
+<figure>
+<img src="https://www.geeksforgeeks.org/wp-content/uploads/BITSum.png" alt="Binary Indexed Tree" /><figcaption>Binary Indexed Tree</figcaption>
+</figure>
+<p>Na imagem abaixo você pode ver o exemplo animado da criação de uma árvore binária indexada para o <em>array</em> <code>[1, 2, 3, 4, 5]</code>, sendo inseridos um após o outro.</p>
+<figure>
+<img src="https://upload.wikimedia.org/wikipedia/commons/d/dc/BITDemo.gif" alt="Fenwick Tree" /><figcaption>Fenwick Tree</figcaption>
+</figure>
+<h2 id="referências">Referências</h2>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Fenwick_tree">Wikipedia</a></li>
+<li><a href="https://www.geeksforgeeks.org/binary-indexed-tree-or-fenwick-tree-2/">GeeksForGeeks</a></li>
+<li><a href="https://www.youtube.com/watch?v=CWDQJGaN1gY&amp;index=18&amp;t=0s&amp;list=PLLXdhg_r2hKA7DPDsunoDZ-Z769jWn4R8">YouTube</a></li>
+</ul>
+</body>
+</html>

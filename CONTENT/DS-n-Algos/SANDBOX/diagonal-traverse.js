@@ -5,7 +5,7 @@
  * @param {number[][]} matrix
  * @return {number[]}
  */
-var findDiagonalOrder = function(matrix) {
+var findDiagonalOrder = function (matrix) {
   let M = matrix.length;
   if (!M) return [];
   let N = matrix[0].length;
@@ -14,17 +14,16 @@ var findDiagonalOrder = function(matrix) {
 
   // first row
   for (let i = 0; i < N; i++) {
-    let x = 0
-      , y = i
-      , tmp = [];
+    let x = 0,
+      y = i,
+      tmp = [];
 
     while (true) {
       tmp.push(matrix[x][y]);
       x++;
       y--;
 
-      if (x < 0 || x >= M || y < 0 || y >= N)
-        break;
+      if (x < 0 || x >= M || y < 0 || y >= N) break;
     }
 
     res.push(tmp);
@@ -32,24 +31,23 @@ var findDiagonalOrder = function(matrix) {
 
   // last column
   for (let i = 1; i < M; i++) {
-    let x = i
-      , y = N - 1
-      , tmp = [];
+    let x = i,
+      y = N - 1,
+      tmp = [];
 
     while (true) {
       tmp.push(matrix[x][y]);
       x++;
       y--;
 
-      if (x < 0 || x >= M || y < 0 || y >= N)
-        break;
+      if (x < 0 || x >= M || y < 0 || y >= N) break;
     }
 
     res.push(tmp);
   }
 
   let ans = [];
-  res.forEach(function(item, index) {
+  res.forEach(function (item, index) {
     if (!(index & 1)) {
       ans.push(...item.reverse());
     } else {

@@ -7,5 +7,5 @@
  -        The upper bound on the range.
  */
 function randomIntInRange(low, high) {
-  return Math.round(low + (Math.random() * (high - low)));
+  return Math.round(low + Math.random() * (high - low));
 }

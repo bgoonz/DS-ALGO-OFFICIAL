@@ -1,4 +1,4 @@
-/*******************************************************************************
+/*
 Write a function `andSelect` that accepts an array and two callbacks. The function
 should return a new array containing elements of the original array that result in
 true when passed into both callbacks.
@@ -26,14 +26,14 @@ let startsWithA = function (s) {
 console.log(andSelect(['ants', 'APPLES', 'ART', 'BACON', 'arm'], isUpperCase,  startsWithA));
 // [ 'APPLES', 'ART' ]
 
-*******************************************************************************/
+*/
 
-function andSelect( array, cb1, cb2 ) {
+function andSelect(array, cb1, cb2) {
   let selected = [];
-  for ( let i = 0; i < array.length; i++ ) {
-    let ele = array[ i ];
-    if ( cb1( ele ) && cb2( ele ) ) {
-      selected.push( ele );
+  for (let i = 0; i < array.length; i++) {
+    let ele = array[i];
+    if (cb1(ele) && cb2(ele)) {
+      selected.push(ele);
     }
   }
   return selected;

@@ -3,26 +3,26 @@
 // or after the node and moving the node left/right.
 
 class LinkedList {
-  constructor( value ) {
+  constructor(value) {
     this.value = value;
   }
 
-  append( value ) {
-      const node = new LinkedList( value );
+  append(value) {
+    const node = new LinkedList(value);
     node.prev = this;
     node.next = this.next;
     // Fix the linked list node references.
-    this.next && ( this.next.prev = node );
+    this.next && (this.next.prev = node);
     this.next = node;
     return node;
   }
 
-  prepend( value ) {
-      const node = new LinkedList( value );
+  prepend(value) {
+    const node = new LinkedList(value);
     node.prev = this.prev;
     node.next = this;
     // Fix the linked list node references.
-    this.prev && ( this.prev.next = node );
+    this.prev && (this.prev.next = node);
     this.prev = node;
     return node;
   }
@@ -30,9 +30,9 @@ class LinkedList {
 
 module.exports = () => {
   return {
-    insert( number ) {
-        if ( !this._median ) {
-          this._median = new LinkedList( number );
+    insert(number) {
+      if (!this._median) {
+        this._median = new LinkedList(number);
         return;
       }
 
@@ -41,31 +41,31 @@ module.exports = () => {
 
       // If the number is greater than the median value, need to insert
       // somewhere after the current median node.
-      if ( number > this._median.value ) {
-        while ( node && node.value < number ) {
+      if (number > this._median.value) {
+        while (node && node.value < number) {
           prevNode = node;
           node = node.next;
         }
-        ( node || prevNode ).append( number );
+        (node || prevNode).append(number);
         // Increment the counter of right nodes.
         ++this._right;
       } else {
-        while ( node && node.value > number ) {
+        while (node && node.value > number) {
           prevNode = node;
           node = node.prev;
         }
-        ( node || prevNode ).prepend( number );
+        (node || prevNode).prepend(number);
         // Increment the counter of left nodes.
         ++this._left;
       }
 
       // If the left nodes are larger than the right nodes, move the median
       // pointer.
-      if ( this._left > this._right + 1 ) {
+      if (this._left > this._right + 1) {
         this._median = this._median.prev;
         --this._left;
         ++this._right;
-      } else if ( this._left < this._right ) {
+      } else if (this._left < this._right) {
         this._median = this._median.next;
         ++this._left;
         --this._right;
@@ -74,16 +74,16 @@ module.exports = () => {
     getMedian() {
       // If the left and right node counts are identical, we can return the
       // value exactly.
-      if ( this._left === this._right ) {
+      if (this._left === this._right) {
         return this._median.value;
       }
 
-      return ( this._median.value + ( this._median.prev.value ) ) / 2;
+      return (this._median.value + this._median.prev.value) / 2;
     },
     // Hold the median node in the list.
     _median: null,
     // Keep track of how many left and right nodes have been.
     _left: 0,
-    _right: 0
+    _right: 0,
   };
 };

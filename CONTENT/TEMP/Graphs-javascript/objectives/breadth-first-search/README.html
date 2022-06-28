@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>README</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+</head>
+<body>
+<h1 id="breadth-first-search-bfs">Breadth First Search (BFS)</h1>
+<h2 id="objective">Objective</h2>
+<ul>
+<li>Learn about one of the more famous graph algorithms</li>
+<li>Learn uses of BFS</li>
+</ul>
+<h2 id="overview">Overview</h2>
+<p>When searching a graph, one of the approaches is called <em>breadth first search</em>. This explores the graph outward in rings of ever increasing distance from the starting vertex.</p>
+<p>The algorithm never attempts to explore a vert that it either has explored or is exploring.</p>
+<p>For example, when starting from the upper left, the numbers on this graph show a vertex visitation order in a BFS:</p>
+<figure>
+<img src="img/bfs-visit-order.png" alt="BFS visit order" /><figcaption>BFS visit order</figcaption>
+</figure>
+<p>The bold lines show with edges were followed. (The thin edges were not followed since their destination nodes had already been visited.)</p>
+<p>(Of course, the exact order will vary depending on which branches get taken first and which vertex is the starting vertex.)</p>
+<h2 id="uses-of-bfs">Uses of BFS</h2>
+<ul>
+<li>Pathfinding, Routing</li>
+<li>Find neighbor nodes in a P2P network like Bittorrent</li>
+<li>Web crawlers</li>
+<li>Finding people n connections away on a social site</li>
+<li>Find neighboring locations on graph</li>
+<li>Broadcasting in a network</li>
+<li>Cycle detection in a graph</li>
+<li>Finding <a href="https://en.wikipedia.org/wiki/Connected_component_(graph_theory)">Connected Components</a></li>
+<li>Solving a number of theoretical graph problems</li>
+</ul>
+<h2 id="coloring-vertexes">Coloring Vertexes</h2>
+<p>As the graph is explored, it’s useful to color verts as you arrive at them and as you leave them behind as “already searched”.</p>
+<p>Commonly, unvisited verts are white, verts whose neighbors are being explored are gray, and verts with no unexplored neighbors are black.</p>
+<h2 id="keeping-track-of-what-we-need-to-explore">Keeping Track of What We Need to Explore</h2>
+<p>In BFS, it’s useful to track which nodes we need to follow up on. For example, in the diagram above, when we get to node 2, we need to explore node 3 and 4 in the future, in order.</p>
+<p>We can track that by adding neighbors to a <em>queue</em>, and then exploring the verts in the queue.</p>
+<h2 id="pseudocode-for-bfs">Pseudocode for BFS</h2>
+<pre class="pseudocode"><code>BFS(graph, startVert):
+  for v of graph.vertexes:
+    v.color = white
+
+  startVert.color = gray
+  queue.enqueue(startVert)
+
+  while !queue.isEmpty():
+    u = queue[0]  // Peek at head of queue, but do not dequeue!
+
+    for v of u.neighbors:
+      if v.color == white:
+        v.color = gray
+        queue.enqueue(v)
+
+    queue.dequeue()
+    u.color = black</code></pre>
+<h2 id="exercises">Exercises</h2>
+<ul>
+<li><p>Build a random graph and show a vertex visitation order for BFS.</p></li>
+<li><p>One more for good measure.</p></li>
+</ul>
+</body>
+</html>

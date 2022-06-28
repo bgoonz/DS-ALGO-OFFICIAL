@@ -36,21 +36,20 @@ console.log(callOnTarget(dog.chase, cat, dog)); // "Woof, my name is Breakfast a
 ***********************************************************************/
 
 const cat = {
-  name: "Breakfast"
+  name: "Breakfast",
 };
 
 const mouse = {
-  name: "Jerry"
+  name: "Jerry",
 };
 
-function greet( other ) {
+function greet(other) {
   return "I'm " + this.name + ". Nice to meet you, " + other.name;
 }
 
-function callOnTarget( func, obj1, obj2 ) {
-  let boundFunc = func.bind( obj1 );
-  return boundFunc( obj2 );
+function callOnTarget(func, obj1, obj2) {
+  let boundFunc = func.bind(obj1);
+  return boundFunc(obj2);
 }
-
 
 module.exports = callOnTarget;

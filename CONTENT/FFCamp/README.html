@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>README</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+</head>
+<body>
+<pre><code>                  Basic Javascript (ES5)</code></pre>
+<ol type="1">
+<li><p>Variables which are used without the var keyword are automatically created in the global scope.</p></li>
+<li><p>Variables can contain alphabets,number $ and _ but cannot start with a number.</p></li>
+<li><p>js objects can contain number and strings and if it’s single word or number quotes("") are not mandatory.</p></li>
+<li><code>. and []</code> notation to access objects properties.<br />
+Cases where bracket notation rescues us
+<ol type="a">
+<li>when the property is created or added on the fly and not been defined in the first assignment.<br />
+</li>
+<li>when the key contains space<br />
+</li>
+<li>The key name is stored in a variable.</li>
+</ol></li>
+<li><p>jsonObj.hasOwnProperty check in javascript object whether such key is present or not in object.</p></li>
+<li><pre><code>Math.random() generate a floating number between 0 and 1 excluding 1.
+
+Math.floor is used to round off a number to nearest whole number.
+
+Math.floor(Math.random()*10) will generate single digit integer number
+between 0 and 10 (10 is exclusive)
+
+Math.floor((Math.random()*(max-min+1))+min); will generate a random number
+between min and max (inclusive both).
+
+Math.round() // Math.round() will **round off** to the NEAREST integer. Math.round(2.8) = 3
+
+Math.floor() will always **round down**. Math.floor(2.8)=2
+
+Math.ceil() will always return **round up**. Math.ceil(2.2)=3
+
+For ex, round(2.8) = 3 but floor(2.8) = 2 and ceil(2.2)=3</code></pre></li>
+<li><p>The parseInt() function parses a string and returns an integer. It takes a second argument for the radix, which specifies the base of the number in the string. The radix can be an integer between 2 and 36.</p>
+<p>The function call looks like: parseInt(string, radix); Number.isInteger(numVariable); will return boolean</p>
+<pre><code>                        ES6</code></pre></li>
+</ol>
+<ol type="1">
+<li><p>ECMAScript is a standardized version of JavaScript with the goal of unifying the language’s specifications and features. As all major browsers and JavaScript-runtimes follow this specification, the term ECMAScript is interchangeable with the term JavaScript.</p></li>
+<li><pre><code>let camper = &#39;James&#39;;
+let camper = &#39;David&#39;; // throws an error
+while with var there is no error generated</code></pre></li>
+</ol>
+<ol start="3" type="1">
+<li><p>Note the “use strict”. This enables Strict Mode, which catches common coding mistakes and “unsafe” actions. For instance:</p>
+<pre><code>&quot;use strict&quot;;
+x = 3.14; // throws an error because x is not declared</code></pre></li>
+<li><pre><code>        ```</code></pre>
+<p>var printNumTwo; for (var i = 0; i &lt; 3; i++) { if(i === 2){ printNumTwo = function() { return i; }; } } console.log(printNumTwo()); // Output: 3 console.log(i); // 3</p>
+<p>var printNumTwo; for (let i = 0; i &lt; 3; i++) { if(i === 2){ printNumTwo = function() { return i; }; } } console.log(printNumTwo()); // Output: 2</p>
+<pre><code></code></pre></li>
+<li><p>const FAV_PET , const acts as let except it cannot be updated and is read.<br />
+Use all uppercase letters for declaration.</p>
+<pre><code>console.log(i);         // undefined
+&quot;use strict&quot;;
+const s = [5, 6, 7];
+s = [1, 2, 3]; // throws error, trying to assign a const
+s[2] = 45; // works just as it would with an array declared with var or let
+console.log(s); // returns [5, 6, 45]</code></pre></li>
+<li><p>To fetch present time and date</p>
+<pre><code>new Date();</code></pre></li>
+<li><p>concat(arr1, arr2) function</p>
+<pre><code>&quot;use strict&quot;;
+const myConcat = (arr1, arr2) =&gt; arr1.concat(arr2);
+
+// test your code
+console.log(myConcat([1, 2], [3, 4, 5]));  // [1,2,3,4,5]
+concat can similarly be used on string</code></pre></li>
+<li><p>filter(), map(), reduce()</p>
+<pre><code>var words = [&#39;spray&#39;, &#39;limit&#39;, &#39;elite&#39;, &#39;exuberant&#39;, &#39;destruction&#39;, &#39;present&#39;];
+const result = words.filter(word =&gt; word.length &gt; 6);
+console.log(result);    // expected output: Array [&quot;exuberant&quot;, &quot;destruction&quot;, &quot;present&quot;]
+
+var array1 = [1, 4, 9, 16];
+// pass a function to map
+const map1 = array1.map(x =&gt; x * 2);
+console.log(map1);  // expected output: Array [2, 8, 18, 32]
+
+const array1 = [1, 2, 3, 4];
+const reducer = (accumulator, currentValue) =&gt; accumulator + currentValue;
+// 1 + 2 + 3 + 4
+console.log(array1.reduce(reducer));    // expected output: 10
+// 5 + 1 + 2 + 3 + 4
+console.log(array1.reduce(reducer, 5)); // expected output: 15</code></pre>
+<p>NOTE: all 3 functions mentioned in this point does not alter the original array.</p></li>
+<li><p>Setting default parameter for your function</p>
+<pre><code>function greeting(name = &quot;Anonymous&quot;) {
+  return &quot;Hello &quot; + name;
+}
+console.log(greeting(&quot;John&quot;)); // Hello John
+console.log(greeting()); // Hello Anonymous</code></pre></li>
+<li><p>Rest operator (…)</p>
+<pre><code>function sum(...args){
+    console.log(`you have passed {args.length} parameters`)
+}</code></pre></li>
+<li><p>Spread operator</p>
+<pre><code>arr2 = [1,2,...arr1]; will copy all elements of arr1 in arr2
+
+To find max or min element in array
+Math.max(...arr);
+Math.min(...arr);</code></pre></li>
+<li><p>Destructing object</p>
+<pre><code>const LOCAL_FORECAST = {
+  today:    { min: 72, max: 83 },
+  tomorrow: { min: 73.3, max: 84.6 }
+};
+
+const {tomorrow: {max: maxOfTomorrow}} = LOCAL_FORECAST;
+console.log(maxOfTomorrow); // 84.6</code></pre></li>
+<li><pre><code>const [a, b,,, c] = [1, 2, 3, 4, 5, 6];
+    console.log(a, b, c); // 1, 2, 5</code></pre></li>
+<li><p>Destructing Array</p>
+<pre><code>const list = [1,2,3,4,5,6,7,8,9,10];</code></pre>
+<p>ES 6</p>
+<pre><code>const [a,b,...arr]=list;  // arr=[3,4,5,6,7,8,9,10] no change in list</code></pre>
+<p>ES 5 methods slice (Array.prototype.slice() &amp; String.prototype.slice both exists so slice can be used with string and array)</p>
+<pre><code>//indexing works similar to  .substring method in java (startIndex, lastIndex+1) for slice
+arr=list.slice(2,10); or arr=list.slice(2); //arr =[3,4,5,6,7,8,9,10] list will not be affected</code></pre>
+<p>splice (Array.prototype.splice() only exists so splice cannot be used with string) will remove element from original array and 2 represent starting index 4 represent present + next 3 index to be cut out</p>
+<pre><code>const arr=list.splice(2,4); // arr= [3,4,5,6] ,list=[1,2,7,8,9,10]</code></pre></li>
+<li><p>Destructuring Assignment to Pass an Object as a Function’s Parameters</p>
+<pre><code>profileData={
+    name:&quot;Anuj&quot;,
+    age: 29,
+    nationality: &quot;Indian&quot;
+    location: &quot;Mumbai&quot;
+}
+
+const profileUpdate = (profileData) =&gt; {
+     const { name, age, nationality, location } = profileData;
+      // do something with these variables
+}
+    can also be coded as
+
+const profileUpdate = ({ name, age, nationality, location }) =&gt; {
+  /* do something with these fields */
+}</code></pre>
+<p>only ({name}) is also valid if we just want one parameter</p></li>
+<li><p>Template Literal</p>
+<pre><code>`hello ${arr[0]}
+this will appear in next line`</code></pre></li>
+<li><p>Pass arguments to function and return an object</p>
+<pre><code>&quot;use strict&quot;;
+const createPerson = (name, age, gender) =&gt; ({name,age,gender});
+console.log(createPerson(&quot;Zodiac Hasbro&quot;, 56, &quot;male&quot;)); // returns a proper object</code></pre>
+<p>NOTE: use () around the object in function body as when the one line function generally does not need a return statement in es6 but for object creation and return we need to wrap one line block around () brackets.</p></li>
+<li><p>When defining functions within objects in ES5, we have to use the keyword function as follows:</p>
+<pre><code>const person = {
+  name: &quot;Taylor&quot;,
+  sayHello: function() {
+    return `Hello! My name is ${this.name}.`;
+  }
+};</code></pre>
+<p>With ES6, You can remove the function keyword and colon altogether when defining functions in objects. Here’s an example of this syntax:</p>
+<pre><code>const person = {
+  name: &quot;Taylor&quot;,
+  sayHello() {
+    return `Hello! My name is ${this.name}.`;
+  }
+};</code></pre></li>
+<li><p>In ES5, we usually define a constructor function, and use the new keyword to instantiate an object. Note: We recognize a function is contructor if it starts with Capital letter.</p>
+<pre><code>var SpaceShuttle = function(targetPlanet){
+  this.targetPlanet = targetPlanet;
+}
+var zeus = new SpaceShuttle(&#39;Jupiter&#39;);
+
+The class syntax simply replaces the constructor function creation:
+
+class SpaceShuttle {
+  constructor(targetPlanet){
+    this.targetPlanet = targetPlanet;
+  }
+}
+const zeus = new SpaceShuttle(&#39;Jupiter&#39;);</code></pre>
+<p>the keyword class is just syntactic sugar</p></li>
+<li><pre><code>class Book {
+  constructor(author) {
+    this._author = author;
+  }
+  // getter
+  get writer(){
+    return this._author;
+  }
+  // setter
+  set writer(updatedAuthor){
+    this._author = updatedAuthor;
+  }
+}
+const lol = new Book(&#39;anonymous&#39;);
+console.log(lol.writer);  // anonymous
+lol.writer = &#39;wut&#39;;
+console.log(lol.writer);  // wut</code></pre>
+<p>Notice the syntax we are using to invoke the getter and setter - as if they are not even functions.<br />
+Getters and setters are important, because they hide internal implementation details.</p></li>
+<li><p>In the past, the function require() would be used to import the functions and code in external files and modules. While handy, this presents a problem: some files and modules are rather large, and you may only need certain code from those external resources.</p>
+<p>ES6 gives us a very handy tool known as import. With it, we can choose which parts of a module or file to load into a given file,saving time and memory.</p>
+<pre><code>import { countItems } from &quot;math_array_functions&quot;</code></pre>
+<p>The whitespace surrounding the function inside the curly braces is a best practice</p>
+<ul>
+<li>it makes it easier to read the import statement countItems can either be a function or variable.</li>
+</ul>
+<p>In most cases,the file path requires a ./ before it; otherwise, node will look in the node_modules directory first trying to load it as a dependency.</p></li>
+<li><pre><code>const capitalizeString = (string) =&gt; {
+  return string.charAt(0).toUpperCase() + string.slice(1);
+}
+export { capitalizeString } //How to export functions.
+export const foo = &quot;bar&quot;; //How to export variables.</code></pre>
+or you can also export all variables in same line</li>
+<li><p>To import all contents of files</p>
+<pre><code>import * as myMathModule from &quot;math_functions&quot;;
+myMathModule.add(2,3);
+myMathModule.subtract(5,3);</code></pre>
+<pre><code>                    Regular Expressions</code></pre></li>
+</ol>
+<ol type="1">
+<li><p>Regex are written between // and should not be placed in quotes (both single or double) The .test() method takes the regex, applies it to a string (which is placed inside the parentheses), and returns true or false if your pattern finds something or not. test() returns true or false</p>
+<pre><code>let testStr = &quot;freeCodeCamp&quot;;
+let testRegex = /Code/;
+testRegex.test(testStr) // Returns true</code></pre></li>
+</ol>
+<ol start="2" type="1">
+<li><p>OR for words and ignoring case</p>
+<pre><code>/dog|cat|bird|fish/     &quot;OR&quot; search in regexp
+/regexpcharacters/i for ignoring case</code></pre></li>
+<li><p>.match is other way of matching a regexp</p>
+<pre><code>match() returns extracted word if we searcg /coding/i then if there is CoDiNG word
+present it will return that string.
+
+checkingString.match(regExp); this will extrach the pattern
+
+use /code/g with match()  to get all multiple matchings
+and /code/gi    for using two flags together i for ignoring case and g for multiple matches</code></pre></li>
+<li><p>“.” wild card operator</p>
+<pre><code>let humStr = &quot;I&#39;ll hum a song&quot;;
+let hugStr = &quot;Bear hug&quot;;
+let huRegex = /hu./;
+humStr.match(huRegex); // Returns [&quot;hum&quot;]
+hugStr.match(huRegex); // Returns [&quot;hug&quot;]</code></pre></li>
+<li><p>OR for characters and g global flag</p>
+<pre><code>/h[aeiou]m/ will search for either h_m as _ can either have any mentioned vowel
+/[a-e]/ig will search for characters between a-e
+/[h-s2-6]/ig     will match h to s characters or 2,3,4,5,6 numbers as an or</code></pre></li>
+<li>Caret operator or NOT INCLUDING (inside []) ` /[^aeiou0-9]/ig will exclude all vowels and all numbers</li>
+<li><p>Search starting pattern with Caret operator Earlier, you used the caret character (^) inside a character set to create a negated character set in the form [^thingsthatwillnotbematched]. Outside of a character set, the caret is used to search for patterns at the beginning of strings.</p>
+<pre><code>let firstString = &quot;Ricky is first and can be found.&quot;;
+let firstRegex = /^Ricky/;
+firstRegex.test(firstString);// Returns true</code></pre></li>
+<li><p>Search ending pattern with $ operator</p>
+<pre><code>let caboose = &quot;The last car on a train is the caboose&quot;;
+let lastRegex = /caboose$/; // Change this line
+let result = lastRegex.test(caboose);
+console.log(result);</code></pre></li>
+<li><p>1 or more than one character , 0 or more than 0 character</p>
+<pre><code>/s+/ig          will give all matching of 1 or more than 1 s together
+/[Aa]*/         for 0 or more than 0 A or a   /h[a*]s/ig    has,hAs,hAas
+/h[a-i]*s/ig;       has,HaS,hAaS,his</code></pre></li>
+<li><p>Greedy (default) vs lazy search</p>
+<pre><code>let text = &quot;&lt;h1&gt;Winter is coming&lt;/h1&gt;&quot;;
+
+let myRegex = /&lt;h.*1&gt;/; //result=&lt;h1&gt;Winter is coming&lt;/h1&gt; // Default GREEDY search
+let myRegex = /&lt;h.*?1&gt;/;//result=&lt;h1&gt; // ? LAZY search (? should come afterwards not before *)
+
+let result = text.match(myRegex);</code></pre></li>
+<li><p>alphanumeric class shortcut and not alphanumeric (capital W)</p>
+<pre><code>The closest character class in JavaScript to match the alphabet is \w.
+This shortcut is equal to [A-Za-z0-9_]
+Note: _ (underscore) is also present
+
+\W will find all other characters such as . and &quot; &quot; space
+
+\d  is shortcut for [0-9]
+\D  is shortcut for [^0-9]</code></pre></li>
+<li><p>Searching Whitespces, tabs and carriages and for non-white spaces You can search for whitespace using , which is a lowercase s. This pattern not only matches whitespace, but also carriage return, tab, form feed, and new line characters. You can think of it as similar to the character class [ .</p>
+<p>for white spaces for non-space characters</p></li>
+<li><p>/ha{3-5}s/i Specify lower and upper number for repetitions of a character</p>
+<pre><code>let A4 = &quot;aaaah&quot;;
+let A2 = &quot;aah&quot;;
+let multipleA = /a{3,5}h/;
+multipleA.test(A4); // Returns true
+multipleA.test(A2); // Returns false
+
+For lower number of repetition of characters
+let haStr = &quot;Hazzzzah&quot;;
+let haRegex = /haz{4,}ah/i; // Change this line
+let result = haRegex.test(haStr); // true
+
+For minimum number of repetiton of a character
+use /ha{100}s/  for exact 100 a&#39;s
+</code></pre></li>
+<li><p>repeat function (Not part of Regex)</p>
+<pre><code>let timStr =  &quot;h&quot; + &quot;a&quot;.repeat(100) + &quot;s&quot;;
+will create a string haaaaaa_______________________________aaaaaaaaas
+100 times a</code></pre></li>
+<li><p>optional character using ? (another use of ?)</p>
+<pre><code>let favWord = &quot;favorite&quot;;
+let favRegex = /favou?rite/;
+let result = favRegex.test(favWord);    // true</code></pre></li>
+<li><p>?= &amp; ?! (positive and negative lookahead)</p>
+<p>positive lookahead</p>
+<pre><code>let pwRegex = /(?=\w{6,})(?=\D*\d\d\D*)/i;
+
+This will match that tht password string should have minimum of 6 alphanumeric
+characters([A-Za-z0-9_]) and the password string should contain atleast 2 consecutive digits.</code></pre>
+<p>negative lookahead ` ?! is its representation and is just opposite of ?= (positive lookahead)</p></li>
+<li><p>replace to replace a regexp by new word or text</p>
+<pre><code>let huhText = &quot;This sandwich is good.&quot;;
+let fixRegex = /good/; // Change this line
+let replaceText = &quot;okey-dokey&quot;; // Change this line
+let result = huhText.replace(fixRegex,replaceText);
+replace() word does not alter the original string as string are inmutable in JS.</code></pre>
+<pre><code>                 Basic Data Structures</code></pre></li>
+</ol>
+<ol type="1">
+<li>Arrays are mutable in JS, arr.length returns the no of elements in array,<br />
+JS array can contain items of different Data type elements.</li>
+</ol>
+<ol start="2" type="1">
+<li><pre><code>        ```</code></pre>
+<p>arr.push(2); // push() adds element in end of array arr.unshift(2); // unshift() adds element in start of array arr.pop(); // pop() removes element in end of array arr.shift(); // shift() removes element in start of array</p>
+<pre><code></code></pre></li>
+<li><p>splice()</p>
+<pre><code>let array = [&#39;I&#39;, &#39;am&#39;, &#39;feeling&#39;, &#39;really&#39;, &#39;happy&#39;];
+
+let newArray = array.splice(3, 2);
+// newArray equals [&#39;really&#39;, &#39;happy&#39;]
+// array equals [&#39;I&#39;, &#39;am&#39;, &#39;feeling&#39;]</code></pre></li>
+<li><p>slice()</p>
+<pre><code>let arrayData = [&#39;I&#39;, &#39;am&#39;, &#39;feeling&#39;, &#39;really&#39;, &#39;happy&#39;];
+arr=arrayData.slice(3,5); or arr=arrayData.slice(3);
+//arr =[&#39;really&#39;, &#39;happy&#39;]
+// arrayData = [&#39;I&#39;, &#39;am&#39;, &#39;feeling&#39;, &#39;really&#39;, &#39;happy&#39;];
+arrayData will not be affected</code></pre></li>
+<li><p>indexOf()</p>
+<p>indexOf (String.prototype.indexOf() &amp; String.prototype.indexOf() both exists) so<br />
+we can use indexOf on both string and array.</p>
+<pre><code>let fruits = [&#39;apples&#39;, &#39;pears&#39;, &#39;oranges&#39;, &#39;peaches&#39;, &#39;pears&#39;];
+
+fruits.indexOf(&#39;dates&#39;) // returns -1
+fruits.indexOf(&#39;oranges&#39;) // returns 2
+
+fruits.indexOf(&#39;pears&#39;) // returns 1, the first index at which the element exists
+fruits.lastIndexOf(&#39;pears&#39;) // returns 4, the last index at which the element exists</code></pre></li>
+<li><p>Objects are nothing but key value pairs data</p></li>
+<li><p>hasOwnProperty()</p>
+<pre><code>let users = {
+  Alan: {
+    age: 27,
+    online: true
+  },
+  Jeff: {
+    age: 32,
+    online: true
+  },
+  Sarah: {
+    age: 48,
+    online: true
+  },
+  Ryan: {
+    age: 19,
+    online: true
+  }
+};</code></pre>
+<pre><code>users.hasOwnProperty(&#39;Alan&#39;); // return true
+above statement will search &#39;Alan&#39; as key in users object;
+</code></pre></li>
+<li><pre><code>for (let user in users) {
+  console.log(user);
+};</code></pre>
+<p>// logs: Alan Jeff Sarah Ryan</p>
+<p>Objects do not maintain an ordering to stored keys like arrays do; thus a keys position on an object, or the relative order in which it appears, is irrelevant when referencing or accessing that key.</p></li>
+<li><p>Object.keys()</p>
+<p>Object.keys() method and passing in an object as the argument. This will return<br />
+an array with strings representing each property in the object. Again, there will<br />
+be no specific order to the entries in the array.</p></li>
+<li><p>use combination of . [] (dot &amp; bracket) notation along with for in loop and push to alter an object’s value.</p></li>
+<li><pre><code>var array1 = [5, 12, 8, 130, 44];
+
+var found = array1.find(function(element) {
+  return element &gt; 10;
+});
+console.log(found); // 12</code></pre>
+<pre><code>                Basic Algorithm Scripting</code></pre></li>
+</ol>
+<ol type="1">
+<li><p>string to array and applying logic on each element</p>
+<pre><code>var str = &#39;The quick brown fox jumps over the lazy dog.&#39;;
+
+var words = str.split(&#39; &#39;);
+console.log(words[3]);
+
+console.log(Array.from(&#39;foo&#39;));
+// expected output: Array [&quot;f&quot;, &quot;o&quot;, &quot;o&quot;]
+
+console.log(Array.from([1, 2, 3], x =&gt; x + x));
+// expected output: Array [2, 4, 6]
+
+str.substring(startIndex, lastIndex+1);</code></pre></li>
+</ol>
+<ol start="2" type="1">
+<li><p>Reverse a string</p>
+<pre><code>stringVal.split(&#39;&#39;) will split the string into array elements
+
+arr.reverse(); //will reverse the value of array [1,2,3] becomes [3,2,1]
+           //reverse only works on arrays
+
+arr.join(&#39;&#39;);  //will unite a array elements into a new string, array to string conversion</code></pre></li>
+<li><p>arr.find(functionName) (without () call) Both functions below will find and return first element that satisfies functions condition or else will return undefined.</p>
+<pre><code>const findElement=(arr, func) =&gt;  arr.find(func);
+
+const findElement=(arr, func) =&gt; arr.map(func).indexOf(true)&gt;-1 ?arr[arr.map(func).indexOf(true)] :undefined;
+
+console.log(findElement([1, 20, 3, 5], num =&gt; num % 5 === 0));</code></pre>
+<p>We can search a element in array using indexOf() if indexOf() returns &gt; -1 then items exist arr.filter() will run for complete array while find stops at first time the condition is met.</p></li>
+<li><p>Capitalize a sentence toUpperCase()<br />
+toLowerCase()</p>
+<pre><code>const titleCase=(str) =&gt; str.split(&#39; &#39;).map(x=&gt; x.charAt(0).toUpperCase()+x.substring(1).toLowerCase()).join(&#39; &#39;);
+const titleCase=(str) =&gt; str.toLowerCase().replace(/(^|\s)\w/g, (L)=&gt; L.toUpperCase());</code></pre></li>
+<li><p>truthy and falsy values</p>
+<pre><code>**All the values in JS are truthy except 6 values.**
+Only 6 falsy values are:-
+a) undefined
+b) null
+c) NaN
+d) false
+e) 0
+f) &quot;&quot;</code></pre>
+<p>`arr.filter(Boolean); to filter all the boolean type values in hs array</p></li>
+<li><pre><code>        To sort an array in alphabetic order in js</code></pre>
+<p>Note: Even numbers will be converted to string and then will be compared then their utf-16 value gets compared not the numbers themselves.</p>
+<pre><code>var months = [&#39;March&#39;, &#39;Jan&#39;, &#39;Feb&#39;, &#39;Dec&#39;];
+months.sort();
+console.log(months);
+// expected output: Array [&quot;Dec&quot;, &quot;Feb&quot;, &quot;Jan&quot;, &quot;March&quot;]
+
+var array1 = [1, 30, 4, 21, 100000];
+array1.sort();
+console.log(array1);
+// expected output: Array [1, 100000, 21, 30, 4]
+</code></pre></li>
+<li><p>To sort numbers array in js</p>
+<pre><code>let arr=[2,5,1,3,7,9,6,8]
+arr.sort((currentVal, nextVal)=&gt; currentVal-nextVal);
+console.log(arr); //1, 2, 3, 5, 6, 7, 8, 9</code></pre>
+<pre><code>                Object Oriented Programming</code></pre></li>
+</ol>
+<ol type="1">
+<li><p>Constructors and creating objects function Bird() { this.name = “Albert”; this.color = “blue”; this.numLegs = 2; } This constructor defines a Bird object with properties name, color, and numLegs set to Albert, blue, and 2, respectively.</p>
+<p>Constructors follow a few conventions:</p>
+<p>Constructors are defined with a capitalized name to distinguish them from other functions that are not constructors. Constructors use the keyword this to set properties of the object they will create. Inside the constructor, this refers to the new object it will create. Constructors define properties and behaviors instead of returning a value as other functions might.</p>
+<p>let blueBird = new Bird(); //create a object using new keyword with constructor</p>
+<p>IMPORTANT POINT- if you want to declare the variables inside constructor as private i.e., you don’t want them to be accessed by outside functions you shall then not use this keyword and declare it like normal variable using var or let and make sure inside the constructor call the variable without this keyword.</p></li>
+</ol>
+<ol start="2" type="1">
+<li><p>instanceof to check objects constructor (o in instaceof is lowercase) let Bird = function(name, color) { this.name = name; this.color = color; this.numLegs = 2; }</p>
+<p>let crow = new Bird(“Alexis”, “black”);</p>
+<p>crow instanceof Bird; // =&gt; true</p></li>
+<li><p>to print all the properties of a object let ownProps = [];</p>
+<p>for (let property in duck) { if(duck.hasOwnProperty(property)) { ownProps.push(property); } }</p>
+<p>console.log(ownProps); // prints [ “name”, “numLegs” ]</p></li>
+<li><p>Prototype A better way is to use Bird’s prototype. The prototype is an object that is shared among ALL instances of Bird. Here’s how to add numLegs to the Bird prototype:</p>
+<p>Bird.prototype.numLegs = 2; Now all instances of Bird have the numLegs property.</p>
+<p>console.log(duck.numLegs); // prints 2 console.log(canary.numLegs); // prints 2 Since all instances automatically have the properties on the prototype, think of a prototype as a “recipe” for creating objects.</p>
+<p>Note that the prototype for duck and canary is part of the Bird constructor as Bird.prototype. Nearly every object in JavaScript has a prototype property which is part of the constructor function that created it.</p>
+<p>let ownProps = []; let prototypeProps = [];</p>
+<p>for (let property in duck) { if(duck.hasOwnProperty(property)) { ownProps.push(property); } else { prototypeProps.push(property); } }</p>
+<p>console.log(ownProps); // prints [“name”]</p></li>
+<li><p>find constructor of object let duck = new Bird(); let beagle = new Dog();</p>
+<p>console.log(duck.constructor === Bird); //prints true console.log(beagle.constructor === Dog); //prints true console.log(prototypeProps); // prints [“numLegs”]</p>
+<p>Since the constructor property can be overwritten (which will be covered in the next two challenges) it’s generally better to use the instanceof method to check the type of an object.</p></li>
+<li><p>Updating the prototype by assignment of a object function Dog(name) { this.name = name; }</p>
+<p>Dog.prototype={ numLegs: 2, eat(){ console.log(“eat method in es6 way”); }, describe(){ console.log(“describe method in es6 way”); } }</p>
+<p>There is one crucial side effect of manually setting the prototype to a new object. It erased the constructor property! The code in the previous challenge would print the following for duck:</p>
+<p>console.log(duck.constructor) // prints ‘undefined’ - Oops!</p>
+<p>To fix this, whenever a prototype is manually set to a new object, remember to define the constructor property: Bird.prototype = { constructor: Bird, // define the constructor property numLegs: 2, eat: function() { console.log(“nom nom nom”); }, describe: function() { console.log(“My name is” + this.name); } };</p></li>
+<li><p>Just like people inherit genes from their parents, an object inherits its prototype directly from the constructor function that created it. For example, here the Bird constructor creates the duck object:</p>
+<p>function Bird(name) { this.name = name; }</p>
+<p>let duck = new Bird(“Donald”); duck inherits its prototype from the Bird constructor function. You can show this relationship with the isPrototypeOf method:</p>
+<p>Bird.prototype.isPrototypeOf(duck); // returns true</p>
+<p>All objects in JavaScript (with a few exceptions) have a prototype. Also, an object’s prototype itself is an object.</p></li>
+<li><p>All objects in JavaScript (with a few exceptions) have a prototype. Also, an object’s prototype itself is an object.</p>
+<p>function Bird(name) { this.name = name; }</p>
+<p>typeof Bird.prototype; // =&gt; object Because a prototype is an object, a prototype can have its own prototype! In this case, the prototype of Bird.prototype is Object.prototype:</p>
+<p>Object.prototype.isPrototypeOf(Bird.prototype); // returns true How is this useful? You may recall the hasOwnProperty method from a previous challenge:</p>
+<p>let duck = new Bird(“Donald”); duck.hasOwnProperty(“name”); // =&gt; true The hasOwnProperty method is defined in Object.prototype, which can be accessed by Bird.prototype, which can then be accessed by duck. This is an example of the prototype chain.</p>
+<p>In this prototype chain, Bird is the supertype for duck, while duck is the subtype. Object is a supertype for both Bird and duck.</p>
+<p>Object is a supertype for all objects in JavaScript. Therefore, any object can use the hasOwnProperty method.</p></li>
+<li><p>isPrototypeOf() To check prototype of a object function Dog(name) { this.name = name; }</p>
+<p>let beagle = new Dog(“Snoopy”);</p>
+<p>console.log(Dog.prototype.isPrototypeOf(beagle)); //true</p></li>
+<li><p>DRY principle &amp; Inheritance There’s a principle in programming called Don’t Repeat Yourself (DRY). The reason repeated code is a problem is because any change requires fixing code in multiple places. This usually means more work for programmers and more room for errors.</p>
+<p>You already know one way to create an instance of Animal using the new operator:</p>
+<p>let animal = new Animal(); There are some disadvantages when using this syntax for inheritance, which are too complex for the scope of this challenge. Instead, here’s an alternative approach without those disadvantages:</p>
+<p>let animal = Object.create(Animal.prototype); Object.create(obj) creates a new object, and sets obj as the new object’s prototype. Recall that the prototype is like the “recipe” for creating an object. By setting the prototype of animal to be Animal’s prototype, you are effectively giving the animal instance the same “recipe” as any other instance of Animal.</p>
+<p>animal.eat(); // prints “nom nom nom” animal instanceof Animal; // =&gt; true</p></li>
+<li><p>Bird.prototype = Object.create(Animal.prototype); Remember that the prototype is like the “recipe” for creating an object. In a way, the recipe for Bird now includes all the key “ingredients” from Animal.</p>
+<p>let duck = new Bird(“Donald”); duck.eat(); // prints “nom nom nom” duck inherits all of Animal’s properties, including the eat method.</p></li>
+<li><p>When an object inherits its prototype from another object, it also inherits the supertype’s constructor property.</p>
+<p>Here’s an example:</p>
+<p>function Bird() { } Bird.prototype = Object.create(Animal.prototype); let duck = new Bird(); duck.constructor // function Animal(){…} But duck and all instances of Bird should show that they were constructed by Bird and not Animal. To do so, you can manually set Bird’s constructor property to the Bird object:</p>
+<p>Bird.prototype.constructor = Bird; duck.constructor // function Bird(){…}</p></li>
+<li><p>Method Overriding function Animal() { } Animal.prototype.eat = function() { return “nom nom nom”; }; function Bird() { }</p>
+<p>// Inherit all methods from Animal Bird.prototype = Object.create(Animal.prototype);</p>
+<p>// Bird.eat() overrides Animal.eat() Bird.prototype.eat = function() { return “peck peck peck”; };</p></li>
+<li><p>Mixins As you have seen, behavior is shared through inheritance. However, there are cases when inheritance is not the best solution. Inheritance does not work well for unrelated objects like Bird and Airplane. They can both fly, but a Bird is not a type of Airplane and vice versa.</p>
+<p>For unrelated objects, it’s better to use mixins. A mixin allows other objects to use a collection of functions.</p>
+<p>let flyMixin = function(obj) { obj.fly = function() { console.log(“Flying, wooosh!”); } };</p></li>
+<li><p>function Bird() { let hatchedEgg = 10; // private property</p>
+<pre><code>  this.getHatchedEggCount = function() { // publicly available method that a bird object can use
+    return hatchedEgg;
+  };
+}
+let ducky = new Bird();
+ducky.getHatchedEggCount(); // returns 10</code></pre>
+<p>Here getHachedEggCount is a privileged method, because it has access to the private variable hatchedEgg. This is possible because hatchedEgg is declared in the same context as getHachedEggCount. In JavaScript, a function always has access to the context in which it was created. This is called closure.</p></li>
+<li><p>IIFE (Immediately Invoked Function Expression ) (function () { console.log(“Chirp, chirp!”); })(); // this is an anonymous function expression that executes right away</p>
+<p>// Outputs “Chirp, chirp!” immediately Note that the function has no name and is not stored in a variable. The two parentheses () at the end of the function expression cause it to be immediately executed or invoked. This pattern is known as an immediately invoked function expression or IIFE.</p></li>
+<li><p>Modules and IIFE together An immediately invoked function expression (IIFE) is often used to group related functionality into a single object or module. For example, an earlier challenge defined two mixins:</p>
+<p>function glideMixin(obj) { obj.glide = function() { console.log(“Gliding on the water”); }; } function flyMixin(obj) { obj.fly = function() { console.log(“Flying, wooosh!”); }; } We can group these mixins into a module as follows:</p>
+<p>let motionModule = (function () { return { glideMixin: function (obj) { obj.glide = function() { console.log(“Gliding on the water”); }; }, flyMixin: function(obj) { obj.fly = function() { console.log(“Flying, wooosh!”); }; } } }) (); // The two parentheses cause the function to be immediately invoked Note that you have an immediately invoked function expression (IIFE) that returns an object motionModule. This returned object contains all of the mixin behaviors as properties of the object.</p>
+<p>The advantage of the module pattern is that all of the motion behaviors can be packaged into a single object that can then be used by other parts of your code. Here is an example using it:</p>
+<p>motionModule.glideMixin(duck); duck.glide();</p>
+<pre><code>                    Functional Programming</code></pre></li>
+</ol>
+<ol type="1">
+<li><p>Functional programming is about:</p>
+<ol type="a">
+<li><p>Isolated functions - there is no dependence on the state of the program, which includes global variables that are subject to change</p></li>
+<li><p>Pure functions - the same input always gives the same output</p></li>
+<li><p>Functions with limited side effects - any changes, or mutations, to the state of the program outside the function are carefully controlled</p></li>
+</ol></li>
+</ol>
+<ol start="2" type="1">
+<li><p>Callbacks are the functions that are slipped or passed into another function to decide the invocation of that function. You may have seen them passed to other methods, for example in filter, the callback function tells JavaScript the criteria for how to filter an array.</p>
+<p>Functions that can be assigned to a variable, passed into another function, or returned from another function just like any other normal value, are called first class functions. In JavaScript, all functions are first class functions.</p>
+<p>The functions that take a function as an argument, or return a function as a return value are called higher order functions. ex:- filter,map,reduce</p>
+<p>When the functions are passed in to another function or returned from another function, then those functions which gets passed in or returned can be called a lambda</p></li>
+<li><p>To concat 1 arrays not using spread operator this.tabs = tabsBeforeIndex.concat(tabsAfterIndex);</p></li>
+<li><p>Recall that in functional programming, changing or altering things is called mutation, and the outcome is called a side effect. A function, ideally, should be a pure function, meaning that it does not cause any side effects.</p>
+<p>One of the core principle of functional programming is to not change things. Changes lead to bugs. It’s easier to prevent bugs knowing that your functions don’t change anything, including the function arguments or any global var</p>
+<p>Avoid for loops in functional programming and use functions like map().</p></li>
+<li><p>Another principle of functional programming is to always declare your dependencies explicitly. This means if a function depends on a variable or object being present, then pass that variable or object directly into the function as an argument.</p></li>
+<li><p>Note: A pure function is allowed to alter local variables defined within its scope, although, it’s preferable to avoid that as well.</p></li>
+<li><p>The arity of a function is the number of arguments it requires. Currying a function means to convert a function of N arity into N functions of arity 1.</p>
+<p>In other words, it restructures a function so it takes one argument, then returns another function that takes the next argument, and so on.</p>
+<p>Here’s an example:</p>
+<p>//Un-curried function function unCurried(x, y) { return x + y; }</p>
+<p>//Curried function function curried(x) { return function(y) { return x + y; } } curried(1)(2) // Returns 3 This is useful in your program if you can’t supply all the arguments to a function at one time. You can save each function call into a variable, which will hold the returned function reference that takes the next argument when it’s available. Here’s an example using the curried function in the example above:</p>
+<p>// Call a curried function in parts: var funcForY = curried(1); console.log(funcForY(2)); // Prints 3 Similarly, partial application can be described as applying a few arguments to a function at a time and returning another function that is applied to more arguments.</p>
+<p>Here’s an example:</p>
+<p>//Impartial function function impartial(x, y, z) { return x + y + z; } var partialFn = impartial.bind(this, 1, 2); partialFn(10); // Returns 13</p>
+<pre><code>                Intermediate Algorithm Scripting</code></pre></li>
+</ol>
+<ol type="1">
+<li><p>// the global Array var s = [23, 65, 98, 5];</p>
+<p>Array.prototype.myFilter = function(callback){ var newArray = []; // Add your code below this line this.forEach(x=&gt;{ if(callback(x)){ newArray.push(x); } }); // Add your code above this line return newArray;</p>
+<p>};</p>
+<p>var new_s = s.myFilter(function(item){ return item % 2 === 1; });</p></li>
+</ol>
+<ol start="2" type="1">
+<li><p>var arr = [1, 2, 3]; arr.push([4, 5, 6]); // arr is changed to [1, 2, 3, [4, 5, 6]] // Not the functional programming way Concat offers a way to add new items to the end of an array without any mutating side effects.</p></li>
+<li><p>function ascendingOrder(arr) { return arr.sort(function(a, b) { return a - b; }); } ascendingOrder([1, 5, 2, 3, 4]); // Returns [1, 2, 3, 4, 5]</p>
+<p>function reverseAlpha(arr) { return arr.sort(function(a, b) { return a &lt; b; }); } reverseAlpha([‘l’, ‘h’, ‘z’, ‘b’, ‘s’]); // Returns [‘z’, ‘s’, ‘l’, ‘h’, ‘b’]</p></li>
+<li>Use of replace() function is ill advised in functional programming as it changes the original string.</li>
+<li>Use trim() to replace trailing whitespaces</li>
+<li><p>every() and some() function The every method works with arrays to check if every element passes a particular test. It returns a Boolean value - true if all values meet the criteria, false if not.</p>
+<p>For example, the following code would check if every element in the numbers array is less than 10:</p>
+<p>var numbers = [1, 5, 8, 0, 10, 11]; numbers.every(function(currentValue) { return currentValue &lt; 10; });</p>
+<p>For example, the following code would check if any element in the numbers array is less than 10:</p>
+<p>var numbers = [10, 50, 8, 220, 110, 11]; numbers.some(function(currentValue) { return currentValue &lt; 10; }); // Returns true // Returns false</p></li>
+<li><p>arr.findIndex() to find first vowel index in string, works similar to arr.find() function exceot this function returns index instead of first satisfied value let firstVowelIndex=str.split(’’).findIndex(x=&gt;{ return /[aeiou]/i.test(x); });</p></li>
+<li><p>charCodeAt() console.log(“ABC”.charCodeAt(0)); //65 String.fromCharCode(65); // 65 //Note: String keyword should come for each call to function</p></li>
+<li><p>includes() to search an element in array &amp; string var array1 = [1, 2, 3];</p>
+<p>console.log(array1.includes(2)); // expected output: true</p>
+<p>var pets = [‘cat’, ‘dog’, ‘bat’];</p>
+<p>console.log(pets.includes(‘at’)); // expected output: false</p></li>
+<li><p>Math.sqrt(9) // 2 Math.PI // to get pi value in js</p></li>
+<li><p>continue keyword var text = "";</p>
+<p>for (var i = 0; i &lt; 10; i++) { if (i === 3) { continue; } text = text + i; }</p>
+<p>console.log(text); // expected output: “012456789”</p></li>
+<li><p>Array.isArray(); Array.isArray([1, 2, 3]); // true Array.isArray({foo: 123}); // false Array.isArray(‘foobar’); // false Array.isArray(undefined); // false</p></li>
+</ol>
+</body>
+</html>

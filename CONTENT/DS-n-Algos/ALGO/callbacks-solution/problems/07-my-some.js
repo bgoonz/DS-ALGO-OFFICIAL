@@ -1,4 +1,4 @@
-/*******************************************************************************
+/*
 Write a function `mySome` that accepts an array and a callback as an argument.
 The function should call the callback for each element of the array, passing in
 the element and its index. The function should return a boolean
@@ -21,12 +21,12 @@ let result3 = mySome(['soup', 'noodles', 'bike', 'ship'], function(ele) {
     return ele.length === 4;
 });
 console.log(result3);   // true
-*******************************************************************************/
+*/
 
-function mySome( array, cb ) {
-  for ( let i = 0; i < array.length; i++ ) {
-    let ele = array[ i ];
-    if ( cb( ele, i ) ) {
+function mySome(array, cb) {
+  for (let i = 0; i < array.length; i++) {
+    let ele = array[i];
+    if (cb(ele, i)) {
       return true;
     }
   }

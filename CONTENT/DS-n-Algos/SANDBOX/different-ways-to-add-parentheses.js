@@ -5,7 +5,7 @@
  * @param {string} input
  * @return {number[]}
  */
-var diffWaysToCompute = function(input) {
+var diffWaysToCompute = function (input) {
   var ans = [];
 
   // 暴力递归求解
@@ -22,7 +22,7 @@ var diffWaysToCompute = function(input) {
         var a = numStack.pop();
         var sym = symStack.pop();
 
-        numStack.push(eval('(' + a + ')' + sym + '(' + b + ')' ));
+        numStack.push(eval("(" + a + ")" + sym + "(" + b + ")"));
       }
 
       ans.push(numStack[0]);
@@ -31,15 +31,12 @@ var diffWaysToCompute = function(input) {
 
     var item = input[index];
 
-    if ('-+*'.indexOf(item) !== -1) {
-
-
+    if ("-+*".indexOf(item) !== -1) {
       var _numStack = numStack.concat();
       var _symStack = symStack.concat();
       _numStack.push(num);
       _symStack.push(item);
       dfs(_numStack, _symStack, 0, index + 1, input);
-
 
       _numStack = numStack.concat();
       _numStack.push(num);
@@ -49,7 +46,7 @@ var diffWaysToCompute = function(input) {
         var a = _numStack.pop();
         var sym = _symStack.pop();
 
-        _numStack.push(eval('(' + a + ')' + sym + '(' + b + ')' ));
+        _numStack.push(eval("(" + a + ")" + sym + "(" + b + ")"));
 
         var newNumStack = _numStack.concat();
         var newSymStack = _symStack.concat();
@@ -57,7 +54,13 @@ var diffWaysToCompute = function(input) {
         dfs(newNumStack, newSymStack, 0, index + 1, input);
       }
     } else {
-      dfs(numStack.concat(), symStack.concat(), num * 10 + +item, index + 1, input);
+      dfs(
+        numStack.concat(),
+        symStack.concat(),
+        num * 10 + +item,
+        index + 1,
+        input
+      );
     }
   }
 };

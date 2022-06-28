@@ -7,7 +7,7 @@
  * @param {number} t
  * @return {boolean}
  */
-var containsNearbyAlmostDuplicate = function(nums, k, t) {
+var containsNearbyAlmostDuplicate = function (nums, k, t) {
   var len = nums.length;
   for (var i = 0; i < len; i++)
     for (var j = i + 1; j <= Math.min(i + k, len - 1); j++)

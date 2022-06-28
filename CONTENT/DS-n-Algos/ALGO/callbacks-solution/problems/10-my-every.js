@@ -1,4 +1,4 @@
-/*******************************************************************************
+/*
 Write a function `myEvery` that accepts an array and a callback as arguments.
 The function should return a boolean indicating whether or not all elements of
 the array return true when passed into the callback.
@@ -19,11 +19,11 @@ console.log(myEvery([4, 8, 6, 10], isEven));            // true
 console.log(myEvery([4, 7, 6, 10], isEven));            // false
 console.log(myEvery(['book', 'door'], hasO));           // true
 console.log(myEvery(['book', 'door', 'pen'], hasO));    // false
-*******************************************************************************/
+*/
 
-function myEvery( array, cb ) {
-  for ( let i = 0; i < array.length; i++ ) {
-    if ( cb( array[ i ] ) === false ) {
+function myEvery(array, cb) {
+  for (let i = 0; i < array.length; i++) {
+    if (cb(array[i]) === false) {
       return false;
     }
   }

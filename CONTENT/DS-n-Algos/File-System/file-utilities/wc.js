@@ -14,7 +14,7 @@
      number of lines«tab»number of words«tab»number of characters
  */
 
-const fs = require('fs');
+const fs = require("fs");
 
 if (process.argv.length !== 3) {
   console.log("USAGE: ./wc.js path");
@@ -24,17 +24,17 @@ if (process.argv.length !== 3) {
 const target = process.argv[2];
 
 fs.stat(target, (err, stats) => {
-  if (err && err.code === 'ENOENT') {
+  if (err && err.code === "ENOENT") {
     console.error(`Does not exist: ${target}`);
     process.exit(2);
   }
 
   if (stats.isDirectory()) {
-    console.error('Directories do not have words.');
+    console.error("Directories do not have words.");
     process.exit(14);
   }
 
-  fs.readFile(target, 'utf-8', (err, data) => {
+  fs.readFile(target, "utf-8", (err, data) => {
     if (err) throw err;
 
     let chars = 0;
@@ -46,7 +46,7 @@ fs.stat(target, (err, stats) => {
       if (isWhitespace(data[i]) && !isWhitespace(data[i - 1])) {
         words += 1;
       }
-      if (data[i] === '\n') {
+      if (data[i] === "\n") {
         lines += 1;
       }
     }
@@ -56,7 +56,5 @@ fs.stat(target, (err, stats) => {
 });
 
 function isWhitespace(c) {
-  return c === ' ' ||
-         c === '\t' ||
-         c == '\n';
+  return c === " " || c === "\t" || c == "\n";
 }

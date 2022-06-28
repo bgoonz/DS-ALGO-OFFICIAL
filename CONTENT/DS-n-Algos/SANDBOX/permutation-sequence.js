@@ -18,15 +18,14 @@ function find(index, hash) {
   }
 }
 
-var getPermutation = function(n, k) {
+var getPermutation = function (n, k) {
   // quickly get n!
   var a = [];
   a[0] = 1;
-  for (var i = 1; i <= 9; i++)
-    a[i] = a[i - 1] * i;
+  for (var i = 1; i <= 9; i++) a[i] = a[i - 1] * i;
 
-  var ans = ''
-    , hash = [];  // the number has been used
+  var ans = "",
+    hash = []; // the number has been used
 
   // fill one by one
   for (var i = n; i >= 1; i--) {
@@ -34,7 +33,7 @@ var getPermutation = function(n, k) {
     k -= (tmp - 1) * a[i - 1];
     var index = find(tmp, hash);
     ans += index;
-  } 
+  }
 
   return ans;
 };

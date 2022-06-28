@@ -2,12 +2,12 @@
 // a multidimensional array
 
 let sampleObj = {
-  'animals': {
-    'dogs': ["Pitbull", "sweet"],
-    'dragons': ["Smaug", "Epic"],
-    'Pigs': ["are probably good pets but you might be weird if you have one"],
+  animals: {
+    dogs: ["Pitbull", "sweet"],
+    dragons: ["Smaug", "Epic"],
+    Pigs: ["are probably good pets but you might be weird if you have one"],
   },
-  'a-A-strikes': [1,2,3,4,5],
+  "a-A-strikes": [1, 2, 3, 4, 5],
   guitars: {
     Fender: ["Telecaster", "Stratocaster", "Jazzmaster"],
     Gibson: ["Gibson Flying-V", "Firebird", "Les Paul"],
@@ -31,7 +31,6 @@ function toArr(ob) {
   }
   return result;
 }
-
 
 console.log("toArr(sampleObj): ", toArr(sampleObj));
 /*

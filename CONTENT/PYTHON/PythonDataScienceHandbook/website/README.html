@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>README</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+</head>
+<body>
+<p>2# Tools for creating http://jakevdp.github.io/PythonDataScienceHandbook/</p>
+<p>The website is generated using the <a href="http://docs.getpelican.com/">Pelican</a> static site generator. The themes here are adapted from those used for my blog: https://github.com/jakevdp/jakevdp.github.io-source</p>
+<h2 id="building-the-website">Building the Website</h2>
+<p>Clone the repository &amp; make sure submodules are included</p>
+<pre><code>$ git clone https://github.com/jakevdp/PythonDataScienceHandbook.git
+$ git checkout origin/website
+$ git submodule update --init --recursive
+$ cd website</code></pre>
+<p>Install the required packages:</p>
+<pre><code>$ conda create -n pelican-blog python=3.5 jupyter notebook
+$ source activate pelican-blog
+$ pip install pelican Markdown ghp-import
+$ mkdir plugins
+$ git submodule add git://github.com/danielfrg/pelican-ipynb.git plugins/ipynb
+$ git submodule add https://github.com/getpelican/pelican-plugins.git plugins/pelican-plugins</code></pre>
+<p>Copy the notebook content to the right location (this script also modifies some links for the HTML):</p>
+<pre><code>$ python copy_notebooks.py</code></pre>
+<p>Build the html and serve locally:</p>
+<pre><code>$ make html
+$ make serve
+$ open http://localhost:8000</code></pre>
+<p>Deploy to github pages</p>
+<pre><code>$ make publish-to-github</code></pre>
+</body>
+</html>

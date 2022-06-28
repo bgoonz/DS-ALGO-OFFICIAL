@@ -1,9 +1,9 @@
-function factorial( num ) {
+function factorial(num) {
   let product = 1;
-  for ( let i = 1; i <= num; i++ ) {
+  for (let i = 1; i <= num; i++) {
     product *= i;
   }
-  return product
+  return product;
 }
-console.log( factorial( 5 ) )
-console.log( factorial( 0 ) )
+console.log(factorial(5));
+console.log(factorial(0));

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="generator" content="pandoc" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=yes"
+    />
+    <title>058. Length of Last Word</title>
+    <style type="text/css">
+      code {
+        white-space: pre-wrap;
+      }
+      span.smallcaps {
+        font-variant: small-caps;
+      }
+      span.underline {
+        text-decoration: underline;
+      }
+      div.column {
+        display: inline-block;
+        vertical-align: top;
+        width: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <h2 id="length-of-last-word">
+      <a href="https://leetcode.com/problems/length-of-last-word/description/"
+        >58. Length of Last Word</a
+      >
+    </h2>
+    <h3 id="problem">Problem:</h3>
+    <p>
+      Given a string s consists of upper/lower-case alphabets and empty space
+      characters <code>' '</code>, return the length of last word in the string.
+    </p>
+    <p>If the last word does not exist, return 0.</p>
+    <p>
+      Note: A word is defined as a character sequence consists of non-space
+      characters only.
+    </p>
+    <p>Example:</p>
+    <pre><code>Input: &quot;Hello World&quot;
+Output: 5</code></pre>
+    <h3 id="solution">Solution:</h3>
+    <p>JavaScript specific solutions:</p>
+    <h4 id="one">ONE</h4>
+    <pre><code>/**
+ * @param {string} s
+ * @return {number}
+ */
+var lengthOfLastWord = function(s) {
+  return (/\w+$/.exec(s) || [&#39;&#39;])[0].length
+};</code></pre>
+    <h4 id="two">TWO</h4>
+    <p>
+      Super fast. <code>split</code> will guarantee that there is at least one
+      item in the resulted array.
+    </p>
+    <pre><code>/**
+ * @param {string} s
+ * @return {number}
+ */
+var lengthOfLastWord = function(s) {
+  return s.trim().split(&#39; &#39;).pop().length
+};</code></pre>
+    <h4 id="three">THREE</h4>
+    <p>General solution.</p>
+    <pre><code>/**
+ * @param {string} s
+ * @return {number}
+ */
+var lengthOfLastWord = function(s) {
+  let end = s.length - 1
+  while (end &gt;= 0 &amp;&amp; s[end] === &#39; &#39;) {
+    end--
+  }
+
+  let start = end
+  while (start &gt;= 0 &amp;&amp; s[start] !== &#39; &#39;) {
+    start--
+  }
+
+  return end - start
+};</code></pre>
+    <p>
+      <em
+        >Template generated via
+        <a href="https://github.com/crimx/crx-leetmark">Leetmark</a>.</em
+      >
+    </p>
+  </body>
+</html>

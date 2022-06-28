@@ -1,4 +1,4 @@
-/*******************************************************************************
+/*
 Write a function `myForEach` that accepts an array and a callback as arguments.
 The function should call the callback on each element of the array, passing in the
 element, index, and array itself. The function does not need to return any value.
@@ -19,15 +19,13 @@ myForEach(['laika', 'belka'], function (el) {
     test.push(el.toUpperCase());
 });
 console.log(test); // ['LAIKA', 'BELKA']
-*******************************************************************************/
+*/
 
-function myForEach( array, cb ) {
-  for ( let i = 0; i < array.length; i++ ) {
-    let el = array[ i ];
-    cb( el, i, array );
+function myForEach(array, cb) {
+  for (let i = 0; i < array.length; i++) {
+    let el = array[i];
+    cb(el, i, array);
   }
 }
 
-
 mole.exports = myForEach;
-  

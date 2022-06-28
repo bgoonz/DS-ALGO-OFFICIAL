@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>README.es-ES</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+</head>
+<body>
+<h1 id="lista-enlazada-linked-list">Lista Enlazada (Linked List)</h1>
+<p><em>Lee esto en otros idiomas:</em> <a href="README.zh-CN.md"><em>简体中文</em></a>, <a href="README.ru-RU.md"><em>Русский</em></a>, <a href="README.ja-JP.md"><em>日本語</em></a>, <a href="README.pt-BR.md"><em>Português</em></a> <a href="README.md"><em>English</em></a></p>
+<p>En ciencias de la computación una <strong>lista enlazada</strong> es una colección linear de elemntos de datos, en los cuales el orden linear no es dado por su posción física en memoria. En cambio, cada elemento señala al siguiente. Es una estructura de datos que consiste en un grupo de nodos los cuales juntos representan una secuencia. Bajo la forma más simple, cada nodo es compuesto de datos y una referencia (en otras palabras, un lazo) al siguiente nodo en la secuencia. Esta estructura permite la inserción o remoción de elementos desde cualquier posición en la secuencia durante la iteración. Variantes más complejas agregan lazos adicionales, permitiendo una eficiente inserción o remoción desde referencias arbitrarias del elemento. Una desventaja de las listas lazadas es que el tiempo de acceso es linear (y difícil de canalizar). Un acceso más rápido, como un acceso aleatorio, no es factible. Los arreglos tienen una mejor locazion comparados con las listas lazadas.</p>
+<figure>
+<img src="https://upload.wikimedia.org/wikipedia/commons/6/6d/Singly-linked-list.svg" alt="Linked List" /><figcaption>Linked List</figcaption>
+</figure>
+<h2 id="pseudocódigo-para-operacones-básicas">Pseudocódigo para operacones básicas</h2>
+<h3 id="insertar">Insertar</h3>
+<pre class="text"><code>Add(value)
+  Pre: value is the value to add to the list
+  Post: value has been placed at the tail of the list
+  n ← node(value)
+  if head = ø
+    head ← n
+    tail ← n
+  else
+    tail.next ← n
+    tail ← n
+  end if
+end Add</code></pre>
+<pre class="text"><code>Prepend(value)
+ Pre: value is the value to add to the list
+ Post: value has been placed at the head of the list
+ n ← node(value)
+ n.next ← head
+ head ← n
+ if tail = ø
+   tail ← n
+ end
+end Prepend</code></pre>
+<h3 id="buscar">Buscar</h3>
+<pre class="text"><code>Contains(head, value)
+  Pre: head is the head node in the list
+       value is the value to search for
+  Post: the item is either in the linked list, true; otherwise false
+  n ← head
+  while n != ø and n.value != value
+    n ← n.next
+  end while
+  if n = ø
+    return false
+  end if
+  return true
+end Contains</code></pre>
+<h3 id="borrar">Borrar</h3>
+<pre class="text"><code>Remove(head, value)
+  Pre: head is the head node in the list
+       value is the value to remove from the list
+  Post: value is removed from the list, true, otherwise false
+  if head = ø
+    return false
+  end if
+  n ← head
+  if n.value = value
+    if head = tail
+      head ← ø
+      tail ← ø
+    else
+      head ← head.next
+    end if
+    return true
+  end if
+  while n.next != ø and n.next.value != value
+    n ← n.next
+  end while
+  if n.next != ø
+    if n.next = tail
+      tail ← n
+    end if
+    n.next ← n.next.next
+    return true
+  end if
+  return false
+end Remove</code></pre>
+<h3 id="atrevesar">Atrevesar</h3>
+<pre class="text"><code>Traverse(head)
+  Pre: head is the head node in the list
+  Post: the items in the list have been traversed
+  n ← head
+  while n != ø
+    yield n.value
+    n ← n.next
+  end while
+end Traverse</code></pre>
+<h3 id="atravesar-en-reversa">Atravesar en Reversa</h3>
+<pre class="text"><code>ReverseTraversal(head, tail)
+  Pre: head and tail belong to the same list
+  Post: the items in the list have been traversed in reverse order
+  if tail != ø
+    curr ← tail
+    while curr != head
+      prev ← head
+      while prev.next != curr
+        prev ← prev.next
+      end while
+      yield curr.value
+      curr ← prev
+    end while
+   yield curr.value
+  end if
+end ReverseTraversal</code></pre>
+<h2 id="complejidades">Complejidades</h2>
+<h3 id="complejidad-del-tiempo">Complejidad del Tiempo</h3>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;">Access</th>
+<th style="text-align: center;">Search</th>
+<th style="text-align: center;">Insertion</th>
+<th style="text-align: center;">Deletion</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">O(n)</td>
+<td style="text-align: center;">O(n)</td>
+<td style="text-align: center;">O(1)</td>
+<td style="text-align: center;">O(n)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="complejidad-espacial">Complejidad Espacial</h3>
+<p>O(n)</p>
+<h2 id="referencias">Referencias</h2>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Linked_list">Wikipedia</a></li>
+<li><a href="https://www.youtube.com/watch?v=njTh_OwMljA&amp;index=2&amp;t=1s&amp;list=PLLXdhg_r2hKA7DPDsunoDZ-Z769jWn4R8">YouTube</a></li>
+</ul>
+</body>
+</html>

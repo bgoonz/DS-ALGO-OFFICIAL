@@ -1,10 +1,10 @@
-const Stack = require('./index');
+const Stack = require("./index");
 
-test('Stack is a class', () => {
-  expect(typeof Stack.prototype.constructor).toEqual('function');
+test("Stack is a class", () => {
+  expect(typeof Stack.prototype.constructor).toEqual("function");
 });
 
-test('stack can add and remove items', () => {
+test("stack can add and remove items", () => {
   const s = new Stack();
   s.push(1);
   expect(s.pop()).toEqual(1);
@@ -12,7 +12,7 @@ test('stack can add and remove items', () => {
   expect(s.pop()).toEqual(2);
 });
 
-test('stack can follows first in, last out', () => {
+test("stack can follows first in, last out", () => {
   const s = new Stack();
   s.push(1);
   s.push(2);
@@ -22,7 +22,7 @@ test('stack can follows first in, last out', () => {
   expect(s.pop()).toEqual(1);
 });
 
-test('peek returns the first element but doesnt pop it', () => {
+test("peek returns the first element but doesnt pop it", () => {
   const s = new Stack();
   s.push(1);
   s.push(2);

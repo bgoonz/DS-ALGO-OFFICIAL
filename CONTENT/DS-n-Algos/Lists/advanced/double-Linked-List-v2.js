@@ -1,4 +1,4 @@
-function Node( data ) {
+function Node(data) {
   // Node in doubly linked has both a previous and next node value.
   this.data = data;
   this.previous = null;
@@ -12,16 +12,16 @@ class DoublyLinkedList {
     this.numberOfValues = 0;
   }
 
-  add( data ) {
-    const node = new Node( data );
-    if ( !this.head ) {
+  add(data) {
+    const node = new Node(data);
+    if (!this.head) {
       // If the list is empty, the new node is both the head and the tail.
       this.head = node;
       this.tail = node;
     } else {
-      // Otherwise, the new node's previous node is equal to the 
-      // list's tail before adding the new node. This means that 
-      // the new node is behind the current tail. 
+      // Otherwise, the new node's previous node is equal to the
+      // list's tail before adding the new node. This means that
+      // the new node is behind the current tail.
       node.previous = this.tail;
       this.tail.next = node;
       this.tail = node;
@@ -29,21 +29,21 @@ class DoublyLinkedList {
     this.numberOfValues++;
   }
 
-  remove( data ) {
+  remove(data) {
     let current = this.head;
-    while ( current ) {
-      if ( current.data === data ) {
-        if ( current === this.head && current === this.tail ) {
+    while (current) {
+      if (current.data === data) {
+        if (current === this.head && current === this.tail) {
           // If there's only one single node in the list.
           this.head = null;
           this.tail = null;
-        } else if ( current === this.head ) {
+        } else if (current === this.head) {
           // The head's value should be set to the next node's value.
           // and the previous node of the new head to null
           // as there is no previous node anymore.
           this.head = this.head.next;
           this.head.previous = null;
-        } else if ( current === this.tail ) {
+        } else if (current === this.tail) {
           // Set the value of the node before the tail as the new tail.
           this.tail = this.tail.previous;
           this.tail.next = null;
@@ -59,16 +59,16 @@ class DoublyLinkedList {
     }
   }
 
-  insertAfter( data, toNodeData ) {
+  insertAfter(data, toNodeData) {
     let current = this.head;
-    while ( current ) {
-      if ( current.data === toNodeData ) {
-        const node = new Node( data );
-        if ( current === this.tail ) {
-          this.add( data );
+    while (current) {
+      if (current.data === toNodeData) {
+        const node = new Node(data);
+        if (current === this.tail) {
+          this.add(data);
         } else {
           // Set the next node's previous value to the node
-          // this means that you insert the new node right before 
+          // this means that you insert the new node right before
           // the found node.
           current.next.previous = node;
           node.previous = current;
@@ -81,21 +81,21 @@ class DoublyLinkedList {
     }
   }
 
-  traverse( fn ) {
+  traverse(fn) {
     let current = this.head;
-    while ( current ) {
-      if ( fn ) {
-        fn( current );
+    while (current) {
+      if (fn) {
+        fn(current);
       }
       current = current.next;
     }
   }
 
-  traverseReverse( fn ) {
+  traverseReverse(fn) {
     let current = this.tail;
-    while ( current ) {
-      if ( fn ) {
-        fn( current );
+    while (current) {
+      if (fn) {
+        fn(current);
       }
       current = current.previous;
     }
@@ -107,12 +107,12 @@ class DoublyLinkedList {
 
   print() {
     // Print list as string.
-    let string = '';
+    let string = "";
     let current = this.head;
-    while ( current ) {
+    while (current) {
       string += `${current.data} `;
       current = current.next;
     }
-    console.log( string.trim() );
+    console.log(string.trim());
   }
 }

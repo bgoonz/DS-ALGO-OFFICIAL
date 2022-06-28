@@ -5,7 +5,7 @@
  * @param {string} s
  * @return {number}
  */
-var lengthOfLongestSubstring = function(s) {
+var lengthOfLongestSubstring = function (s) {
   var hash = {};
   var start = 0;
   var ans = 0;
@@ -13,10 +13,9 @@ var lengthOfLongestSubstring = function(s) {
   for (var i = 0, len = s.length; i < len; i++) {
     var item = s[i];
 
-    if (!hash[item])
-      hash[item] = true;
+    if (!hash[item]) hash[item] = true;
     else {
-      for (; ;) {
+      for (;;) {
         if (s[start] === item) {
           start++;
           break;

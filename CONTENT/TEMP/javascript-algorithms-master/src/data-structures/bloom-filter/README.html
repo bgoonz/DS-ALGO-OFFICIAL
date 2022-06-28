@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>README</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+</head>
+<body>
+<h1 id="bloom-filter">Bloom Filter</h1>
+<p><em>Read this in other languages:</em> <a href="README.ru-RU.md"><em>Русский</em></a>, <a href="README.pt-BR.md"><em>Português</em></a></p>
+<p>A <strong>bloom filter</strong> is a space-efficient probabilistic data structure designed to test whether an element is present in a set. It is designed to be blazingly fast and use minimal memory at the cost of potential false positives. False positive matches are possible, but false negatives are not – in other words, a query returns either “possibly in set” or “definitely not in set”.</p>
+<p>Bloom proposed the technique for applications where the amount of source data would require an impractically large amount of memory if “conventional” error-free hashing techniques were applied.</p>
+<h2 id="algorithm-description">Algorithm description</h2>
+<p>An empty Bloom filter is a bit array of <code>m</code> bits, all set to <code>0</code>. There must also be <code>k</code> different hash functions defined, each of which maps or hashes some set element to one of the <code>m</code> array positions, generating a uniform random distribution. Typically, <code>k</code> is a constant, much smaller than <code>m</code>, which is proportional to the number of elements to be added; the precise choice of <code>k</code> and the constant of proportionality of <code>m</code> are determined by the intended false positive rate of the filter.</p>
+<p>Here is an example of a Bloom filter, representing the set <code>{x, y, z}</code>. The colored arrows show the positions in the bit array that each set element is mapped to. The element <code>w</code> is not in the set <code>{x, y, z}</code>, because it hashes to one bit-array position containing <code>0</code>. For this figure, <code>m = 18</code> and <code>k = 3</code>.</p>
+<figure>
+<img src="https://upload.wikimedia.org/wikipedia/commons/a/ac/Bloom_filter.svg" alt="Bloom Filter" /><figcaption>Bloom Filter</figcaption>
+</figure>
+<h2 id="operations">Operations</h2>
+<p>There are two main operations a bloom filter can perform: <em>insertion</em> and <em>search</em>. Search may result in false positives. Deletion is not possible.</p>
+<p>In other words, the filter can take in items. When we go to check if an item has previously been inserted, it can tell us either “no” or “maybe”.</p>
+<p>Both insertion and search are <code>O(1)</code> operations.</p>
+<h2 id="making-the-filter">Making the filter</h2>
+<p>A bloom filter is created by allotting a certain size. In our example, we use <code>100</code> as a default length. All locations are initialized to <code>false</code>.</p>
+<h3 id="insertion">Insertion</h3>
+<p>During insertion, a number of hash functions, in our case <code>3</code> hash functions, are used to create hashes of the input. These hash functions output indexes. At every index received, we simply change the value in our bloom filter to <code>true</code>.</p>
+<h3 id="search">Search</h3>
+<p>During a search, the same hash functions are called and used to hash the input. We then check if the indexes received <em>all</em> have a value of <code>true</code> inside our bloom filter. If they <em>all</em> have a value of <code>true</code>, we know that the bloom filter may have had the value previously inserted.</p>
+<p>However, it’s not certain, because it’s possible that other values previously inserted flipped the values to <code>true</code>. The values aren’t necessarily <code>true</code> due to the item currently being searched for. Absolute certainty is impossible unless only a single item has previously been inserted.</p>
+<p>While checking the bloom filter for the indexes returned by our hash functions, if even one of them has a value of <code>false</code>, we definitively know that the item was not previously inserted.</p>
+<h2 id="false-positives">False Positives</h2>
+<p>The probability of false positives is determined by three factors: the size of the bloom filter, the number of hash functions we use, and the number of items that have been inserted into the filter.</p>
+<p>The formula to calculate probablity of a false positive is:</p>
+<p>( 1 - e <sup>-kn/m</sup> ) <sup>k</sup></p>
+<p><code>k</code> = number of hash functions</p>
+<p><code>m</code> = filter size</p>
+<p><code>n</code> = number of items inserted</p>
+<p>These variables, <code>k</code>, <code>m</code>, and <code>n</code>, should be picked based on how acceptable false positives are. If the values are picked and the resulting probability is too high, the values should be tweaked and the probability re-calculated.</p>
+<h2 id="applications">Applications</h2>
+<p>A bloom filter can be used on a blogging website. If the goal is to show readers only articles that they have never seen before, a bloom filter is perfect. It can store hashed values based on the articles. After a user reads a few articles, they can be inserted into the filter. The next time the user visits the site, those articles can be filtered out of the results.</p>
+<p>Some articles will inevitably be filtered out by mistake, but the cost is acceptable. It’s ok if a user never sees a few articles as long as they have other, brand new ones to see every time they visit the site.</p>
+<h2 id="references">References</h2>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Bloom_filter">Wikipedia</a></li>
+<li><a href="http://llimllib.github.io/bloomfilter-tutorial/">Bloom Filters by Example</a></li>
+<li><a href="https://hur.st/bloomfilter/?n=4&amp;p=&amp;m=18&amp;k=3">Calculating False Positive Probability</a></li>
+<li><a href="https://blog.medium.com/what-are-bloom-filters-1ec2a50c68ff">Bloom Filters on Medium</a></li>
+<li><a href="https://www.youtube.com/watch?v=bEmBh1HtYrw">Bloom Filters on YouTube</a></li>
+</ul>
+</body>
+</html>

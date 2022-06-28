@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>README.ko-KR</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+</head>
+<body>
+<h1 id="javascript-알고리즘-및-자료-구조">JavaScript 알고리즘 및 자료 구조</h1>
+<p><a href="https://github.com/trekhleb/javascript-algorithms/actions?query=workflow%3ACI+branch%3Amaster"><img src="https://github.com/trekhleb/javascript-algorithms/workflows/CI/badge.svg" alt="CI" /></a> <a href="https://codecov.io/gh/trekhleb/javascript-algorithms"><img src="https://codecov.io/gh/trekhleb/javascript-algorithms/branch/master/graph/badge.svg" alt="codecov" /></a></p>
+<p>이 저장소에는 많이 알려진 알고리즘 및 자료 구조의 Javascript 기반 예제를 담고 있습니다.</p>
+<p>각 알고리즘과 자료 구조에 대해 연관되어있는 설명이 README에 작성되어 있으며, 링크를 통해 더 자세한 설명을 만날 수 있습니다. (관련된 YouTube 영상도 포함).</p>
+<p><em>Read this in other languages:</em> <a href="https://github.com/trekhleb/javascript-algorithms/"><em>English</em></a>, <a href="README.zh-CN.md"><em>简体中文</em></a>, <a href="README.zh-TW.md"><em>繁體中文</em></a>, <a href="README.ja-JP.md"><em>日本語</em></a>, <a href="README.pl-PL.md"><em>Polski</em></a>, <a href="README.fr-FR.md"><em>Français</em></a>, <a href="README.es-ES.md"><em>Español</em></a>, <a href="README.pt-BR.md"><em>Português</em></a>, <a href="README.ru-RU.md"><em>Русский</em></a>, <a href="README.tr-TR.md"><em>Türk</em></a>, <a href="README.it-IT.md"><em>Italiana</em></a>, <a href="README.id-ID.md"><em>Bahasa Indonesia</em></a>, <a href="README.uk-UA.md"><em>Українська</em></a>, <a href="README.ar-AR.md"><em>Arabic</em></a>, <a href="README.de-DE.md"><em>Deutsch</em></a></p>
+<h2 id="자료-구조">자료 구조</h2>
+<p>자료 구조는 데이터를 특정 방식으로 구성하고 저장함으로써 더 효율적으로 접근하고 수정할 수 있게 해줍니다. 간단히 말해, 자료 구조는 데이터 값들, 데이터 간의 관계, 그리고 데이터를 다룰 수 있는 함수와 작업의 모임입니다.</p>
+<p><code>B</code> - 입문자, <code>A</code> - 숙련자</p>
+<ul>
+<li><code>B</code> <a href="src/data-structures/linked-list">연결 리스트</a></li>
+<li><code>B</code> <a href="src/data-structures/doubly-linked-list">이중 연결 리스트</a></li>
+<li><code>B</code> <a href="src/data-structures/queue">큐</a></li>
+<li><code>B</code> <a href="src/data-structures/stack">스택</a></li>
+<li><code>B</code> <a href="src/data-structures/hash-table">해시 테이블</a></li>
+<li><code>B</code> <a href="src/data-structures/heap">힙</a></li>
+<li><code>B</code> <a href="src/data-structures/priority-queue">우선순위 큐</a></li>
+<li><code>A</code> <a href="src/data-structures/trie">트라이</a></li>
+<li><code>A</code> <a href="src/data-structures/tree">트리</a>
+<ul>
+<li><code>A</code> <a href="src/data-structures/tree/binary-search-tree">이진 탐색 트리</a></li>
+<li><code>A</code> <a href="src/data-structures/tree/avl-tree">AVL 트리</a></li>
+<li><code>A</code> <a href="src/data-structures/tree/red-black-tree">Red-Black 트리</a></li>
+<li><code>A</code> <a href="src/data-structures/tree/segment-tree">세그먼트 트리</a> - min/max/sum range 쿼리 예제.</li>
+<li><code>A</code> <a href="src/data-structures/tree/fenwick-tree">Fenwick 트리</a> (Binary Indexed Tree)</li>
+</ul></li>
+<li><code>A</code> <a href="src/data-structures/graph">그래프</a> (유방향, 무방향)</li>
+<li><code>A</code> <a href="src/data-structures/disjoint-set">서로소 집합</a></li>
+<li><code>A</code> <a href="src/data-structures/bloom-filter">블룸 필터</a></li>
+</ul>
+<h2 id="알고리즘">알고리즘</h2>
+<p>알고리즘은 어떤 종류의 문제를 풀 수 있는 정확한 방법이며, 일련의 작업을 정확하게 정의해 놓은 규칙들입니다.</p>
+<p><code>B</code> - 입문자, <code>A</code> - 숙련자</p>
+<h3 id="주제별-알고리즘">주제별 알고리즘</h3>
+<ul>
+<li><strong>Math</strong>
+<ul>
+<li><code>B</code> <a href="src/algorithms/math/bits">Bit Manipulation</a> - set/get/update/clear bits, 2의 곱 / 나누기, 음수로 만들기 etc.</li>
+<li><code>B</code> <a href="src/algorithms/math/factorial">팩토리얼</a></li>
+<li><code>B</code> <a href="src/algorithms/math/fibonacci">피보나치 수</a></li>
+<li><code>B</code> <a href="src/algorithms/math/primality-test">소수 판별</a> (trial division 방식)</li>
+<li><code>B</code> <a href="src/algorithms/math/euclidean-algorithm">유클리드 호제법</a> - 최대공약수 (GCD)</li>
+<li><code>B</code> <a href="src/algorithms/math/least-common-multiple">최소 공배수</a> - LCM</li>
+<li><code>B</code> <a href="src/algorithms/math/sieve-of-eratosthenes">에라토스테네스의 체</a> - 특정수 이하의 모든 소수 찾기</li>
+<li><code>B</code> <a href="src/algorithms/math/is-power-of-two">2의 거듭제곱 판별법</a> - 어떤 수가 2의 거듭제곱인지 판별 (naive 와 bitwise 알고리즘)</li>
+<li><code>B</code> <a href="src/algorithms/math/pascal-triangle">파스칼 삼각형</a></li>
+<li><code>A</code> <a href="src/algorithms/math/integer-partition">자연수 분할</a></li>
+<li><code>A</code> <a href="src/algorithms/math/liu-hui">리우 후이 π 알고리즘</a> - N-각형을 기반으로 π 근사치 구하기</li>
+</ul></li>
+<li><strong>Sets</strong>
+<ul>
+<li><code>B</code> <a href="src/algorithms/sets/cartesian-product">카티지언 프로덕트</a> - 곱집합</li>
+<li><code>B</code> <a href="src/algorithms/sets/fisher-yates">Fisher–Yates 셔플</a> - 유한 시퀀스의 무작위 순열</li>
+<li><code>A</code> <a href="src/algorithms/sets/power-set">멱집합</a> - 집합의 모든 부분집합</li>
+<li><code>A</code> <a href="src/algorithms/sets/permutations">순열</a> (반복 유,무)</li>
+<li><code>A</code> <a href="src/algorithms/sets/combinations">조합</a> (반복 유,무)</li>
+<li><code>A</code> <a href="src/algorithms/sets/longest-common-subsequence">최장 공통 부분수열</a> (LCS)</li>
+<li><code>A</code> <a href="src/algorithms/sets/longest-increasing-subsequence">최장 증가 수열</a></li>
+<li><code>A</code> <a href="src/algorithms/sets/shortest-common-supersequence">Shortest Common Supersequence</a> (SCS)</li>
+<li><code>A</code> <a href="src/algorithms/sets/knapsack-problem">배낭 문제</a> - “0/1” 과 “Unbound”</li>
+<li><code>A</code> <a href="src/algorithms/sets/maximum-subarray">최대 구간합</a> - “브루트 포스” 과 “동적 계획법” (Kadane’s) 버전</li>
+<li><code>A</code> <a href="src/algorithms/sets/combination-sum">조합 합</a> - 특정 합을 구성하는 모든 조합 찾기</li>
+</ul></li>
+<li><strong>Strings</strong>
+<ul>
+<li><code>B</code> <a href="src/algorithms/string/hamming-distance">해밍 거리</a> - 심볼이 다른 위치의 갯수</li>
+<li><code>A</code> <a href="src/algorithms/string/levenshtein-distance">편집 거리</a> - 두 시퀀스 간위 최소 편집거리</li>
+<li><code>A</code> <a href="src/algorithms/string/knuth-morris-pratt">커누스-모리스-프랫 알고리즘</a> (KMP 알고리즘) - 부분 문자열 탐색 (패턴 매칭)</li>
+<li><code>A</code> <a href="src/algorithms/string/z-algorithm">Z 알고리즘</a> - 부분 문자열 탐색 (패턴 매칭)</li>
+<li><code>A</code> <a href="src/algorithms/string/rabin-karp">라빈 카프 알고리즘</a> - 부분 문자열 탐색</li>
+<li><code>A</code> <a href="src/algorithms/string/longest-common-substring">최장 공통 부분 문자열</a></li>
+<li><code>A</code> <a href="src/algorithms/string/regular-expression-matching">정규 표현식 매칭</a></li>
+</ul></li>
+<li><strong>Searches</strong>
+<ul>
+<li><code>B</code> <a href="src/algorithms/search/linear-search">선형 탐색</a></li>
+<li><code>B</code> <a href="src/algorithms/search/jump-search">점프 탐색</a> (or Block Search) - 정렬된 배열에서 탐색</li>
+<li><code>B</code> <a href="src/algorithms/search/binary-search">이진 탐색</a> - 정렬된 배열에서 탐색</li>
+<li><code>B</code> <a href="src/algorithms/search/interpolation-search">보간 탐색</a> - 균등한 분포를 이루는 정렬된 배열에서 탐색</li>
+</ul></li>
+<li><strong>Sorting</strong>
+<ul>
+<li><code>B</code> <a href="src/algorithms/sorting/bubble-sort">거품 정렬</a></li>
+<li><code>B</code> <a href="src/algorithms/sorting/selection-sort">선택 정렬</a></li>
+<li><code>B</code> <a href="src/algorithms/sorting/insertion-sort">삽입 정렬</a></li>
+<li><code>B</code> <a href="src/algorithms/sorting/heap-sort">힙 정렬</a></li>
+<li><code>B</code> <a href="src/algorithms/sorting/merge-sort">병합 정렬</a></li>
+<li><code>B</code> <a href="src/algorithms/sorting/quick-sort">퀵 정렬</a> - 제자리(in-place)와 제자리가 아닌(non-in-place) 구현</li>
+<li><code>B</code> <a href="src/algorithms/sorting/shell-sort">셸 정렬</a></li>
+<li><code>B</code> <a href="src/algorithms/sorting/counting-sort">계수 정렬</a></li>
+<li><code>B</code> <a href="src/algorithms/sorting/radix-sort">기수 정렬</a></li>
+</ul></li>
+<li><strong>Trees</strong>
+<ul>
+<li><code>B</code> <a href="src/algorithms/tree/depth-first-search">깊이 우선 탐색</a> (DFS)</li>
+<li><code>B</code> <a href="src/algorithms/tree/breadth-first-search">너비 우선 탐색</a> (BFS)</li>
+</ul></li>
+<li><strong>Graphs</strong>
+<ul>
+<li><code>B</code> <a href="src/algorithms/graph/depth-first-search">깊이 우선 탐색</a> (DFS)</li>
+<li><code>B</code> <a href="src/algorithms/graph/breadth-first-search">너비 우선 탐색</a> (BFS)</li>
+<li><code>B</code> <a href="src/algorithms/graph/kruskal">크루스칼 알고리즘</a> - 최소 신장 트리 찾기 (MST) 무방향 가중 그래프</li>
+<li><code>A</code> <a href="src/algorithms/graph/dijkstra">다익스트라 알고리즘</a> - 한 점에서 다른 모든 점까지 최단 거리 찾기</li>
+<li><code>A</code> <a href="src/algorithms/graph/bellman-ford">벨만-포드 알고리즘</a> - 한 점에서 다른 모든 점까지 최단 거리 찾기</li>
+<li><code>A</code> <a href="src/algorithms/graph/floyd-warshall">플로이드-워셜 알고리즘</a> - 모든 종단 간의 최단거리 찾기</li>
+<li><code>A</code> <a href="src/algorithms/graph/detect-cycle">사이클 탐지</a> - 유방향, 무방향 그래프 (DFS 와 Disjoint Set 에 기반한 버전)</li>
+<li><code>A</code> <a href="src/algorithms/graph/prim">프림 알고리즘</a> - 무방향 가중치 그래프에서 최소 신장 트리 (MST) 찾기</li>
+<li><code>A</code> <a href="src/algorithms/graph/topological-sorting">위상 정렬</a> - DFS 방식</li>
+<li><code>A</code> <a href="src/algorithms/graph/articulation-points">단절점</a> - 타잔의 알고리즘 (DFS 기반)</li>
+<li><code>A</code> <a href="src/algorithms/graph/bridges">단절선</a> - DFS 기반 알고리즘</li>
+<li><code>A</code> <a href="src/algorithms/graph/eulerian-path">오일러 경로 와 오일러 회로</a> - Fleury의 알고리즘 - 모든 엣지를 한번만 방문</li>
+<li><code>A</code> <a href="src/algorithms/graph/hamiltonian-cycle">해밀턴 경로</a> - 모든 꼭짓점을 한번만 방문</li>
+<li><code>A</code> <a href="src/algorithms/graph/strongly-connected-components">강결합 컴포넌트</a> - Kosaraju의 알고리즘</li>
+<li><code>A</code> <a href="src/algorithms/graph/travelling-salesman">외판원 문제</a> - 각 도시를 다 방문하고 다시 출발점으로 돌아오는 최단 경로 찾기</li>
+</ul></li>
+<li><strong>Uncategorized</strong>
+<ul>
+<li><code>B</code> <a href="src/algorithms/uncategorized/hanoi-tower">하노이 탑</a></li>
+<li><code>B</code> <a href="src/algorithms/uncategorized/square-matrix-rotation">정방 행렬 회전</a> - 제자리(in-place) 알고리즘</li>
+<li><code>B</code> <a href="src/algorithms/uncategorized/jump-game">점프 게임</a> - 백트래킹, 동적계획법 (top-down + bottom-up), 탐욕 알고리즘 예제</li>
+<li><code>B</code> <a href="src/algorithms/uncategorized/unique-paths">Unique 경로</a> - 백트래킹, 동적계획법, 파스칼 삼각형에 기반한 예제</li>
+<li><code>B</code> <a href="src/algorithms/uncategorized/rain-terraces">빗물 담기 문제</a> - trapping rain water problem (동적계획법, 브루트포스 버전)</li>
+<li><code>A</code> <a href="src/algorithms/uncategorized/n-queens">N-Queens 문제</a></li>
+<li><code>A</code> <a href="src/algorithms/uncategorized/knight-tour">기사의 여행 문제</a></li>
+</ul></li>
+</ul>
+<h3 id="패러다임별-알고리즘">패러다임별 알고리즘</h3>
+<p>알고리즘 패러다임 이란, 알고리즘이 주어진 문제를 해결하기 위해 채택한 기초가 되는 일반적인 방법 혹은 접근법입니다. 알고리즘이 해결하는 문제나 알고리즘의 동작 방식이 완전히 다르더라도,알고리즘의 동작 원칙이 같으면 같은 패러다음을 사용했다고 말할 수 있으며, 주로 알고리즘을 구분하는 기준으로 쓰인다. 알고리즘이 일반적인 컴퓨터의 프로그램에 대한 개념보다 보다 더 추상적인 개념인 것처럼 알고리즘의 패러다임은 명확히 정의된 수학적 실체가 있는 것이 아니기 때문에 그 어떤 알고리즘의 개념보다도 훨씬 추상적인 개념입니다.</p>
+<ul>
+<li><strong>브루트 포스(Brute Force)</strong> - 가능한 모든 경우를 탐색한 뒤 최적을 찾아내는 방식입니다.
+<ul>
+<li><code>B</code> <a href="src/algorithms/search/linear-search">선형 탐색</a></li>
+<li><code>B</code> <a href="src/algorithms/uncategorized/rain-terraces">빗물 담기 문제</a> - trapping rain water problem</li>
+<li><code>A</code> <a href="src/algorithms/sets/maximum-subarray">최대 구간합</a></li>
+<li><code>A</code> <a href="src/algorithms/graph/travelling-salesman">외판원 문제</a> - 각 도시를 다 방문하고 다시 출발점으로 돌아오는 최단 경로 찾기</li>
+</ul></li>
+<li><strong>탐욕 알고리즘(Greedy)</strong> - 이후를 고려하지 않고 현재 시점에서 가장 최적인 선택을 하는 방식입니다.
+<ul>
+<li><code>B</code> <a href="src/algorithms/uncategorized/jump-game">점프 게임</a></li>
+<li><code>A</code> <a href="src/algorithms/sets/knapsack-problem">쪼갤수 있는 배낭 문제</a></li>
+<li><code>A</code> <a href="src/algorithms/graph/dijkstra">다익스트라 알고리즘</a> - 모든 점 까지의 최단거리 찾기</li>
+<li><code>A</code> <a href="src/algorithms/graph/prim">프림 알고리즘</a> - 무방향 가중치 그래프에서 최소 신창 트리 (MST) 찾기</li>
+<li><code>A</code> <a href="src/algorithms/graph/kruskal">크루스칼 알고리즘</a> - 무방향 가중치 그래프에서 최소 신창 트리 (MST) 찾기</li>
+</ul></li>
+<li><strong>분할 정복법(Divide and Conquer)</strong> - 문제를 여러 작은 문제로 분할한 뒤 해결하는 방식입니다.
+<ul>
+<li><code>B</code> <a href="src/algorithms/search/binary-search">이진 탐색</a></li>
+<li><code>B</code> <a href="src/algorithms/uncategorized/hanoi-tower">하노이 탑</a></li>
+<li><code>B</code> <a href="src/algorithms/math/pascal-triangle">파스칼 삼각형</a></li>
+<li><code>B</code> <a href="src/algorithms/math/euclidean-algorithm">유클리드 호제법</a> - 최대공약수 계산 (GCD)</li>
+<li><code>B</code> <a href="src/algorithms/sorting/merge-sort">병합 정렬</a></li>
+<li><code>B</code> <a href="src/algorithms/sorting/quick-sort">퀵 정렬</a></li>
+<li><code>B</code> <a href="src/algorithms/tree/depth-first-search">트리 깊이 우선 탐색</a> (DFS)</li>
+<li><code>B</code> <a href="src/algorithms/graph/depth-first-search">그래프 깊이 우선 탐색</a> (DFS)</li>
+<li><code>B</code> <a href="src/algorithms/uncategorized/jump-game">점프 게임</a></li>
+<li><code>A</code> <a href="src/algorithms/sets/permutations">순열</a> (반복 유,무)</li>
+<li><code>A</code> <a href="src/algorithms/sets/combinations">조합</a> (반복 유,무)</li>
+</ul></li>
+<li><strong>동적 계획법(Dynamic Programming)</strong> - 이전에 찾은 결과를 이용하여 최종적으로 해결하는 방식입니다.
+<ul>
+<li><code>B</code> <a href="src/algorithms/math/fibonacci">피보나치 수</a></li>
+<li><code>B</code> <a href="src/algorithms/uncategorized/jump-game">점프 게임</a></li>
+<li><code>B</code> <a href="src/algorithms/uncategorized/unique-paths">Unique Paths</a></li>
+<li><code>B</code> <a href="src/algorithms/uncategorized/rain-terraces">빗물 담기 문제</a> - trapping rain water problem</li>
+<li><code>A</code> <a href="src/algorithms/string/levenshtein-distance">편집 거리</a> - 두 시퀀스 간의 최소 편집 거리</li>
+<li><code>A</code> <a href="src/algorithms/sets/longest-common-subsequence">최장 공통 부분 수열</a> (LCS)</li>
+<li><code>A</code> <a href="src/algorithms/string/longest-common-substring">최장 공통 부분 문자열</a></li>
+<li><code>A</code> <a href="src/algorithms/sets/longest-increasing-subsequence">최장 증가 수열</a></li>
+<li><code>A</code> <a href="src/algorithms/sets/shortest-common-supersequence">Shortest Common Supersequence</a></li>
+<li><code>A</code> <a href="src/algorithms/sets/knapsack-problem">0/1 배낭 문제</a></li>
+<li><code>A</code> <a href="src/algorithms/math/integer-partition">자연수 분할</a></li>
+<li><code>A</code> <a href="src/algorithms/sets/maximum-subarray">최대 구간합</a></li>
+<li><code>A</code> <a href="src/algorithms/graph/bellman-ford">벨만-포드 알고리즘</a> - 모든 점 까지의 최단 거리 찾기</li>
+<li><code>A</code> <a href="src/algorithms/graph/floyd-warshall">플로이드-워셜 알고리즘</a> - 모든 종단 간의 최단거리 찾기</li>
+<li><code>A</code> <a href="src/algorithms/string/regular-expression-matching">정규 표현식 매칭</a></li>
+</ul></li>
+<li><strong>백트래킹(Backtracking)</strong> - 모든 가능한 경우를 고려한다는 점에서 브루트 포스와 유사합니다. 하지만 다음 단계로 넘어갈때 마다 모든 조건을 만족했는지 확인하고 진행합니다. 만약 조건을 만족하지 못했다면 뒤로 돌아갑니다 (백트래킹). 그리고 다른 경로를 선택합니다. 보통 상태를 유지한 DFS 탐색을 많이 사용합니다.
+<ul>
+<li><code>B</code> <a href="src/algorithms/uncategorized/jump-game">점프 게임</a></li>
+<li><code>B</code> <a href="src/algorithms/uncategorized/unique-paths">Unique Paths</a></li>
+<li><code>A</code> <a href="src/algorithms/graph/hamiltonian-cycle">해밀턴 경로</a> - 모든 점을 한번씩 방문</li>
+<li><code>A</code> <a href="src/algorithms/uncategorized/n-queens">N-Queens 문제</a></li>
+<li><code>A</code> <a href="src/algorithms/uncategorized/knight-tour">기사의 여행</a></li>
+<li><code>A</code> <a href="src/algorithms/sets/combination-sum">조합 합</a> - 특정 합을 구성하는 모든 조합 찾기</li>
+</ul></li>
+<li><strong>분기 한정법</strong> - 백트래킹으로 찾은 각 단계의 최소 비용이 드는 해를 기억해 두고 있다가, 이 비용을 이용해서 더 낮은 최적의 해를 찾습니다. 기억해둔 최소 비용들을 이용해 더 높은 비용이 드는 해결법을 탐색 안함으로써 불필요한 시간 소모를 줄입니다. 보통 상태 공간 트리의 DFS 탐색을 이용한 BFS 탐색 방식에서 사용됩니다.</li>
+</ul>
+<h2 id="이-저장소의-사용법">이 저장소의 사용법</h2>
+<p><strong>모든 종속 모듈들 설치</strong></p>
+<pre><code>npm install</code></pre>
+<p><strong>ESLint 실행</strong></p>
+<p>코드의 품질을 확인 할 수 있습니다.</p>
+<pre><code>npm run lint</code></pre>
+<p><strong>모든 테스트 실행</strong></p>
+<pre><code>npm test</code></pre>
+<p><strong>이름을 통해 특정 테스트 실행</strong></p>
+<pre><code>npm test -- &#39;LinkedList&#39;</code></pre>
+<p><strong>Playground</strong></p>
+<p><code>./src/playground/playground.js</code> 파일을 통해 자료 구조와 알고리즘을 작성하고 <code>./src/playground/__test__/playground.test.js</code>에 테스트를 작성할 수 있습니다.</p>
+<p>그리고 간단하게 아래 명령어를 통해 의도한대로 동작하는지 확인 할 수 있습니다.:</p>
+<pre><code>npm test -- &#39;playground&#39;</code></pre>
+<h2 id="유용한-정보">유용한 정보</h2>
+<h3 id="참고">참고</h3>
+<p><a href="https://www.youtube.com/playlist?list=PLLXdhg_r2hKA7DPDsunoDZ-Z769jWn4R8">▶ Data Structures and Algorithms on YouTube</a></p>
+<h3 id="big-o-표기">Big O 표기</h3>
+<p>Big O 표기로 표시한 알고리즘의 증가 양상입니다.</p>
+<figure>
+<img src="./assets/big-o-graph.png" alt="Big O graphs" /><figcaption>Big O graphs</figcaption>
+</figure>
+<p>Source: <a href="http://bigocheatsheet.com/">Big O Cheat Sheet</a>.</p>
+<p>아래는 가장 많이 사용되는 Big O 표기와 입력 데이터 크기에 따른 성능을 비교한 표입니다.</p>
+<table>
+<thead>
+<tr class="header">
+<th>Big O 표기</th>
+<th>10 개 일때</th>
+<th>100 개 일때</th>
+<th>1000 개 일때</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>O(1)</strong></td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td><strong>O(log N)</strong></td>
+<td>3</td>
+<td>6</td>
+<td>9</td>
+</tr>
+<tr class="odd">
+<td><strong>O(N)</strong></td>
+<td>10</td>
+<td>100</td>
+<td>1000</td>
+</tr>
+<tr class="even">
+<td><strong>O(N log N)</strong></td>
+<td>30</td>
+<td>600</td>
+<td>9000</td>
+</tr>
+<tr class="odd">
+<td><strong>O(N^2)</strong></td>
+<td>100</td>
+<td>10000</td>
+<td>1000000</td>
+</tr>
+<tr class="even">
+<td><strong>O(2^N)</strong></td>
+<td>1024</td>
+<td>1.26e+29</td>
+<td>1.07e+301</td>
+</tr>
+<tr class="odd">
+<td><strong>O(N!)</strong></td>
+<td>3628800</td>
+<td>9.3e+157</td>
+<td>4.02e+2567</td>
+</tr>
+</tbody>
+</table>
+<h3 id="자료-구조-작업별-복잡도">자료 구조 작업별 복잡도</h3>
+<table>
+<thead>
+<tr class="header">
+<th>자료 구조</th>
+<th style="text-align: center;">접근</th>
+<th style="text-align: center;">검색</th>
+<th style="text-align: center;">삽입</th>
+<th style="text-align: center;">삭제</th>
+<th style="text-align: left;">비고</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>배열</strong></td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">n</td>
+<td style="text-align: center;">n</td>
+<td style="text-align: center;">n</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td><strong>스택</strong></td>
+<td style="text-align: center;">n</td>
+<td style="text-align: center;">n</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td><strong>큐</strong></td>
+<td style="text-align: center;">n</td>
+<td style="text-align: center;">n</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td><strong>연결 리스트</strong></td>
+<td style="text-align: center;">n</td>
+<td style="text-align: center;">n</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td><strong>해시 테이블</strong></td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">n</td>
+<td style="text-align: center;">n</td>
+<td style="text-align: center;">n</td>
+<td style="text-align: left;">완벽한 해시 함수의 경우 O(1)</td>
+</tr>
+<tr class="even">
+<td><strong>이진 탐색 트리</strong></td>
+<td style="text-align: center;">n</td>
+<td style="text-align: center;">n</td>
+<td style="text-align: center;">n</td>
+<td style="text-align: center;">n</td>
+<td style="text-align: left;">균형 트리의 경우 O(log(n))</td>
+</tr>
+<tr class="odd">
+<td><strong>B-트리</strong></td>
+<td style="text-align: center;">log(n)</td>
+<td style="text-align: center;">log(n)</td>
+<td style="text-align: center;">log(n)</td>
+<td style="text-align: center;">log(n)</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td><strong>Red-Black 트리</strong></td>
+<td style="text-align: center;">log(n)</td>
+<td style="text-align: center;">log(n)</td>
+<td style="text-align: center;">log(n)</td>
+<td style="text-align: center;">log(n)</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td><strong>AVL 트리</strong></td>
+<td style="text-align: center;">log(n)</td>
+<td style="text-align: center;">log(n)</td>
+<td style="text-align: center;">log(n)</td>
+<td style="text-align: center;">log(n)</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td><strong>Bloom Filter</strong></td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: left;">거짓 양성이 탐색 중 발생 가능</td>
+</tr>
+</tbody>
+</table>
+<h3 id="정렬-알고리즘-복잡도">정렬 알고리즘 복잡도</h3>
+<table>
+<colgroup>
+<col style="width: 19%" />
+<col style="width: 13%" />
+<col style="width: 17%" />
+<col style="width: 17%" />
+<col style="width: 8%" />
+<col style="width: 14%" />
+<col style="width: 8%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>이름</th>
+<th style="text-align: center;">최적</th>
+<th style="text-align: center;">평균</th>
+<th style="text-align: center;">최악</th>
+<th style="text-align: center;">메모리</th>
+<th style="text-align: center;">동일값 순서유지</th>
+<th style="text-align: left;">비고</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>거품 정렬</strong></td>
+<td style="text-align: center;">n</td>
+<td style="text-align: center;">n<sup>2</sup></td>
+<td style="text-align: center;">n<sup>2</sup></td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">Yes</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td><strong>삽입 정렬</strong></td>
+<td style="text-align: center;">n</td>
+<td style="text-align: center;">n<sup>2</sup></td>
+<td style="text-align: center;">n<sup>2</sup></td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">Yes</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td><strong>선택 정렬</strong></td>
+<td style="text-align: center;">n<sup>2</sup></td>
+<td style="text-align: center;">n<sup>2</sup></td>
+<td style="text-align: center;">n<sup>2</sup></td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">No</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td><strong>힙 정렬</strong></td>
+<td style="text-align: center;">n log(n)</td>
+<td style="text-align: center;">n log(n)</td>
+<td style="text-align: center;">n log(n)</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">No</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td><strong>병합 정렬</strong></td>
+<td style="text-align: center;">n log(n)</td>
+<td style="text-align: center;">n log(n)</td>
+<td style="text-align: center;">n log(n)</td>
+<td style="text-align: center;">n</td>
+<td style="text-align: center;">Yes</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td><strong>퀵 정렬</strong></td>
+<td style="text-align: center;">n log(n)</td>
+<td style="text-align: center;">n log(n)</td>
+<td style="text-align: center;">n<sup>2</sup></td>
+<td style="text-align: center;">log(n)</td>
+<td style="text-align: center;">No</td>
+<td style="text-align: left;">퀵 정렬은 보통 제자리(in-place)로 O(log(n)) 스택공간으로 수행됩니다.</td>
+</tr>
+<tr class="odd">
+<td><strong>셸 정렬</strong></td>
+<td style="text-align: center;">n log(n)</td>
+<td style="text-align: center;">간격 순서에 영향을 받습니다.</td>
+<td style="text-align: center;">n (log(n))<sup>2</sup></td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">No</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td><strong>계수 정렬</strong></td>
+<td style="text-align: center;">n + r</td>
+<td style="text-align: center;">n + r</td>
+<td style="text-align: center;">n + r</td>
+<td style="text-align: center;">n + r</td>
+<td style="text-align: center;">Yes</td>
+<td style="text-align: left;">r - 배열내 가장 큰 수</td>
+</tr>
+<tr class="odd">
+<td><strong>기수 정렬</strong></td>
+<td style="text-align: center;">n * k</td>
+<td style="text-align: center;">n * k</td>
+<td style="text-align: center;">n * k</td>
+<td style="text-align: center;">n + k</td>
+<td style="text-align: center;">Yes</td>
+<td style="text-align: left;">k - 키값의 최대 길이</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>ℹ️ A few more <a href="https://trekhleb.dev/projects/">projects</a> and <a href="https://trekhleb.dev/blog/">articles</a> about JavaScript and algorithms on <a href="https://trekhleb.dev">trekhleb.dev</a></p>
+</blockquote>
+</body>
+</html>

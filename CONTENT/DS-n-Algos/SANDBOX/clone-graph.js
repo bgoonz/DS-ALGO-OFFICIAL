@@ -13,9 +13,8 @@
  * @param {UndirectedGraphNode} graph
  * @return {UndirectedGraphNode}
  */
-var cloneGraph = function(graph) {
-  if (!graph)
-    return null;
+var cloneGraph = function (graph) {
+  if (!graph) return null;
 
   var hash = {};
 
@@ -30,8 +29,7 @@ var cloneGraph = function(graph) {
       var item = node.neighbors[i];
       if (hash[item.label] !== undefined)
         newNode.neighbors.push(hash[item.label]);
-      else
-        newNode.neighbors.push(dfs(item));
+      else newNode.neighbors.push(dfs(item));
     }
 
     return newNode;

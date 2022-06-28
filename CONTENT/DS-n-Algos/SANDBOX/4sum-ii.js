@@ -8,7 +8,7 @@
  * @param {number[]} D
  * @return {number}
  */
-var fourSumCount = function(A, B, C, D) {
+var fourSumCount = function (A, B, C, D) {
   let p = new Map();
   for (let i = 0, lenA = A.length; i < lenA; i++)
     for (let j = 0, lenB = B.length; j < lenB; j++) {

@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>README</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+</head>
+<body>
+<h1 id="content-aware-image-resizing-in-javascript">Content-aware image resizing in JavaScript</h1>
+<figure>
+<img src="https://raw.githubusercontent.com/trekhleb/trekhleb.github.io/master/src/posts/2021/content-aware-image-resizing-in-javascript/assets/01-cover-02.png" alt="Content-aware image resizing in JavaScript" /><figcaption>Content-aware image resizing in JavaScript</figcaption>
+</figure>
+<blockquote>
+<p>There is an <a href="https://trekhleb.dev/blog/2021/content-aware-image-resizing-in-javascript/">interactive version of this post</a> available where you can upload and resize your custom images.</p>
+</blockquote>
+<h2 id="tldr">TL;DR</h2>
+<p>There are many great articles written about the <em>Seam Carving algorithm</em> already, but I couldn’t resist the temptation to explore this elegant, powerful, and <em>yet simple</em> algorithm on my own, and to write about my personal experience with it. Another point that drew my attention (as a creator of <a href="https://github.com/trekhleb/javascript-algorithms">javascript-algorithms</a> repo) was the fact that <em>Dynamic Programming (DP)</em> approach might be smoothly applied to solve it. And, if you’re like me and still on your “learning algorithms” journey, this algorithmic solution may enrich your personal DP arsenal.</p>
+<p>So, with this article I want to do three things:</p>
+<ol type="1">
+<li>Provide you with an interactive <strong>content-aware resizer</strong> so that you could play around with resizing your own images</li>
+<li>Explain the idea behind the <strong>Seam Carving algorithm</strong></li>
+<li>Explain the <strong>dynamic programming approach</strong> to implement the algorithm (we’ll be using TypeScript for it)</li>
+</ol>
+<h3 id="content-aware-image-resizing">Content-aware image resizing</h3>
+<p><em>Content-aware image resizing</em> might be applied when it comes to changing the image proportions (i.e. reducing the width while keeping the height) and when losing some parts of the image is not desirable. Doing the straightforward image scaling in this case would distort the objects in it. To preserve the proportions of the objects while changing the image proportions we may use the <a href="https://perso.crans.org/frenoy/matlab2012/seamcarving.pdf">Seam Carving algorithm</a> that was introduced by <em>Shai Avidan</em> and <em>Ariel Shamir</em>.</p>
+<p>The example below shows how the original image width was reduced by 50% using <em>content-aware resizing</em> (left image) and <em>straightforward scaling</em> (right image). In this particular case, the left image looks more natural since the proportions of the balloons were preserved.</p>
+<figure>
+<img src="https://raw.githubusercontent.com/trekhleb/trekhleb.github.io/master/src/posts/2021/content-aware-image-resizing-in-javascript/assets/01-resizing-options.png" alt="Content-aware image resizing" /><figcaption>Content-aware image resizing</figcaption>
+</figure>
+<p>The Seam Carving algorithm’s idea is to find the <em>seam</em> (continuous sequence of pixels) with the lowest contribution to the image content and then <em>carve</em> (remove) it. This process repeats over and over again until we get the required image width or height. In the example below you may see that the hot air balloon pixels contribute more to the content of the image than the sky pixels. Thus, the sky pixels are being removed first.</p>
+<figure>
+<img src="https://raw.githubusercontent.com/trekhleb/trekhleb.github.io/master/src/posts/2021/content-aware-image-resizing-in-javascript/assets/10-demo-01.gif" alt="JS IMAGE CARVER DEMO" /><figcaption>JS IMAGE CARVER DEMO</figcaption>
+</figure>
+<p>Finding the seam with the lowest energy is a computationally expensive task (especially for large images). To make the seam search faster the <em>dynamic programming</em> approach might be applied (we will go through the implementation details below).</p>
+<h3 id="objects-removal">Objects removal</h3>
+<p>The importance of each pixel (so-called pixel’s energy) is being calculated based on its color (<code>R</code>, <code>G</code>, <code>B</code>, <code>A</code>) difference between two neighbor pixels. Now, if we set the pixel energy to some really low level artificially (i.e. by drawing a mask on top of them), the Seam Carving algorithm would perform an <strong>object removal</strong> for us for free.</p>
+<figure>
+<img src="https://raw.githubusercontent.com/trekhleb/trekhleb.github.io/master/src/posts/2021/content-aware-image-resizing-in-javascript/assets/10-demo-02.gif" alt="JS IMAGE CARVER OBJECT REMOVAL DEMO" /><figcaption>JS IMAGE CARVER OBJECT REMOVAL DEMO</figcaption>
+</figure>
+<h3 id="js-image-carver-demo">JS IMAGE CARVER demo</h3>
+<p>I’ve created the <a href="https://trekhleb.dev/js-image-carver/">JS IMAGE CARVER</a> web-app (and also <a href="https://github.com/trekhleb/js-image-carver">open-sourced it on GitHub</a>) that you may use to play around with resizing of your custom images.</p>
+<h3 id="more-examples">More examples</h3>
+<p>Here are some more examples of how the algorithm copes with more complex backgrounds.</p>
+<p>Mountains on the background are being shrunk smoothly without visible seams.</p>
+<figure>
+<img src="https://raw.githubusercontent.com/trekhleb/trekhleb.github.io/master/src/posts/2021/content-aware-image-resizing-in-javascript/assets/11-demo-01.png" alt="Resizing demo with more complex backgrounds" /><figcaption>Resizing demo with more complex backgrounds</figcaption>
+</figure>
+<p>The same goes for the ocean waves. The algorithm preserved the wave structure without distorting the surfers.</p>
+<figure>
+<img src="https://raw.githubusercontent.com/trekhleb/trekhleb.github.io/master/src/posts/2021/content-aware-image-resizing-in-javascript/assets/11-demo-02.png" alt="Resizing demo with more complex backgrounds" /><figcaption>Resizing demo with more complex backgrounds</figcaption>
+</figure>
+<p>We need to keep in mind that the Seam Carving algorithm is not a silver bullet, and it may fail to resize the images where <em>most of the pixels are edges</em> (look important to the algorithm). In this case, it starts distorting even the important parts of the image. In the example below the content-aware image resizing looks pretty similar to a straightforward scaling since for the algorithm all the pixels look important, and it is hard for it to distinguish Van Gogh’s face from the background.</p>
+<figure>
+<img src="https://raw.githubusercontent.com/trekhleb/trekhleb.github.io/master/src/posts/2021/content-aware-image-resizing-in-javascript/assets/12-demo-01.png" alt="Example when the algorithm does not work as expected" /><figcaption>Example when the algorithm does not work as expected</figcaption>
+</figure>
+<h2 id="how-seam-carving-algorithms-works">How Seam Carving algorithms works</h2>
+<p>Imagine we have a <code>1000 x 500 px</code> picture, and we want to change its size to <code>500 x 500 px</code> to make it square (let’s say the square ratio would better fit the Instagram feed). We might want to set up several <strong>requirements to the resizing process</strong> in this case:</p>
+<ul>
+<li><em>Preserve the important parts of the image</em> (i.e. if there were 5 trees before the resizing we want to have 5 trees after resizing as well).</li>
+<li><em>Preserve the proportions</em> of the important parts of the image (i.e. circle car wheels should not be squeezed to the ellipse wheels)</li>
+</ul>
+<p>To avoid changing the important parts of the image we may find the <strong>continuous sequence of pixels (the seam)</strong>, that goes from top to bottom and has <em>the lowest contribution to the content</em> of the image (avoids important parts) and then remove it. The seam removal will shrink the image by 1 pixel. We will then repeat this step until the image will get the desired width.</p>
+<p>The question is how to define <em>the importance of the pixel</em> and its contribution to the content (in the original paper the authors are using the term <strong>energy of the pixel</strong>). One of the ways to do it is to treat all the pixels that form the edges as important ones. In case if a pixel is a part of the edge its color would have a greater difference between the neighbors (left and right pixels) than the pixel that isn’t a part of the edge.</p>
+<figure>
+<img src="https://raw.githubusercontent.com/trekhleb/trekhleb.github.io/master/src/posts/2021/content-aware-image-resizing-in-javascript/assets/30-pixel-energy-comparison.png" alt="Pixels color difference" /><figcaption>Pixels color difference</figcaption>
+</figure>
+<p>Assuming that the color of a pixel is represented by <em>4</em> numbers (<code>R</code> - red, <code>G</code> - green, <code>B</code> - blue, <code>A</code> - alpha) we may use the following formula to calculate the color difference (the pixel energy):</p>
+<figure>
+<img src="https://raw.githubusercontent.com/trekhleb/trekhleb.github.io/master/src/posts/2021/content-aware-image-resizing-in-javascript/assets/20-energy-formula.png" alt="Pixel energy formula" /><figcaption>Pixel energy formula</figcaption>
+</figure>
+<p>Where:</p>
+<ul>
+<li><code>mEnergy</code> - <em>Energy</em> (importance) of the <em>middle</em> pixel (<code>[0..626]</code> if rounded)</li>
+<li><code>lR</code> - <em>Red</em> channel value for the <em>left</em> pixel (<code>[0..255]</code>)</li>
+<li><code>mR</code> - <em>Red</em> channel value for the <em>middle</em> pixel (<code>[0..255]</code>)</li>
+<li><code>rR</code> - <em>Red</em> channel value for the <em>right</em> pixel (<code>[0..255]</code>)</li>
+<li><code>lG</code> - <em>Green</em> channel value for the <em>left</em> pixel (<code>[0..255]</code>)</li>
+<li>and so on…</li>
+</ul>
+<p>In the formula above we’re omitting the alpha (transparency) channel, for now, assuming that there are no transparent pixels in the image. Later we will use the alpha channel for masking and for object removal.</p>
+<figure>
+<img src="https://raw.githubusercontent.com/trekhleb/trekhleb.github.io/master/src/posts/2021/content-aware-image-resizing-in-javascript/assets/30-pixel-energy-calculation-example.png" alt="Example of pixel energy calculation" /><figcaption>Example of pixel energy calculation</figcaption>
+</figure>
+<p>Now, since we know how to find the energy of one pixel, we can calculate, so-called, <strong>energy map</strong> which will contain the energies of each pixel of the image. On each resizing step the energy map should be re-calculated (at least partially, more about it below) and would have the same size as the image.</p>
+<p>For example, on the 1st resizing step we will have a <code>1000 x 500</code> image and a <code>1000 x 500</code> energy map. On the 2nd resizing step we will remove the seam from the image and re-calculate the energy map based on the new shrunk image. Thus, we will get a <code>999 x 500</code> image and a <code>999 x 500</code> energy map.</p>
+<p>The higher the energy of the pixel the more likely it is a part of an edge, and it is important for the image content and the less likely that we need to remove it.</p>
+<p>To visualize the energy map we may assign a brighter color to the pixels with the higher energy and darker colors to the pixels with the lower energy. Here is an artificial example of how the random part of the energy map might look like. You may see the bright line which represents the edge and which we want to preserve during the resizing.</p>
+<figure>
+<img src="https://raw.githubusercontent.com/trekhleb/trekhleb.github.io/master/src/posts/2021/content-aware-image-resizing-in-javascript/assets/30-energy-map-padding.png" alt="Energy map sketch" /><figcaption>Energy map sketch</figcaption>
+</figure>
+<p>Here is a real example of the energy map for the demo image you saw above (with hot air balloons).</p>
+<figure>
+<img src="https://raw.githubusercontent.com/trekhleb/trekhleb.github.io/master/src/posts/2021/content-aware-image-resizing-in-javascript/assets/40-energy-map.png" alt="Energy map example" /><figcaption>Energy map example</figcaption>
+</figure>
+<p>You may play around with your custom images and see how the energy map would look like in the <a href="https://trekhleb.dev/blog/2021/content-aware-image-resizing-in-javascript/">interactive version of the post</a>.</p>
+<p>We may use the energy map to find the seams (one after another) with the lowest energy and by doing this to decide which pixels should be ultimately deleted.</p>
+<figure>
+<img src="https://raw.githubusercontent.com/trekhleb/trekhleb.github.io/master/src/posts/2021/content-aware-image-resizing-in-javascript/assets/41-seam-search.png" alt="Searching the seam" /><figcaption>Searching the seam</figcaption>
+</figure>
+<p>Finding the seam with the lowest energy is not a trivial task and requires exploring many possible pixel combinations before making the decision. We will apply the dynamic programming approach to speed it up.</p>
+<p>In the example below, you may see the energy map with the first lowest energy seam that was found for it.</p>
+<figure>
+<img src="https://raw.githubusercontent.com/trekhleb/trekhleb.github.io/master/src/posts/2021/content-aware-image-resizing-in-javascript/assets/40-energy-map-with-seam.png" alt="Energy map example with seam" /><figcaption>Energy map example with seam</figcaption>
+</figure>
+<p>In the examples above we were reducing the width of the image. A similar approach may be taken to reduce the image height. We need to “rotate” the approach though:</p>
+<ul>
+<li>start using <em>top</em> and <em>bottom</em> pixel neighbors (instead of <em>left</em> and <em>right</em> ones) to calculate the pixel energy</li>
+<li>when searching for a seam we need to move from <em>left</em> to <em>right</em> (instead of from <em>up</em> to <em>bottom</em>)</li>
+</ul>
+<h2 id="implementation-in-typescript">Implementation in TypeScript</h2>
+<blockquote>
+<p>You may find the source code, and the functions mentioned below in the <a href="https://github.com/trekhleb/js-image-carver">js-image-carver</a> repository.</p>
+</blockquote>
+<p>To implement the algorithm we will be using TypeScript. If you want a JavaScript version, you may ignore (remove) type definitions and their usages.</p>
+<p>For simplicity reasons let’s implement the seam carving algorithm only for the image <em>width</em> reduction.</p>
+<h3 id="content-aware-width-resizing-the-entry-function">Content-aware width resizing (the entry function)</h3>
+<p>First, let’s define some common types that we’re going to use while implementing the algorithm.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode typescript"><code class="sourceCode typescript"><a class="sourceLine" id="cb1-1" title="1"><span class="co">// Type that describes the image size (width and height).</span></a>
+<a class="sourceLine" id="cb1-2" title="2"><span class="kw">type</span> ImageSize <span class="op">=</span> <span class="op">{</span> w<span class="op">:</span> <span class="dt">number</span><span class="op">,</span> h<span class="op">:</span> <span class="dt">number</span> <span class="op">};</span></a>
+<a class="sourceLine" id="cb1-3" title="3"></a>
+<a class="sourceLine" id="cb1-4" title="4"><span class="co">// The coordinate of the pixel.</span></a>
+<a class="sourceLine" id="cb1-5" title="5"><span class="kw">type</span> Coordinate <span class="op">=</span> <span class="op">{</span> x<span class="op">:</span> <span class="dt">number</span><span class="op">,</span> y<span class="op">:</span> <span class="dt">number</span> <span class="op">};</span></a>
+<a class="sourceLine" id="cb1-6" title="6"></a>
+<a class="sourceLine" id="cb1-7" title="7"><span class="co">// The seam is a sequence of pixels (coordinates).</span></a>
+<a class="sourceLine" id="cb1-8" title="8"><span class="kw">type</span> Seam <span class="op">=</span> Coordinate<span class="op">[];</span></a>
+<a class="sourceLine" id="cb1-9" title="9"></a>
+<a class="sourceLine" id="cb1-10" title="10"><span class="co">// Energy map is a 2D array that has the same width and height</span></a>
+<a class="sourceLine" id="cb1-11" title="11"><span class="co">// as the image the map is being calculated for.</span></a>
+<a class="sourceLine" id="cb1-12" title="12"><span class="kw">type</span> EnergyMap <span class="op">=</span> <span class="dt">number</span><span class="op">[][];</span></a>
+<a class="sourceLine" id="cb1-13" title="13"></a>
+<a class="sourceLine" id="cb1-14" title="14"><span class="co">// Type that describes the image pixel&#39;s RGBA color.</span></a>
+<a class="sourceLine" id="cb1-15" title="15"><span class="kw">type</span> Color <span class="op">=</span> <span class="op">[</span></a>
+<a class="sourceLine" id="cb1-16" title="16">  r<span class="op">:</span> <span class="dt">number</span><span class="op">,</span> <span class="co">// Red</span></a>
+<a class="sourceLine" id="cb1-17" title="17">  g<span class="op">:</span> <span class="dt">number</span><span class="op">,</span> <span class="co">// Green</span></a>
+<a class="sourceLine" id="cb1-18" title="18">  b<span class="op">:</span> <span class="dt">number</span><span class="op">,</span> <span class="co">// Blue</span></a>
+<a class="sourceLine" id="cb1-19" title="19">  a<span class="op">:</span> <span class="dt">number</span><span class="op">,</span> <span class="co">// Alpha (transparency)</span></a>
+<a class="sourceLine" id="cb1-20" title="20"><span class="op">]</span> <span class="op">|</span> <span class="bu">Uint8ClampedArray</span><span class="op">;</span></a></code></pre></div>
+<p>On the high level the algorithm consists of the following steps:</p>
+<ol type="1">
+<li>Calculate the <strong>energy map</strong> for the current version of the image.</li>
+<li>Find the <strong>seam</strong> with the lowest energy based on the energy map (this is where we will apply Dynamic Programming).</li>
+<li><strong>Delete the seam</strong> with the lowest energy seam from the image.</li>
+<li><strong>Repeat</strong> until the image width is reduced to the desired value.</li>
+</ol>
+<div class="sourceCode" id="cb2"><pre class="sourceCode typescript"><code class="sourceCode typescript"><a class="sourceLine" id="cb2-1" title="1"><span class="kw">type</span> ResizeImageWidthArgs <span class="op">=</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb2-2" title="2">  img<span class="op">:</span> <span class="bu">ImageData</span><span class="op">,</span> <span class="co">// Image data we want to resize.</span></a>
+<a class="sourceLine" id="cb2-3" title="3">  toWidth<span class="op">:</span> <span class="dt">number</span><span class="op">,</span> <span class="co">// Final image width we want the image to shrink to.</span></a>
+<a class="sourceLine" id="cb2-4" title="4"><span class="op">};</span></a>
+<a class="sourceLine" id="cb2-5" title="5"></a>
+<a class="sourceLine" id="cb2-6" title="6"><span class="kw">type</span> ResizeImageWidthResult <span class="op">=</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb2-7" title="7">  img<span class="op">:</span> <span class="bu">ImageData</span><span class="op">,</span> <span class="co">// Resized image data.</span></a>
+<a class="sourceLine" id="cb2-8" title="8">  size<span class="op">:</span> ImageSize<span class="op">,</span> <span class="co">// Resized image size (w x h).</span></a>
+<a class="sourceLine" id="cb2-9" title="9"><span class="op">};</span></a>
+<a class="sourceLine" id="cb2-10" title="10"></a>
+<a class="sourceLine" id="cb2-11" title="11"><span class="co">// Performs the content-aware image width resizing using the seam carving method.</span></a>
+<a class="sourceLine" id="cb2-12" title="12"><span class="im">export</span> <span class="kw">const</span> resizeImageWidth <span class="op">=</span> (</a>
+<a class="sourceLine" id="cb2-13" title="13">  <span class="op">{</span> img<span class="op">,</span> toWidth <span class="op">}:</span> ResizeImageWidthArgs<span class="op">,</span></a>
+<a class="sourceLine" id="cb2-14" title="14">)<span class="op">:</span> ResizeImageWidthResult <span class="kw">=&gt;</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb2-15" title="15">  <span class="co">// For performance reasons we want to avoid changing the img data array size.</span></a>
+<a class="sourceLine" id="cb2-16" title="16">  <span class="co">// Instead we&#39;ll just keep the record of the resized image width and height separately.</span></a>
+<a class="sourceLine" id="cb2-17" title="17">  <span class="kw">const</span> size<span class="op">:</span> ImageSize <span class="op">=</span> <span class="op">{</span> w<span class="op">:</span> <span class="va">img</span><span class="op">.</span><span class="at">width</span><span class="op">,</span> h<span class="op">:</span> <span class="va">img</span><span class="op">.</span><span class="at">height</span> <span class="op">};</span></a>
+<a class="sourceLine" id="cb2-18" title="18"></a>
+<a class="sourceLine" id="cb2-19" title="19">  <span class="co">// Calculating the number of pixels to remove.</span></a>
+<a class="sourceLine" id="cb2-20" title="20">  <span class="kw">const</span> pxToRemove <span class="op">=</span> <span class="va">img</span><span class="op">.</span><span class="at">width</span> <span class="op">-</span> toWidth<span class="op">;</span></a>
+<a class="sourceLine" id="cb2-21" title="21">  <span class="fu">if</span> (pxToRemove <span class="op">&lt;</span> <span class="dv">0</span>) <span class="op">{</span></a>
+<a class="sourceLine" id="cb2-22" title="22">    <span class="cf">throw</span> <span class="kw">new</span> <span class="bu">Error</span>(<span class="st">&#39;Upsizing is not supported for now&#39;</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb2-23" title="23">  <span class="op">}</span></a>
+<a class="sourceLine" id="cb2-24" title="24"></a>
+<a class="sourceLine" id="cb2-25" title="25">  <span class="kw">let</span> energyMap<span class="op">:</span> EnergyMap <span class="op">|</span> <span class="dt">null</span> <span class="op">=</span> <span class="kw">null</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb2-26" title="26">  <span class="kw">let</span> seam<span class="op">:</span> Seam <span class="op">|</span> <span class="dt">null</span> <span class="op">=</span> <span class="kw">null</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb2-27" title="27"></a>
+<a class="sourceLine" id="cb2-28" title="28">  <span class="co">// Removing the lowest energy seams one by one.</span></a>
+<a class="sourceLine" id="cb2-29" title="29">  <span class="fu">for</span> (<span class="kw">let</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> pxToRemove<span class="op">;</span> i <span class="op">+=</span> <span class="dv">1</span>) <span class="op">{</span></a>
+<a class="sourceLine" id="cb2-30" title="30">    <span class="co">// 1. Calculate the energy map for the current version of the image.</span></a>
+<a class="sourceLine" id="cb2-31" title="31">    energyMap <span class="op">=</span> <span class="fu">calculateEnergyMap</span>(img<span class="op">,</span> size)<span class="op">;</span></a>
+<a class="sourceLine" id="cb2-32" title="32"></a>
+<a class="sourceLine" id="cb2-33" title="33">    <span class="co">// 2. Find the seam with the lowest energy based on the energy map.</span></a>
+<a class="sourceLine" id="cb2-34" title="34">    seam <span class="op">=</span> <span class="fu">findLowEnergySeam</span>(energyMap<span class="op">,</span> size)<span class="op">;</span></a>
+<a class="sourceLine" id="cb2-35" title="35"></a>
+<a class="sourceLine" id="cb2-36" title="36">    <span class="co">// 3. Delete the seam with the lowest energy seam from the image.</span></a>
+<a class="sourceLine" id="cb2-37" title="37">    <span class="fu">deleteSeam</span>(img<span class="op">,</span> seam<span class="op">,</span> size)<span class="op">;</span></a>
+<a class="sourceLine" id="cb2-38" title="38"></a>
+<a class="sourceLine" id="cb2-39" title="39">    <span class="co">// Reduce the image width, and continue iterations.</span></a>
+<a class="sourceLine" id="cb2-40" title="40">    <span class="va">size</span><span class="op">.</span><span class="at">w</span> <span class="op">-=</span> <span class="dv">1</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb2-41" title="41">  <span class="op">}</span></a>
+<a class="sourceLine" id="cb2-42" title="42"></a>
+<a class="sourceLine" id="cb2-43" title="43">  <span class="co">// Returning the resized image and its final size.</span></a>
+<a class="sourceLine" id="cb2-44" title="44">  <span class="co">// The img is actually a reference to the ImageData, so technically</span></a>
+<a class="sourceLine" id="cb2-45" title="45">  <span class="co">// the caller of the function already has this pointer. But let&#39;s</span></a>
+<a class="sourceLine" id="cb2-46" title="46">  <span class="co">// still return it for better code readability.</span></a>
+<a class="sourceLine" id="cb2-47" title="47">  <span class="cf">return</span> <span class="op">{</span> img<span class="op">,</span> size <span class="op">};</span></a>
+<a class="sourceLine" id="cb2-48" title="48"><span class="op">};</span></a></code></pre></div>
+<p>The image that needs to be resized is being passed to the function in <a href="https://developer.mozilla.org/en-US/docs/Web/API/ImageData">ImageData</a> format. You may draw the image on the canvas and then extract the ImageData from the canvas like this:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb3-1" title="1"><span class="kw">const</span> ctx <span class="op">=</span> <span class="va">canvas</span>.<span class="at">getContext</span>(<span class="st">&#39;2d&#39;</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb3-2" title="2"><span class="kw">const</span> imgData <span class="op">=</span> <span class="va">ctx</span>.<span class="at">getImageData</span>(<span class="dv">0</span><span class="op">,</span> <span class="dv">0</span><span class="op">,</span> imgWidth<span class="op">,</span> imgHeight)<span class="op">;</span></a></code></pre></div>
+<blockquote>
+<p>The way of uploading and drawing images in JavaScript is out of scope for this article, but you may find the complete source code of how it may be done using React in <a href="https://github.com/trekhleb/js-image-carver">js-image-carver</a> repo.</p>
+</blockquote>
+<p>Let’s break down each step ony be one and implement the <code>calculateEnergyMap()</code>, <code>findLowEnergySeam()</code> and <code>deleteSeam()</code> functions.</p>
+<h3 id="calculating-the-pixels-energy">Calculating the pixel’s energy</h3>
+<p>Here we apply the color difference formula described above. For the left and right borders (when there are no left or right neighbors), we ignore the neighbors and don’t take them into account during the energy calculation.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode typescript"><code class="sourceCode typescript"><a class="sourceLine" id="cb4-1" title="1"><span class="co">// Calculates the energy of a pixel.</span></a>
+<a class="sourceLine" id="cb4-2" title="2"><span class="kw">const</span> getPixelEnergy <span class="op">=</span> (left<span class="op">:</span> Color <span class="op">|</span> <span class="dt">null</span><span class="op">,</span> middle<span class="op">:</span> Color<span class="op">,</span> right<span class="op">:</span> Color <span class="op">|</span> <span class="dt">null</span>)<span class="op">:</span> <span class="dt">number</span> <span class="kw">=&gt;</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb4-3" title="3">  <span class="co">// Middle pixel is the pixel we&#39;re calculating the energy for.</span></a>
+<a class="sourceLine" id="cb4-4" title="4">  <span class="kw">const</span> <span class="op">[</span>mR<span class="op">,</span> mG<span class="op">,</span> mB<span class="op">]</span> <span class="op">=</span> middle<span class="op">;</span></a>
+<a class="sourceLine" id="cb4-5" title="5"></a>
+<a class="sourceLine" id="cb4-6" title="6">  <span class="co">// Energy from the left pixel (if it exists).</span></a>
+<a class="sourceLine" id="cb4-7" title="7">  <span class="kw">let</span> lEnergy <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb4-8" title="8">  <span class="fu">if</span> (left) <span class="op">{</span></a>
+<a class="sourceLine" id="cb4-9" title="9">    <span class="kw">const</span> <span class="op">[</span>lR<span class="op">,</span> lG<span class="op">,</span> lB<span class="op">]</span> <span class="op">=</span> left<span class="op">;</span></a>
+<a class="sourceLine" id="cb4-10" title="10">    lEnergy <span class="op">=</span> (lR <span class="op">-</span> mR) <span class="op">**</span> <span class="dv">2</span> <span class="op">+</span> (lG <span class="op">-</span> mG) <span class="op">**</span> <span class="dv">2</span> <span class="op">+</span> (lB <span class="op">-</span> mB) <span class="op">**</span> <span class="dv">2</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb4-11" title="11">  <span class="op">}</span></a>
+<a class="sourceLine" id="cb4-12" title="12"></a>
+<a class="sourceLine" id="cb4-13" title="13">  <span class="co">// Energy from the right pixel (if it exists).</span></a>
+<a class="sourceLine" id="cb4-14" title="14">  <span class="kw">let</span> rEnergy <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb4-15" title="15">  <span class="fu">if</span> (right) <span class="op">{</span></a>
+<a class="sourceLine" id="cb4-16" title="16">    <span class="kw">const</span> <span class="op">[</span>rR<span class="op">,</span> rG<span class="op">,</span> rB<span class="op">]</span> <span class="op">=</span> right<span class="op">;</span></a>
+<a class="sourceLine" id="cb4-17" title="17">    rEnergy <span class="op">=</span> (rR <span class="op">-</span> mR) <span class="op">**</span> <span class="dv">2</span> <span class="op">+</span> (rG <span class="op">-</span> mG) <span class="op">**</span> <span class="dv">2</span> <span class="op">+</span> (rB <span class="op">-</span> mB) <span class="op">**</span> <span class="dv">2</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb4-18" title="18">  <span class="op">}</span></a>
+<a class="sourceLine" id="cb4-19" title="19"></a>
+<a class="sourceLine" id="cb4-20" title="20">  <span class="co">// Resulting pixel energy.</span></a>
+<a class="sourceLine" id="cb4-21" title="21">  <span class="cf">return</span> <span class="bu">Math</span><span class="op">.</span><span class="fu">sqrt</span>(lEnergy <span class="op">+</span> rEnergy)<span class="op">;</span></a>
+<a class="sourceLine" id="cb4-22" title="22"><span class="op">};</span></a></code></pre></div>
+<h3 id="calculating-the-energy-map">Calculating the energy map</h3>
+<p>The image we’re working with has the <a href="https://developer.mozilla.org/en-US/docs/Web/API/ImageData">ImageData</a> format. It means that all the pixels (and their colors) are stored in a flat (<em>1D</em>) <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint8ClampedArray">Uint8ClampedArray</a> array. For readability purposes let’s introduce the couple of helper functions that will allow us to work with the Uint8ClampedArray array as with a <em>2D</em> matrix instead.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode typescript"><code class="sourceCode typescript"><a class="sourceLine" id="cb5-1" title="1"><span class="co">// Helper function that returns the color of the pixel.</span></a>
+<a class="sourceLine" id="cb5-2" title="2"><span class="kw">const</span> getPixel <span class="op">=</span> (img<span class="op">:</span> <span class="bu">ImageData</span><span class="op">,</span> <span class="op">{</span> x<span class="op">,</span> y <span class="op">}:</span> Coordinate)<span class="op">:</span> Color <span class="kw">=&gt;</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb5-3" title="3">  <span class="co">// The ImageData data array is a flat 1D array.</span></a>
+<a class="sourceLine" id="cb5-4" title="4">  <span class="co">// Thus we need to convert x and y coordinates to the linear index.</span></a>
+<a class="sourceLine" id="cb5-5" title="5">  <span class="kw">const</span> i <span class="op">=</span> y <span class="op">*</span> <span class="va">img</span><span class="op">.</span><span class="at">width</span> <span class="op">+</span> x<span class="op">;</span></a>
+<a class="sourceLine" id="cb5-6" title="6">  <span class="kw">const</span> cellsPerColor <span class="op">=</span> <span class="dv">4</span><span class="op">;</span> <span class="co">// RGBA</span></a>
+<a class="sourceLine" id="cb5-7" title="7">  <span class="co">// For better efficiency, instead of creating a new sub-array we return</span></a>
+<a class="sourceLine" id="cb5-8" title="8">  <span class="co">// a pointer to the part of the ImageData array.</span></a>
+<a class="sourceLine" id="cb5-9" title="9">  <span class="cf">return</span> <span class="va">img</span><span class="op">.</span><span class="va">data</span><span class="op">.</span><span class="fu">subarray</span>(i <span class="op">*</span> cellsPerColor<span class="op">,</span> i <span class="op">*</span> cellsPerColor <span class="op">+</span> cellsPerColor)<span class="op">;</span></a>
+<a class="sourceLine" id="cb5-10" title="10"><span class="op">};</span></a>
+<a class="sourceLine" id="cb5-11" title="11"></a>
+<a class="sourceLine" id="cb5-12" title="12"><span class="co">// Helper function that sets the color of the pixel.</span></a>
+<a class="sourceLine" id="cb5-13" title="13"><span class="kw">const</span> setPixel <span class="op">=</span> (img<span class="op">:</span> <span class="bu">ImageData</span><span class="op">,</span> <span class="op">{</span> x<span class="op">,</span> y <span class="op">}:</span> Coordinate<span class="op">,</span> color<span class="op">:</span> Color)<span class="op">:</span> <span class="dt">void</span> <span class="kw">=&gt;</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb5-14" title="14">  <span class="co">// The ImageData data array is a flat 1D array.</span></a>
+<a class="sourceLine" id="cb5-15" title="15">  <span class="co">// Thus we need to convert x and y coordinates to the linear index.</span></a>
+<a class="sourceLine" id="cb5-16" title="16">  <span class="kw">const</span> i <span class="op">=</span> y <span class="op">*</span> <span class="va">img</span><span class="op">.</span><span class="at">width</span> <span class="op">+</span> x<span class="op">;</span></a>
+<a class="sourceLine" id="cb5-17" title="17">  <span class="kw">const</span> cellsPerColor <span class="op">=</span> <span class="dv">4</span><span class="op">;</span> <span class="co">// RGBA</span></a>
+<a class="sourceLine" id="cb5-18" title="18">  <span class="va">img</span><span class="op">.</span><span class="va">data</span><span class="op">.</span><span class="fu">set</span>(color<span class="op">,</span> i <span class="op">*</span> cellsPerColor)<span class="op">;</span></a>
+<a class="sourceLine" id="cb5-19" title="19"><span class="op">};</span></a></code></pre></div>
+<p>To calculate the energy map we go through each image pixel and call the previously described <code>getPixelEnergy()</code> function against it.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode typescript"><code class="sourceCode typescript"><a class="sourceLine" id="cb6-1" title="1"><span class="co">// Helper function that creates a matrix (2D array) of specific</span></a>
+<a class="sourceLine" id="cb6-2" title="2"><span class="co">// size (w x h) and fills it with specified value.</span></a>
+<a class="sourceLine" id="cb6-3" title="3"><span class="kw">const</span> matrix <span class="op">=</span> <span class="op">&lt;</span>T<span class="op">&gt;</span>(w<span class="op">:</span> <span class="dt">number</span><span class="op">,</span> h<span class="op">:</span> <span class="dt">number</span><span class="op">,</span> filler<span class="op">:</span> T)<span class="op">:</span> T<span class="op">[][]</span> <span class="kw">=&gt;</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb6-4" title="4">  <span class="cf">return</span> <span class="kw">new</span> <span class="bu">Array</span>(h)</a>
+<a class="sourceLine" id="cb6-5" title="5">    .<span class="fu">fill</span>(<span class="kw">null</span>)</a>
+<a class="sourceLine" id="cb6-6" title="6">    .<span class="fu">map</span>(() <span class="kw">=&gt;</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb6-7" title="7">      <span class="cf">return</span> <span class="kw">new</span> <span class="bu">Array</span>(w).<span class="fu">fill</span>(filler)<span class="op">;</span></a>
+<a class="sourceLine" id="cb6-8" title="8">    <span class="op">}</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb6-9" title="9"><span class="op">};</span></a>
+<a class="sourceLine" id="cb6-10" title="10"></a>
+<a class="sourceLine" id="cb6-11" title="11"><span class="co">// Calculates the energy of each pixel of the image.</span></a>
+<a class="sourceLine" id="cb6-12" title="12"><span class="kw">const</span> calculateEnergyMap <span class="op">=</span> (img<span class="op">:</span> <span class="bu">ImageData</span><span class="op">,</span> <span class="op">{</span> w<span class="op">,</span> h <span class="op">}:</span> ImageSize)<span class="op">:</span> EnergyMap <span class="kw">=&gt;</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb6-13" title="13">  <span class="co">// Create an empty energy map where each pixel has infinitely high energy.</span></a>
+<a class="sourceLine" id="cb6-14" title="14">  <span class="co">// We will update the energy of each pixel.</span></a>
+<a class="sourceLine" id="cb6-15" title="15">  <span class="kw">const</span> energyMap<span class="op">:</span> <span class="dt">number</span><span class="op">[][]</span> <span class="op">=</span> <span class="fu">matrix</span><span class="op">&lt;</span><span class="dt">number</span><span class="op">&gt;</span>(w<span class="op">,</span> h<span class="op">,</span> <span class="kw">Infinity</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb6-16" title="16">  <span class="fu">for</span> (<span class="kw">let</span> y <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> y <span class="op">&lt;</span> h<span class="op">;</span> y <span class="op">+=</span> <span class="dv">1</span>) <span class="op">{</span></a>
+<a class="sourceLine" id="cb6-17" title="17">    <span class="fu">for</span> (<span class="kw">let</span> x <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> x <span class="op">&lt;</span> w<span class="op">;</span> x <span class="op">+=</span> <span class="dv">1</span>) <span class="op">{</span></a>
+<a class="sourceLine" id="cb6-18" title="18">      <span class="co">// Left pixel might not exist if we&#39;re on the very left edge of the image.</span></a>
+<a class="sourceLine" id="cb6-19" title="19">      <span class="kw">const</span> left <span class="op">=</span> (x <span class="op">-</span> <span class="dv">1</span>) <span class="op">&gt;=</span> <span class="dv">0</span> <span class="op">?</span> <span class="fu">getPixel</span>(img<span class="op">,</span> <span class="op">{</span> x<span class="op">:</span> x <span class="op">-</span> <span class="dv">1</span><span class="op">,</span> y <span class="op">}</span>) <span class="op">:</span> <span class="dt">null</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb6-20" title="20">      <span class="co">// The color of the middle pixel that we&#39;re calculating the energy for.</span></a>
+<a class="sourceLine" id="cb6-21" title="21">      <span class="kw">const</span> middle <span class="op">=</span> <span class="fu">getPixel</span>(img<span class="op">,</span> <span class="op">{</span> x<span class="op">,</span> y <span class="op">}</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb6-22" title="22">      <span class="co">// Right pixel might not exist if we&#39;re on the very right edge of the image.</span></a>
+<a class="sourceLine" id="cb6-23" title="23">      <span class="kw">const</span> right <span class="op">=</span> (x <span class="op">+</span> <span class="dv">1</span>) <span class="op">&lt;</span> w <span class="op">?</span> <span class="fu">getPixel</span>(img<span class="op">,</span> <span class="op">{</span> x<span class="op">:</span> x <span class="op">+</span> <span class="dv">1</span><span class="op">,</span> y <span class="op">}</span>) <span class="op">:</span> <span class="dt">null</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb6-24" title="24">      energyMap<span class="op">[</span>y<span class="op">][</span>x<span class="op">]</span> <span class="op">=</span> <span class="fu">getPixelEnergy</span>(left<span class="op">,</span> middle<span class="op">,</span> right)<span class="op">;</span></a>
+<a class="sourceLine" id="cb6-25" title="25">    <span class="op">}</span></a>
+<a class="sourceLine" id="cb6-26" title="26">  <span class="op">}</span></a>
+<a class="sourceLine" id="cb6-27" title="27">  <span class="cf">return</span> energyMap<span class="op">;</span></a>
+<a class="sourceLine" id="cb6-28" title="28"><span class="op">};</span></a></code></pre></div>
+<blockquote>
+<p>The energy map is going to be recalculated on every resize iteration. It means that it will be recalculated, let’s say, 500 times if we need to shrink the image by 500 pixels which is not optimal. To speed up the energy map calculation on the 2nd, 3rd, and further steps, we may re-calculate the energy only for those pixels that are placed around the seam that is going to be removed. For simplicity reasons this optimization is omitted here, but you may find the example source-code in <a href="https://github.com/trekhleb/js-image-carver">js-image-carver</a> repo.</p>
+</blockquote>
+<h3 id="finding-the-seam-with-the-lowest-energy-dynamic-programming-approach">Finding the seam with the lowest energy (Dynamic Programming approach)</h3>
+<blockquote>
+<p>I’ve described some Dynamic Programming basics in <a href="https://trekhleb.dev/blog/2018/dynamic-programming-vs-divide-and-conquer/">Dynamic Programming vs Divide-and-Conquer</a> article before. There is a DP example based on the minimum edit distance problem. You might want to check it out to get some more context.</p>
+</blockquote>
+<p>The issue we need to solve now is to find the path (the seam) on the energy map that goes from top to bottom and has the minimum sum of pixel energies.</p>
+<h4 id="the-naive-approach">The naive approach</h4>
+<p>The naive approach would be to check all possible paths one after another.</p>
+<figure>
+<img src="https://raw.githubusercontent.com/trekhleb/trekhleb.github.io/master/src/posts/2021/content-aware-image-resizing-in-javascript/assets/50-naive-approach.png" alt="The naive approach" /><figcaption>The naive approach</figcaption>
+</figure>
+<p>Going from top to bottom, for each pixel, we have 3 options (↙︎ go down-left, ↓ go down, ↘︎ go down-right). This gives us the time complexity of <code>O(w * 3^h)</code> or simply <code>O(3^h)</code>, where <code>w</code> and <code>h</code> are the width and the height of the image. This approach looks slow.</p>
+<h4 id="the-greedy-approach">The greedy approach</h4>
+<p>We may also try to choose the next pixel as a pixel with the lowest energy, hoping that the resulting seam energy will be the smallest one.</p>
+<figure>
+<img src="https://raw.githubusercontent.com/trekhleb/trekhleb.github.io/master/src/posts/2021/content-aware-image-resizing-in-javascript/assets/51-greedy-approach.png" alt="The greedy approach" /><figcaption>The greedy approach</figcaption>
+</figure>
+<p>This approach gives not the worst solution, but it cannot guarantee that we will find the best available solution. On the image above you may see how the greedy approach chose <code>5</code> instead of <code>10</code> at first and missed the chain of optimal pixels.</p>
+<p>The good part about this approach is that it is fast, and it has a time complexity of <code>O(w + h)</code>, where <code>w</code> and <code>h</code> are the width and the height of the image. In this case, the cost of the speed is the low quality of resizing. We need to find a minimum value in the first row (traversing <code>w</code> cells) and then we explore only 3 neighbor pixels for each row (traversing <code>h</code> rows).</p>
+<h4 id="the-dynamic-programming-approach">The dynamic programming approach</h4>
+<p>You might have noticed that in the naive approach we summed up the same pixel energies over and over again while calculating the resulting seams’ energy.</p>
+<figure>
+<img src="https://raw.githubusercontent.com/trekhleb/trekhleb.github.io/master/src/posts/2021/content-aware-image-resizing-in-javascript/assets/52-dp-repeated-problems.png" alt="Repeated problems" /><figcaption>Repeated problems</figcaption>
+</figure>
+<p>In the example above you see that for the first two seams we are re-using the energy of the shorter seam (which has the energy of <code>235</code>). Instead of doing just one operation <code>235 + 70</code> to calculate the energy of the 2nd seam we’re doing four operations <code>(5 + 0 + 80 + 150) + 70</code>.</p>
+<blockquote>
+<p>This fact that we’re re-using the energy of the previous seam to calculate the current seam’s energy might be applied recursively to all the shorter seams up to the very top 1st row seam. When we have such overlapping sub-problems, <a href="https://trekhleb.dev/blog/2018/dynamic-programming-vs-divide-and-conquer/">it is a sign</a> that the general problem <em>might</em> be optimized by dynamic programming approach.</p>
+</blockquote>
+<p>So, we may <strong>save the energy of the current seam</strong> at the particular pixel in an additional <code>seamsEnergies</code> table to make it re-usable for calculating the next seams faster (the <code>seamsEnergies</code> table will have the same size as the energy map and the image itself).</p>
+<p>Let’s also keep in mind that for one particular pixel on the image (i.e. the bottom left one) we may have <em>several</em> values of the previous seams energies.</p>
+<figure>
+<img src="https://raw.githubusercontent.com/trekhleb/trekhleb.github.io/master/src/posts/2021/content-aware-image-resizing-in-javascript/assets/53-dp-what-to-choose.png" alt="What seam to choose" /><figcaption>What seam to choose</figcaption>
+</figure>
+<p>Since we’re looking for a seam with the lowest resulting energy it would make sense to pick the previous seam with the lowest resulting energy as well.</p>
+<figure>
+<img src="https://raw.githubusercontent.com/trekhleb/trekhleb.github.io/master/src/posts/2021/content-aware-image-resizing-in-javascript/assets/56-dp-seams-energies-example.png" alt="Seams energies example" /><figcaption>Seams energies example</figcaption>
+</figure>
+<p>In general, we have three possible previous seems to choose from:</p>
+<figure>
+<img src="https://raw.githubusercontent.com/trekhleb/trekhleb.github.io/master/src/posts/2021/content-aware-image-resizing-in-javascript/assets/55-dp-three-options.png" alt="Three options to choose from" /><figcaption>Three options to choose from</figcaption>
+</figure>
+<p>You may think about it this way:</p>
+<ul>
+<li>The cell <code>[1][x]</code>: contains the lowest possible energy of the seam that starts somewhere on the row <code>[0][?]</code> and ends up at cell <code>[1][x]</code></li>
+<li><strong>The current cell</strong> <code>[2][3]</code>: contains the lowest possible energy of the seam that starts somewhere on the row <code>[0][?]</code> and ends up at cell <code>[2][3]</code>. To calculate it we need to sum up the energy of the current pixel <code>[2][3]</code> (from the energy map) with the <code>min(seam_energy_1_2, seam_energy_1_3, seam_energy_1_4)</code></li>
+</ul>
+<p>If we fill the <code>seamsEnergies</code> table completely, then the minimum number in the lowest row would be the lowest possible seam energy.</p>
+<p>Let’s try to fill several cells of this table to see how it works.</p>
+<figure>
+<img src="https://raw.githubusercontent.com/trekhleb/trekhleb.github.io/master/src/posts/2021/content-aware-image-resizing-in-javascript/assets/57-dp-seams-energies-traversal.png" alt="Seams energies map traversal" /><figcaption>Seams energies map traversal</figcaption>
+</figure>
+<p>After filling out the <code>seamsEnergies</code> table we may see that the lowest energy pixel has an energy of <code>50</code>. For convenience, during the <code>seamsEnergies</code> generation for each pixel, we may save not only the energy of the seam but also the coordinates of the previous lowest energy seam. This will give us the possibility to reconstruct the seam path from the bottom to the top easily.</p>
+<p>The time complexity of DP approach would be <code>O(w * h)</code>, where <code>w</code> and <code>h</code> are the width and the height of the image. We need to calculate energies for <em>every</em> pixel of the image.</p>
+<p>Here is an example of how this logic might be implemented:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode typescript"><code class="sourceCode typescript"><a class="sourceLine" id="cb7-1" title="1"><span class="co">// The metadata for the pixels in the seam.</span></a>
+<a class="sourceLine" id="cb7-2" title="2"><span class="kw">type</span> SeamPixelMeta <span class="op">=</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb7-3" title="3">  energy<span class="op">:</span> <span class="dt">number</span><span class="op">,</span> <span class="co">// The energy of the pixel.</span></a>
+<a class="sourceLine" id="cb7-4" title="4">  coordinate<span class="op">:</span> Coordinate<span class="op">,</span> <span class="co">// The coordinate of the pixel.</span></a>
+<a class="sourceLine" id="cb7-5" title="5">  previous<span class="op">:</span> Coordinate <span class="op">|</span> <span class="dt">null</span><span class="op">,</span> <span class="co">// The previous pixel in a seam.</span></a>
+<a class="sourceLine" id="cb7-6" title="6"><span class="op">};</span></a>
+<a class="sourceLine" id="cb7-7" title="7"></a>
+<a class="sourceLine" id="cb7-8" title="8"><span class="co">// Finds the seam (the sequence of pixels from top to bottom) that has the</span></a>
+<a class="sourceLine" id="cb7-9" title="9"><span class="co">// lowest resulting energy using the Dynamic Programming approach.</span></a>
+<a class="sourceLine" id="cb7-10" title="10"><span class="kw">const</span> findLowEnergySeam <span class="op">=</span> (energyMap<span class="op">:</span> EnergyMap<span class="op">,</span> <span class="op">{</span> w<span class="op">,</span> h <span class="op">}:</span> ImageSize)<span class="op">:</span> Seam <span class="kw">=&gt;</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb7-11" title="11">  <span class="co">// The 2D array of the size of w and h, where each pixel contains the</span></a>
+<a class="sourceLine" id="cb7-12" title="12">  <span class="co">// seam metadata (pixel energy, pixel coordinate and previous pixel from</span></a>
+<a class="sourceLine" id="cb7-13" title="13">  <span class="co">// the lowest energy seam at this point).</span></a>
+<a class="sourceLine" id="cb7-14" title="14">  <span class="kw">const</span> seamsEnergies<span class="op">:</span> (SeamPixelMeta <span class="op">|</span> <span class="dt">null</span>)<span class="op">[][]</span> <span class="op">=</span> <span class="fu">matrix</span><span class="op">&lt;</span>SeamPixelMeta <span class="op">|</span> <span class="dt">null</span><span class="op">&gt;</span>(w<span class="op">,</span> h<span class="op">,</span> <span class="kw">null</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb7-15" title="15"></a>
+<a class="sourceLine" id="cb7-16" title="16">  <span class="co">// Populate the first row of the map by just copying the energies</span></a>
+<a class="sourceLine" id="cb7-17" title="17">  <span class="co">// from the energy map.</span></a>
+<a class="sourceLine" id="cb7-18" title="18">  <span class="fu">for</span> (<span class="kw">let</span> x <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> x <span class="op">&lt;</span> w<span class="op">;</span> x <span class="op">+=</span> <span class="dv">1</span>) <span class="op">{</span></a>
+<a class="sourceLine" id="cb7-19" title="19">    <span class="kw">const</span> y <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb7-20" title="20">    seamsEnergies<span class="op">[</span>y<span class="op">][</span>x<span class="op">]</span> <span class="op">=</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb7-21" title="21">      energy<span class="op">:</span> energyMap<span class="op">[</span>y<span class="op">][</span>x<span class="op">],</span></a>
+<a class="sourceLine" id="cb7-22" title="22">      coordinate<span class="op">:</span> <span class="op">{</span> x<span class="op">,</span> y <span class="op">},</span></a>
+<a class="sourceLine" id="cb7-23" title="23">      previous<span class="op">:</span> <span class="dt">null</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb7-24" title="24">    <span class="op">};</span></a>
+<a class="sourceLine" id="cb7-25" title="25">  <span class="op">}</span></a>
+<a class="sourceLine" id="cb7-26" title="26"></a>
+<a class="sourceLine" id="cb7-27" title="27">  <span class="co">// Populate the rest of the rows.</span></a>
+<a class="sourceLine" id="cb7-28" title="28">  <span class="fu">for</span> (<span class="kw">let</span> y <span class="op">=</span> <span class="dv">1</span><span class="op">;</span> y <span class="op">&lt;</span> h<span class="op">;</span> y <span class="op">+=</span> <span class="dv">1</span>) <span class="op">{</span></a>
+<a class="sourceLine" id="cb7-29" title="29">    <span class="fu">for</span> (<span class="kw">let</span> x <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> x <span class="op">&lt;</span> w<span class="op">;</span> x <span class="op">+=</span> <span class="dv">1</span>) <span class="op">{</span></a>
+<a class="sourceLine" id="cb7-30" title="30">      <span class="co">// Find the top adjacent cell with minimum energy.</span></a>
+<a class="sourceLine" id="cb7-31" title="31">      <span class="co">// This cell would be the tail of a seam with lowest energy at this point.</span></a>
+<a class="sourceLine" id="cb7-32" title="32">      <span class="co">// It doesn&#39;t mean that this seam (path) has lowest energy globally.</span></a>
+<a class="sourceLine" id="cb7-33" title="33">      <span class="co">// Instead, it means that we found a path with the lowest energy that may lead</span></a>
+<a class="sourceLine" id="cb7-34" title="34">      <span class="co">// us to the current pixel with the coordinates x and y.</span></a>
+<a class="sourceLine" id="cb7-35" title="35">      <span class="kw">let</span> minPrevEnergy <span class="op">=</span> <span class="kw">Infinity</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb7-36" title="36">      <span class="kw">let</span> minPrevX<span class="op">:</span> <span class="dt">number</span> <span class="op">=</span> x<span class="op">;</span></a>
+<a class="sourceLine" id="cb7-37" title="37">      <span class="fu">for</span> (<span class="kw">let</span> i <span class="op">=</span> (x <span class="op">-</span> <span class="dv">1</span>)<span class="op">;</span> i <span class="op">&lt;=</span> (x <span class="op">+</span> <span class="dv">1</span>)<span class="op">;</span> i <span class="op">+=</span> <span class="dv">1</span>) <span class="op">{</span></a>
+<a class="sourceLine" id="cb7-38" title="38">        <span class="fu">if</span> (i <span class="op">&gt;=</span> <span class="dv">0</span> <span class="op">&amp;&amp;</span> i <span class="op">&lt;</span> w <span class="op">&amp;&amp;</span> seamsEnergies<span class="op">[</span>y <span class="op">-</span> <span class="dv">1</span><span class="op">][</span>i<span class="op">]</span>.<span class="at">energy</span> <span class="op">&lt;</span> minPrevEnergy) <span class="op">{</span></a>
+<a class="sourceLine" id="cb7-39" title="39">          minPrevEnergy <span class="op">=</span> seamsEnergies<span class="op">[</span>y <span class="op">-</span> <span class="dv">1</span><span class="op">][</span>i<span class="op">]</span>.<span class="at">energy</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb7-40" title="40">          minPrevX <span class="op">=</span> i<span class="op">;</span></a>
+<a class="sourceLine" id="cb7-41" title="41">        <span class="op">}</span></a>
+<a class="sourceLine" id="cb7-42" title="42">      <span class="op">}</span></a>
+<a class="sourceLine" id="cb7-43" title="43"></a>
+<a class="sourceLine" id="cb7-44" title="44">      <span class="co">// Update the current cell.</span></a>
+<a class="sourceLine" id="cb7-45" title="45">      seamsEnergies<span class="op">[</span>y<span class="op">][</span>x<span class="op">]</span> <span class="op">=</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb7-46" title="46">        energy<span class="op">:</span> minPrevEnergy <span class="op">+</span> energyMap<span class="op">[</span>y<span class="op">][</span>x<span class="op">],</span></a>
+<a class="sourceLine" id="cb7-47" title="47">        coordinate<span class="op">:</span> <span class="op">{</span> x<span class="op">,</span> y <span class="op">},</span></a>
+<a class="sourceLine" id="cb7-48" title="48">        previous<span class="op">:</span> <span class="op">{</span> x<span class="op">:</span> minPrevX<span class="op">,</span> y<span class="op">:</span> y <span class="op">-</span> <span class="dv">1</span> <span class="op">},</span></a>
+<a class="sourceLine" id="cb7-49" title="49">      <span class="op">};</span></a>
+<a class="sourceLine" id="cb7-50" title="50">    <span class="op">}</span></a>
+<a class="sourceLine" id="cb7-51" title="51">  <span class="op">}</span></a>
+<a class="sourceLine" id="cb7-52" title="52"></a>
+<a class="sourceLine" id="cb7-53" title="53">  <span class="co">// Find where the minimum energy seam ends.</span></a>
+<a class="sourceLine" id="cb7-54" title="54">  <span class="co">// We need to find the tail of the lowest energy seam to start</span></a>
+<a class="sourceLine" id="cb7-55" title="55">  <span class="co">// traversing it from its tail to its head (from the bottom to the top).</span></a>
+<a class="sourceLine" id="cb7-56" title="56">  <span class="kw">let</span> lastMinCoordinate<span class="op">:</span> Coordinate <span class="op">|</span> <span class="dt">null</span> <span class="op">=</span> <span class="kw">null</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb7-57" title="57">  <span class="kw">let</span> minSeamEnergy <span class="op">=</span> <span class="kw">Infinity</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb7-58" title="58">  <span class="fu">for</span> (<span class="kw">let</span> x <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> x <span class="op">&lt;</span> w<span class="op">;</span> x <span class="op">+=</span> <span class="dv">1</span>) <span class="op">{</span></a>
+<a class="sourceLine" id="cb7-59" title="59">    <span class="kw">const</span> y <span class="op">=</span> h <span class="op">-</span> <span class="dv">1</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb7-60" title="60">    <span class="fu">if</span> (seamsEnergies<span class="op">[</span>y<span class="op">][</span>x<span class="op">]</span>.<span class="at">energy</span> <span class="op">&lt;</span> minSeamEnergy) <span class="op">{</span></a>
+<a class="sourceLine" id="cb7-61" title="61">      minSeamEnergy <span class="op">=</span> seamsEnergies<span class="op">[</span>y<span class="op">][</span>x<span class="op">]</span>.<span class="at">energy</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb7-62" title="62">      lastMinCoordinate <span class="op">=</span> <span class="op">{</span> x<span class="op">,</span> y <span class="op">};</span></a>
+<a class="sourceLine" id="cb7-63" title="63">    <span class="op">}</span></a>
+<a class="sourceLine" id="cb7-64" title="64">  <span class="op">}</span></a>
+<a class="sourceLine" id="cb7-65" title="65"></a>
+<a class="sourceLine" id="cb7-66" title="66">  <span class="co">// Find the lowest energy energy seam.</span></a>
+<a class="sourceLine" id="cb7-67" title="67">  <span class="co">// Once we know where the tail is we may traverse and assemble the lowest</span></a>
+<a class="sourceLine" id="cb7-68" title="68">  <span class="co">// energy seam based on the &quot;previous&quot; value of the seam pixel metadata.</span></a>
+<a class="sourceLine" id="cb7-69" title="69">  <span class="kw">const</span> seam<span class="op">:</span> Seam <span class="op">=</span> <span class="op">[];</span></a>
+<a class="sourceLine" id="cb7-70" title="70">  <span class="fu">if</span> (<span class="op">!</span>lastMinCoordinate) <span class="op">{</span></a>
+<a class="sourceLine" id="cb7-71" title="71">    <span class="cf">return</span> seam<span class="op">;</span></a>
+<a class="sourceLine" id="cb7-72" title="72">  <span class="op">}</span></a>
+<a class="sourceLine" id="cb7-73" title="73"></a>
+<a class="sourceLine" id="cb7-74" title="74">  <span class="kw">const</span> <span class="op">{</span> x<span class="op">:</span> lastMinX<span class="op">,</span> y<span class="op">:</span> lastMinY <span class="op">}</span> <span class="op">=</span> lastMinCoordinate<span class="op">;</span></a>
+<a class="sourceLine" id="cb7-75" title="75"></a>
+<a class="sourceLine" id="cb7-76" title="76">  <span class="co">// Adding new pixel to the seam path one by one until we reach the top.</span></a>
+<a class="sourceLine" id="cb7-77" title="77">  <span class="kw">let</span> currentSeam <span class="op">=</span> seamsEnergies<span class="op">[</span>lastMinY<span class="op">][</span>lastMinX<span class="op">];</span></a>
+<a class="sourceLine" id="cb7-78" title="78">  <span class="fu">while</span> (currentSeam) <span class="op">{</span></a>
+<a class="sourceLine" id="cb7-79" title="79">    <span class="va">seam</span><span class="op">.</span><span class="fu">push</span>(<span class="va">currentSeam</span><span class="op">.</span><span class="at">coordinate</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb7-80" title="80">    <span class="kw">const</span> prevMinCoordinates <span class="op">=</span> <span class="va">currentSeam</span><span class="op">.</span><span class="at">previous</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb7-81" title="81">    <span class="fu">if</span> (<span class="op">!</span>prevMinCoordinates) <span class="op">{</span></a>
+<a class="sourceLine" id="cb7-82" title="82">      currentSeam <span class="op">=</span> <span class="kw">null</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb7-83" title="83">    <span class="op">}</span> <span class="cf">else</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb7-84" title="84">      <span class="kw">const</span> <span class="op">{</span> x<span class="op">:</span> prevMinX<span class="op">,</span> y<span class="op">:</span> prevMinY <span class="op">}</span> <span class="op">=</span> prevMinCoordinates<span class="op">;</span></a>
+<a class="sourceLine" id="cb7-85" title="85">      currentSeam <span class="op">=</span> seamsEnergies<span class="op">[</span>prevMinY<span class="op">][</span>prevMinX<span class="op">];</span></a>
+<a class="sourceLine" id="cb7-86" title="86">    <span class="op">}</span></a>
+<a class="sourceLine" id="cb7-87" title="87">  <span class="op">}</span></a>
+<a class="sourceLine" id="cb7-88" title="88"></a>
+<a class="sourceLine" id="cb7-89" title="89">  <span class="cf">return</span> seam<span class="op">;</span></a>
+<a class="sourceLine" id="cb7-90" title="90"><span class="op">};</span></a></code></pre></div>
+<h3 id="removing-the-seam-with-the-lowest-energy">Removing the seam with the lowest energy</h3>
+<p>Once we found the lowest energy seam, we need to remove (to carve) the pixels that form it from the image. The removal is happening by shifting the pixels to the right of the seam by <code>1px</code> to the left. For performance reasons, we don’t actually delete the last columns. Instead, the rendering component will just ignore the part of the image that lays beyond the resized image width.</p>
+<figure>
+<img src="https://raw.githubusercontent.com/trekhleb/trekhleb.github.io/master/src/posts/2021/content-aware-image-resizing-in-javascript/assets/60-deleting-example.png" alt="Deleting the seam" /><figcaption>Deleting the seam</figcaption>
+</figure>
+<div class="sourceCode" id="cb8"><pre class="sourceCode typescript"><code class="sourceCode typescript"><a class="sourceLine" id="cb8-1" title="1"><span class="co">// Deletes the seam from the image data.</span></a>
+<a class="sourceLine" id="cb8-2" title="2"><span class="co">// We delete the pixel in each row and then shift the rest of the row pixels to the left.</span></a>
+<a class="sourceLine" id="cb8-3" title="3"><span class="kw">const</span> deleteSeam <span class="op">=</span> (img<span class="op">:</span> <span class="bu">ImageData</span><span class="op">,</span> seam<span class="op">:</span> Seam<span class="op">,</span> <span class="op">{</span> w <span class="op">}:</span> ImageSize)<span class="op">:</span> <span class="dt">void</span> <span class="kw">=&gt;</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb8-4" title="4">  <span class="va">seam</span><span class="op">.</span><span class="fu">forEach</span>((<span class="op">{</span> x<span class="op">:</span> seamX<span class="op">,</span> y<span class="op">:</span> seamY <span class="op">}:</span> Coordinate) <span class="kw">=&gt;</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb8-5" title="5">    <span class="fu">for</span> (<span class="kw">let</span> x <span class="op">=</span> seamX<span class="op">;</span> x <span class="op">&lt;</span> (w <span class="op">-</span> <span class="dv">1</span>)<span class="op">;</span> x <span class="op">+=</span> <span class="dv">1</span>) <span class="op">{</span></a>
+<a class="sourceLine" id="cb8-6" title="6">      <span class="kw">const</span> nextPixel <span class="op">=</span> <span class="fu">getPixel</span>(img<span class="op">,</span> <span class="op">{</span> x<span class="op">:</span> x <span class="op">+</span> <span class="dv">1</span><span class="op">,</span> y<span class="op">:</span> seamY <span class="op">}</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb8-7" title="7">      <span class="fu">setPixel</span>(img<span class="op">,</span> <span class="op">{</span> x<span class="op">,</span> y<span class="op">:</span> seamY <span class="op">},</span> nextPixel)<span class="op">;</span></a>
+<a class="sourceLine" id="cb8-8" title="8">    <span class="op">}</span></a>
+<a class="sourceLine" id="cb8-9" title="9">  <span class="op">}</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb8-10" title="10"><span class="op">};</span></a></code></pre></div>
+<h2 id="objects-removal-1">Objects removal</h2>
+<p>The Seam Carving algorithm tries to remove the seams which consist of low energy pixels first. We could leverage this fact and by assigning low energy to some pixels manually (i.e. by drawing on the image and masking out some areas of it) we could make the Seam Carving algorithm to do <em>objects removal</em> for us for free.</p>
+<p>Currently, in <code>getPixelEnergy()</code> function we were using only the <code>R</code>, <code>G</code>, <code>B</code> color channels to calculate the pixel’s energy. But there is also the <code>A</code> (alpha, transparency) parameter of the color that we didn’t use yet. We may use the transparency channel to tell the algorithm that transparent pixels are the pixels we want to remove. You may check the <a href="https://github.com/trekhleb/js-image-carver/blob/main/src/utils/contentAwareResizer.ts#L54">source-code of the energy function</a> that takes transparency into account.</p>
+<p>Here is how the algorithm works for object removal.</p>
+<figure>
+<img src="https://raw.githubusercontent.com/trekhleb/trekhleb.github.io/master/src/posts/2021/content-aware-image-resizing-in-javascript/assets/10-demo-02.gif" alt="JS IMAGE CARVER OBJECT REMOVAL DEMO" /><figcaption>JS IMAGE CARVER OBJECT REMOVAL DEMO</figcaption>
+</figure>
+<h2 id="issues-and-whats-next">Issues and what’s next</h2>
+<p>The <a href="https://github.com/trekhleb/js-image-carver">JS IMAGE CARVER</a> web app is far from being a production ready resizer of course. Its main purpose was to experiment with the Seam Carving algorithm interactively. So the plan for the future is to continue experimentation.</p>
+<p>The <a href="https://perso.crans.org/frenoy/matlab2012/seamcarving.pdf">original paper</a> describes how the Seam Carving algorithm might be used not only for the downscaling but also for the <strong>upscaling of the images</strong>. The upscaling, in turn, might be used to <strong>upscale the image back to its original width after the objects’ removal</strong>.</p>
+<p>Another interesting area of experimentation might be to make the algorithm work in a <strong>real-time</strong>.</p>
+<blockquote>
+<p>Those are the plans for the future, but for now, I hope that the example with image downsizing was interesting and useful for you. I also hope that you’ve got the idea of using dynamic programming to implement it.</p>
+<p>So, good luck with your own experiments!</p>
+</blockquote>
+</body>
+</html>

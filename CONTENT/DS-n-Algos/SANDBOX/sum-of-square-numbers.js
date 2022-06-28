@@ -5,14 +5,13 @@
  * @param {number} c
  * @return {boolean}
  */
-var judgeSquareSum = function(c) {
-  let mid = ~~(Math.sqrt(c))
+var judgeSquareSum = function (c) {
+  let mid = ~~Math.sqrt(c);
 
   for (let i = 0; i <= mid; i++) {
-    let rem = c - i * i
-    if (rem === Math.pow(~~Math.sqrt(rem), 2))
-      return true
+    let rem = c - i * i;
+    if (rem === Math.pow(~~Math.sqrt(rem), 2)) return true;
   }
 
-  return false
+  return false;
 };

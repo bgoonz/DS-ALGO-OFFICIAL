@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>README.ja-JP</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+</head>
+<body>
+<h1 id="双方向リスト">双方向リスト</h1>
+<p>コンピュータサイエンスにおいて、<strong>双方向リスト</strong>はノードと呼ばれる一連のリンクレコードからなる連結データ構造です。各ノードはリンクと呼ばれる2つのフィールドを持っていて、これらは一連のノード内における前のノードと次のノードを参照しています。最初のノードの前のリンクと最後のノードの次のリンクはある種の終端を示していて、一般的にはダミーノードやnullが格納され、リストのトラバースを容易に行えるようにしています。もしダミーノードが1つしかない場合、リストはその1つのノードを介して循環的にリンクされます。これは、それぞれ逆の順番の単方向のリンクリストが2つあるものとして考えることができます。</p>
+<figure>
+<img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/Doubly-linked-list.svg" alt="Doubly Linked List" /><figcaption>Doubly Linked List</figcaption>
+</figure>
+<p>2つのリンクにより、リストをどちらの方向にもトラバースすることができます。双方向リストはノードの追加や削除の際に、片方向リンクリストと比べてより多くのリンクを変更する必要があります。しかし、その操作は簡単で、より効率的な(最初のノード以外の場合)可能性があります。前のノードのリンクを更新する際に前のノードを保持したり、前のノードを見つけるためにリストをトラバースする必要がありません。</p>
+<h2 id="基本操作の擬似コード">基本操作の擬似コード</h2>
+<h3 id="挿入">挿入</h3>
+<pre class="text"><code>Add(value)
+  Pre: value is the value to add to the list
+  Post: value has been placed at the tail of the list
+  n ← node(value)
+  if head = ø
+    head ← n
+    tail ← n
+  else
+    n.previous ← tail
+    tail.next ← n
+    tail ← n
+  end if
+end Add</code></pre>
+<h3 id="削除">削除</h3>
+<pre class="text"><code>Remove(head, value)
+  Pre: head is the head node in the list
+       value is the value to remove from the list
+  Post: value is removed from the list, true; otherwise false
+  if head = ø
+    return false
+  end if
+  if value = head.value
+    if head = tail
+      head ← ø
+      tail ← ø
+    else
+      head ← head.next
+      head.previous ← ø
+    end if
+    return true
+  end if
+  n ← head.next
+  while n = ø and value !== n.value
+    n ← n.next
+  end while
+  if n = tail
+    tail ← tail.previous
+    tail.next ← ø
+    return true
+  else if n = ø
+    n.previous.next ← n.next
+    n.next.previous ← n.previous
+    return true
+  end if
+  return false
+end Remove</code></pre>
+<h3 id="逆トラバース">逆トラバース</h3>
+<pre class="text"><code>ReverseTraversal(tail)
+  Pre: tail is the node of the list to traverse
+  Post: the list has been traversed in reverse order
+  n ← tail
+  while n = ø
+    yield n.value
+    n ← n.previous
+  end while
+end Reverse Traversal</code></pre>
+<h2 id="計算量">計算量</h2>
+<h2 id="時間計算量">時間計算量</h2>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;">Access</th>
+<th style="text-align: center;">Search</th>
+<th style="text-align: center;">Insertion</th>
+<th style="text-align: center;">Deletion</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">O(n)</td>
+<td style="text-align: center;">O(n)</td>
+<td style="text-align: center;">O(1)</td>
+<td style="text-align: center;">O(n)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="空間計算量">空間計算量</h3>
+<p>O(n)</p>
+<h2 id="参考">参考</h2>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Doubly_linked_list">Wikipedia</a></li>
+<li><a href="https://www.youtube.com/watch?v=JdQeNxWCguQ&amp;t=7s&amp;index=72&amp;list=PLLXdhg_r2hKA7DPDsunoDZ-Z769jWn4R8">YouTube</a></li>
+</ul>
+</body>
+</html>

@@ -1,4 +1,4 @@
-/*******************************************************************************
+/*
 Write a function `xorSelect` that accepts an array and two callback as arguments.
 The function should return a new array containing elements of the original array
 that result in true when passed in one of the callbacks, but not both.
@@ -29,12 +29,12 @@ console.log(
   xorSelect(["art", "academy", "app", "cat", "buttery"], longString, startsA)
 );
 // [ 'art', 'app', 'buttery' ]
-*******************************************************************************/
+*/
 
-let xorSelect = ( array, cb1, cb2 ) => {
-  let selected = array.filter( el => {
-    return ( cb1( el ) || cb2( el ) ) && !( cb1( el ) && cb2( el ) );
-  } );
+let xorSelect = (array, cb1, cb2) => {
+  let selected = array.filter((el) => {
+    return (cb1(el) || cb2(el)) && !(cb1(el) && cb2(el));
+  });
   return selected;
 };
 

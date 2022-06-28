@@ -5,7 +5,8 @@ body {
   padding: 60px 50px;
 }
 
-#mocha ul, #mocha li {
+#mocha ul,
+#mocha li {
   margin: 0;
   padding: 0;
 }
@@ -14,7 +15,8 @@ body {
   list-style: none;
 }
 
-#mocha h1, #mocha h2 {
+#mocha h1,
+#mocha h2 {
   margin: 0;
 }
 
@@ -35,7 +37,7 @@ body {
 
 #mocha .suite .suite h1 {
   margin-top: 0;
-  font-size: .8em;
+  font-size: 0.8em;
 }
 
 .hidden {
@@ -58,20 +60,20 @@ body {
 }
 
 #mocha .test.pending:hover h2::after {
-  content: '(pending)';
+  content: "(pending)";
   font-family: arial;
 }
 
 #mocha .test.pass.medium .duration {
-  background: #C09853;
+  background: #c09853;
 }
 
 #mocha .test.pass.slow .duration {
-  background: #B94A48;
+  background: #b94a48;
 }
 
 #mocha .test.pass::before {
-  content: '✓';
+  content: "✓";
   font-size: 12px;
   display: block;
   float: left;
@@ -84,9 +86,9 @@ body {
   margin-left: 5px;
   padding: 2px 5px;
   color: white;
-  -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.2);
-  -moz-box-shadow: inset 0 1px 1px rgba(0,0,0,.2);
-  box-shadow: inset 0 1px 1px rgba(0,0,0,.2);
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.2);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.2);
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   -ms-border-radius: 5px;
@@ -103,7 +105,7 @@ body {
 }
 
 #mocha .test.pending::before {
-  content: '◦';
+  content: "◦";
   color: #0b97c4;
 }
 
@@ -116,7 +118,7 @@ body {
 }
 
 #mocha .test.fail::before {
-  content: '✖';
+  content: "✖";
   font-size: 12px;
   display: block;
   float: left;
@@ -185,7 +187,7 @@ body {
 
 #mocha-error {
   color: #c00;
-  font-size: 1.5  em;
+  font-size: 1.5 em;
   font-weight: 100;
   letter-spacing: 1px;
 }
@@ -229,11 +231,21 @@ body {
   height: 40px;
 }
 
-code .comment { color: #ddd }
-code .init { color: #2F6FAD }
-code .string { color: #5890AD }
-code .keyword { color: #8A6343 }
-code .number { color: #2F6FAD }
+code .comment {
+  color: #ddd;
+}
+code .init {
+  color: #2f6fad;
+}
+code .string {
+  color: #5890ad;
+}
+code .keyword {
+  color: #8a6343;
+}
+code .number {
+  color: #2f6fad;
+}
 
 @media screen and (max-device-width: 480px) {
   body {

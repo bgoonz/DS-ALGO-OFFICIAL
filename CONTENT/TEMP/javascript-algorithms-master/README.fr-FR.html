@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>README.fr-FR</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+</head>
+<body>
+<h1 id="algorithmes-et-structures-de-données-en-javascript">Algorithmes et Structures de Données en JavaScript</h1>
+<p><a href="https://github.com/trekhleb/javascript-algorithms/actions?query=workflow%3ACI+branch%3Amaster"><img src="https://github.com/trekhleb/javascript-algorithms/workflows/CI/badge.svg" alt="CI" /></a> <a href="https://codecov.io/gh/trekhleb/javascript-algorithms"><img src="https://codecov.io/gh/trekhleb/javascript-algorithms/branch/master/graph/badge.svg" alt="codecov" /></a></p>
+<p>Ce dépôt contient des exemples d’implémentation en JavaScript de plusieurs algorithmes et structures de données populaires.</p>
+<p>Chaque algorithme et structure de donnée possède son propre README contenant les explications détaillées et liens (incluant aussi des vidéos Youtube) pour complément d’informations.</p>
+<p><em>Lisez ceci dans d’autres langues:</em> <a href="https://github.com/trekhleb/javascript-algorithms/"><em>English</em></a>, <a href="README.zh-CN.md"><em>简体中文</em></a>, <a href="README.zh-TW.md"><em>繁體中文</em></a>, <a href="README.ko-KR.md"><em>한국어</em></a>, <a href="README.ja-JP.md"><em>日本語</em></a>, <a href="README.pl-PL.md"><em>Polski</em></a>, <a href="README.es-ES.md"><em>Español</em></a>, <a href="README.pt-BR.md"><em>Português</em></a>, <a href="README.ru-RU.md"><em>Русский</em></a>, <a href="README.tr-TR.md"><em>Türk</em></a>, <a href="README.it-IT.md"><em>Italiana</em></a>, <a href="README.id-ID.md"><em>Bahasa Indonesia</em></a>, <a href="README.uk-UA.md"><em>Українська</em></a>, <a href="README.ar-AR.md"><em>Arabic</em></a>, <a href="README.de-DE.md"><em>Deutsch</em></a></p>
+<h2 id="data-structures">Data Structures</h2>
+<p>Une structure de données est une manière spéciale d’organiser et de stocker des données dans un ordinateur de manière à ce que l’on puisse accéder à cette information et la modifier de manière efficiente. De manière plus spécifique, une structure de données est un ensemble composé d’une collection de valeurs, des relations entre ces valeurs ainsi que d’un ensemble de fonctions ou d’opérations pouvant être appliquées sur ces données.</p>
+<p><code>B</code> - Débutant, <code>A</code> - Avancé</p>
+<ul>
+<li><code>B</code> <a href="src/data-structures/linked-list">Liste Chaînée</a></li>
+<li><code>B</code> <a href="src/data-structures/doubly-linked-list">Liste Doublement Chaînée</a></li>
+<li><code>B</code> <a href="src/data-structures/queue">Queue</a></li>
+<li><code>B</code> <a href="src/data-structures/stack">Pile</a></li>
+<li><code>B</code> <a href="src/data-structures/hash-table">Table de Hachage</a></li>
+<li><code>B</code> <a href="src/data-structures/heap">Tas</a></li>
+<li><code>B</code> <a href="src/data-structures/priority-queue">Queue de Priorité</a></li>
+<li><code>A</code> <a href="src/data-structures/trie">Trie</a></li>
+<li><code>A</code> <a href="src/data-structures/tree">Arbre</a>
+<ul>
+<li><code>A</code> <a href="src/data-structures/tree/binary-search-tree">Arbre de recherche Binaire</a></li>
+<li><code>A</code> <a href="src/data-structures/tree/avl-tree">Arbre AVL</a></li>
+<li><code>A</code> <a href="src/data-structures/tree/red-black-tree">Arbre Red-Black</a></li>
+<li><code>A</code> <a href="src/data-structures/tree/segment-tree">Arbre de Segments</a> - avec exemples de requêtes de type min/max/somme sur intervalles</li>
+<li><code>A</code> <a href="src/data-structures/tree/fenwick-tree">Arbre de Fenwick</a> (Arbre Binaire Indexé)</li>
+</ul></li>
+<li><code>A</code> <a href="src/data-structures/graph">Graphe</a> (orienté et non orienté)</li>
+<li><code>A</code> <a href="src/data-structures/disjoint-set">Ensembles Disjoints</a></li>
+<li><code>A</code> <a href="src/data-structures/bloom-filter">Filtre de Bloom</a></li>
+</ul>
+<h2 id="algorithmes">Algorithmes</h2>
+<p>Un algorithme est une démarche non ambigüe expliquant comment résoudre une classe de problèmes. C’est un ensemble de règles décrivant de manière précise une séquence d’opérations.</p>
+<p><code>B</code> - Débutant, <code>A</code> - Avancé</p>
+<h3 id="algorithmes-par-topic">Algorithmes par topic</h3>
+<ul>
+<li><strong>Math</strong>
+<ul>
+<li><code>B</code> <a href="src/algorithms/math/bits/README.fr-FR.md">Manipulation de Bit</a> - définir/obtenir/mettre à jour/effacer les bits, multiplication/division par deux, négativiser etc.</li>
+<li><code>B</code> <a href="src/algorithms/math/factorial/README.fr-FR.md">Factorielle</a></li>
+<li><code>B</code> <a href="src/algorithms/math/fibonacci/README.fr-FR.md">Nombre de Fibonacci</a></li>
+<li><code>B</code> <a href="src/algorithms/math/primality-test">Test de Primalité</a> (méthode du test de division)</li>
+<li><code>B</code> <a href="src/algorithms/math/euclidean-algorithm/README.fr-FR.md">Algorithme d’Euclide</a> - calcule le Plus Grand Commun Diviseur (PGCD)</li>
+<li><code>B</code> <a href="src/algorithms/math/least-common-multiple">Plus Petit Commun Multiple</a> (PPCM)</li>
+<li><code>B</code> <a href="src/algorithms/math/sieve-of-eratosthenes">Crible d’Eratosthène</a> - trouve tous les nombres premiers inférieurs à une certaine limite</li>
+<li><code>B</code> <a href="src/algorithms/math/is-power-of-two">Puissance de Deux</a> - teste si un nombre donné est une puissance de deux (algorithmes naif et basé sur les opérations bit-à-bit)</li>
+<li><code>B</code> <a href="src/algorithms/math/pascal-triangle">Triangle de Pascal</a></li>
+<li><code>B</code> <a href="src/algorithms/math/complex-number/README.fr-FR.md">Nombre complexe</a> - nombres complexes et opérations de bases</li>
+<li><code>A</code> <a href="src/algorithms/math/integer-partition">Partition Entière</a></li>
+<li><code>A</code> <a href="src/algorithms/math/liu-hui">Approximation de π par l’algorithme de Liu Hui</a> - approximation du calcul de π basé sur les N-gons</li>
+<li><code>B</code> <a href="src/algorithms/math/fast-powering/README.fr-FR.md">Exponentiation rapide</a></li>
+<li><code>A</code> <a href="src/algorithms/math/fourier-transform/README.fr-FR.md">Transformée de Fourier Discrète</a> - décomposer une fonction du temps (un signal) en fréquences qui la composent</li>
+</ul></li>
+<li><strong>Ensembles</strong>
+<ul>
+<li><code>B</code> <a href="src/algorithms/sets/cartesian-product">Produit Cartésien</a> - produit de plusieurs ensembles</li>
+<li><code>B</code> <a href="src/algorithms/sets/fisher-yates">Mélange de Fisher–Yates</a> - permulation aléatoire d’une séquence finie</li>
+<li><code>A</code> <a href="src/algorithms/sets/power-set">Ensemble des parties d’un ensemble</a> - tous les sous-ensembles d’un ensemble</li>
+<li><code>A</code> <a href="src/algorithms/sets/permutations">Permutations</a> (avec et sans répétitions)</li>
+<li><code>A</code> <a href="src/algorithms/sets/combinations">Combinaisons</a> (avec et sans répétitions)</li>
+<li><code>A</code> <a href="src/algorithms/sets/longest-common-subsequence">Plus Longue Sous-séquence Commune</a></li>
+<li><code>A</code> <a href="src/algorithms/sets/longest-increasing-subsequence">Plus Longue Sous-suite strictement croissante</a></li>
+<li><code>A</code> <a href="src/algorithms/sets/shortest-common-supersequence">Plus Courte Super-séquence Commune</a></li>
+<li><code>A</code> <a href="src/algorithms/sets/knapsack-problem">Problème du Sac à Dos</a> - versions “0/1” et “Sans Contraintes”</li>
+<li><code>A</code> <a href="src/algorithms/sets/maximum-subarray">Sous-partie Maximum</a> - versions “Force Brute” et “Programmation Dynamique” (Kadane)</li>
+<li><code>A</code> <a href="src/algorithms/sets/combination-sum">Somme combinatoire</a> - trouve toutes les combinaisons qui forment une somme spécifique</li>
+</ul></li>
+<li><strong>Chaînes de Caractères</strong>
+<ul>
+<li><code>B</code> <a href="src/algorithms/string/hamming-distance">Distance de Hamming</a> - nombre de positions auxquelles les symboles sont différents</li>
+<li><code>A</code> <a href="src/algorithms/string/levenshtein-distance">Distance de Levenshtein</a> - distance minimale d’édition entre deux séquences</li>
+<li><code>A</code> <a href="src/algorithms/string/knuth-morris-pratt">Algorithme de Knuth–Morris–Pratt</a> (Algorithme KMP) - recherche de sous-chaîne (pattern matching)</li>
+<li><code>A</code> <a href="src/algorithms/string/z-algorithm">Algorithme Z</a> - recherche de sous-chaîne (pattern matching)</li>
+<li><code>A</code> <a href="src/algorithms/string/rabin-karp">Algorithme de Rabin Karp</a> - recherche de sous-chaîne</li>
+<li><code>A</code> <a href="src/algorithms/string/longest-common-substring">Plus Longue Sous-chaîne Commune</a></li>
+<li><code>A</code> <a href="src/algorithms/string/regular-expression-matching">Expression Régulière</a></li>
+</ul></li>
+<li><strong>Recherche</strong>
+<ul>
+<li><code>B</code> <a href="src/algorithms/search/linear-search">Recherche Linéaire</a></li>
+<li><code>B</code> <a href="src/algorithms/search/jump-search">Jump Search</a> Recherche par saut (ou par bloc) - recherche dans une liste triée</li>
+<li><code>B</code> <a href="src/algorithms/search/binary-search">Recherche Binaire</a> - recherche dans une liste triée</li>
+<li><code>B</code> <a href="src/algorithms/search/interpolation-search">Recherche par Interpolation</a> - recherche dans une liste triée et uniformément distribuée</li>
+</ul></li>
+<li><strong>Tri</strong>
+<ul>
+<li><code>B</code> <a href="src/algorithms/sorting/bubble-sort">Tri Bullet</a></li>
+<li><code>B</code> <a href="src/algorithms/sorting/selection-sort">Tri Sélection</a></li>
+<li><code>B</code> <a href="src/algorithms/sorting/insertion-sort">Tri Insertion</a></li>
+<li><code>B</code> <a href="src/algorithms/sorting/heap-sort">Tri Par Tas</a></li>
+<li><code>B</code> <a href="src/algorithms/sorting/merge-sort">Tri Fusion</a></li>
+<li><code>B</code> <a href="src/algorithms/sorting/quick-sort">Tri Rapide</a> - implémentations <em>in-place</em> et <em>non in-place</em></li>
+<li><code>B</code> <a href="src/algorithms/sorting/shell-sort">Tri Shell</a></li>
+<li><code>B</code> <a href="src/algorithms/sorting/counting-sort">Tri Comptage</a></li>
+<li><code>B</code> <a href="src/algorithms/sorting/radix-sort">Tri Radix</a></li>
+</ul></li>
+<li><strong>Arbres</strong>
+<ul>
+<li><code>B</code> <a href="src/algorithms/tree/depth-first-search">Parcours en Profondeur</a> (DFS)</li>
+<li><code>B</code> <a href="src/algorithms/tree/breadth-first-search">Parcours en Largeur</a> (BFS)</li>
+</ul></li>
+<li><strong>Graphes</strong>
+<ul>
+<li><code>B</code> <a href="src/algorithms/graph/depth-first-search">Parcours en Profondeur</a> (DFS)</li>
+<li><code>B</code> <a href="src/algorithms/graph/breadth-first-search">Parcours en Largeur</a> (BFS)</li>
+<li><code>B</code> <a href="src/algorithms/graph/kruskal">Algorithme de Kruskal</a> - trouver l’arbre couvrant de poids minimal sur un graphe pondéré non dirigé</li>
+<li><code>A</code> <a href="src/algorithms/graph/dijkstra">Algorithme de Dijkstra</a> - trouver tous les plus courts chemins partant d’un noeud vers tous les autres noeuds dans un graphe</li>
+<li><code>A</code> <a href="src/algorithms/graph/bellman-ford">Algorithme de Bellman-Ford</a> - trouver tous les plus courts chemins partant d’un noeud vers tous les autres noeuds dans un graphe</li>
+<li><code>A</code> <a href="src/algorithms/graph/floyd-warshall">Algorithme de Floyd-Warshall</a> - trouver tous les plus courts chemins entre toutes les paires de noeuds dans un graphe</li>
+<li><code>A</code> <a href="src/algorithms/graph/detect-cycle">Détection de Cycle</a> - pour les graphes dirigés et non dirigés (implémentations basées sur l’algorithme de Parcours en Profondeur et sur les Ensembles Disjoints)</li>
+<li><code>A</code> <a href="src/algorithms/graph/prim">Algorithme de Prim</a> - trouver l’arbre couvrant de poids minimal sur un graphe pondéré non dirigé</li>
+<li><code>A</code> <a href="src/algorithms/graph/topological-sorting">Tri Topologique</a> - méthode DFS</li>
+<li><code>A</code> <a href="src/algorithms/graph/articulation-points">Point d’Articulation</a> - algorithme de Tarjan (basé sur l’algorithme de Parcours en Profondeur)</li>
+<li><code>A</code> <a href="src/algorithms/graph/bridges">Bridges</a> - algorithme basé sur le Parcours en Profondeur</li>
+<li><code>A</code> <a href="src/algorithms/graph/eulerian-path">Chemin Eulérien et Circuit Eulérien</a> - algorithme de Fleury - visite chaque arc exactement une fois</li>
+<li><code>A</code> <a href="src/algorithms/graph/hamiltonian-cycle">Cycle Hamiltonien</a> - visite chaque noeud exactement une fois</li>
+<li><code>A</code> <a href="src/algorithms/graph/strongly-connected-components">Composants Fortements Connexes</a> - algorithme de Kosaraju</li>
+<li><code>A</code> <a href="src/algorithms/graph/travelling-salesman">Problème du Voyageur de Commerce</a> - chemin le plus court visitant chaque cité et retournant à la cité d’origine</li>
+</ul></li>
+<li><strong>Non catégorisé</strong>
+<ul>
+<li><code>B</code> <a href="src/algorithms/uncategorized/hanoi-tower">Tours de Hanoi</a></li>
+<li><code>B</code> <a href="src/algorithms/uncategorized/square-matrix-rotation">Rotation de Matrice Carrée</a> - algorithme <em>in place</em></li>
+<li><code>B</code> <a href="src/algorithms/uncategorized/jump-game">Jump Game</a> - retour sur trace, programmation dynamique (haut-bas + bas-haut) et exemples gourmands</li>
+<li><code>B</code> <a href="src/algorithms/uncategorized/unique-paths">Chemins Uniques</a> - retour sur trace, programmation dynamique (haut-bas + bas-haut) et exemples basés sur le Triangle de Pascal</li>
+<li><code>A</code> <a href="src/algorithms/uncategorized/n-queens">Problème des N-Dames</a></li>
+<li><code>A</code> <a href="src/algorithms/uncategorized/knight-tour">Problème du Cavalier</a></li>
+</ul></li>
+</ul>
+<h3 id="algorithmes-par-paradigme">Algorithmes par Paradigme</h3>
+<p>Un paradigme algorithmique est une méthode générique ou une approche qui sous-tend la conception d’une classe d’algorithmes. C’est une abstraction au-dessus de la notion d’algorithme, tout comme l’algorithme est une abstraction supérieure à un programme informatique.</p>
+<ul>
+<li><strong>Force Brute</strong> - cherche parmi toutes les possibilités et retient la meilleure
+<ul>
+<li><code>B</code> <a href="src/algorithms/search/linear-search">Recherche Linéaire</a></li>
+<li><code>A</code> <a href="src/algorithms/sets/maximum-subarray">Sous-partie Maximum</a></li>
+<li><code>A</code> <a href="src/algorithms/graph/travelling-salesman">Problème du Voyageur de Commerce</a> - chemin le plus court visitant chaque cité et retournant à la cité d’origine</li>
+</ul></li>
+<li><strong>Gourmand</strong> - choisit la meilleure option à l’instant courant, sans tenir compte de la situation future
+<ul>
+<li><code>B</code> <a href="src/algorithms/uncategorized/jump-game">Jump Game</a></li>
+<li><code>A</code> <a href="src/algorithms/sets/knapsack-problem">Problème du Sac à Dos Sans Contraintes</a></li>
+<li><code>A</code> <a href="src/algorithms/graph/dijkstra">Algorithme de Dijkstra</a> - trouver tous les plus courts chemins partant d’un noeud vers tous les autres noeuds dans un graphe</li>
+<li><code>A</code> <a href="src/algorithms/graph/prim">Algorithme de Prim</a> - trouver l’arbre couvrant de poids minimal sur un graphe pondéré non dirigé</li>
+<li><code>A</code> <a href="src/algorithms/graph/kruskal">Algorithme de Kruskal</a> - trouver l’arbre couvrant de poids minimal sur un graphe pondéré non dirigé</li>
+</ul></li>
+<li><strong>Diviser et Régner</strong> - divise le problème en sous problèmes (plus simples) et résoud ces sous problèmes
+<ul>
+<li><code>B</code> <a href="src/algorithms/search/binary-search">Recherche Binaire</a></li>
+<li><code>B</code> <a href="src/algorithms/uncategorized/hanoi-tower">Tours de Hanoi</a></li>
+<li><code>B</code> <a href="src/algorithms/math/pascal-triangle">Triangle de Pascal</a></li>
+<li><code>B</code> <a href="src/algorithms/math/euclidean-algorithm">Algorithme d’Euclide</a> - calcule le Plus Grand Commun Diviseur (PGCD)</li>
+<li><code>B</code> <a href="src/algorithms/sorting/merge-sort">Tri Fusion</a></li>
+<li><code>B</code> <a href="src/algorithms/sorting/quick-sort">Tri Rapide</a></li>
+<li><code>B</code> <a href="src/algorithms/tree/depth-first-search">Arbre de Parcours en Profondeur</a> (DFS)</li>
+<li><code>B</code> <a href="src/algorithms/graph/depth-first-search">Graphe de Parcours en Profondeur</a> (DFS)</li>
+<li><code>B</code> <a href="src/algorithms/uncategorized/jump-game">Jump Game</a></li>
+<li><code>A</code> <a href="src/algorithms/sets/permutations">Permutations</a> (avec et sans répétitions)</li>
+<li><code>A</code> <a href="src/algorithms/sets/combinations">Combinations</a> (avec et sans répétitions)</li>
+</ul></li>
+<li><strong>Programmation Dynamique</strong> - construit une solution en utilisant les solutions précédemment trouvées
+<ul>
+<li><code>B</code> <a href="src/algorithms/math/fibonacci">Nombre de Fibonacci</a></li>
+<li><code>B</code> <a href="src/algorithms/uncategorized/jump-game">Jump Game</a></li>
+<li><code>B</code> <a href="src/algorithms/uncategorized/unique-paths">Chemins Uniques</a></li>
+<li><code>A</code> <a href="src/algorithms/string/levenshtein-distance">Distance de Levenshtein</a> - distance minimale d’édition entre deux séquences</li>
+<li><code>A</code> <a href="src/algorithms/sets/longest-common-subsequence">Plus Longue Sous-séquence Commune</a></li>
+<li><code>A</code> <a href="src/algorithms/string/longest-common-substring">Plus Longue Sous-chaîne Commune</a></li>
+<li><code>A</code> <a href="src/algorithms/sets/longest-increasing-subsequence">Plus Longue Sous-suite strictement croissante</a></li>
+<li><code>A</code> <a href="src/algorithms/sets/shortest-common-supersequence">Plus Courte Super-séquence Commune</a></li>
+<li><code>A</code> <a href="src/algorithms/sets/knapsack-problem">Problème de Sac à Dos</a></li>
+<li><code>A</code> <a href="src/algorithms/math/integer-partition">Partition Entière</a></li>
+<li><code>A</code> <a href="src/algorithms/sets/maximum-subarray">Sous-partie Maximum</a></li>
+<li><code>A</code> <a href="src/algorithms/graph/bellman-ford">Algorithme de Bellman-Ford</a> - trouver tous les plus courts chemins partant d’un noeud vers tous les autres noeuds dans un graphe</li>
+<li><code>A</code> <a href="src/algorithms/graph/floyd-warshall">Algorithme de Floyd-Warshall</a> - trouver tous les plus courts chemins entre toutes les paires de noeuds dans un graphe</li>
+<li><code>A</code> <a href="src/algorithms/string/regular-expression-matching">Expression Régulière</a></li>
+</ul></li>
+<li><strong>Retour sur trace</strong> - de même que la version “Force Brute”, essaie de générer toutes les solutions possibles, mais pour chaque solution générée, on teste si elle satisfait toutes les conditions, et seulement ensuite continuer à générer des solutions ultérieures. Sinon, l’on revient en arrière, et l’on essaie un chemin différent pour tester d’autres solutions. Normalement, la traversée en profondeur de l’espace d’états est utilisée.
+<ul>
+<li><code>B</code> <a href="src/algorithms/uncategorized/jump-game">Jump Game</a></li>
+<li><code>B</code> <a href="src/algorithms/uncategorized/unique-paths">Unique Paths</a></li>
+<li><code>A</code> <a href="src/algorithms/graph/hamiltonian-cycle">Hamiltonian Cycle</a> - Visit every vertex exactly once</li>
+<li><code>A</code> <a href="src/algorithms/uncategorized/n-queens">Problème des N-Dames</a></li>
+<li><code>A</code> <a href="src/algorithms/uncategorized/knight-tour">Problème du Cavalier</a></li>
+<li><code>A</code> <a href="src/algorithms/sets/combination-sum">Somme combinatoire</a> - trouve toutes les combinaisons qui forment une somme spécifique</li>
+</ul></li>
+<li><strong>Séparation et Evaluation</strong> - pemet de retenir une solution à moindre coût dans un ensemble. Pour chaque étape, l’on garde une trace de la solution la moins coûteuse trouvée jusqu’à présent en tant que borne inférieure du coût. Cela afin d’éliminer les solutions partielles dont les coûts sont plus élevés que celui de la solution actuelle retenue. Normalement, la traversée en largeur en combinaison avec la traversée en profondeur de l’espace d’états de l’arbre est utilisée.</li>
+</ul>
+<h2 id="comment-utiliser-ce-dépôt">Comment utiliser ce dépôt</h2>
+<p><strong>Installer toutes les dépendances</strong></p>
+<pre><code>npm install</code></pre>
+<p><strong>Exécuter ESLint</strong></p>
+<p>Vous pouvez l’installer pour tester la qualité du code.</p>
+<pre><code>npm run lint</code></pre>
+<p><strong>Exécuter tous les tests</strong></p>
+<pre><code>npm test</code></pre>
+<p><strong>Exécuter les tests par nom</strong></p>
+<pre><code>npm test -- &#39;LinkedList&#39;</code></pre>
+<p><strong>Tests personnalisés</strong></p>
+<p>Vous pouvez manipuler les structures de données et algorithmes présents dans ce dépôt avec le fichier <code>./src/playground/playground.js</code> et écrire vos propres tests dans file <code>./src/playground/__test__/playground.test.js</code>.</p>
+<p>Vous pourrez alors simplement exécuter la commande suivante afin de tester si votre code fonctionne comme escompté</p>
+<pre><code>npm test -- &#39;playground&#39;</code></pre>
+<h2 id="informations-utiles">Informations Utiles</h2>
+<h3 id="références">Références</h3>
+<p><a href="https://www.youtube.com/playlist?list=PLLXdhg_r2hKA7DPDsunoDZ-Z769jWn4R8">▶ Structures de Données et Algorithmes sur YouTube</a></p>
+<h3 id="notation-grand-o">Notation Grand O</h3>
+<p>Comparaison de la performance d’algorithmes en notation Grand O.</p>
+<figure>
+<img src="./assets/big-o-graph.png" alt="Big O graphs" /><figcaption>Big O graphs</figcaption>
+</figure>
+<p>Source: <a href="http://bigocheatsheet.com/">Big O Cheat Sheet</a>.</p>
+<p>Voici la liste de certaines des notations Grand O les plus utilisées et de leurs comparaisons de performance suivant différentes tailles pour les données d’entrée.</p>
+<table>
+<colgroup>
+<col style="width: 16%" />
+<col style="width: 27%" />
+<col style="width: 28%" />
+<col style="width: 28%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Notation Grand O</th>
+<th>Opérations pour 10 éléments</th>
+<th>Opérations pour 100 éléments</th>
+<th>Opérations pour 1000 éléments</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>O(1)</strong></td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td><strong>O(log N)</strong></td>
+<td>3</td>
+<td>6</td>
+<td>9</td>
+</tr>
+<tr class="odd">
+<td><strong>O(N)</strong></td>
+<td>10</td>
+<td>100</td>
+<td>1000</td>
+</tr>
+<tr class="even">
+<td><strong>O(N log N)</strong></td>
+<td>30</td>
+<td>600</td>
+<td>9000</td>
+</tr>
+<tr class="odd">
+<td><strong>O(N^2)</strong></td>
+<td>100</td>
+<td>10000</td>
+<td>1000000</td>
+</tr>
+<tr class="even">
+<td><strong>O(2^N)</strong></td>
+<td>1024</td>
+<td>1.26e+29</td>
+<td>1.07e+301</td>
+</tr>
+<tr class="odd">
+<td><strong>O(N!)</strong></td>
+<td>3628800</td>
+<td>9.3e+157</td>
+<td>4.02e+2567</td>
+</tr>
+</tbody>
+</table>
+<h3 id="complexité-des-opérations-suivant-les-structures-de-données">Complexité des Opérations suivant les Structures de Données</h3>
+<table>
+<colgroup>
+<col style="width: 21%" />
+<col style="width: 4%" />
+<col style="width: 6%" />
+<col style="width: 6%" />
+<col style="width: 7%" />
+<col style="width: 53%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Structure de donnée</th>
+<th style="text-align: center;">Accès</th>
+<th style="text-align: center;">Recherche</th>
+<th style="text-align: center;">Insertion</th>
+<th style="text-align: center;">Suppression</th>
+<th style="text-align: left;">Commentaires</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Liste</strong></td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">n</td>
+<td style="text-align: center;">n</td>
+<td style="text-align: center;">n</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td><strong>Pile</strong></td>
+<td style="text-align: center;">n</td>
+<td style="text-align: center;">n</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td><strong>Queue</strong></td>
+<td style="text-align: center;">n</td>
+<td style="text-align: center;">n</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td><strong>Liste Liée</strong></td>
+<td style="text-align: center;">n</td>
+<td style="text-align: center;">n</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td><strong>Table de Hachage</strong></td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">n</td>
+<td style="text-align: center;">n</td>
+<td style="text-align: center;">n</td>
+<td style="text-align: left;">Dans le cas des fonctions de hachage parfaites, les couts seraient de O(1)</td>
+</tr>
+<tr class="even">
+<td><strong>Arbre de Recherche Binaire</strong></td>
+<td style="text-align: center;">n</td>
+<td style="text-align: center;">n</td>
+<td style="text-align: center;">n</td>
+<td style="text-align: center;">n</td>
+<td style="text-align: left;">Dans le cas des arbre équilibrés, les coûts seraient de O(log(n))</td>
+</tr>
+<tr class="odd">
+<td><strong>Arbre B</strong></td>
+<td style="text-align: center;">log(n)</td>
+<td style="text-align: center;">log(n)</td>
+<td style="text-align: center;">log(n)</td>
+<td style="text-align: center;">log(n)</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td><strong>Arbre Red-Black</strong></td>
+<td style="text-align: center;">log(n)</td>
+<td style="text-align: center;">log(n)</td>
+<td style="text-align: center;">log(n)</td>
+<td style="text-align: center;">log(n)</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td><strong>Arbre AVL</strong></td>
+<td style="text-align: center;">log(n)</td>
+<td style="text-align: center;">log(n)</td>
+<td style="text-align: center;">log(n)</td>
+<td style="text-align: center;">log(n)</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td><strong>Filtre de Bloom</strong></td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: left;">Les faux positifs sont possibles lors de la recherche</td>
+</tr>
+</tbody>
+</table>
+<h3 id="complexité-des-algorithmes-de-tri-de-liste">Complexité des Algorithmes de Tri de Liste</h3>
+<table>
+<colgroup>
+<col style="width: 9%" />
+<col style="width: 7%" />
+<col style="width: 12%" />
+<col style="width: 15%" />
+<col style="width: 3%" />
+<col style="width: 3%" />
+<col style="width: 47%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Nom</th>
+<th style="text-align: center;">Meilleur</th>
+<th style="text-align: center;">Moyenne</th>
+<th style="text-align: center;">Pire</th>
+<th style="text-align: center;">Mémoire</th>
+<th style="text-align: center;">Stable</th>
+<th style="text-align: left;">Commentaires</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Tri Bulle</strong></td>
+<td style="text-align: center;">n</td>
+<td style="text-align: center;">n<sup>2</sup></td>
+<td style="text-align: center;">n<sup>2</sup></td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">Oui</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td><strong>Tri Insertion</strong></td>
+<td style="text-align: center;">n</td>
+<td style="text-align: center;">n<sup>2</sup></td>
+<td style="text-align: center;">n<sup>2</sup></td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">Oui</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td><strong>Tri Sélection</strong></td>
+<td style="text-align: center;">n<sup>2</sup></td>
+<td style="text-align: center;">n<sup>2</sup></td>
+<td style="text-align: center;">n<sup>2</sup></td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">Non</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td><strong>Tri par Tas</strong></td>
+<td style="text-align: center;">n log(n)</td>
+<td style="text-align: center;">n log(n)</td>
+<td style="text-align: center;">n log(n)</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">Non</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td><strong>Merge sort</strong></td>
+<td style="text-align: center;">n log(n)</td>
+<td style="text-align: center;">n log(n)</td>
+<td style="text-align: center;">n log(n)</td>
+<td style="text-align: center;">n</td>
+<td style="text-align: center;">Oui</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td><strong>Tri Rapide</strong></td>
+<td style="text-align: center;">n log(n)</td>
+<td style="text-align: center;">n log(n)</td>
+<td style="text-align: center;">n<sup>2</sup></td>
+<td style="text-align: center;">log(n)</td>
+<td style="text-align: center;">Non</td>
+<td style="text-align: left;">le Tri Rapide est généralement effectué <em>in-place</em> avec une pile de taille O(log(n))</td>
+</tr>
+<tr class="odd">
+<td><strong>Tri Shell</strong></td>
+<td style="text-align: center;">n log(n)</td>
+<td style="text-align: center;">dépend du gap séquence</td>
+<td style="text-align: center;">n (log(n))<sup>2</sup></td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">Non</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td><strong>Tri Comptage</strong></td>
+<td style="text-align: center;">n + r</td>
+<td style="text-align: center;">n + r</td>
+<td style="text-align: center;">n + r</td>
+<td style="text-align: center;">n + r</td>
+<td style="text-align: center;">Oui</td>
+<td style="text-align: left;">r - le plus grand nombre dans la liste</td>
+</tr>
+<tr class="odd">
+<td><strong>Tri Radix</strong></td>
+<td style="text-align: center;">n * k</td>
+<td style="text-align: center;">n * k</td>
+<td style="text-align: center;">n * k</td>
+<td style="text-align: center;">n + k</td>
+<td style="text-align: center;">Non</td>
+<td style="text-align: left;">k - longueur du plus long index</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>ℹ️ A few more <a href="https://trekhleb.dev/projects/">projects</a> and <a href="https://trekhleb.dev/blog/">articles</a> about JavaScript and algorithms on <a href="https://trekhleb.dev">trekhleb.dev</a></p>
+</blockquote>
+</body>
+</html>

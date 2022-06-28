@@ -9,16 +9,15 @@ function sumRecursive(arr) {
 
 console.log(sumRecursive([2, 3, 4])); // 9
 
-// There are many ways you can shuffle a collection. 
+// There are many ways you can shuffle a collection.
 // Imagine shuffling a deck of cards, how do you know when to stop shuffling?
 // This implementation is moving cards n number of times where n is the length of the array
-Array.prototype.shuffle = function() {
+Array.prototype.shuffle = function () {
   // const arr = this.slice(); // duplicate if returning a new array
   for (let i = 0; i < this.length; i++) {
     const randomIndex = Math.floor(Math.random() * this.length);
     [this[i], this[randomIndex]] = [this[randomIndex], this[i]];
     // [arr[i], arr[randomIndex]] = [arr[randomIndex], arr[i]];
-    
   }
   return this;
   // return arr;
@@ -31,9 +30,9 @@ console.log([1, 2, 3, 4, 5, 6, 7, 8, 9].shuffle());
 // Without using sets
 function pairSum(arr, k) {
   const seen = {};
-  arr.forEach(ele => {
+  arr.forEach((ele) => {
     seen[ele] = false;
-  })
+  });
   for (let i = 0; i < arr.length; i++) {
     const num = arr[i];
     const possiblePair = k - num;
@@ -69,7 +68,7 @@ function pairSumWithSets(arr, k) {
     }
   }
   const res = [];
-  seen.forEach(num => {
+  seen.forEach((num) => {
     res.push([num, k - num]);
   });
   return res;
@@ -80,7 +79,8 @@ function pairSumWithSets(arr, k) {
 
 console.log(pairSum([3, 5, 6, 2], 8)); // [[3, 5], [2, 6]]
 
-function bSearch(arr, target) { // array is sorted
+function bSearch(arr, target) {
+  // array is sorted
   if (arr.length === 0) return null;
   const midIdx = Math.floor(arr.length / 2);
   const mid = arr[midIdx];
@@ -89,8 +89,7 @@ function bSearch(arr, target) { // array is sorted
   else if (target < mid) {
     const left = arr.slice(0, midIdx);
     return bSearch(left, target);
-  }
-  else if (target > mid) {
+  } else if (target > mid) {
     const right = arr.slice(midIdx + 1);
     const rightBSearch = bSearch(right, target);
     if (rightBSearch === null) return null;
@@ -111,9 +110,9 @@ function longestPalindrome(str) {
     for (let j = i + 1; j < str.length; j++) {
       if (str[i] === str[j]) {
         for (let k = j; k >= i; k--) {
-          if (i === k && (j - i) > maxLongest) {
+          if (i === k && j - i > maxLongest) {
             res = [i, j];
-            maxLongest = (j - i);
+            maxLongest = j - i;
           }
           const incr = j - k;
           if (str[i + incr] !== str[j - incr]) {
@@ -129,9 +128,9 @@ function longestPalindrome(str) {
 // O(n ^ 3) time
 // O(1) space
 
-console.log(longestPalindrome('acapella')); // [0, 2]
-console.log(longestPalindrome('racecar')); // [0, 6]
-console.log(longestPalindrome('hello')); // not a palindrome so can return many different pairs
+console.log(longestPalindrome("acapella")); // [0, 2]
+console.log(longestPalindrome("racecar")); // [0, 6]
+console.log(longestPalindrome("hello")); // not a palindrome so can return many different pairs
 
 function productifyWithoutDivision(arr) {
   const res = [];
@@ -160,7 +159,7 @@ function moveZeroes(arr) {
   let pointer1 = 0;
   let pointer2 = arr.length - 1;
 
-  while(pointer2 > pointer1) {
+  while (pointer2 > pointer1) {
     while (arr[pointer1] !== 0 && pointer1 < pointer2) {
       pointer1++;
     }
@@ -172,7 +171,7 @@ function moveZeroes(arr) {
   return arr;
 }
 
-// O(n) time 
+// O(n) time
 // may seem like an O(n ^2) time, but look carefully! The pointers will
 // be reassigned to the each point in the array only once.
 

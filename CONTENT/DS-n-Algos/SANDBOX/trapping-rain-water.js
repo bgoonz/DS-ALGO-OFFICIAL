@@ -5,7 +5,7 @@
  * @param {number[]} height
  * @return {number}
  */
-var trap = function(height) {
+var trap = function (height) {
   var len = height.length;
   var leftMaxn = [];
   var rightMaxn = [];

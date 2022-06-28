@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>output</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+</head>
+<body>
+<p>""" Given a list lst and a number N, create a new list that contains each number of the list at most N times without reordering.</p>
+<p>For example if N = 2, and the input is [1,2,3,1,2,1,2,3], you take [1,2,3,1,2], drop the next [1,2] since this would lead to 1 and 2 being in the result 3 times, and then take 3, which leads to [1,2,3,1,2,3] """ import collections</p>
+<h1 id="time-complexity-on2">Time complexity O(n^2)</h1>
+<p>def delete_nth_naive(array, n): ans = [] for num in array: if ans.count(num) &lt; n: ans.append(num) return ans</p>
+<h1 id="time-complexity-on-using-hash-tables.">Time Complexity O(n), using hash tables.</h1>
+<p>def delete_nth(array, n): result = [] counts = collections.defaultdict(int) # keep track of occurrences</p>
+<pre><code>for i in array:
+
+    if counts[i] &lt; n:
+        result.append(i)
+        counts[i] += 1
+
+return result</code></pre>
+<p>""" Implement Flatten Arrays. Given an array that may contain nested arrays, produce a single resultant array. """ from collections.abc import Iterable</p>
+<h1 id="return-list">return list</h1>
+<p>def flatten(input_arr, output_arr=None): if output_arr is None: output_arr = [] for ele in input_arr: if not isinstance(ele, str) and isinstance(ele, Iterable): flatten(ele, output_arr) # tail-recursion else: output_arr.append(ele) # produce the result return output_arr</p>
+<h1 id="returns-iterator">returns iterator</h1>
+<p>def flatten_iter(iterable): """ Takes as input multi dimensional iterable and returns generator which produces one dimensional output. """ for element in iterable: if not isinstance(element, str) and isinstance(element, Iterable): yield from flatten_iter(element) else: yield element</p>
+<p>""" There is a parking lot with only one empty spot. Given the initial state of the parking lot and the final state. Each step we are only allowed to move a car out of its place and move it into the empty spot. The goal is to find out the least movement needed to rearrange the parking lot from the initial state to the final state.</p>
+<p>Say the initial state is an array:</p>
+<p>[1, 2, 3, 0, 4], where 1, 2, 3, 4 are different cars, and 0 is the empty spot.</p>
+<p>And the final state is</p>
+<p>[0, 3, 2, 1, 4]. We can swap 1 with 0 in the initial array to get [0, 2, 3, 1, 4] and so on. Each step swap with 0 only.</p>
+<p>Edit: Now also prints the sequence of changes in states. Output of this example :-</p>
+<p>initial: [1, 2, 3, 0, 4] final: [0, 3, 2, 1, 4] Steps = 4 Sequence : 0 2 3 1 4 2 0 3 1 4 2 3 0 1 4 0 3 2 1 4 """</p>
+<p>def garage(initial, final):</p>
+<pre><code>initial = initial[::]  # prevent changes in original &#39;initial&#39;
+seq = []  # list of each step in sequence
+steps = 0
+while initial != final:
+    zero = initial.index(0)
+    if zero != final.index(0):  # if zero isn&#39;t where it should be,
+        car_to_move = final[zero]  # what should be where zero is,
+        pos = initial.index(car_to_move)  # and where is it?
+        initial[zero], initial[pos] = initial[pos], initial[zero]
+    else:
+        for i in range(len(initial)):
+            if initial[i] != final[i]:
+                initial[zero], initial[i] = initial[i], initial[zero]
+                break
+    seq.append(initial[::])
+    steps += 1
+
+return steps, seq
+# e.g.:  4, [{0, 2, 3, 1, 4}, {2, 0, 3, 1, 4},
+#            {2, 3, 0, 1, 4}, {0, 3, 2, 1, 4}]</code></pre>
+<p>""" thus: 1 2 3 0 4 – zero = 3, true, car_to_move = final[3] = 1, pos = initial.index(1) = 0, switched [0], [3] 0 2 3 1 4 – zero = 0, f, initial[1] != final[1], switched 0,1 2 0 3 1 4 – zero = 1, t, car_to_move = final[1] = 3, pos = initial.index(3) = 2, switched [1], [2] 2 3 0 1 4 – zero = 2, t, car_to_move = final[2] = 2, pos = initial.index(2) = 0, switched [0], [2] 0 3 2 1 4 – initial == final """</p>
+<p>from .delete<em>nth import </em> from .flatten import <em> from .garage import </em> from .josephus import <em> from .longest_non_repeat import </em> from .max<em>ones_index import </em> from .merge<em>intervals import </em> from .missing<em>ranges import </em> from .move<em>zeros import </em> from .plus<em>one import </em> from .rotate import <em> from .summarize_ranges import </em> from .three<em>sum import </em> from .trimmean import <em> from .top_1 import </em> from .two<em>sum import </em> from .limit import <em> from .n_sum import </em></p>
+<p>""" There are people sitting in a circular fashion, print every third member while removing them, the next counter starts immediately after the member is removed. Print till all the members are exhausted.</p>
+<p>For example: Input: consider 123456789 members sitting in a circular fashion, Output: 369485271 """</p>
+<p>def josephus(int_list, skip): skip = skip - 1 # list starts with 0 index idx = 0 len_list = len(int_list) while len_list &gt; 0: idx = (skip + idx) % len_list # hash index to every 3rd yield int_list.pop(idx) len_list -= 1</p>
+<p>""" Sometimes you need to limit array result to use. Such as you only need the value over 10 or, you need value under than 100. By use this algorithms, you can limit your array to specific value</p>
+<p>If array, Min, Max value was given, it returns array that contains values of given array which was larger than Min, and lower than Max. You need to give ‘unlimit’ to use only Min or Max.</p>
+<p>ex) limit([1,2,3,4,5], None, 3) = [1,2,3]</p>
+<p>Complexity = O(n) """</p>
+<h1 id="tldr-array-slicing-by-value">tl:dr – array slicing by value</h1>
+<p>def limit(arr, min_lim=None, max_lim=None): min_check = lambda val: True if min_lim is None else (min_lim &lt;= val) max_check = lambda val: True if max_lim is None else (val &lt;= max_lim)</p>
+<pre><code>return [val for val in arr if min_check(val) and max_check(val)]</code></pre>
+<p>""" Given a string, find the length of the longest substring without repeating characters.</p>
+<p>Examples: Given “abcabcbb”, the answer is “abc”, which the length is 3. Given “bbbbb”, the answer is “b”, with the length of 1. Given “pwwkew”, the answer is “wke”, with the length of 3. Note that the answer must be a substring, “pwke” is a subsequence and not a substring. """</p>
+<p>def longest_non_repeat_v1(string): """ Find the length of the longest substring without repeating characters. """ if string is None: return 0 dict = {} max_length = 0 j = 0 for i in range(len(string)): if string[i] in dict: j = max(dict[string[i]], j) dict[string[i]] = i + 1 max_length = max(max_length, i - j + 1) return max_length</p>
+<p>def longest_non_repeat_v2(string): """ Find the length of the longest substring without repeating characters. Uses alternative algorithm. """ if string is None: return 0 start, max_len = 0, 0 used_char = {} for index, char in enumerate(string): if char in used_char and start &lt;= used_char[char]: start = used_char[char] + 1 else: max_len = max(max_len, index - start + 1) used_char[char] = index return max_len</p>
+<h1 id="get-functions-of-above-returning-the-max_len-and-substring">get functions of above, returning the max_len and substring</h1>
+<p>def get_longest_non_repeat_v1(string): """ Find the length of the longest substring without repeating characters. Return max_len and the substring as a tuple """ if string is None: return 0, "" sub_string = "" dict = {} max_length = 0 j = 0 for i in range(len(string)): if string[i] in dict: j = max(dict[string[i]], j) dict[string[i]] = i + 1 if i - j + 1 &gt; max_length: max_length = i - j + 1 sub_string = string[j : i + 1] return max_length, sub_string</p>
+<p>def get_longest_non_repeat_v2(string): """ Find the length of the longest substring without repeating characters. Uses alternative algorithm. Return max_len and the substring as a tuple """ if string is None: return 0, "" sub_string = "" start, max_len = 0, 0 used_char = {} for index, char in enumerate(string): if char in used_char and start &lt;= used_char[char]: start = used_char[char] + 1 else: if index - start + 1 &gt; max_len: max_len = index - start + 1 sub_string = string[start : index + 1] used_char[char] = index return max_len, sub_string</p>
+<p>""" Find the index of 0 to be replaced with 1 to get longest continuous sequence of 1s in a binary array. Returns index of 0 to be replaced with 1 to get longest continuous sequence of 1s. If there is no 0 in array, then it returns -1.</p>
+<p>e.g. let input array = [1, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 1] If we replace 0 at index 3 with 1, we get the longest continuous sequence of 1s in the array. So the function return =&gt; 3 """</p>
+<p>def max_ones_index(arr):</p>
+<pre><code>n = len(arr)
+max_count = 0
+max_index = 0
+prev_zero = -1
+prev_prev_zero = -1
+
+for curr in range(n):
+
+    # If current element is 0,
+    # then calculate the difference
+    # between curr and prev_prev_zero
+    if arr[curr] == 0:
+        if curr - prev_prev_zero &gt; max_count:
+            max_count = curr - prev_prev_zero
+            max_index = prev_zero
+
+        prev_prev_zero = prev_zero
+        prev_zero = curr
+
+if n - prev_prev_zero &gt; max_count:
+    max_index = prev_zero
+
+return max_index</code></pre>
+<p>""" In mathematics, a (real) interval is a set of real numbers with the property that any number that lies between two numbers in the set is also included in the set. """</p>
+<p>class Interval: """ A set of real numbers with methods to determine if other numbers are included in the set. Includes related methods to merge and print interval sets. """</p>
+<pre><code>def __init__(self, start=0, end=0):
+    self.start = start
+    self.end = end
+
+def __repr__(self):
+    return &quot;Interval ({}, {})&quot;.format(self.start, self.end)
+
+def __iter__(self):
+    return iter(range(self.start, self.end))
+
+def __getitem__(self, index):
+    if index &lt; 0:
+        return self.end + index
+    return self.start + index
+
+def __len__(self):
+    return self.end - self.start
+
+def __contains__(self, item):
+    if self.start &gt;= item &gt;= self.end:
+        return True
+    return False
+
+def __eq__(self, other):
+    if self.start == other.start and self.end == other.end:
+        return True
+    return False
+
+def as_list(self):
+    &quot;&quot;&quot; Return interval as list. &quot;&quot;&quot;
+    return list(self)
+
+@staticmethod
+def merge(intervals):
+    &quot;&quot;&quot; Merge two intervals into one. &quot;&quot;&quot;
+    out = []
+    for i in sorted(intervals, key=lambda i: i.start):
+        if out and i.start &lt;= out[-1].end:
+            out[-1].end = max(out[-1].end, i.end)
+        else:
+            out += (i,)
+    return out
+
+@staticmethod
+def print_intervals(intervals):
+    &quot;&quot;&quot; Print out the intervals. &quot;&quot;&quot;
+    res = []
+    for i in intervals:
+        res.append(repr(i))
+    print(&quot;&quot;.join(res))</code></pre>
+<p>def merge_intervals(intervals): """ Merge intervals in the form of a list. """ if intervals is None: return None intervals.sort(key=lambda i: i[0]) out = [intervals.pop(0)] for i in intervals: if out[-1][-1] &gt;= i[0]: out[-1][-1] = max(out[-1][-1], i[-1]) else: out.append(i) return out</p>
+<p>""" Find missing ranges between low and high in the given array. Ex) [3, 5] lo=1 hi=10 =&gt; answer: [(1, 2), (4, 4), (6, 10)] """</p>
+<p>def missing_ranges(arr, lo, hi):</p>
+<pre><code>res = []
+start = lo
+
+for n in arr:
+
+    if n == start:
+        start += 1
+    elif n &gt; start:
+        res.append((start, n - 1))
+        start = n + 1
+
+if start &lt;= hi:  # after done iterating thru array,
+    res.append((start, hi))  # append remainder to list
+
+return res</code></pre>
+<p>""" Write an algorithm that takes an array and moves all of the zeros to the end, preserving the order of the other elements. move_zeros([false, 1, 0, 1, 2, 0, 1, 3, “a”]) returns =&gt; [false, 1, 1, 2, 1, 3, “a”, 0, 0]</p>
+<p>The time complexity of the below algorithm is O(n). """</p>
+<h1 id="false-0-is-true">False == 0 is True</h1>
+<p>def move_zeros(array): result = [] zeros = 0</p>
+<pre><code>for i in array:
+    if i == 0 and type(i) != bool:  # not using `not i` to avoid `False`, `[]`, etc.
+        zeros += 1
+    else:
+        result.append(i)
+
+result.extend([0] * zeros)
+return result</code></pre>
+<p>print(move_zeros([False, 1, 0, 1, 2, 0, 1, 3, “a”]))</p>
+<p>""" Given an array of n integers, are there elements a, b, .. , n in nums such that a + b + .. + n = target?</p>
+<p>Find all unique n-tuplets in the array which gives the sum of target.</p>
+<p>Example: basic: Given: n = 4 nums = [1, 0, -1, 0, -2, 2] target = 0, return [[-2, -1, 1, 2], [-2, 0, 0, 2], [-1, 0, 0, 1]]</p>
+<pre><code>advanced:
+    Given:
+        n = 2
+        nums = [[-3, 0], [-2, 1], [2, 2], [3, 3], [8, 4], [-9, 5]]
+        target = -5
+        def sum(a, b):
+            return [a[0] + b[1], a[1] + b[0]]
+        def compare(num, target):
+            if num[0] &lt; target:
+                return -1
+            elif if num[0] &gt; target:
+                return 1
+            else:
+                return 0
+    return [[-9, 5], [8, 4]]</code></pre>
+<p>(TL:DR) because -9 + 4 = -5 """</p>
+<p>def n_sum(n, nums, target, **kv): """ n: int nums: list[object] target: object sum_closure: function, optional Given two elements of nums, return sum of both. compare_closure: function, optional Given one object of nums and target, return -1, 1, or 0. same_closure: function, optional Given two object of nums, return bool. return: list[list[object]]</p>
+<pre><code>Note:
+1. type of sum_closure&#39;s return should be same
+   as type of compare_closure&#39;s first param
+&quot;&quot;&quot;
+
+def sum_closure_default(a, b):
+    return a + b
+
+def compare_closure_default(num, target):
+    &quot;&quot;&quot; above, below, or right on? &quot;&quot;&quot;
+    if num &lt; target:
+        return -1
+    elif num &gt; target:
+        return 1
+    else:
+        return 0
+
+def same_closure_default(a, b):
+    return a == b
+
+def n_sum(n, nums, target):
+    if n == 2:  # want answers with only 2 terms? easy!
+        results = two_sum(nums, target)
+    else:
+        results = []
+        prev_num = None
+        for index, num in enumerate(nums):
+            if prev_num is not None and same_closure(prev_num, num):
+                continue
+
+            prev_num = num
+            n_minus1_results = n_sum(  # recursive call
+                n - 1, nums[index + 1 :], target - num  # a  # b  # c
+            )  # x = n_sum( a, b, c )  # n_minus1_results = x
+
+            n_minus1_results = append_elem_to_each_list(num, n_minus1_results)
+            results += n_minus1_results
+    return union(results)
+
+def two_sum(nums, target):
+    nums.sort()
+    lt = 0
+    rt = len(nums) - 1
+    results = []
+    while lt &lt; rt:
+        sum_ = sum_closure(nums[lt], nums[rt])
+        flag = compare_closure(sum_, target)
+        if flag == -1:
+            lt += 1
+        elif flag == 1:
+            rt -= 1
+        else:
+            results.append(sorted([nums[lt], nums[rt]]))
+            lt += 1
+            rt -= 1
+            while lt &lt; len(nums) and same_closure(nums[lt - 1], nums[lt]):
+                lt += 1
+            while 0 &lt;= rt and same_closure(nums[rt], nums[rt + 1]):
+                rt -= 1
+    return results
+
+def append_elem_to_each_list(elem, container):
+    results = []
+    for elems in container:
+        elems.append(elem)
+        results.append(sorted(elems))
+    return results
+
+def union(duplicate_results):
+    results = []
+
+    if len(duplicate_results) != 0:
+        duplicate_results.sort()
+        results.append(duplicate_results[0])
+        for result in duplicate_results[1:]:
+            if results[-1] != result:
+                results.append(result)
+
+    return results
+
+sum_closure = kv.get(&quot;sum_closure&quot;, sum_closure_default)
+same_closure = kv.get(&quot;same_closure&quot;, same_closure_default)
+compare_closure = kv.get(&quot;compare_closure&quot;, compare_closure_default)
+nums.sort()
+return n_sum(n, nums, target)</code></pre>
+<p>""" Given a non-negative number represented as an array of digits, adding one to each numeral.</p>
+<p>The digits are stored big-endian, such that the most significant digit is at the head of the list. """</p>
+<p>def plus_one_v1(digits): """ :type digits: List[int] :rtype: List[int] """ digits[-1] = digits[-1] + 1 res = [] ten = 0 i = len(digits) - 1 while i &gt;= 0 or ten == 1: summ = 0 if i &gt;= 0: summ += digits[i] if ten: summ += 1 res.append(summ % 10) ten = summ // 10 i -= 1 return res[::-1]</p>
+<p>def plus_one_v2(digits): n = len(digits) for i in range(n - 1, -1, -1): if digits[i] &lt; 9: digits[i] += 1 return digits digits[i] = 0 digits.insert(0, 1) return digits</p>
+<p>def plus_one_v3(num_arr):</p>
+<pre><code>for idx in reversed(list(enumerate(num_arr))):
+    num_arr[idx[0]] = (num_arr[idx[0]] + 1) % 10
+    if num_arr[idx[0]]:
+        return num_arr
+return [1] + num_arr</code></pre>
+<p>""" Rotate an array of n elements to the right by k steps.</p>
+<p>For example, with n = 7 and k = 3, the array [1,2,3,4,5,6,7] is rotated to [5,6,7,1,2,3,4].</p>
+<p>Note: Try to come up as many solutions as you can, there are at least 3 different ways to solve this problem. """</p>
+<p>def rotate_v1(array, k): """ Rotate the entire array ‘k’ times T(n)- O(nk)</p>
+<pre><code>:type array: List[int]
+:type k: int
+:rtype: void Do not return anything, modify array in-place instead.
+&quot;&quot;&quot;
+array = array[:]
+n = len(array)
+for i in range(k):  # unused variable is not a problem
+    temp = array[n - 1]
+    for j in range(n - 1, 0, -1):
+        array[j] = array[j - 1]
+    array[0] = temp
+return array</code></pre>
+<p>def rotate_v2(array, k): """ Reverse segments of the array, followed by the entire array T(n)- O(n) :type array: List[int] :type k: int :rtype: void Do not return anything, modify nums in-place instead. """ array = array[:]</p>
+<pre><code>def reverse(arr, a, b):
+    while a &lt; b:
+        arr[a], arr[b] = arr[b], arr[a]
+        a += 1
+        b -= 1
+
+n = len(array)
+k = k % n
+reverse(array, 0, n - k - 1)
+reverse(array, n - k, n - 1)
+reverse(array, 0, n - 1)
+return array</code></pre>
+<p>def rotate_v3(array, k): if array is None: return None length = len(array) k = k % length return array[length - k :] + array[: length - k]</p>
+<p>""" Given a sorted integer array without duplicates, return the summary of its ranges.</p>
+<p>For example, given [0, 1, 2, 4, 5, 7], return [(0, 2), (4, 5), (7, 7)]. """</p>
+<p>def summarize_ranges(array): """ :type array: List[int] :rtype: List[] """ res = [] if len(array) == 1: return [str(array[0])] i = 0 while i &lt; len(array): num = array[i] while i + 1 &lt; len(array) and array[i + 1] - array[i] == 1: i += 1 if array[i] != num: res.append((num, array[i])) else: res.append((num, num)) i += 1 return res</p>
+<p>""" Given an array S of n integers, are there three distinct elements a, b, c in S such that a + b + c = 0? Find all unique triplets in the array which gives the sum of zero.</p>
+<p>Note: The solution set must not contain duplicate triplets.</p>
+<p>For example, given array S = [-1, 0, 1, 2, -1, -4],</p>
+<p>A solution set is: { (-1, 0, 1), (-1, -1, 2) } """</p>
+<p>def three_sum(array): """ :param array: List[int] :return: Set[ Tuple[int, int, int] ] """ res = set() array.sort() for i in range(len(array) - 2): if i &gt; 0 and array[i] == array[i - 1]: continue l, r = i + 1, len(array) - 1 while l &lt; r: s = array[i] + array[l] + array[r] if s &gt; 0: r -= 1 elif s &lt; 0: l += 1 else: # found three sum res.add((array[i], array[l], array[r]))</p>
+<pre><code>            # remove duplicates
+            while l &lt; r and array[l] == array[l + 1]:
+                l += 1
+
+            while l &lt; r and array[r] == array[r - 1]:
+                r -= 1
+
+            l += 1
+            r -= 1
+return res</code></pre>
+<p>""" This algorithm receives an array and returns most_frequent_value Also, sometimes it is possible to have multiple ’most_frequent_value’s, so this function returns a list. This result can be used to find a representative value in an array.</p>
+<p>This algorithm gets an array, makes a dictionary of it, finds the most frequent count, and makes the result list.</p>
+<p>For example: top_1([1, 1, 2, 2, 3, 4]) will return [1, 2]</p>
+<p>(TL:DR) Get mathematical Mode Complexity: O(n) """</p>
+<p>def top_1(arr): values = {} # reserve each value which first appears on keys # reserve how many time each value appears by index number on values result = [] f_val = 0</p>
+<pre><code>for i in arr:
+    if i in values:
+        values[i] += 1
+    else:
+        values[i] = 1
+
+f_val = max(values.values())
+
+for i in values.keys():
+    if values[i] == f_val:
+        result.append(i)
+    else:
+        continue
+
+return result</code></pre>
+<p>""" When make reliable means, we need to neglect best and worst values. For example, when making average score on athletes we need this option. So, this algorithm affixes some percentage to neglect when making mean. For example, if you suggest 20%, it will neglect the best 10% of values and the worst 10% of values.</p>
+<p>This algorithm takes an array and percentage to neglect. After sorted, if index of array is larger or smaller than desired ratio, we don’t compute it.</p>
+<p>Compleity: O(n) """</p>
+<p>def trimmean(arr, per): ratio = per / 200 # /100 for easy calculation by <em>, and /2 for easy adaption to best and worst parts. cal_sum = 0 # sum value to be calculated to trimmean. arr.sort() neg_val = int(len(arr) </em> ratio) arr = arr[neg_val : len(arr) - neg_val] for i in arr: cal_sum += i return cal_sum / len(arr)</p>
+<p>""" Given an array of integers, return indices of the two numbers such that they add up to a specific target.</p>
+<p>You may assume that each input would have exactly one solution, and you may not use the same element twice.</p>
+<p>Example: Given nums = [2, 7, 11, 15], target = 9,</p>
+<pre><code>Because nums[0] + nums[1] = 2 + 7 = 9,
+return (0, 1)</code></pre>
+<p>"""</p>
+<p>def two_sum(array, target): dic = {} for i, num in enumerate(array): if num in dic: return dic[num], i else: dic[target - num] = i return None</p>
+</body>
+</html>

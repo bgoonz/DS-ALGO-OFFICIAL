@@ -10,10 +10,9 @@ arrowRestSum(1, 2, 3, 4, 5, 6, 7, 8, 9); // => 14
 arrowRestSum(0); // => 0
 ***********************************************************************/
 
-const arrowRestSum = ( ...otherNums ) => {
-    let sum = otherNums.reduce( ( acc, el ) => ( acc += el ) );
+const arrowRestSum = (...otherNums) => {
+  let sum = otherNums.reduce((acc, el) => (acc += el));
   return sum;
 };
-
 
 module.exports = arrowRestSum;

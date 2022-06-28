@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>README</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+</head>
+<body>
+<h1 id="last-index-of-an-element-in-an-array.">Last index of an element in an array.</h1>
+<h2 id="aim">Aim</h2>
+<p>The aim is to create a python code to get last index of an element in an array.</p>
+<h2 id="purpose">Purpose</h2>
+<p>The purpose is to come up with an efficient solution while implementing recursion.</p>
+<h2 id="short-description-of-project">Short description of project</h2>
+<p>The program takes 3 inputs. 1.size of array. 2.Array elements. 3.Elements whose last occurrence is to be found.</p>
+<h2 id="workflow-of-the-project">Workflow of the Project</h2>
+<ul>
+<li>We will divide the array into 2 parts. 1.The first element.</li>
+</ul>
+<ol start="2" type="1">
+<li>THE remaining elements.</li>
+</ol>
+<ul>
+<li>We will work on first element and recursion will work on rest.</li>
+<li>First we define the base case which will be if startindex of array is greater than length of array , return -1.</li>
+<li>Now we will call recursion on other part of array and see if the element is present there or not.</li>
+<li>If the element is present we return index+1.</li>
+<li>If not then we check the first element.</li>
+<li>If the first element is equal then we return 0 else return -1.</li>
+</ul>
+<h2 id="required-libraries">Required libraries</h2>
+<p>None</p>
+<h2 id="compilation-steps">Compilation Steps</h2>
+<p>Run the script, after that :</p>
+<ol type="1">
+<li>User is prompted to enter size of array followed by array elements and number whose occurrence is to be checked.</li>
+<li>Last index on which the element occurred is printed.</li>
+</ol>
+<h1 id="sample-input-and-output">Sample Input and output</h1>
+<h2 id="sample-input-1">Sample Input 1</h2>
+<p>5 2 3 5 1 2 2</p>
+<h2 id="sample-output-1">Sample output 1</h2>
+<p>4</p>
+<h2 id="sample-input-1-1">Sample Input 1</h2>
+<p>6 1 7 1 2 3 2 5</p>
+<h2 id="sample-output-2">Sample Output 2</h2>
+<p>-1</p>
+<h1 id="output">Output</h1>
+<p><img src="Images/output2.jpg" /></p>
+<h2 id="author">Author</h2>
+<p><a href="https://github.com/siddhi-244">Siddhi Bhanushali</a></p>
+</body>
+</html>

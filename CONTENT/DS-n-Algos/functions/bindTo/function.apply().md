@@ -6,8 +6,7 @@ The `**apply()**` method calls a function with a given `this` value, and `argume
 
 The source for this interactive example is stored in a GitHub repository. If you'd like to contribute to the interactive examples project, please clone [https://github.com/mdn/interactive-examples](https://github.com/mdn/interactive-examples) and send us a pull request.
 
-Syntax
-------
+## Syntax
 
     func
 
@@ -29,8 +28,7 @@ Starting with ECMAScript 5 these arguments can be a generic array-like object in
 
 The result of calling the function with the specified `**this**` value and arguments.
 
-Description
------------
+## Description
 
 **Note:** While the syntax of this function is almost identical to that of [`call()`](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/call), the fundamental difference is that `call()` accepts an **argument list**, while `apply()` accepts a **single array of arguments**.
 
@@ -46,8 +44,7 @@ Since ECMAScript 5th Edition, you can also use any kind of object which is array
 
 **Note:** Many older browsers—including Chrome <17 and Internet Explorer <9—don't accept array-like objects, and will throw an exception.
 
-Examples
---------
+## Examples
 
 ### Using apply to append an array to another
 
@@ -64,8 +61,7 @@ But you wanted to append to the existing array... So what now? Write a loop? Sur
     const array = ['a', 'b'];
     const elements = [0, 1, 2];
     array.push.apply(array, elements);
-    console.info(array); 
-    
+    console.info(array);
 
 ### Using apply and built-in functions
 
@@ -73,19 +69,18 @@ Clever usage of `apply` allows you to use built-in functions for some tasks that
 
 As an example, here are `Math.max`/`Math.min`, used to find out the maximum/minimum value in an array.
 
-    
     const numbers = [5, 6, 2, 3, 7];
-    
-    
-    let max = Math.max.apply(null, numbers); 
-    
-    
-    
+
+
+    let max = Math.max.apply(null, numbers);
+
+
+
     let min = Math.min.apply(null, numbers);
-    
-    
+
+
     max = -Infinity, min = +Infinity;
-    
+
     for (let i = 0; i < numbers.length; i++) {
       if (numbers[i] > max) {
         max = numbers[i];
@@ -94,7 +89,6 @@ As an example, here are `Math.max`/`Math.min`, used to find out the maximum/mini
         min = numbers[i];
       }
     }
-    
 
 But beware: by using `apply` this way, you run the risk of exceeding the JavaScript engine's argument length limit. The consequences of applying a function with too many arguments (that is, more than tens of thousands of arguments) varies across engines. (The JavaScriptCore engine has hard-coded [argument limit of 65536](https://bugs.webkit.org/show_bug.cgi?id=80797).
 
@@ -105,18 +99,17 @@ If your value array might grow into the tens of thousands, use a hybrid strategy
     function minOfArray(arr) {
       let min = Infinity;
       let QUANTUM = 32768;
-    
+
       for (var i = 0, len = arr.length; i < len; i += QUANTUM) {
-        var submin = Math.min.apply(null, 
+        var submin = Math.min.apply(null,
                                     arr.slice(i, Math.min(i+QUANTUM, len)));
         min = Math.min(submin, min);
       }
-    
+
       return min;
     }
-    
+
     let min = minOfArray([5, 6, 2, 3, 7]);
-    
 
 ### Using apply to chain constructors
 
@@ -129,7 +122,6 @@ In the following example we will create a global [`Function`](chrome-extension:/
       this.apply(oNew, aArgs);
       return oNew;
     };
-    
 
 **Note:** The `Object.create()` method used above is relatively new. For alternative methods, please consider one of the following approaches:
 
@@ -141,13 +133,12 @@ Using [`Object.__proto__`](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/e
       this.apply(oNew, aArgs);
       return oNew;
     };
-    
 
 Using [closures](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/en-US/docs/Web/JavaScript/Closures):
 
     Function.prototype.construct = function(aArgs) {
-      let fConstructor = this, fNewConstr = function() { 
-        fConstructor.apply(this, aArgs); 
+      let fConstructor = this, fNewConstr = function() {
+        fConstructor.apply(this, aArgs);
       };
       fNewConstr.prototype = fConstructor.prototype;
       return new fNewConstr();
@@ -162,7 +153,6 @@ Using the [`Function`](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/en-US
       this.apply(oNew, aArgs);
       return oNew;
     };
-    
 
 Example usage:
 
@@ -171,14 +161,13 @@ Example usage:
         this['property' + nProp] = arguments[nProp];
       }
     }
-    
+
     let myArray = [4, 'Hello world!', false];
     let myInstance = MyConstructor.construct(myArray);
-    
-    console.log(myInstance.property1);                
-    console.log(myInstance instanceof MyConstructor); 
-    console.log(myInstance.constructor);              
-    
+
+    console.log(myInstance.property1);
+    console.log(myInstance instanceof MyConstructor);
+    console.log(myInstance.constructor);
 
 **Note:** This non-native `Function.construct` method will not work with some native constructors; like [`Date`](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date), for example. In these cases you have to use the [`Function.prototype.bind`](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/bind) method.
 
@@ -186,27 +175,26 @@ For example, imagine having an array like the following, to be used with [`Date`
 
 This is not the best way to do things, and probably not to be used in any production environment.
 
-Specifications
---------------
+## Specifications
 
 | Specification |
-| --- |
+| ------------- |
+
 | [ECMAScript (ECMA-262)  
 The definition of 'Function.prototype.apply' in that specification.](https://tc39.es/ecma262/#sec-function.prototype.apply) |
 
-Browser compatibility
----------------------
+## Browser compatibility
 
 The compatibility table on this page is generated from structured data. If you'd like to contribute to the data, please check out [https://github.com/mdn/browser-compat-data](https://github.com/mdn/browser-compat-data) and send us a pull request.
 
 [Update compatibility data on GitHub](https://github.com/mdn/browser-compat-data)
 
-|  | Desktop | Mobile | Server |
-| --- | --- | --- | --- |
-|  | Chrome | Edge | Firefox | Internet Explorer | Opera | Safari | Android webview | Chrome for Android | Firefox for Android | Opera for Android | Safari on iOS | Samsung Internet | Node.js |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| `apply` | Chrome Full support 1 | Edge Full support 12 | Firefox Full support 1 | IE Full support 5.5 | Opera Full support 4 | Safari Full support 1 | WebView Android Full support 1 | Chrome Android Full support 18 | Firefox Android Full support 4 | Opera Android Full support 10.1 | Safari iOS Full support 1 | Samsung Internet Android Full support 1.0 | nodejs Full support Yes |
-| ES 5.1: generic array-like object as `arguments` | Chrome Full support 17 | Edge Full support 12 | Firefox Full support 4 | IE Full support 9 | Opera Full support 5 | Safari Full support 6 | WebView Android Full support ≤37 | Chrome Android Full support 18 | Firefox Android Full support 4 | Opera Android Full support 10.1 | Safari iOS Full support 6 | Samsung Internet Android Full support 1.0 | nodejs Full support Yes |
+|                                                  | Desktop                | Mobile               | Server                 |
+| ------------------------------------------------ | ---------------------- | -------------------- | ---------------------- | ------------------- | -------------------- | --------------------- | -------------------------------- | ------------------------------ | ------------------------------ | ------------------------------- | ------------------------- | ----------------------------------------- | ----------------------- |
+|                                                  | Chrome                 | Edge                 | Firefox                | Internet Explorer   | Opera                | Safari                | Android webview                  | Chrome for Android             | Firefox for Android            | Opera for Android               | Safari on iOS             | Samsung Internet                          | Node.js                 |
+| ---                                              | ---                    | ---                  | ---                    | ---                 | ---                  | ---                   | ---                              | ---                            | ---                            | ---                             | ---                       | ---                                       | ---                     |
+| `apply`                                          | Chrome Full support 1  | Edge Full support 12 | Firefox Full support 1 | IE Full support 5.5 | Opera Full support 4 | Safari Full support 1 | WebView Android Full support 1   | Chrome Android Full support 18 | Firefox Android Full support 4 | Opera Android Full support 10.1 | Safari iOS Full support 1 | Samsung Internet Android Full support 1.0 | nodejs Full support Yes |
+| ES 5.1: generic array-like object as `arguments` | Chrome Full support 17 | Edge Full support 12 | Firefox Full support 4 | IE Full support 9   | Opera Full support 5 | Safari Full support 6 | WebView Android Full support ≤37 | Chrome Android Full support 18 | Firefox Android Full support 4 | Opera Android Full support 10.1 | Safari iOS Full support 6 | Samsung Internet Android Full support 1.0 | nodejs Full support Yes |
 
 #### What happens next?
 
@@ -231,19 +219,17 @@ Connection error:Sorry, we can't seem to reach the server. We are working to fix
 
 ### Legend
 
-Full support 
+Full support
 
 Full support
 
-See also
---------
+## See also
 
-*   [`arguments`](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/en-US/docs/Web/JavaScript/Reference/Functions/arguments) object
-*   [`Function.prototype.bind()`](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/bind)
-*   [`Function.prototype.call()`](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/call)
-*   [Functions and function scope](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/en-US/docs/Web/JavaScript/Reference/Functions)
-*   [`Reflect.apply()`](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/en-US/docs/Web/JavaScript/Reference/Global_Objects/Reflect/apply)
-*   [Spread syntax](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax)
-
+- [`arguments`](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/en-US/docs/Web/JavaScript/Reference/Functions/arguments) object
+- [`Function.prototype.bind()`](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/bind)
+- [`Function.prototype.call()`](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/call)
+- [Functions and function scope](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/en-US/docs/Web/JavaScript/Reference/Functions)
+- [`Reflect.apply()`](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/en-US/docs/Web/JavaScript/Reference/Global_Objects/Reflect/apply)
+- [Spread syntax](chrome-extension://cjedbglnccaioiolemnfhjncicchinao/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax)
 
 [Source](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/apply)

@@ -8,7 +8,7 @@
  * @param {number[]} heights
  * @return {number}
  */
-var largestRectangleArea = function(heights) {
+var largestRectangleArea = function (heights) {
   heights.push(0);
 
   var maxn = 0;
@@ -23,7 +23,7 @@ var largestRectangleArea = function(heights) {
 
       maxn = Math.max((i - nextTop - 1) * heights[top], maxn);
     }
-    
+
     stack.push(i);
   }
 

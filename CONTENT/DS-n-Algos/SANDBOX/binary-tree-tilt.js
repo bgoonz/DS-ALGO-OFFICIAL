@@ -12,19 +12,19 @@
  * @param {TreeNode} root
  * @return {number}
  */
-var findTilt = function(root) {
+var findTilt = function (root) {
   function sumOfNode(root) {
-    if (!root) return 0 
+    if (!root) return 0;
 
-    let left = sumOfNode(root.left)
-    let right = sumOfNode(root.right)
+    let left = sumOfNode(root.left);
+    let right = sumOfNode(root.right);
 
-    ans += Math.abs(left - right)
+    ans += Math.abs(left - right);
 
-    return left + right + root.val
+    return left + right + root.val;
   }
 
-  let ans = 0
-  sumOfNode(root)
-  return ans
+  let ans = 0;
+  sumOfNode(root);
+  return ans;
 };

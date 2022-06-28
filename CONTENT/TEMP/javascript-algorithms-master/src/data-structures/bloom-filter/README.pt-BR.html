@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>README.pt-BR</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+</head>
+<body>
+<h1 id="filtro-bloom-bloom-filter">Filtro Bloom (Bloom Filter)</h1>
+<p>O <strong>bloom filter</strong> é uma estrutura de dados probabilística espaço-eficiente designada para testar se um elemento está ou não presente em um conjunto de dados. Foi projetado para ser incrivelmente rápido e utilizar o mínimo de memória ao potencial custo de um falso-positivo. Correspondências <em>falsas positivas</em> são possíveis, contudo <em>falsos negativos</em> não são - em outras palavras, a consulta retorna “possivelmente no conjunto” ou “definitivamente não no conjunto”.</p>
+<p>Bloom propôs a técnica para aplicações onde a quantidade de entrada de dados exigiria uma alocação de memória impraticavelmente grande se as “convencionais” técnicas error-free hashing fossem aplicado.</p>
+<h2 id="descrição-do-algoritmo">Descrição do algoritmo</h2>
+<p>Um filtro Bloom vazio é um <em>bit array</em> de <code>m</code> bits, todos definidos como <code>0</code>. Também deverá haver diferentes funções de hash <code>k</code> definidas, cada um dos quais mapeia e produz hash para um dos elementos definidos em uma das posições <code>m</code> da <em>array</em>, gerando uma distribuição aleatória e uniforme. Normalmente, <code>k</code> é uma constante, muito menor do que <code>m</code>, pelo qual é proporcional ao número de elements a ser adicionado; a escolha precisa de <code>k</code> e a constante de proporcionalidade de <code>m</code> são determinadas pela taxa de falsos positivos planejado do filtro.</p>
+<p>Aqui está um exemplo de um filtro Bloom, representando o conjunto <code>{x, y, z}</code>. As flechas coloridas demonstram as posições no <em>bit array</em> em que cada elemento é mapeado. O elemento <code>w</code> não está definido dentro de <code>{x, y, z}</code>, porque este produz hash para uma posição de array de bits contendo <code>0</code>. Para esta imagem: <code>m = 18</code> e <code>k = 3</code>.</p>
+<figure>
+<img src="https://upload.wikimedia.org/wikipedia/commons/a/ac/Bloom_filter.svg" alt="Bloom Filter" /><figcaption>Bloom Filter</figcaption>
+</figure>
+<h2 id="operações">Operações</h2>
+<p>Existem duas operações principais que o filtro Bloom pode operar: <em>inserção</em> e <em>pesquisa</em>. A pesquisa pode resultar em falsos positivos. Remoção não é possível.</p>
+<p>Em outras palavras, o filtro pode receber itens. Quando vamos verificar se um item já foi anteriormente inserido, ele poderá nos dizer “não” ou “talvez”.</p>
+<p>Ambas as inserções e pesquisas são operações <code>O(1)</code>.</p>
+<h2 id="criando-o-filtro">Criando o filtro</h2>
+<p>Um filtro Bloom é criado ao alocar um certo tamanho. No nosso exemplo, nós utilizamos <code>100</code> como tamanho padrão. Todas as posições são initializadas como <code>false</code>.</p>
+<h3 id="inserção">Inserção</h3>
+<p>Durante a inserção, um número de função hash, no nosso caso <code>3</code> funções de hash, são utilizadas para criar hashes de uma entrada. Estas funções de hash emitem saída de índices. A cada índice recebido, nós simplismente trocamos o valor de nosso filtro Bloom para <code>true</code>.</p>
+<h3 id="pesquisa">Pesquisa</h3>
+<p>Durante a pesquisa, a mesma função de hash é chamada e usada para emitir hash da entrada. Depois nós checamos se <em>todos</em> os indices recebidos possuem o valor <code>true</code> dentro de nosso filtro Bloom. Caso <em>todos</em> possuam o valor <code>true</code>, nós sabemos que o filtro Bloom pode ter tido o valor inserido anteriormente.</p>
+<p>Contudo, isto não é certeza, porque é possível que outros valores anteriormente inseridos trocaram o valor para <code>true</code>. Os valores não são necessariamente <code>true</code> devido ao ítem atualmente sendo pesquisado. A certeza absoluta é impossível, a não ser que apenas um item foi inserido anteriormente.</p>
+<p>Durante a checagem do filtro Bloom para índices retornados pela nossa função de hash, mesmo que apenas um deles possua valor como <code>false</code>, nós definitivamente sabemos que o ítem não foi anteriormente inserido.</p>
+<h2 id="falso-positivos">Falso Positivos</h2>
+<p>A probabilidade de falso positivos é determinado por três fatores: o tamanho do filtro de Bloom, o número de funções de hash que utilizados, e o número de itens que foram inseridos dentro do filtro.</p>
+<p>A formula para calcular a probabilidade de um falso positivo é:</p>
+<p>( 1 - e <sup>-kn/m</sup> ) <sup>k</sup></p>
+<p><code>k</code> = número de funções de hash</p>
+<p><code>m</code> = tamanho do filtro</p>
+<p><code>n</code> = número de itens inserido</p>
+<p>Estas variáveis, <code>k</code>, <code>m</code> e <code>n</code>, devem ser escolhidas baseado em quanto aceitável são os falsos positivos. Se os valores escolhidos resultam em uma probabilidade muito alta, então os valores devem ser ajustados e a probabilidade recalculada.</p>
+<h2 id="aplicações">Aplicações</h2>
+<p>Um filtro Bloom pode ser utilizado em uma página de Blog. Se o objetivo é mostrar aos leitores somente os artigos em que eles nunca viram, então o filtro Bloom é perfeito para isso. Ele pode armazenar hashes baseados nos artigos. Depois que um usuário lê alguns artigos, eles podem ser inseridos dentro do filtro. Na próxima vez que o usuário visitar o Blog, aqueles artigos poderão ser filtrados (eliminados) do resultado.</p>
+<p>Alguns artigos serão inevitavelmente filtrados (eliminados) por engano, mas o custo é aceitável. Tudo bem se um usuário nunca ver alguns poucos artigos, desde que tenham outros novos para ver toda vez que eles visitam o site.</p>
+<h2 id="referências">Referências</h2>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Bloom_filter">Wikipedia</a></li>
+<li><a href="http://llimllib.github.io/bloomfilter-tutorial/">Bloom Filters by Example</a></li>
+<li><a href="https://hur.st/bloomfilter/?n=4&amp;p=&amp;m=18&amp;k=3">Calculating False Positive Probability</a></li>
+<li><a href="https://blog.medium.com/what-are-bloom-filters-1ec2a50c68ff">Bloom Filters on Medium</a></li>
+<li><a href="https://www.youtube.com/watch?v=bEmBh1HtYrw">Bloom Filters on YouTube</a></li>
+</ul>
+</body>
+</html>

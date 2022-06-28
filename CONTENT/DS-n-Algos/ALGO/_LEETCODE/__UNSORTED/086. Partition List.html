@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="generator" content="pandoc" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=yes"
+    />
+    <title>086. Partition List</title>
+    <style type="text/css">
+      code {
+        white-space: pre-wrap;
+      }
+      span.smallcaps {
+        font-variant: small-caps;
+      }
+      span.underline {
+        text-decoration: underline;
+      }
+      div.column {
+        display: inline-block;
+        vertical-align: top;
+        width: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <h2 id="partition-list">
+      <a href="https://leetcode.com/problems/partition-list/description/"
+        >86. Partition List</a
+      >
+    </h2>
+    <h3 id="problem">Problem:</h3>
+    <p>
+      Given a linked list and a value <em>x</em>, partition it such that all
+      nodes less than <em>x</em> come before nodes greater than or equal to
+      <em>x</em>.
+    </p>
+    <p>
+      You should preserve the original relative order of the nodes in each of
+      the two partitions.
+    </p>
+    <p><strong>Example:</strong></p>
+    <pre><code>Input: head = 1-&gt;4-&gt;3-&gt;2-&gt;5-&gt;2, x = 3
+Output: 1-&gt;2-&gt;2-&gt;4-&gt;3-&gt;5</code></pre>
+    <h3 id="solution">Solution:</h3>
+    <p>Take the second part out as a new list and connect it back.</p>
+    <pre><code>/**
+ * Definition for singly-linked list.
+ * function ListNode(val) {
+ *     this.val = val;
+ *     this.next = null;
+ * }
+ */
+/**
+ * @param {ListNode} head
+ * @param {number} x
+ * @return {ListNode}
+ */
+var partition = function(head, x) {
+  const prehead1 = { next: head }
+  let p1 = prehead1
+  let ptail1 = prehead1
+
+  const prehead2 = { next: null }
+  let p2 = prehead2
+
+  while (p1) {
+    const next = p1.next
+    if (next &amp;&amp; next.val &gt;= x) {
+      p1.next = next.next
+      p2.next = next
+      p2 = next
+    } else {
+      ptail1 = p1
+      p1 = p1.next
+    }
+  }
+
+  p2.next = null
+  ptail1.next = prehead2.next
+
+  return prehead1.next
+};</code></pre>
+    <p>
+      <em
+        >Template generated via
+        <a href="https://github.com/crimx/crx-leetmark">Leetmark</a>.</em
+      >
+    </p>
+  </body>
+</html>

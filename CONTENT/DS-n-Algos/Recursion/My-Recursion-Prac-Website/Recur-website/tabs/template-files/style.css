@@ -38,7 +38,7 @@
   text-decoration: none;
 }
 
-.navbar-dropdown .mbr-iconfont+.navbar-caption {
+.navbar-dropdown .mbr-iconfont + .navbar-caption {
   vertical-align: -1px;
 }
 
@@ -96,7 +96,8 @@
   display: inline-block;
   vertical-align: middle;
   width: 20px;
-  -webkit-box-shadow: 0 -6px 0 1px #282828, 0 0 0 1px #282828, 0 6px 0 1px #282828;
+  -webkit-box-shadow: 0 -6px 0 1px #282828, 0 0 0 1px #282828,
+    0 6px 0 1px #282828;
   -moz-box-shadow: 0 -6px 0 1px #282828, 0 0 0 1px #282828, 0 6px 0 1px #282828;
   box-shadow: 0 -6px 0 1px #282828, 0 0 0 1px #282828, 0 6px 0 1px #282828;
 }
@@ -124,10 +125,10 @@
 }
 
 .nav-dropdown .link {
-  margin: .667em 1.667em;
+  margin: 0.667em 1.667em;
   font-weight: 500;
   padding: 0;
-  transition: color .2s ease-in-out;
+  transition: color 0.2s ease-in-out;
 }
 
 .nav-dropdown .link.dropdown-toggle {
@@ -135,7 +136,7 @@
 }
 
 .nav-dropdown .link.dropdown-toggle::after {
-  margin-left: .25rem;
+  margin-left: 0.25rem;
   border-top: 0.35em solid;
   border-right: 0.35em solid transparent;
   border-left: 0.35em solid transparent;
@@ -181,7 +182,7 @@
   line-height: 2;
   padding: 0.3846em 4.615em 0.3846em 1.5385em;
   position: relative;
-  transition: color .2s ease-in-out, background-color .2s ease-in-out;
+  transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out;
 }
 
 .nav-dropdown .dropdown-item::after {
@@ -195,9 +196,6 @@
 .nav-dropdown .dropdown-item:hover {
   background: none;
 }
-
-
-
 
 .nav-dropdown-sm {
   display: block !important;
@@ -213,7 +211,7 @@
   width: 100%;
 }
 
-.nav-dropdown-sm.collapse.in~.navbar-close {
+.nav-dropdown-sm.collapse.in ~ .navbar-close {
   display: block !important;
 }
 
@@ -272,11 +270,11 @@
   width: 100%;
 }
 
-.nav-dropdown-sm .nav-btn+.nav-btn {
+.nav-dropdown-sm .nav-btn + .nav-btn {
   padding-top: 0.625rem;
 }
 
-.nav-dropdown-sm .nav-btn+.nav-btn::before {
+.nav-dropdown-sm .nav-btn + .nav-btn::before {
   display: none;
 }
 
@@ -285,14 +283,15 @@
 }
 
 .nav-dropdown-sm .dropdown-toggle[data-toggle="dropdown-submenu"]::after {
-  margin-left: .25rem;
+  margin-left: 0.25rem;
   border-top: 0.35em solid;
   border-right: 0.35em solid transparent;
   border-left: 0.35em solid transparent;
   border-bottom: 0;
 }
 
-.nav-dropdown-sm .dropdown-toggle[data-toggle="dropdown-submenu"][aria-expanded="true"]::after {
+.nav-dropdown-sm
+  .dropdown-toggle[data-toggle="dropdown-submenu"][aria-expanded="true"]::after {
   border-top: 0;
   border-right: 0.35em solid transparent;
   border-left: 0.35em solid transparent;

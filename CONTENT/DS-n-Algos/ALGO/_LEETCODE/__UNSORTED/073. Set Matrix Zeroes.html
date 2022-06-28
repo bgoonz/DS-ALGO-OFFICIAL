@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="generator" content="pandoc" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=yes"
+    />
+    <title>073. Set Matrix Zeroes</title>
+    <style type="text/css">
+      code {
+        white-space: pre-wrap;
+      }
+      span.smallcaps {
+        font-variant: small-caps;
+      }
+      span.underline {
+        text-decoration: underline;
+      }
+      div.column {
+        display: inline-block;
+        vertical-align: top;
+        width: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <h2 id="set-matrix-zeroes">
+      <a href="https://leetcode.com/problems/set-matrix-zeroes/description/"
+        >73. Set Matrix Zeroes</a
+      >
+    </h2>
+    <h3 id="problem">Problem:</h3>
+    <p>
+      Given a <em>m</em> x <em>n</em> matrix, if an element is 0, set its entire
+      row and column to 0. Do it
+      <a href="https://en.wikipedia.org/wiki/In-place_algorithm"
+        ><strong>in-place</strong></a
+      >.
+    </p>
+    <p><strong>Example 1:</strong></p>
+    <pre><code>Input:
+[
+  [1,1,1],
+  [1,0,1],
+  [1,1,1]
+]
+Output:
+[
+  [1,0,1],
+  [0,0,0],
+  [1,0,1]
+]</code></pre>
+    <p><strong>Example 2:</strong></p>
+    <pre><code>Input:
+[
+  [0,1,2,0],
+  [3,4,5,2],
+  [1,3,1,5]
+]
+Output:
+[
+  [0,0,0,0],
+  [0,4,5,0],
+  [0,3,1,0]
+]</code></pre>
+    <p><strong>Follow up:</strong></p>
+    <ul>
+      <li>
+        A straight forward solution using O(*m**n*) space is probably a bad
+        idea.
+      </li>
+      <li>
+        A simple improvement uses O(<em>m</em> + <em>n</em>) space, but still
+        not the best solution.
+      </li>
+      <li>Could you devise a constant space solution?</li>
+    </ul>
+    <h3 id="solution">Solution:</h3>
+    <ul>
+      <li>O(*m**n*) space solution: Copy a new matrix.</li>
+      <li>
+        O(<em>m</em> + <em>n</em>) space solution: Use extra arrays to store
+        rows and columns that need to be set 0.
+      </li>
+      <li>Constant space solutions:</li>
+    </ul>
+    <h4 id="one">ONE</h4>
+    <p>
+      Instead of allocating extra arrays. Just use the first row and column.
+    </p>
+    <p>
+      First scan through the first row and column to see if they need be set 0.
+      If so, mark and do it in the end.
+    </p>
+    <p>
+      Now scan the matrix and set 0 to the first row and column whenever a 0 is
+      met.
+    </p>
+    <p>
+      Walk the matrix again and set 0 according to the first row and column.
+    </p>
+    <p>Finally set the first row and column to 0 if needed.</p>
+    <pre><code>/**
+ * @param {number[][]} matrix
+ * @return {void} Do not return anything, modify matrix in-place instead.
+ */
+var setZeroes = function(matrix) {
+  const height = matrix.length
+  if (height &lt;= 0) { return }
+  const width = matrix[0].length
+  if (width &lt;= 0) { return }
+
+  const shouldClearFirstRow = matrix[0].some(x =&gt; x === 0)
+  const shouldClearFirstCol = matrix.some(row =&gt; row[0] === 0)
+
+  for (let i = 1; i &lt; height; i++) {
+    for (let j = 1; j &lt; width; j++) {
+      if (matrix[i][j] === 0) {
+        matrix[i][0] = 0
+        matrix[0][j] = 0
+      }
+    }
+  }
+
+  for (let i = 1; i &lt; height; i++) {
+    if (matrix[i][0] === 0) {
+      matrix[i].fill(0)
+    }
+  }
+
+  for (let j = 1; j &lt; width; j++) {
+    if (matrix[0][j] === 0) {
+      for (let i = 1; i &lt; height; i++) {
+        matrix[i][j] = 0
+      }
+    }
+  }
+
+  if (shouldClearFirstRow) {
+    matrix[0].fill(0)
+  }
+
+  if (shouldClearFirstCol) {
+    for (let i = 0; i &lt; height; i++) {
+      matrix[i][0] = 0
+    }
+  }
+};</code></pre>
+    <h4 id="two">TWO</h4>
+    <p>Use <code>NaN</code> to mark cells that need to be set 0.</p>
+    <p>
+      Still constant space just a bit slower due to repeatedly setting
+      overlapping <code>NaN</code>s.
+    </p>
+    <pre><code>/**
+ * @param {number[][]} matrix
+ * @return {void} Do not return anything, modify matrix in-place instead.
+ */
+var setZeroes = function(matrix) {
+  const height = matrix.length
+  if (height &lt;= 0) { return }
+  const width = matrix[0].length
+  if (width &lt;= 0) { return }
+
+  for (let i = 0; i &lt; height; i++) {
+    for (let j = 0; j &lt; width; j++) {
+      if (matrix[i][j] !== 0) { continue }
+
+      for (let jj = 0; jj &lt; width; jj++) {
+        if (matrix[i][jj] !== 0) {
+          matrix[i][jj] = NaN
+        }
+      }
+
+      for (let ii = 0; ii &lt; height; ii++) {
+        if (matrix[ii][j] !== 0) {
+          matrix[ii][j] = NaN
+        }
+      }
+    }
+  }
+
+  for (let i = 0; i &lt; height; i++) {
+    for (let j = 0; j &lt; width; j++) {
+      if (isNaN(matrix[i][j])) {
+        matrix[i][j] = 0
+      }
+    }
+  }
+};</code></pre>
+    <p>
+      <em
+        >Template generated via
+        <a href="https://github.com/crimx/crx-leetmark">Leetmark</a>.</em
+      >
+    </p>
+  </body>
+</html>

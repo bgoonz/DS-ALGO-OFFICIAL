@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>README.ru-RU</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+</head>
+<body>
+<h1 id="двусвязный-список">Двусвязный список</h1>
+<p><strong>Двусвязный список</strong> — связная структура данных в информатике, состоящая из набора последовательно связанных записей, называемых узлами. Каждый узел содержит два поля, называемых ссылками, которые указывают на предыдущий и последующий элементы в последовательности узлов. Ссылка на предыдущий элемент корневого узла ссылка на последующий элемент последнего узла, указывают на некого рода прерыватель, обычно сторожевой узел или null, для облегчения обхода списка. Если в списке только один сторожевой узел, тогда список циклически связана через него. Двусвязный список можно представить, как два связных списка, которые образованны из одних и тех же данных, но расположенных в противоположном порядке.</p>
+<figure>
+<img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/Doubly-linked-list.svg" alt="Двусвязный список" /><figcaption>Двусвязный список</figcaption>
+</figure>
+<p>Две ссылки позволяют обходить список в обоих направлениях. Добавление и удаление узла в двусвязном списке требует изменения большего количества ссылок, чем аналогичные операции в связном списке. Однако данные операции проще и потенциально более эффективны (для некорневых узлов) - при обходе не нужно следить за предыдущим узлом или повторно обходить список в поиске предыдущего узла, плюс его ссылка может быть изменена.</p>
+<h2 id="псевдокод-основных-операций">Псевдокод основных операций</h2>
+<h3 id="вставка">Вставка</h3>
+<pre class="text"><code>Add(value)
+  Pre: value - добавляемое значение
+  Post: value помещено в конец списка
+  n ← node(value)
+  if head = ø
+    head ← n
+    tail ← n
+  else
+    n.previous ← tail
+    tail.next ← n
+    tail ← n
+  end if
+end Add</code></pre>
+<h3 id="удаление">Удаление</h3>
+<pre class="text"><code>Remove(head, value)
+  Pre: head - первый узел в списке
+       value - значение, которое следует удалить
+  Post: true - value удалено из списка, иначе false
+  if head = ø
+    return false
+  end if
+  if value = head.value
+    if head = tail
+      head ← ø
+      tail ← ø
+    else
+      head ← head.next
+      head.previous ← ø
+    end if
+    return true
+  end if
+  n ← head.next
+  while n = ø and value = n.value
+    n ← n.next
+  end while
+  if n = tail
+    tail ← tail.previous
+    tail.next ← ø
+    return true
+  else if n = ø
+    n.previous.next ← n.next
+    n.next.previous ← n.previous
+    return true
+  end if
+  return false
+end Remove</code></pre>
+<h3 id="обратный-обход">Обратный обход</h3>
+<pre class="text"><code>ReverseTraversal(tail)
+  Pre: tail - конечный элемент обходимого списка
+  Post: элементы списка пройдены в обратном порядке
+  n ← tail
+  while n = ø
+    yield n.value
+    n ← n.previous
+  end while
+end Reverse Traversal</code></pre>
+<h2 id="сложность">Сложность</h2>
+<h2 id="временная-сложность">Временная сложность</h2>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: center;">Чтение</th>
+<th style="text-align: center;">Поиск</th>
+<th style="text-align: center;">Вставка</th>
+<th style="text-align: center;">Удаление</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">O(n)</td>
+<td style="text-align: center;">O(n)</td>
+<td style="text-align: center;">O(1)</td>
+<td style="text-align: center;">O(n)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="пространственная-сложность">Пространственная сложность</h3>
+<p>O(n)</p>
+<h2 id="ссылки">Ссылки</h2>
+<ul>
+<li><a href="https://ru.wikipedia.org/wiki/%D0%A1%D0%B2%D1%8F%D0%B7%D0%BD%D1%8B%D0%B9_%D1%81%D0%BF%D0%B8%D1%81%D0%BE%D0%BA#%D0%94%D0%B2%D1%83%D1%81%D0%B2%D1%8F%D0%B7%D0%BD%D1%8B%D0%B9_%D1%81%D0%BF%D0%B8%D1%81%D0%BE%D0%BA_(%D0%B4%D0%B2%D1%83%D0%BD%D0%B0%D0%BF%D1%80%D0%B0%D0%B2%D0%BB%D0%B5%D0%BD%D0%BD%D1%8B%D0%B9_%D1%81%D0%B2%D1%8F%D0%B7%D0%BD%D1%8B%D0%B9_%D1%81%D0%BF%D0%B8%D1%81%D0%BE%D0%BA)">Wikipedia</a></li>
+<li><a href="https://www.youtube.com/watch?v=lQ-lPjbb9Ew">YouTube</a></li>
+</ul>
+</body>
+</html>
