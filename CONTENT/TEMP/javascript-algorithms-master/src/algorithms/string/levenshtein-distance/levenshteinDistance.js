@@ -6,7 +6,9 @@
 export default function levenshteinDistance(a, b) {
   // Create empty edit distance matrix for all possible modifications of
   // substrings of a to substrings of b.
-  const distanceMatrix = Array(b.length + 1).fill(null).map(() => Array(a.length + 1).fill(null));
+  const distanceMatrix = Array(b.length + 1)
+    .fill(null)
+    .map(() => Array(a.length + 1).fill(null));
 
   // Fill the first row of the matrix.
   // If this is first row then we're transforming empty string to a.
@@ -28,7 +30,7 @@ export default function levenshteinDistance(a, b) {
       distanceMatrix[j][i] = Math.min(
         distanceMatrix[j][i - 1] + 1, // deletion
         distanceMatrix[j - 1][i] + 1, // insertion
-        distanceMatrix[j - 1][i - 1] + indicator, // substitution
+        distanceMatrix[j - 1][i - 1] + indicator // substitution
       );
     }
   }

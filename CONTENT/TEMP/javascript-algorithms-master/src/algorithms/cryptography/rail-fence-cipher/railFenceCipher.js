@@ -18,9 +18,10 @@ const DIRECTIONS = { UP: -1, DOWN: 1 };
  * @param {number} rowsNum
  * @returns {Fence}
  */
-const buildFence = (rowsNum) => Array(rowsNum)
-  .fill(null)
-  .map(() => []);
+const buildFence = (rowsNum) =>
+  Array(rowsNum)
+    .fill(null)
+    .map(() => []);
 
 /**
  * Get next direction to move (based on the current one) while traversing the fence.
@@ -59,9 +60,7 @@ const addCharToRail = (targetRailIndex, letter) => {
    * @returns {Rail}
    */
   function onEachRail(rail, currentRail) {
-    return currentRail === targetRailIndex
-      ? [...rail, letter]
-      : rail;
+    return currentRail === targetRailIndex ? [...rail, letter] : rail;
   }
   return onEachRail;
 };
@@ -76,12 +75,7 @@ const addCharToRail = (targetRailIndex, letter) => {
  * @param {string[]} params.chars
  * @returns {Fence}
  */
-const fillEncodeFence = ({
-  fence,
-  currentRail,
-  direction,
-  chars,
-}) => {
+const fillEncodeFence = ({ fence, currentRail, direction, chars }) => {
   if (chars.length === 0) {
     // All chars have been placed on a fence.
     return fence;
@@ -116,9 +110,7 @@ const fillEncodeFence = ({
  * @returns {Fence}
  */
 const fillDecodeFence = (params) => {
-  const {
-    strLen, chars, fence, targetRail, direction, coords,
-  } = params;
+  const { strLen, chars, fence, targetRail, direction, coords } = params;
 
   const railCount = fence.length;
 
@@ -130,9 +122,7 @@ const fillDecodeFence = (params) => {
   const shouldGoNextRail = currentColumn === strLen - 1;
   const nextDirection = shouldGoNextRail
     ? DIRECTIONS.DOWN
-    : getNextDirection(
-      { railCount, currentRail, direction },
-    );
+    : getNextDirection({ railCount, currentRail, direction });
   const nextRail = shouldGoNextRail ? targetRail + 1 : targetRail;
   const nextCoords = [
     shouldGoNextRail ? 0 : currentRail + nextDirection,
@@ -142,7 +132,9 @@ const fillDecodeFence = (params) => {
   const shouldAddChar = currentRail === targetRail;
   const [currentChar, ...remainderChars] = chars;
   const nextString = shouldAddChar ? remainderChars : chars;
-  const nextFence = shouldAddChar ? fence.map(addCharToRail(currentRail, currentChar)) : fence;
+  const nextFence = shouldAddChar
+    ? fence.map(addCharToRail(currentRail, currentChar))
+    : fence;
 
   return fillDecodeFence({
     strLen,
@@ -164,24 +156,16 @@ const fillDecodeFence = (params) => {
  * @returns {string}
  */
 const decodeFence = (params) => {
-  const {
-    strLen,
-    fence,
-    currentRail,
-    direction,
-    code,
-  } = params;
+  const { strLen, fence, currentRail, direction, code } = params;
 
   if (code.length === strLen) {
-    return code.join('');
+    return code.join("");
   }
 
   const railCount = fence.length;
 
   const [currentChar, ...nextRail] = fence[currentRail];
-  const nextDirection = getNextDirection(
-    { railCount, currentRail, direction },
-  );
+  const nextDirection = getNextDirection({ railCount, currentRail, direction });
 
   return decodeFence({
     railCount,
@@ -207,10 +191,10 @@ export const encodeRailFenceCipher = (string, railCount) => {
     fence,
     currentRail: 0,
     direction: DIRECTIONS.DOWN,
-    chars: string.split(''),
+    chars: string.split(""),
   });
 
-  return filledFence.flat().join('');
+  return filledFence.flat().join("");
 };
 
 /**
@@ -225,7 +209,7 @@ export const decodeRailFenceCipher = (string, railCount) => {
   const emptyFence = buildFence(railCount);
   const filledFence = fillDecodeFence({
     strLen,
-    chars: string.split(''),
+    chars: string.split(""),
     fence: emptyFence,
     targetRail: 0,
     direction: DIRECTIONS.DOWN,

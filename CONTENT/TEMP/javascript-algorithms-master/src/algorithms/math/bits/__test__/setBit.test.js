@@ -1,7 +1,7 @@
-import setBit from '../setBit';
+import setBit from "../setBit";
 
-describe('setBit', () => {
-  it('should set bit at specific position', () => {
+describe("setBit", () => {
+  it("should set bit at specific position", () => {
     // 1 = 0b0001
     expect(setBit(1, 0)).toBe(1);
     expect(setBit(1, 1)).toBe(3);

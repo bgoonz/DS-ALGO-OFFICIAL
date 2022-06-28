@@ -1,4 +1,4 @@
-import Sort from '../Sort';
+import Sort from "../Sort";
 
 export default class CountingSort extends Sort {
   /**
@@ -30,7 +30,9 @@ export default class CountingSort extends Sort {
 
     // Init buckets array.
     // This array will hold frequency of each number from originalArray.
-    const buckets = Array(detectedBiggestElement - detectedSmallestElement + 1).fill(0);
+    const buckets = Array(
+      detectedBiggestElement - detectedSmallestElement + 1
+    ).fill(0);
 
     originalArray.forEach((element) => {
       // Visit element.
@@ -55,7 +57,11 @@ export default class CountingSort extends Sort {
 
     // Now let's assemble sorted array.
     const sortedArray = Array(originalArray.length).fill(null);
-    for (let elementIndex = 0; elementIndex < originalArray.length; elementIndex += 1) {
+    for (
+      let elementIndex = 0;
+      elementIndex < originalArray.length;
+      elementIndex += 1
+    ) {
       // Get the element that we want to put into correct sorted position.
       const element = originalArray[elementIndex];
 

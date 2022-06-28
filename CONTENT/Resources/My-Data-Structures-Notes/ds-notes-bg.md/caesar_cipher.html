@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="generator" content="pandoc" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=yes"
+    />
+    <title>caesar_cipher</title>
+    <style type="text/css">
+      code {
+        white-space: pre-wrap;
+      }
+      span.smallcaps {
+        font-variant: small-caps;
+      }
+      span.underline {
+        text-decoration: underline;
+      }
+      div.column {
+        display: inline-block;
+        vertical-align: top;
+        width: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 id="caesar-cipher">Caesar Cipher</h1>
+    <p>
+      The Caesar cipher is a simple cipher and one of the best known encryption
+      algorithms. It is very simple to encrypt, decrypt and intercept. The
+      Caesar cipher is a substitution cipher where each letter in the plain-text
+      (decoded text) is replaced by a letter a certain number of spaces to the
+      right of the letter in the alphabet. (The amount of spaces is called the
+      key or shift and is only known by the sender and intended receiver).
+    </p>
+    <p>
+      <strong
+        >Disclaimer: Do not attempt to encrypt personal data or serious messages
+        with this cipher!!! It takes only half a second to crack by a
+        computer!</strong
+      >
+    </p>
+    <ol type="1">
+      <li>
+        It takes a very small amount of time to encode and decode messages.
+        (Less than a second, usually)
+      </li>
+      <li>
+        No real applications exist for the cipher as it is the most insecure out
+        there.
+      </li>
+      <li>
+        This cipher was invented by Julius Caesar as a way to send messages of
+        high military significance.
+      </li>
+    </ol>
+    <h2 id="steps">Steps</h2>
+    <h3 id="encryption">Encryption</h3>
+    <ol type="1">
+      <li>Choose the alphabet you are going to use.</li>
+      <li>
+        Choose a secret key (shift) that you are going to use in this case
+        <code>n</code>.
+      </li>
+      <li>
+        For every letter in the plain-text, replace it by a letter of the
+        alphabet that is <code>n</code> letters away from the letter. (Ex: for a
+        key of <code>1</code>, <code>a</code> would become <code>b</code>,
+        <code>z</code> would become <code>a</code>, etc.)
+      </li>
+      <li>The message should now be encoded.</li>
+    </ol>
+    <h3 id="decryption">Decryption</h3>
+    <ol type="1">
+      <li>Choose the alphabet that the message was encrypted with.</li>
+      <li>Let <code>n</code> be the secret key the message is encoded in.</li>
+      <li>
+        For every letter in the cipher-text, replace it by a letter of the
+        alphabet that is <code>n</code> letters behind in the alphabet from the
+        letter. <code>c</code> would be <code>b</code>, <code>a</code> would be
+        <code>z</code> with a key of <code>1</code>.
+      </li>
+      <li>The message should now be decoded</li>
+    </ol>
+    <h2 id="example">Example</h2>
+    <h3 id="an-example-of-encryption">An example of encryption</h3>
+    <p>Let us say we are sending a secret message to a friend.</p>
+    <ul>
+      <li>
+        We first write out our message. In this case:
+        <code>The Caesar cipher is a fun substitution cipher</code>
+      </li>
+      <li>
+        Our alphabet will be: <code>abcdefghijklmnopqrstuvwxyz</code>. For the
+        uses of this tutorial, case doesn’t matter. (On a shift of
+        <code>1</code>: <code>A</code> will become <code>B</code>,
+        <code>a</code> will become <code>b</code>)
+      </li>
+      <li>Let our key be 6.</li>
+      <li>
+        Starting with the first letter: <code>T</code>. The letter 6 letters
+        away is <code>Z</code>. We add <code>Z</code> to the message.
+      </li>
+      <li>
+        The second letter is <code>h</code>. The letter 6 letters away is
+        <code>n</code>. Our message is now <code>Zn</code>
+      </li>
+      <li>
+        We continue like that until the end. Our final message is:
+        <code>Znk Igkygx iovnkx oy g lat yahyzozazout iovnkx.</code>
+      </li>
+      <li>
+        Decryption is the same way, except instead of going to the right in the
+        alphabet, we go backwards.
+      </li>
+    </ul>
+    <h2 id="implementation">Implementation</h2>
+    <ul>
+      <li>
+        <a
+          href="https://github.com/TheAlgorithms/Python/blob/master/ciphers/caesar_cipher.py"
+          >Python</a
+        >
+      </li>
+    </ul>
+  </body>
+</html>

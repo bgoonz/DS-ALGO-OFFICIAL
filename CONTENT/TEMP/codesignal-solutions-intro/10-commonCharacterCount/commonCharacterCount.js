@@ -6,16 +6,21 @@
 // URL : https://app.codesignal.com/arcade/intro/level-3/JKKuHJknZNj4YGL32
 
 function commonCharacterCount(s1, s2) {
-    let arr1 = s1.split(''), arr2 = s2.split('');
-    commonCharCount = 0;
-    if (arr1.length > arr2.length) { 
-      arr2.forEach(element => 
-        {if (arr1.indexOf(element) > -1 && arr1.splice(arr1.indexOf(element), 1)) commonCharCount += 1 })
-    } else {
-     arr1.forEach(element => {if (arr2.indexOf(element) > -1 && arr2.splice(arr2.indexOf(element), 1)) commonCharCount += 1})
-    }
-    return commonCharCount;
+  let arr1 = s1.split(""),
+    arr2 = s2.split("");
+  commonCharCount = 0;
+  if (arr1.length > arr2.length) {
+    arr2.forEach((element) => {
+      if (arr1.indexOf(element) > -1 && arr1.splice(arr1.indexOf(element), 1))
+        commonCharCount += 1;
+    });
+  } else {
+    arr1.forEach((element) => {
+      if (arr2.indexOf(element) > -1 && arr2.splice(arr2.indexOf(element), 1))
+        commonCharCount += 1;
+    });
+  }
+  return commonCharCount;
 }
-
 
 exports.commonCharacterCount = commonCharacterCount;

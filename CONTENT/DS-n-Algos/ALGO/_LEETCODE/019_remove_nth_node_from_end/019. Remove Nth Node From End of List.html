@@ -68,28 +68,33 @@ After removing the second node from the end, the linked list becomes 1-&gt;2-&gt
           <code>p1</code> because we want <code>p1</code> pointing at the last
           node.
         </p>
-        /**
+        <p>/**</p>
         <ul>
           <li>Definition for singly-linked list.</li>
           <li>function ListNode(val) {</li>
-          <li>
-            <pre><code>this.val = val;</code></pre>
-          </li>
-          <li>
-            <pre><code>this.next = null;</code></pre>
-          </li>
+          <li><p>this.val = val;</p></li>
+          <li><p>this.next = null;</p></li>
           <li>} */ /**</li>
           <li>
-            <span class="citation" data-cites="param">@param</span> {ListNode}
-            head
+            <span class="citation" data-cites="param"
+              ><span class="citation" data-cites="param">@param</span></span
+            >
+            {ListNode} head
           </li>
           <li>
-            <span class="citation" data-cites="param">@param</span> {number} n
+            <span class="citation" data-cites="param"
+              ><span class="citation" data-cites="param">@param</span></span
+            >
+            {number} n
           </li>
           <li>
-            <span class="citation" data-cites="return">@return</span> {ListNode}
-            */ let removeNthFromEnd = function(head, n) { let p1 = head while
-            (p1 &amp;&amp; n–) { p1 = p1.next }
+            <p>
+              <span class="citation" data-cites="return"
+                ><span class="citation" data-cites="return">@return</span></span
+              >
+              {ListNode} */ let removeNthFromEnd = function(head, n) { let p1 =
+              head while (p1 &amp;&amp; n–) { p1 = p1.next }
+            </p>
           </li>
         </ul>
         <p>if (!p1) { return n ? head : head.next }</p>
@@ -98,8 +103,5 @@ After removing the second node from the end, the linked list becomes 1-&gt;2-&gt
         <p>return head };</p>
       </li>
     </ul>
-    <br />
-    <hr />
-    <br />
   </body>
 </html>

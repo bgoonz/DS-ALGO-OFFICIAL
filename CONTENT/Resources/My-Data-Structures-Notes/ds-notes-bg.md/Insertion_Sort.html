@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="generator" content="pandoc" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=yes"
+    />
+    <title>Insertion Sort</title>
+    <style type="text/css">
+      code {
+        white-space: pre-wrap;
+      }
+      span.smallcaps {
+        font-variant: small-caps;
+      }
+      span.underline {
+        text-decoration: underline;
+      }
+      div.column {
+        display: inline-block;
+        vertical-align: top;
+        width: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 id="insertion-sort">Insertion Sort</h1>
+    <h4 id="problem-statement">Problem Statement</h4>
+    <p>
+      Given an array of n elements, write a function to sort the array in
+      increasing order.
+    </p>
+    <h4 id="approach">Approach</h4>
+    <ul>
+      <li>
+        Define a “key” index, the subarray to the left of which is sorted.
+      </li>
+      <li>
+        Initiate “key” as 1, ie. the second element of array(as there is only
+        one element to left of the second element, which can be considered as
+        sorted array with one element).
+      </li>
+      <li>
+        If value of element at (key - 1) position is less than value of element
+        at (key) position; increment “key”.
+      </li>
+      <li>
+        Else move elements of sorted subarray that are greater than value of
+        element at “key” to one position ahead of their current position. Put
+        the value of element at “key” in the newly created void.
+      </li>
+    </ul>
+    <h4 id="time-complexity">Time Complexity</h4>
+    <ul>
+      <li>
+        <p>
+          <code>О(n^2)</code> comparisons, <code>О(n^2)</code> swaps – Worst
+          Case
+        </p>
+      </li>
+      <li>
+        <p>
+          <code>O(n)</code> comparisons, <code>O(1)</code> swaps – Best Case
+        </p>
+      </li>
+    </ul>
+    <h4 id="space-complexity">Space Complexity</h4>
+    <p><code>O(1)</code> – (No extra space needed, sorting done in place)</p>
+    <h4 id="example">Example</h4>
+    <pre><code>
+12, 11, 13, 5, 6
+
+Let us loop for i = 1 (second element of the array) to 4 (Size of input array)
+
+i = 1.
+Since 11 is smaller than 12, move 12 and insert 11 before 12
+11, 12, 13, 5, 6
+
+i = 2.
+13 will remain at its position as all elements in sorted subarray are smaller than 13
+11, 12, 13, 5, 6
+
+i = 3.
+5 will move to the beginning,
+and all other elements from 11 to 13 will move one position ahead of their current position.
+5, 11, 12, 13, 6
+
+i = 4.
+6 will move to position after 5,
+and elements from 11 to 13 will move one position ahead of their current position.
+5, 6, 11, 12, 13  -- sorted array</code></pre>
+    <h4 id="code-implementation-links">Code Implementation Links</h4>
+    <ul>
+      <li>
+        <a
+          href="https://github.com/TheAlgorithms/Java/blob/master/Sorts/InsertionSort.java"
+          >Java</a
+        >
+      </li>
+      <li>
+        <a
+          href="https://github.com/TheAlgorithms/C/blob/master/sorting/insertion_sort.c"
+          >C</a
+        >
+      </li>
+      <li>
+        <a
+          href="https://github.com/TheAlgorithms/C-Plus-Plus/blob/master/sorting/insertion_sort.cpp"
+          >C++</a
+        >
+      </li>
+      <li>
+        <a
+          href="https://github.com/TheAlgorithms/C-Sharp/blob/master/Algorithms/Sorters/Comparison/InsertionSorter.cs"
+          >C#</a
+        >
+      </li>
+      <li>
+        <a
+          href="https://github.com/TheAlgorithms/Scala/blob/master/src/main/scala/Sort/InsertionSort.scala"
+          >Scala</a
+        >
+      </li>
+      <li>
+        <a
+          href="https://github.com/TheAlgorithms/Python/blob/master/sorts/insertion_sort.py"
+          >Python</a
+        >
+      </li>
+      <li>
+        <a
+          href="https://github.com/TheAlgorithms/Ruby/blob/master/sorting/insertion_sort.rb"
+          >Ruby</a
+        >
+      </li>
+    </ul>
+    <h4 id="video-explanation">Video Explanation</h4>
+    <p>
+      <a href="https://www.youtube.com/watch?v=DFG-XuyPYUQ"
+        >A CS50 video explaining the Insertion Search Algorithm</a
+      >
+    </p>
+  </body>
+</html>

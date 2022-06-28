@@ -4,9 +4,9 @@
 
 ## Objectives
 
-* Learn what graphs are
-* Learn the components of graphs
-* Learn what graphs are useful for
+- Learn what graphs are
+- Learn the components of graphs
+- Learn what graphs are useful for
 
 ## What Are Graphs?
 
@@ -33,7 +33,6 @@ Bacon](https://en.wikipedia.org/wiki/Six_Degrees_of_Kevin_Bacon).
 It could represent trade relationships between nations.
 
 And so on.
-
 
 ## Definitions
 
@@ -100,7 +99,7 @@ no way to go back and form a repeating loop in the git commit hierarchy.
 
 Draw examples of the following:
 
-* Undirected graph of 4 verts.
-* Directed graph of 5 verts.
-* Cyclic directed graph of 6 verts.
-* DAG of 7 verts.
+- Undirected graph of 4 verts.
+- Directed graph of 5 verts.
+- Cyclic directed graph of 6 verts.
+- DAG of 7 verts.

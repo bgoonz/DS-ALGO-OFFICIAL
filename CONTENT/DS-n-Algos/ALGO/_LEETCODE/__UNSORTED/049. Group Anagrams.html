@@ -54,7 +54,7 @@ Output:
  * @param {string[]} strs
  * @return {string[][]}
  */
-var groupAnagrams = function(strs) {
+let groupAnagrams = function(strs) {
   let result = {};
   for (let i = 0; i &lt; strs.length; i++) {
     const hash = strs[i].split(&#39;&#39;).sort().join(&#39;&#39;);
@@ -71,7 +71,7 @@ var groupAnagrams = function(strs) {
  * @param {string[]} strs
  * @return {string[][]}
  */
-var groupAnagrams = function(strs) {
+let groupAnagrams = function(strs) {
   const result = {};
   for (let i = 0; i &lt; strs.length; i++) {
     const word = strs[i]
@@ -84,8 +84,11 @@ var groupAnagrams = function(strs) {
   }
   return Object.values(result)
 };</code></pre>
-    <br />
-    <hr />
-    <br />
+    <p>
+      <em
+        >Template generated via
+        <a href="https://github.com/crimx/crx-leetmark">Leetmark</a>.</em
+      >
+    </p>
   </body>
 </html>

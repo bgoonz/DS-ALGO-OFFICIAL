@@ -1,4 +1,4 @@
-import BinarySearchTreeNode from './BinarySearchTreeNode';
+import BinarySearchTreeNode from "./BinarySearchTreeNode";
 
 export default class BinarySearchTree {
   /**

@@ -7,7 +7,7 @@
       name="viewport"
       content="width=device-width, initial-scale=1.0, user-scalable=yes"
     />
-    <title>049. Group Anagrams</title>
+    <title>049._Group_Anagrams</title>
     <style type="text/css">
       code {
         white-space: pre-wrap;
@@ -134,7 +134,7 @@
         color: #60a0b0;
         font-weight: bold;
         font-style: italic;
-      } /* Comment let */
+      } /* CommentVar */
       code span.do {
         color: #ba2121;
         font-style: italic;
@@ -231,14 +231,14 @@ Output:
 <a class="sourceLine" id="cb2-2" title="2"><span class="co"> * </span><span class="an">@param</span><span class="co"> </span><span class="cv">{string</span><span class="co">[]} strs</span></a>
 <a class="sourceLine" id="cb2-3" title="3"><span class="co"> * </span><span class="an">@return</span><span class="co"> {string[][]}</span></a>
 <a class="sourceLine" id="cb2-4" title="4"><span class="co"> */</span></a>
-<a class="sourceLine" id="cb2-5" title="5"><span class="kw">var</span> groupAnagrams <span class="op">=</span> <span class="kw">function</span>(strs) <span class="op">{</span></a>
+<a class="sourceLine" id="cb2-5" title="5"><span class="kw">let</span> groupAnagrams <span class="op">=</span> <span class="kw">function</span> (strs) <span class="op">{</span></a>
 <a class="sourceLine" id="cb2-6" title="6">  <span class="kw">let</span> result <span class="op">=</span> <span class="op">{};</span></a>
 <a class="sourceLine" id="cb2-7" title="7">  <span class="cf">for</span> (<span class="kw">let</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> <span class="va">strs</span>.<span class="at">length</span><span class="op">;</span> i<span class="op">++</span>) <span class="op">{</span></a>
-<a class="sourceLine" id="cb2-8" title="8">    <span class="kw">const</span> hash <span class="op">=</span> strs[i].<span class="at">split</span>(<span class="st">&#39;&#39;</span>).<span class="at">sort</span>().<span class="at">join</span>(<span class="st">&#39;&#39;</span>)<span class="op">;</span></a>
-<a class="sourceLine" id="cb2-9" title="9">    result[hash] <span class="op">=</span> result[hash] <span class="op">||</span> []</a>
-<a class="sourceLine" id="cb2-10" title="10">    result[hash].<span class="at">push</span>(strs[i])</a>
+<a class="sourceLine" id="cb2-8" title="8">    <span class="kw">const</span> hash <span class="op">=</span> strs[i].<span class="at">split</span>(<span class="st">&quot;&quot;</span>).<span class="at">sort</span>().<span class="at">join</span>(<span class="st">&quot;&quot;</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb2-9" title="9">    result[hash] <span class="op">=</span> result[hash] <span class="op">||</span> []<span class="op">;</span></a>
+<a class="sourceLine" id="cb2-10" title="10">    result[hash].<span class="at">push</span>(strs[i])<span class="op">;</span></a>
 <a class="sourceLine" id="cb2-11" title="11">  <span class="op">}</span></a>
-<a class="sourceLine" id="cb2-12" title="12">  <span class="cf">return</span> <span class="va">Object</span>.<span class="at">values</span>(result)</a>
+<a class="sourceLine" id="cb2-12" title="12">  <span class="cf">return</span> <span class="va">Object</span>.<span class="at">values</span>(result)<span class="op">;</span></a>
 <a class="sourceLine" id="cb2-13" title="13"><span class="op">};</span></a></code></pre>
     </div>
     <h4 id="two">TWO</h4>
@@ -246,28 +246,38 @@ Output:
     <div class="sourceCode" id="cb3">
       <pre
         class="sourceCode javascript"
-      ><code class="sourceCode javascript"><a class="sourceLine" id="cb3-1" title="1"><span class="kw">const</span> prime <span class="op">=</span> [<span class="dv">2</span><span class="op">,</span><span class="dv">3</span><span class="op">,</span><span class="dv">5</span><span class="op">,</span><span class="dv">7</span><span class="op">,</span><span class="dv">11</span><span class="op">,</span><span class="dv">13</span><span class="op">,</span><span class="dv">17</span><span class="op">,</span><span class="dv">19</span><span class="op">,</span><span class="dv">23</span><span class="op">,</span><span class="dv">29</span><span class="op">,</span><span class="dv">31</span><span class="op">,</span><span class="dv">37</span><span class="op">,</span><span class="dv">41</span><span class="op">,</span><span class="dv">43</span><span class="op">,</span><span class="dv">47</span><span class="op">,</span><span class="dv">53</span><span class="op">,</span><span class="dv">59</span><span class="op">,</span><span class="dv">61</span><span class="op">,</span><span class="dv">67</span><span class="op">,</span><span class="dv">71</span><span class="op">,</span><span class="dv">73</span><span class="op">,</span><span class="dv">79</span><span class="op">,</span><span class="dv">83</span><span class="op">,</span><span class="dv">89</span><span class="op">,</span><span class="dv">97</span><span class="op">,</span><span class="dv">101</span>]</a>
-<a class="sourceLine" id="cb3-2" title="2"></a>
-<a class="sourceLine" id="cb3-3" title="3"><span class="co">/**</span></a>
-<a class="sourceLine" id="cb3-4" title="4"><span class="co"> * </span><span class="an">@param</span><span class="co"> </span><span class="cv">{string</span><span class="co">[]} strs</span></a>
-<a class="sourceLine" id="cb3-5" title="5"><span class="co"> * </span><span class="an">@return</span><span class="co"> {string[][]}</span></a>
-<a class="sourceLine" id="cb3-6" title="6"><span class="co"> */</span></a>
-<a class="sourceLine" id="cb3-7" title="7"><span class="kw">var</span> groupAnagrams <span class="op">=</span> <span class="kw">function</span>(strs) <span class="op">{</span></a>
-<a class="sourceLine" id="cb3-8" title="8">  <span class="kw">const</span> result <span class="op">=</span> <span class="op">{};</span></a>
-<a class="sourceLine" id="cb3-9" title="9">  <span class="cf">for</span> (<span class="kw">let</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> <span class="va">strs</span>.<span class="at">length</span><span class="op">;</span> i<span class="op">++</span>) <span class="op">{</span></a>
-<a class="sourceLine" id="cb3-10" title="10">    <span class="kw">const</span> word <span class="op">=</span> strs[i]</a>
-<a class="sourceLine" id="cb3-11" title="11">    <span class="kw">let</span> hash <span class="op">=</span> <span class="dv">1</span></a>
-<a class="sourceLine" id="cb3-12" title="12">    <span class="cf">for</span> (<span class="kw">let</span> k <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> k <span class="op">&lt;</span> <span class="va">word</span>.<span class="at">length</span><span class="op">;</span> k<span class="op">++</span>) <span class="op">{</span></a>
-<a class="sourceLine" id="cb3-13" title="13">      hash <span class="op">*=</span> prime[<span class="va">word</span>.<span class="at">charCodeAt</span>(k) <span class="op">-</span> <span class="dv">97</span>]</a>
-<a class="sourceLine" id="cb3-14" title="14">    <span class="op">}</span></a>
-<a class="sourceLine" id="cb3-15" title="15">    result[hash] <span class="op">=</span> result[hash] <span class="op">||</span> []</a>
-<a class="sourceLine" id="cb3-16" title="16">    result[hash].<span class="at">push</span>(word)</a>
-<a class="sourceLine" id="cb3-17" title="17">  <span class="op">}</span></a>
-<a class="sourceLine" id="cb3-18" title="18">  <span class="cf">return</span> <span class="va">Object</span>.<span class="at">values</span>(result)</a>
-<a class="sourceLine" id="cb3-19" title="19"><span class="op">};</span></a></code></pre>
+      ><code class="sourceCode javascript"><a class="sourceLine" id="cb3-1" title="1"><span class="kw">const</span> prime <span class="op">=</span> [</a>
+<a class="sourceLine" id="cb3-2" title="2">  <span class="dv">2</span><span class="op">,</span> <span class="dv">3</span><span class="op">,</span> <span class="dv">5</span><span class="op">,</span> <span class="dv">7</span><span class="op">,</span> <span class="dv">11</span><span class="op">,</span> <span class="dv">13</span><span class="op">,</span> <span class="dv">17</span><span class="op">,</span> <span class="dv">19</span><span class="op">,</span> <span class="dv">23</span><span class="op">,</span> <span class="dv">29</span><span class="op">,</span> <span class="dv">31</span><span class="op">,</span> <span class="dv">37</span><span class="op">,</span> <span class="dv">41</span><span class="op">,</span> <span class="dv">43</span><span class="op">,</span> <span class="dv">47</span><span class="op">,</span> <span class="dv">53</span><span class="op">,</span> <span class="dv">59</span><span class="op">,</span> <span class="dv">61</span><span class="op">,</span> <span class="dv">67</span><span class="op">,</span> <span class="dv">71</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb3-3" title="3">  <span class="dv">73</span><span class="op">,</span> <span class="dv">79</span><span class="op">,</span> <span class="dv">83</span><span class="op">,</span> <span class="dv">89</span><span class="op">,</span> <span class="dv">97</span><span class="op">,</span> <span class="dv">101</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb3-4" title="4">]<span class="op">;</span></a>
+<a class="sourceLine" id="cb3-5" title="5"></a>
+<a class="sourceLine" id="cb3-6" title="6"><span class="co">/**</span></a>
+<a class="sourceLine" id="cb3-7" title="7"><span class="co"> * </span><span class="an">@param</span><span class="co"> </span><span class="cv">{string</span><span class="co">[]} strs</span></a>
+<a class="sourceLine" id="cb3-8" title="8"><span class="co"> * </span><span class="an">@return</span><span class="co"> {string[][]}</span></a>
+<a class="sourceLine" id="cb3-9" title="9"><span class="co"> */</span></a>
+<a class="sourceLine" id="cb3-10" title="10"><span class="kw">let</span> groupAnagrams <span class="op">=</span> <span class="kw">function</span> (strs) <span class="op">{</span></a>
+<a class="sourceLine" id="cb3-11" title="11">  <span class="kw">const</span> result <span class="op">=</span> <span class="op">{};</span></a>
+<a class="sourceLine" id="cb3-12" title="12">  <span class="cf">for</span> (<span class="kw">let</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> <span class="va">strs</span>.<span class="at">length</span><span class="op">;</span> i<span class="op">++</span>) <span class="op">{</span></a>
+<a class="sourceLine" id="cb3-13" title="13">    <span class="kw">const</span> word <span class="op">=</span> strs[i]<span class="op">;</span></a>
+<a class="sourceLine" id="cb3-14" title="14">    <span class="kw">let</span> hash <span class="op">=</span> <span class="dv">1</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb3-15" title="15">    <span class="cf">for</span> (<span class="kw">let</span> k <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> k <span class="op">&lt;</span> <span class="va">word</span>.<span class="at">length</span><span class="op">;</span> k<span class="op">++</span>) <span class="op">{</span></a>
+<a class="sourceLine" id="cb3-16" title="16">      hash <span class="op">*=</span> prime[<span class="va">word</span>.<span class="at">charCodeAt</span>(k) <span class="op">-</span> <span class="dv">97</span>]<span class="op">;</span></a>
+<a class="sourceLine" id="cb3-17" title="17">    <span class="op">}</span></a>
+<a class="sourceLine" id="cb3-18" title="18">    result[hash] <span class="op">=</span> result[hash] <span class="op">||</span> []<span class="op">;</span></a>
+<a class="sourceLine" id="cb3-19" title="19">    result[hash].<span class="at">push</span>(word)<span class="op">;</span></a>
+<a class="sourceLine" id="cb3-20" title="20">  <span class="op">}</span></a>
+<a class="sourceLine" id="cb3-21" title="21">  <span class="cf">return</span> <span class="va">Object</span>.<span class="at">values</span>(result)<span class="op">;</span></a>
+<a class="sourceLine" id="cb3-22" title="22"><span class="op">};</span></a></code></pre>
     </div>
-    <br />
     <hr />
-    <br />
+    <p>
+      ☆<em>: .｡. o(≧▽≦)o .｡.:</em>☆☆<em>: .｡. o(≧▽≦)o .｡.:</em>☆☆<em
+        >: .｡. o(≧▽≦)o .｡.:</em
+      >☆
+    </p>
+    <hr />
+    <hr />
+    <p>☆<em>: .｡. o(≧▽≦)o .｡.:</em>☆☆<em>: .｡. o(≧▽≦)o .｡.:</em>☆</p>
+    <hr />
   </body>
 </html>

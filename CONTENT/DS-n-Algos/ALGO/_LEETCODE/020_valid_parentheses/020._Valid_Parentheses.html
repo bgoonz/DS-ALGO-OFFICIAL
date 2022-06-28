@@ -7,7 +7,7 @@
       name="viewport"
       content="width=device-width, initial-scale=1.0, user-scalable=yes"
     />
-    <title>020. Valid Parentheses</title>
+    <title>020._Valid_Parentheses</title>
     <style type="text/css">
       code {
         white-space: pre-wrap;
@@ -134,7 +134,7 @@
         color: #60a0b0;
         font-weight: bold;
         font-style: italic;
-      } /* Comment let */
+      } /* CommentVar */
       code span.do {
         color: #ba2121;
         font-style: italic;
@@ -250,28 +250,35 @@ Output: true</code></pre>
 <a class="sourceLine" id="cb6-2" title="2"><span class="co"> * </span><span class="an">@param</span><span class="co"> </span><span class="cv">{string}</span><span class="co"> s</span></a>
 <a class="sourceLine" id="cb6-3" title="3"><span class="co"> * </span><span class="an">@return</span><span class="co"> {boolean}</span></a>
 <a class="sourceLine" id="cb6-4" title="4"><span class="co"> */</span></a>
-<a class="sourceLine" id="cb6-5" title="5"><span class="kw">var</span> isValid <span class="op">=</span> <span class="kw">function</span>(s) <span class="op">{</span></a>
-<a class="sourceLine" id="cb6-6" title="6">  <span class="kw">const</span> stack <span class="op">=</span> []</a>
+<a class="sourceLine" id="cb6-5" title="5"><span class="kw">let</span> isValid <span class="op">=</span> <span class="kw">function</span> (s) <span class="op">{</span></a>
+<a class="sourceLine" id="cb6-6" title="6">  <span class="kw">const</span> stack <span class="op">=</span> []<span class="op">;</span></a>
 <a class="sourceLine" id="cb6-7" title="7">  <span class="kw">const</span> pairs <span class="op">=</span> <span class="op">{</span></a>
-<a class="sourceLine" id="cb6-8" title="8">    <span class="st">&#39;}&#39;</span><span class="op">:</span> <span class="st">&#39;{&#39;</span><span class="op">,</span></a>
-<a class="sourceLine" id="cb6-9" title="9">    <span class="st">&#39;]&#39;</span><span class="op">:</span> <span class="st">&#39;[&#39;</span><span class="op">,</span></a>
-<a class="sourceLine" id="cb6-10" title="10">    <span class="st">&#39;)&#39;</span><span class="op">:</span> <span class="st">&#39;(&#39;</span><span class="op">,</span></a>
-<a class="sourceLine" id="cb6-11" title="11">  <span class="op">}</span></a>
+<a class="sourceLine" id="cb6-8" title="8">    <span class="st">&quot;}&quot;</span><span class="op">:</span> <span class="st">&quot;{&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb6-9" title="9">    <span class="st">&quot;]&quot;</span><span class="op">:</span> <span class="st">&quot;[&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb6-10" title="10">    <span class="st">&quot;)&quot;</span><span class="op">:</span> <span class="st">&quot;(&quot;</span><span class="op">,</span></a>
+<a class="sourceLine" id="cb6-11" title="11">  <span class="op">};</span></a>
 <a class="sourceLine" id="cb6-12" title="12">  <span class="cf">for</span> (<span class="kw">const</span> c <span class="kw">of</span> s) <span class="op">{</span></a>
-<a class="sourceLine" id="cb6-13" title="13">    <span class="kw">const</span> open <span class="op">=</span> pairs[c]</a>
+<a class="sourceLine" id="cb6-13" title="13">    <span class="kw">const</span> open <span class="op">=</span> pairs[c]<span class="op">;</span></a>
 <a class="sourceLine" id="cb6-14" title="14">    <span class="cf">if</span> (open) <span class="op">{</span></a>
 <a class="sourceLine" id="cb6-15" title="15">      <span class="cf">if</span> (<span class="va">stack</span>.<span class="at">pop</span>() <span class="op">!==</span> open) <span class="op">{</span></a>
-<a class="sourceLine" id="cb6-16" title="16">        <span class="cf">return</span> <span class="kw">false</span></a>
+<a class="sourceLine" id="cb6-16" title="16">        <span class="cf">return</span> <span class="kw">false</span><span class="op">;</span></a>
 <a class="sourceLine" id="cb6-17" title="17">      <span class="op">}</span></a>
 <a class="sourceLine" id="cb6-18" title="18">    <span class="op">}</span> <span class="cf">else</span> <span class="op">{</span></a>
-<a class="sourceLine" id="cb6-19" title="19">      <span class="va">stack</span>.<span class="at">push</span>(c)</a>
+<a class="sourceLine" id="cb6-19" title="19">      <span class="va">stack</span>.<span class="at">push</span>(c)<span class="op">;</span></a>
 <a class="sourceLine" id="cb6-20" title="20">    <span class="op">}</span></a>
 <a class="sourceLine" id="cb6-21" title="21">  <span class="op">}</span></a>
-<a class="sourceLine" id="cb6-22" title="22">  <span class="cf">return</span> <span class="va">stack</span>.<span class="at">length</span> <span class="op">&lt;=</span> <span class="dv">0</span></a>
+<a class="sourceLine" id="cb6-22" title="22">  <span class="cf">return</span> <span class="va">stack</span>.<span class="at">length</span> <span class="op">&lt;=</span> <span class="dv">0</span><span class="op">;</span></a>
 <a class="sourceLine" id="cb6-23" title="23"><span class="op">};</span></a></code></pre>
     </div>
-    <br />
     <hr />
-    <br />
+    <p>
+      ☆<em>: .｡. o(≧▽≦)o .｡.:</em>☆☆<em>: .｡. o(≧▽≦)o .｡.:</em>☆☆<em
+        >: .｡. o(≧▽≦)o .｡.:</em
+      >☆
+    </p>
+    <hr />
+    <hr />
+    <p>☆<em>: .｡. o(≧▽≦)o .｡.:</em>☆☆<em>: .｡. o(≧▽≦)o .｡.:</em>☆</p>
+    <hr />
   </body>
 </html>

@@ -1,4 +1,4 @@
-import QueenPosition from './QueenPosition';
+import QueenPosition from "./QueenPosition";
 
 /**
  * @param {QueenPosition[]} queensPositions
@@ -11,22 +11,24 @@ function isSafe(queensPositions, rowIndex, columnIndex) {
   const newQueenPosition = new QueenPosition(rowIndex, columnIndex);
 
   // Check if new queen position conflicts with any other queens.
-  for (let queenIndex = 0; queenIndex < queensPositions.length; queenIndex += 1) {
+  for (
+    let queenIndex = 0;
+    queenIndex < queensPositions.length;
+    queenIndex += 1
+  ) {
     const currentQueenPosition = queensPositions[queenIndex];
 
     if (
       // Check if queen has been already placed.
-      currentQueenPosition
-      && (
-        // Check if there are any queen on the same column.
-        newQueenPosition.columnIndex === currentQueenPosition.columnIndex
+      currentQueenPosition &&
+      // Check if there are any queen on the same column.
+      (newQueenPosition.columnIndex === currentQueenPosition.columnIndex ||
         // Check if there are any queen on the same row.
-        || newQueenPosition.rowIndex === currentQueenPosition.rowIndex
+        newQueenPosition.rowIndex === currentQueenPosition.rowIndex ||
         // Check if there are any queen on the same left diagonal.
-        || newQueenPosition.leftDiagonal === currentQueenPosition.leftDiagonal
+        newQueenPosition.leftDiagonal === currentQueenPosition.leftDiagonal ||
         // Check if there are any queen on the same right diagonal.
-        || newQueenPosition.rightDiagonal === currentQueenPosition.rightDiagonal
-      )
+        newQueenPosition.rightDiagonal === currentQueenPosition.rightDiagonal)
     ) {
       // Can't place queen into current position since there are other queens that
       // are threatening it.
@@ -45,13 +47,17 @@ function isSafe(queensPositions, rowIndex, columnIndex) {
  * @param {number} rowIndex
  * @return {boolean}
  */
-function nQueensRecursive(solutions, previousQueensPositions, queensCount, rowIndex) {
+function nQueensRecursive(
+  solutions,
+  previousQueensPositions,
+  queensCount,
+  rowIndex
+) {
   // Clone positions array.
   const queensPositions = [...previousQueensPositions].map((queenPosition) => {
-    return !queenPosition ? queenPosition : new QueenPosition(
-      queenPosition.rowIndex,
-      queenPosition.columnIndex,
-    );
+    return !queenPosition
+      ? queenPosition
+      : new QueenPosition(queenPosition.rowIndex, queenPosition.columnIndex);
   });
 
   if (rowIndex === queensCount) {

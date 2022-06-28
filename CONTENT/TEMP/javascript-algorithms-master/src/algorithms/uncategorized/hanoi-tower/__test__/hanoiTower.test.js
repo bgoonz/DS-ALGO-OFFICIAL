@@ -1,8 +1,8 @@
-import hanoiTower from '../hanoiTower';
-import Stack from '../../../../data-structures/stack/Stack';
+import hanoiTower from "../hanoiTower";
+import Stack from "../../../../data-structures/stack/Stack";
 
-describe('hanoiTower', () => {
-  it('should solve tower of hanoi puzzle with 2 discs', () => {
+describe("hanoiTower", () => {
+  it("should solve tower of hanoi puzzle with 2 discs", () => {
     const moveCallback = jest.fn();
     const numberOfDiscs = 2;
 
@@ -18,7 +18,7 @@ describe('hanoiTower', () => {
       toPole,
     });
 
-    expect(moveCallback).toHaveBeenCalledTimes((2 ** numberOfDiscs) - 1);
+    expect(moveCallback).toHaveBeenCalledTimes(2 ** numberOfDiscs - 1);
 
     expect(fromPole.toArray()).toEqual([]);
     expect(toPole.toArray()).toEqual([1, 2]);
@@ -36,7 +36,7 @@ describe('hanoiTower', () => {
     expect(moveCallback.mock.calls[2][2]).toEqual([2]);
   });
 
-  it('should solve tower of hanoi puzzle with 3 discs', () => {
+  it("should solve tower of hanoi puzzle with 3 discs", () => {
     const moveCallback = jest.fn();
     const numberOfDiscs = 3;
 
@@ -45,10 +45,10 @@ describe('hanoiTower', () => {
       moveCallback,
     });
 
-    expect(moveCallback).toHaveBeenCalledTimes((2 ** numberOfDiscs) - 1);
+    expect(moveCallback).toHaveBeenCalledTimes(2 ** numberOfDiscs - 1);
   });
 
-  it('should solve tower of hanoi puzzle with 6 discs', () => {
+  it("should solve tower of hanoi puzzle with 6 discs", () => {
     const moveCallback = jest.fn();
     const numberOfDiscs = 6;
 
@@ -57,6 +57,6 @@ describe('hanoiTower', () => {
       moveCallback,
     });
 
-    expect(moveCallback).toHaveBeenCalledTimes((2 ** numberOfDiscs) - 1);
+    expect(moveCallback).toHaveBeenCalledTimes(2 ** numberOfDiscs - 1);
   });
 });

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="generator" content="pandoc" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=yes"
+    />
+    <title>README</title>
+    <style type="text/css">
+      code {
+        white-space: pre-wrap;
+      }
+      span.smallcaps {
+        font-variant: small-caps;
+      }
+      span.underline {
+        text-decoration: underline;
+      }
+      div.column {
+        display: inline-block;
+        vertical-align: top;
+        width: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 id="linear-algebra-library-for-python">
+      Linear algebra library for Python
+    </h1>
+    <p>This module contains classes and functions for doing linear algebra.</p>
+    <hr />
+    <h2 id="overview">Overview</h2>
+    <h3 id="class-vector">class Vector</h3>
+    <ul>
+      <li>
+        <ul>
+          <li>
+            This class represents a vector of arbitrary size and related
+            operations.
+          </li>
+        </ul>
+        <p><strong>Overview about the methods:</strong></p>
+        <ul>
+          <li>constructor(components : list) : init the vector</li>
+          <li>set(components : list) : changes the vector components.</li>
+          <li>__str__() : toString method</li>
+          <li>component(i : int): gets the i-th component (start by 0)</li>
+          <li>
+            __len__() : gets the size / length of the vector (number of
+            components)
+          </li>
+          <li>euclidLength() : returns the eulidean length of the vector.</li>
+          <li>operator + : vector addition</li>
+          <li>operator - : vector subtraction</li>
+          <li>operator * : scalar multiplication and dot product</li>
+          <li>copy() : copies this vector and returns it.</li>
+          <li>changeComponent(pos,value) : changes the specified component.</li>
+        </ul>
+      </li>
+      <li>
+        function zeroVector(dimension)
+        <ul>
+          <li>returns a zero vector of ‘dimension’</li>
+        </ul>
+      </li>
+      <li>
+        function unitBasisVector(dimension,pos)
+        <ul>
+          <li>
+            returns a unit basis vector with a One at index ‘pos’ (indexing at
+            0)
+          </li>
+        </ul>
+      </li>
+      <li>
+        function axpy(scalar,vector1,vector2)
+        <ul>
+          <li>computes the axpy operation</li>
+        </ul>
+      </li>
+      <li>
+        function randomVector(N,a,b)
+        <ul>
+          <li>
+            returns a random vector of size N, with random integer components
+            between ‘a’ and ‘b’.
+          </li>
+        </ul>
+      </li>
+    </ul>
+    <h3 id="class-matrix">class Matrix</h3>
+    <ul>
+      <li>
+        <ul>
+          <li>
+            This class represents a matrix of arbitrary size and operations on
+            it.
+          </li>
+        </ul>
+        <p><strong>Overview about the methods:</strong></p>
+        <ul>
+          <li>__str__() : returns a string representation</li>
+          <li>
+            operator * : implements the matrix vector multiplication implements
+            the matrix-scalar multiplication.
+          </li>
+          <li>changeComponent(x,y,value) : changes the specified component.</li>
+          <li>component(x,y) : returns the specified component.</li>
+          <li>width() : returns the width of the matrix</li>
+          <li>height() : returns the height of the matrix</li>
+          <li>
+            determinate() : returns the determinate of the matrix if it is
+            square
+          </li>
+          <li>operator + : implements the matrix-addition.</li>
+          <li>operator - _ implements the matrix-subtraction</li>
+        </ul>
+      </li>
+      <li>
+        function squareZeroMatrix(N)
+        <ul>
+          <li>returns a square zero-matrix of dimension NxN</li>
+        </ul>
+      </li>
+      <li>
+        function randomMatrix(W,H,a,b)
+        <ul>
+          <li>
+            returns a random matrix WxH with integer components between ‘a’ and
+            ‘b’
+          </li>
+        </ul>
+      </li>
+    </ul>
+    <hr />
+    <h2 id="documentation">Documentation</h2>
+    <p>
+      This module uses docstrings to enable the use of Python’s in-built
+      <code>help(...)</code> function. For instance, try
+      <code>help(Vector)</code>, <code>help(unitBasisVector)</code>, and
+      <code>help(CLASSNAME.METHODNAME)</code>.
+    </p>
+    <hr />
+    <h2 id="usage">Usage</h2>
+    <p>
+      Import the module <code>lib.py</code> from the
+      <strong>src</strong> directory into your project. Alternatively, you can
+      directly use the Python bytecode file <code>lib.pyc</code>.
+    </p>
+    <hr />
+    <h2 id="tests">Tests</h2>
+    <p>
+      <code>src/tests.py</code> contains Python unit tests which can be run with
+      <code>python3 -m unittest -v</code>.
+    </p>
+  </body>
+</html>

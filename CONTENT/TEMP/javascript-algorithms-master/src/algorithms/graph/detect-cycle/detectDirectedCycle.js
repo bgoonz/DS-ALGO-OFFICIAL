@@ -1,4 +1,4 @@
-import depthFirstSearch from '../depth-first-search/depthFirstSearch';
+import depthFirstSearch from "../depth-first-search/depthFirstSearch";
 
 /**
  * Detect cycle in directed graph using Depth First Search.

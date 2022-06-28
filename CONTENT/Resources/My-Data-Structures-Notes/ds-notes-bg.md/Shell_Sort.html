@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="generator" content="pandoc" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=yes"
+    />
+    <title>Shell Sort</title>
+    <style type="text/css">
+      code {
+        white-space: pre-wrap;
+      }
+      span.smallcaps {
+        font-variant: small-caps;
+      }
+      span.underline {
+        text-decoration: underline;
+      }
+      div.column {
+        display: inline-block;
+        vertical-align: top;
+        width: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 id="shell-sort">Shell Sort</h1>
+    <h4 id="problem-statement">Problem Statement</h4>
+    <p>
+      Given an unsorted array of n elements, write a function to sort the array
+    </p>
+    <h4 id="approach">Approach</h4>
+    <ul>
+      <li>start with the initial gap, g</li>
+      <li>go through the first (n - g) elements in the array</li>
+      <li>compare the element with the next element that is g distance away</li>
+      <li>swap the two elements if the first element is bigger</li>
+      <li>decrease the gap and repeat until gap = 1</li>
+    </ul>
+    <h4 id="time-complexity">Time Complexity</h4>
+    <p>
+      Time complexity is dependent on the gap sequences. Below time complexities
+      are based on the gap sequences of n/2^k.
+    </p>
+    <p><code>O(n^2)</code> Worst case performance</p>
+    <p><code>O(n)</code> Best-case performance</p>
+    <p><code>O(n^2)</code> Average performance</p>
+    <h4 id="space-complexity">Space Complexity</h4>
+    <p><code>O(1)</code> Worst case</p>
+    <h4 id="founders-name">Founder’s Name</h4>
+    <p>Donald Shell</p>
+    <h4 id="example">Example</h4>
+    <pre><code>arr[] = {61, 109, 149, 111, 34, 2, 24, 119}
+Initial Gap: 4
+
+1.  Index = 0, Next element index = 4
+2.  61 &gt; 34, swap 61 and 34
+3.  The array is now {34, 109, 149, 111, 61, 2, 24, 119}
+
+4.  Index = 1, Next element index = 5
+5.  109 &gt; 2, swap 109 and 2
+6.  The array is now {34, 2, 149, 111, 61, 109, 24, 119}
+
+7.  Index = 2, Next element index = 6
+8.  149 &gt; 24, swap 149 and 24
+9.  The array is now {34, 2, 24, 111, 61, 109, 149, 119}
+
+10. Index = 3, Next element index = 7
+11. 111 &lt; 119, do nothing and continue
+
+12. Divide the gap by 2 and repeat until gap = 1</code></pre>
+    <h4 id="code-implementation-links">Code Implementation Links</h4>
+    <ul>
+      <li>
+        <a
+          href="https://github.com/TheAlgorithms/Java/blob/master/Sorts/ShellSort.java"
+          >Java</a
+        >
+      </li>
+      <li>
+        <a
+          href="https://github.com/TheAlgorithms/C-Plus-Plus/blob/master/Sorting/Shell%20Sort.cpp"
+          >C++</a
+        >
+      </li>
+      <li>
+        <a
+          href="https://github.com/TheAlgorithms/Python/blob/master/sorts/shell_sort.py"
+          >Python</a
+        >
+      </li>
+      <li>
+        <a
+          href="https://github.com/TheAlgorithms/C-Sharp/blob/master/sorts/shell_sort.cs"
+          >C-Sharp</a
+        >
+      </li>
+      <li>
+        <a
+          href="https://github.com/TheAlgorithms/Go/blob/master/sorts/shell_sort.go"
+          >Go</a
+        >
+      </li>
+      <li>
+        <a
+          href="https://github.com/TheAlgorithms/Ruby/blob/master/Sorting/shell_sort.rb"
+          >Ruby</a
+        >
+      </li>
+      <li>
+        <a
+          href="https://github.com/TheAlgorithms/C/blob/master/sorting/shellSort.c"
+          >C</a
+        >
+      </li>
+      <li>
+        <a
+          href="https://github.com/TheAlgorithms/Javascript/blob/master/Sorts/shellSort.js"
+          >Javascript</a
+        >
+      </li>
+    </ul>
+    <h4 id="video-explanation">Video Explanation</h4>
+    <p>
+      <a href="https://www.youtube.com/watch?v=H8NiFkGu2PY"
+        >A video explaining the Shell Sort Algorithm</a
+      >
+    </p>
+    <h4 id="others">Others</h4>
+    <p>Shell sort is also known as diminishing increment sort.</p>
+  </body>
+</html>

@@ -8,7 +8,7 @@ Quando comparado com um _flat array_ de números, a árvore Fenwick
 alcança um balanceamento muito melhor entre duas operações: atualização
 (_update_) do elemento e cálculo da soma do prefíxo. Em uma _flar array_
 de `n` números, você pode tanto armazenar elementos quando a soma dos
-prefixos. Em ambos os casos, computar a soma dos prefixos requer ou 
+prefixos. Em ambos os casos, computar a soma dos prefixos requer ou
 atualizar um array de elementos também requerem um tempo linear, contudo,
 a demais operações podem ser realizadas com tempo constante.
 A árvore Fenwick permite ambas as operações serem realizadas com tempo
@@ -25,7 +25,7 @@ a nós em `O(log n)`.
 Binária Indexada armazena a soma de alguns dos elementos de uma _array_
 fornecida. O tamanho da Árvore Binária Indexada é igual a `n` aonde `n` é o
 tamanho do _array_ de entrada. Na presente implementação nós utilizados o
-tamanho `n+1` para uma implementação fácil. Todos os índices são baseados em 1. 
+tamanho `n+1` para uma implementação fácil. Todos os índices são baseados em 1.
 
 ![Binary Indexed Tree](https://www.geeksforgeeks.org/wp-content/uploads/BITSum.png)
 

@@ -1,7 +1,7 @@
-import euclideanAlgorithmIterative from '../euclideanAlgorithmIterative';
+import euclideanAlgorithmIterative from "../euclideanAlgorithmIterative";
 
-describe('euclideanAlgorithmIterative', () => {
-  it('should calculate GCD iteratively', () => {
+describe("euclideanAlgorithmIterative", () => {
+  it("should calculate GCD iteratively", () => {
     expect(euclideanAlgorithmIterative(0, 0)).toBe(0);
     expect(euclideanAlgorithmIterative(2, 0)).toBe(2);
     expect(euclideanAlgorithmIterative(0, 2)).toBe(2);

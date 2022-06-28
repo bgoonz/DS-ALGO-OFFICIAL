@@ -3,13 +3,13 @@
 O **bloom filter** é uma estrutura de dados probabilística
 espaço-eficiente designada para testar se um elemento está
 ou não presente em um conjunto de dados. Foi projetado para ser
-incrivelmente rápido e utilizar o mínimo de memória ao 
-potencial custo de um falso-positivo. Correspondências 
-_falsas positivas_ são possíveis, contudo _falsos negativos_ 
-não são - em outras palavras, a consulta retorna 
+incrivelmente rápido e utilizar o mínimo de memória ao
+potencial custo de um falso-positivo. Correspondências
+_falsas positivas_ são possíveis, contudo _falsos negativos_
+não são - em outras palavras, a consulta retorna
 "possivelmente no conjunto" ou "definitivamente não no conjunto".
 
-Bloom propôs a técnica para aplicações onde a quantidade 
+Bloom propôs a técnica para aplicações onde a quantidade
 de entrada de dados exigiria uma alocação de memória
 impraticavelmente grande se as "convencionais" técnicas
 error-free hashing fossem aplicado.
@@ -20,7 +20,7 @@ Um filtro Bloom vazio é um _bit array_ de `m` bits, todos
 definidos como `0`. Também deverá haver diferentes funções
 de hash `k` definidas, cada um dos quais mapeia e produz hash
 para um dos elementos definidos em uma das posições `m` da
- _array_, gerando uma distribuição aleatória e uniforme.
+_array_, gerando uma distribuição aleatória e uniforme.
 Normalmente, `k` é uma constante, muito menor do que `m`,
 pelo qual é proporcional ao número de elements a ser adicionado;
 a escolha precisa de `k` e a constante de proporcionalidade de `m`
@@ -84,7 +84,7 @@ não foi anteriormente inserido.
 ## Falso Positivos
 
 A probabilidade de falso positivos é determinado por
-três fatores: o tamanho do filtro de Bloom, o número de 
+três fatores: o tamanho do filtro de Bloom, o número de
 funções de hash que utilizados, e o número de itens que
 foram inseridos dentro do filtro.
 
@@ -107,18 +107,17 @@ os valores devem ser ajustados e a probabilidade recalculada.
 
 Um filtro Bloom pode ser utilizado em uma página de Blog.
 Se o objetivo é mostrar aos leitores somente os artigos
-em que eles nunca viram, então o filtro Bloom é perfeito 
+em que eles nunca viram, então o filtro Bloom é perfeito
 para isso. Ele pode armazenar hashes baseados nos artigos.
 Depois que um usuário lê alguns artigos, eles podem ser
 inseridos dentro do filtro. Na próxima vez que o usuário
-visitar o Blog, aqueles artigos poderão ser filtrados (eliminados) 
+visitar o Blog, aqueles artigos poderão ser filtrados (eliminados)
 do resultado.
 
-Alguns artigos serão inevitavelmente filtrados (eliminados) 
+Alguns artigos serão inevitavelmente filtrados (eliminados)
 por engano, mas o custo é aceitável. Tudo bem se um usuário nunca
 ver alguns poucos artigos, desde que tenham outros novos
-para ver toda vez que eles visitam o site. 
-
+para ver toda vez que eles visitam o site.
 
 ## Referências
 

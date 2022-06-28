@@ -1,7 +1,7 @@
-import fastPowering from '../fastPowering';
+import fastPowering from "../fastPowering";
 
-describe('fastPowering', () => {
-  it('should compute power in log(n) time', () => {
+describe("fastPowering", () => {
+  it("should compute power in log(n) time", () => {
     expect(fastPowering(1, 1)).toBe(1);
     expect(fastPowering(2, 0)).toBe(1);
     expect(fastPowering(2, 2)).toBe(4);

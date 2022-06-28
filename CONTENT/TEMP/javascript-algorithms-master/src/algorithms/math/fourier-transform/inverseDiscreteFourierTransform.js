@@ -1,4 +1,4 @@
-import ComplexNumber from '../complex-number/ComplexNumber';
+import ComplexNumber from "../complex-number/ComplexNumber";
 
 const CLOSE_TO_ZERO_THRESHOLD = 1e-10;
 
@@ -15,7 +15,7 @@ const CLOSE_TO_ZERO_THRESHOLD = 1e-10;
  */
 export default function inverseDiscreteFourierTransform(
   frequencies,
-  zeroThreshold = CLOSE_TO_ZERO_THRESHOLD,
+  zeroThreshold = CLOSE_TO_ZERO_THRESHOLD
 ) {
   const N = frequencies.length;
   const amplitudes = [];
@@ -30,7 +30,7 @@ export default function inverseDiscreteFourierTransform(
       const currentFrequency = frequencies[frequency];
 
       // Calculate rotation angle.
-      const rotationAngle = (2 * Math.PI) * frequency * (timer / N);
+      const rotationAngle = 2 * Math.PI * frequency * (timer / N);
 
       // Remember that e^ix = cos(x) + i * sin(x);
       const frequencyContribution = new ComplexNumber({

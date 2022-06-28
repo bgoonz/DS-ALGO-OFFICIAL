@@ -1,4 +1,4 @@
-import depthFirstSearch from '../depth-first-search/depthFirstSearch';
+import depthFirstSearch from "../depth-first-search/depthFirstSearch";
 
 /**
  * Helper class for visited vertex metadata.
@@ -52,32 +52,42 @@ export default function graphBridges(graph) {
       }
 
       // Check if current node is connected to any early node other then previous one.
-      visitedSet[currentVertex.getKey()].lowDiscoveryTime = currentVertex.getNeighbors()
-        .filter((earlyNeighbor) => earlyNeighbor.getKey() !== previousVertex.getKey())
+      visitedSet[currentVertex.getKey()].lowDiscoveryTime = currentVertex
+        .getNeighbors()
+        .filter(
+          (earlyNeighbor) => earlyNeighbor.getKey() !== previousVertex.getKey()
+        )
         .reduce(
           /**
            * @param {number} lowestDiscoveryTime
            * @param {GraphVertex} neighbor
            */
           (lowestDiscoveryTime, neighbor) => {
-            const neighborLowTime = visitedSet[neighbor.getKey()].lowDiscoveryTime;
-            return neighborLowTime < lowestDiscoveryTime ? neighborLowTime : lowestDiscoveryTime;
+            const neighborLowTime =
+              visitedSet[neighbor.getKey()].lowDiscoveryTime;
+            return neighborLowTime < lowestDiscoveryTime
+              ? neighborLowTime
+              : lowestDiscoveryTime;
           },
-          visitedSet[currentVertex.getKey()].lowDiscoveryTime,
+          visitedSet[currentVertex.getKey()].lowDiscoveryTime
         );
 
       // Compare low discovery times. In case if current low discovery time is less than the one
       // in previous vertex then update previous vertex low time.
-      const currentLowDiscoveryTime = visitedSet[currentVertex.getKey()].lowDiscoveryTime;
-      const previousLowDiscoveryTime = visitedSet[previousVertex.getKey()].lowDiscoveryTime;
+      const currentLowDiscoveryTime =
+        visitedSet[currentVertex.getKey()].lowDiscoveryTime;
+      const previousLowDiscoveryTime =
+        visitedSet[previousVertex.getKey()].lowDiscoveryTime;
       if (currentLowDiscoveryTime < previousLowDiscoveryTime) {
-        visitedSet[previousVertex.getKey()].lowDiscoveryTime = currentLowDiscoveryTime;
+        visitedSet[previousVertex.getKey()].lowDiscoveryTime =
+          currentLowDiscoveryTime;
       }
 
       // Compare current vertex low discovery time with parent discovery time. Check if there
       // are any short path (back edge) exists. If we can't get to current vertex other then
       // via parent then the parent vertex is articulation point for current one.
-      const parentDiscoveryTime = visitedSet[previousVertex.getKey()].discoveryTime;
+      const parentDiscoveryTime =
+        visitedSet[previousVertex.getKey()].discoveryTime;
       if (parentDiscoveryTime < currentLowDiscoveryTime) {
         const bridge = graph.findEdge(previousVertex, currentVertex);
         bridges[bridge.getKey()] = bridge;

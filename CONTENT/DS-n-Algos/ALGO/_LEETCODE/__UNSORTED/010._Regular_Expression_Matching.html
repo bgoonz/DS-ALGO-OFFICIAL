@@ -7,7 +7,7 @@
       name="viewport"
       content="width=device-width, initial-scale=1.0, user-scalable=yes"
     />
-    <title>010. Regular Expression Matching</title>
+    <title>010._Regular_Expression_Matching</title>
     <style type="text/css">
       code {
         white-space: pre-wrap;
@@ -134,7 +134,7 @@
         color: #60a0b0;
         font-weight: bold;
         font-style: italic;
-      } /* Comment let */
+      } /* CommentVar */
       code span.do {
         color: #ba2121;
         font-style: italic;
@@ -265,10 +265,12 @@ Output: false</code></pre>
 <a class="sourceLine" id="cb7-3" title="3"><span class="co"> * </span><span class="an">@param</span><span class="co"> </span><span class="cv">{string}</span><span class="co"> p</span></a>
 <a class="sourceLine" id="cb7-4" title="4"><span class="co"> * </span><span class="an">@return</span><span class="co"> {boolean}</span></a>
 <a class="sourceLine" id="cb7-5" title="5"><span class="co"> */</span></a>
-<a class="sourceLine" id="cb7-6" title="6"><span class="kw">var</span> isMatch <span class="op">=</span> <span class="kw">function</span>(s<span class="op">,</span> p) <span class="op">{</span></a>
-<a class="sourceLine" id="cb7-7" title="7">  <span class="cf">if</span> (p[<span class="dv">0</span>] <span class="op">===</span> <span class="st">&#39;*&#39;</span>) <span class="op">{</span> <span class="cf">return</span> <span class="kw">false</span> <span class="op">}</span></a>
-<a class="sourceLine" id="cb7-8" title="8">  <span class="cf">return</span> <span class="kw">new</span> <span class="at">RegExp</span>(<span class="vs">`^</span><span class="sc">${</span>p<span class="sc">}</span><span class="vs">$`</span>).<span class="at">test</span>(s)</a>
-<a class="sourceLine" id="cb7-9" title="9"><span class="op">};</span></a></code></pre>
+<a class="sourceLine" id="cb7-6" title="6"><span class="kw">let</span> isMatch <span class="op">=</span> <span class="kw">function</span> (s<span class="op">,</span> p) <span class="op">{</span></a>
+<a class="sourceLine" id="cb7-7" title="7">  <span class="cf">if</span> (p[<span class="dv">0</span>] <span class="op">===</span> <span class="st">&quot;*&quot;</span>) <span class="op">{</span></a>
+<a class="sourceLine" id="cb7-8" title="8">    <span class="cf">return</span> <span class="kw">false</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb7-9" title="9">  <span class="op">}</span></a>
+<a class="sourceLine" id="cb7-10" title="10">  <span class="cf">return</span> <span class="kw">new</span> <span class="at">RegExp</span>(<span class="vs">`^</span><span class="sc">${</span>p<span class="sc">}</span><span class="vs">$`</span>).<span class="at">test</span>(s)<span class="op">;</span></a>
+<a class="sourceLine" id="cb7-11" title="11"><span class="op">};</span></a></code></pre>
     </div>
     <h4 id="two">TWO</h4>
     <p>Let f(i, j) be the matching result of s[0…i) and p[0…j).</p>
@@ -278,10 +280,10 @@ Output: false</code></pre>
       ><code class="sourceCode javascript"><a class="sourceLine" id="cb8-1" title="1"><span class="at">f</span>(<span class="dv">0</span><span class="op">,</span> j) <span class="op">=</span></a>
 <a class="sourceLine" id="cb8-2" title="2">    j <span class="op">==</span> <span class="dv">0</span> <span class="op">||</span> <span class="co">// empty</span></a>
 <a class="sourceLine" id="cb8-3" title="3">    p[j<span class="dv">-1</span>] <span class="op">==</span> <span class="st">&#39;*&#39;</span> <span class="op">&amp;&amp;</span> <span class="at">f</span>(i<span class="op">,</span> j<span class="dv">-2</span>) <span class="co">// matches 0 time, which matches empty string</span></a>
-<a class="sourceLine" id="cb8-4" title="4">    </a>
+<a class="sourceLine" id="cb8-4" title="4"></a>
 <a class="sourceLine" id="cb8-5" title="5"><span class="at">f</span>(i<span class="op">,</span> <span class="dv">0</span>) <span class="op">=</span> <span class="kw">false</span> <span class="co">// pattern must cover the entire input string</span></a>
 <a class="sourceLine" id="cb8-6" title="6"></a>
-<a class="sourceLine" id="cb8-7" title="7"><span class="at">f</span>(i<span class="op">,</span> j) <span class="op">=</span> </a>
+<a class="sourceLine" id="cb8-7" title="7"><span class="at">f</span>(i<span class="op">,</span> j) <span class="op">=</span></a>
 <a class="sourceLine" id="cb8-8" title="8">    <span class="cf">if</span> p[j<span class="dv">-1</span>] <span class="op">==</span> <span class="st">&#39;.&#39;</span></a>
 <a class="sourceLine" id="cb8-9" title="9">        <span class="at">f</span>(i<span class="dv">-1</span><span class="op">,</span> j<span class="dv">-1</span>)</a>
 <a class="sourceLine" id="cb8-10" title="10">    <span class="cf">else</span> <span class="cf">if</span> p[j<span class="dv">-1</span>] <span class="op">==</span> <span class="st">&#39;*&#39;</span></a>
@@ -298,39 +300,47 @@ Output: false</code></pre>
 <a class="sourceLine" id="cb9-3" title="3"><span class="co"> * </span><span class="an">@param</span><span class="co"> </span><span class="cv">{string}</span><span class="co"> p</span></a>
 <a class="sourceLine" id="cb9-4" title="4"><span class="co"> * </span><span class="an">@return</span><span class="co"> {boolean}</span></a>
 <a class="sourceLine" id="cb9-5" title="5"><span class="co"> */</span></a>
-<a class="sourceLine" id="cb9-6" title="6"><span class="kw">var</span> isMatch <span class="op">=</span> <span class="kw">function</span>(s<span class="op">,</span> p) <span class="op">{</span></a>
-<a class="sourceLine" id="cb9-7" title="7">  <span class="cf">if</span> (p[<span class="dv">0</span>] <span class="op">===</span> <span class="st">&#39;*&#39;</span>) <span class="op">{</span></a>
-<a class="sourceLine" id="cb9-8" title="8">    <span class="cf">return</span> <span class="kw">false</span></a>
+<a class="sourceLine" id="cb9-6" title="6"><span class="kw">let</span> isMatch <span class="op">=</span> <span class="kw">function</span> (s<span class="op">,</span> p) <span class="op">{</span></a>
+<a class="sourceLine" id="cb9-7" title="7">  <span class="cf">if</span> (p[<span class="dv">0</span>] <span class="op">===</span> <span class="st">&quot;*&quot;</span>) <span class="op">{</span></a>
+<a class="sourceLine" id="cb9-8" title="8">    <span class="cf">return</span> <span class="kw">false</span><span class="op">;</span></a>
 <a class="sourceLine" id="cb9-9" title="9">  <span class="op">}</span></a>
 <a class="sourceLine" id="cb9-10" title="10"></a>
-<a class="sourceLine" id="cb9-11" title="11">  <span class="kw">const</span> dp <span class="op">=</span> [[<span class="kw">true</span>]]</a>
+<a class="sourceLine" id="cb9-11" title="11">  <span class="kw">const</span> dp <span class="op">=</span> [[<span class="kw">true</span>]]<span class="op">;</span></a>
 <a class="sourceLine" id="cb9-12" title="12"></a>
 <a class="sourceLine" id="cb9-13" title="13">  <span class="cf">for</span> (<span class="kw">let</span> j <span class="op">=</span> <span class="dv">2</span><span class="op">;</span> j <span class="op">&lt;=</span> <span class="va">p</span>.<span class="at">length</span><span class="op">;</span> j<span class="op">++</span>) <span class="op">{</span></a>
-<a class="sourceLine" id="cb9-14" title="14">    dp[<span class="dv">0</span>][j] <span class="op">=</span> p[j<span class="dv">-1</span>] <span class="op">===</span> <span class="st">&#39;*&#39;</span> <span class="op">&amp;&amp;</span> dp[<span class="dv">0</span>][j<span class="dv">-2</span>]</a>
+<a class="sourceLine" id="cb9-14" title="14">    dp[<span class="dv">0</span>][j] <span class="op">=</span> p[j <span class="op">-</span> <span class="dv">1</span>] <span class="op">===</span> <span class="st">&quot;*&quot;</span> <span class="op">&amp;&amp;</span> dp[<span class="dv">0</span>][j <span class="op">-</span> <span class="dv">2</span>]<span class="op">;</span></a>
 <a class="sourceLine" id="cb9-15" title="15">  <span class="op">}</span></a>
-<a class="sourceLine" id="cb9-16" title="16">    </a>
+<a class="sourceLine" id="cb9-16" title="16"></a>
 <a class="sourceLine" id="cb9-17" title="17">  <span class="cf">for</span> (<span class="kw">let</span> i <span class="op">=</span> <span class="dv">1</span><span class="op">;</span> i <span class="op">&lt;=</span> <span class="va">s</span>.<span class="at">length</span><span class="op">;</span> i<span class="op">++</span>) <span class="op">{</span></a>
-<a class="sourceLine" id="cb9-18" title="18">    dp[i] <span class="op">=</span> []</a>
+<a class="sourceLine" id="cb9-18" title="18">    dp[i] <span class="op">=</span> []<span class="op">;</span></a>
 <a class="sourceLine" id="cb9-19" title="19">    <span class="cf">for</span> (<span class="kw">let</span> j <span class="op">=</span> <span class="dv">1</span><span class="op">;</span> j <span class="op">&lt;=</span> <span class="va">p</span>.<span class="at">length</span><span class="op">;</span> j<span class="op">++</span>) <span class="op">{</span></a>
-<a class="sourceLine" id="cb9-20" title="20">      <span class="cf">switch</span> (p[j<span class="dv">-1</span>]) <span class="op">{</span></a>
-<a class="sourceLine" id="cb9-21" title="21">        <span class="cf">case</span> <span class="st">&#39;.&#39;</span><span class="op">:</span></a>
-<a class="sourceLine" id="cb9-22" title="22">          dp[i][j] <span class="op">=</span> dp[i<span class="dv">-1</span>][j<span class="dv">-1</span>]</a>
-<a class="sourceLine" id="cb9-23" title="23">          <span class="cf">break</span></a>
-<a class="sourceLine" id="cb9-24" title="24">        <span class="cf">case</span> <span class="st">&#39;*&#39;</span><span class="op">:</span></a>
-<a class="sourceLine" id="cb9-25" title="25">          dp[i][j] <span class="op">=</span> dp[i][j<span class="dv">-2</span>] <span class="op">||</span></a>
-<a class="sourceLine" id="cb9-26" title="26">            dp[i<span class="dv">-1</span>][j] <span class="op">&amp;&amp;</span> (p[j<span class="dv">-2</span>] <span class="op">===</span> <span class="st">&#39;.&#39;</span> <span class="op">||</span> s[i<span class="dv">-1</span>] <span class="op">===</span> p[j<span class="dv">-2</span>])</a>
-<a class="sourceLine" id="cb9-27" title="27">          <span class="cf">break</span></a>
-<a class="sourceLine" id="cb9-28" title="28">        <span class="cf">default</span><span class="op">:</span></a>
-<a class="sourceLine" id="cb9-29" title="29">          dp[i][j] <span class="op">=</span> dp[i<span class="dv">-1</span>][j<span class="dv">-1</span>] <span class="op">&amp;&amp;</span> s[i<span class="dv">-1</span>] <span class="op">===</span> p[j<span class="dv">-1</span>]</a>
-<a class="sourceLine" id="cb9-30" title="30">      <span class="op">}</span></a>
-<a class="sourceLine" id="cb9-31" title="31">    <span class="op">}</span></a>
-<a class="sourceLine" id="cb9-32" title="32">  <span class="op">}</span></a>
-<a class="sourceLine" id="cb9-33" title="33"></a>
-<a class="sourceLine" id="cb9-34" title="34">  <span class="cf">return</span> <span class="op">!!</span>dp[<span class="va">s</span>.<span class="at">length</span>][<span class="va">p</span>.<span class="at">length</span>]</a>
-<a class="sourceLine" id="cb9-35" title="35"><span class="op">}</span></a></code></pre>
+<a class="sourceLine" id="cb9-20" title="20">      <span class="cf">switch</span> (p[j <span class="op">-</span> <span class="dv">1</span>]) <span class="op">{</span></a>
+<a class="sourceLine" id="cb9-21" title="21">        <span class="cf">case</span> <span class="st">&quot;.&quot;</span><span class="op">:</span></a>
+<a class="sourceLine" id="cb9-22" title="22">          dp[i][j] <span class="op">=</span> dp[i <span class="op">-</span> <span class="dv">1</span>][j <span class="op">-</span> <span class="dv">1</span>]<span class="op">;</span></a>
+<a class="sourceLine" id="cb9-23" title="23">          <span class="cf">break</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb9-24" title="24">        <span class="cf">case</span> <span class="st">&quot;*&quot;</span><span class="op">:</span></a>
+<a class="sourceLine" id="cb9-25" title="25">          dp[i][j] <span class="op">=</span></a>
+<a class="sourceLine" id="cb9-26" title="26">            dp[i][j <span class="op">-</span> <span class="dv">2</span>] <span class="op">||</span></a>
+<a class="sourceLine" id="cb9-27" title="27">            (dp[i <span class="op">-</span> <span class="dv">1</span>][j] <span class="op">&amp;&amp;</span> (p[j <span class="op">-</span> <span class="dv">2</span>] <span class="op">===</span> <span class="st">&quot;.&quot;</span> <span class="op">||</span> s[i <span class="op">-</span> <span class="dv">1</span>] <span class="op">===</span> p[j <span class="op">-</span> <span class="dv">2</span>]))<span class="op">;</span></a>
+<a class="sourceLine" id="cb9-28" title="28">          <span class="cf">break</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb9-29" title="29">        <span class="cf">default</span><span class="op">:</span></a>
+<a class="sourceLine" id="cb9-30" title="30">          dp[i][j] <span class="op">=</span> dp[i <span class="op">-</span> <span class="dv">1</span>][j <span class="op">-</span> <span class="dv">1</span>] <span class="op">&amp;&amp;</span> s[i <span class="op">-</span> <span class="dv">1</span>] <span class="op">===</span> p[j <span class="op">-</span> <span class="dv">1</span>]<span class="op">;</span></a>
+<a class="sourceLine" id="cb9-31" title="31">      <span class="op">}</span></a>
+<a class="sourceLine" id="cb9-32" title="32">    <span class="op">}</span></a>
+<a class="sourceLine" id="cb9-33" title="33">  <span class="op">}</span></a>
+<a class="sourceLine" id="cb9-34" title="34"></a>
+<a class="sourceLine" id="cb9-35" title="35">  <span class="cf">return</span> <span class="op">!!</span>dp[<span class="va">s</span>.<span class="at">length</span>][<span class="va">p</span>.<span class="at">length</span>]<span class="op">;</span></a>
+<a class="sourceLine" id="cb9-36" title="36"><span class="op">};</span></a></code></pre>
     </div>
-    <br />
     <hr />
-    <br />
+    <p>
+      ☆<em>: .｡. o(≧▽≦)o .｡.:</em>☆☆<em>: .｡. o(≧▽≦)o .｡.:</em>☆☆<em
+        >: .｡. o(≧▽≦)o .｡.:</em
+      >☆
+    </p>
+    <hr />
+    <hr />
+    <p>☆<em>: .｡. o(≧▽≦)o .｡.:</em>☆☆<em>: .｡. o(≧▽≦)o .｡.:</em>☆</p>
+    <hr />
   </body>
 </html>

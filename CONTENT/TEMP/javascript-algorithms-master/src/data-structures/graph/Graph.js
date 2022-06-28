@@ -71,7 +71,7 @@ export default class Graph {
 
     // Check if edge has been already added.
     if (this.edges[edge.getKey()]) {
-      throw new Error('Edge has already been added before');
+      throw new Error("Edge has already been added before");
     } else {
       this.edges[edge.getKey()] = edge;
     }
@@ -97,7 +97,7 @@ export default class Graph {
     if (this.edges[edge.getKey()]) {
       delete this.edges[edge.getKey()];
     } else {
-      throw new Error('Edge not found in graph');
+      throw new Error("Edge not found in graph");
     }
 
     // Try to find and end start vertices and delete edge from them.
@@ -173,15 +173,20 @@ export default class Graph {
 
     // Init matrix with infinities meaning that there is no ways of
     // getting from one vertex to another yet.
-    const adjacencyMatrix = Array(vertices.length).fill(null).map(() => {
-      return Array(vertices.length).fill(Infinity);
-    });
+    const adjacencyMatrix = Array(vertices.length)
+      .fill(null)
+      .map(() => {
+        return Array(vertices.length).fill(Infinity);
+      });
 
     // Fill the columns.
     vertices.forEach((vertex, vertexIndex) => {
       vertex.getNeighbors().forEach((neighbor) => {
         const neighborIndex = verticesIndices[neighbor.getKey()];
-        adjacencyMatrix[vertexIndex][neighborIndex] = this.findEdge(vertex, neighbor).weight;
+        adjacencyMatrix[vertexIndex][neighborIndex] = this.findEdge(
+          vertex,
+          neighbor
+        ).weight;
       });
     });
 

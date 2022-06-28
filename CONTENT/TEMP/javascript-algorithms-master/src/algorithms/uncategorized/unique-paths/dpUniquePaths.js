@@ -7,9 +7,11 @@
  */
 export default function dpUniquePaths(width, height) {
   // Init board.
-  const board = Array(height).fill(null).map(() => {
-    return Array(width).fill(0);
-  });
+  const board = Array(height)
+    .fill(null)
+    .map(() => {
+      return Array(width).fill(0);
+    });
 
   // Base case.
   // There is only one way of getting to board[0][any] and

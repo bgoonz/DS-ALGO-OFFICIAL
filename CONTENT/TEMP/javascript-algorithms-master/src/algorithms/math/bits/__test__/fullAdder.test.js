@@ -1,7 +1,7 @@
-import fullAdder from '../fullAdder';
+import fullAdder from "../fullAdder";
 
-describe('fullAdder', () => {
-  it('should add up two numbers', () => {
+describe("fullAdder", () => {
+  it("should add up two numbers", () => {
     expect(fullAdder(0, 0)).toBe(0);
     expect(fullAdder(2, 0)).toBe(2);
     expect(fullAdder(0, 2)).toBe(2);

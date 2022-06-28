@@ -19,7 +19,7 @@ export default function combineWithoutRepetitions(comboOptions, comboLength) {
     // Generate combinations of smaller size.
     const smallerCombos = combineWithoutRepetitions(
       comboOptions.slice(optionIndex + 1),
-      comboLength - 1,
+      comboLength - 1
     );
 
     // Concatenate currentOption with all combinations of smaller size.

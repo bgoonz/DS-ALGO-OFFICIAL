@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="generator" content="pandoc" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=yes"
+    />
+    <title>README</title>
+    <style type="text/css">
+      code {
+        white-space: pre-wrap;
+      }
+      span.smallcaps {
+        font-variant: small-caps;
+      }
+      span.underline {
+        text-decoration: underline;
+      }
+      div.column {
+        display: inline-block;
+        vertical-align: top;
+        width: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 id="all-indices-of-an-element-in-an-array.">
+      All indices of an element in an array.
+    </h1>
+    <h2 id="aim">Aim</h2>
+    <p>
+      The aim is to create a python code to get all indices of an element in an
+      array.
+    </p>
+    <h2 id="purpose">Purpose</h2>
+    <p>
+      The purpose is to come up with an efficient solution while implementing
+      recursion.
+    </p>
+    <h2 id="short-description-of-project">Short description of project</h2>
+    <p>
+      The program takes 3 inputs. 1.size of array. 2.Array elements. 3.Elements
+      whose occurrence is to be found.
+    </p>
+    <h2 id="workflow-of-the-project">Workflow of the Project</h2>
+    <ul>
+      <li>We will divide the array into 2 parts. 1.The first element.</li>
+    </ul>
+    <ol start="2" type="1">
+      <li>
+        THE remaining elements. *We will work on first element and recursion
+        will work on rest.
+      </li>
+    </ol>
+    <ul>
+      <li>
+        First we define the base case which will be if start=end return empty
+        array.
+      </li>
+      <li>Then we will call recursion on other part of array.</li>
+      <li>
+        Now we will check if our first element is equal to the element whose
+        occurrence is to be checked.
+      </li>
+      <li>
+        If yes then we will insert 0 in our output array and shift other
+        elements of array to right.
+      </li>
+      <li>If no then we will return our Output array.</li>
+    </ul>
+    <h2 id="required-libraries">Required libraries</h2>
+    <p>None</p>
+    <h2 id="compilation-steps">Compilation Steps</h2>
+    <p>Run the script, after that :</p>
+    <ol type="1">
+      <li>
+        User is prompted to enter size of array followed by array elements and
+        number whose occurrence is to be checked.
+      </li>
+      <li>All the indices on which the element occurred is printed.</li>
+    </ol>
+    <h1 id="output">Output</h1>
+    <p><img src="Images/Output-img.jpg" /></p>
+    <h2 id="author">Author</h2>
+    <p><a href="https://github.com/siddhi-244">Siddhi Bhanushali</a></p>
+  </body>
+</html>

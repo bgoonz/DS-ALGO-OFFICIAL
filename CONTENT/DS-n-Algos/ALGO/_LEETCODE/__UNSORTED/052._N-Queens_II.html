@@ -7,7 +7,7 @@
       name="viewport"
       content="width=device-width, initial-scale=1.0, user-scalable=yes"
     />
-    <title>052. N-Queens II</title>
+    <title>052._N-Queens_II</title>
     <style type="text/css">
       code {
         white-space: pre-wrap;
@@ -134,7 +134,7 @@
         color: #60a0b0;
         font-weight: bold;
         font-style: italic;
-      } /* Comment let */
+      } /* CommentVar */
       code span.do {
         color: #ba2121;
         font-style: italic;
@@ -246,46 +246,56 @@ Explanation: There are two distinct solutions to the 4-queens puzzle as shown be
 <a class="sourceLine" id="cb2-2" title="2"><span class="co"> * </span><span class="an">@param</span><span class="co"> </span><span class="cv">{number}</span><span class="co"> n</span></a>
 <a class="sourceLine" id="cb2-3" title="3"><span class="co"> * </span><span class="an">@return</span><span class="co"> {string[][]}</span></a>
 <a class="sourceLine" id="cb2-4" title="4"><span class="co"> */</span></a>
-<a class="sourceLine" id="cb2-5" title="5"><span class="kw">var</span> totalNQueens <span class="op">=</span> <span class="kw">function</span>(n) <span class="op">{</span></a>
-<a class="sourceLine" id="cb2-6" title="6">  <span class="cf">return</span> <span class="at">_totalNQueens</span>([...<span class="at">new</span> <span class="at">Array</span>(n)].<span class="at">map</span>((_<span class="op">,</span> i) <span class="kw">=&gt;</span> i)<span class="op">,</span> <span class="dv">0</span>)</a>
-<a class="sourceLine" id="cb2-7" title="7"><span class="op">};</span></a>
-<a class="sourceLine" id="cb2-8" title="8"></a>
-<a class="sourceLine" id="cb2-9" title="9"><span class="kw">function</span> <span class="at">_totalNQueens</span> (queens<span class="op">,</span> iStart<span class="op">,</span> result) <span class="op">{</span></a>
-<a class="sourceLine" id="cb2-10" title="10">  <span class="cf">if</span> (iStart <span class="op">===</span> <span class="va">queens</span>.<span class="at">length</span>) <span class="op">{</span></a>
-<a class="sourceLine" id="cb2-11" title="11">    <span class="cf">return</span> <span class="dv">1</span></a>
-<a class="sourceLine" id="cb2-12" title="12">  <span class="op">}</span></a>
-<a class="sourceLine" id="cb2-13" title="13"></a>
-<a class="sourceLine" id="cb2-14" title="14">  <span class="kw">let</span> count <span class="op">=</span> <span class="dv">0</span></a>
-<a class="sourceLine" id="cb2-15" title="15"></a>
-<a class="sourceLine" id="cb2-16" title="16">  <span class="kw">const</span> start <span class="op">=</span> queens[iStart]</a>
-<a class="sourceLine" id="cb2-17" title="17">  <span class="cf">for</span> (<span class="kw">let</span> i <span class="op">=</span> iStart<span class="op">;</span> i <span class="op">&lt;</span> <span class="va">queens</span>.<span class="at">length</span><span class="op">;</span> i<span class="op">++</span>) <span class="op">{</span></a>
-<a class="sourceLine" id="cb2-18" title="18">    <span class="kw">const</span> next <span class="op">=</span> queens[i]</a>
-<a class="sourceLine" id="cb2-19" title="19"></a>
-<a class="sourceLine" id="cb2-20" title="20">    queens[iStart] <span class="op">=</span> next</a>
-<a class="sourceLine" id="cb2-21" title="21">    queens[i] <span class="op">=</span> start</a>
+<a class="sourceLine" id="cb2-5" title="5"><span class="kw">let</span> totalNQueens <span class="op">=</span> <span class="kw">function</span> (n) <span class="op">{</span></a>
+<a class="sourceLine" id="cb2-6" title="6">  <span class="cf">return</span> <span class="at">_totalNQueens</span>(</a>
+<a class="sourceLine" id="cb2-7" title="7">    [...<span class="at">new</span> <span class="at">Array</span>(n)].<span class="at">map</span>((_<span class="op">,</span> i) <span class="kw">=&gt;</span> i)<span class="op">,</span></a>
+<a class="sourceLine" id="cb2-8" title="8">    <span class="dv">0</span></a>
+<a class="sourceLine" id="cb2-9" title="9">  )<span class="op">;</span></a>
+<a class="sourceLine" id="cb2-10" title="10"><span class="op">};</span></a>
+<a class="sourceLine" id="cb2-11" title="11"></a>
+<a class="sourceLine" id="cb2-12" title="12"><span class="kw">function</span> <span class="at">_totalNQueens</span>(queens<span class="op">,</span> iStart<span class="op">,</span> result) <span class="op">{</span></a>
+<a class="sourceLine" id="cb2-13" title="13">  <span class="cf">if</span> (iStart <span class="op">===</span> <span class="va">queens</span>.<span class="at">length</span>) <span class="op">{</span></a>
+<a class="sourceLine" id="cb2-14" title="14">    <span class="cf">return</span> <span class="dv">1</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb2-15" title="15">  <span class="op">}</span></a>
+<a class="sourceLine" id="cb2-16" title="16"></a>
+<a class="sourceLine" id="cb2-17" title="17">  <span class="kw">let</span> count <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb2-18" title="18"></a>
+<a class="sourceLine" id="cb2-19" title="19">  <span class="kw">const</span> start <span class="op">=</span> queens[iStart]<span class="op">;</span></a>
+<a class="sourceLine" id="cb2-20" title="20">  <span class="cf">for</span> (<span class="kw">let</span> i <span class="op">=</span> iStart<span class="op">;</span> i <span class="op">&lt;</span> <span class="va">queens</span>.<span class="at">length</span><span class="op">;</span> i<span class="op">++</span>) <span class="op">{</span></a>
+<a class="sourceLine" id="cb2-21" title="21">    <span class="kw">const</span> next <span class="op">=</span> queens[i]<span class="op">;</span></a>
 <a class="sourceLine" id="cb2-22" title="22"></a>
-<a class="sourceLine" id="cb2-23" title="23">    <span class="cf">if</span> (<span class="at">_testDiagonal</span>(queens<span class="op">,</span> iStart)) <span class="op">{</span></a>
-<a class="sourceLine" id="cb2-24" title="24">      count <span class="op">+=</span> <span class="at">_totalNQueens</span>(queens<span class="op">,</span> iStart <span class="op">+</span> <span class="dv">1</span><span class="op">,</span> result)</a>
-<a class="sourceLine" id="cb2-25" title="25">    <span class="op">}</span></a>
-<a class="sourceLine" id="cb2-26" title="26"></a>
-<a class="sourceLine" id="cb2-27" title="27">    queens[iStart] <span class="op">=</span> start</a>
-<a class="sourceLine" id="cb2-28" title="28">    queens[i] <span class="op">=</span> next</a>
-<a class="sourceLine" id="cb2-29" title="29">  <span class="op">}</span></a>
-<a class="sourceLine" id="cb2-30" title="30"></a>
-<a class="sourceLine" id="cb2-31" title="31">  <span class="cf">return</span> count</a>
-<a class="sourceLine" id="cb2-32" title="32"><span class="op">};</span></a>
+<a class="sourceLine" id="cb2-23" title="23">    queens[iStart] <span class="op">=</span> next<span class="op">;</span></a>
+<a class="sourceLine" id="cb2-24" title="24">    queens[i] <span class="op">=</span> start<span class="op">;</span></a>
+<a class="sourceLine" id="cb2-25" title="25"></a>
+<a class="sourceLine" id="cb2-26" title="26">    <span class="cf">if</span> (<span class="at">_testDiagonal</span>(queens<span class="op">,</span> iStart)) <span class="op">{</span></a>
+<a class="sourceLine" id="cb2-27" title="27">      count <span class="op">+=</span> <span class="at">_totalNQueens</span>(queens<span class="op">,</span> iStart <span class="op">+</span> <span class="dv">1</span><span class="op">,</span> result)<span class="op">;</span></a>
+<a class="sourceLine" id="cb2-28" title="28">    <span class="op">}</span></a>
+<a class="sourceLine" id="cb2-29" title="29"></a>
+<a class="sourceLine" id="cb2-30" title="30">    queens[iStart] <span class="op">=</span> start<span class="op">;</span></a>
+<a class="sourceLine" id="cb2-31" title="31">    queens[i] <span class="op">=</span> next<span class="op">;</span></a>
+<a class="sourceLine" id="cb2-32" title="32">  <span class="op">}</span></a>
 <a class="sourceLine" id="cb2-33" title="33"></a>
-<a class="sourceLine" id="cb2-34" title="34"><span class="kw">function</span> <span class="at">_testDiagonal</span>(queens<span class="op">,</span> iStart) <span class="op">{</span></a>
-<a class="sourceLine" id="cb2-35" title="35">  <span class="cf">for</span> (<span class="kw">let</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> iStart<span class="op">;</span> i<span class="op">++</span>) <span class="op">{</span></a>
-<a class="sourceLine" id="cb2-36" title="36">    <span class="cf">if</span> (<span class="va">Math</span>.<span class="at">abs</span>(queens[iStart] <span class="op">-</span> queens[i]) <span class="op">===</span> iStart <span class="op">-</span> i) <span class="op">{</span></a>
-<a class="sourceLine" id="cb2-37" title="37">      <span class="cf">return</span> <span class="kw">false</span></a>
-<a class="sourceLine" id="cb2-38" title="38">    <span class="op">}</span></a>
-<a class="sourceLine" id="cb2-39" title="39">  <span class="op">}</span></a>
-<a class="sourceLine" id="cb2-40" title="40">  <span class="cf">return</span> <span class="kw">true</span></a>
-<a class="sourceLine" id="cb2-41" title="41"><span class="op">};</span></a></code></pre>
+<a class="sourceLine" id="cb2-34" title="34">  <span class="cf">return</span> count<span class="op">;</span></a>
+<a class="sourceLine" id="cb2-35" title="35"><span class="op">}</span></a>
+<a class="sourceLine" id="cb2-36" title="36"></a>
+<a class="sourceLine" id="cb2-37" title="37"><span class="kw">function</span> <span class="at">_testDiagonal</span>(queens<span class="op">,</span> iStart) <span class="op">{</span></a>
+<a class="sourceLine" id="cb2-38" title="38">  <span class="cf">for</span> (<span class="kw">let</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> iStart<span class="op">;</span> i<span class="op">++</span>) <span class="op">{</span></a>
+<a class="sourceLine" id="cb2-39" title="39">    <span class="cf">if</span> (<span class="va">Math</span>.<span class="at">abs</span>(queens[iStart] <span class="op">-</span> queens[i]) <span class="op">===</span> iStart <span class="op">-</span> i) <span class="op">{</span></a>
+<a class="sourceLine" id="cb2-40" title="40">      <span class="cf">return</span> <span class="kw">false</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb2-41" title="41">    <span class="op">}</span></a>
+<a class="sourceLine" id="cb2-42" title="42">  <span class="op">}</span></a>
+<a class="sourceLine" id="cb2-43" title="43">  <span class="cf">return</span> <span class="kw">true</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb2-44" title="44"><span class="op">}</span></a></code></pre>
     </div>
-    <br />
     <hr />
-    <br />
+    <p>
+      ☆<em>: .｡. o(≧▽≦)o .｡.:</em>☆☆<em>: .｡. o(≧▽≦)o .｡.:</em>☆☆<em
+        >: .｡. o(≧▽≦)o .｡.:</em
+      >☆
+    </p>
+    <hr />
+    <hr />
+    <p>☆<em>: .｡. o(≧▽≦)o .｡.:</em>☆☆<em>: .｡. o(≧▽≦)o .｡.:</em>☆</p>
+    <hr />
   </body>
 </html>

@@ -1,7 +1,7 @@
-import fibonacciNth from '../fibonacciNth';
+import fibonacciNth from "../fibonacciNth";
 
-describe('fibonacciNth', () => {
-  it('should calculate fibonacci correctly', () => {
+describe("fibonacciNth", () => {
+  it("should calculate fibonacci correctly", () => {
     expect(fibonacciNth(1)).toBe(1);
     expect(fibonacciNth(2)).toBe(1);
     expect(fibonacciNth(3)).toBe(2);

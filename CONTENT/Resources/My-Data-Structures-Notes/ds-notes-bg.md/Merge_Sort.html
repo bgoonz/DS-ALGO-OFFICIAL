@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="generator" content="pandoc" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=yes"
+    />
+    <title>Merge Sort</title>
+    <style type="text/css">
+      code {
+        white-space: pre-wrap;
+      }
+      span.smallcaps {
+        font-variant: small-caps;
+      }
+      span.underline {
+        text-decoration: underline;
+      }
+      div.column {
+        display: inline-block;
+        vertical-align: top;
+        width: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 id="merge-sort-divide-and-conquer-algorithm">
+      Merge Sort (Divide and Conquer Algorithm)
+    </h1>
+    <h4 id="problem-statement">Problem Statement</h4>
+    <p>Given an array of n elements, write a function to sort the array</p>
+    <h4 id="approach">Approach</h4>
+    <ul>
+      <li>
+        Find a mid point and divide the array into to halves based on the mid
+        point
+      </li>
+      <li>Recursively call the merge sort function for both the halves</li>
+      <li>Merge the two sorted halves to get the sorted array</li>
+    </ul>
+    <h4 id="time-complexity">Time Complexity</h4>
+    <p><code>O(n log n)</code></p>
+    <h4 id="space-complexity">Space Complexity</h4>
+    <p><code>O(n)</code></p>
+    <h4 id="example">Example</h4>
+    <pre><code>arr = [1, 3, 9, 5, 0, 2]
+
+Divide the array in two halves [1, 3, 9] and [5, 0, 2]
+
+Recursively call merge sort function for both these halves which will provide sorted halves
+=&gt; [1, 3, 9] &amp; [0, 2, 5]
+
+Now merge both these halves to get the sorted array [0, 1, 2, 3, 5, 9]</code></pre>
+    <h4 id="code-implementation-links">Code Implementation Links</h4>
+    <ul>
+      <li>
+        <a
+          href="https://github.com/TheAlgorithms/Java/blob/master/Sorts/MergeSort.java"
+          >Java</a
+        >
+      </li>
+      <li>
+        <a
+          href="https://github.com/TheAlgorithms/C-Plus-Plus/blob/master/sorting/merge_sort.cpp"
+          >C++</a
+        >
+      </li>
+      <li>
+        <a
+          href="https://github.com/TheAlgorithms/Python/blob/master/sorts/merge_sort.py"
+          >Python</a
+        >
+      </li>
+      <li>
+        <a
+          href="https://github.com/TheAlgorithms/C-Sharp/blob/master/Algorithms/Sorters/Comparison/MergeSorter.cs"
+          >C-Sharp</a
+        >
+      </li>
+      <li>
+        <a
+          href="https://github.com/TheAlgorithms/C/blob/master/sorting/merge_sort.c"
+          >C</a
+        >
+      </li>
+      <li>
+        <a
+          href="https://github.com/TheAlgorithms/Ruby/blob/master/sorting/merge_sort.rb"
+          >Ruby</a
+        >
+      </li>
+    </ul>
+    <h4 id="video-explanation">Video Explanation</h4>
+    <p>
+      <a href="https://www.youtube.com/watch?v=EeQ8pwjQxTM"
+        >A CS50 video explaining the Merge Sort Algorithm</a
+      >
+    </p>
+  </body>
+</html>

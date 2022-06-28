@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="generator" content="pandoc" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=yes"
+    />
+    <title>README</title>
+    <style type="text/css">
+      code {
+        white-space: pre-wrap;
+      }
+      span.smallcaps {
+        font-variant: small-caps;
+      }
+      span.underline {
+        text-decoration: underline;
+      }
+      div.column {
+        display: inline-block;
+        vertical-align: top;
+        width: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <h2 id="script-name">Script Name</h2>
+    <p>Binary Search Algorithm.</p>
+    <h2 id="aim">Aim</h2>
+    <p>To write a program for Binary search.</p>
+    <h2 id="purpose">Purpose</h2>
+    <p>To get a understanding about binary search.</p>
+    <h2 id="short-description-of-packagescript">
+      Short description of package/script
+    </h2>
+    <ul>
+      <li>It is a python program of binary search Algorithm.</li>
+      <li>It is written in a way that it takes user input.</li>
+    </ul>
+    <h2 id="workflow-of-the-project">Workflow of the Project</h2>
+    <ul>
+      <li>First a function is written to perform Bubble sort.</li>
+      <li>Then outside the function user input is taken.</li>
+    </ul>
+    <h2 id="detailed-explanation-of-script-if-needed">
+      Detailed explanation of script, if needed
+    </h2>
+    <p>
+      Binary search is another searching algorithm which is more effective than
+      the linear Search. Searching algorithms are used to search a desired
+      element in an array.Binary Search does less number of comparisons than
+      linear Search,so it is an effective algorithm.Binary Search works only on
+      sorted array. It follows divide and conquer approach.
+    </p>
+    <h2 id="algorithm">Algorithm</h2>
+    <ul>
+      <li>The array should be sorted.</li>
+      <li>
+        We take 3 variables start,mid and end. Start variables has the index of
+        0th element end variable has index of last element and mid points to
+        middle element.
+      </li>
+      <li>We run a loop until start&lt;=end.</li>
+      <li>We check if our desired element is equal to mid element.</li>
+      <li>If yes then return mid.</li>
+      <li>
+        If desired element is greater than the mid element then we search in the
+        right array.
+      </li>
+      <li>
+        If desired element is less than the mid element then we search in the
+        left array.
+      </li>
+      <li>Else return -1.</li>
+    </ul>
+    <h3 id="examples">Examples</h3>
+    <pre><code>For example let the array be [4,5,8,9,11]
+We have to search 9 in the array.
+Here, start =0,end=4 and mid=(start+end)/2,mid=2
+a[mid]=8 which is not equal to 9
+a[mid]&lt;9 hence, start=mid+1
+start=3,end=4,mid=(3+4)/2=3
+a[mid]=9 which is equal to 9 so we return 3.</code></pre>
+    <h3 id="output">Output</h3>
+    <p><img src="Images/output.jpg" /></p>
+    <h3 id="authors">Author(s)</h3>
+    <p><a href="https://github.com/siddhi-244">Siddhi Bhanushali</a></p>
+  </body>
+</html>

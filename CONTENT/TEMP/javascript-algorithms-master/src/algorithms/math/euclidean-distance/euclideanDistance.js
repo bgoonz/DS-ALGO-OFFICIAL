@@ -2,7 +2,7 @@
  * @typedef {import('../matrix/Matrix.js').Matrix} Matrix
  */
 
-import * as mtrx from '../matrix/Matrix';
+import * as mtrx from "../matrix/Matrix";
 
 /**
  * Calculates the euclidean distance between 2 matrices.

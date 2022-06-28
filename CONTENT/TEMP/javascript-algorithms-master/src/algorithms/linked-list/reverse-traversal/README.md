@@ -2,7 +2,7 @@
 
 The task is to traverse the given linked list in reversed order.
 
-For example for the following linked list: 
+For example for the following linked list:
 
 ![](https://upload.wikimedia.org/wikipedia/commons/6/6d/Singly-linked-list.svg)
 
