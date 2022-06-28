@@ -1,18 +1,18 @@
-import GraphVertex from '../../../../data-structures/graph/GraphVertex';
-import GraphEdge from '../../../../data-structures/graph/GraphEdge';
-import Graph from '../../../../data-structures/graph/Graph';
-import floydWarshall from '../floydWarshall';
+import GraphVertex from "../../../../data-structures/graph/GraphVertex";
+import GraphEdge from "../../../../data-structures/graph/GraphEdge";
+import Graph from "../../../../data-structures/graph/Graph";
+import floydWarshall from "../floydWarshall";
 
-describe('floydWarshall', () => {
-  it('should find minimum paths to all vertices for undirected graph', () => {
-    const vertexA = new GraphVertex('A');
-    const vertexB = new GraphVertex('B');
-    const vertexC = new GraphVertex('C');
-    const vertexD = new GraphVertex('D');
-    const vertexE = new GraphVertex('E');
-    const vertexF = new GraphVertex('F');
-    const vertexG = new GraphVertex('G');
-    const vertexH = new GraphVertex('H');
+describe("floydWarshall", () => {
+  it("should find minimum paths to all vertices for undirected graph", () => {
+    const vertexA = new GraphVertex("A");
+    const vertexB = new GraphVertex("B");
+    const vertexC = new GraphVertex("C");
+    const vertexD = new GraphVertex("D");
+    const vertexE = new GraphVertex("E");
+    const vertexF = new GraphVertex("F");
+    const vertexG = new GraphVertex("G");
+    const vertexH = new GraphVertex("H");
 
     const edgeAB = new GraphEdge(vertexA, vertexB, 4);
     const edgeAE = new GraphEdge(vertexA, vertexE, 7);
@@ -86,11 +86,11 @@ describe('floydWarshall', () => {
     expect(nextVertices[vertexAIndex][vertexHIndex]).toBe(null);
   });
 
-  it('should find minimum paths to all vertices for directed graph', () => {
-    const vertexA = new GraphVertex('A');
-    const vertexB = new GraphVertex('B');
-    const vertexC = new GraphVertex('C');
-    const vertexD = new GraphVertex('D');
+  it("should find minimum paths to all vertices for directed graph", () => {
+    const vertexA = new GraphVertex("A");
+    const vertexB = new GraphVertex("B");
+    const vertexC = new GraphVertex("C");
+    const vertexD = new GraphVertex("D");
 
     const edgeAB = new GraphEdge(vertexA, vertexB, 3);
     const edgeBA = new GraphEdge(vertexB, vertexA, 8);
@@ -147,14 +147,14 @@ describe('floydWarshall', () => {
     expect(nextVertices[vertexAIndex][vertexBIndex]).toBe(vertexA);
   });
 
-  it('should find minimum paths to all vertices for directed graph with negative edge weights', () => {
-    const vertexA = new GraphVertex('A');
-    const vertexB = new GraphVertex('B');
-    const vertexC = new GraphVertex('C');
-    const vertexD = new GraphVertex('D');
-    const vertexE = new GraphVertex('E');
-    const vertexF = new GraphVertex('F');
-    const vertexG = new GraphVertex('G');
+  it("should find minimum paths to all vertices for directed graph with negative edge weights", () => {
+    const vertexA = new GraphVertex("A");
+    const vertexB = new GraphVertex("B");
+    const vertexC = new GraphVertex("C");
+    const vertexD = new GraphVertex("D");
+    const vertexE = new GraphVertex("E");
+    const vertexF = new GraphVertex("F");
+    const vertexG = new GraphVertex("G");
 
     const edgeFE = new GraphEdge(vertexF, vertexE, 8);
     const edgeFA = new GraphEdge(vertexF, vertexA, 10);

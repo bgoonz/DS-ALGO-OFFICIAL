@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="generator" content="pandoc" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=yes"
+    />
+    <title>README</title>
+    <style type="text/css">
+      code {
+        white-space: pre-wrap;
+      }
+      span.smallcaps {
+        font-variant: small-caps;
+      }
+      span.underline {
+        text-decoration: underline;
+      }
+      div.column {
+        display: inline-block;
+        vertical-align: top;
+        width: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 id="implement-depth-first-search">Implement Depth-First Search</h1>
+    <h2 id="pseudocode-for-dfs">Pseudocode for DFS</h2>
+    <pre class="pseudocode"><code>DFS(graph):
+    for v of graph.verts:
+        v.color = white
+        v.parent = null
+
+    for v of graph.verts:
+        if v.color == white:
+            DFS_visit(v)
+
+DFS_visit(v):
+    v.color = gray
+
+    for neighbor of v.adjacent_nodes:
+        if neighbor.color == white:
+            neighbor.parent = v
+            DFS_visit(neighbor)
+
+    v.color = black
+</code></pre>
+  </body>
+</html>

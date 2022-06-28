@@ -60,4 +60,4 @@ We put a "T" in the top right-hand corner to mean transpose:
 ## References
 
 - [Matrices on MathIsFun](https://www.mathsisfun.com/algebra/matrix-introduction.html)
-- [Matrix on Wikipedia](https://en.wikipedia.org/wiki/Matrix_(mathematics))
+- [Matrix on Wikipedia](<https://en.wikipedia.org/wiki/Matrix_(mathematics)>)

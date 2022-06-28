@@ -1,7 +1,7 @@
-import bfRainTerraces from '../bfRainTerraces';
+import bfRainTerraces from "../bfRainTerraces";
 
-describe('bfRainTerraces', () => {
-  it('should find the amount of water collected after raining', () => {
+describe("bfRainTerraces", () => {
+  it("should find the amount of water collected after raining", () => {
     expect(bfRainTerraces([1])).toBe(0);
     expect(bfRainTerraces([1, 0])).toBe(0);
     expect(bfRainTerraces([0, 1])).toBe(0);

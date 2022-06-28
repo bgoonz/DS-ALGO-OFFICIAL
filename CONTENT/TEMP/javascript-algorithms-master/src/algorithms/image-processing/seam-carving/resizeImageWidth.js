@@ -1,4 +1,4 @@
-import { getPixel, setPixel } from '../utils/imageData';
+import { getPixel, setPixel } from "../utils/imageData";
 
 /**
  * The seam is a sequence of pixels (coordinates).
@@ -47,11 +47,9 @@ import { getPixel, setPixel } from '../utils/imageData';
  * @returns {?(number | SeamPixelMeta)[][]}
  */
 const matrix = (w, h, filler) => {
-  return new Array(h)
-    .fill(null)
-    .map(() => {
-      return new Array(w).fill(filler);
-    });
+  return new Array(h).fill(null).map(() => {
+    return new Array(w).fill(filler);
+  });
 };
 
 /**
@@ -96,11 +94,11 @@ const calculateEnergyMap = (img, { w, h }) => {
   for (let y = 0; y < h; y += 1) {
     for (let x = 0; x < w; x += 1) {
       // Left pixel might not exist if we're on the very left edge of the image.
-      const left = (x - 1) >= 0 ? getPixel(img, { x: x - 1, y }) : null;
+      const left = x - 1 >= 0 ? getPixel(img, { x: x - 1, y }) : null;
       // The color of the middle pixel that we're calculating the energy for.
       const middle = getPixel(img, { x, y });
       // Right pixel might not exist if we're on the very right edge of the image.
-      const right = (x + 1) < w ? getPixel(img, { x: x + 1, y }) : null;
+      const right = x + 1 < w ? getPixel(img, { x: x + 1, y }) : null;
       energyMap[y][x] = getPixelEnergy(left, middle, right);
     }
   }
@@ -141,7 +139,7 @@ const findLowEnergySeam = (energyMap, { w, h }) => {
       // us to the current pixel with the coordinates x and y.
       let minPrevEnergy = Infinity;
       let minPrevX = x;
-      for (let i = (x - 1); i <= (x + 1); i += 1) {
+      for (let i = x - 1; i <= x + 1; i += 1) {
         if (i >= 0 && i < w && seamPixelsMap[y - 1][i].energy < minPrevEnergy) {
           minPrevEnergy = seamPixelsMap[y - 1][i].energy;
           minPrevX = i;
@@ -202,7 +200,7 @@ const findLowEnergySeam = (energyMap, { w, h }) => {
  */
 const deleteSeam = (img, seam, { w }) => {
   seam.forEach(({ x: seamX, y: seamY }) => {
-    for (let x = seamX; x < (w - 1); x += 1) {
+    for (let x = seamX; x < w - 1; x += 1) {
       const nextPixel = getPixel(img, { x: x + 1, y: seamY });
       setPixel(img, { x, y: seamY }, nextPixel);
     }

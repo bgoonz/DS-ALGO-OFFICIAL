@@ -1,4 +1,4 @@
-import DisjointSet from '../../../data-structures/disjoint-set/DisjointSet';
+import DisjointSet from "../../../data-structures/disjoint-set/DisjointSet";
 
 /**
  * Detect cycle in undirected graph using disjoint sets.
@@ -10,7 +10,9 @@ export default function detectUndirectedCycleUsingDisjointSet(graph) {
   /** @param {GraphVertex} graphVertex */
   const keyExtractor = (graphVertex) => graphVertex.getKey();
   const disjointSet = new DisjointSet(keyExtractor);
-  graph.getAllVertices().forEach((graphVertex) => disjointSet.makeSet(graphVertex));
+  graph
+    .getAllVertices()
+    .forEach((graphVertex) => disjointSet.makeSet(graphVertex));
 
   // Go trough all graph edges one by one and check if edge vertices are from the
   // different sets. In this case joint those sets together. Do this until you find

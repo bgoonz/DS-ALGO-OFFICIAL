@@ -1,5 +1,5 @@
-import LinkedListNode from './LinkedListNode';
-import Comparator from '../../utils/comparator/Comparator';
+import LinkedListNode from "./LinkedListNode";
+import Comparator from "../../utils/comparator/Comparator";
 
 export default class LinkedList {
   /**
@@ -205,7 +205,9 @@ export default class LinkedList {
    * @return {string}
    */
   toString(callback) {
-    return this.toArray().map((node) => node.toString(callback)).toString();
+    return this.toArray()
+      .map((node) => node.toString(callback))
+      .toString();
   }
 
   /**

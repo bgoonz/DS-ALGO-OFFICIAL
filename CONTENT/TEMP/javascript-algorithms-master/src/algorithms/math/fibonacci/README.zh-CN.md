@@ -12,8 +12,7 @@ _Read this in other languages:_
 
 ![Fibonacci](https://upload.wikimedia.org/wikipedia/commons/d/db/34%2A21-FibonacciBlocks.png)
 
-
-斐波那契螺旋：通过绘制连接斐波那契平铺中正方形的相对角的圆弧而创建的金色螺旋的近似值； [4]该三角形使用大小为1、1、2、3、5、8、13和21的正方形。
+斐波那契螺旋：通过绘制连接斐波那契平铺中正方形的相对角的圆弧而创建的金色螺旋的近似值； [4]该三角形使用大小为 1、1、2、3、5、8、13 和 21 的正方形。
 
 ![Fibonacci Spiral](https://upload.wikimedia.org/wikipedia/commons/2/2e/FibonacciSpiral.svg)
 

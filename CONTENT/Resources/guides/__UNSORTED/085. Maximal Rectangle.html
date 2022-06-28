@@ -134,11 +134,11 @@ function largestRectangleArea (heights) {
     </p>
     <pre><code>if matrix[row][col] == 1
   height(row, col) = height(row-1, col) + 1
-  
+
   // see how long this horizontal line can get
   conLeft(row, col) = conLeft(row, col-1)
   conRight(row, col) = conRight(row, col+1)
-  
+
   // width can only be shorter
   left(row, col) = max( left(row-1, col), conLeft(row, col) )
   right(row, col) = min( right(row-1, col), conRight(row, col) )
@@ -201,8 +201,11 @@ var maximalRectangle = function(matrix) {
 
   return max
 };</code></pre>
-    <br />
-    <hr />
-    <br />
+    <p>
+      <em
+        >Template generated via
+        <a href="https://github.com/crimx/crx-leetmark">Leetmark</a>.</em
+      >
+    </p>
   </body>
 </html>

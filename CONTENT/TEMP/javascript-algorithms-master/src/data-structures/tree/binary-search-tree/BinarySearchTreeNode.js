@@ -1,5 +1,5 @@
-import BinaryTreeNode from '../BinaryTreeNode';
-import Comparator from '../../../utils/comparator/Comparator';
+import BinaryTreeNode from "../BinaryTreeNode";
+import Comparator from "../../../utils/comparator/Comparator";
 
 export default class BinarySearchTreeNode extends BinaryTreeNode {
   /**
@@ -91,7 +91,7 @@ export default class BinarySearchTreeNode extends BinaryTreeNode {
     const nodeToRemove = this.find(value);
 
     if (!nodeToRemove) {
-      throw new Error('Item not found in the tree');
+      throw new Error("Item not found in the tree");
     }
 
     const { parent } = nodeToRemove;

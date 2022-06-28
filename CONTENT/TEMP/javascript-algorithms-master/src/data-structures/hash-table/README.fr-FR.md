@@ -2,10 +2,10 @@
 
 En informatique, une **table de hachage** (carte de
 hachage) est une structure de données qui implémente
-un type de données abstrait *tableau nassociatif*,
-une structure qui permet de *mapper des clés sur des
-valeurs*. Une table de hachage utilise une *fonction
-de hachage* pour calculer un index dans un tableau
+un type de données abstrait _tableau nassociatif_,
+une structure qui permet de _mapper des clés sur des
+valeurs_. Une table de hachage utilise une _fonction
+de hachage_ pour calculer un index dans un tableau
 d'alvéoles (en anglais, buckets ou slots), à partir
 duquel la valeur souhaitée peut être trouvée.
 

@@ -53,7 +53,7 @@ Contains(head, value)
   return true
 end Contains
 ```
-    
+
 ### 削除
 
 ```text
@@ -127,9 +127,9 @@ end ReverseTraversal
 
 ### 時間計算量
 
-| Access    | Search    | Insertion | Deletion  |
-| :-------: | :-------: | :-------: | :-------: |
-| O(n)      | O(n)      | O(1)      | O(n)      |
+| Access | Search | Insertion | Deletion |
+| :----: | :----: | :-------: | :------: |
+|  O(n)  |  O(n)  |   O(1)    |   O(n)   |
 
 ### 空間計算量
 

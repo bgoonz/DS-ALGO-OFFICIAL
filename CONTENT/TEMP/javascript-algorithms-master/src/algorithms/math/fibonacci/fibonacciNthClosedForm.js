@@ -10,7 +10,9 @@ export default function fibonacciClosedForm(position) {
 
   // Check that position is valid.
   if (position < 1 || position > topMaxValidPosition) {
-    throw new Error(`Can't handle position smaller than 1 or greater than ${topMaxValidPosition}`);
+    throw new Error(
+      `Can't handle position smaller than 1 or greater than ${topMaxValidPosition}`
+    );
   }
 
   // Calculate √5 to re-use it in further formulas.
@@ -19,5 +21,5 @@ export default function fibonacciClosedForm(position) {
   const phi = (1 + sqrt5) / 2;
 
   // Calculate fibonacci number using Binet's formula.
-  return Math.floor((phi ** position) / sqrt5 + 0.5);
+  return Math.floor(phi ** position / sqrt5 + 0.5);
 }

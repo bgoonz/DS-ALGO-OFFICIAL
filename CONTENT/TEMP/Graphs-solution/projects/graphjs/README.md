@@ -21,7 +21,7 @@ You can make the functions in `graph.js` available to code in other
 files with the `export` keyword:
 
 ```javascript
-export class Graph { 
+export class Graph {
   // ...
 ```
 
@@ -45,10 +45,10 @@ class GraphView extends Component {
 
   update() {
     let canvas = this.refs.canvas;
-    let ctx = canvas.getContext('2d');
-    
+    let ctx = canvas.getContext("2d");
+
     // Clear the canvas
-    ctx.fillStyle = 'white';
+    ctx.fillStyle = "white";
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 
     // Draw some stuff
@@ -56,13 +56,14 @@ class GraphView extends Component {
   }
 
   render() {
-    return <canvas ref="canvas" width={canvasWidth} height={canvasHeight}></canvas>;
+    return (
+      <canvas ref="canvas" width={canvasWidth} height={canvasHeight}></canvas>
+    );
   }
 }
 ```
 
 Use Google-fu to figure out how to draw lines (for edges) and circles (for vertexes).
-
 
 ## Phase 3: Draw a Random Graph
 
@@ -88,13 +89,12 @@ The _x_ and _y_ pixel coordinates of the verts will be in the `.pos.x`
 and `.pos.y` properties of the vert after `randomize()` has been called.
 
 Once you have the graph, drawing it is a matter of iterating all the
-verts and their edge destinations to draw the lines. 
+verts and their edge destinations to draw the lines.
 
 After the lines are drawn, draw circles for each vert.
 
 Finally, there is a `value` property on each vert that you can draw as
 text on top of the vert circle.
-
 
 ## Phase 4: Implement Breadth-First Search (or Depth-First Search)
 

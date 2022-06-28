@@ -145,7 +145,7 @@ end ReverseTraversal
 
 | Acesso | Pesquisa | Inserção | Remoção |
 | :----: | :------: | :------: | :-----: |
-|  O(n)  |  O(n)    |  O(1)    |  O(n)   |
+|  O(n)  |   O(n)   |   O(1)   |  O(n)   |
 
 ### Complexidade de Espaçø
 

@@ -2,64 +2,64 @@
  * Edge class
  */
 class Edge {
-	constructor(destination, weight=1) {
-		this.destination = destination;
-		this.weight = weight;
-	}
+  constructor(destination, weight = 1) {
+    this.destination = destination;
+    this.weight = weight;
+  }
 }
 
 /**
  * Vertex class
  */
 class Vertex {
-	constructor(value='vertex') {
-		this.value = value;
-		this.edges = [];
-	}
+  constructor(value = "vertex") {
+    this.value = value;
+    this.edges = [];
+  }
 }
 
 /**
  * Graph class
  */
 class Graph {
-	constructor() {
-		this.vertexes = [];
-	}
+  constructor() {
+    this.vertexes = [];
+  }
 
-	dfs(start) {
-		function visit(v) {
-			v.color = gray;
+  dfs(start) {
+    function visit(v) {
+      v.color = gray;
 
-			for (e of v.edges) {
-				const neighbor = e.destination;
-				if (neighbor.color === 'white') {
-					neighbor.parent = v;
-					visit(neighbor);
-				}
-			}
+      for (e of v.edges) {
+        const neighbor = e.destination;
+        if (neighbor.color === "white") {
+          neighbor.parent = v;
+          visit(neighbor);
+        }
+      }
 
-			v.color = 'black';
-		}
+      v.color = "black";
+    }
 
-		for (v of this.vertexes) {
-			v.color = 'white';
-			v.parent = null;
-		}
+    for (v of this.vertexes) {
+      v.color = "white";
+      v.parent = null;
+    }
 
-		for (v of this.vertexes) {
-			if (v.color === 'white') {
-				visit(v);
-			}
-		}
-	}
+    for (v of this.vertexes) {
+      if (v.color === "white") {
+        visit(v);
+      }
+    }
+  }
 }
 
 /**
  * Helper function to add bidirectional edges
  */
 function addEdge(v0, v1) {
-	v0.edges.push(new Edge(v1));
-	v1.edges.push(new Edge(v0));
+  v0.edges.push(new Edge(v1));
+  v1.edges.push(new Edge(v0));
 }
 
 /**
@@ -68,14 +68,14 @@ function addEdge(v0, v1) {
 
 // Build graph
 const graph = new Graph();
-const vertA = new Vertex('A');
-const vertB = new Vertex('B');
-const vertC = new Vertex('C');
-const vertD = new Vertex('D');
-const vertE = new Vertex('E');
-const vertF = new Vertex('F');
-const vertG = new Vertex('G');
-const vertH = new Vertex('H');
+const vertA = new Vertex("A");
+const vertB = new Vertex("B");
+const vertC = new Vertex("C");
+const vertD = new Vertex("D");
+const vertE = new Vertex("E");
+const vertF = new Vertex("F");
+const vertG = new Vertex("G");
+const vertH = new Vertex("H");
 
 addEdge(vertA, vertB);
 addEdge(vertB, vertD);

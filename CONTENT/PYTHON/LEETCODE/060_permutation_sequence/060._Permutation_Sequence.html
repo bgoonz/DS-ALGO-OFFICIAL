@@ -7,7 +7,7 @@
       name="viewport"
       content="width=device-width, initial-scale=1.0, user-scalable=yes"
     />
-    <title>060. Permutation Sequence</title>
+    <title>060._Permutation_Sequence</title>
     <style type="text/css">
       code {
         white-space: pre-wrap;
@@ -134,7 +134,7 @@
         color: #60a0b0;
         font-weight: bold;
         font-style: italic;
-      } /* Commentlet */
+      } /* CommentVar */
       code span.do {
         color: #ba2121;
         font-style: italic;
@@ -260,29 +260,36 @@ Output: &quot;2314&quot;</code></pre>
 <a class="sourceLine" id="cb3-3" title="3"><span class="co"> * </span><span class="an">@param</span><span class="co"> </span><span class="cv">{number}</span><span class="co"> k</span></a>
 <a class="sourceLine" id="cb3-4" title="4"><span class="co"> * </span><span class="an">@return</span><span class="co"> {string}</span></a>
 <a class="sourceLine" id="cb3-5" title="5"><span class="co"> */</span></a>
-<a class="sourceLine" id="cb3-6" title="6"><span class="kw">var</span> getPermutation <span class="op">=</span> <span class="kw">function</span>(n<span class="op">,</span> k) <span class="op">{</span></a>
-<a class="sourceLine" id="cb3-7" title="7">  <span class="kw">const</span> digits <span class="op">=</span> []</a>
-<a class="sourceLine" id="cb3-8" title="8">  <span class="kw">let</span> factorial <span class="op">=</span> <span class="dv">1</span></a>
+<a class="sourceLine" id="cb3-6" title="6"><span class="kw">let</span> getPermutation <span class="op">=</span> <span class="kw">function</span> (n<span class="op">,</span> k) <span class="op">{</span></a>
+<a class="sourceLine" id="cb3-7" title="7">  <span class="kw">const</span> digits <span class="op">=</span> []<span class="op">;</span></a>
+<a class="sourceLine" id="cb3-8" title="8">  <span class="kw">let</span> factorial <span class="op">=</span> <span class="dv">1</span><span class="op">;</span></a>
 <a class="sourceLine" id="cb3-9" title="9">  <span class="cf">for</span> (<span class="kw">let</span> i <span class="op">=</span> <span class="dv">1</span><span class="op">;</span> i <span class="op">&lt;=</span> n<span class="op">;</span> i<span class="op">++</span>) <span class="op">{</span></a>
-<a class="sourceLine" id="cb3-10" title="10">    <span class="va">digits</span>.<span class="at">push</span>(i)</a>
-<a class="sourceLine" id="cb3-11" title="11">    factorial <span class="op">*=</span> i</a>
+<a class="sourceLine" id="cb3-10" title="10">    <span class="va">digits</span>.<span class="at">push</span>(i)<span class="op">;</span></a>
+<a class="sourceLine" id="cb3-11" title="11">    factorial <span class="op">*=</span> i<span class="op">;</span></a>
 <a class="sourceLine" id="cb3-12" title="12">  <span class="op">}</span></a>
 <a class="sourceLine" id="cb3-13" title="13"></a>
-<a class="sourceLine" id="cb3-14" title="14">  k<span class="op">--</span></a>
+<a class="sourceLine" id="cb3-14" title="14">  k<span class="op">--;</span></a>
 <a class="sourceLine" id="cb3-15" title="15"></a>
-<a class="sourceLine" id="cb3-16" title="16">  <span class="kw">let</span> result <span class="op">=</span> <span class="st">&#39;&#39;</span></a>
+<a class="sourceLine" id="cb3-16" title="16">  <span class="kw">let</span> result <span class="op">=</span> <span class="st">&quot;&quot;</span><span class="op">;</span></a>
 <a class="sourceLine" id="cb3-17" title="17">  <span class="cf">while</span> (n <span class="op">&gt;</span> <span class="dv">0</span>) <span class="op">{</span></a>
-<a class="sourceLine" id="cb3-18" title="18">    factorial /<span class="op">=</span> n</a>
-<a class="sourceLine" id="cb3-19" title="19">    result <span class="op">+=</span> <span class="va">digits</span>.<span class="at">splice</span>(k / factorial <span class="op">|</span> <span class="dv">0</span><span class="op">,</span> <span class="dv">1</span>)[<span class="dv">0</span>]</a>
-<a class="sourceLine" id="cb3-20" title="20">    k <span class="op">%=</span> factorial</a>
-<a class="sourceLine" id="cb3-21" title="21">    n<span class="op">--</span></a>
+<a class="sourceLine" id="cb3-18" title="18">    factorial /<span class="op">=</span> n<span class="op">;</span></a>
+<a class="sourceLine" id="cb3-19" title="19">    result <span class="op">+=</span> <span class="va">digits</span>.<span class="at">splice</span>((k / factorial) <span class="op">|</span> <span class="dv">0</span><span class="op">,</span> <span class="dv">1</span>)[<span class="dv">0</span>]<span class="op">;</span></a>
+<a class="sourceLine" id="cb3-20" title="20">    k <span class="op">%=</span> factorial<span class="op">;</span></a>
+<a class="sourceLine" id="cb3-21" title="21">    n<span class="op">--;</span></a>
 <a class="sourceLine" id="cb3-22" title="22">  <span class="op">}</span></a>
-<a class="sourceLine" id="cb3-23" title="23">  </a>
-<a class="sourceLine" id="cb3-24" title="24">  <span class="cf">return</span> result</a>
+<a class="sourceLine" id="cb3-23" title="23"></a>
+<a class="sourceLine" id="cb3-24" title="24">  <span class="cf">return</span> result<span class="op">;</span></a>
 <a class="sourceLine" id="cb3-25" title="25"><span class="op">};</span></a></code></pre>
     </div>
-    <br />
     <hr />
-    <br />
+    <p>
+      ☆<em>: .｡. o(≧▽≦)o .｡.:</em>☆☆<em>: .｡. o(≧▽≦)o .｡.:</em>☆☆<em
+        >: .｡. o(≧▽≦)o .｡.:</em
+      >☆
+    </p>
+    <hr />
+    <hr />
+    <p>☆<em>: .｡. o(≧▽≦)o .｡.:</em>☆☆<em>: .｡. o(≧▽≦)o .｡.:</em>☆</p>
+    <hr />
   </body>
 </html>

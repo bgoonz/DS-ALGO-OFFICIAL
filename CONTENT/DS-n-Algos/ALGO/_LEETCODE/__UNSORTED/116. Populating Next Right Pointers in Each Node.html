@@ -80,31 +80,31 @@
           Right child: points to <code>node.next.left</code> if
           <code>node.next</code> exists.
         </p>
-        /**
+        <p>/**</p>
         <ul>
           <li>Definition for binary tree with next pointer.</li>
           <li>function TreeLinkNode(val) {</li>
-          <li>
-            <pre><code>this.val = val;</code></pre>
-          </li>
-          <li>
-            <pre><code>this.left = this.right = this.next = null;</code></pre>
-          </li>
-          <li>} */</li>
+          <li><p>this.val = val;</p></li>
+          <li><p>this.left = this.right = this.next = null;</p></li>
+          <li><p>} */</p></li>
         </ul>
-        /**
+        <p>/**</p>
         <ul>
           <li>
-            <span class="citation" data-cites="param">@param</span>
+            <span class="citation" data-cites="param"
+              ><span class="citation" data-cites="param">@param</span></span
+            >
             {TreeLinkNode} root
           </li>
           <li>
-            <span class="citation" data-cites="return">@return</span> {void} Do
-            not return anything, modify tree in-place instead. */ var connect =
-            function(root) { if (!root) { return } if (root.left !== null) {
-            root.left.next = root.right connect(root.left) } if (root.right !==
-            null) { if (root.next !== null) { root.right.next = root.next.left }
-            connect(root.right) } };
+            <span class="citation" data-cites="return"
+              ><span class="citation" data-cites="return">@return</span></span
+            >
+            {void} Do not return anything, modify tree in-place instead. */ var
+            connect = function(root) { if (!root) { return } if (root.left !==
+            null) { root.left.next = root.right connect(root.left) } if
+            (root.right !== null) { if (root.next !== null) { root.right.next =
+            root.next.left } connect(root.right) } };
           </li>
         </ul>
       </li>
@@ -140,8 +140,11 @@ var connect = function(root) {
     }
   }
 };</code></pre>
-    <br />
-    <hr />
-    <br />
+    <p>
+      <em
+        >Template generated via
+        <a href="https://github.com/crimx/crx-leetmark">Leetmark</a>.</em
+      >
+    </p>
   </body>
 </html>

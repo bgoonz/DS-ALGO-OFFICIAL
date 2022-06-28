@@ -21,7 +21,10 @@ export const getPixel = (img, { x, y }) => {
   const cellsPerColor = 4; // RGBA
   // For better efficiency, instead of creating a new sub-array we return
   // a pointer to the part of the ImageData array.
-  return img.data.subarray(i * cellsPerColor, i * cellsPerColor + cellsPerColor);
+  return img.data.subarray(
+    i * cellsPerColor,
+    i * cellsPerColor + cellsPerColor
+  );
 };
 
 /**

@@ -88,9 +88,9 @@ end Reverse Traversal
 
 ## Complejidad del Tiempo
 
-| Acceso    | Busqueda    | Inserción | Supresión  |
-| :-------: | :-------: | :-------: | :-------: |
-| O(n)      | O(n)      | O(1)      | O(n)      |
+| Acceso | Busqueda | Inserción | Supresión |
+| :----: | :------: | :-------: | :-------: |
+|  O(n)  |   O(n)   |   O(1)    |   O(n)    |
 
 ### Complejidad del Espacio
 

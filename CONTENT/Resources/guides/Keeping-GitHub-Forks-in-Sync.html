@@ -293,7 +293,7 @@
       <pre
         class="sourceCode bash"
       ><code class="sourceCode bash"><a class="sourceLine" id="cb1-1" title="1">$ <span class="fu">git</span> clone git@github.com:MyName/My-Forked-Repo.git</a>
-<a class="sourceLine" id="cb1-2" title="2">[<span class="ex">...cloning</span> output...] </a>
+<a class="sourceLine" id="cb1-2" title="2">[<span class="ex">...cloning</span> output...]</a>
 <a class="sourceLine" id="cb1-3" title="3"></a>
 <a class="sourceLine" id="cb1-4" title="4">$ <span class="fu">git</span> remote -v</a>
 <a class="sourceLine" id="cb1-5" title="5"><span class="ex">origin</span>  git@github.com:MyName/My-Forked-Repo.git (fetch)</a>
@@ -443,11 +443,15 @@
     <p>
       A useful
       <a href="https://git-scm.com/docs/git-config">gitconfig alias</a>,
-      <code>git up</code>: &gt;<br />
-      &gt; <code>up = "!git remote update -p; git merge --ff-only</code
-      ><a href="https://git-scm.com/docs/gitrevisions"><code>@{u}</code></a
-      ><code>"</code>
+      <code>git up</code>:
     </p>
+    <blockquote>
+      <p>
+        <code>up = "!git remote update -p; git merge --ff-only</code
+        ><a href="https://git-scm.com/docs/gitrevisions"><code>@{u}</code></a
+        ><code>"</code>
+      </p>
+    </blockquote>
     <p>
       Using this lets you more or less forget how to properly use
       <code>git pull</code> – you still have to <code>git merge</code> if you’re

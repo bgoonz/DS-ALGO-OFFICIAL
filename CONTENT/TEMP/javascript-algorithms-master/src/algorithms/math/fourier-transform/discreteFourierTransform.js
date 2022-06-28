@@ -1,4 +1,4 @@
-import ComplexNumber from '../complex-number/ComplexNumber';
+import ComplexNumber from "../complex-number/ComplexNumber";
 
 const CLOSE_TO_ZERO_THRESHOLD = 1e-10;
 
@@ -19,7 +19,10 @@ const CLOSE_TO_ZERO_THRESHOLD = 1e-10;
  * @see https://gist.github.com/anonymous/129d477ddb1c8025c9ac
  * @see https://betterexplained.com/articles/an-interactive-guide-to-the-fourier-transform/
  */
-export default function dft(inputAmplitudes, zeroThreshold = CLOSE_TO_ZERO_THRESHOLD) {
+export default function dft(
+  inputAmplitudes,
+  zeroThreshold = CLOSE_TO_ZERO_THRESHOLD
+) {
   const N = inputAmplitudes.length;
   const signals = [];
 

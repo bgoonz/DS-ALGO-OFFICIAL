@@ -16,10 +16,18 @@ export default function bwPowerSet(originalSet) {
   // it shows by its bits (0 or 1) whether to include related element from the set or not.
   // For example, for the set {1, 2, 3} the binary number of 0b010 would mean that we need to
   // include only "2" to the current set.
-  for (let combinationIndex = 0; combinationIndex < numberOfCombinations; combinationIndex += 1) {
+  for (
+    let combinationIndex = 0;
+    combinationIndex < numberOfCombinations;
+    combinationIndex += 1
+  ) {
     const subSet = [];
 
-    for (let setElementIndex = 0; setElementIndex < originalSet.length; setElementIndex += 1) {
+    for (
+      let setElementIndex = 0;
+      setElementIndex < originalSet.length;
+      setElementIndex += 1
+    ) {
       // Decide whether we need to include current element into the subset or not.
       if (combinationIndex & (1 << setElementIndex)) {
         subSet.push(originalSet[setElementIndex]);

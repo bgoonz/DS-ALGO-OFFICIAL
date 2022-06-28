@@ -24,7 +24,11 @@ export default function greedyJumpGame(numbers) {
   let leftGoodPosition = numbers.length - 1;
 
   // Go through all numbers from right to left.
-  for (let numberIndex = numbers.length - 2; numberIndex >= 0; numberIndex -= 1) {
+  for (
+    let numberIndex = numbers.length - 2;
+    numberIndex >= 0;
+    numberIndex -= 1
+  ) {
     // If we can reach the "good" cell from the current one then for sure the current
     // one is also "good". Since after all we'll be able to reach the end of the array
     // from it.

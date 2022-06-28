@@ -258,7 +258,7 @@
 <a class="sourceLine" id="cb4-7" title="7">{</a>
 <a class="sourceLine" id="cb4-8" title="8">    printf(<span class="st">&quot;This program should print 1,2,3 in order.</span><span class="sc">\n</span><span class="st">&quot;</span>);</a>
 <a class="sourceLine" id="cb4-9" title="9">    printf(<span class="st">&quot;If it does, you&#39;re good to go with Lambda School C.</span><span class="sc">\n\n</span><span class="st">&quot;</span>);</a>
-<a class="sourceLine" id="cb4-10" title="10">    </a>
+<a class="sourceLine" id="cb4-10" title="10"></a>
 <a class="sourceLine" id="cb4-11" title="11">    printf(<span class="st">&quot;1</span><span class="sc">\n</span><span class="st">&quot;</span>);</a>
 <a class="sourceLine" id="cb4-12" title="12"></a>
 <a class="sourceLine" id="cb4-13" title="13">    <span class="cf">if</span> (fork() == <span class="dv">0</span>) {</a>
@@ -433,8 +433,8 @@ gcc -Wall -Wextra -o foo foo.c</code></pre>
         type <code>sudo apt-get make</code>.
       </li>
       <li>
-        If you get 404s when doing <code>sudo apt-get</code>, try:
-        <code>sudo apt-get update &amp;&amp; sudo apt-get install X</code>
+        <p>If you get 404s when doing <code>sudo apt-get</code>, try:</p>
+        <pre><code>sudo apt-get update &amp;&amp; sudo apt-get install X</code></pre>
       </li>
     </ul>
     <h3 id="option-b-cygwin">Option B: Cygwin</h3>
@@ -512,17 +512,19 @@ gcc -Wall -Wextra -o foo foo.c</code></pre>
       <li>Run VSCode as normal.</li>
       <li>Run <code>gcc</code> from the Cygwin Terminal bash shell.</li>
       <li>
-        To get VSCode’s integrated terminal to use Cygwin bash, add the
-        following to your VS Code user settings:
-        <code
-          >"terminal.integrated.shell.windows": "C:\\cygwin\\bin\\bash.exe",
-          "terminal.integrated.env.windows" {"CHERE_INVOKING": "1"},
-          "terminal.integrated.shellArgs.windows": ["-l"]</code
-        >
-        <a
-          href="https://stackoverflow.com/questions/46061894/vs-code-cygwin-as-integrated-terminal"
-          >More info here</a
-        >.
+        <p>
+          To get VSCode’s integrated terminal to use Cygwin bash, add the
+          following to your VS Code user settings:
+        </p>
+        <pre><code>&quot;terminal.integrated.shell.windows&quot;: &quot;C:\\cygwin\\bin\\bash.exe&quot;,
+&quot;terminal.integrated.env.windows&quot; {&quot;CHERE_INVOKING&quot;: &quot;1&quot;},
+&quot;terminal.integrated.shellArgs.windows&quot;: [&quot;-l&quot;]</code></pre>
+        <p>
+          <a
+            href="https://stackoverflow.com/questions/46061894/vs-code-cygwin-as-integrated-terminal"
+            >More info here</a
+          >.
+        </p>
       </li>
     </ul>
     <h4 id="cygwin-pitfalls">Cygwin Pitfalls</h4>

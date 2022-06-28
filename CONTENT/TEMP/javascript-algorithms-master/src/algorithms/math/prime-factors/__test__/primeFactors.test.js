@@ -1,7 +1,4 @@
-import {
-  primeFactors,
-  hardyRamanujan,
-} from '../primeFactors';
+import { primeFactors, hardyRamanujan } from "../primeFactors";
 
 /**
  * Calculates the error between exact and approximate prime factor counts.
@@ -10,11 +7,11 @@ import {
  * @returns {number} - approximation error (percentage).
  */
 function approximationError(exactCount, approximateCount) {
-  return (Math.abs((exactCount - approximateCount) / exactCount) * 100);
+  return Math.abs((exactCount - approximateCount) / exactCount) * 100;
 }
 
-describe('primeFactors', () => {
-  it('should find prime factors', () => {
+describe("primeFactors", () => {
+  it("should find prime factors", () => {
     expect(primeFactors(1)).toEqual([]);
     expect(primeFactors(2)).toEqual([2]);
     expect(primeFactors(3)).toEqual([3]);
@@ -36,7 +33,7 @@ describe('primeFactors', () => {
     expect(primeFactors(873452453)).toEqual([149, 1637, 3581]);
   });
 
-  it('should give approximate prime factors count using Hardy-Ramanujan theorem', () => {
+  it("should give approximate prime factors count using Hardy-Ramanujan theorem", () => {
     expect(hardyRamanujan(2)).toBeCloseTo(-0.366, 2);
     expect(hardyRamanujan(4)).toBeCloseTo(0.326, 2);
     expect(hardyRamanujan(40)).toBeCloseTo(1.305, 2);
@@ -50,38 +47,52 @@ describe('primeFactors', () => {
     expect(hardyRamanujan(873452453)).toBeCloseTo(3.024, 2);
   });
 
-  it('should give correct deviation between exact and approx counts', () => {
-    expect(approximationError(primeFactors(2).length, hardyRamanujan(2)))
-      .toBeCloseTo(136.651, 2);
+  it("should give correct deviation between exact and approx counts", () => {
+    expect(
+      approximationError(primeFactors(2).length, hardyRamanujan(2))
+    ).toBeCloseTo(136.651, 2);
 
-    expect(approximationError(primeFactors(4).length, hardyRamanujan(2)))
-      .toBeCloseTo(118.325, 2);
+    expect(
+      approximationError(primeFactors(4).length, hardyRamanujan(2))
+    ).toBeCloseTo(118.325, 2);
 
-    expect(approximationError(primeFactors(40).length, hardyRamanujan(2)))
-      .toBeCloseTo(109.162, 2);
+    expect(
+      approximationError(primeFactors(40).length, hardyRamanujan(2))
+    ).toBeCloseTo(109.162, 2);
 
-    expect(approximationError(primeFactors(156).length, hardyRamanujan(2)))
-      .toBeCloseTo(109.162, 2);
+    expect(
+      approximationError(primeFactors(156).length, hardyRamanujan(2))
+    ).toBeCloseTo(109.162, 2);
 
-    expect(approximationError(primeFactors(980).length, hardyRamanujan(2)))
-      .toBeCloseTo(107.330, 2);
+    expect(
+      approximationError(primeFactors(980).length, hardyRamanujan(2))
+    ).toBeCloseTo(107.33, 2);
 
-    expect(approximationError(primeFactors(52734).length, hardyRamanujan(52734)))
-      .toBeCloseTo(52.274, 2);
+    expect(
+      approximationError(primeFactors(52734).length, hardyRamanujan(52734))
+    ).toBeCloseTo(52.274, 2);
 
-    expect(approximationError(primeFactors(343434).length, hardyRamanujan(343434)))
-      .toBeCloseTo(57.578, 2);
+    expect(
+      approximationError(primeFactors(343434).length, hardyRamanujan(343434))
+    ).toBeCloseTo(57.578, 2);
 
-    expect(approximationError(primeFactors(456745).length, hardyRamanujan(456745)))
-      .toBeCloseTo(14.420, 2);
+    expect(
+      approximationError(primeFactors(456745).length, hardyRamanujan(456745))
+    ).toBeCloseTo(14.42, 2);
 
-    expect(approximationError(primeFactors(510510).length, hardyRamanujan(510510)))
-      .toBeCloseTo(63.201, 2);
+    expect(
+      approximationError(primeFactors(510510).length, hardyRamanujan(510510))
+    ).toBeCloseTo(63.201, 2);
 
-    expect(approximationError(primeFactors(8735463).length, hardyRamanujan(8735463)))
-      .toBeCloseTo(30.712, 2);
+    expect(
+      approximationError(primeFactors(8735463).length, hardyRamanujan(8735463))
+    ).toBeCloseTo(30.712, 2);
 
-    expect(approximationError(primeFactors(873452453).length, hardyRamanujan(873452453)))
-      .toBeCloseTo(0.823, 2);
+    expect(
+      approximationError(
+        primeFactors(873452453).length,
+        hardyRamanujan(873452453)
+      )
+    ).toBeCloseTo(0.823, 2);
   });
 });
