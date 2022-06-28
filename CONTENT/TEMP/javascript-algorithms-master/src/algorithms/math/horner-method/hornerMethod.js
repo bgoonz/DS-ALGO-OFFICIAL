@@ -7,10 +7,7 @@
  * @return {number}
  */
 export default function hornerMethod(coefficients, xVal) {
-  return coefficients.reduce(
-    (accumulator, currentCoefficient) => {
-      return accumulator * xVal + currentCoefficient;
-    },
-    0,
-  );
+  return coefficients.reduce((accumulator, currentCoefficient) => {
+    return accumulator * xVal + currentCoefficient;
+  }, 0);
 }

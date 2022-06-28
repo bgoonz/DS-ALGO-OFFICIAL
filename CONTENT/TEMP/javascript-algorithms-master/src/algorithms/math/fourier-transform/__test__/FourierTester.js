@@ -1,13 +1,79 @@
-import ComplexNumber from '../../complex-number/ComplexNumber';
+import ComplexNumber from "../../complex-number/ComplexNumber";
 
 export const fourierTestCases = [
   {
-    input: [
-      { amplitude: 1 },
-    ],
+    input: [{ amplitude: 1 }],
     output: [
       {
-        frequency: 0, amplitude: 1, phase: 0, re: 1, im: 0,
+        frequency: 0,
+        amplitude: 1,
+        phase: 0,
+        re: 1,
+        im: 0,
+      },
+    ],
+  },
+  {
+    input: [{ amplitude: 1 }, { amplitude: 0 }],
+    output: [
+      {
+        frequency: 0,
+        amplitude: 0.5,
+        phase: 0,
+        re: 0.5,
+        im: 0,
+      },
+      {
+        frequency: 1,
+        amplitude: 0.5,
+        phase: 0,
+        re: 0.5,
+        im: 0,
+      },
+    ],
+  },
+  {
+    input: [{ amplitude: 2 }, { amplitude: 0 }],
+    output: [
+      {
+        frequency: 0,
+        amplitude: 1,
+        phase: 0,
+        re: 1,
+        im: 0,
+      },
+      {
+        frequency: 1,
+        amplitude: 1,
+        phase: 0,
+        re: 1,
+        im: 0,
+      },
+    ],
+  },
+  {
+    input: [{ amplitude: 1 }, { amplitude: 0 }, { amplitude: 0 }],
+    output: [
+      {
+        frequency: 0,
+        amplitude: 0.33333,
+        phase: 0,
+        re: 0.33333,
+        im: 0,
+      },
+      {
+        frequency: 1,
+        amplitude: 0.33333,
+        phase: 0,
+        re: 0.33333,
+        im: 0,
+      },
+      {
+        frequency: 2,
+        amplitude: 0.33333,
+        phase: 0,
+        re: 0.33333,
+        im: 0,
       },
     ],
   },
@@ -15,133 +81,151 @@ export const fourierTestCases = [
     input: [
       { amplitude: 1 },
       { amplitude: 0 },
+      { amplitude: 0 },
+      { amplitude: 0 },
     ],
     output: [
       {
-        frequency: 0, amplitude: 0.5, phase: 0, re: 0.5, im: 0,
+        frequency: 0,
+        amplitude: 0.25,
+        phase: 0,
+        re: 0.25,
+        im: 0,
       },
       {
-        frequency: 1, amplitude: 0.5, phase: 0, re: 0.5, im: 0,
+        frequency: 1,
+        amplitude: 0.25,
+        phase: 0,
+        re: 0.25,
+        im: 0,
+      },
+      {
+        frequency: 2,
+        amplitude: 0.25,
+        phase: 0,
+        re: 0.25,
+        im: 0,
+      },
+      {
+        frequency: 3,
+        amplitude: 0.25,
+        phase: 0,
+        re: 0.25,
+        im: 0,
       },
     ],
   },
   {
     input: [
+      { amplitude: 0 },
+      { amplitude: 1 },
+      { amplitude: 0 },
+      { amplitude: 0 },
+    ],
+    output: [
+      {
+        frequency: 0,
+        amplitude: 0.25,
+        phase: 0,
+        re: 0.25,
+        im: 0,
+      },
+      {
+        frequency: 1,
+        amplitude: 0.25,
+        phase: -90,
+        re: 0,
+        im: -0.25,
+      },
+      {
+        frequency: 2,
+        amplitude: 0.25,
+        phase: 180,
+        re: -0.25,
+        im: 0,
+      },
+      {
+        frequency: 3,
+        amplitude: 0.25,
+        phase: 90,
+        re: 0,
+        im: 0.25,
+      },
+    ],
+  },
+  {
+    input: [
+      { amplitude: 0 },
+      { amplitude: 0 },
+      { amplitude: 1 },
+      { amplitude: 0 },
+    ],
+    output: [
+      {
+        frequency: 0,
+        amplitude: 0.25,
+        phase: 0,
+        re: 0.25,
+        im: 0,
+      },
+      {
+        frequency: 1,
+        amplitude: 0.25,
+        phase: 180,
+        re: -0.25,
+        im: 0,
+      },
+      {
+        frequency: 2,
+        amplitude: 0.25,
+        phase: 0,
+        re: 0.25,
+        im: 0,
+      },
+      {
+        frequency: 3,
+        amplitude: 0.25,
+        phase: 180,
+        re: -0.25,
+        im: 0,
+      },
+    ],
+  },
+  {
+    input: [
+      { amplitude: 0 },
+      { amplitude: 0 },
+      { amplitude: 0 },
       { amplitude: 2 },
-      { amplitude: 0 },
     ],
     output: [
       {
-        frequency: 0, amplitude: 1, phase: 0, re: 1, im: 0,
+        frequency: 0,
+        amplitude: 0.5,
+        phase: 0,
+        re: 0.5,
+        im: 0,
       },
       {
-        frequency: 1, amplitude: 1, phase: 0, re: 1, im: 0,
-      },
-    ],
-  },
-  {
-    input: [
-      { amplitude: 1 },
-      { amplitude: 0 },
-      { amplitude: 0 },
-    ],
-    output: [
-      {
-        frequency: 0, amplitude: 0.33333, phase: 0, re: 0.33333, im: 0,
+        frequency: 1,
+        amplitude: 0.5,
+        phase: 90,
+        re: 0,
+        im: 0.5,
       },
       {
-        frequency: 1, amplitude: 0.33333, phase: 0, re: 0.33333, im: 0,
+        frequency: 2,
+        amplitude: 0.5,
+        phase: 180,
+        re: -0.5,
+        im: 0,
       },
       {
-        frequency: 2, amplitude: 0.33333, phase: 0, re: 0.33333, im: 0,
-      },
-    ],
-  },
-  {
-    input: [
-      { amplitude: 1 },
-      { amplitude: 0 },
-      { amplitude: 0 },
-      { amplitude: 0 },
-    ],
-    output: [
-      {
-        frequency: 0, amplitude: 0.25, phase: 0, re: 0.25, im: 0,
-      },
-      {
-        frequency: 1, amplitude: 0.25, phase: 0, re: 0.25, im: 0,
-      },
-      {
-        frequency: 2, amplitude: 0.25, phase: 0, re: 0.25, im: 0,
-      },
-      {
-        frequency: 3, amplitude: 0.25, phase: 0, re: 0.25, im: 0,
-      },
-    ],
-  },
-  {
-    input: [
-      { amplitude: 0 },
-      { amplitude: 1 },
-      { amplitude: 0 },
-      { amplitude: 0 },
-    ],
-    output: [
-      {
-        frequency: 0, amplitude: 0.25, phase: 0, re: 0.25, im: 0,
-      },
-      {
-        frequency: 1, amplitude: 0.25, phase: -90, re: 0, im: -0.25,
-      },
-      {
-        frequency: 2, amplitude: 0.25, phase: 180, re: -0.25, im: 0,
-      },
-      {
-        frequency: 3, amplitude: 0.25, phase: 90, re: 0, im: 0.25,
-      },
-    ],
-  },
-  {
-    input: [
-      { amplitude: 0 },
-      { amplitude: 0 },
-      { amplitude: 1 },
-      { amplitude: 0 },
-    ],
-    output: [
-      {
-        frequency: 0, amplitude: 0.25, phase: 0, re: 0.25, im: 0,
-      },
-      {
-        frequency: 1, amplitude: 0.25, phase: 180, re: -0.25, im: 0,
-      },
-      {
-        frequency: 2, amplitude: 0.25, phase: 0, re: 0.25, im: 0,
-      },
-      {
-        frequency: 3, amplitude: 0.25, phase: 180, re: -0.25, im: 0,
-      },
-    ],
-  },
-  {
-    input: [
-      { amplitude: 0 },
-      { amplitude: 0 },
-      { amplitude: 0 },
-      { amplitude: 2 },
-    ],
-    output: [
-      {
-        frequency: 0, amplitude: 0.5, phase: 0, re: 0.5, im: 0,
-      },
-      {
-        frequency: 1, amplitude: 0.5, phase: 90, re: 0, im: 0.5,
-      },
-      {
-        frequency: 2, amplitude: 0.5, phase: 180, re: -0.5, im: 0,
-      },
-      {
-        frequency: 3, amplitude: 0.5, phase: -90, re: 0, im: -0.5,
+        frequency: 3,
+        amplitude: 0.5,
+        phase: -90,
+        re: 0,
+        im: -0.5,
       },
     ],
   },
@@ -154,16 +238,32 @@ export const fourierTestCases = [
     ],
     output: [
       {
-        frequency: 0, amplitude: 0.75, phase: 0, re: 0.75, im: 0,
+        frequency: 0,
+        amplitude: 0.75,
+        phase: 0,
+        re: 0.75,
+        im: 0,
       },
       {
-        frequency: 1, amplitude: 0.25, phase: 90, re: 0, im: 0.25,
+        frequency: 1,
+        amplitude: 0.25,
+        phase: 90,
+        re: 0,
+        im: 0.25,
       },
       {
-        frequency: 2, amplitude: 0.75, phase: 180, re: -0.75, im: 0,
+        frequency: 2,
+        amplitude: 0.75,
+        phase: 180,
+        re: -0.75,
+        im: 0,
       },
       {
-        frequency: 3, amplitude: 0.25, phase: -90, re: 0, im: -0.25,
+        frequency: 3,
+        amplitude: 0.25,
+        phase: -90,
+        re: 0,
+        im: -0.25,
       },
     ],
   },
@@ -176,16 +276,32 @@ export const fourierTestCases = [
     ],
     output: [
       {
-        frequency: 0, amplitude: 1.75, phase: 0, re: 1.75, im: 0,
+        frequency: 0,
+        amplitude: 1.75,
+        phase: 0,
+        re: 1.75,
+        im: 0,
       },
       {
-        frequency: 1, amplitude: 1.03077, phase: 14.03624, re: 0.99999, im: 0.25,
+        frequency: 1,
+        amplitude: 1.03077,
+        phase: 14.03624,
+        re: 0.99999,
+        im: 0.25,
       },
       {
-        frequency: 2, amplitude: 0.25, phase: 0, re: 0.25, im: 0,
+        frequency: 2,
+        amplitude: 0.25,
+        phase: 0,
+        re: 0.25,
+        im: 0,
       },
       {
-        frequency: 3, amplitude: 1.03077, phase: -14.03624, re: 1, im: -0.25,
+        frequency: 3,
+        amplitude: 1.03077,
+        phase: -14.03624,
+        re: 1,
+        im: -0.25,
       },
     ],
   },
@@ -198,16 +314,32 @@ export const fourierTestCases = [
     ],
     output: [
       {
-        frequency: 0, amplitude: 1, phase: 0, re: 1, im: 0,
+        frequency: 0,
+        amplitude: 1,
+        phase: 0,
+        re: 1,
+        im: 0,
       },
       {
-        frequency: 1, amplitude: 1.76776, phase: 8.13010, re: 1.75, im: 0.25,
+        frequency: 1,
+        amplitude: 1.76776,
+        phase: 8.1301,
+        re: 1.75,
+        im: 0.25,
       },
       {
-        frequency: 2, amplitude: 0.5, phase: 180, re: -0.5, im: 0,
+        frequency: 2,
+        amplitude: 0.5,
+        phase: 180,
+        re: -0.5,
+        im: 0,
       },
       {
-        frequency: 3, amplitude: 1.76776, phase: -8.13010, re: 1.75, im: -0.24999,
+        frequency: 3,
+        amplitude: 1.76776,
+        phase: -8.1301,
+        re: 1.75,
+        im: -0.24999,
       },
     ],
   },
@@ -220,16 +352,32 @@ export const fourierTestCases = [
     ],
     output: [
       {
-        frequency: 0, amplitude: 2.5, phase: 0, re: 2.5, im: 0,
+        frequency: 0,
+        amplitude: 2.5,
+        phase: 0,
+        re: 2.5,
+        im: 0,
       },
       {
-        frequency: 1, amplitude: 0.70710, phase: 135, re: -0.5, im: 0.49999,
+        frequency: 1,
+        amplitude: 0.7071,
+        phase: 135,
+        re: -0.5,
+        im: 0.49999,
       },
       {
-        frequency: 2, amplitude: 0.5, phase: 180, re: -0.5, im: 0,
+        frequency: 2,
+        amplitude: 0.5,
+        phase: 180,
+        re: -0.5,
+        im: 0,
       },
       {
-        frequency: 3, amplitude: 0.70710, phase: -134.99999, re: -0.49999, im: -0.5,
+        frequency: 3,
+        amplitude: 0.7071,
+        phase: -134.99999,
+        re: -0.49999,
+        im: -0.5,
       },
     ],
   },
@@ -248,7 +396,9 @@ export default class FourierTester {
       const currentOutput = fourierTransform(formattedInput);
 
       // Check the signal has been split into proper amount of sub-signals.
-      expect(currentOutput.length).toBeGreaterThanOrEqual(formattedInput.length);
+      expect(currentOutput.length).toBeGreaterThanOrEqual(
+        formattedInput.length
+      );
 
       // Now go through all the signals and check their frequency, amplitude and phase.
       expectedOutput.forEach((expectedSignal, frequency) => {
@@ -261,7 +411,10 @@ export default class FourierTester {
         expect(currentSignal.re).toBeCloseTo(expectedSignal.re, 4);
         expect(currentSignal.im).toBeCloseTo(expectedSignal.im, 4);
         expect(currentPolarSignal.phase).toBeCloseTo(expectedSignal.phase, 4);
-        expect(currentPolarSignal.radius).toBeCloseTo(expectedSignal.amplitude, 4);
+        expect(currentPolarSignal.radius).toBeCloseTo(
+          expectedSignal.amplitude,
+          4
+        );
       });
     });
   }

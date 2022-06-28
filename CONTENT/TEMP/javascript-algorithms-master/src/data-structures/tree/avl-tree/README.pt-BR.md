@@ -13,7 +13,6 @@ média quanto nos piores casos, onde `n` é o número de nós na
 árvore antes da operação. Inserções e exclusões podem exigir
 que a árvore seja reequilibrada por uma ou mais rotações.
 
-
 Animação mostrando a inserção de vários elementos em uma árvore AVL.
 Inclui as rotações de esquerda, direita, esquerda-direita e direita-esquerda.
 
@@ -43,8 +42,8 @@ Inclui as rotações de esquerda, direita, esquerda-direita e direita-esquerda.
 
 ## Referências
 
-* [Wikipedia](https://en.wikipedia.org/wiki/AVL_tree)
-* [Tutorials Point](https://www.tutorialspoint.com/data_structures_algorithms/avl_tree_algorithm.htm)
-* [BTech](http://btechsmartclass.com/data_structures/avl-trees.html)
-* [AVL Tree Insertion on YouTube](https://www.youtube.com/watch?v=rbg7Qf8GkQ4&list=PLLXdhg_r2hKA7DPDsunoDZ-Z769jWn4R8&index=12&)
-* [AVL Tree Interactive Visualisations](https://www.cs.usfca.edu/~galles/visualization/AVLtree.html)
+- [Wikipedia](https://en.wikipedia.org/wiki/AVL_tree)
+- [Tutorials Point](https://www.tutorialspoint.com/data_structures_algorithms/avl_tree_algorithm.htm)
+- [BTech](http://btechsmartclass.com/data_structures/avl-trees.html)
+- [AVL Tree Insertion on YouTube](https://www.youtube.com/watch?v=rbg7Qf8GkQ4&list=PLLXdhg_r2hKA7DPDsunoDZ-Z769jWn4R8&index=12&)
+- [AVL Tree Interactive Visualisations](https://www.cs.usfca.edu/~galles/visualization/AVLtree.html)

@@ -1,7 +1,7 @@
-import multiply from '../multiply';
+import multiply from "../multiply";
 
-describe('multiply', () => {
-  it('should multiply two numbers', () => {
+describe("multiply", () => {
+  it("should multiply two numbers", () => {
     expect(multiply(0, 0)).toBe(0);
     expect(multiply(2, 0)).toBe(0);
     expect(multiply(0, 2)).toBe(0);

@@ -67,27 +67,30 @@
       <li>Reverse the portion using the next node as edge(null) pointer.</li>
       <li>
         <p>Connect it back to the main linked list.</p>
-        /**
+        <p>/**</p>
         <ul>
           <li>Definition for singly-linked list.</li>
           <li>function ListNode(val) {</li>
-          <li>
-            <pre><code>this.val = val;</code></pre>
-          </li>
-          <li>
-            <pre><code>this.next = null;</code></pre>
-          </li>
+          <li><p>this.val = val;</p></li>
+          <li><p>this.next = null;</p></li>
           <li>} */ /**</li>
           <li>
-            <span class="citation" data-cites="param">@param</span> {ListNode}
-            head
+            <span class="citation" data-cites="param"
+              ><span class="citation" data-cites="param">@param</span></span
+            >
+            {ListNode} head
           </li>
           <li>
-            <span class="citation" data-cites="param">@param</span> {number} k
+            <span class="citation" data-cites="param"
+              ><span class="citation" data-cites="param">@param</span></span
+            >
+            {number} k
           </li>
           <li>
             <p>
-              <span class="citation" data-cites="return">@return</span>
+              <span class="citation" data-cites="return"
+                ><span class="citation" data-cites="return">@return</span></span
+              >
               {ListNode} */ let reverseKGroup = function(head, k) { const
               prehead = { next: head } let p = prehead while (true) { let n = k
               let pEndNext = p.next while (pEndNext &amp;&amp; n) { pEndNext =
@@ -108,8 +111,11 @@
         </p>
       </li>
     </ol>
-    <br />
-    <hr />
-    <br />
+    <p>
+      <em
+        >Template generated via
+        <a href="https://github.com/crimx/crx-leetmark">Leetmark</a>.</em
+      >
+    </p>
   </body>
 </html>

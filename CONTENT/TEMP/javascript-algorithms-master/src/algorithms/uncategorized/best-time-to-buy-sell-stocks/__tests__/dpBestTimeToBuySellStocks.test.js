@@ -1,7 +1,7 @@
-import dpBestTimeToBuySellStocks from '../dpBestTimeToBuySellStocks';
+import dpBestTimeToBuySellStocks from "../dpBestTimeToBuySellStocks";
 
-describe('dpBestTimeToBuySellStocks', () => {
-  it('should find the best time to buy and sell stocks', () => {
+describe("dpBestTimeToBuySellStocks", () => {
+  it("should find the best time to buy and sell stocks", () => {
     let visit;
 
     expect(dpBestTimeToBuySellStocks([1, 5])).toEqual(4);
@@ -23,7 +23,9 @@ describe('dpBestTimeToBuySellStocks', () => {
     expect(visit).toHaveBeenCalledTimes(3);
 
     visit = jest.fn();
-    expect(dpBestTimeToBuySellStocks([10, 1, 5, 20, 15, 21], visit)).toEqual(25);
+    expect(dpBestTimeToBuySellStocks([10, 1, 5, 20, 15, 21], visit)).toEqual(
+      25
+    );
     expect(visit).toHaveBeenCalledTimes(6);
 
     visit = jest.fn();
@@ -39,10 +41,12 @@ describe('dpBestTimeToBuySellStocks', () => {
     expect(visit).toHaveBeenCalledTimes(5);
 
     visit = jest.fn();
-    expect(dpBestTimeToBuySellStocks(
-      [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
-      visit,
-    )).toEqual(19);
+    expect(
+      dpBestTimeToBuySellStocks(
+        [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20],
+        visit
+      )
+    ).toEqual(19);
     expect(visit).toHaveBeenCalledTimes(20);
   });
 });

@@ -2,8 +2,8 @@
 
 Na ciência da computação, uma **tabela de hash** (hash map) é uma
 estrutura de dados pela qual implementa um tipo de dado abstrado de
-*array associativo*, uma estrutura que pode *mapear chaves para valores*.
-Uma tabela de hash utiliza uma *função de hash* para calcular um índice
+_array associativo_, uma estrutura que pode _mapear chaves para valores_.
+Uma tabela de hash utiliza uma _função de hash_ para calcular um índice
 em um _array_ de buckets ou slots, a partir do qual o valor desejado
 pode ser encontrado.
 

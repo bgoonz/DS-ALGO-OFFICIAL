@@ -1,7 +1,7 @@
 # Power Set
 
 Power set of a set `S` is the set of all of the subsets of `S`, including the
-empty set and `S` itself. Power set of set `S` is denoted as `P(S)`. 
+empty set and `S` itself. Power set of set `S` is denoted as `P(S)`.
 
 For example for `{x, y, z}`, the subsets
 are:
@@ -21,42 +21,42 @@ are:
 
 ![Power Set](https://www.mathsisfun.com/sets/images/power-set.svg)
 
-Here is how we may illustrate the elements of the power set of the set `{x, y, z}` ordered with respect to 
+Here is how we may illustrate the elements of the power set of the set `{x, y, z}` ordered with respect to
 inclusion:
 
 ![](https://upload.wikimedia.org/wikipedia/commons/e/ea/Hasse_diagram_of_powerset_of_3.svg)
 
 **Number of Subsets**
 
-If `S` is a finite set with `|S| = n` elements, then the number of subsets 
-of `S` is `|P(S)| = 2^n`. This fact, which is the motivation for the 
+If `S` is a finite set with `|S| = n` elements, then the number of subsets
+of `S` is `|P(S)| = 2^n`. This fact, which is the motivation for the
 notation `2^S`, may be demonstrated simply as follows:
 
-> First, order the elements of `S` in any manner. We write any subset of `S` in 
-the format `{γ1, γ2, ..., γn}` where `γi , 1 ≤ i ≤ n`, can take the value 
-of `0` or `1`. If `γi = 1`, the `i`-th element of `S` is in the subset;
-otherwise, the `i`-th element is not in the subset. Clearly the number of 
-distinct subsets that can be constructed this way is `2^n` as `γi ∈ {0, 1}`.
+> First, order the elements of `S` in any manner. We write any subset of `S` in
+> the format `{γ1, γ2, ..., γn}` where `γi , 1 ≤ i ≤ n`, can take the value
+> of `0` or `1`. If `γi = 1`, the `i`-th element of `S` is in the subset;
+> otherwise, the `i`-th element is not in the subset. Clearly the number of
+> distinct subsets that can be constructed this way is `2^n` as `γi ∈ {0, 1}`.
 
 ## Algorithms
 
 ### Bitwise Solution
 
-Each number in binary representation in a range from `0` to `2^n` does exactly 
-what we need: it shows by its bits (`0` or `1`) whether to include related 
-element from the set or not. For example, for the set `{1, 2, 3}` the binary 
+Each number in binary representation in a range from `0` to `2^n` does exactly
+what we need: it shows by its bits (`0` or `1`) whether to include related
+element from the set or not. For example, for the set `{1, 2, 3}` the binary
 number of `0b010` would mean that we need to include only `2` to the current set.
 
-|       | `abc` | Subset        |
-| :---: | :---: | :-----------: |
-| `0`   | `000` | `{}`          |
-| `1`   | `001` | `{c}`         |
-| `2`   | `010` | `{b}`         | 
-| `3`   | `011` | `{c, b}`      |
-| `4`   | `100` | `{a}`         |
-| `5`   | `101` | `{a, c}`      |
-| `6`   | `110` | `{a, b}`      |
-| `7`   | `111` | `{a, b, c}`   |
+|     | `abc` |   Subset    |
+| :-: | :---: | :---------: |
+| `0` | `000` |    `{}`     |
+| `1` | `001` |    `{c}`    |
+| `2` | `010` |    `{b}`    |
+| `3` | `011` |  `{c, b}`   |
+| `4` | `100` |    `{a}`    |
+| `5` | `101` |  `{a, c}`   |
+| `6` | `110` |  `{a, b}`   |
+| `7` | `111` | `{a, b, c}` |
 
 > See [bwPowerSet.js](./bwPowerSet.js) file for bitwise solution.
 
@@ -70,5 +70,5 @@ element.
 
 ## References
 
-* [Wikipedia](https://en.wikipedia.org/wiki/Power_set)
-* [Math is Fun](https://www.mathsisfun.com/sets/power-set.html)
+- [Wikipedia](https://en.wikipedia.org/wiki/Power_set)
+- [Math is Fun](https://www.mathsisfun.com/sets/power-set.html)

@@ -16,7 +16,7 @@ function nQueensBitwiseRecursive(
   leftDiagonal = 0,
   column = 0,
   rightDiagonal = 0,
-  solutionsCount = 0,
+  solutionsCount = 0
 ) {
   // Keeps track of the number of valid solutions.
   let currentSolutionsCount = solutionsCount;
@@ -25,7 +25,7 @@ function nQueensBitwiseRecursive(
   // isDone simply has a bit sequence with 1 for every entry up to the Nth. For example,
   // when N=5, done will equal 11111. The "isDone" variable simply allows us to not worry about any
   // bits beyond the Nth.
-  const isDone = (2 ** boardSize) - 1;
+  const isDone = 2 ** boardSize - 1;
 
   // All columns are occupied (i.e. 0b1111 for boardSize = 4), so the solution must be complete.
   // Since the algorithm never places a queen illegally (ie. when it can attack or be attacked),
@@ -84,7 +84,7 @@ function nQueensBitwiseRecursive(
       (leftDiagonal | firstAvailablePosition) >> 1,
       column | firstAvailablePosition,
       (rightDiagonal | firstAvailablePosition) << 1,
-      solutionsCount,
+      solutionsCount
     );
   }
 

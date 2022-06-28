@@ -1,4 +1,4 @@
-import Sort from '../Sort';
+import Sort from "../Sort";
 
 export default class MergeSort extends Sort {
   sort(originalArray) {
@@ -34,7 +34,12 @@ export default class MergeSort extends Sort {
       let minElement = null;
 
       // Find the minimum element between the left and right array.
-      if (this.comparator.lessThanOrEqual(leftArray[leftIndex], rightArray[rightIndex])) {
+      if (
+        this.comparator.lessThanOrEqual(
+          leftArray[leftIndex],
+          rightArray[rightIndex]
+        )
+      ) {
         minElement = leftArray[leftIndex];
         // Increment index pointer to the right
         leftIndex += 1;

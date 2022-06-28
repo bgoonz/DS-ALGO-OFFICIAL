@@ -1,4 +1,4 @@
-import longestCommonSubsequence from '../longest-common-subsequence/longestCommonSubsequence';
+import longestCommonSubsequence from "../longest-common-subsequence/longestCommonSubsequence";
 
 /**
  * @param {string[]} set1
@@ -12,7 +12,7 @@ export default function shortestCommonSupersequence(set1, set2) {
 
   // If LCS is empty then the shortest common supersequence would be just
   // concatenation of two sequences.
-  if (lcs.length === 1 && lcs[0] === '') {
+  if (lcs.length === 1 && lcs[0] === "") {
     return set1.concat(set2);
   }
 

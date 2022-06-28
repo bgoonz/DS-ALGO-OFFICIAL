@@ -1,7 +1,7 @@
-import degreeToRadian from '../degreeToRadian';
+import degreeToRadian from "../degreeToRadian";
 
-describe('degreeToRadian', () => {
-  it('should convert degree to radian', () => {
+describe("degreeToRadian", () => {
+  it("should convert degree to radian", () => {
     expect(degreeToRadian(0)).toBe(0);
     expect(degreeToRadian(45)).toBe(Math.PI / 4);
     expect(degreeToRadian(90)).toBe(Math.PI / 2);

@@ -1,4 +1,4 @@
-import getBit from './getBit';
+import getBit from "./getBit";
 
 /**
  * Add two numbers using only binary operators.

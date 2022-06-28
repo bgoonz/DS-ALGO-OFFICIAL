@@ -7,7 +7,7 @@
       name="viewport"
       content="width=device-width, initial-scale=1.0, user-scalable=yes"
     />
-    <title>013. Roman to Integer</title>
+    <title>013._Roman_to_Integer</title>
     <style type="text/css">
       code {
         white-space: pre-wrap;
@@ -134,7 +134,7 @@
         color: #60a0b0;
         font-weight: bold;
         font-style: italic;
-      } /* Comment let */
+      } /* CommentVar */
       code span.do {
         color: #ba2121;
         font-style: italic;
@@ -283,7 +283,7 @@ Explanation: M = 1000, CM = 900, XC = 90 and IV = 4.</code></pre>
 <a class="sourceLine" id="cb7-2" title="2"><span class="co"> * </span><span class="an">@param</span><span class="co"> </span><span class="cv">{string}</span><span class="co"> s</span></a>
 <a class="sourceLine" id="cb7-3" title="3"><span class="co"> * </span><span class="an">@return</span><span class="co"> {number}</span></a>
 <a class="sourceLine" id="cb7-4" title="4"><span class="co"> */</span></a>
-<a class="sourceLine" id="cb7-5" title="5"><span class="kw">var</span> romanToInt <span class="op">=</span> <span class="kw">function</span> (s) <span class="op">{</span></a>
+<a class="sourceLine" id="cb7-5" title="5"><span class="kw">let</span> romanToInt <span class="op">=</span> <span class="kw">function</span> (s) <span class="op">{</span></a>
 <a class="sourceLine" id="cb7-6" title="6">  <span class="kw">const</span> rdigit <span class="op">=</span> <span class="op">{</span></a>
 <a class="sourceLine" id="cb7-7" title="7">    <span class="dt">I</span><span class="op">:</span> <span class="dv">1</span><span class="op">,</span></a>
 <a class="sourceLine" id="cb7-8" title="8">    <span class="dt">V</span><span class="op">:</span> <span class="dv">5</span><span class="op">,</span></a>
@@ -292,19 +292,26 @@ Explanation: M = 1000, CM = 900, XC = 90 and IV = 4.</code></pre>
 <a class="sourceLine" id="cb7-11" title="11">    <span class="dt">C</span><span class="op">:</span> <span class="dv">100</span><span class="op">,</span></a>
 <a class="sourceLine" id="cb7-12" title="12">    <span class="dt">D</span><span class="op">:</span> <span class="dv">500</span><span class="op">,</span></a>
 <a class="sourceLine" id="cb7-13" title="13">    <span class="dt">M</span><span class="op">:</span> <span class="dv">1000</span><span class="op">,</span></a>
-<a class="sourceLine" id="cb7-14" title="14">  <span class="op">}</span></a>
+<a class="sourceLine" id="cb7-14" title="14">  <span class="op">};</span></a>
 <a class="sourceLine" id="cb7-15" title="15"></a>
-<a class="sourceLine" id="cb7-16" title="16">  <span class="kw">let</span> result <span class="op">=</span> <span class="dv">0</span></a>
+<a class="sourceLine" id="cb7-16" title="16">  <span class="kw">let</span> result <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></a>
 <a class="sourceLine" id="cb7-17" title="17">  <span class="cf">for</span> (<span class="kw">let</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">,</span> lastDigit <span class="op">=</span> <span class="kw">Infinity</span><span class="op">;</span> i <span class="op">&lt;</span> <span class="va">s</span>.<span class="at">length</span><span class="op">;</span> i<span class="op">++</span>) <span class="op">{</span></a>
-<a class="sourceLine" id="cb7-18" title="18">    <span class="kw">let</span> digit <span class="op">=</span> rdigit[s[i]]</a>
-<a class="sourceLine" id="cb7-19" title="19">    result <span class="op">+=</span> digit <span class="op">&lt;=</span> lastDigit <span class="op">?</span> digit : digit <span class="op">-</span> lastDigit <span class="op">*</span> <span class="dv">2</span></a>
-<a class="sourceLine" id="cb7-20" title="20">    lastDigit <span class="op">=</span> digit</a>
+<a class="sourceLine" id="cb7-18" title="18">    <span class="kw">let</span> digit <span class="op">=</span> rdigit[s[i]]<span class="op">;</span></a>
+<a class="sourceLine" id="cb7-19" title="19">    result <span class="op">+=</span> digit <span class="op">&lt;=</span> lastDigit <span class="op">?</span> digit : digit <span class="op">-</span> lastDigit <span class="op">*</span> <span class="dv">2</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb7-20" title="20">    lastDigit <span class="op">=</span> digit<span class="op">;</span></a>
 <a class="sourceLine" id="cb7-21" title="21">  <span class="op">}</span></a>
-<a class="sourceLine" id="cb7-22" title="22">  <span class="cf">return</span> result</a>
+<a class="sourceLine" id="cb7-22" title="22">  <span class="cf">return</span> result<span class="op">;</span></a>
 <a class="sourceLine" id="cb7-23" title="23"><span class="op">};</span></a></code></pre>
     </div>
-    <br />
     <hr />
-    <br />
+    <p>
+      ☆<em>: .｡. o(≧▽≦)o .｡.:</em>☆☆<em>: .｡. o(≧▽≦)o .｡.:</em>☆☆<em
+        >: .｡. o(≧▽≦)o .｡.:</em
+      >☆
+    </p>
+    <hr />
+    <hr />
+    <p>☆<em>: .｡. o(≧▽≦)o .｡.:</em>☆☆<em>: .｡. o(≧▽≦)o .｡.:</em>☆</p>
+    <hr />
   </body>
 </html>

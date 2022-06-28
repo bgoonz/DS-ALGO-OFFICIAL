@@ -1,5 +1,5 @@
-import Graph from '../../../data-structures/graph/Graph';
-import PriorityQueue from '../../../data-structures/priority-queue/PriorityQueue';
+import Graph from "../../../data-structures/graph/Graph";
+import PriorityQueue from "../../../data-structures/priority-queue/PriorityQueue";
 
 /**
  * @param {Graph} graph
@@ -9,7 +9,7 @@ export default function prim(graph) {
   // It should fire error if graph is directed since the algorithm works only
   // for undirected graphs.
   if (graph.isDirected) {
-    throw new Error('Prim\'s algorithms works only for undirected graphs');
+    throw new Error("Prim's algorithms works only for undirected graphs");
   }
 
   // Init new graph that will contain minimum spanning tree of original graph.
@@ -60,8 +60,8 @@ export default function prim(graph) {
       nextMinVertex.getEdges().forEach((graphEdge) => {
         // Add only vertices that link to unvisited nodes.
         if (
-          !visitedVertices[graphEdge.startVertex.getKey()]
-          || !visitedVertices[graphEdge.endVertex.getKey()]
+          !visitedVertices[graphEdge.startVertex.getKey()] ||
+          !visitedVertices[graphEdge.endVertex.getKey()]
         ) {
           edgesQueue.add(graphEdge, graphEdge.weight);
         }

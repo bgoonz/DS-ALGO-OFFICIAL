@@ -1,15 +1,15 @@
-import DisjointSetItem from '../DisjointSetItem';
+import DisjointSetItem from "../DisjointSetItem";
 
-describe('DisjointSetItem', () => {
-  it('should do basic manipulation with disjoint set item', () => {
-    const itemA = new DisjointSetItem('A');
-    const itemB = new DisjointSetItem('B');
-    const itemC = new DisjointSetItem('C');
-    const itemD = new DisjointSetItem('D');
+describe("DisjointSetItem", () => {
+  it("should do basic manipulation with disjoint set item", () => {
+    const itemA = new DisjointSetItem("A");
+    const itemB = new DisjointSetItem("B");
+    const itemC = new DisjointSetItem("C");
+    const itemD = new DisjointSetItem("D");
 
     expect(itemA.getRank()).toBe(0);
     expect(itemA.getChildren()).toEqual([]);
-    expect(itemA.getKey()).toBe('A');
+    expect(itemA.getKey()).toBe("A");
     expect(itemA.getRoot()).toEqual(itemA);
     expect(itemA.isRoot()).toBe(true);
     expect(itemB.isRoot()).toBe(true);
@@ -55,19 +55,19 @@ describe('DisjointSetItem', () => {
     expect(itemC.getRank()).toEqual(1);
   });
 
-  it('should do basic manipulation with disjoint set item with custom key extractor', () => {
+  it("should do basic manipulation with disjoint set item with custom key extractor", () => {
     const keyExtractor = (value) => {
       return value.key;
     };
 
-    const itemA = new DisjointSetItem({ key: 'A', value: 1 }, keyExtractor);
-    const itemB = new DisjointSetItem({ key: 'B', value: 2 }, keyExtractor);
-    const itemC = new DisjointSetItem({ key: 'C', value: 3 }, keyExtractor);
-    const itemD = new DisjointSetItem({ key: 'D', value: 4 }, keyExtractor);
+    const itemA = new DisjointSetItem({ key: "A", value: 1 }, keyExtractor);
+    const itemB = new DisjointSetItem({ key: "B", value: 2 }, keyExtractor);
+    const itemC = new DisjointSetItem({ key: "C", value: 3 }, keyExtractor);
+    const itemD = new DisjointSetItem({ key: "D", value: 4 }, keyExtractor);
 
     expect(itemA.getRank()).toBe(0);
     expect(itemA.getChildren()).toEqual([]);
-    expect(itemA.getKey()).toBe('A');
+    expect(itemA.getKey()).toBe("A");
     expect(itemA.getRoot()).toEqual(itemA);
     expect(itemA.isRoot()).toBe(true);
     expect(itemB.isRoot()).toBe(true);

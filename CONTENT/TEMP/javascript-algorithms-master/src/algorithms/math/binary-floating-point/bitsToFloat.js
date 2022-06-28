@@ -64,13 +64,16 @@ function bitsToFloat(bits, precisionConfig) {
 
   // Calculating the exponent value.
   const exponentBias = 2 ** (exponentBitsCount - 1) - 1;
-  const exponentBits = bits.slice(signBitsCount, signBitsCount + exponentBitsCount);
+  const exponentBits = bits.slice(
+    signBitsCount,
+    signBitsCount + exponentBitsCount
+  );
   const exponentUnbiased = exponentBits.reduce(
     (exponentSoFar, currentBit, bitIndex) => {
       const bitPowerOfTwo = 2 ** (exponentBitsCount - bitIndex - 1);
       return exponentSoFar + currentBit * bitPowerOfTwo;
     },
-    0,
+    0
   );
   const exponent = exponentUnbiased - exponentBias;
 
@@ -81,11 +84,11 @@ function bitsToFloat(bits, precisionConfig) {
       const bitPowerOfTwo = 2 ** -(bitIndex + 1);
       return fractionSoFar + currentBit * bitPowerOfTwo;
     },
-    0,
+    0
   );
 
   // Putting all parts together to calculate the final number.
-  return sign * (2 ** exponent) * (1 + fraction);
+  return sign * 2 ** exponent * (1 + fraction);
 }
 
 /**

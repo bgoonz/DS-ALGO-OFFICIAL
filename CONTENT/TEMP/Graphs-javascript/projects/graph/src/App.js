@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
-import { Graph } from './graph';
-import './App.css';
+import React, { Component } from "react";
+import { Graph } from "./graph";
+import "./App.css";
 
 // !!! IMPLEMENT ME
-// const canvasWidth = 
-// const canvasHeight = 
+// const canvasWidth =
+// const canvasHeight =
 
 /**
  * GraphView
@@ -29,10 +29,10 @@ class GraphView extends Component {
    */
   updateCanvas() {
     let canvas = this.refs.canvas;
-    let ctx = canvas.getContext('2d');
-    
+    let ctx = canvas.getContext("2d");
+
     // Clear it
-    ctx.fillStyle = 'white';
+    ctx.fillStyle = "white";
     ctx.fillRect(0, 0, canvasWidth, canvasHeight);
 
     // !!! IMPLEMENT ME
@@ -41,15 +41,16 @@ class GraphView extends Component {
     // draw verts
     // draw vert values (labels)
   }
-  
+
   /**
    * Render
    */
   render() {
-    return <canvas ref="canvas" width={canvasWidth} height={canvasHeight}></canvas>;
+    return (
+      <canvas ref="canvas" width={canvasWidth} height={canvasHeight}></canvas>
+    );
   }
 }
-
 
 /**
  * App
@@ -59,7 +60,7 @@ class App extends Component {
     super(props);
 
     this.state = {
-      graph: new Graph()
+      graph: new Graph(),
     };
 
     // !!! IMPLEMENT ME

@@ -2,8 +2,8 @@
 
 ## Objective
 
-* Learn about one of the more famous graph algorithms
-* Learn uses of DFS
+- Learn about one of the more famous graph algorithms
+- Learn uses of DFS
 
 ## Overview
 
@@ -27,11 +27,11 @@ taken first and which vertex is the starting vertex.)
 
 ## Applications of DFS
 
-* Finding [Minimum Spanning Trees](https://en.wikipedia.org/wiki/Minimum_spanning_tree) of weighted graphs
-* Path finding
-* Detecting cycles in graphs
-* [Topological sorting](https://en.wikipedia.org/wiki/Topological_sorting), useful for scheduling sequences of dependent jobs
-* Solving and generating mazes
+- Finding [Minimum Spanning Trees](https://en.wikipedia.org/wiki/Minimum_spanning_tree) of weighted graphs
+- Path finding
+- Detecting cycles in graphs
+- [Topological sorting](https://en.wikipedia.org/wiki/Topological_sorting), useful for scheduling sequences of dependent jobs
+- Solving and generating mazes
 
 ## Coloring Vertexes
 
@@ -40,7 +40,6 @@ them and as you leave them behind as "already searched".
 
 Commonly, unvisited verts are white, verts whose neighbors are being
 explored are gray, and verts with no unexplored neighbors are black.
-
 
 ## Recursion
 
@@ -81,9 +80,8 @@ DFS_visit(v):
 
 ```
 
-
 ## Exercises
 
-* Build a random graph and show a vertex visitation order for DFS.
+- Build a random graph and show a vertex visitation order for DFS.
 
-* One more for good measure.
+- One more for good measure.

@@ -19,7 +19,9 @@ function getPossibleMoves(chessboard, position) {
   // Filter out all moves that go beyond the board.
   return possibleMoves.filter((move) => {
     const boardSize = chessboard.length;
-    return move[0] >= 0 && move[1] >= 0 && move[0] < boardSize && move[1] < boardSize;
+    return (
+      move[0] >= 0 && move[1] >= 0 && move[0] < boardSize && move[1] < boardSize
+    );
   });
 }
 
@@ -95,7 +97,9 @@ function knightTourRecursive(chessboard, moves) {
  */
 export default function knightTour(chessboardSize) {
   // Init chessboard.
-  const chessboard = Array(chessboardSize).fill(null).map(() => Array(chessboardSize).fill(0));
+  const chessboard = Array(chessboardSize)
+    .fill(null)
+    .map(() => Array(chessboardSize).fill(0));
 
   // Init moves array.
   const moves = [];

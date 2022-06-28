@@ -24,7 +24,7 @@ export default class SimplePolynomialHash {
   hash(word) {
     let hash = 0;
     for (let charIndex = 0; charIndex < word.length; charIndex += 1) {
-      hash += word.charCodeAt(charIndex) * (this.base ** charIndex);
+      hash += word.charCodeAt(charIndex) * this.base ** charIndex;
     }
 
     return hash;
@@ -56,7 +56,7 @@ export default class SimplePolynomialHash {
 
     hash -= prevValue;
     hash /= this.base;
-    hash += newValue * (this.base ** (newWord.length - 1));
+    hash += newValue * this.base ** (newWord.length - 1);
 
     return hash;
   }

@@ -396,7 +396,7 @@
     <ol type="1">
       <li>
         Open your project in VS Code. If you don’t have another one yet, use the
-        project linked above to make sure this works.<br />
+        project linked above to make sure this works.
       </li>
       <li>
         Open a file with an <code>#include</code> statement at the top. Open .c
@@ -441,22 +441,52 @@
     </ol>
     <p>
       To compile and run your program, you cannot use the
-      <code>Ctrl + Shift + B</code> shortcut. Instead: 1. Open the terminal
-      (View -&gt; Integrated Terminal). 2. Navigate to the folder containing
-      your project. * To get to your Windows directory from bash, type
-      <code>cd cygdrive/c/Users/YourUserName</code> 3. If there is a makefile
-      set up, you can navigate to the location with that file and simply enter
-      the command <code>make</code>. * In the demo, this is located in
-      <code>/CS-Wiki/vscdebugc</code> 4. Otherwise, enter
-      <code>gcc -Wall -Wextra -o foo foo.c</code> * In the demo, this command
-      would be <code>gcc -Wall -Wextra -o hello hello.c</code>. 5. Other than a
-      slight hitch in the terminal, it may appear that nothing has happened when
-      compiling a small program. If this is the first time compiling, foo.exe
-      will appear in the Explorer. * It can be useful to keep a window open so
-      that you can easily see the last updated time and verify that the build
-      completed. 6. To run your new program, type <code>./foo.exe</code> in the
-      terminal.
+      <code>Ctrl + Shift + B</code> shortcut. Instead:
     </p>
+    <ol type="1">
+      <li>Open the terminal (View -&gt; Integrated Terminal).</li>
+      <li>
+        Navigate to the folder containing your project.
+        <ul>
+          <li>
+            To get to your Windows directory from bash, type
+            <code>cd cygdrive/c/Users/YourUserName</code>
+          </li>
+        </ul>
+      </li>
+      <li>
+        If there is a makefile set up, you can navigate to the location with
+        that file and simply enter the command <code>make</code>.
+        <ul>
+          <li>
+            In the demo, this is located in <code>/CS-Wiki/vscdebugc</code>
+          </li>
+        </ul>
+      </li>
+      <li>
+        Otherwise, enter <code>gcc -Wall -Wextra -o foo foo.c</code>
+        <ul>
+          <li>
+            In the demo, this command would be
+            <code>gcc -Wall -Wextra -o hello hello.c</code>.
+          </li>
+        </ul>
+      </li>
+      <li>
+        Other than a slight hitch in the terminal, it may appear that nothing
+        has happened when compiling a small program. If this is the first time
+        compiling, foo.exe will appear in the Explorer.
+        <ul>
+          <li>
+            It can be useful to keep a window open so that you can easily see
+            the last updated time and verify that the build completed.
+          </li>
+        </ul>
+      </li>
+      <li>
+        To run your new program, type <code>./foo.exe</code> in the terminal.
+      </li>
+    </ol>
     <h2 id="debugging-the-project-in-vs-code">
       Debugging the Project in VS Code
     </h2>

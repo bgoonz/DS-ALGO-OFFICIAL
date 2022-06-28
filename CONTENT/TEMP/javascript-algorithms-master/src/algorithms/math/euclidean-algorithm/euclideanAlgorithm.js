@@ -11,5 +11,5 @@ export default function euclideanAlgorithm(originalA, originalB) {
 
   // To make algorithm work faster instead of subtracting one number from the other
   // we may use modulo operation.
-  return (b === 0) ? a : euclideanAlgorithm(b, a % b);
+  return b === 0 ? a : euclideanAlgorithm(b, a % b);
 }

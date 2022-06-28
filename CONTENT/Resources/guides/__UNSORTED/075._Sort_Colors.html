@@ -7,7 +7,7 @@
       name="viewport"
       content="width=device-width, initial-scale=1.0, user-scalable=yes"
     />
-    <title>075. Sort Colors</title>
+    <title>075._Sort_Colors</title>
     <style type="text/css">
       code {
         white-space: pre-wrap;
@@ -134,7 +134,7 @@
         color: #60a0b0;
         font-weight: bold;
         font-style: italic;
-      } /* Comment let */
+      } /* CommentVar */
       code span.do {
         color: #ba2121;
         font-style: italic;
@@ -251,30 +251,37 @@ Output: [0,0,1,1,2,2]</code></pre>
 <a class="sourceLine" id="cb2-2" title="2"><span class="co"> * </span><span class="an">@param</span><span class="co"> </span><span class="cv">{number</span><span class="co">[]} nums</span></a>
 <a class="sourceLine" id="cb2-3" title="3"><span class="co"> * </span><span class="an">@return</span><span class="co"> {void} Do not return anything, modify nums in-place instead.</span></a>
 <a class="sourceLine" id="cb2-4" title="4"><span class="co"> */</span></a>
-<a class="sourceLine" id="cb2-5" title="5"><span class="kw">var</span> sortColors <span class="op">=</span> <span class="kw">function</span>(nums) <span class="op">{</span></a>
-<a class="sourceLine" id="cb2-6" title="6">  <span class="kw">const</span> len <span class="op">=</span> <span class="va">nums</span>.<span class="at">length</span></a>
-<a class="sourceLine" id="cb2-7" title="7">  <span class="kw">let</span> zeroEnd <span class="op">=</span> <span class="dv">0</span></a>
-<a class="sourceLine" id="cb2-8" title="8">  <span class="kw">let</span> twoStart <span class="op">=</span> len <span class="op">-</span> <span class="dv">1</span></a>
-<a class="sourceLine" id="cb2-9" title="9">  <span class="kw">let</span> i <span class="op">=</span> <span class="dv">0</span></a>
+<a class="sourceLine" id="cb2-5" title="5"><span class="kw">let</span> sortColors <span class="op">=</span> <span class="kw">function</span> (nums) <span class="op">{</span></a>
+<a class="sourceLine" id="cb2-6" title="6">  <span class="kw">const</span> len <span class="op">=</span> <span class="va">nums</span>.<span class="at">length</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb2-7" title="7">  <span class="kw">let</span> zeroEnd <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb2-8" title="8">  <span class="kw">let</span> twoStart <span class="op">=</span> len <span class="op">-</span> <span class="dv">1</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb2-9" title="9">  <span class="kw">let</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></a>
 <a class="sourceLine" id="cb2-10" title="10">  <span class="cf">while</span> (i <span class="op">&lt;=</span> twoStart) <span class="op">{</span></a>
 <a class="sourceLine" id="cb2-11" title="11">    <span class="cf">if</span> (nums[i] <span class="op">===</span> <span class="dv">0</span> <span class="op">&amp;&amp;</span> i <span class="op">!==</span> zeroEnd) <span class="op">{</span></a>
-<a class="sourceLine" id="cb2-12" title="12">      <span class="kw">const</span> t <span class="op">=</span> nums[i]</a>
-<a class="sourceLine" id="cb2-13" title="13">      nums[i] <span class="op">=</span> nums[zeroEnd]</a>
-<a class="sourceLine" id="cb2-14" title="14">      nums[zeroEnd] <span class="op">=</span> t</a>
-<a class="sourceLine" id="cb2-15" title="15">      zeroEnd<span class="op">++</span></a>
+<a class="sourceLine" id="cb2-12" title="12">      <span class="kw">const</span> t <span class="op">=</span> nums[i]<span class="op">;</span></a>
+<a class="sourceLine" id="cb2-13" title="13">      nums[i] <span class="op">=</span> nums[zeroEnd]<span class="op">;</span></a>
+<a class="sourceLine" id="cb2-14" title="14">      nums[zeroEnd] <span class="op">=</span> t<span class="op">;</span></a>
+<a class="sourceLine" id="cb2-15" title="15">      zeroEnd<span class="op">++;</span></a>
 <a class="sourceLine" id="cb2-16" title="16">    <span class="op">}</span> <span class="cf">else</span> <span class="cf">if</span> (nums[i] <span class="op">===</span> <span class="dv">2</span> <span class="op">&amp;&amp;</span> i <span class="op">!==</span> twoStart) <span class="op">{</span></a>
-<a class="sourceLine" id="cb2-17" title="17">      <span class="kw">const</span> t <span class="op">=</span> nums[i]</a>
-<a class="sourceLine" id="cb2-18" title="18">      nums[i] <span class="op">=</span> nums[twoStart]</a>
-<a class="sourceLine" id="cb2-19" title="19">      nums[twoStart] <span class="op">=</span> t</a>
-<a class="sourceLine" id="cb2-20" title="20">      twoStart<span class="op">--</span></a>
+<a class="sourceLine" id="cb2-17" title="17">      <span class="kw">const</span> t <span class="op">=</span> nums[i]<span class="op">;</span></a>
+<a class="sourceLine" id="cb2-18" title="18">      nums[i] <span class="op">=</span> nums[twoStart]<span class="op">;</span></a>
+<a class="sourceLine" id="cb2-19" title="19">      nums[twoStart] <span class="op">=</span> t<span class="op">;</span></a>
+<a class="sourceLine" id="cb2-20" title="20">      twoStart<span class="op">--;</span></a>
 <a class="sourceLine" id="cb2-21" title="21">    <span class="op">}</span> <span class="cf">else</span> <span class="op">{</span></a>
-<a class="sourceLine" id="cb2-22" title="22">      i<span class="op">++</span></a>
+<a class="sourceLine" id="cb2-22" title="22">      i<span class="op">++;</span></a>
 <a class="sourceLine" id="cb2-23" title="23">    <span class="op">}</span></a>
 <a class="sourceLine" id="cb2-24" title="24">  <span class="op">}</span></a>
 <a class="sourceLine" id="cb2-25" title="25"><span class="op">};</span></a></code></pre>
     </div>
-    <br />
     <hr />
-    <br />
+    <p>
+      ☆<em>: .｡. o(≧▽≦)o .｡.:</em>☆☆<em>: .｡. o(≧▽≦)o .｡.:</em>☆☆<em
+        >: .｡. o(≧▽≦)o .｡.:</em
+      >☆
+    </p>
+    <hr />
+    <hr />
+    <p>☆<em>: .｡. o(≧▽≦)o .｡.:</em>☆☆<em>: .｡. o(≧▽≦)o .｡.:</em>☆</p>
+    <hr />
   </body>
 </html>

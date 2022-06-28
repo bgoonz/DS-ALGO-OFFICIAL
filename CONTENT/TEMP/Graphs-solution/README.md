@@ -4,8 +4,8 @@ _Switch to the `master` branch for instructions._
 
 ## Projects
 
-* [Drawing Connected Components](projects/graph)
+- [Drawing Connected Components](projects/graph)
 
 ## Other
 
-* [Animated BFS example code](projects/bfsanim)
+- [Animated BFS example code](projects/bfsanim)

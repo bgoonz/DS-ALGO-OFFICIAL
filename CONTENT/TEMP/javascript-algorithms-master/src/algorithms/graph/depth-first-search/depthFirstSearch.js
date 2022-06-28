@@ -19,20 +19,19 @@ function initCallbacks(callbacks = {}) {
 
   const stubCallback = () => {};
 
-  const allowTraversalCallback = (
-    () => {
-      const seen = {};
-      return ({ nextVertex }) => {
-        if (!seen[nextVertex.getKey()]) {
-          seen[nextVertex.getKey()] = true;
-          return true;
-        }
-        return false;
-      };
-    }
-  )();
+  const allowTraversalCallback = (() => {
+    const seen = {};
+    return ({ nextVertex }) => {
+      if (!seen[nextVertex.getKey()]) {
+        seen[nextVertex.getKey()] = true;
+        return true;
+      }
+      return false;
+    };
+  })();
 
-  initiatedCallback.allowTraversal = callbacks.allowTraversal || allowTraversalCallback;
+  initiatedCallback.allowTraversal =
+    callbacks.allowTraversal || allowTraversalCallback;
   initiatedCallback.enterVertex = callbacks.enterVertex || stubCallback;
   initiatedCallback.leaveVertex = callbacks.leaveVertex || stubCallback;
 
@@ -45,11 +44,18 @@ function initCallbacks(callbacks = {}) {
  * @param {GraphVertex} previousVertex
  * @param {Callbacks} callbacks
  */
-function depthFirstSearchRecursive(graph, currentVertex, previousVertex, callbacks) {
+function depthFirstSearchRecursive(
+  graph,
+  currentVertex,
+  previousVertex,
+  callbacks
+) {
   callbacks.enterVertex({ currentVertex, previousVertex });
 
   graph.getNeighbors(currentVertex).forEach((nextVertex) => {
-    if (callbacks.allowTraversal({ previousVertex, currentVertex, nextVertex })) {
+    if (
+      callbacks.allowTraversal({ previousVertex, currentVertex, nextVertex })
+    ) {
       depthFirstSearchRecursive(graph, nextVertex, currentVertex, callbacks);
     }
   });
@@ -64,5 +70,10 @@ function depthFirstSearchRecursive(graph, currentVertex, previousVertex, callbac
  */
 export default function depthFirstSearch(graph, startVertex, callbacks) {
   const previousVertex = null;
-  depthFirstSearchRecursive(graph, startVertex, previousVertex, initCallbacks(callbacks));
+  depthFirstSearchRecursive(
+    graph,
+    startVertex,
+    previousVertex,
+    initCallbacks(callbacks)
+  );
 }

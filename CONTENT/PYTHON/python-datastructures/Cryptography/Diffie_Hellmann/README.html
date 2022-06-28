@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="generator" content="pandoc" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=yes"
+    />
+    <title>README</title>
+    <style type="text/css">
+      code {
+        white-space: pre-wrap;
+      }
+      span.smallcaps {
+        font-variant: small-caps;
+      }
+      span.underline {
+        text-decoration: underline;
+      }
+      div.column {
+        display: inline-block;
+        vertical-align: top;
+        width: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 id="diffie-hellmann-key-exchange-algorithm">
+      DIFFIE HELLMANN KEY EXCHANGE ALGORITHM
+    </h1>
+    <h2 id="aim">Aim</h2>
+    <p>
+      The Diffie–Hellman (DH) Algorithm is a key-exchange protocol that enables
+      two parties communicating over public channel to establish a mutual secret
+      without it being transmitted over the Internet.
+    </p>
+    <h2 id="purpose">Purpose</h2>
+    <p>To create an algorithm of diffie-hellmann key exchange</p>
+    <h2 id="short-description-of-packagescript">
+      Short description of package/script
+    </h2>
+    <ul>
+      <li>
+        The problem is solved using diffie-hellmann key exchange algorithm
+      </li>
+      <li>We use Python to solve this</li>
+    </ul>
+    <h2 id="workflow-of-the-project">Workflow of the Project</h2>
+    <p><em>Explaination of Diffie Hellmann</em></p>
+    <p>Algorithm of Diffie Hellmann</p>
+    <ol type="1">
+      <li>
+        Alice wants to communicate with Bob they must agree large prime number
+        i.e. p &amp; q
+      </li>
+      <li>
+        Alice selects secret large random integer number a and calculate A i.e
+        A= q^(a) mod p
+      </li>
+      <li>Alice sends this A to Bob</li>
+      <li>
+        Bob independently selects another secret large random no b and calculate
+        B i.e B= q^(b)mod p
+      </li>
+      <li>Bob sends the number B to Alice</li>
+      <li>Alice is calculating his secret key Ak i.e Ak= B^(a) mod p</li>
+      <li>Bob is calculating his secret key Bk i.e Bk= A^(b) mod p</li>
+      <li>
+        If Ak = Bk then Alice and Bob can agree for future communication called
+        as Key agreement.
+      </li>
+      <li>We have Ak = Bk = K</li>
+    </ol>
+    <h2 id="compilation-steps">Compilation Steps</h2>
+    <p>
+      To run the script, simply type
+      <strong>python diffie_hellman.py</strong> in the command prompt After the
+      script is run, follow the steps provided below:
+    </p>
+    <ul>
+      <li>Enter the prime number which is decided by the two parties</li>
+      <li>enter the primitive root</li>
+      <li>
+        enter private key of party1 and party2. Now both of them calculates
+        their public key and send these numbers to each other
+      </li>
+      <li>
+        Both the parties calculate the value of secret key at their respective
+        side.
+      </li>
+      <li>
+        After calculating, if they get both same shared secret key, they can
+        communicate safely
+      </li>
+    </ul>
+    <h2 id="output">Output</h2>
+    <p>
+      <img src="../Diffie_Hellmann/Images/diffie1.PNG" />
+      <img src="../Diffie_Hellmann/Images/diffie2.PNG" />
+      <img src="../Diffie_Hellmann/Images/diffie3.PNG" />
+    </p>
+    <h2 id="author">Author</h2>
+    <p><a href="https://github.com/dilroseR/">Dilrose Reji</a></p>
+  </body>
+</html>

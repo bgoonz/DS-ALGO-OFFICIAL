@@ -1,10 +1,10 @@
-import GraphVertex from '../../../../data-structures/graph/GraphVertex';
-import GraphEdge from '../../../../data-structures/graph/GraphEdge';
-import Graph from '../../../../data-structures/graph/Graph';
-import kruskal from '../kruskal';
+import GraphVertex from "../../../../data-structures/graph/GraphVertex";
+import GraphEdge from "../../../../data-structures/graph/GraphEdge";
+import Graph from "../../../../data-structures/graph/Graph";
+import kruskal from "../kruskal";
 
-describe('kruskal', () => {
-  it('should fire an error for directed graph', () => {
+describe("kruskal", () => {
+  it("should fire an error for directed graph", () => {
     function applyPrimToDirectedGraph() {
       const graph = new Graph(true);
 
@@ -14,14 +14,14 @@ describe('kruskal', () => {
     expect(applyPrimToDirectedGraph).toThrowError();
   });
 
-  it('should find minimum spanning tree', () => {
-    const vertexA = new GraphVertex('A');
-    const vertexB = new GraphVertex('B');
-    const vertexC = new GraphVertex('C');
-    const vertexD = new GraphVertex('D');
-    const vertexE = new GraphVertex('E');
-    const vertexF = new GraphVertex('F');
-    const vertexG = new GraphVertex('G');
+  it("should find minimum spanning tree", () => {
+    const vertexA = new GraphVertex("A");
+    const vertexB = new GraphVertex("B");
+    const vertexC = new GraphVertex("C");
+    const vertexD = new GraphVertex("D");
+    const vertexE = new GraphVertex("E");
+    const vertexF = new GraphVertex("F");
+    const vertexG = new GraphVertex("G");
 
     const edgeAB = new GraphEdge(vertexA, vertexB, 2);
     const edgeAD = new GraphEdge(vertexA, vertexD, 3);
@@ -53,16 +53,20 @@ describe('kruskal', () => {
     const minimumSpanningTree = kruskal(graph);
 
     expect(minimumSpanningTree.getWeight()).toBe(24);
-    expect(minimumSpanningTree.getAllVertices().length).toBe(graph.getAllVertices().length);
-    expect(minimumSpanningTree.getAllEdges().length).toBe(graph.getAllVertices().length - 1);
-    expect(minimumSpanningTree.toString()).toBe('E,C,A,B,D,F,G');
+    expect(minimumSpanningTree.getAllVertices().length).toBe(
+      graph.getAllVertices().length
+    );
+    expect(minimumSpanningTree.getAllEdges().length).toBe(
+      graph.getAllVertices().length - 1
+    );
+    expect(minimumSpanningTree.toString()).toBe("E,C,A,B,D,F,G");
   });
 
-  it('should find minimum spanning tree for simple graph', () => {
-    const vertexA = new GraphVertex('A');
-    const vertexB = new GraphVertex('B');
-    const vertexC = new GraphVertex('C');
-    const vertexD = new GraphVertex('D');
+  it("should find minimum spanning tree for simple graph", () => {
+    const vertexA = new GraphVertex("A");
+    const vertexB = new GraphVertex("B");
+    const vertexC = new GraphVertex("C");
+    const vertexD = new GraphVertex("D");
 
     const edgeAB = new GraphEdge(vertexA, vertexB, 1);
     const edgeAD = new GraphEdge(vertexA, vertexD, 3);
@@ -84,8 +88,12 @@ describe('kruskal', () => {
     const minimumSpanningTree = kruskal(graph);
 
     expect(minimumSpanningTree.getWeight()).toBe(3);
-    expect(minimumSpanningTree.getAllVertices().length).toBe(graph.getAllVertices().length);
-    expect(minimumSpanningTree.getAllEdges().length).toBe(graph.getAllVertices().length - 1);
-    expect(minimumSpanningTree.toString()).toBe('A,B,C,D');
+    expect(minimumSpanningTree.getAllVertices().length).toBe(
+      graph.getAllVertices().length
+    );
+    expect(minimumSpanningTree.getAllEdges().length).toBe(
+      graph.getAllVertices().length - 1
+    );
+    expect(minimumSpanningTree.toString()).toBe("A,B,C,D");
   });
 });

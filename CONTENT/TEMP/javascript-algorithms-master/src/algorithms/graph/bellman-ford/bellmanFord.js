@@ -18,7 +18,11 @@ export default function bellmanFord(graph, startVertex) {
   });
 
   // We need (|V| - 1) iterations.
-  for (let iteration = 0; iteration < (graph.getAllVertices().length - 1); iteration += 1) {
+  for (
+    let iteration = 0;
+    iteration < graph.getAllVertices().length - 1;
+    iteration += 1
+  ) {
     // During each iteration go through all vertices.
     Object.keys(distances).forEach((vertexKey) => {
       const vertex = graph.getVertexByKey(vertexKey);

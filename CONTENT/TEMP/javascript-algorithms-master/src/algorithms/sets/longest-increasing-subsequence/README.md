@@ -1,13 +1,13 @@
 # Longest Increasing Subsequence
 
-The longest increasing subsequence problem is to find a subsequence of a 
-given sequence in which the subsequence's elements are in sorted order, 
-lowest to highest, and in which the subsequence is as long as possible. 
-This subsequence is not necessarily contiguous, or unique. 
+The longest increasing subsequence problem is to find a subsequence of a
+given sequence in which the subsequence's elements are in sorted order,
+lowest to highest, and in which the subsequence is as long as possible.
+This subsequence is not necessarily contiguous, or unique.
 
 ## Complexity
 
-The longest increasing subsequence problem is solvable in 
+The longest increasing subsequence problem is solvable in
 time `O(n log n)`, where `n` denotes the length of the input sequence.
 
 Dynamic programming approach has complexity `O(n * n)`.
@@ -26,9 +26,9 @@ a longest increasing subsequence is
 0, 2, 6, 9, 11, 15.
 ```
 
-This subsequence has length six; 
-the input sequence has no seven-member increasing subsequences. 
-The longest increasing subsequence in this example is not unique: for 
+This subsequence has length six;
+the input sequence has no seven-member increasing subsequences.
+The longest increasing subsequence in this example is not unique: for
 instance,
 
 ```
@@ -37,7 +37,7 @@ instance,
 0, 4, 6, 9, 13, 15
 ```
 
-are other increasing subsequences of equal length in the same 
+are other increasing subsequences of equal length in the same
 input sequence.
 
 ## References

@@ -1,5 +1,5 @@
-import Comparator from '../../utils/comparator/Comparator';
-import HashTable from '../hash-table/HashTable';
+import Comparator from "../../utils/comparator/Comparator";
+import HashTable from "../hash-table/HashTable";
 
 export default class BinaryTreeNode {
   /**

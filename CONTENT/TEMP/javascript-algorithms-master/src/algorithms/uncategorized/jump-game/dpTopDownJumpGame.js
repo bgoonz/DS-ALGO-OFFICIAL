@@ -21,7 +21,7 @@ export default function dpTopDownJumpGame(
   numbers,
   startIndex = 0,
   currentJumps = [],
-  cellsGoodness = [],
+  cellsGoodness = []
 ) {
   if (startIndex === numbers.length - 1) {
     // We've jumped directly to last cell. This situation is a solution.
@@ -41,7 +41,7 @@ export default function dpTopDownJumpGame(
   // We don't need to jump beyond the array.
   const maxJumpLength = Math.min(
     numbers[startIndex], // Jump is within array.
-    numbers.length - 1 - startIndex, // Jump goes beyond array.
+    numbers.length - 1 - startIndex // Jump goes beyond array.
   );
 
   // Let's start jumping from startIndex and see whether any
@@ -59,7 +59,7 @@ export default function dpTopDownJumpGame(
         numbers,
         nextIndex,
         currentJumps,
-        currentCellsGoodness,
+        currentCellsGoodness
       );
 
       // Check if current jump was successful.
