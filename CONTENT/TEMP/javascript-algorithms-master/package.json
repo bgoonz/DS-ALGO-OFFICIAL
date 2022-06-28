@@ -35,9 +35,9 @@
   },
   "homepage": "https://github.com/trekhleb/javascript-algorithms#readme",
   "devDependencies": {
-    "@babel/cli": "7.15.7",
-    "@babel/preset-env": "7.15.8",
-    "@types/jest": "27.5.1",
+    "@babel/cli": "7.17.10",
+    "@babel/preset-env": "7.17.10",
+    "@types/jest": "27.0.2",
     "canvas": "2.8.0",
     "eslint": "8.15.0",
     "eslint-config-airbnb": "18.2.1",
