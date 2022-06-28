@@ -1,5 +1,5 @@
-import * as mtrx from '../../math/matrix/Matrix';
-import euclideanDistance from '../../math/euclidean-distance/euclideanDistance';
+import * as mtrx from "../../math/matrix/Matrix";
+import euclideanDistance from "../../math/euclidean-distance/euclideanDistance";
 
 /**
  * Classifies the point in space based on k-Means algorithm.
@@ -8,12 +8,9 @@ import euclideanDistance from '../../math/euclidean-distance/euclideanDistance';
  * @param {number} k - number of clusters
  * @return {number[]} - the class of the point
  */
-export default function KMeans(
-  data,
-  k = 1,
-) {
+export default function KMeans(data, k = 1) {
   if (!data) {
-    throw new Error('The data is empty');
+    throw new Error("The data is empty");
   }
 
   // Assign k clusters locations equal to the location of initial k points.
@@ -40,12 +37,12 @@ export default function KMeans(
       for (let clusterIndex = 0; clusterIndex < k; clusterIndex += 1) {
         distances[dataIndex][clusterIndex] = euclideanDistance(
           [clusterCenters[clusterIndex]],
-          [data[dataIndex]],
+          [data[dataIndex]]
         );
       }
       // Assign the closest cluster number to each dataSet point.
       const closestClusterIdx = distances[dataIndex].indexOf(
-        Math.min(...distances[dataIndex]),
+        Math.min(...distances[dataIndex])
       );
 
       // Check if data point class has been changed and we still need to re-iterate.
@@ -65,17 +62,28 @@ export default function KMeans(
         if (classes[dataIndex] === clusterIndex) {
           // Register one more data point of current cluster.
           clusterSize += 1;
-          for (let dimensionIndex = 0; dimensionIndex < dataDim; dimensionIndex += 1) {
+          for (
+            let dimensionIndex = 0;
+            dimensionIndex < dataDim;
+            dimensionIndex += 1
+          ) {
             // Add data point coordinates to the cluster center coordinates.
-            clusterCenters[clusterIndex][dimensionIndex] += data[dataIndex][dimensionIndex];
+            clusterCenters[clusterIndex][dimensionIndex] +=
+              data[dataIndex][dimensionIndex];
           }
         }
       }
       // Calculate the average for each cluster center coordinate.
-      for (let dimensionIndex = 0; dimensionIndex < dataDim; dimensionIndex += 1) {
-        clusterCenters[clusterIndex][dimensionIndex] = parseFloat(Number(
-          clusterCenters[clusterIndex][dimensionIndex] / clusterSize,
-        ).toFixed(2));
+      for (
+        let dimensionIndex = 0;
+        dimensionIndex < dataDim;
+        dimensionIndex += 1
+      ) {
+        clusterCenters[clusterIndex][dimensionIndex] = parseFloat(
+          Number(
+            clusterCenters[clusterIndex][dimensionIndex] / clusterSize
+          ).toFixed(2)
+        );
       }
     }
   }

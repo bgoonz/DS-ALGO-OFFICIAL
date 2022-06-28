@@ -1,7 +1,7 @@
-import binarySearch from '../binarySearch';
+import binarySearch from "../binarySearch";
 
-describe('binarySearch', () => {
-  it('should search number in sorted array', () => {
+describe("binarySearch", () => {
+  it("should search number in sorted array", () => {
     expect(binarySearch([], 1)).toBe(-1);
     expect(binarySearch([1], 1)).toBe(0);
     expect(binarySearch([1, 2], 1)).toBe(0);
@@ -13,11 +13,11 @@ describe('binarySearch', () => {
     expect(binarySearch([1, 5, 10, 12, 14, 17, 22, 100], 0)).toBe(-1);
   });
 
-  it('should search object in sorted array', () => {
+  it("should search object in sorted array", () => {
     const sortedArrayOfObjects = [
-      { key: 1, value: 'value1' },
-      { key: 2, value: 'value2' },
-      { key: 3, value: 'value3' },
+      { key: 1, value: "value1" },
+      { key: 2, value: "value2" },
+      { key: 3, value: "value3" },
     ];
 
     const comparator = (a, b) => {

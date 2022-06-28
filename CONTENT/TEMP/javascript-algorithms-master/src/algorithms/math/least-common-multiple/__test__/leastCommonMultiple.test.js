@@ -1,7 +1,7 @@
-import leastCommonMultiple from '../leastCommonMultiple';
+import leastCommonMultiple from "../leastCommonMultiple";
 
-describe('leastCommonMultiple', () => {
-  it('should find least common multiple', () => {
+describe("leastCommonMultiple", () => {
+  it("should find least common multiple", () => {
     expect(leastCommonMultiple(0, 0)).toBe(0);
     expect(leastCommonMultiple(1, 0)).toBe(0);
     expect(leastCommonMultiple(0, 1)).toBe(0);

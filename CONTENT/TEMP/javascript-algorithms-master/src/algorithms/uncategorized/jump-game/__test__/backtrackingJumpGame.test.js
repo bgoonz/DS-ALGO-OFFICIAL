@@ -1,7 +1,7 @@
-import backtrackingJumpGame from '../backtrackingJumpGame';
+import backtrackingJumpGame from "../backtrackingJumpGame";
 
-describe('backtrackingJumpGame', () => {
-  it('should solve Jump Game problem in backtracking manner', () => {
+describe("backtrackingJumpGame", () => {
+  it("should solve Jump Game problem in backtracking manner", () => {
     expect(backtrackingJumpGame([1, 0])).toBe(true);
     expect(backtrackingJumpGame([100, 0])).toBe(true);
     expect(backtrackingJumpGame([2, 3, 1, 1, 4])).toBe(true);

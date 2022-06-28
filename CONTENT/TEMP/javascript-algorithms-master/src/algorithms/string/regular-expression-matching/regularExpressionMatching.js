@@ -1,5 +1,5 @@
-const ZERO_OR_MORE_CHARS = '*';
-const ANY_CHAR = '.';
+const ZERO_OR_MORE_CHARS = "*";
+const ANY_CHAR = ".";
 
 /**
  * Dynamic programming approach.
@@ -10,23 +10,25 @@ const ANY_CHAR = '.';
  */
 export default function regularExpressionMatching(string, pattern) {
   /*
-    * Let's initiate dynamic programming matrix for this string and pattern.
-    * We will have pattern characters on top (as columns) and string characters
-    * will be placed to the left of the table (as rows).
-    *
-    * Example:
-    *
-    *     a * b . b
-    *   - - - - - -
-    * a - - - - - -
-    * a - - - - - -
-    * b - - - - - -
-    * y - - - - - -
-    * b - - - - - -
+   * Let's initiate dynamic programming matrix for this string and pattern.
+   * We will have pattern characters on top (as columns) and string characters
+   * will be placed to the left of the table (as rows).
+   *
+   * Example:
+   *
+   *     a * b . b
+   *   - - - - - -
+   * a - - - - - -
+   * a - - - - - -
+   * b - - - - - -
+   * y - - - - - -
+   * b - - - - - -
    */
-  const matchMatrix = Array(string.length + 1).fill(null).map(() => {
-    return Array(pattern.length + 1).fill(null);
-  });
+  const matchMatrix = Array(string.length + 1)
+    .fill(null)
+    .map(() => {
+      return Array(pattern.length + 1).fill(null);
+    });
 
   // Let's fill the top-left cell with true. This would mean that empty
   // string '' matches to empty pattern ''.
@@ -87,19 +89,17 @@ export default function regularExpressionMatching(string, pattern) {
         if (matchMatrix[rowIndex][columnIndex - 2] === true) {
           matchMatrix[rowIndex][columnIndex] = true;
         } else if (
-          (
-            pattern[patternIndex - 1] === string[stringIndex]
-            || pattern[patternIndex - 1] === ANY_CHAR
-          )
-          && matchMatrix[rowIndex - 1][columnIndex] === true
+          (pattern[patternIndex - 1] === string[stringIndex] ||
+            pattern[patternIndex - 1] === ANY_CHAR) &&
+          matchMatrix[rowIndex - 1][columnIndex] === true
         ) {
           matchMatrix[rowIndex][columnIndex] = true;
         } else {
           matchMatrix[rowIndex][columnIndex] = false;
         }
       } else if (
-        pattern[patternIndex] === string[stringIndex]
-        || pattern[patternIndex] === ANY_CHAR
+        pattern[patternIndex] === string[stringIndex] ||
+        pattern[patternIndex] === ANY_CHAR
       ) {
         /*
          * In case if current pattern char is the same as current string char
@@ -114,7 +114,8 @@ export default function regularExpressionMatching(string, pattern) {
          * a 1 -
          * b - 1
          */
-        matchMatrix[rowIndex][columnIndex] = matchMatrix[rowIndex - 1][columnIndex - 1];
+        matchMatrix[rowIndex][columnIndex] =
+          matchMatrix[rowIndex - 1][columnIndex - 1];
       } else {
         /*
          * In case if pattern char and string char are different we may

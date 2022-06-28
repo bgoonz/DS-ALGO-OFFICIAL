@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="generator" content="pandoc" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=yes"
+    />
+    <title>README</title>
+    <style type="text/css">
+      code {
+        white-space: pre-wrap;
+      }
+      span.smallcaps {
+        font-variant: small-caps;
+      }
+      span.underline {
+        text-decoration: underline;
+      }
+      div.column {
+        display: inline-block;
+        vertical-align: top;
+        width: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 id="segment-tree-range-sum-query">Segment Tree Range Sum Query</h1>
+    <h2 id="aim">Aim</h2>
+    <p>
+      The aim is to create a python code to do range sum query on a segment tree
+      of a given array of numbers
+    </p>
+    <h2 id="purpose">Purpose</h2>
+    <p>The purpose is to come up with an efficient solution (if any)</p>
+    <h2 id="short-description-of-project">Short description of project</h2>
+    <p>
+      The project takes in input the array, and then it is converted to a
+      segment tree and returned to a new variable, then queries are called to do
+      range sum over a range and the answer is then printed
+    </p>
+    <h2 id="workflow-of-the-project">Workflow of the Project</h2>
+    <p>Description of functions used in the code and their purpose:</p>
+    <p>
+      segment_tree_creation –&gt; Function, takes in a list, returns
+      corresponding segment tree
+    </p>
+    <p>
+      segment_tree_range_sum_query –&gt; Function, takes in tree, lower and
+      upper index of range whose sum is to be calculated, returns the sum
+    </p>
+    <p>
+      After the list is passed to the segment_tree_creation function, control is
+      passed to that function, it uses the iterative approach to generate the
+      segment tree and returns it, this segment tree is passed to the
+      segment_tree_range_sum_query function, which calculates the sum in the
+      given range and returns it, which is then printed
+    </p>
+    <h2 id="required-libraries">Required libraries</h2>
+    <p>math library –&gt; for ceil and log2 functions</p>
+    <h2 id="compilation-steps">Compilation Steps</h2>
+    <p>Run the script, after that :</p>
+    <ol type="1">
+      <li>The expression is made manually here, to focus on conversion part</li>
+      <li>The program tells the equivalent segment tree</li>
+      <li>
+        The program is then run to do range sum queries, and it shows the
+        updated array and tree
+      </li>
+    </ol>
+    <h1 id="output">Output</h1>
+    <p>
+      <img
+        width="800"
+        height="250"
+        src="../Segment Tree Range Sum Query/Images/range_sum_query_output1.PNG"
+      />
+      <img
+        width="800"
+        height="250"
+        src="../Segment Tree Range Sum Query/Images/range_sum_query_output2.PNG"
+      />
+    </p>
+    <h2 id="author">Author</h2>
+    <p><a href="https://github.com/pushpit-J19">Pushpit Jain</a></p>
+  </body>
+</html>

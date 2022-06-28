@@ -1,4 +1,4 @@
-import Queue from '../../../data-structures/queue/Queue';
+import Queue from "../../../data-structures/queue/Queue";
 
 /**
  * @typedef {Object} Callbacks
@@ -18,7 +18,8 @@ function initCallbacks(callbacks = {}) {
   const stubCallback = () => {};
   const defaultAllowTraversal = () => true;
 
-  initiatedCallback.allowTraversal = callbacks.allowTraversal || defaultAllowTraversal;
+  initiatedCallback.allowTraversal =
+    callbacks.allowTraversal || defaultAllowTraversal;
   initiatedCallback.enterNode = callbacks.enterNode || stubCallback;
   initiatedCallback.leaveNode = callbacks.leaveNode || stubCallback;
 
@@ -44,12 +45,18 @@ export default function breadthFirstSearch(rootNode, originalCallbacks) {
     // Add all children to the queue for future traversals.
 
     // Traverse left branch.
-    if (currentNode.left && callbacks.allowTraversal(currentNode, currentNode.left)) {
+    if (
+      currentNode.left &&
+      callbacks.allowTraversal(currentNode, currentNode.left)
+    ) {
       nodeQueue.enqueue(currentNode.left);
     }
 
     // Traverse right branch.
-    if (currentNode.right && callbacks.allowTraversal(currentNode, currentNode.right)) {
+    if (
+      currentNode.right &&
+      callbacks.allowTraversal(currentNode, currentNode.right)
+    ) {
       nodeQueue.enqueue(currentNode.right);
     }
 

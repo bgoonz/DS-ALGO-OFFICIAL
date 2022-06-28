@@ -19,8 +19,8 @@ The **Weighted Random** in this case will be the function that will randomly ret
 Example of the function interface:
 
 ```javascript
-const items =   [ '🍌', '🍎', '🥕' ];
-const weights = [  3,    7,    1  ];
+const items = ["🍌", "🍎", "🥕"];
+const weights = [3, 7, 1];
 
 function weightedRandom(items, weights) {
   // implementation goes here ...
@@ -46,14 +46,22 @@ The **straightforward approach** would be to:
 For example in our case with fruits and vegetables we could generate the following list of size `3 + 7 + 1 = 11`:
 
 ```javascript
-const items =   [ '🍌', '🍎', '🥕' ];
-const weights = [  3,    7,    1  ];
+const items = ["🍌", "🍎", "🥕"];
+const weights = [3, 7, 1];
 
 // Repeating the items based on weights.
 const weightedItems = [
-  '🍌', '🍌', '🍌',
-  '🍎', '🍎', '🍎', '🍎', '🍎', '🍎', '🍎',
-  '🥕',
+  "🍌",
+  "🍌",
+  "🍌",
+  "🍎",
+  "🍎",
+  "🍎",
+  "🍎",
+  "🍎",
+  "🍎",
+  "🍎",
+  "🥕",
 ];
 
 // And now just pick the random item from weightedItems array.
@@ -70,14 +78,22 @@ The **more efficient approach** would be to:
 The idea behind this approach is that the higher weights will "occupy" more numeric space. Therefore, there is a higher chance that the random number will fall into the "higher weight numeric bucket".
 
 ```javascript
-const weights =           [3, 7,  1 ];
+const weights = [3, 7, 1];
 const cumulativeWeights = [3, 10, 11];
 
 // In a pseudo-representation we may think about the cumulativeWeights array like this.
 const pseudoCumulativeWeights = [
-  1, 2, 3,               // <-- [3] numbers
-  4, 5, 6, 7, 8, 9, 10,  // <-- [7] numbers
-  11,                    // <-- [1] number
+  1,
+  2,
+  3, // <-- [3] numbers
+  4,
+  5,
+  6,
+  7,
+  8,
+  9,
+  10, // <-- [7] numbers
+  11, // <-- [1] number
 ];
 ```
 
@@ -100,11 +116,11 @@ Here is an example of how the `weightedRandom` function might be implemented:
  */
 export default function weightedRandom(items, weights) {
   if (items.length !== weights.length) {
-    throw new Error('Items and weights must be of the same size');
+    throw new Error("Items and weights must be of the same size");
   }
 
   if (!items.length) {
-    throw new Error('Items must not be empty');
+    throw new Error("Items must not be empty");
   }
 
   // Preparing the cumulative weights array.

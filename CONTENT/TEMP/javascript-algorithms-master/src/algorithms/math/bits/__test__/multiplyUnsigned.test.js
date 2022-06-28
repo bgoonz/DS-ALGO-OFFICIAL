@@ -1,7 +1,7 @@
-import multiplyUnsigned from '../multiplyUnsigned';
+import multiplyUnsigned from "../multiplyUnsigned";
 
-describe('multiplyUnsigned', () => {
-  it('should multiply two unsigned numbers', () => {
+describe("multiplyUnsigned", () => {
+  it("should multiply two unsigned numbers", () => {
     expect(multiplyUnsigned(0, 2)).toBe(0);
     expect(multiplyUnsigned(2, 0)).toBe(0);
     expect(multiplyUnsigned(1, 1)).toBe(1);

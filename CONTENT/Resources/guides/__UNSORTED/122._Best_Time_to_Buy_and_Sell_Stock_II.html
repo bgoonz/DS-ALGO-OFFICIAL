@@ -7,7 +7,7 @@
       name="viewport"
       content="width=device-width, initial-scale=1.0, user-scalable=yes"
     />
-    <title>122. Best Time to Buy and Sell Stock II</title>
+    <title>122._Best_Time_to_Buy_and_Sell_Stock_II</title>
     <style type="text/css">
       code {
         white-space: pre-wrap;
@@ -134,7 +134,7 @@
         color: #60a0b0;
         font-weight: bold;
         font-style: italic;
-      } /* Comment let */
+      } /* CommentVar */
       code span.do {
         color: #ba2121;
         font-style: italic;
@@ -249,18 +249,25 @@ Explanation: In this case, no transaction is done, i.e. max profit = 0.</code></
 <a class="sourceLine" id="cb4-2" title="2"><span class="co"> * </span><span class="an">@param</span><span class="co"> </span><span class="cv">{number</span><span class="co">[]} prices</span></a>
 <a class="sourceLine" id="cb4-3" title="3"><span class="co"> * </span><span class="an">@return</span><span class="co"> {number}</span></a>
 <a class="sourceLine" id="cb4-4" title="4"><span class="co"> */</span></a>
-<a class="sourceLine" id="cb4-5" title="5"><span class="kw">var</span> maxProfit <span class="op">=</span> <span class="kw">function</span>(prices) <span class="op">{</span></a>
-<a class="sourceLine" id="cb4-6" title="6">  <span class="kw">let</span> max <span class="op">=</span> <span class="dv">0</span></a>
+<a class="sourceLine" id="cb4-5" title="5"><span class="kw">let</span> maxProfit <span class="op">=</span> <span class="kw">function</span> (prices) <span class="op">{</span></a>
+<a class="sourceLine" id="cb4-6" title="6">  <span class="kw">let</span> max <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></a>
 <a class="sourceLine" id="cb4-7" title="7">  <span class="cf">for</span> (<span class="kw">let</span> i <span class="op">=</span> <span class="dv">1</span><span class="op">;</span> i <span class="op">&lt;</span> <span class="va">prices</span>.<span class="at">length</span><span class="op">;</span> i<span class="op">++</span>) <span class="op">{</span></a>
-<a class="sourceLine" id="cb4-8" title="8">    <span class="cf">if</span> (prices[i] <span class="op">&gt;</span> prices[i<span class="dv">-1</span>]) <span class="op">{</span></a>
-<a class="sourceLine" id="cb4-9" title="9">      max <span class="op">+=</span> prices[i] <span class="op">-</span> prices[i<span class="dv">-1</span>]</a>
+<a class="sourceLine" id="cb4-8" title="8">    <span class="cf">if</span> (prices[i] <span class="op">&gt;</span> prices[i <span class="op">-</span> <span class="dv">1</span>]) <span class="op">{</span></a>
+<a class="sourceLine" id="cb4-9" title="9">      max <span class="op">+=</span> prices[i] <span class="op">-</span> prices[i <span class="op">-</span> <span class="dv">1</span>]<span class="op">;</span></a>
 <a class="sourceLine" id="cb4-10" title="10">    <span class="op">}</span></a>
 <a class="sourceLine" id="cb4-11" title="11">  <span class="op">}</span></a>
-<a class="sourceLine" id="cb4-12" title="12">  <span class="cf">return</span> max</a>
+<a class="sourceLine" id="cb4-12" title="12">  <span class="cf">return</span> max<span class="op">;</span></a>
 <a class="sourceLine" id="cb4-13" title="13"><span class="op">};</span></a></code></pre>
     </div>
-    <br />
     <hr />
-    <br />
+    <p>
+      ☆<em>: .｡. o(≧▽≦)o .｡.:</em>☆☆<em>: .｡. o(≧▽≦)o .｡.:</em>☆☆<em
+        >: .｡. o(≧▽≦)o .｡.:</em
+      >☆
+    </p>
+    <hr />
+    <hr />
+    <p>☆<em>: .｡. o(≧▽≦)o .｡.:</em>☆☆<em>: .｡. o(≧▽≦)o .｡.:</em>☆</p>
+    <hr />
   </body>
 </html>

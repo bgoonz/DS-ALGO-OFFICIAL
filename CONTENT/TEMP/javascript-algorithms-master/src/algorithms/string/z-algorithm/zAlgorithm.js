@@ -1,5 +1,5 @@
 // The string separator that is being used for "word" and "text" concatenation.
-const SEPARATOR = '$';
+const SEPARATOR = "$";
 
 /**
  * @param {string} zString
@@ -40,8 +40,8 @@ function buildZArray(zString) {
       // more characters that are equal to the ones in the prefix we will expand
       // right Z box boundary by 3.
       while (
-        zBoxRightIndex < zString.length
-        && zString[zBoxRightIndex - zBoxLeftIndex] === zString[zBoxRightIndex]
+        zBoxRightIndex < zString.length &&
+        zString[zBoxRightIndex - zBoxLeftIndex] === zString[zBoxRightIndex]
       ) {
         // Expanding Z box right boundary.
         zBoxRightIndex += 1;
@@ -65,7 +65,7 @@ function buildZArray(zString) {
       // Check if the value that has been already calculated before
       // leaves us inside of Z box or it goes beyond the checkbox
       // right boundary.
-      if (zArray[zBoxShift] < (zBoxRightIndex - charIndex) + 1) {
+      if (zArray[zBoxShift] < zBoxRightIndex - charIndex + 1) {
         // If calculated value don't force us to go outside Z box
         // then we're safe and we may simply use previously calculated value.
         zArray[charIndex] = zArray[zBoxShift];
@@ -81,8 +81,8 @@ function buildZArray(zString) {
         // And start comparing characters one by one as we normally do for the case
         // when we are outside of checkbox.
         while (
-          zBoxRightIndex < zString.length
-          && zString[zBoxRightIndex - zBoxLeftIndex] === zString[zBoxRightIndex]
+          zBoxRightIndex < zString.length &&
+          zString[zBoxRightIndex - zBoxLeftIndex] === zString[zBoxRightIndex]
         ) {
           zBoxRightIndex += 1;
         }

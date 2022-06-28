@@ -1,6 +1,6 @@
 # Regular Expression Matching
 
-Given an input string `s` and a pattern `p`, implement regular 
+Given an input string `s` and a pattern `p`, implement regular
 expression matching with support for `.` and `*`.
 
 - `.` Matches any single character.
@@ -18,6 +18,7 @@ The matching should cover the **entire** input string (not partial).
 **Example #1**
 
 Input:
+
 ```
 s = 'aa'
 p = 'a'
@@ -30,6 +31,7 @@ Explanation: `a` does not match the entire string `aa`.
 **Example #2**
 
 Input:
+
 ```
 s = 'aa'
 p = 'a*'
@@ -37,7 +39,7 @@ p = 'a*'
 
 Output: `true`
 
-Explanation: `*` means zero or more of the preceding element, `a`. 
+Explanation: `*` means zero or more of the preceding element, `a`.
 Therefore, by repeating `a` once, it becomes `aa`.
 
 **Example #3**
@@ -64,7 +66,7 @@ p = 'c*a*b'
 
 Output: `true`
 
-Explanation: `c` can be repeated 0 times, `a` can be repeated 
+Explanation: `c` can be repeated 0 times, `a` can be repeated
 1 time. Therefore it matches `aab`.
 
 ## References

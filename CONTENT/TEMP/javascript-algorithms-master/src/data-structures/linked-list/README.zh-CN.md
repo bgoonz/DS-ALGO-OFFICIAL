@@ -59,7 +59,7 @@ Contains(head, value)
   return true
 end Contains
 ```
-    
+
 ### 删除
 
 ```text
@@ -107,7 +107,7 @@ Traverse(head)
   end while
 end Traverse
 ```
-    
+
 ### 反向遍历
 
 ```text
@@ -133,9 +133,9 @@ end ReverseTraversal
 
 ### 时间复杂度
 
-| Access    | Search    | Insertion | Deletion  |
-| :-------: | :-------: | :-------: | :-------: |
-| O(n)      | O(n)      | O(1)      | O(1)      |
+| Access | Search | Insertion | Deletion |
+| :----: | :----: | :-------: | :------: |
+|  O(n)  |  O(n)  |   O(1)    |   O(1)   |
 
 ### 空间复杂度
 

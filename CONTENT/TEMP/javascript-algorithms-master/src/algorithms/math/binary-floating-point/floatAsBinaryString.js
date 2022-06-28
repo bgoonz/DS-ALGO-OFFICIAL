@@ -15,7 +15,7 @@ const bitsInByte = 8;
  * @return {string} - binary string representation of the float number.
  */
 function floatAsBinaryString(floatNumber, byteLength) {
-  let numberAsBinaryString = '';
+  let numberAsBinaryString = "";
 
   const arrayBuffer = new ArrayBuffer(byteLength);
   const dataView = new DataView(arrayBuffer);
@@ -32,7 +32,7 @@ function floatAsBinaryString(floatNumber, byteLength) {
   for (let byteIndex = 0; byteIndex < byteLength; byteIndex += 1) {
     let bits = dataView.getUint8(byteIndex).toString(2);
     if (bits.length < bitsInByte) {
-      bits = new Array(bitsInByte - bits.length).fill('0').join('') + bits;
+      bits = new Array(bitsInByte - bits.length).fill("0").join("") + bits;
     }
     numberAsBinaryString += bits;
   }

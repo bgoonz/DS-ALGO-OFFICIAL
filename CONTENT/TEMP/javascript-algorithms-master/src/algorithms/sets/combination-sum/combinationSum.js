@@ -11,7 +11,7 @@ function combinationSumRecursive(
   remainingSum,
   finalCombinations = [],
   currentCombination = [],
-  startFrom = 0,
+  startFrom = 0
 ) {
   if (remainingSum < 0) {
     // By adding another candidate we've gone below zero.
@@ -30,7 +30,11 @@ function combinationSumRecursive(
 
   // If we haven't reached zero yet let's continue to add all
   // possible candidates that are left.
-  for (let candidateIndex = startFrom; candidateIndex < candidates.length; candidateIndex += 1) {
+  for (
+    let candidateIndex = startFrom;
+    candidateIndex < candidates.length;
+    candidateIndex += 1
+  ) {
     const currentCandidate = candidates[candidateIndex];
 
     // Let's try to add another candidate.
@@ -42,7 +46,7 @@ function combinationSumRecursive(
       remainingSum - currentCandidate,
       finalCombinations,
       currentCombination,
-      candidateIndex,
+      candidateIndex
     );
 
     // BACKTRACKING.

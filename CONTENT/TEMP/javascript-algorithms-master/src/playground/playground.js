@@ -1,5 +1,5 @@
 // Import any algorithmic dependencies you need for your playground code here.
-import factorial from '../algorithms/math/factorial/factorial';
+import factorial from "../algorithms/math/factorial/factorial";
 
 // Write your playground code inside the playground() function.
 // Test your code from __tests__/playground.test.js

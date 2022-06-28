@@ -7,7 +7,7 @@
       name="viewport"
       content="width=device-width, initial-scale=1.0, user-scalable=yes"
     />
-    <title>068. Text Justification</title>
+    <title>068._Text_Justification</title>
     <style type="text/css">
       code {
         white-space: pre-wrap;
@@ -134,7 +134,7 @@
         color: #60a0b0;
         font-weight: bold;
         font-style: italic;
-      } /* Commentlet */
+      } /* CommentVar */
       code span.do {
         color: #ba2121;
         font-style: italic;
@@ -299,47 +299,54 @@ Output:
 <a class="sourceLine" id="cb4-3" title="3"><span class="co"> * </span><span class="an">@param</span><span class="co"> </span><span class="cv">{number}</span><span class="co"> maxWidth</span></a>
 <a class="sourceLine" id="cb4-4" title="4"><span class="co"> * </span><span class="an">@return</span><span class="co"> {string[]}</span></a>
 <a class="sourceLine" id="cb4-5" title="5"><span class="co"> */</span></a>
-<a class="sourceLine" id="cb4-6" title="6"><span class="kw">var</span> fullJustify <span class="op">=</span> <span class="kw">function</span>(words<span class="op">,</span> maxWidth) <span class="op">{</span></a>
-<a class="sourceLine" id="cb4-7" title="7">  <span class="kw">let</span> start <span class="op">=</span> <span class="dv">0</span></a>
-<a class="sourceLine" id="cb4-8" title="8">  <span class="kw">let</span> end <span class="op">=</span> <span class="dv">1</span></a>
-<a class="sourceLine" id="cb4-9" title="9">  <span class="kw">let</span> lineLen <span class="op">=</span> words[start].<span class="at">length</span></a>
-<a class="sourceLine" id="cb4-10" title="10">  <span class="kw">const</span> result <span class="op">=</span> []</a>
+<a class="sourceLine" id="cb4-6" title="6"><span class="kw">let</span> fullJustify <span class="op">=</span> <span class="kw">function</span> (words<span class="op">,</span> maxWidth) <span class="op">{</span></a>
+<a class="sourceLine" id="cb4-7" title="7">  <span class="kw">let</span> start <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb4-8" title="8">  <span class="kw">let</span> end <span class="op">=</span> <span class="dv">1</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb4-9" title="9">  <span class="kw">let</span> lineLen <span class="op">=</span> words[start].<span class="at">length</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb4-10" title="10">  <span class="kw">const</span> result <span class="op">=</span> []<span class="op">;</span></a>
 <a class="sourceLine" id="cb4-11" title="11"></a>
 <a class="sourceLine" id="cb4-12" title="12">  <span class="cf">while</span> (end <span class="op">&lt;</span> <span class="va">words</span>.<span class="at">length</span>) <span class="op">{</span></a>
-<a class="sourceLine" id="cb4-13" title="13">    <span class="kw">const</span> newLen <span class="op">=</span> words[end].<span class="at">length</span> <span class="op">+</span> <span class="dv">1</span> <span class="op">+</span> lineLen</a>
+<a class="sourceLine" id="cb4-13" title="13">    <span class="kw">const</span> newLen <span class="op">=</span> words[end].<span class="at">length</span> <span class="op">+</span> <span class="dv">1</span> <span class="op">+</span> lineLen<span class="op">;</span></a>
 <a class="sourceLine" id="cb4-14" title="14">    <span class="cf">if</span> (newLen <span class="op">&lt;=</span> maxWidth) <span class="op">{</span></a>
-<a class="sourceLine" id="cb4-15" title="15">      lineLen <span class="op">=</span> newLen</a>
+<a class="sourceLine" id="cb4-15" title="15">      lineLen <span class="op">=</span> newLen<span class="op">;</span></a>
 <a class="sourceLine" id="cb4-16" title="16">    <span class="op">}</span> <span class="cf">else</span> <span class="op">{</span></a>
-<a class="sourceLine" id="cb4-17" title="17">      <span class="kw">let</span> line <span class="op">=</span> <span class="st">&#39;&#39;</span></a>
-<a class="sourceLine" id="cb4-18" title="18">      <span class="kw">let</span> nWords <span class="op">=</span> end <span class="op">-</span> start</a>
+<a class="sourceLine" id="cb4-17" title="17">      <span class="kw">let</span> line <span class="op">=</span> <span class="st">&quot;&quot;</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb4-18" title="18">      <span class="kw">let</span> nWords <span class="op">=</span> end <span class="op">-</span> start<span class="op">;</span></a>
 <a class="sourceLine" id="cb4-19" title="19">      <span class="cf">if</span> (nWords <span class="op">===</span> <span class="dv">1</span>) <span class="op">{</span></a>
-<a class="sourceLine" id="cb4-20" title="20">        line <span class="op">=</span> words[start].<span class="at">padEnd</span>(maxWidth)</a>
+<a class="sourceLine" id="cb4-20" title="20">        line <span class="op">=</span> words[start].<span class="at">padEnd</span>(maxWidth)<span class="op">;</span></a>
 <a class="sourceLine" id="cb4-21" title="21">      <span class="op">}</span> <span class="cf">else</span> <span class="op">{</span></a>
-<a class="sourceLine" id="cb4-22" title="22">        <span class="kw">let</span> nSpaces <span class="op">=</span> maxWidth <span class="op">-</span> (lineLen <span class="op">-</span> (nWords <span class="op">-</span> <span class="dv">1</span>))</a>
+<a class="sourceLine" id="cb4-22" title="22">        <span class="kw">let</span> nSpaces <span class="op">=</span> maxWidth <span class="op">-</span> (lineLen <span class="op">-</span> (nWords <span class="op">-</span> <span class="dv">1</span>))<span class="op">;</span></a>
 <a class="sourceLine" id="cb4-23" title="23">        <span class="cf">for</span> (<span class="kw">let</span> i <span class="op">=</span> start<span class="op">;</span> i <span class="op">&lt;</span> end<span class="op">;</span> i<span class="op">++</span>) <span class="op">{</span></a>
-<a class="sourceLine" id="cb4-24" title="24">          <span class="kw">const</span> gap <span class="op">=</span> <span class="va">Math</span>.<span class="at">ceil</span>(nSpaces / (end <span class="op">-</span> i <span class="op">-</span> <span class="dv">1</span>))</a>
-<a class="sourceLine" id="cb4-25" title="25">          line <span class="op">+=</span> words[i] <span class="op">+</span> <span class="st">&#39; &#39;</span>.<span class="at">repeat</span>(gap)</a>
-<a class="sourceLine" id="cb4-26" title="26">          nSpaces <span class="op">-=</span> gap</a>
+<a class="sourceLine" id="cb4-24" title="24">          <span class="kw">const</span> gap <span class="op">=</span> <span class="va">Math</span>.<span class="at">ceil</span>(nSpaces / (end <span class="op">-</span> i <span class="op">-</span> <span class="dv">1</span>))<span class="op">;</span></a>
+<a class="sourceLine" id="cb4-25" title="25">          line <span class="op">+=</span> words[i] <span class="op">+</span> <span class="st">&quot; &quot;</span>.<span class="at">repeat</span>(gap)<span class="op">;</span></a>
+<a class="sourceLine" id="cb4-26" title="26">          nSpaces <span class="op">-=</span> gap<span class="op">;</span></a>
 <a class="sourceLine" id="cb4-27" title="27">        <span class="op">}</span></a>
 <a class="sourceLine" id="cb4-28" title="28">      <span class="op">}</span></a>
-<a class="sourceLine" id="cb4-29" title="29">      <span class="va">result</span>.<span class="at">push</span>(line)</a>
-<a class="sourceLine" id="cb4-30" title="30">      start <span class="op">=</span> end</a>
-<a class="sourceLine" id="cb4-31" title="31">      lineLen <span class="op">=</span> words[start].<span class="at">length</span></a>
+<a class="sourceLine" id="cb4-29" title="29">      <span class="va">result</span>.<span class="at">push</span>(line)<span class="op">;</span></a>
+<a class="sourceLine" id="cb4-30" title="30">      start <span class="op">=</span> end<span class="op">;</span></a>
+<a class="sourceLine" id="cb4-31" title="31">      lineLen <span class="op">=</span> words[start].<span class="at">length</span><span class="op">;</span></a>
 <a class="sourceLine" id="cb4-32" title="32">    <span class="op">}</span></a>
-<a class="sourceLine" id="cb4-33" title="33">    end<span class="op">++</span></a>
+<a class="sourceLine" id="cb4-33" title="33">    end<span class="op">++;</span></a>
 <a class="sourceLine" id="cb4-34" title="34">  <span class="op">}</span></a>
 <a class="sourceLine" id="cb4-35" title="35"></a>
-<a class="sourceLine" id="cb4-36" title="36">  <span class="kw">let</span> lastline <span class="op">=</span> words[start]</a>
+<a class="sourceLine" id="cb4-36" title="36">  <span class="kw">let</span> lastline <span class="op">=</span> words[start]<span class="op">;</span></a>
 <a class="sourceLine" id="cb4-37" title="37">  <span class="cf">for</span> (<span class="kw">let</span> i <span class="op">=</span> start <span class="op">+</span> <span class="dv">1</span><span class="op">;</span> i <span class="op">&lt;</span> end<span class="op">;</span> i<span class="op">++</span>) <span class="op">{</span></a>
-<a class="sourceLine" id="cb4-38" title="38">    lastline <span class="op">+=</span> <span class="st">&#39; &#39;</span> <span class="op">+</span> words[i]</a>
+<a class="sourceLine" id="cb4-38" title="38">    lastline <span class="op">+=</span> <span class="st">&quot; &quot;</span> <span class="op">+</span> words[i]<span class="op">;</span></a>
 <a class="sourceLine" id="cb4-39" title="39">  <span class="op">}</span></a>
-<a class="sourceLine" id="cb4-40" title="40">  <span class="va">result</span>.<span class="at">push</span>(<span class="va">lastline</span>.<span class="at">padEnd</span>(maxWidth))</a>
+<a class="sourceLine" id="cb4-40" title="40">  <span class="va">result</span>.<span class="at">push</span>(<span class="va">lastline</span>.<span class="at">padEnd</span>(maxWidth))<span class="op">;</span></a>
 <a class="sourceLine" id="cb4-41" title="41"></a>
-<a class="sourceLine" id="cb4-42" title="42">  <span class="cf">return</span> result</a>
+<a class="sourceLine" id="cb4-42" title="42">  <span class="cf">return</span> result<span class="op">;</span></a>
 <a class="sourceLine" id="cb4-43" title="43"><span class="op">};</span></a></code></pre>
     </div>
-    <br />
     <hr />
-    <br />
+    <p>
+      ☆<em>: .｡. o(≧▽≦)o .｡.:</em>☆☆<em>: .｡. o(≧▽≦)o .｡.:</em>☆☆<em
+        >: .｡. o(≧▽≦)o .｡.:</em
+      >☆
+    </p>
+    <hr />
+    <hr />
+    <p>☆<em>: .｡. o(≧▽≦)o .｡.:</em>☆☆<em>: .｡. o(≧▽≦)o .｡.:</em>☆</p>
+    <hr />
   </body>
 </html>

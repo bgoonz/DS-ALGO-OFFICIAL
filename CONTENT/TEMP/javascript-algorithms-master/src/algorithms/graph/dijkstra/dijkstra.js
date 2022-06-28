@@ -1,4 +1,4 @@
-import PriorityQueue from '../../../data-structures/priority-queue/PriorityQueue';
+import PriorityQueue from "../../../data-structures/priority-queue/PriorityQueue";
 
 /**
  * @typedef {Object} ShortestPaths
@@ -45,7 +45,8 @@ export default function dijkstra(graph, startVertex) {
         const edge = graph.findEdge(currentVertex, neighbor);
 
         const existingDistanceToNeighbor = distances[neighbor.getKey()];
-        const distanceToNeighborFromCurrent = distances[currentVertex.getKey()] + edge.weight;
+        const distanceToNeighborFromCurrent =
+          distances[currentVertex.getKey()] + edge.weight;
 
         // If we've found shorter path to the neighbor - update it.
         if (distanceToNeighborFromCurrent < existingDistanceToNeighbor) {

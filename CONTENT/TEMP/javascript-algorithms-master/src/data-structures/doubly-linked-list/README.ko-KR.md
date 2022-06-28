@@ -37,7 +37,7 @@ Add(value)
   end if
 end Add
 ```
-    
+
 ### 삭제
 
 ```text
@@ -74,7 +74,7 @@ Remove(head, value)
   return false
 end Remove
 ```
-    
+
 ### 역순회
 
 ```text
@@ -88,14 +88,14 @@ ReverseTraversal(tail)
   end while
 end Reverse Traversal
 ```
-    
+
 ## 복잡도
 
 ## 시간 복잡도
 
-| Access    | Search    | Insertion | Deletion  |
-| :-------: | :-------: | :-------: | :-------: |
-| O(n)      | O(n)      | O(1)      | O(n)      |
+| Access | Search | Insertion | Deletion |
+| :----: | :----: | :-------: | :------: |
+|  O(n)  |  O(n)  |   O(1)    |   O(n)   |
 
 ### 공간 복잡도
 

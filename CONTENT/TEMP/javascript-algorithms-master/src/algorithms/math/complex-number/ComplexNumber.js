@@ -1,4 +1,4 @@
-import radianToDegree from '../radian/radianToDegree';
+import radianToDegree from "../radian/radianToDegree";
 
 export default class ComplexNumber {
   /**
@@ -70,7 +70,7 @@ export default class ComplexNumber {
     const finalDivident = this.multiply(dividerConjugate);
 
     // Calculating final divider using formula (a + bi)(a − bi) = a^2 + b^2
-    const finalDivider = (complexDivider.re ** 2) + (complexDivider.im ** 2);
+    const finalDivider = complexDivider.re ** 2 + complexDivider.im ** 2;
 
     return new ComplexNumber({
       re: finalDivident.re / finalDivider,
@@ -95,7 +95,7 @@ export default class ComplexNumber {
    * @return {number}
    */
   getRadius() {
-    return Math.sqrt((this.re ** 2) + (this.im ** 2));
+    return Math.sqrt(this.re ** 2 + this.im ** 2);
   }
 
   /**

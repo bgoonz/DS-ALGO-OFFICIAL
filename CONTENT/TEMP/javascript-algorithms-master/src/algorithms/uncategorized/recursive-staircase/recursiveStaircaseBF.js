@@ -23,5 +23,7 @@ export default function recursiveStaircaseBF(stairsNum) {
 
   // Sum up how many steps we need to take after doing one step up with the number of
   // steps we need to take after doing two steps up.
-  return recursiveStaircaseBF(stairsNum - 1) + recursiveStaircaseBF(stairsNum - 2);
+  return (
+    recursiveStaircaseBF(stairsNum - 1) + recursiveStaircaseBF(stairsNum - 2)
+  );
 }

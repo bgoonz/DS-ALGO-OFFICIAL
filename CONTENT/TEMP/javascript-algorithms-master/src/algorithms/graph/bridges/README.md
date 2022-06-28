@@ -1,8 +1,8 @@
 # Bridges in Graph
 
-In graph theory, a **bridge**, **isthmus**, **cut-edge**, or **cut arc** is an edge 
-of a graph whose deletion increases its number of connected components. Equivalently, 
-an edge is a bridge if and only if it is not contained in any cycle. A graph is said 
+In graph theory, a **bridge**, **isthmus**, **cut-edge**, or **cut arc** is an edge
+of a graph whose deletion increases its number of connected components. Equivalently,
+an edge is a bridge if and only if it is not contained in any cycle. A graph is said
 to be bridgeless or isthmus-free if it contains no bridges.
 
 ![Bridges in graph](https://upload.wikimedia.org/wikipedia/commons/d/df/Graph_cut_edges.svg)

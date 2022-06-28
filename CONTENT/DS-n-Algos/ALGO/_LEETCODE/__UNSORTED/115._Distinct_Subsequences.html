@@ -7,7 +7,7 @@
       name="viewport"
       content="width=device-width, initial-scale=1.0, user-scalable=yes"
     />
-    <title>115. Distinct Subsequences</title>
+    <title>115._Distinct_Subsequences</title>
     <style type="text/css">
       code {
         white-space: pre-wrap;
@@ -134,7 +134,7 @@
         color: #60a0b0;
         font-weight: bold;
         font-style: italic;
-      } /* Comment let */
+      } /* CommentVar */
       code span.do {
         color: #ba2121;
         font-style: italic;
@@ -275,23 +275,30 @@ babgbag
 <a class="sourceLine" id="cb4-3" title="3"><span class="co"> * </span><span class="an">@param</span><span class="co"> </span><span class="cv">{string}</span><span class="co"> t</span></a>
 <a class="sourceLine" id="cb4-4" title="4"><span class="co"> * </span><span class="an">@return</span><span class="co"> {number}</span></a>
 <a class="sourceLine" id="cb4-5" title="5"><span class="co"> */</span></a>
-<a class="sourceLine" id="cb4-6" title="6"><span class="kw">var</span> numDistinct <span class="op">=</span> <span class="kw">function</span>(s<span class="op">,</span> t) <span class="op">{</span></a>
-<a class="sourceLine" id="cb4-7" title="7">  <span class="kw">const</span> lens <span class="op">=</span> <span class="va">s</span>.<span class="at">length</span></a>
-<a class="sourceLine" id="cb4-8" title="8">  <span class="kw">const</span> lent <span class="op">=</span> <span class="va">t</span>.<span class="at">length</span></a>
-<a class="sourceLine" id="cb4-9" title="9">  <span class="kw">const</span> dp <span class="op">=</span> <span class="kw">new</span> <span class="at">Array</span>(lent <span class="op">+</span> <span class="dv">1</span>).<span class="at">fill</span>(<span class="dv">0</span>)</a>
-<a class="sourceLine" id="cb4-10" title="10">  dp[<span class="dv">0</span>] <span class="op">=</span> <span class="dv">1</span></a>
+<a class="sourceLine" id="cb4-6" title="6"><span class="kw">let</span> numDistinct <span class="op">=</span> <span class="kw">function</span> (s<span class="op">,</span> t) <span class="op">{</span></a>
+<a class="sourceLine" id="cb4-7" title="7">  <span class="kw">const</span> lens <span class="op">=</span> <span class="va">s</span>.<span class="at">length</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb4-8" title="8">  <span class="kw">const</span> lent <span class="op">=</span> <span class="va">t</span>.<span class="at">length</span><span class="op">;</span></a>
+<a class="sourceLine" id="cb4-9" title="9">  <span class="kw">const</span> dp <span class="op">=</span> <span class="kw">new</span> <span class="at">Array</span>(lent <span class="op">+</span> <span class="dv">1</span>).<span class="at">fill</span>(<span class="dv">0</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb4-10" title="10">  dp[<span class="dv">0</span>] <span class="op">=</span> <span class="dv">1</span><span class="op">;</span></a>
 <a class="sourceLine" id="cb4-11" title="11">  <span class="cf">for</span> (<span class="kw">let</span> i <span class="op">=</span> <span class="dv">1</span><span class="op">;</span> i <span class="op">&lt;=</span> lens<span class="op">;</span> i<span class="op">++</span>) <span class="op">{</span></a>
 <a class="sourceLine" id="cb4-12" title="12">    <span class="cf">for</span> (<span class="kw">let</span> j <span class="op">=</span> lent<span class="op">;</span> j <span class="op">&gt;=</span> <span class="dv">1</span><span class="op">;</span> j<span class="op">--</span>) <span class="op">{</span></a>
-<a class="sourceLine" id="cb4-13" title="13">      <span class="cf">if</span> (s[i<span class="dv">-1</span>] <span class="op">===</span> t[j<span class="dv">-1</span>]) <span class="op">{</span></a>
-<a class="sourceLine" id="cb4-14" title="14">        dp[j] <span class="op">+=</span> dp[j<span class="dv">-1</span>]</a>
+<a class="sourceLine" id="cb4-13" title="13">      <span class="cf">if</span> (s[i <span class="op">-</span> <span class="dv">1</span>] <span class="op">===</span> t[j <span class="op">-</span> <span class="dv">1</span>]) <span class="op">{</span></a>
+<a class="sourceLine" id="cb4-14" title="14">        dp[j] <span class="op">+=</span> dp[j <span class="op">-</span> <span class="dv">1</span>]<span class="op">;</span></a>
 <a class="sourceLine" id="cb4-15" title="15">      <span class="op">}</span></a>
 <a class="sourceLine" id="cb4-16" title="16">    <span class="op">}</span></a>
 <a class="sourceLine" id="cb4-17" title="17">  <span class="op">}</span></a>
-<a class="sourceLine" id="cb4-18" title="18">  <span class="cf">return</span> dp[lent]</a>
+<a class="sourceLine" id="cb4-18" title="18">  <span class="cf">return</span> dp[lent]<span class="op">;</span></a>
 <a class="sourceLine" id="cb4-19" title="19"><span class="op">};</span></a></code></pre>
     </div>
-    <br />
     <hr />
-    <br />
+    <p>
+      ☆<em>: .｡. o(≧▽≦)o .｡.:</em>☆☆<em>: .｡. o(≧▽≦)o .｡.:</em>☆☆<em
+        >: .｡. o(≧▽≦)o .｡.:</em
+      >☆
+    </p>
+    <hr />
+    <hr />
+    <p>☆<em>: .｡. o(≧▽≦)o .｡.:</em>☆☆<em>: .｡. o(≧▽≦)o .｡.:</em>☆</p>
+    <hr />
   </body>
 </html>

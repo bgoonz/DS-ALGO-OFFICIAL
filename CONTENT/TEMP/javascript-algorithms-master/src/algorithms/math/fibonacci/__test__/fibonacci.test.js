@@ -1,7 +1,7 @@
-import fibonacci from '../fibonacci';
+import fibonacci from "../fibonacci";
 
-describe('fibonacci', () => {
-  it('should calculate fibonacci correctly', () => {
+describe("fibonacci", () => {
+  it("should calculate fibonacci correctly", () => {
     expect(fibonacci(1)).toEqual([1]);
     expect(fibonacci(2)).toEqual([1, 1]);
     expect(fibonacci(3)).toEqual([1, 1, 2]);

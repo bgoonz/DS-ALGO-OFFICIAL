@@ -1,5 +1,5 @@
-import Stack from '../../../data-structures/stack/Stack';
-import depthFirstSearch from '../depth-first-search/depthFirstSearch';
+import Stack from "../../../data-structures/stack/Stack";
+import depthFirstSearch from "../depth-first-search/depthFirstSearch";
 
 /**
  * @param {Graph} graph
@@ -84,7 +84,9 @@ function getSCCSets(graph, verticesByFinishTime) {
       // The sign that traversal is about to be finished is that we came back to start vertex
       // which doesn't have parent.
       if (previousVertex === null) {
-        stronglyConnectedComponentsSets.push([...stronglyConnectedComponentsSet]);
+        stronglyConnectedComponentsSets.push([
+          ...stronglyConnectedComponentsSet,
+        ]);
       }
     },
     allowTraversal: ({ nextVertex }) => {

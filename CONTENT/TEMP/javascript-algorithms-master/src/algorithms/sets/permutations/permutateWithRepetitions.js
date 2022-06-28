@@ -5,7 +5,7 @@
  */
 export default function permutateWithRepetitions(
   permutationOptions,
-  permutationLength = permutationOptions.length,
+  permutationLength = permutationOptions.length
 ) {
   if (permutationLength === 1) {
     return permutationOptions.map((permutationOption) => [permutationOption]);
@@ -17,7 +17,7 @@ export default function permutateWithRepetitions(
   // Get smaller permutations.
   const smallerPermutations = permutateWithRepetitions(
     permutationOptions,
-    permutationLength - 1,
+    permutationLength - 1
   );
 
   // Go through all options and join it to the smaller permutations.

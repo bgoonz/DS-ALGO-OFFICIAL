@@ -11,7 +11,6 @@ _Read this in other languages:_
 
 _Image source: [Math is Fun](https://www.mathsisfun.com/prime-factorization.html)_
 
-
 **质数因子**是那些相乘得到原始数的[质数](https://en.wikipedia.org/wiki/Prime_number)。例如`39`的质数因子是`3`和`13`，`15`的质数因子是`3`和`5`。
 
 ![Factors](https://www.mathsisfun.com/numbers/images/factor-2x3.svg)
@@ -24,9 +23,9 @@ _Image source: [Math is Fun](https://www.mathsisfun.com/prime-factorization.html
 
 在最坏的情况下，即循环从`i = 2`执行到 `i = n`，上述方法的时间复杂度为`O(n)`。时间复杂度其实可以从`O(n)`减少到`O(sqrt(n))`，通过减少循环的执行次数，从`i = 2`执行到 `i = sqrt(n)`。因为可以确认，当`i`大于`sqrt(n)`时，除了`n`本身，再没有数可以被整除了。
 
-## Hardy-Ramanujan公式用于计算质数因子的个数
+## Hardy-Ramanujan 公式用于计算质数因子的个数
 
-1917年，G.H Hardy和Srinivasa Ramanujan提出了一个定理，该定理指出，自然数 `n` 的不同素数的数 `ω(n)` 的正态次序是`log(log(n))`。
+1917 年，G.H Hardy 和 Srinivasa Ramanujan 提出了一个定理，该定理指出，自然数 `n` 的不同素数的数 `ω(n)` 的正态次序是`log(log(n))`。
 
 粗略地讲，这意味着大多数数字具有这个数量的质数因子。
 

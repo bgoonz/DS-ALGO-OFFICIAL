@@ -6,8 +6,10 @@
 // URL : https://app.codesignal.com/arcade/intro/level-5/veW5xJednTy4qcjso
 
 function isIPv4Address(inputString) {
-    var s = inputString.split(".")
-    return s.length===4&&s.every(x=>x!=""&&!isNaN(x)&&x>=0&&x<256)
+  var s = inputString.split(".");
+  return (
+    s.length === 4 && s.every((x) => x != "" && !isNaN(x) && x >= 0 && x < 256)
+  );
 }
 
 exports.isIPv4Address = isIPv4Address;
